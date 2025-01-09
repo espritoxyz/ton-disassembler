@@ -30,7 +30,6 @@ data class TvmContractCode(
 
                 polymorphic(TvmCodeBlock::class) {
                     subclass(TvmMethod::class)
-                    subclass(TvmLambda::class)
                 }
 
                 registerTvmInstSerializer()

@@ -19,7 +19,7 @@ class TvmDisassemblerTest {
         val result = disassembler.disassemble(bytes)
         val expected = """
             {
-             "mainMethod": [{"type":"SETCP","location":{"type":"TvmMainMethodLocation","index":0},"n":0},{"type":"DICTPUSHCONST","location":{"type":"TvmMainMethodLocation","index":2},"n":19},{"type":"DICTIGETJMPZ","location":{"type":"TvmMainMethodLocation","index":2}},{"type":"THROWARG","location":{"type":"TvmMainMethodLocation","index":2},"n":11}],
+             "mainMethod": [{"type":"SETCP","location":{"type":"TvmMainMethodLocation","index":0},"n":0},{"type":"DICTPUSHCONST","location":{"type":"TvmMainMethodLocation","index":1},"n":19},{"type":"DICTIGETJMPZ","location":{"type":"TvmMainMethodLocation","index":2}},{"type":"THROWARG","location":{"type":"TvmMainMethodLocation","index":3},"n":11}],
              "methods": {
               "0": {
                "id": "0",

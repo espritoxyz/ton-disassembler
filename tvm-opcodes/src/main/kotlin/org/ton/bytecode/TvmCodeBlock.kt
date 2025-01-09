@@ -7,9 +7,7 @@ import java.math.BigInteger
 
 typealias MethodId = BigInteger
 
-// TODO is it a real entity?
-@Serializable
-sealed class TvmCodeBlock {
+abstract class TvmCodeBlock {
     abstract val instList: List<TvmInst>
 
     protected fun initLocationsCodeBlock() {
@@ -57,20 +55,5 @@ open class TvmMethod(
                 }
             }
         }
-    }
-}
-
-// An artificial entity representing instructions in continuation
-@Serializable
-@SerialName("TvmLambda")
-open class TvmLambda(
-    @SerialName("instList")
-    private val instListRaw: MutableList<TvmInst>
-) : TvmCodeBlock() {
-    override val instList: List<TvmInst>
-        get() = instListRaw
-
-    init {
-        initLocationsCodeBlock()
     }
 }
