@@ -6,8 +6,6 @@ plugins {
     `maven-publish`
 }
 
-group = "org.usvm"
-
 repositories {
     mavenCentral()
     maven("https://jitpack.io")
