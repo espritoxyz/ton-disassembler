@@ -15,3 +15,11 @@ val pathToSpec = File(rootProject.projectDir, "tvm-spec/cp0.json")
 tasks.processResources {
     from(pathToSpec)
 }
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            from(components["java"])
+        }
+    }
+}
