@@ -1,7 +1,6 @@
 plugins {
     id("tsa.kotlin-conventions")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
-    `maven-publish`
 }
 
 dependencies {
@@ -23,6 +22,7 @@ publishing {
     publications {
         create<MavenPublication>("maven") {
             from(components["java"])
+            artifactId = project.name
         }
     }
 }

@@ -15,10 +15,10 @@ repositories {
 
 dependencies {
     // Align versions of all Kotlin components
-    implementation(platform("org.jetbrains.kotlin:kotlin-bom"))
+    implementation(platform(kotlin("bom", Versions.kotlin)))
 
-    implementation(kotlin("stdlib-jdk8"))
-    implementation(kotlin("reflect"))
+    implementation(kotlin("stdlib-jdk8", Versions.kotlin))
+    implementation(kotlin("reflect", Versions.kotlin))
 
     testImplementation(kotlin("test"))
 }

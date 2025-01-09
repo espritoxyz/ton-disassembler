@@ -11,6 +11,7 @@ object Versions {
     const val junitParams = "5.9.3"
     const val logback = "1.4.8"
     const val usvm = "aee926e88f31af801192239d8997d213f9145424"
+    const val kotlin = "2.1.0"
 }
 
 object Packages {
