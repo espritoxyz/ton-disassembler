@@ -31,6 +31,7 @@ open class TvmMethod(
 
     init {
         setLocationParents(instListRaw, parent = null)
+        initLocationsCodeBlock()
     }
 
     override fun toString(): String = "TvmMethod(id=$id)"
