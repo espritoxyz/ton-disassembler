@@ -13,8 +13,7 @@ sealed interface TvmInst {
  * These instructions never occur in disassembler output.
  * They are needed for custom modifications of [TvmContractCode].
  * */
-@Serializable
-sealed interface TvmArtificialInst : TvmInst {
+interface TvmArtificialInst : TvmInst {
     override val gasConsumption: TvmGas
         get() = TvmFixedGas(value = 0)
 
