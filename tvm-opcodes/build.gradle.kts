@@ -4,6 +4,8 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":tvm-disasm"))
+
     implementation("org.ton:ton-kotlin-tvm:0.3.1")
     implementation("org.ton:ton-kotlin-hashmap-tlb:0.3.1")
 

@@ -16,7 +16,7 @@ import kotlinx.serialization.modules.subclass
 import org.ton.bigint.BigIntSerializer
 
 @Serializable
-open class TvmContractCode(
+data class TvmContractCode(
     val mainMethod: TvmInstList,
     val methods: Map<@Serializable(BigIntSerializer::class) MethodId, TvmMethod>
 ) {

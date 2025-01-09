@@ -12,7 +12,7 @@ internal sealed interface TvmInstLocation {
 internal data class TvmMainMethodLocation(
     override val index: Int
 ) : TvmInstLocation {
-    override fun increment(steps: Int) = TvmMainMethodLocation(steps + 1)
+    override fun increment(steps: Int) = TvmMainMethodLocation(index + steps)
     override fun toJson() = JsonObject(
         mapOf(
             "type" to JsonPrimitive("TvmMainMethodLocation"),
