@@ -34,7 +34,11 @@ private fun generateInstructionCellOperandTypes(
             "Expected operands for instruction $opname"
         }
         val map = if (inst.bytecode.operands.size == 1) {
-            mapOf("c" to typeName)
+            mapOf(
+                "c" to typeName,
+                "s" to typeName,
+                "slice" to typeName,
+            )
         } else {
             List(inst.bytecode.operands.size) { index -> "c${index + 1}" to typeName }.toMap()
         }
@@ -57,8 +61,7 @@ private fun tvmInstClassName(inst: InstructionDescription): String =
 private fun tvmInstOperandType(operand: InstructionOperandDescription): String? = when (operand.type) {
     "uint", "int" -> "Int"
     "pushint_long" -> "String"
-    "ref" -> null
-    "subslice" -> "TvmSubSliceSerializedLoader"
+    "ref", "subslice" -> null  // skip these operands, TODO: or maybe not?
     else -> error("Unexpected operand type: $operand")
 }
 
@@ -107,10 +110,9 @@ private fun tvmInstDeclaration(
         arguments += "|    ${modifier}val ${arg.name}: ${type}, // ${arg.type}"
     }
 
-    var additionalInterfaces = ", TvmRefOperandLoader".takeIf {
-        inst.bytecode.operands.any { it.type == "ref" }
+    val additionalInterfaces = ", TvmContOperand${contArgsCount}Inst".takeIf {
+        contArgsCount > 0
     } ?: ""
-    additionalInterfaces += ", TvmContOperand${contArgsCount}Inst".takeIf { contArgsCount > 0 } ?: ""
 
     val docs = normalizeDocString(inst.doc.description).joinToString("\n") { "| * $it" }
 
