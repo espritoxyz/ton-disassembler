@@ -4,12 +4,11 @@ import kotlinx.serialization.Contextual
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable
-sealed class TvmInstLocation {
-    abstract val index: Int
-    abstract var codeBlock: TvmCodeBlock
+interface TvmInstLocation {
+    val index: Int
+    var codeBlock: TvmCodeBlock
 
-    abstract fun increment(): TvmInstLocation
+    fun increment(): TvmInstLocation
 }
 
 @Serializable
@@ -17,7 +16,7 @@ sealed class TvmInstLocation {
 data class TvmInstMethodLocation(
     val methodId: @Contextual MethodId,
     override val index: Int
-) : TvmInstLocation() {
+) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 
@@ -32,7 +31,7 @@ data class TvmInstMethodLocation(
 
 @Serializable
 @SerialName("TvmInstLambdaLocation")
-class TvmInstLambdaLocation(override val index: Int) : TvmInstLocation() {
+class TvmInstLambdaLocation(override val index: Int) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 
@@ -51,7 +50,7 @@ class TvmInstLambdaLocation(override val index: Int) : TvmInstLocation() {
 
 @Serializable
 @SerialName("TvmMainMethodLocation")
-data class TvmMainMethodLocation(override val index: Int) : TvmInstLocation() {
+data class TvmMainMethodLocation(override val index: Int) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 

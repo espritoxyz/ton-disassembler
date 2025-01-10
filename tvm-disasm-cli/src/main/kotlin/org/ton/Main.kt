@@ -18,7 +18,7 @@ class JsonDisassemblerCommand : CliktCommand(name = "json", help = "Disassemble 
         val result = TvmDisassembler.disassemble(bocContent)
 
         val pretty = Json { prettyPrint = true }
-        println(pretty.encodeToString(result))
+        echo(pretty.encodeToString(result))
     }
 }
 

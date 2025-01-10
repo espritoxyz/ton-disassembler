@@ -1,5 +1,5 @@
 plugins {
-    id("tsa.kotlin-conventions")
+    id("tvm-disasm.kotlin-conventions")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
 }
 

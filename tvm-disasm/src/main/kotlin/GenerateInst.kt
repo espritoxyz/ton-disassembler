@@ -50,7 +50,9 @@ private const val ADDITIONAL_CATEGORY_DICT = "dict"
 private val additionalCategories = setOf(ADDITIONAL_CATEGORY_DICT)
 
 private fun snakeToCamel(value: String): String =
-    value.split('_').joinToString("") { it.replace("-", "Minus").lowercase().capitalize() }
+    value.split('_').joinToString("") {
+        it.replace("-", "Minus").lowercase().replaceFirstChar(Char::titlecase)
+    }
 
 private fun tvmInstCategoryClassName(categoryName: String): String =
     "Tvm${snakeToCamel(categoryName)}Inst"

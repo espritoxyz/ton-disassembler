@@ -1,7 +1,7 @@
 import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 
 plugins {
-    id("tsa.kotlin-conventions")
+    id("tvm-disasm.kotlin-conventions")
     id("com.github.johnrengelman.shadow") version "8.1.1"
 }
 

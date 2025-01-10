@@ -26,6 +26,7 @@ data class TvmContractCode(
                 polymorphic(TvmInstLocation::class) {
                     subclass(TvmInstMethodLocation::class)
                     subclass(TvmInstLambdaLocation::class)
+                    subclass(TvmMainMethodLocation::class)
                 }
 
                 polymorphic(TvmCodeBlock::class) {
