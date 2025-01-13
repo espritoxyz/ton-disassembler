@@ -1,3 +1,4 @@
+import io.ktor.utils.io.core.*
 import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
@@ -9,9 +10,11 @@ import org.ton.disasm.bytecode.specJson
 import kotlin.io.path.Path
 import kotlin.io.path.bufferedWriter
 import kotlin.io.path.readText
+import kotlin.io.use
 
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
+private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructionsDefaults.kt")
 
 private fun generateInstructionCellOperandTypes(
     instructions: Map<String, InstructionDescription>
@@ -84,6 +87,56 @@ private fun normalizeDocString(docStr: String): List<String> =
         str.chunked(100).map { it.trim() }
     }
 
+private fun tvmInstArgumentTypes(
+    inst: InstructionDescription,
+    instructionOperandTypes: Map<String, Map<String, String>>,
+): List<String?> {
+    val result = mutableListOf<String?>()
+    for (arg in inst.bytecode.operands) {
+        var type = instructionOperandTypes[inst.mnemonic]?.get(arg.name)
+        if (type == null) {
+            type = tvmInstOperandType(arg)
+        }
+
+        result.add(type)
+    }
+
+    return result
+}
+
+private fun tvmInstDefault(
+    inst: InstructionDescription,
+    instructionOperandTypes: Map<String, Map<String, String>>,
+): String {
+    val className = tvmInstClassName(inst)
+    val types = tvmInstArgumentTypes(inst, instructionOperandTypes)
+    val arguments = mutableListOf<String>()
+
+    arguments += "|        TvmInstLambdaLocation(0),"
+
+    for ((arg, type) in inst.bytecode.operands zip types) {
+        if (type == null) {
+            continue
+        }
+
+        val value = when (type) {
+            "Int" -> "0"
+            "String" -> "\"0\""
+            "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
+            "TvmInstList" -> "TvmInstList(emptyList())"
+            else -> error("Unexpected operand type: $type")
+        }
+
+        arguments += "|        $value,"
+    }
+
+    return """
+        |    $className(
+        ${arguments.joinToString("\n")}
+        |    ),
+    """.trimMargin()
+}
+
 private fun tvmInstDeclaration(
     inst: InstructionDescription,
     instructionOperandTypes: Map<String, Map<String, String>>,
@@ -93,14 +146,13 @@ private fun tvmInstDeclaration(
 
     arguments += "|    override val location: TvmInstLocation,"
 
-    var contArgsCount = 0
-    for (arg in inst.bytecode.operands) {
-        var type = instructionOperandTypes[inst.mnemonic]?.get(arg.name)
-        if (type == null) {
-            type = tvmInstOperandType(arg)
-        }
+    val types = tvmInstArgumentTypes(inst, instructionOperandTypes)
 
-        if (type == null) continue
+    var contArgsCount = 0
+    for ((arg, type) in inst.bytecode.operands zip types) {
+        if (type == null) {
+            continue
+        }
 
         val modifier = if (type == "TvmInstList") {
             contArgsCount++
@@ -171,6 +223,10 @@ fun main() {
         tvmInstDeclaration(it.value, instructionOperandTypes)
     }
 
+    val basicInstructionsDefaults = basicInstructions.mapValues {
+        tvmInstDefault(it.value, instructionOperandTypes)
+    }
+
     generatedInstPath.bufferedWriter().use { writer ->
         writer.appendLine(
             """
@@ -198,5 +254,23 @@ fun main() {
 
         val allInstructions = basicInstructionsDeclarations.keys
         writer.appendLine(generateInstructionSerializer(allInstructions))
+    }
+
+    defaultInstPath.bufferedWriter().use { writer ->
+
+        writer.appendLine(
+            """
+            // Generated
+            package org.ton.bytecode
+
+            val tvmDefaultInstructionList = listOf(
+        """.trimIndent()
+        )
+
+        basicInstructionsDefaults.entries.sortedBy { it.key }.forEach {
+            writer.appendLine(it.value)
+        }
+
+        writer.appendLine(")")
     }
 }
