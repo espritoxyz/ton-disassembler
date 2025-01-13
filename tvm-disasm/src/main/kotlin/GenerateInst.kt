@@ -112,9 +112,9 @@ private fun tvmInstDefault(
     val types = tvmInstArgumentTypes(inst, instructionOperandTypes)
     val arguments = mutableListOf<String>()
 
-    arguments += "|        TvmInstLambdaLocation(0),"
+    arguments += "|            TvmMainMethodLocation(0),"
 
-    for ((arg, type) in inst.bytecode.operands zip types) {
+    for (type in types) {
         if (type == null) {
             continue
         }
@@ -127,13 +127,13 @@ private fun tvmInstDefault(
             else -> error("Unexpected operand type: $type")
         }
 
-        arguments += "|        $value,"
+        arguments += "|            $value,"
     }
 
     return """
-        |    $className(
+        |        $className(
         ${arguments.joinToString("\n")}
-        |    ),
+        |        ),
     """.trimMargin()
 }
 
@@ -223,8 +223,12 @@ fun main() {
         tvmInstDeclaration(it.value, instructionOperandTypes)
     }
 
-    val basicInstructionsDefaults = basicInstructions.mapValues {
-        tvmInstDefault(it.value, instructionOperandTypes)
+    val categoryToInstructionDefault = categories.keys.associateWith { category ->
+        val correspondingInstructions = basicInstructions.values.filter { it.doc.category == category }
+        val defaults = correspondingInstructions.map {
+            tvmInstDefault(it, instructionOperandTypes)
+        }
+        defaults
     }
 
     generatedInstPath.bufferedWriter().use { writer ->
@@ -262,15 +266,25 @@ fun main() {
             """
             // Generated
             package org.ton.bytecode
-
-            val tvmDefaultInstructionList = listOf(
-        """.trimIndent()
+            
+            val tvmDefaultInstructions = mapOf(
+            """.trimIndent()
         )
 
-        basicInstructionsDefaults.entries.sortedBy { it.key }.forEach {
-            writer.appendLine(it.value)
+        categoryToInstructionDefault.entries.forEach { (category, insts) ->
+            if (insts.isEmpty()) {
+                return@forEach
+            }
+            writer.appendLine(
+                """
+                |    "$category" to listOf(
+                """.trimMargin()
+            )
+            insts.forEach {
+                writer.appendLine(it)
+            }
+            writer.appendLine("    ),")
         }
-
         writer.appendLine(")")
     }
 }
