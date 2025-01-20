@@ -52,7 +52,11 @@ data object TvmDisassembler {
 
         return JsonObject(
             mapOf(
-                "mainMethod" to serializeInstList(mainMethod),
+                "mainMethod" to JsonObject(
+                    mapOf(
+                        "instList" to serializeInstList(mainMethod),
+                    )
+                ),
                 "methods" to JsonObject(
                     methods.entries.associate { (methodId, inst) ->
                         methodId to JsonObject(
