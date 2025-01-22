@@ -47,7 +47,7 @@ open class TvmMethod(
     @SerialName("instList")
     private val instListRaw: MutableList<TvmInst>
 ) : TvmCodeBlock() {
-    override fun toString(): String = "TvmMethodWithId(id=$id)"
+    override fun toString(): String = "TvmMethod(id=$id)"
 
     override val instList: List<TvmInst>
         get() = instListRaw
