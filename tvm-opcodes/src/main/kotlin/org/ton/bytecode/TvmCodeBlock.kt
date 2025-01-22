@@ -17,24 +17,8 @@ abstract class TvmCodeBlock {
     }
 }
 
-@Serializable
-@SerialName("TvmMethod")
-open class TvmMethod(
-    val id: @Contextual MethodId,
-    @SerialName("instList")
-    private val instListRaw: MutableList<TvmInst>
-) : TvmCodeBlock() {
-    override val instList: List<TvmInst>
-        get() = instListRaw
-
-    init {
-        setLocationParents(instListRaw, parent = null)
-        initLocationsCodeBlock()
-    }
-
-    override fun toString(): String = "TvmMethod(id=$id)"
-
-    private fun setLocationParents(instList: List<TvmInst>, parent: TvmInstLocation?) {
+abstract class TvmDisasmCodeBlock : TvmCodeBlock() {
+    protected fun setLocationParents(instList: List<TvmInst>, parent: TvmInstLocation?) {
         instList.forEach {
             if (parent != null) {
                 check(it.location is TvmInstLambdaLocation) {
@@ -55,5 +39,40 @@ open class TvmMethod(
                 }
             }
         }
+    }
+}
+
+@Serializable
+@SerialName("TvmMethod")
+open class TvmMethod(
+    val id: @Contextual MethodId,
+    @SerialName("instList")
+    private val instListRaw: MutableList<TvmInst>
+) : TvmDisasmCodeBlock() {
+    override fun toString(): String = "TvmMethod(id=$id)"
+
+    override val instList: List<TvmInst>
+        get() = instListRaw
+
+    init {
+        setLocationParents(instListRaw, parent = null)
+        initLocationsCodeBlock()
+    }
+}
+
+@Serializable
+@SerialName("TvmMainMethod")
+class TvmMainMethod(
+    @SerialName("instList")
+    private val instListRaw: MutableList<TvmInst>,
+) : TvmDisasmCodeBlock() {
+    override fun toString(): String = "TvmMainMethod"
+
+    override val instList: List<TvmInst>
+        get() = instListRaw
+
+    init {
+        setLocationParents(instListRaw, parent = null)
+        initLocationsCodeBlock()
     }
 }

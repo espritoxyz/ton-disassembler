@@ -17,7 +17,7 @@ import org.ton.bigint.BigIntSerializer
 
 @Serializable
 data class TvmContractCode(
-    val mainMethod: TvmInstList,
+    val mainMethod: TvmMainMethod,
     val methods: Map<@Serializable(BigIntSerializer::class) MethodId, TvmMethod>
 ) {
     companion object {
@@ -31,6 +31,7 @@ data class TvmContractCode(
 
                 polymorphic(TvmCodeBlock::class) {
                     subclass(TvmMethod::class)
+                    subclass(TvmMainMethod::class)
                 }
 
                 registerTvmInstSerializer()

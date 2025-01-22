@@ -23,6 +23,7 @@ import org.ton.disasm.bytecode.pfxDictConstGetJmpMnemonic
 import org.ton.disasm.trie.TrieMap
 import org.ton.disasm.trie.TrieMapVertex
 import org.ton.disasm.utils.HashMapESerializer
+import org.ton.disasm.utils.binaryStringToSignedBigInteger
 import org.ton.hashmap.HashMapE
 import java.math.BigInteger
 
@@ -52,7 +53,11 @@ data object TvmDisassembler {
 
         return JsonObject(
             mapOf(
-                "mainMethod" to serializeInstList(mainMethod),
+                "mainMethod" to JsonObject(
+                    mapOf(
+                        "instList" to serializeInstList(mainMethod),
+                    )
+                ),
                 "methods" to JsonObject(
                     methods.entries.associate { (methodId, inst) ->
                         methodId to JsonObject(
@@ -233,7 +238,8 @@ data object TvmDisassembler {
         val map = HashMapE.tlbCodec(keySize, HashMapESerializer).loadTlb(wrappedRef)
 
         return map.toMap().map { (key, value) ->
-            BigInteger("0" + key.toBinary(), 2).toString() to value
+            val keyAsBigInt = key.toBinary().binaryStringToSignedBigInteger()
+            keyAsBigInt.toString() to value
         }.toMap()
     }
 
