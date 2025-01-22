@@ -237,7 +237,15 @@ data object TvmDisassembler {
         val map = HashMapE.tlbCodec(keySize, HashMapESerializer).loadTlb(wrappedRef)
 
         return map.toMap().map { (key, value) ->
-            BigInteger("0" + key.toBinary(), 2).toString() to value
+            val keyBin = key.toBinary()
+            val keyAsBigInt = if (keyBin.startsWith('0')) {
+                // positive integer
+                BigInteger(keyBin, 2).toString()
+            } else {
+                // negative integer
+                (BigInteger(keyBin, 2) - BigInteger('1' + "0".repeat(keyBin.length), 2)).toString()
+            }
+            keyAsBigInt to value
         }.toMap()
     }
 
