@@ -15,7 +15,9 @@ abstract class TvmCodeBlock {
             it.location.codeBlock = this
         }
     }
+}
 
+abstract class TvmDisasmCodeBlock : TvmCodeBlock() {
     protected fun setLocationParents(instList: List<TvmInst>, parent: TvmInstLocation?) {
         instList.forEach {
             if (parent != null) {
@@ -46,7 +48,7 @@ open class TvmMethod(
     val id: @Contextual MethodId,
     @SerialName("instList")
     private val instListRaw: MutableList<TvmInst>
-) : TvmCodeBlock() {
+) : TvmDisasmCodeBlock() {
     override fun toString(): String = "TvmMethod(id=$id)"
 
     override val instList: List<TvmInst>
@@ -63,7 +65,7 @@ open class TvmMethod(
 class TvmMainMethod(
     @SerialName("instList")
     private val instListRaw: MutableList<TvmInst>,
-) : TvmCodeBlock() {
+) : TvmDisasmCodeBlock() {
     override fun toString(): String = "TvmMainMethod"
 
     override val instList: List<TvmInst>

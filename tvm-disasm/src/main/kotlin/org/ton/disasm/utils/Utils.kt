@@ -1,9 +1,12 @@
 package org.ton.disasm.utils
 
-import org.ton.cell.CellSlice
+import java.math.BigInteger
 
-fun CellSlice.copy(): CellSlice =
-    CellSlice.of(bits, refs).also {
-        it.bitsPosition = bitsPosition
-        it.refsPosition = refsPosition
+fun String.binaryStringToSignedBigInteger(): BigInteger =
+    if (startsWith('0')) {
+        // positive integer
+        BigInteger(this, 2)
+    } else {
+        // negative integer
+        BigInteger(this, 2) - BigInteger.TWO.pow(length)
     }

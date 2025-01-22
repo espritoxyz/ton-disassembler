@@ -23,6 +23,7 @@ import org.ton.disasm.bytecode.pfxDictConstGetJmpMnemonic
 import org.ton.disasm.trie.TrieMap
 import org.ton.disasm.trie.TrieMapVertex
 import org.ton.disasm.utils.HashMapESerializer
+import org.ton.disasm.utils.binaryStringToSignedBigInteger
 import org.ton.hashmap.HashMapE
 import java.math.BigInteger
 
@@ -237,15 +238,8 @@ data object TvmDisassembler {
         val map = HashMapE.tlbCodec(keySize, HashMapESerializer).loadTlb(wrappedRef)
 
         return map.toMap().map { (key, value) ->
-            val keyBin = key.toBinary()
-            val keyAsBigInt = if (keyBin.startsWith('0')) {
-                // positive integer
-                BigInteger(keyBin, 2).toString()
-            } else {
-                // negative integer
-                (BigInteger(keyBin, 2) - BigInteger('1' + "0".repeat(keyBin.length), 2)).toString()
-            }
-            keyAsBigInt to value
+            val keyAsBigInt = key.toBinary().binaryStringToSignedBigInteger()
+            keyAsBigInt.toString() to value
         }.toMap()
     }
 
