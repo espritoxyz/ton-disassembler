@@ -29,7 +29,7 @@ class TvmDisasmApiTest {
     }
 
     @Test
-    fun testWithBadDict() {
+    fun testWithEmptyCellAsDictPushConstOperand() {
         val path = getResourcePath<TvmDisasmApiTest>("/samples/EQC62pJE0q787DFRcgg1ymGmghrcNbaFyKjo9ZUbr0QL0pmT.boc")
         val contractCode = disassembleBoc(path)
        assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
