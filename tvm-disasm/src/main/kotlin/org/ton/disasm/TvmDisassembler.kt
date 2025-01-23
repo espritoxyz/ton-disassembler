@@ -25,7 +25,6 @@ import org.ton.disasm.trie.TrieMapVertex
 import org.ton.disasm.utils.HashMapESerializer
 import org.ton.disasm.utils.binaryStringToSignedBigInteger
 import org.ton.hashmap.HashMapE
-import java.math.BigInteger
 
 data object TvmDisassembler {
     private const val SPEC_PATH_STRING: String = "/cp0.json"
@@ -208,7 +207,7 @@ data object TvmDisassembler {
                 }
             }
 
-            value?.let { operandsValue[operand.name] = value }
+            value.let { operandsValue[operand.name] = value }
         }
 
         return parsedOperandMap?.let {
@@ -233,6 +232,10 @@ data object TvmDisassembler {
         val keySize = operands["n"]?.jsonPrimitive?.int
             ?: error("No 'n' parameter for DICTPUSHCONST")
 
+        if (ref.isEmpty()) {
+            return emptyMap()
+        }
+
         val wrappedRef = Cell(BitString(listOf(true)), ref)
 
         val map = HashMapE.tlbCodec(keySize, HashMapESerializer).loadTlb(wrappedRef)
@@ -247,15 +250,16 @@ data object TvmDisassembler {
         slice: CellSlice,
         opname: String,
         operands: Map<String, JsonElement>,
-    ): Pair<JsonElement?, Map<String, Cell>> {
+    ): Pair<JsonElement, Map<String, Cell>> {
         val ref = slice.loadRef()
 
         val givenOperandType = opcodeToRefOperandType[opname]
             ?: error("Unexpected opcode with ref operand: $opname")
 
         if (opname == dictPushConstMnemonic) {
+            val rawDict = serializeSlice(ref.beginParse())
             val resultMap = parseDictPushConst(ref, operands)
-            return null to resultMap
+            return rawDict to resultMap
         }
 
         val operandType = if (opname == pfxDictConstGetJmpMnemonic) {

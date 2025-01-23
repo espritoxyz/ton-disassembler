@@ -1910,10 +1910,12 @@ val tvmDefaultInstructions = mapOf(
         TvmContConditionalIfbitjmprefInst(
             TvmMainMethodLocation(0),
             0,
+            TvmCell(TvmCellData(""), emptyList()),
         ),
         TvmContConditionalIfnbitjmprefInst(
             TvmMainMethodLocation(0),
             0,
+            TvmCell(TvmCellData(""), emptyList()),
         ),
     ),
     "cont_loops" to listOf(
@@ -2452,6 +2454,7 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmDictPrefixPfxdictconstgetjmpInst(
             TvmMainMethodLocation(0),
+            TvmCell(TvmCellData(""), emptyList()),
             0,
         ),
     ),
@@ -2582,6 +2585,7 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmDictSpecialDictpushconstInst(
             TvmMainMethodLocation(0),
+            TvmCell(TvmCellData(""), emptyList()),
             0,
         ),
         TvmDictSpecialDictigetjmpzInst(
