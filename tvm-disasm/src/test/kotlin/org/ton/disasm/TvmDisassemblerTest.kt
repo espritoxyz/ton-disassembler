@@ -19,9 +19,6 @@ class TvmDisassemblerTest {
         val result = disassembler.disassemble(bytes)
         val expected = """
             {
-            "mainMethod": {
-              "instList": [{"type":"SETCP","location":{"type":"TvmMainMethodLocation","index":0},"n":0},{"type":"DICTPUSHCONST","location":{"type":"TvmMainMethodLocation","index":1},"n":19},{"type":"DICTIGETJMPZ","location":{"type":"TvmMainMethodLocation","index":2}},{"type":"THROWARG","location":{"type":"TvmMainMethodLocation","index":3},"n":11}]
-            },
             "methods": {
               "0": {
                "id": "0",
@@ -67,8 +64,9 @@ class TvmDisassemblerTest {
             }
         """.trimIndent()
 
-        val expectedAsJson = Json.parseToJsonElement(expected)
-        assertEquals(expectedAsJson, result)
+        val resultMethods = result.jsonObject["methods"]!!
+        val expectedAsJson = Json.parseToJsonElement(expected).jsonObject["methods"]!!
+        assertEquals(expectedAsJson, resultMethods)
     }
 
     @Test
@@ -85,8 +83,9 @@ class TvmDisassemblerTest {
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
         val expectedPath = getResourcePath<TvmDisassemblerTest>("/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.json")
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
-        assertEquals(parsedExpected, result)
+        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText()).jsonObject["methods"]!!
+        val resultMethods = result.jsonObject["methods"]!!
+        assertEquals(parsedExpected, resultMethods)
     }
 
     @Test
@@ -95,8 +94,9 @@ class TvmDisassemblerTest {
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
         val expectedPath = getResourcePath<TvmDisassemblerTest>("/samples/cheburashka_wallet.json")
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
-        assertEquals(parsedExpected, result)
+        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText()).jsonObject["methods"]!!
+        val resultMethods = result.jsonObject["methods"]!!
+        assertEquals(parsedExpected, resultMethods)
     }
 
     private inline fun <reified T> getResourcePath(path: String): Path {

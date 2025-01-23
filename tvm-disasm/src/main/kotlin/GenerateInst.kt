@@ -37,11 +37,7 @@ private fun generateInstructionCellOperandTypes(
             "Expected operands for instruction $opname"
         }
         val map = if (inst.bytecode.operands.size == 1) {
-            mapOf(
-                "c" to typeName,
-                "s" to typeName,
-                "slice" to typeName,
-            )
+            mapOf("c" to typeName)
         } else {
             List(inst.bytecode.operands.size) { index -> "c${index + 1}" to typeName }.toMap()
         }
@@ -66,7 +62,7 @@ private fun tvmInstClassName(inst: InstructionDescription): String =
 private fun tvmInstOperandType(operand: InstructionOperandDescription): String? = when (operand.type) {
     "uint", "int" -> "Int"
     "pushint_long" -> "String"
-    "ref", "subslice" -> null  // skip these operands, TODO: or maybe not?
+    "ref", "subslice" -> "TvmCell"
     else -> error("Unexpected operand type: $operand")
 }
 

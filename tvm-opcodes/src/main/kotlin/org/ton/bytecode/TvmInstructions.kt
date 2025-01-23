@@ -9766,6 +9766,7 @@ data class TvmContConditionalIfbitjmpInst(
 data class TvmContConditionalIfbitjmprefInst(
     override val location: TvmInstLocation,
     val n: Int, // uint
+    val c: TvmCell, // ref
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
@@ -9867,6 +9868,7 @@ data class TvmContConditionalIfnbitjmpInst(
 data class TvmContConditionalIfnbitjmprefInst(
     override val location: TvmInstLocation,
     val n: Int, // uint
+    val c: TvmCell, // ref
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
@@ -11981,6 +11983,7 @@ data class TvmDictPrefixPfxdictaddInst(
 @SerialName(TvmDictPrefixPfxdictconstgetjmpInst.MNEMONIC)
 data class TvmDictPrefixPfxdictconstgetjmpInst(
     override val location: TvmInstLocation,
+    val d: TvmCell, // ref
     val n: Int, // uint
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
@@ -13194,6 +13197,7 @@ data class TvmDictSpecialDictigetjmpzInst(
 @SerialName(TvmDictSpecialDictpushconstInst.MNEMONIC)
 data class TvmDictSpecialDictpushconstInst(
     override val location: TvmInstLocation,
+    val d: TvmCell, // ref
     val n: Int, // uint
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC

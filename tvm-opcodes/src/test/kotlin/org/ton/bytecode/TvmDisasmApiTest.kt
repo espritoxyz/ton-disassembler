@@ -28,6 +28,13 @@ class TvmDisasmApiTest {
         assertTrue { MethodId.valueOf(-1) in contractCode.methods }
     }
 
+    @Test
+    fun testWithBadDict() {
+        val path = getResourcePath<TvmDisasmApiTest>("/samples/EQC62pJE0q787DFRcgg1ymGmghrcNbaFyKjo9ZUbr0QL0pmT.boc")
+        val contractCode = disassembleBoc(path)
+       assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
+    }
+
     private inline fun <reified T> getResourcePath(path: String): Path {
         return T::class.java.getResource(path)?.path?.let { Path(it) }
             ?: error("Resource $path was not found")
