@@ -10,3 +10,4 @@ pluginManagement {
 include("tvm-disasm")
 include("tvm-disasm-cli")
 include("tvm-opcodes")
+include("tvm-utils")
