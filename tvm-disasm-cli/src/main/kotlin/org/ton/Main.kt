@@ -12,6 +12,7 @@ import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.path
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.ton.disasm.TvmDisassembler
@@ -54,9 +55,21 @@ class JsonDisassemblerCommand : CliktCommand(
                 val (_, responseGeneralInfo) = runCatching {
                     makeRequest("$TONCENTER_API_V3/addressInformation?use_v2=false&address=$addressForUrl")
                 }.getOrElse { error ->
-                    throw IllegalStateException("TonAPI request failed for address $addressForUrl: $error")
+                    echo("TonAPI request failed for address $addressForUrl: $error", err = true)
+                    return
                 }
-                val base64Code = Json.parseToJsonElement(responseGeneralInfo).jsonObject["code"]!!.jsonPrimitive.content
+
+                val jsonResponse = Json.parseToJsonElement(responseGeneralInfo)
+                val codeField = jsonResponse.jsonObject["code"]!!
+                check(codeField !is JsonNull) {
+                    echo(
+                        "No code found for address $addressForUrl - it seems to be uninitialized contract",
+                        err = true
+                    )
+                    return
+                }
+
+                val base64Code = codeField.jsonPrimitive.content
 
                 // TonCenter API returns base64 encoded code
                 Base64.decode(base64Code)
