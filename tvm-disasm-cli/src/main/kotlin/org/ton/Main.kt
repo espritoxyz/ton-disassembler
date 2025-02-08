@@ -15,6 +15,8 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonNull
 import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
+import org.ton.bytecode.TvmContractCode
+import org.ton.bytecode.disassembleBoc
 import org.ton.disasm.TvmDisassembler
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
@@ -30,6 +32,33 @@ sealed interface ContractCode {
     @JvmInline
     value class Address(val address: String) : ContractCode
 }
+
+@OptIn(ExperimentalEncodingApi::class)
+fun fetchContractCode(contractCode: ContractCode): ByteArray {
+    return when (contractCode) {
+        is ContractCode.Boc -> contractCode.bocPath.toFile().readBytes()
+        is ContractCode.Address -> {
+            val addressForUrl = contractCode.address.toUrlAddress()
+            val (_, responseGeneralInfo) = runCatching {
+                makeRequest("$TONCENTER_API_V3/addressInformation?use_v2=false&address=$addressForUrl")
+            }.getOrElse { error ->
+                error("TonAPI request failed for address $addressForUrl: $error")
+            }
+
+            val jsonResponse = Json.parseToJsonElement(responseGeneralInfo)
+            val codeField = jsonResponse.jsonObject["code"]!!
+            check(codeField !is JsonNull) {
+                error("No code found for address $addressForUrl - it seems to be an uninitialized contract")
+            }
+
+            val base64Code = codeField.jsonPrimitive.content
+
+            // TonCenter API returns base64 encoded code
+            Base64.decode(base64Code)
+        }
+    }
+}
+
 
 class JsonDisassemblerCommand : CliktCommand(
     name = "json",
@@ -48,33 +77,7 @@ class JsonDisassemblerCommand : CliktCommand(
     @OptIn(ExperimentalEncodingApi::class)
     override fun run() {
         val contractCodeSource = contractCode
-        val bocContent = when (contractCodeSource) {
-            is ContractCode.Boc -> contractCodeSource.bocPath.toFile().readBytes()
-            is ContractCode.Address -> {
-                val addressForUrl = contractCodeSource.address.toUrlAddress()
-                val (_, responseGeneralInfo) = runCatching {
-                    makeRequest("$TONCENTER_API_V3/addressInformation?use_v2=false&address=$addressForUrl")
-                }.getOrElse { error ->
-                    echo("TonAPI request failed for address $addressForUrl: $error", err = true)
-                    return
-                }
-
-                val jsonResponse = Json.parseToJsonElement(responseGeneralInfo)
-                val codeField = jsonResponse.jsonObject["code"]!!
-                check(codeField !is JsonNull) {
-                    echo(
-                        "No code found for address $addressForUrl - it seems to be uninitialized contract",
-                        err = true
-                    )
-                    return
-                }
-
-                val base64Code = codeField.jsonPrimitive.content
-
-                // TonCenter API returns base64 encoded code
-                Base64.decode(base64Code)
-            }
-        }
+        val bocContent = fetchContractCode(contractCodeSource)
         val result = TvmDisassembler.disassemble(bocContent)
 
         val pretty = Json { prettyPrint = true }
@@ -82,8 +85,33 @@ class JsonDisassemblerCommand : CliktCommand(
     }
 }
 
+class PrettyPrintDisassemblerCommand : CliktCommand(
+    name = "pretty-print",
+    help = "Disassemble contract code and pretty print TVM instructions."
+) {
+    private val contractCode: ContractCode by mutuallyExclusiveOptions(
+        option("--boc")
+            .help("The path to the smart contract in the BoC format")
+            .path(mustExist = true, canBeFile = true, canBeDir = false)
+            .convert { ContractCode.Boc(it) },
+        option("--address")
+            .help("The address of the contract deployed on the blockchain")
+            .convert { ContractCode.Address(it) }
+    ).single().required()
+
+    override fun run() {
+        val contractCodeSource = contractCode
+        val bocContent = fetchContractCode(contractCodeSource)
+        val disassembledFile: TvmContractCode = disassembleBoc(bocContent)
+        prettyPrint(disassembledFile)
+    }
+}
+
 class TvmDisassemblerCommand : NoOpCliktCommand()
 
 fun main(args: Array<String>) = TvmDisassemblerCommand()
-    .subcommands(JsonDisassemblerCommand())
+    .subcommands(
+        JsonDisassemblerCommand(),
+        PrettyPrintDisassemblerCommand()
+    )
     .main(args)
