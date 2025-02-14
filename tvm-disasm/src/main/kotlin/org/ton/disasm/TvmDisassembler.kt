@@ -14,6 +14,7 @@ import org.ton.bitstring.ByteBackedMutableBitString
 import org.ton.boc.BagOfCells
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
+import org.ton.cell.CellType
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.dictPushConstMnemonic
@@ -22,9 +23,7 @@ import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
 import org.ton.disasm.bytecode.pfxDictConstGetJmpMnemonic
 import org.ton.disasm.trie.TrieMap
 import org.ton.disasm.trie.TrieMapVertex
-import org.ton.disasm.utils.CELL_TYPE_BITS
 import org.ton.disasm.utils.HashMapESerializer
-import org.ton.disasm.utils.ORDINARY_CELL_TYPE
 import org.ton.disasm.utils.binaryStringToSignedBigInteger
 import org.ton.hashmap.HashMapE
 
@@ -49,6 +48,10 @@ data object TvmDisassembler {
 
     fun disassemble(codeBoc: ByteArray): JsonObject {
         val codeAsCell = BagOfCells(codeBoc).roots.first()
+
+        require(codeAsCell.type != CellType.LIBRARY_REFERENCE) {
+            "Library cells are not supported"
+        }
 
         val (methods, mainMethod) = disassemble(codeAsCell)
 
@@ -79,11 +82,6 @@ data object TvmDisassembler {
     private fun disassemble(cell: Cell): Pair<Map<String, List<TvmInst>>, List<TvmInst>> {
         val slice = cell.beginParse()
         val initialLocation = TvmMainMethodLocation(index = 0)
-
-        val cellType = slice.preloadInt(CELL_TYPE_BITS)
-        require(cellType == ORDINARY_CELL_TYPE) {
-            "Ordinary cell expected, but $cellType type found"
-        }
 
         val insts = disassemble(slice, initialLocation)
 
