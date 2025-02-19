@@ -9,12 +9,12 @@ import kotlin.reflect.full.memberProperties
 
 fun prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) {
     println("Main method instructions:")
-    printInstructions(disassembledFile.mainMethod.instList, includeTvmCell=includeTvmCell)
+    printInstructions(disassembledFile.mainMethod.instList, includeTvmCell = includeTvmCell)
 
-    println("\nMethods instructions:")
+    println(System.lineSeparator() + "Methods instructions:")
     disassembledFile.methods.forEach { (methodId, method) ->
-        println("\nMethod ID: $methodId")
-        printInstructions(method.instList, includeTvmCell=includeTvmCell)
+        println(System.lineSeparator() + "Method ID: $methodId")
+        printInstructions(method.instList, includeTvmCell = includeTvmCell)
     }
 
 }
@@ -32,8 +32,7 @@ fun printInstructions(instList: List<TvmInst>, indent: String = "", includeTvmCe
                 printInstructions(operandInstList.list, "$indent  ", includeTvmCell)
                 println("$indent}>")
             }
-        }
-        else {
+        } else {
             printInstruction(inst, indent, includeTvmCell)
         }
     }

@@ -2,7 +2,9 @@ package org.ton
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.NoOpCliktCommand
+import com.github.ajalt.clikt.core.ParameterHolder
 import com.github.ajalt.clikt.core.subcommands
+import com.github.ajalt.clikt.parameters.groups.MutuallyExclusiveOptions
 import com.github.ajalt.clikt.parameters.groups.mutuallyExclusiveOptions
 import com.github.ajalt.clikt.parameters.groups.required
 import com.github.ajalt.clikt.parameters.groups.single
@@ -60,12 +62,8 @@ fun fetchContractCode(contractCode: ContractCode): ByteArray {
     }
 }
 
-
-class JsonDisassemblerCommand : CliktCommand(
-    name = "json",
-    help = "Disassemble contract code into json with TVM instructions."
-) {
-    private val contractCode: ContractCode by mutuallyExclusiveOptions(
+fun ParameterHolder.contractCodeOption(): MutuallyExclusiveOptions<ContractCode, ContractCode> {
+    return mutuallyExclusiveOptions(
         option("--boc")
             .help("The path to the smart contract in the BoC format")
             .path(mustExist = true, canBeFile = true, canBeDir = false)
@@ -74,6 +72,13 @@ class JsonDisassemblerCommand : CliktCommand(
             .help("The address of the contract deployed on the blockchain")
             .convert { ContractCode.Address(it) }
     ).single().required()
+}
+
+class JsonDisassemblerCommand : CliktCommand(
+    name = "json",
+    help = "Disassemble contract code into json with TVM instructions."
+) {
+    private val contractCode: ContractCode by contractCodeOption()
 
     override fun run() {
         val contractCodeSource = contractCode
@@ -89,15 +94,7 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
     name = "pretty-print",
     help = "Disassemble contract code and pretty print TVM instructions."
 ) {
-    private val contractCode: ContractCode by mutuallyExclusiveOptions(
-        option("--boc")
-            .help("The path to the smart contract in the BoC format")
-            .path(mustExist = true, canBeFile = true, canBeDir = false)
-            .convert { ContractCode.Boc(it) },
-        option("--address")
-            .help("The address of the contract deployed on the blockchain")
-            .convert { ContractCode.Address(it) }
-    ).single().required()
+    private val contractCode: ContractCode by contractCodeOption()
 
     private val includeTvmCell: Boolean by option("--include-cell")
         .help("Include TvmCell in the output")
