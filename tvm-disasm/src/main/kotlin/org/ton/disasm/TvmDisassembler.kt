@@ -14,6 +14,7 @@ import org.ton.bitstring.ByteBackedMutableBitString
 import org.ton.boc.BagOfCells
 import org.ton.cell.Cell
 import org.ton.cell.CellSlice
+import org.ton.cell.CellType
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.dictPushConstMnemonic
@@ -48,6 +49,10 @@ data object TvmDisassembler {
     fun disassemble(codeBoc: ByteArray): JsonObject {
         val codeAsCell = BagOfCells(codeBoc).roots.first()
 
+        require(codeAsCell.type != CellType.LIBRARY_REFERENCE) {
+            "Library cells are not supported"
+        }
+
         val (methods, mainMethod) = disassemble(codeAsCell)
 
         return JsonObject(
@@ -75,7 +80,6 @@ data object TvmDisassembler {
         JsonArray(instList.map { it.toJson() })
 
     private fun disassemble(cell: Cell): Pair<Map<String, List<TvmInst>>, List<TvmInst>> {
-
         val slice = cell.beginParse()
         val initialLocation = TvmMainMethodLocation(index = 0)
 

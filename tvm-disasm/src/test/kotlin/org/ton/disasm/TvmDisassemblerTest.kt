@@ -3,6 +3,7 @@ package org.ton.disasm
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import java.nio.file.Path
+import org.junit.jupiter.api.assertThrows
 import kotlin.io.path.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -97,6 +98,16 @@ class TvmDisassemblerTest {
         val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText()).jsonObject["methods"]!!
         val resultMethods = result.jsonObject["methods"]!!
         assertEquals(parsedExpected, resultMethods)
+    }
+
+    @Test
+    fun testLibraryCell() {
+        val boc = getResourcePath<TvmDisassemblerTest>("/samples/library_cell.boc")
+        val bytes = boc.toFile().readBytes()
+
+        assertThrows<IllegalArgumentException> {
+            disassembler.disassemble(bytes)
+        }
     }
 
     private inline fun <reified T> getResourcePath(path: String): Path {
