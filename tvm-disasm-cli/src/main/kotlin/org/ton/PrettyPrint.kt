@@ -1,45 +1,40 @@
 package org.ton
 
-import org.ton.bytecode.*
+import org.ton.bytecode.TvmContOperandInst
+import org.ton.bytecode.TvmContractCode
+import org.ton.bytecode.TvmInst
+import org.ton.bytecode.TvmInstList
+import org.ton.bytecode.printInstruction
 import kotlin.reflect.full.memberProperties
 
-fun prettyPrint(disassembledFile: TvmContractCode) {
+fun prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) {
     println("Main method instructions:")
-    printInstructions(disassembledFile.mainMethod.instList)
+    printInstructions(disassembledFile.mainMethod.instList, includeTvmCell=includeTvmCell)
 
     println("\nMethods instructions:")
     disassembledFile.methods.forEach { (methodId, method) ->
         println("\nMethod ID: $methodId")
-        printInstructions(method.instList)
+        printInstructions(method.instList, includeTvmCell=includeTvmCell)
     }
 
 }
 
-fun printInstructions(instList: List<TvmInst>, indent: String = "") {
+fun printInstructions(instList: List<TvmInst>, indent: String = "", includeTvmCell: Boolean) {
     instList.forEach { inst ->
         val type = inst.mnemonic
-        val operandsString = extractOperands(inst)
 
-        when (val firstOperand = inst::class.memberProperties
-            .firstOrNull { it.name !in IGNORED_PROPS }
-            ?.getter?.call(inst)
-        ) {
-            is TvmInstList -> {
+        if (inst is TvmContOperandInst) {
+            val operandInstLists = inst::class.memberProperties
+                .mapNotNull { it.getter.call(inst) as? TvmInstList }
+
+            operandInstLists.forEach { operandInstList ->
                 println("$indent$type <{")
-                printInstructions(firstOperand.list, indent + "  ")
+                printInstructions(operandInstList.list, "$indent  ", includeTvmCell)
                 println("$indent}>")
             }
-            else -> println("$indent$type ${operandsString.takeIf { it.isNotEmpty() } ?: ""}")
+        }
+        else {
+            printInstruction(inst, indent, includeTvmCell)
         }
     }
 }
-
-private fun extractOperands(inst: TvmInst): String {
-    return inst::class.memberProperties
-        .filterNot { it.name in IGNORED_PROPS }
-        .associate { it.name to it.getter.call(inst) }
-        .filterValues { it !is TvmCell }
-        .entries.joinToString { "${it.key}=${it.value}" }
-}
-
-private val IGNORED_PROPS = setOf("mnemonic", "location", "gasConsumption")

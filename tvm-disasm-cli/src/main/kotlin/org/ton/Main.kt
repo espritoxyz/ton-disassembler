@@ -7,6 +7,7 @@ import com.github.ajalt.clikt.parameters.groups.mutuallyExclusiveOptions
 import com.github.ajalt.clikt.parameters.groups.required
 import com.github.ajalt.clikt.parameters.groups.single
 import com.github.ajalt.clikt.parameters.options.convert
+import com.github.ajalt.clikt.parameters.options.flag
 import com.github.ajalt.clikt.parameters.options.help
 import com.github.ajalt.clikt.parameters.options.option
 import com.github.ajalt.clikt.parameters.types.path
@@ -74,7 +75,6 @@ class JsonDisassemblerCommand : CliktCommand(
             .convert { ContractCode.Address(it) }
     ).single().required()
 
-    @OptIn(ExperimentalEncodingApi::class)
     override fun run() {
         val contractCodeSource = contractCode
         val bocContent = fetchContractCode(contractCodeSource)
@@ -99,11 +99,15 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
             .convert { ContractCode.Address(it) }
     ).single().required()
 
+    private val includeTvmCell: Boolean by option("--include-cell")
+        .help("Include TvmCell in the output")
+        .flag(default = false)
+
     override fun run() {
         val contractCodeSource = contractCode
         val bocContent = fetchContractCode(contractCodeSource)
         val disassembledFile: TvmContractCode = disassembleBoc(bocContent)
-        prettyPrint(disassembledFile)
+        prettyPrint(disassembledFile, includeTvmCell)
     }
 }
 
