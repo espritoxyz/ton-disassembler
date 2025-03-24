@@ -44,7 +44,7 @@ tvm-disasm-cli/build/libs/tvm-disasm-cli.jar
 TON Disassembler CLI can be used in two modes:
 
 1. Disassembling compiled smart contract code into a JSON format containing internal instructions used by [TSA](https://github.com/espritoxyz/tsa).
-2. Generating a human-readable list of TVM instructions with arguments in a format similar to [TVM Retracer](https://retracer.ton.org/?tx=8f9d74ab7f3d004eb5e5d13232e1ef1a594c4caac989b0f30c1579d95c5d5817).
+2. Generating a human-readable list of TVM instructions with arguments in a format similar to [TVM Retracer](https://retracer.ton.org).
 
 The CLI tool accepts compiled smart contract code either as a [BoC](https://docs.ton.org/v3/documentation/data-formats/tlb/cell-boc) file or as an on-chain address.
 
