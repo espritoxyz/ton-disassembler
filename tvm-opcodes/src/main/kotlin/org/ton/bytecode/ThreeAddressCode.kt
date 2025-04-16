@@ -203,11 +203,17 @@ fun dumpTAC(
         if (instructionSpec is TvmContOperandInst) {
             val continuationBlocks = dumpOperandConts(instructionSpec)
 
-            continuationBlocks.forEach { cont ->
-                bodyBuilder.appendLine(lhs + rhs + cont)
+            val baseLine = buildString {
+                append(lhs)
+                append(rhs)
                 if (instruction.comment.isNotEmpty()) {
-                    bodyBuilder.appendLine("  // ${instruction.comment}")
+                    append("  // ${instruction.comment}")
                 }
+            }
+            bodyBuilder.appendLine(baseLine)
+
+            continuationBlocks.forEach { cont ->
+                bodyBuilder.appendLine(cont)
             }
             continue // Skip normal output
         }
