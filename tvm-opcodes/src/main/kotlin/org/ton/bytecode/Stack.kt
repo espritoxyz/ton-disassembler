@@ -43,7 +43,7 @@
             return stack.joinToString(", ") { it.specName }
         }
 
-        fun pop(valuesCheck: List<String>): StackVariable {
+        fun pop(instName: String, valuesCheck: List<String>): StackVariable {
             if (stack.isEmpty()) {
                 extendStack(size + 1, valuesCheck)
             }
@@ -52,9 +52,10 @@
             if (inputVar.valueTypes.isNotEmpty() && valuesCheck.isNotEmpty()) {
                 val hasMatchingType = inputVar.valueTypes.any { it in valuesCheck }
                 if (hasMatchingType) {
+//                    messageCollector.add("success type match in var ${inputVar.specName}. actual types: ${inputVar.valueTypes}, valuesCheck: $valuesCheck ")
                     return inputVar
                 }
-                messageCollector.add("Value type mismatch in var ${inputVar.specName}: expected one of $valuesCheck, but got ${inputVar.valueTypes}")
+                messageCollector.add("Type mismatch in $instName: var ${inputVar.specName}: expected one of $valuesCheck, but got ${inputVar.valueTypes}")
                 return inputVar
             }
 

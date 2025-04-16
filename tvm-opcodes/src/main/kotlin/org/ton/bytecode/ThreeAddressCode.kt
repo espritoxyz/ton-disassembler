@@ -54,7 +54,7 @@ fun decompileInstruction(
         if (input.type == "simple") {
             val simpleInput = input as TvmSimpleStackEntry
             val inputValues = simpleInput.valueTypes
-            inputs[simpleInput.name] = stack.pop(valuesCheck = inputValues)
+            inputs[simpleInput.name] = stack.pop(instName = inst.mnemonic, valuesCheck = inputValues)
         } else {
             error("Unsupported input type: \${input.type}")
         }
@@ -176,10 +176,12 @@ fun dumpTAC(
     for (instruction in decompiledMethod.instructions) {
         val instructionSpec = instruction.spec
         val mutableOperands = extractPrimitiveOperands(instructionSpec).toMutableMap()
-        val operandStrings = mutableOperands.map { (key, value) ->
-            "$key=${if (includeTvmCell) formatOperand(value) else if (value !is TvmCell) "$value" else "[Cell]"}"
-        }
-        val inputStr = operandStrings.joinToString(", ")
+        val operandStrings = mutableOperands
+            .filterValues { it !is TvmInstList }
+            .map { (key, value) ->
+                "$key=${if (includeTvmCell) formatOperand(value) else if (value !is TvmCell) "$value" else "[Cell]"}"
+            }
+        val operandsStr = operandStrings.joinToString(", ")
 
         val outputVars = instruction.outputs.values.map { it.specName } // reverse them back
         val inputVars = instruction.inputs.values.map { it.specName }.reversed()
@@ -188,11 +190,21 @@ fun dumpTAC(
             outputVars.joinToString(", ") + " = "
         } else ""
 
+        val rhs = buildString {
+            append("${instruction.spec.mnemonic}(")
+            append(inputVars.joinToString(", "))
+            if (operandsStr.isNotEmpty()) {
+                if (inputVars.isNotEmpty()) append(", ")
+                append(operandsStr)
+            }
+            append(")")
+        }
+
         if (instructionSpec is TvmContOperandInst) {
             val continuationBlocks = dumpOperandConts(instructionSpec)
 
             continuationBlocks.forEach { cont ->
-                bodyBuilder.appendLine(lhs + instructionSpec.mnemonic + cont)
+                bodyBuilder.appendLine(lhs + rhs + cont)
                 if (instruction.comment.isNotEmpty()) {
                     bodyBuilder.appendLine("  // ${instruction.comment}")
                 }
@@ -203,16 +215,6 @@ fun dumpTAC(
         if (instructionSpec is TvmStackBasicInst || instructionSpec is TvmStackComplexInst) {
             if (debug) bodyBuilder.appendLine(instruction.comment)
             continue
-        }
-
-        val rhs = buildString {
-            append("${instruction.spec.mnemonic}(")
-            append(inputVars.joinToString(", "))
-            if (inputStr.isNotEmpty()) {
-                if (inputVars.isNotEmpty()) append(", ")
-                append(inputStr)
-            }
-            append(")")
         }
 
         bodyBuilder.appendLine(lhs + rhs)
