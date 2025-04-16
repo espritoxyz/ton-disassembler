@@ -3,6 +3,8 @@ import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
+import org.ton.disasm.bytecode.InstructionStackConstValue
+import org.ton.disasm.bytecode.InstructionStackSimpleValue
 import org.ton.disasm.bytecode.InstructionsList
 import org.ton.disasm.bytecode.opcodeToRefOperandType
 import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
@@ -15,6 +17,7 @@ import kotlin.io.use
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
 private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructionsDefaults.kt")
+enum class StackFlowDirection { INPUT, OUTPUT }
 
 private fun generateInstructionCellOperandTypes(
     instructions: Map<String, InstructionDescription>
@@ -133,6 +136,47 @@ private fun tvmInstDefault(
     """.trimMargin()
 }
 
+private fun extractStackEntries(
+    inst: InstructionDescription,
+    direction: StackFlowDirection
+) : List<String> {
+    val entries = when (direction) {
+        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack.orEmpty()
+        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack.orEmpty()
+    }
+
+    return entries.map { entry ->
+        val raw = when (entry) {
+            is InstructionStackSimpleValue -> {
+                """
+                    TvmSimpleStackEntry(
+                        name = "${entry.name}",
+                        valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                    )
+                    """
+            }
+            is InstructionStackConstValue -> {
+                val valueStr = entry.typedValue?.toString() ?: "null"
+                """
+                TvmConstStackEntry(
+                    value = $valueStr,
+                    valueType = "${entry.value_type}"
+                )
+                """
+            }
+            else -> {
+                """
+                    TvmGenericStackEntry(
+                        type = "${entry.entryType}"
+                    )
+                    """
+            }
+        }
+
+        raw.trimIndent().prependIndent("            ")
+    }
+}
+
 private fun tvmInstDeclaration(
     inst: InstructionDescription,
     instructionOperandTypes: Map<String, Map<String, String>>,
@@ -184,7 +228,15 @@ private fun tvmInstDeclaration(
     |): TvmInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
-    |
+    |    override val stackInputs: List<TvmStackEntry>
+    |       get() = listOf(
+${extractStackEntries(inst, StackFlowDirection.INPUT)?.joinToString(",\n") {it}}
+    |       )
+    |    override val stackOutputs: List<TvmStackEntry>
+    |       get() = listOf(
+${extractStackEntries(inst, StackFlowDirection.OUTPUT)?.joinToString(",\n") {it}}
+    |       )
+    |    
     |    companion object {
     |        const val MNEMONIC = "${inst.mnemonic}"
     |    }
@@ -238,6 +290,28 @@ fun main() {
             import kotlinx.serialization.modules.SerializersModuleBuilder
             import kotlinx.serialization.modules.polymorphic
             import kotlinx.serialization.modules.subclass
+            
+            sealed class TvmStackEntry {
+                abstract val type: String
+            }
+            
+            data class TvmSimpleStackEntry(
+                val name: String,
+                val valueTypes: List<String>
+            ) : TvmStackEntry() {
+                override val type: String = "simple"
+            }
+            
+            data class TvmConstStackEntry(
+                val valueType: String,
+                val value: Int? = null
+            ) : TvmStackEntry() {
+                override val type: String = "const"
+            }
+
+            data class TvmGenericStackEntry(
+                override val type: String
+            ) : TvmStackEntry()
             
         """.trimIndent()
         )

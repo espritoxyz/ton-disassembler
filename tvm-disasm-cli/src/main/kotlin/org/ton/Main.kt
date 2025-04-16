@@ -20,6 +20,7 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.disassembleBoc
+import org.ton.bytecode.dumpContractTAC
 import org.ton.disasm.TvmDisassembler
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
@@ -108,11 +109,34 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
     }
 }
 
+class TacDisassemblerCommand : CliktCommand(
+    name = "tac",
+    help = "Disassemble contract code and output Three-Address Code."
+) {
+    private val contractCode: ContractCode by contractCodeOption()
+    private val includeTvmCell: Boolean by option("--include-cell")
+        .help("Include TvmCell in the output")
+        .flag(default = false)
+    private val debug: Boolean by option("--debug")
+        .help("Enable debug output: stack state and instructions")
+        .flag(default = false)
+
+
+    override fun run() {
+        val bocContent = fetchContractCode(contractCode)
+        val contract = disassembleBoc(bocContent)
+
+        val tacOutput = dumpContractTAC(contract, includeTvmCell, debug)
+        echo(tacOutput)
+    }
+}
+
 class TvmDisassemblerCommand : NoOpCliktCommand()
 
 fun main(args: Array<String>) = TvmDisassemblerCommand()
     .subcommands(
         JsonDisassemblerCommand(),
-        PrettyPrintDisassemblerCommand()
+        PrettyPrintDisassemblerCommand(),
+        TacDisassemblerCommand()
     )
     .main(args)
