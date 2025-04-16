@@ -153,7 +153,23 @@ data class TvmAppActionsChangelibInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHANGELIB"
     }
@@ -179,7 +195,23 @@ data class TvmAppActionsRawreserveInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RAWRESERVE"
     }
@@ -197,7 +229,27 @@ data class TvmAppActionsRawreservexInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RAWRESERVEX"
     }
@@ -221,7 +273,28 @@ data class TvmAppActionsSendmsgInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "fee",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SENDMSG"
     }
@@ -250,7 +323,23 @@ data class TvmAppActionsSendrawmsgInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SENDRAWMSG"
     }
@@ -269,7 +358,19 @@ data class TvmAppActionsSetcodeInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCODE"
     }
@@ -292,7 +393,23 @@ data class TvmAppActionsSetlibcodeInst(
 ): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETLIBCODE"
     }
@@ -310,7 +427,28 @@ data class TvmAppAddrLdmsgaddrInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDMSGADDR"
     }
@@ -328,7 +466,27 @@ data class TvmAppAddrLdmsgaddrqInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDMSGADDRQ"
     }
@@ -346,7 +504,24 @@ data class TvmAppAddrParsemsgaddrInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PARSEMSGADDR"
     }
@@ -363,7 +538,27 @@ data class TvmAppAddrParsemsgaddrqInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PARSEMSGADDRQ"
     }
@@ -383,7 +578,28 @@ data class TvmAppAddrRewritestdaddrInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REWRITESTDADDR"
     }
@@ -400,7 +616,27 @@ data class TvmAppAddrRewritestdaddrqInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REWRITESTDADDRQ"
     }
@@ -418,7 +654,28 @@ data class TvmAppAddrRewritevaraddrInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REWRITEVARADDR"
     }
@@ -435,7 +692,27 @@ data class TvmAppAddrRewritevaraddrqInst(
 ): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REWRITEVARADDRQ"
     }
@@ -453,7 +730,23 @@ data class TvmAppConfigConfigdictInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmConstStackEntryDescription(
+                value = 32,
+                valueType = "Integer"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CONFIGDICT"
     }
@@ -472,7 +765,24 @@ data class TvmAppConfigConfigoptparamInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CONFIGOPTPARAM"
     }
@@ -491,7 +801,27 @@ data class TvmAppConfigConfigparamInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CONFIGPARAM"
     }
@@ -508,7 +838,32 @@ data class TvmAppConfigGetforwardfeeInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cells",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "bits",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "price",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETFORWARDFEE"
     }
@@ -525,7 +880,32 @@ data class TvmAppConfigGetforwardfeesimpleInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cells",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "bits",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "price",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETFORWARDFEESIMPLE"
     }
@@ -542,7 +922,28 @@ data class TvmAppConfigGetgasfeeInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "gas_used",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "price",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETGASFEE"
     }
@@ -559,7 +960,28 @@ data class TvmAppConfigGetgasfeesimpleInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "gas_used",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "price",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETGASFEESIMPLE"
     }
@@ -576,7 +998,28 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "fwd_fee",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "orig_fwd_fee",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETORIGINALFWDFEE"
     }
@@ -597,7 +1040,19 @@ data class TvmAppConfigGetparamInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer", "Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETPARAM"
     }
@@ -614,7 +1069,19 @@ data class TvmAppConfigGetprecompiledgasInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETPRECOMPILEDGAS"
     }
@@ -631,7 +1098,36 @@ data class TvmAppConfigGetstoragefeeInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cells",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "bits",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "seconds",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "is_mc",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "price",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETSTORAGEFEE"
     }
@@ -648,7 +1144,19 @@ data class TvmAppConfigGlobalidInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GLOBALID"
     }
@@ -665,7 +1173,19 @@ data class TvmAppConfigPrevkeyblockInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PREVKEYBLOCK"
     }
@@ -682,7 +1202,19 @@ data class TvmAppConfigPrevmcblocksInst(
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PREVMCBLOCKS"
     }
@@ -699,7 +1231,27 @@ data class TvmAppCryptoBlsAggregateInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "n*4350-2616")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_AGGREGATE"
     }
@@ -717,7 +1269,31 @@ data class TvmAppCryptoBlsAggregateverifyInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "38534+n*22500")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "sgn",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_AGGREGATEVERIFY"
     }
@@ -735,7 +1311,35 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "58034+n*3000")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "msg",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "sig",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_FASTAGGREGATEVERIFY"
     }
@@ -752,7 +1356,28 @@ data class TvmAppCryptoBlsG1AddInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_ADD"
     }
@@ -769,7 +1394,24 @@ data class TvmAppCryptoBlsG1IngroupInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2984)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_INGROUP"
     }
@@ -786,7 +1428,24 @@ data class TvmAppCryptoBlsG1IszeroInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_ISZERO"
     }
@@ -803,7 +1462,28 @@ data class TvmAppCryptoBlsG1MulInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 5234)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_MUL"
     }
@@ -821,7 +1501,27 @@ data class TvmAppCryptoBlsG1MultiexpInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "11409+n*630+n/floor(max(log2(n),4))*8820")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_MULTIEXP"
     }
@@ -838,7 +1538,24 @@ data class TvmAppCryptoBlsG1NegInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_NEG"
     }
@@ -855,7 +1572,28 @@ data class TvmAppCryptoBlsG1SubInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_SUB"
     }
@@ -872,7 +1610,19 @@ data class TvmAppCryptoBlsG1ZeroInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "zero",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G1_ZERO"
     }
@@ -889,7 +1639,28 @@ data class TvmAppCryptoBlsG2AddInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_ADD"
     }
@@ -906,7 +1677,24 @@ data class TvmAppCryptoBlsG2IngroupInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 4284)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_INGROUP"
     }
@@ -923,7 +1711,24 @@ data class TvmAppCryptoBlsG2IszeroInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_ISZERO"
     }
@@ -940,7 +1745,28 @@ data class TvmAppCryptoBlsG2MulInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 10584)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_MUL"
     }
@@ -958,7 +1784,27 @@ data class TvmAppCryptoBlsG2MultiexpInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "30422+n*1280+n/floor(max(log2(n),4))*22840")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_MULTIEXP"
     }
@@ -975,7 +1821,24 @@ data class TvmAppCryptoBlsG2NegInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1584)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_NEG"
     }
@@ -992,7 +1855,28 @@ data class TvmAppCryptoBlsG2SubInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_SUB"
     }
@@ -1009,7 +1893,19 @@ data class TvmAppCryptoBlsG2ZeroInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "zero",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_G2_ZERO"
     }
@@ -1026,7 +1922,24 @@ data class TvmAppCryptoBlsMapToG1Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2384)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_MAP_TO_G1"
     }
@@ -1043,7 +1956,24 @@ data class TvmAppCryptoBlsMapToG2Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 7984)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_MAP_TO_G2"
     }
@@ -1061,7 +1991,27 @@ data class TvmAppCryptoBlsPairingInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "20034+n*11800")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_PAIRING"
     }
@@ -1078,7 +2028,19 @@ data class TvmAppCryptoBlsPushrInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_PUSHR"
     }
@@ -1095,7 +2057,32 @@ data class TvmAppCryptoBlsVerifyInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 61034)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "pk",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "msg",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "sgn",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLS_VERIFY"
     }
@@ -1115,7 +2102,32 @@ data class TvmAppCryptoChksignsInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "d",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHKSIGNS"
     }
@@ -1139,7 +2151,32 @@ data class TvmAppCryptoChksignuInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHKSIGNU"
     }
@@ -1158,7 +2195,39 @@ data class TvmAppCryptoEcrecoverInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "hash",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "v",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ECRECOVER"
     }
@@ -1176,7 +2245,24 @@ data class TvmAppCryptoHashcuInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHCU"
     }
@@ -1193,7 +2279,31 @@ data class TvmAppCryptoHashextBlake2bInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXT_BLAKE2B"
     }
@@ -1210,7 +2320,27 @@ data class TvmAppCryptoHashextKeccak256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXT_KECCAK256"
     }
@@ -1227,7 +2357,31 @@ data class TvmAppCryptoHashextKeccak512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXT_KECCAK512"
     }
@@ -1244,7 +2398,27 @@ data class TvmAppCryptoHashextSha256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXT_SHA256"
     }
@@ -1261,7 +2435,31 @@ data class TvmAppCryptoHashextSha512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXT_SHA512"
     }
@@ -1279,7 +2477,31 @@ data class TvmAppCryptoHashextaBlake2bInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTA_BLAKE2B"
     }
@@ -1297,7 +2519,31 @@ data class TvmAppCryptoHashextaKeccak256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTA_KECCAK256"
     }
@@ -1315,7 +2561,31 @@ data class TvmAppCryptoHashextaKeccak512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTA_KECCAK512"
     }
@@ -1333,7 +2603,31 @@ data class TvmAppCryptoHashextaSha256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTA_SHA256"
     }
@@ -1351,7 +2645,31 @@ data class TvmAppCryptoHashextaSha512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTA_SHA512"
     }
@@ -1369,7 +2687,31 @@ data class TvmAppCryptoHashextarBlake2bInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTAR_BLAKE2B"
     }
@@ -1387,7 +2729,31 @@ data class TvmAppCryptoHashextarKeccak256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTAR_KECCAK256"
     }
@@ -1405,7 +2771,31 @@ data class TvmAppCryptoHashextarKeccak512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTAR_KECCAK512"
     }
@@ -1423,7 +2813,31 @@ data class TvmAppCryptoHashextarSha256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTAR_SHA256"
     }
@@ -1441,7 +2855,31 @@ data class TvmAppCryptoHashextarSha512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTAR_SHA512"
     }
@@ -1458,7 +2896,31 @@ data class TvmAppCryptoHashextrBlake2bInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTR_BLAKE2B"
     }
@@ -1475,7 +2937,27 @@ data class TvmAppCryptoHashextrKeccak256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTR_KECCAK256"
     }
@@ -1492,7 +2974,31 @@ data class TvmAppCryptoHashextrKeccak512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTR_KECCAK512"
     }
@@ -1509,7 +3015,27 @@ data class TvmAppCryptoHashextrSha256Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTR_SHA256"
     }
@@ -1526,7 +3052,31 @@ data class TvmAppCryptoHashextrSha512Inst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHEXTR_SHA512"
     }
@@ -1545,7 +3095,24 @@ data class TvmAppCryptoHashsuInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "HASHSU"
     }
@@ -1565,7 +3132,32 @@ data class TvmAppCryptoP256ChksignsInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "d",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "sig",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "P256_CHKSIGNS"
     }
@@ -1585,7 +3177,32 @@ data class TvmAppCryptoP256ChksignuInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "d",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "sig",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "P256_CHKSIGNU"
     }
@@ -1602,7 +3219,28 @@ data class TvmAppCryptoRist255AddInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_ADD"
     }
@@ -1619,7 +3257,28 @@ data class TvmAppCryptoRist255FromhashInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "h1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "h2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_FROMHASH"
     }
@@ -1636,7 +3295,28 @@ data class TvmAppCryptoRist255MulInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2026)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_MUL"
     }
@@ -1653,7 +3333,24 @@ data class TvmAppCryptoRist255MulbaseInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 776)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_MULBASE"
     }
@@ -1670,7 +3367,19 @@ data class TvmAppCryptoRist255PushlInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_PUSHL"
     }
@@ -1687,7 +3396,31 @@ data class TvmAppCryptoRist255QaddInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_QADD"
     }
@@ -1705,7 +3438,31 @@ data class TvmAppCryptoRist255QmulInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2034)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_QMUL"
     }
@@ -1722,7 +3479,27 @@ data class TvmAppCryptoRist255QmulbaseInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_QMULBASE"
     }
@@ -1739,7 +3516,31 @@ data class TvmAppCryptoRist255QsubInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_QSUB"
     }
@@ -1757,7 +3558,24 @@ data class TvmAppCryptoRist255QvalidateInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 234)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_QVALIDATE"
     }
@@ -1774,7 +3592,28 @@ data class TvmAppCryptoRist255SubInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_SUB"
     }
@@ -1791,7 +3630,19 @@ data class TvmAppCryptoRist255ValidateInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 226)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RIST255_VALIDATE"
     }
@@ -1809,7 +3660,24 @@ data class TvmAppCryptoSha256uInst(
 ): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SHA256U"
     }
@@ -1830,7 +3698,28 @@ data class TvmAppCurrencyLdgramsInst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDGRAMS"
     }
@@ -1848,7 +3737,28 @@ data class TvmAppCurrencyLdvarint16Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDVARINT16"
     }
@@ -1866,7 +3776,28 @@ data class TvmAppCurrencyLdvarint32Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDVARINT32"
     }
@@ -1886,7 +3817,28 @@ data class TvmAppCurrencyLdvaruint32Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDVARUINT32"
     }
@@ -1907,7 +3859,28 @@ data class TvmAppCurrencyStgramsInst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STGRAMS"
     }
@@ -1924,7 +3897,28 @@ data class TvmAppCurrencyStvarint16Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STVARINT16"
     }
@@ -1941,7 +3935,28 @@ data class TvmAppCurrencyStvarint32Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STVARINT32"
     }
@@ -1962,7 +3977,28 @@ data class TvmAppCurrencyStvaruint32Inst(
 ): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STVARUINT32"
     }
@@ -1983,7 +4019,14 @@ data class TvmAppGasAcceptInst(
 ): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ACCEPT"
     }
@@ -2002,7 +4045,14 @@ data class TvmAppGasCommitInst(
 ): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "COMMIT"
     }
@@ -2019,7 +4069,19 @@ data class TvmAppGasGasconsumedInst(
 ): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "g_c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GASCONSUMED"
     }
@@ -2039,7 +4101,19 @@ data class TvmAppGasSetgaslimitInst(
 ): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "g",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETGASLIMIT"
     }
@@ -2058,7 +4132,19 @@ data class TvmAppGlobalGetglobInst(
 ): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETGLOB"
     }
@@ -2076,7 +4162,24 @@ data class TvmAppGlobalGetglobvarInst(
 ): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GETGLOBVAR"
     }
@@ -2095,7 +4198,19 @@ data class TvmAppGlobalSetglobInst(
 ): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETGLOB"
     }
@@ -2113,7 +4228,23 @@ data class TvmAppGlobalSetglobvarInst(
 ): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETGLOBVAR"
     }
@@ -2130,7 +4261,36 @@ data class TvmAppMiscCdatasizeInst(
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CDATASIZE"
     }
@@ -2153,7 +4313,31 @@ data class TvmAppMiscCdatasizeqInst(
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CDATASIZEQ"
     }
@@ -2170,7 +4354,36 @@ data class TvmAppMiscSdatasizeInst(
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDATASIZE"
     }
@@ -2189,7 +4402,31 @@ data class TvmAppMiscSdatasizeqInst(
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDATASIZEQ"
     }
@@ -2208,7 +4445,19 @@ data class TvmAppRndAddrandInst(
 ): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRAND"
     }
@@ -2228,7 +4477,24 @@ data class TvmAppRndRandInst(
 ): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RAND"
     }
@@ -2249,7 +4515,19 @@ data class TvmAppRndRandu256Inst(
 ): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RANDU256"
     }
@@ -2266,7 +4544,19 @@ data class TvmAppRndSetrandInst(
 ): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETRAND"
     }
@@ -2283,7 +4573,28 @@ data class TvmArithmBasicAddInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADD"
     }
@@ -2301,7 +4612,24 @@ data class TvmArithmBasicAddconstInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDCONST"
     }
@@ -2318,7 +4646,24 @@ data class TvmArithmBasicDecInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DEC"
     }
@@ -2335,7 +4680,24 @@ data class TvmArithmBasicIncInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INC"
     }
@@ -2352,7 +4714,28 @@ data class TvmArithmBasicMulInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MUL"
     }
@@ -2370,7 +4753,24 @@ data class TvmArithmBasicMulconstInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULCONST"
     }
@@ -2388,7 +4788,24 @@ data class TvmArithmBasicNegateInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NEGATE"
     }
@@ -2405,7 +4822,28 @@ data class TvmArithmBasicSubInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUB"
     }
@@ -2422,7 +4860,28 @@ data class TvmArithmBasicSubrInst(
 ): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBR"
     }
@@ -2439,7 +4898,36 @@ data class TvmArithmDivAdddivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDDIVMOD"
     }
@@ -2456,7 +4944,36 @@ data class TvmArithmDivAdddivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDDIVMODC"
     }
@@ -2473,7 +4990,36 @@ data class TvmArithmDivAdddivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDDIVMODR"
     }
@@ -2491,7 +5037,32 @@ data class TvmArithmDivAddrshiftcmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTCMOD"
     }
@@ -2509,7 +5080,32 @@ data class TvmArithmDivAddrshiftmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTMOD"
     }
@@ -2526,7 +5122,36 @@ data class TvmArithmDivAddrshiftmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTMOD_VAR"
     }
@@ -2543,7 +5168,36 @@ data class TvmArithmDivAddrshiftmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTMODC"
     }
@@ -2560,7 +5214,36 @@ data class TvmArithmDivAddrshiftmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTMODR"
     }
@@ -2578,7 +5261,32 @@ data class TvmArithmDivAddrshiftrmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ADDRSHIFTRMOD"
     }
@@ -2595,7 +5303,28 @@ data class TvmArithmDivDivInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIV"
     }
@@ -2612,7 +5341,28 @@ data class TvmArithmDivDivcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIVC"
     }
@@ -2629,7 +5379,32 @@ data class TvmArithmDivDivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIVMOD"
     }
@@ -2646,7 +5421,32 @@ data class TvmArithmDivDivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIVMODC"
     }
@@ -2663,7 +5463,32 @@ data class TvmArithmDivDivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIVMODR"
     }
@@ -2680,7 +5505,28 @@ data class TvmArithmDivDivrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DIVR"
     }
@@ -2698,7 +5544,32 @@ data class TvmArithmDivLshiftadddivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMOD"
     }
@@ -2715,7 +5586,36 @@ data class TvmArithmDivLshiftadddivmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMOD_VAR"
     }
@@ -2733,7 +5633,32 @@ data class TvmArithmDivLshiftadddivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODC"
     }
@@ -2750,7 +5675,36 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODC_VAR"
     }
@@ -2768,7 +5722,32 @@ data class TvmArithmDivLshiftadddivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODR"
     }
@@ -2785,7 +5764,36 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODR_VAR"
     }
@@ -2803,7 +5811,28 @@ data class TvmArithmDivLshiftdivInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIV"
     }
@@ -2820,7 +5849,32 @@ data class TvmArithmDivLshiftdivVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIV_VAR"
     }
@@ -2838,7 +5892,28 @@ data class TvmArithmDivLshiftdivcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVC"
     }
@@ -2855,7 +5930,32 @@ data class TvmArithmDivLshiftdivcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVC_VAR"
     }
@@ -2873,7 +5973,28 @@ data class TvmArithmDivLshiftdivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMOD"
     }
@@ -2890,7 +6011,32 @@ data class TvmArithmDivLshiftdivmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMOD_VAR"
     }
@@ -2908,7 +6054,28 @@ data class TvmArithmDivLshiftdivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODC"
     }
@@ -2925,7 +6092,32 @@ data class TvmArithmDivLshiftdivmodcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODC_VAR"
     }
@@ -2943,7 +6135,28 @@ data class TvmArithmDivLshiftdivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODR"
     }
@@ -2960,7 +6173,32 @@ data class TvmArithmDivLshiftdivmodrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODR_VAR"
     }
@@ -2978,7 +6216,28 @@ data class TvmArithmDivLshiftdivrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVR"
     }
@@ -2995,7 +6254,32 @@ data class TvmArithmDivLshiftdivrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTDIVR_VAR"
     }
@@ -3013,7 +6297,28 @@ data class TvmArithmDivLshiftmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMOD"
     }
@@ -3030,7 +6335,32 @@ data class TvmArithmDivLshiftmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMOD_VAR"
     }
@@ -3048,7 +6378,28 @@ data class TvmArithmDivLshiftmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMODC"
     }
@@ -3065,7 +6416,32 @@ data class TvmArithmDivLshiftmodcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMODC_VAR"
     }
@@ -3083,7 +6459,28 @@ data class TvmArithmDivLshiftmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMODR"
     }
@@ -3100,7 +6497,32 @@ data class TvmArithmDivLshiftmodrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFTMODR_VAR"
     }
@@ -3117,7 +6539,28 @@ data class TvmArithmDivModInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MOD"
     }
@@ -3134,7 +6577,28 @@ data class TvmArithmDivModcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODC"
     }
@@ -3152,7 +6616,24 @@ data class TvmArithmDivModpow2Inst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2"
     }
@@ -3169,7 +6650,28 @@ data class TvmArithmDivModpow2VarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2_VAR"
     }
@@ -3187,7 +6689,24 @@ data class TvmArithmDivModpow2cInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2C"
     }
@@ -3204,7 +6723,28 @@ data class TvmArithmDivModpow2cVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2C_VAR"
     }
@@ -3222,7 +6762,24 @@ data class TvmArithmDivModpow2rInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2R"
     }
@@ -3239,7 +6796,28 @@ data class TvmArithmDivModpow2rVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODPOW2R_VAR"
     }
@@ -3256,7 +6834,28 @@ data class TvmArithmDivModrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MODR"
     }
@@ -3273,7 +6872,40 @@ data class TvmArithmDivMuladddivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDDIVMOD"
     }
@@ -3290,7 +6922,40 @@ data class TvmArithmDivMuladddivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDDIVMODC"
     }
@@ -3307,7 +6972,40 @@ data class TvmArithmDivMuladddivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDDIVMODR"
     }
@@ -3325,7 +7023,32 @@ data class TvmArithmDivMuladdrshiftcmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDRSHIFTCMOD"
     }
@@ -3343,7 +7066,32 @@ data class TvmArithmDivMuladdrshiftmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDRSHIFTMOD"
     }
@@ -3361,7 +7109,32 @@ data class TvmArithmDivMuladdrshiftrmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULADDRSHIFTRMOD"
     }
@@ -3378,7 +7151,32 @@ data class TvmArithmDivMuldivInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIV"
     }
@@ -3395,7 +7193,32 @@ data class TvmArithmDivMuldivcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIVC"
     }
@@ -3412,7 +7235,36 @@ data class TvmArithmDivMuldivmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIVMOD"
     }
@@ -3429,7 +7281,36 @@ data class TvmArithmDivMuldivmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIVMODC"
     }
@@ -3446,7 +7327,36 @@ data class TvmArithmDivMuldivmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIVMODR"
     }
@@ -3463,7 +7373,32 @@ data class TvmArithmDivMuldivrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULDIVR"
     }
@@ -3480,7 +7415,32 @@ data class TvmArithmDivMulmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMOD"
     }
@@ -3497,7 +7457,32 @@ data class TvmArithmDivMulmodcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODC"
     }
@@ -3515,7 +7500,28 @@ data class TvmArithmDivMulmodpow2Inst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2"
     }
@@ -3532,7 +7538,32 @@ data class TvmArithmDivMulmodpow2VarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2_VAR"
     }
@@ -3550,7 +7581,28 @@ data class TvmArithmDivMulmodpow2cInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2C"
     }
@@ -3567,7 +7619,32 @@ data class TvmArithmDivMulmodpow2cVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2C_VAR"
     }
@@ -3585,7 +7662,28 @@ data class TvmArithmDivMulmodpow2rInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2R"
     }
@@ -3602,7 +7700,32 @@ data class TvmArithmDivMulmodpow2rVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODPOW2R_VAR"
     }
@@ -3619,7 +7742,32 @@ data class TvmArithmDivMulmodrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULMODR"
     }
@@ -3637,7 +7785,28 @@ data class TvmArithmDivMulrshiftInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFT"
     }
@@ -3654,7 +7823,32 @@ data class TvmArithmDivMulrshiftVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFT_VAR"
     }
@@ -3672,7 +7866,28 @@ data class TvmArithmDivMulrshiftcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTC"
     }
@@ -3689,7 +7904,32 @@ data class TvmArithmDivMulrshiftcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTC_VAR"
     }
@@ -3707,7 +7947,28 @@ data class TvmArithmDivMulrshiftcmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTCMOD"
     }
@@ -3724,7 +7985,32 @@ data class TvmArithmDivMulrshiftcmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTCMOD_VAR"
     }
@@ -3742,7 +8028,28 @@ data class TvmArithmDivMulrshiftmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTMOD"
     }
@@ -3759,7 +8066,32 @@ data class TvmArithmDivMulrshiftmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTMOD_VAR"
     }
@@ -3777,7 +8109,28 @@ data class TvmArithmDivMulrshiftrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTR"
     }
@@ -3794,7 +8147,32 @@ data class TvmArithmDivMulrshiftrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTR_VAR"
     }
@@ -3812,7 +8190,28 @@ data class TvmArithmDivMulrshiftrmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTRMOD"
     }
@@ -3829,7 +8228,32 @@ data class TvmArithmDivMulrshiftrmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MULRSHIFTRMOD_VAR"
     }
@@ -3847,7 +8271,24 @@ data class TvmArithmDivRshiftcInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTC"
     }
@@ -3864,7 +8305,28 @@ data class TvmArithmDivRshiftcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTC_VAR"
     }
@@ -3882,7 +8344,28 @@ data class TvmArithmDivRshiftcmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTCMOD"
     }
@@ -3900,7 +8383,28 @@ data class TvmArithmDivRshiftmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTMOD"
     }
@@ -3917,7 +8421,32 @@ data class TvmArithmDivRshiftmodVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTMOD_VAR"
     }
@@ -3934,7 +8463,32 @@ data class TvmArithmDivRshiftmodcVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTMODC_VAR"
     }
@@ -3951,7 +8505,32 @@ data class TvmArithmDivRshiftmodrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTMODR_VAR"
     }
@@ -3969,7 +8548,24 @@ data class TvmArithmDivRshiftrInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTR"
     }
@@ -3986,7 +8582,28 @@ data class TvmArithmDivRshiftrVarInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTR_VAR"
     }
@@ -4004,7 +8621,28 @@ data class TvmArithmDivRshiftrmodInst(
 ): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFTRMOD"
     }
@@ -4021,7 +8659,24 @@ data class TvmArithmLogicalAbsInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ABS"
     }
@@ -4038,7 +8693,28 @@ data class TvmArithmLogicalAndInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "AND"
     }
@@ -4056,7 +8732,24 @@ data class TvmArithmLogicalBitsizeInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BITSIZE"
     }
@@ -4076,7 +8769,24 @@ data class TvmArithmLogicalFitsInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "FITS"
     }
@@ -4093,7 +8803,28 @@ data class TvmArithmLogicalFitsxInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "FITSX"
     }
@@ -4111,7 +8842,24 @@ data class TvmArithmLogicalLshiftInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFT"
     }
@@ -4128,7 +8876,28 @@ data class TvmArithmLogicalLshiftVarInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LSHIFT_VAR"
     }
@@ -4145,7 +8914,28 @@ data class TvmArithmLogicalMaxInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MAX"
     }
@@ -4162,7 +8952,28 @@ data class TvmArithmLogicalMinInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MIN"
     }
@@ -4180,7 +8991,32 @@ data class TvmArithmLogicalMinmaxInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "r1",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "MINMAX"
     }
@@ -4197,7 +9033,24 @@ data class TvmArithmLogicalNotInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NOT"
     }
@@ -4214,7 +9067,28 @@ data class TvmArithmLogicalOrInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "OR"
     }
@@ -4232,7 +9106,24 @@ data class TvmArithmLogicalPow2Inst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POW2"
     }
@@ -4250,7 +9141,24 @@ data class TvmArithmLogicalRshiftInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFT"
     }
@@ -4267,7 +9175,28 @@ data class TvmArithmLogicalRshiftVarInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RSHIFT_VAR"
     }
@@ -4285,7 +9214,24 @@ data class TvmArithmLogicalUbitsizeInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UBITSIZE"
     }
@@ -4304,7 +9250,24 @@ data class TvmArithmLogicalUfitsInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UFITS"
     }
@@ -4321,7 +9284,28 @@ data class TvmArithmLogicalUfitsxInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UFITSX"
     }
@@ -4338,7 +9322,28 @@ data class TvmArithmLogicalXorInst(
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XOR"
     }
@@ -4355,7 +9360,28 @@ data class TvmArithmQuietQaddInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADD"
     }
@@ -4372,7 +9398,36 @@ data class TvmArithmQuietQadddivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDDIVMOD"
     }
@@ -4389,7 +9444,36 @@ data class TvmArithmQuietQadddivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDDIVMODC"
     }
@@ -4406,7 +9490,36 @@ data class TvmArithmQuietQadddivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDDIVMODR"
     }
@@ -4424,7 +9537,32 @@ data class TvmArithmQuietQaddrshiftcmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDRSHIFTCMOD"
     }
@@ -4442,7 +9580,32 @@ data class TvmArithmQuietQaddrshiftmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDRSHIFTMOD"
     }
@@ -4459,7 +9622,36 @@ data class TvmArithmQuietQaddrshiftmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDRSHIFTMODC"
     }
@@ -4476,7 +9668,36 @@ data class TvmArithmQuietQaddrshiftmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDRSHIFTMODR"
     }
@@ -4494,7 +9715,32 @@ data class TvmArithmQuietQaddrshiftrmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QADDRSHIFTRMOD"
     }
@@ -4511,7 +9757,28 @@ data class TvmArithmQuietQandInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QAND"
     }
@@ -4528,7 +9795,24 @@ data class TvmArithmQuietQdecInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDEC"
     }
@@ -4545,7 +9829,28 @@ data class TvmArithmQuietQdivInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIV"
     }
@@ -4562,7 +9867,28 @@ data class TvmArithmQuietQdivcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIVC"
     }
@@ -4579,7 +9905,32 @@ data class TvmArithmQuietQdivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIVMOD"
     }
@@ -4596,7 +9947,32 @@ data class TvmArithmQuietQdivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIVMODC"
     }
@@ -4613,7 +9989,32 @@ data class TvmArithmQuietQdivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIVMODR"
     }
@@ -4630,7 +10031,28 @@ data class TvmArithmQuietQdivrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QDIVR"
     }
@@ -4648,7 +10070,24 @@ data class TvmArithmQuietQfitsInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QFITS"
     }
@@ -4665,7 +10104,28 @@ data class TvmArithmQuietQfitsxInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QFITSX"
     }
@@ -4682,7 +10142,24 @@ data class TvmArithmQuietQincInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QINC"
     }
@@ -4700,7 +10177,24 @@ data class TvmArithmQuietQlshiftInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFT"
     }
@@ -4717,7 +10211,28 @@ data class TvmArithmQuietQlshiftVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFT_VAR"
     }
@@ -4735,7 +10250,32 @@ data class TvmArithmQuietQlshiftadddivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMOD"
     }
@@ -4752,7 +10292,36 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMOD_VAR"
     }
@@ -4770,7 +10339,32 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODC"
     }
@@ -4787,7 +10381,36 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODC_VAR"
     }
@@ -4805,7 +10428,32 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODR"
     }
@@ -4822,7 +10470,36 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODR_VAR"
     }
@@ -4840,7 +10517,28 @@ data class TvmArithmQuietQlshiftdivInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIV"
     }
@@ -4857,7 +10555,32 @@ data class TvmArithmQuietQlshiftdivVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIV_VAR"
     }
@@ -4875,7 +10598,28 @@ data class TvmArithmQuietQlshiftdivcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVC"
     }
@@ -4892,7 +10636,32 @@ data class TvmArithmQuietQlshiftdivcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVC_VAR"
     }
@@ -4910,7 +10679,28 @@ data class TvmArithmQuietQlshiftdivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMOD"
     }
@@ -4927,7 +10717,32 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMOD_VAR"
     }
@@ -4945,7 +10760,28 @@ data class TvmArithmQuietQlshiftdivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODC"
     }
@@ -4962,7 +10798,32 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODC_VAR"
     }
@@ -4980,7 +10841,28 @@ data class TvmArithmQuietQlshiftdivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODR"
     }
@@ -4997,7 +10879,32 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODR_VAR"
     }
@@ -5015,7 +10922,28 @@ data class TvmArithmQuietQlshiftdivrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVR"
     }
@@ -5032,7 +10960,32 @@ data class TvmArithmQuietQlshiftdivrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTDIVR_VAR"
     }
@@ -5050,7 +11003,28 @@ data class TvmArithmQuietQlshiftmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMOD"
     }
@@ -5067,7 +11041,32 @@ data class TvmArithmQuietQlshiftmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMOD_VAR"
     }
@@ -5085,7 +11084,28 @@ data class TvmArithmQuietQlshiftmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMODC"
     }
@@ -5102,7 +11122,32 @@ data class TvmArithmQuietQlshiftmodcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMODC_VAR"
     }
@@ -5120,7 +11165,28 @@ data class TvmArithmQuietQlshiftmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMODR"
     }
@@ -5137,7 +11203,32 @@ data class TvmArithmQuietQlshiftmodrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QLSHIFTMODR_VAR"
     }
@@ -5154,7 +11245,28 @@ data class TvmArithmQuietQmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMOD"
     }
@@ -5171,7 +11283,28 @@ data class TvmArithmQuietQmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODC"
     }
@@ -5189,7 +11322,24 @@ data class TvmArithmQuietQmodpow2Inst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2"
     }
@@ -5206,7 +11356,28 @@ data class TvmArithmQuietQmodpow2VarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2_VAR"
     }
@@ -5224,7 +11395,24 @@ data class TvmArithmQuietQmodpow2cInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2C"
     }
@@ -5241,7 +11429,28 @@ data class TvmArithmQuietQmodpow2cVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2C_VAR"
     }
@@ -5259,7 +11468,24 @@ data class TvmArithmQuietQmodpow2rInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2R"
     }
@@ -5276,7 +11502,28 @@ data class TvmArithmQuietQmodpow2rVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODPOW2R_VAR"
     }
@@ -5293,7 +11540,28 @@ data class TvmArithmQuietQmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMODR"
     }
@@ -5310,7 +11578,28 @@ data class TvmArithmQuietQmulInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMUL"
     }
@@ -5327,7 +11616,40 @@ data class TvmArithmQuietQmuladddivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDDIVMOD"
     }
@@ -5344,7 +11666,40 @@ data class TvmArithmQuietQmuladddivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDDIVMODC"
     }
@@ -5361,7 +11716,40 @@ data class TvmArithmQuietQmuladddivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDDIVMODR"
     }
@@ -5379,7 +11767,32 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTCMOD"
     }
@@ -5397,7 +11810,32 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTMOD"
     }
@@ -5415,7 +11853,32 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTRMOD"
     }
@@ -5432,7 +11895,32 @@ data class TvmArithmQuietQmuldivInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIV"
     }
@@ -5449,7 +11937,32 @@ data class TvmArithmQuietQmuldivcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIVC"
     }
@@ -5466,7 +11979,32 @@ data class TvmArithmQuietQmuldivmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIVMOD"
     }
@@ -5483,7 +12021,36 @@ data class TvmArithmQuietQmuldivmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIVMODC"
     }
@@ -5500,7 +12067,36 @@ data class TvmArithmQuietQmuldivmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIVMODR"
     }
@@ -5517,7 +12113,32 @@ data class TvmArithmQuietQmuldivrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULDIVR"
     }
@@ -5534,7 +12155,32 @@ data class TvmArithmQuietQmulmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMOD"
     }
@@ -5551,7 +12197,32 @@ data class TvmArithmQuietQmulmodcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODC"
     }
@@ -5569,7 +12240,28 @@ data class TvmArithmQuietQmulmodpow2Inst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2"
     }
@@ -5586,7 +12278,32 @@ data class TvmArithmQuietQmulmodpow2VarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2_VAR"
     }
@@ -5604,7 +12321,28 @@ data class TvmArithmQuietQmulmodpow2cInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2C"
     }
@@ -5621,7 +12359,32 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2C_VAR"
     }
@@ -5639,7 +12402,28 @@ data class TvmArithmQuietQmulmodpow2rInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2R"
     }
@@ -5656,7 +12440,32 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODPOW2R_VAR"
     }
@@ -5673,7 +12482,32 @@ data class TvmArithmQuietQmulmodrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULMODR"
     }
@@ -5691,7 +12525,28 @@ data class TvmArithmQuietQmulrshiftInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFT"
     }
@@ -5708,7 +12563,32 @@ data class TvmArithmQuietQmulrshiftVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFT_VAR"
     }
@@ -5726,7 +12606,28 @@ data class TvmArithmQuietQmulrshiftcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTC"
     }
@@ -5743,7 +12644,32 @@ data class TvmArithmQuietQmulrshiftcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTC_VAR"
     }
@@ -5760,7 +12686,28 @@ data class TvmArithmQuietQmulrshiftcmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTCMOD"
     }
@@ -5777,7 +12724,32 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTCMOD_VAR"
     }
@@ -5794,7 +12766,28 @@ data class TvmArithmQuietQmulrshiftmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTMOD"
     }
@@ -5811,7 +12804,32 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTMOD_VAR"
     }
@@ -5829,7 +12847,28 @@ data class TvmArithmQuietQmulrshiftrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTR"
     }
@@ -5846,7 +12885,32 @@ data class TvmArithmQuietQmulrshiftrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTR_VAR"
     }
@@ -5863,7 +12927,28 @@ data class TvmArithmQuietQmulrshiftrmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTRMOD"
     }
@@ -5880,7 +12965,32 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QMULRSHIFTRMOD_VAR"
     }
@@ -5897,7 +13007,24 @@ data class TvmArithmQuietQnegateInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QNEGATE"
     }
@@ -5914,7 +13041,24 @@ data class TvmArithmQuietQnotInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QNOT"
     }
@@ -5931,7 +13075,28 @@ data class TvmArithmQuietQorInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QOR"
     }
@@ -5948,7 +13113,24 @@ data class TvmArithmQuietQpow2Inst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QPOW2"
     }
@@ -5966,7 +13148,24 @@ data class TvmArithmQuietQrshiftInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFT"
     }
@@ -5983,7 +13182,28 @@ data class TvmArithmQuietQrshiftVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFT_VAR"
     }
@@ -6001,7 +13221,24 @@ data class TvmArithmQuietQrshiftcInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTC"
     }
@@ -6018,7 +13255,28 @@ data class TvmArithmQuietQrshiftcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTC_VAR"
     }
@@ -6036,7 +13294,28 @@ data class TvmArithmQuietQrshiftcmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTCMOD"
     }
@@ -6054,7 +13333,28 @@ data class TvmArithmQuietQrshiftmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTMOD"
     }
@@ -6071,7 +13371,32 @@ data class TvmArithmQuietQrshiftmodVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTMOD_VAR"
     }
@@ -6088,7 +13413,32 @@ data class TvmArithmQuietQrshiftmodcVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTMODC_VAR"
     }
@@ -6105,7 +13455,32 @@ data class TvmArithmQuietQrshiftmodrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTMODR_VAR"
     }
@@ -6123,7 +13498,24 @@ data class TvmArithmQuietQrshiftrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTR"
     }
@@ -6140,7 +13532,28 @@ data class TvmArithmQuietQrshiftrVarInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTR_VAR"
     }
@@ -6158,7 +13571,28 @@ data class TvmArithmQuietQrshiftrmodInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QRSHIFTRMOD"
     }
@@ -6175,7 +13609,28 @@ data class TvmArithmQuietQsubInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QSUB"
     }
@@ -6192,7 +13647,28 @@ data class TvmArithmQuietQsubrInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QSUBR"
     }
@@ -6210,7 +13686,24 @@ data class TvmArithmQuietQufitsInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QUFITS"
     }
@@ -6227,7 +13720,28 @@ data class TvmArithmQuietQufitsxInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QUFITSX"
     }
@@ -6244,7 +13758,28 @@ data class TvmArithmQuietQxorInst(
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QXOR"
     }
@@ -6261,7 +13796,28 @@ data class TvmCellBuildBbitrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BBITREFS"
     }
@@ -6278,7 +13834,24 @@ data class TvmCellBuildBbitsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BBITS"
     }
@@ -6295,7 +13868,27 @@ data class TvmCellBuildBchkbitrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITREFS"
     }
@@ -6312,7 +13905,32 @@ data class TvmCellBuildBchkbitrefsqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITREFSQ"
     }
@@ -6330,7 +13948,19 @@ data class TvmCellBuildBchkbitsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITS"
     }
@@ -6348,7 +13978,23 @@ data class TvmCellBuildBchkbitsVarInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITS_VAR"
     }
@@ -6366,7 +14012,24 @@ data class TvmCellBuildBchkbitsqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITSQ"
     }
@@ -6383,7 +14046,28 @@ data class TvmCellBuildBchkbitsqVarInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKBITSQ_VAR"
     }
@@ -6400,7 +14084,23 @@ data class TvmCellBuildBchkrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKREFS"
     }
@@ -6417,7 +14117,28 @@ data class TvmCellBuildBchkrefsqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BCHKREFSQ"
     }
@@ -6435,7 +14156,24 @@ data class TvmCellBuildBdepthInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BDEPTH"
     }
@@ -6452,7 +14190,24 @@ data class TvmCellBuildBrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BREFS"
     }
@@ -6469,7 +14224,28 @@ data class TvmCellBuildBrembitrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x2",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BREMBITREFS"
     }
@@ -6486,7 +14262,24 @@ data class TvmCellBuildBrembitsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BREMBITS"
     }
@@ -6503,7 +14296,24 @@ data class TvmCellBuildBremrefsInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "y2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BREMREFS"
     }
@@ -6520,7 +14330,24 @@ data class TvmCellBuildEndcInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ENDC"
     }
@@ -6540,7 +14367,28 @@ data class TvmCellBuildEndxcInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ENDXC"
     }
@@ -6557,7 +14405,19 @@ data class TvmCellBuildNewcInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NEWC"
     }
@@ -6574,7 +14434,28 @@ data class TvmCellBuildStbInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b3",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STB"
     }
@@ -6591,7 +14472,31 @@ data class TvmCellBuildStbqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBQ"
     }
@@ -6609,7 +14514,28 @@ data class TvmCellBuildStbrInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b3",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBR"
     }
@@ -6626,7 +14552,28 @@ data class TvmCellBuildStbrefInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "child",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBREF"
     }
@@ -6643,7 +14590,31 @@ data class TvmCellBuildStbrefqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBREFQ"
     }
@@ -6660,7 +14631,28 @@ data class TvmCellBuildStbrefrAltInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b3",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBREFR_ALT"
     }
@@ -6677,7 +14669,28 @@ data class TvmCellBuildStbrefrInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "child",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBREFR"
     }
@@ -6694,7 +14707,31 @@ data class TvmCellBuildStbrefrqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBREFRQ"
     }
@@ -6711,7 +14748,31 @@ data class TvmCellBuildStbrqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STBRQ"
     }
@@ -6729,7 +14790,28 @@ data class TvmCellBuildStiAltInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STI_ALT"
     }
@@ -6748,7 +14830,28 @@ data class TvmCellBuildStiInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STI"
     }
@@ -6765,7 +14868,28 @@ data class TvmCellBuildStile4Inst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STILE4"
     }
@@ -6782,7 +14906,28 @@ data class TvmCellBuildStile8Inst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STILE8"
     }
@@ -6800,7 +14945,31 @@ data class TvmCellBuildStiqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIQ"
     }
@@ -6818,7 +14987,28 @@ data class TvmCellBuildStirInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIR"
     }
@@ -6836,7 +15026,31 @@ data class TvmCellBuildStirqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIRQ"
     }
@@ -6853,7 +15067,32 @@ data class TvmCellBuildStixInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIX"
     }
@@ -6873,7 +15112,35 @@ data class TvmCellBuildStixqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIXQ"
     }
@@ -6890,7 +15157,32 @@ data class TvmCellBuildStixrInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIXR"
     }
@@ -6907,7 +15199,35 @@ data class TvmCellBuildStixrqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STIXRQ"
     }
@@ -6924,7 +15244,28 @@ data class TvmCellBuildStonesInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STONES"
     }
@@ -6943,7 +15284,24 @@ data class TvmCellBuildStref2constInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREF2CONST"
     }
@@ -6960,7 +15318,28 @@ data class TvmCellBuildStrefAltInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREF_ALT"
     }
@@ -6977,7 +15356,28 @@ data class TvmCellBuildStrefInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREF"
     }
@@ -6995,7 +15395,24 @@ data class TvmCellBuildStrefconstInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREFCONST"
     }
@@ -7012,7 +15429,31 @@ data class TvmCellBuildStrefqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREFQ"
     }
@@ -7029,7 +15470,28 @@ data class TvmCellBuildStrefrInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREFR"
     }
@@ -7046,7 +15508,31 @@ data class TvmCellBuildStrefrqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STREFRQ"
     }
@@ -7063,7 +15549,32 @@ data class TvmCellBuildStsameInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSAME"
     }
@@ -7080,7 +15591,28 @@ data class TvmCellBuildStsliceAltInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICE_ALT"
     }
@@ -7097,7 +15629,28 @@ data class TvmCellBuildStsliceInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICE"
     }
@@ -7119,7 +15672,24 @@ data class TvmCellBuildStsliceconstInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 24)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICECONST"
     }
@@ -7136,7 +15706,31 @@ data class TvmCellBuildStsliceqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICEQ"
     }
@@ -7153,7 +15747,28 @@ data class TvmCellBuildStslicerInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICER"
     }
@@ -7170,7 +15785,31 @@ data class TvmCellBuildStslicerqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STSLICERQ"
     }
@@ -7188,7 +15827,28 @@ data class TvmCellBuildStuAltInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STU_ALT"
     }
@@ -7207,7 +15867,28 @@ data class TvmCellBuildStuInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STU"
     }
@@ -7224,7 +15905,28 @@ data class TvmCellBuildStule4Inst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STULE4"
     }
@@ -7241,7 +15943,28 @@ data class TvmCellBuildStule8Inst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STULE8"
     }
@@ -7259,7 +15982,31 @@ data class TvmCellBuildStuqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUQ"
     }
@@ -7277,7 +16024,28 @@ data class TvmCellBuildSturInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUR"
     }
@@ -7295,7 +16063,31 @@ data class TvmCellBuildSturqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STURQ"
     }
@@ -7312,7 +16104,32 @@ data class TvmCellBuildStuxInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUX"
     }
@@ -7329,7 +16146,35 @@ data class TvmCellBuildStuxqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUXQ"
     }
@@ -7346,7 +16191,32 @@ data class TvmCellBuildStuxrInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUXR"
     }
@@ -7363,7 +16233,35 @@ data class TvmCellBuildStuxrqInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STUXRQ"
     }
@@ -7380,7 +16278,28 @@ data class TvmCellBuildStzeroesInst(
 ): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STZEROES"
     }
@@ -7399,7 +16318,24 @@ data class TvmCellParseCdepthInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CDEPTH"
     }
@@ -7417,7 +16353,24 @@ data class TvmCellParseCdepthiInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "depth",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CDEPTHI"
     }
@@ -7434,7 +16387,28 @@ data class TvmCellParseCdepthixInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "depth",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CDEPTHIX"
     }
@@ -7452,7 +16426,24 @@ data class TvmCellParseChashiInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "hash",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHASHI"
     }
@@ -7469,7 +16460,28 @@ data class TvmCellParseChashixInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "hash",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHASHIX"
     }
@@ -7486,7 +16498,24 @@ data class TvmCellParseClevelInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "level",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CLEVEL"
     }
@@ -7503,7 +16532,24 @@ data class TvmCellParseClevelmaskInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "cell",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "level_mask",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CLEVELMASK"
     }
@@ -7522,7 +16568,24 @@ data class TvmCellParseCtosInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CTOS"
     }
@@ -7539,7 +16602,19 @@ data class TvmCellParseEndsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ENDS"
     }
@@ -7557,7 +16632,28 @@ data class TvmCellParseLdiAltInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDI_ALT"
     }
@@ -7576,7 +16672,28 @@ data class TvmCellParseLdiInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDI"
     }
@@ -7593,7 +16710,28 @@ data class TvmCellParseLdile4Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDILE4"
     }
@@ -7610,7 +16748,27 @@ data class TvmCellParseLdile4qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDILE4Q"
     }
@@ -7627,7 +16785,28 @@ data class TvmCellParseLdile8Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDILE8"
     }
@@ -7644,7 +16823,27 @@ data class TvmCellParseLdile8qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDILE8Q"
     }
@@ -7662,7 +16861,27 @@ data class TvmCellParseLdiqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDIQ"
     }
@@ -7680,7 +16899,32 @@ data class TvmCellParseLdixInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDIX"
     }
@@ -7699,7 +16943,31 @@ data class TvmCellParseLdixqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDIXQ"
     }
@@ -7716,7 +16984,28 @@ data class TvmCellParseLdonesInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDONES"
     }
@@ -7733,7 +17022,28 @@ data class TvmCellParseLdrefInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDREF"
     }
@@ -7750,7 +17060,28 @@ data class TvmCellParseLdrefrtosInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDREFRTOS"
     }
@@ -7768,7 +17099,32 @@ data class TvmCellParseLdsameInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSAME"
     }
@@ -7786,7 +17142,28 @@ data class TvmCellParseLdsliceAltInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSLICE_ALT"
     }
@@ -7804,7 +17181,28 @@ data class TvmCellParseLdsliceInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSLICE"
     }
@@ -7822,7 +17220,27 @@ data class TvmCellParseLdsliceqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSLICEQ"
     }
@@ -7840,7 +17258,32 @@ data class TvmCellParseLdslicexInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSLICEX"
     }
@@ -7857,7 +17300,31 @@ data class TvmCellParseLdslicexqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDSLICEXQ"
     }
@@ -7875,7 +17342,28 @@ data class TvmCellParseLduAltInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDU_ALT"
     }
@@ -7893,7 +17381,28 @@ data class TvmCellParseLduInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDU"
     }
@@ -7910,7 +17419,28 @@ data class TvmCellParseLdule4Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDULE4"
     }
@@ -7927,7 +17457,27 @@ data class TvmCellParseLdule4qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDULE4Q"
     }
@@ -7944,7 +17494,28 @@ data class TvmCellParseLdule8Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDULE8"
     }
@@ -7961,7 +17532,27 @@ data class TvmCellParseLdule8qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDULE8Q"
     }
@@ -7979,7 +17570,27 @@ data class TvmCellParseLduqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDUQ"
     }
@@ -7996,7 +17607,32 @@ data class TvmCellParseLduxInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDUX"
     }
@@ -8013,7 +17649,31 @@ data class TvmCellParseLduxqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDUXQ"
     }
@@ -8030,7 +17690,28 @@ data class TvmCellParseLdzeroesInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDZEROES"
     }
@@ -8048,7 +17729,24 @@ data class TvmCellParsePldiInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDI"
     }
@@ -8065,7 +17763,24 @@ data class TvmCellParsePldile4Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDILE4"
     }
@@ -8082,7 +17797,27 @@ data class TvmCellParsePldile4qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDILE4Q"
     }
@@ -8099,7 +17834,24 @@ data class TvmCellParsePldile8Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDILE8"
     }
@@ -8116,7 +17868,27 @@ data class TvmCellParsePldile8qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDILE8Q"
     }
@@ -8134,7 +17906,27 @@ data class TvmCellParsePldiqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDIQ"
     }
@@ -8151,7 +17943,28 @@ data class TvmCellParsePldixInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDIX"
     }
@@ -8168,7 +17981,31 @@ data class TvmCellParsePldixqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDIXQ"
     }
@@ -8186,7 +18023,24 @@ data class TvmCellParsePldrefidxInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDREFIDX"
     }
@@ -8203,7 +18057,28 @@ data class TvmCellParsePldrefvarInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDREFVAR"
     }
@@ -8221,7 +18096,24 @@ data class TvmCellParsePldsliceInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDSLICE"
     }
@@ -8239,7 +18131,27 @@ data class TvmCellParsePldsliceqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDSLICEQ"
     }
@@ -8256,7 +18168,28 @@ data class TvmCellParsePldslicexInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDSLICEX"
     }
@@ -8273,7 +18206,31 @@ data class TvmCellParsePldslicexqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDSLICEXQ"
     }
@@ -8291,7 +18248,24 @@ data class TvmCellParsePlduInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDU"
     }
@@ -8308,7 +18282,24 @@ data class TvmCellParsePldule4Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDULE4"
     }
@@ -8325,7 +18316,27 @@ data class TvmCellParsePldule4qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDULE4Q"
     }
@@ -8342,7 +18353,24 @@ data class TvmCellParsePldule8Inst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDULE8"
     }
@@ -8359,7 +18387,27 @@ data class TvmCellParsePldule8qInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDULE8Q"
     }
@@ -8377,7 +18425,27 @@ data class TvmCellParsePlduqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDUQ"
     }
@@ -8394,7 +18462,28 @@ data class TvmCellParsePlduxInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDUX"
     }
@@ -8411,7 +18500,31 @@ data class TvmCellParsePlduxqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDUXQ"
     }
@@ -8431,7 +18544,28 @@ data class TvmCellParsePlduzInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDUZ"
     }
@@ -8448,7 +18582,28 @@ data class TvmCellParseSbitrefsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SBITREFS"
     }
@@ -8465,7 +18620,24 @@ data class TvmCellParseSbitsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SBITS"
     }
@@ -8482,7 +18654,27 @@ data class TvmCellParseSchkbitrefsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKBITREFS"
     }
@@ -8499,7 +18691,32 @@ data class TvmCellParseSchkbitrefsqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKBITREFSQ"
     }
@@ -8517,7 +18734,23 @@ data class TvmCellParseSchkbitsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKBITS"
     }
@@ -8534,7 +18767,28 @@ data class TvmCellParseSchkbitsqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKBITSQ"
     }
@@ -8551,7 +18805,23 @@ data class TvmCellParseSchkrefsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKREFS"
     }
@@ -8568,7 +18838,28 @@ data class TvmCellParseSchkrefsqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCHKREFSQ"
     }
@@ -8585,7 +18876,32 @@ data class TvmCellParseScutfirstInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCUTFIRST"
     }
@@ -8602,7 +18918,32 @@ data class TvmCellParseScutlastInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SCUTLAST"
     }
@@ -8621,7 +18962,24 @@ data class TvmCellParseSdbeginsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDBEGINS"
     }
@@ -8639,7 +18997,27 @@ data class TvmCellParseSdbeginsqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDBEGINSQ"
     }
@@ -8658,7 +19036,28 @@ data class TvmCellParseSdbeginsxInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDBEGINSX"
     }
@@ -8675,7 +19074,31 @@ data class TvmCellParseSdbeginsxqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDBEGINSXQ"
     }
@@ -8692,7 +19115,28 @@ data class TvmCellParseSdcutfirstInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCUTFIRST"
     }
@@ -8709,7 +19153,28 @@ data class TvmCellParseSdcutlastInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCUTLAST"
     }
@@ -8727,7 +19192,24 @@ data class TvmCellParseSdepthInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDEPTH"
     }
@@ -8744,7 +19226,28 @@ data class TvmCellParseSdskipfirstInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDSKIPFIRST"
     }
@@ -8761,7 +19264,28 @@ data class TvmCellParseSdskiplastInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDSKIPLAST"
     }
@@ -8779,7 +19303,32 @@ data class TvmCellParseSdsubstrInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDSUBSTR"
     }
@@ -8797,7 +19346,36 @@ data class TvmCellParseSplitInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SPLIT"
     }
@@ -8814,7 +19392,35 @@ data class TvmCellParseSplitqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SPLITQ"
     }
@@ -8831,7 +19437,24 @@ data class TvmCellParseSrefsInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SREFS"
     }
@@ -8848,7 +19471,32 @@ data class TvmCellParseSskipfirstInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SSKIPFIRST"
     }
@@ -8865,7 +19513,32 @@ data class TvmCellParseSskiplastInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SSKIPLAST"
     }
@@ -8883,7 +19556,40 @@ data class TvmCellParseSubsliceInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l2",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r2",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBSLICE"
     }
@@ -8902,7 +19608,28 @@ data class TvmCellParseXctosInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "flag",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCTOS"
     }
@@ -8920,7 +19647,24 @@ data class TvmCellParseXloadInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XLOAD"
     }
@@ -8938,7 +19682,27 @@ data class TvmCellParseXloadqInst(
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XLOADQ"
     }
@@ -8957,7 +19721,14 @@ data class TvmCodepageSetcpInst(
 ): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCP"
     }
@@ -8978,7 +19749,14 @@ data class TvmCodepageSetcpSpecialInst(
 ): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCP_SPECIAL"
     }
@@ -8995,7 +19773,19 @@ data class TvmCodepageSetcpxInst(
 ): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCPX"
     }
@@ -9012,7 +19802,24 @@ data class TvmCompareIntChknanInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHKNAN"
     }
@@ -9031,7 +19838,28 @@ data class TvmCompareIntCmpInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CMP"
     }
@@ -9050,7 +19878,24 @@ data class TvmCompareIntEqintInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "EQINT"
     }
@@ -9067,7 +19912,28 @@ data class TvmCompareIntEqualInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "EQUAL"
     }
@@ -9084,7 +19950,28 @@ data class TvmCompareIntGeqInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GEQ"
     }
@@ -9101,7 +19988,28 @@ data class TvmCompareIntGreaterInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GREATER"
     }
@@ -9120,7 +20028,24 @@ data class TvmCompareIntGtintInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "GTINT"
     }
@@ -9137,7 +20062,24 @@ data class TvmCompareIntIsnanInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ISNAN"
     }
@@ -9154,7 +20096,28 @@ data class TvmCompareIntLeqInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LEQ"
     }
@@ -9171,7 +20134,28 @@ data class TvmCompareIntLessInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LESS"
     }
@@ -9190,7 +20174,24 @@ data class TvmCompareIntLessintInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LESSINT"
     }
@@ -9207,7 +20208,28 @@ data class TvmCompareIntNeqInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NEQ"
     }
@@ -9226,7 +20248,24 @@ data class TvmCompareIntNeqintInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NEQINT"
     }
@@ -9244,7 +20283,24 @@ data class TvmCompareIntSgnInst(
 ): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SGN"
     }
@@ -9261,7 +20317,24 @@ data class TvmCompareOtherSdcntlead0Inst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCNTLEAD0"
     }
@@ -9278,7 +20351,24 @@ data class TvmCompareOtherSdcntlead1Inst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCNTLEAD1"
     }
@@ -9295,7 +20385,24 @@ data class TvmCompareOtherSdcnttrail0Inst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCNTTRAIL0"
     }
@@ -9312,7 +20419,24 @@ data class TvmCompareOtherSdcnttrail1Inst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDCNTTRAIL1"
     }
@@ -9329,7 +20453,24 @@ data class TvmCompareOtherSdemptyInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDEMPTY"
     }
@@ -9346,7 +20487,28 @@ data class TvmCompareOtherSdeqInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDEQ"
     }
@@ -9363,7 +20525,24 @@ data class TvmCompareOtherSdfirstInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDFIRST"
     }
@@ -9381,7 +20560,28 @@ data class TvmCompareOtherSdlexcmpInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDLEXCMP"
     }
@@ -9398,7 +20598,28 @@ data class TvmCompareOtherSdpfxInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPFX"
     }
@@ -9415,7 +20636,28 @@ data class TvmCompareOtherSdpfxrevInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPFXREV"
     }
@@ -9432,7 +20674,28 @@ data class TvmCompareOtherSdppfxInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPPFX"
     }
@@ -9449,7 +20712,23 @@ data class TvmCompareOtherSdppfxrevInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPPFXREV"
     }
@@ -9466,7 +20745,28 @@ data class TvmCompareOtherSdpsfxInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPSFX"
     }
@@ -9483,7 +20783,28 @@ data class TvmCompareOtherSdpsfxrevInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDPSFXREV"
     }
@@ -9500,7 +20821,28 @@ data class TvmCompareOtherSdsfxInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDSFX"
     }
@@ -9517,7 +20859,28 @@ data class TvmCompareOtherSdsfxrevInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SDSFXREV"
     }
@@ -9534,7 +20897,24 @@ data class TvmCompareOtherSemptyInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SEMPTY"
     }
@@ -9551,7 +20931,24 @@ data class TvmCompareOtherSremptyInst(
 ): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SREMPTY"
     }
@@ -9571,7 +20968,19 @@ data class TvmConstDataPushcontInst(
 ): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHCONT"
     }
@@ -9590,7 +20999,19 @@ data class TvmConstDataPushcontShortInst(
 ): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHCONT_SHORT"
     }
@@ -9610,7 +21031,19 @@ data class TvmConstDataPushrefInst(
 ): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Cell")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHREF"
     }
@@ -9628,7 +21061,19 @@ data class TvmConstDataPushrefcontInst(
 ): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHREFCONT"
     }
@@ -9646,7 +21091,19 @@ data class TvmConstDataPushrefsliceInst(
 ): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHREFSLICE"
     }
@@ -9669,7 +21126,19 @@ data class TvmConstDataPushsliceInst(
 ): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 22)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHSLICE"
     }
@@ -9690,7 +21159,19 @@ data class TvmConstDataPushsliceLongInst(
 ): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 28)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHSLICE_LONG"
     }
@@ -9711,7 +21192,19 @@ data class TvmConstDataPushsliceRefsInst(
 ): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 25)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHSLICE_REFS"
     }
@@ -9729,7 +21222,19 @@ data class TvmConstIntPushint16Inst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHINT_16"
     }
@@ -9748,7 +21253,19 @@ data class TvmConstIntPushint4Inst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHINT_4"
     }
@@ -9766,7 +21283,19 @@ data class TvmConstIntPushint8Inst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHINT_8"
     }
@@ -9786,7 +21315,19 @@ data class TvmConstIntPushintLongInst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 23)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHINT_LONG"
     }
@@ -9803,7 +21344,19 @@ data class TvmConstIntPushnanInst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmConstStackEntryDescription(
+                value = null,
+                valueType = "Integer"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHNAN"
     }
@@ -9821,7 +21374,19 @@ data class TvmConstIntPushnegpow2Inst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHNEGPOW2"
     }
@@ -9840,7 +21405,19 @@ data class TvmConstIntPushpow2Inst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHPOW2"
     }
@@ -9858,7 +21435,19 @@ data class TvmConstIntPushpow2decInst(
 ): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHPOW2DEC"
     }
@@ -9875,7 +21464,26 @@ data class TvmContBasicBranchInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            ),
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "BRANCH"
     }
@@ -9893,7 +21501,24 @@ data class TvmContBasicCallccInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLCC"
     }
@@ -9914,7 +21539,27 @@ data class TvmContBasicCallccargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLCCARGS"
     }
@@ -9931,7 +21576,35 @@ data class TvmContBasicCallccvarargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "p",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLCCVARARGS"
     }
@@ -9949,7 +21622,29 @@ data class TvmContBasicCallrefInst(
 ): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLREF"
     }
@@ -9969,7 +21664,37 @@ data class TvmContBasicCallxargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLXARGS"
     }
@@ -9988,7 +21713,37 @@ data class TvmContBasicCallxargsVarInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLXARGS_VAR"
     }
@@ -10006,7 +21761,45 @@ data class TvmContBasicCallxvarargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "p",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLXVARARGS"
     }
@@ -10023,7 +21816,34 @@ data class TvmContBasicExecuteInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "EXECUTE"
     }
@@ -10041,7 +21861,19 @@ data class TvmContBasicJmprefInst(
 ): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPREF"
     }
@@ -10059,7 +21891,19 @@ data class TvmContBasicJmprefdataInst(
 ): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPREFDATA"
     }
@@ -10077,7 +21921,24 @@ data class TvmContBasicJmpxInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPX"
     }
@@ -10096,7 +21957,27 @@ data class TvmContBasicJmpxargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPXARGS"
     }
@@ -10114,7 +21995,24 @@ data class TvmContBasicJmpxdataInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPXDATA"
     }
@@ -10131,7 +22029,35 @@ data class TvmContBasicJmpxvarargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "p",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPXVARARGS"
     }
@@ -10149,7 +22075,18 @@ data class TvmContBasicRetInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "RET"
     }
@@ -10167,7 +22104,18 @@ data class TvmContBasicRetaltInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "RETALT"
     }
@@ -10185,7 +22133,22 @@ data class TvmContBasicRetargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "RETARGS"
     }
@@ -10203,7 +22166,18 @@ data class TvmContBasicRetdataInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "RETDATA"
     }
@@ -10220,7 +22194,41 @@ data class TvmContBasicRetvarargsInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "p",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "RETVARARGS"
     }
@@ -10239,7 +22247,14 @@ data class TvmContBasicRunvmInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RUNVM"
     }
@@ -10257,7 +22272,14 @@ data class TvmContBasicRunvmxInst(
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RUNVMX"
     }
@@ -10276,7 +22298,32 @@ data class TvmContConditionalCondselInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CONDSEL"
     }
@@ -10293,7 +22340,32 @@ data class TvmContConditionalCondselchkInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CONDSELCHK"
     }
@@ -10311,7 +22383,38 @@ data class TvmContConditionalIfInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IF"
     }
@@ -10330,7 +22433,33 @@ data class TvmContConditionalIfbitjmpInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFBITJMP"
     }
@@ -10349,7 +22478,29 @@ data class TvmContConditionalIfbitjmprefInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFBITJMPREF"
     }
@@ -10367,7 +22518,56 @@ data class TvmContConditionalIfelseInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            ),
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFELSE"
     }
@@ -10385,7 +22585,52 @@ data class TvmContConditionalIfelserefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            ),
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFELSEREF"
     }
@@ -10402,7 +22647,28 @@ data class TvmContConditionalIfjmpInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFJMP"
     }
@@ -10420,7 +22686,24 @@ data class TvmContConditionalIfjmprefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFJMPREF"
     }
@@ -10438,7 +22721,33 @@ data class TvmContConditionalIfnbitjmpInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFNBITJMP"
     }
@@ -10457,7 +22766,29 @@ data class TvmContConditionalIfnbitjmprefInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFNBITJMPREF"
     }
@@ -10474,7 +22805,38 @@ data class TvmContConditionalIfnotInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOT"
     }
@@ -10491,7 +22853,28 @@ data class TvmContConditionalIfnotjmpInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOTJMP"
     }
@@ -10509,7 +22892,24 @@ data class TvmContConditionalIfnotjmprefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOTJMPREF"
     }
@@ -10527,7 +22927,34 @@ data class TvmContConditionalIfnotrefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOTREF"
     }
@@ -10544,7 +22971,23 @@ data class TvmContConditionalIfnotretInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOTRET"
     }
@@ -10561,7 +23004,23 @@ data class TvmContConditionalIfnotretaltInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFNOTRETALT"
     }
@@ -10583,7 +23042,34 @@ data class TvmContConditionalIfrefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFREF"
     }
@@ -10603,7 +23089,52 @@ data class TvmContConditionalIfrefelseInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            ),
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFREFELSE"
     }
@@ -10622,7 +23153,48 @@ data class TvmContConditionalIfrefelserefInst(
 ): TvmRealInst, TvmContConditionalInst, TvmContOperand2Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c1",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            ),
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "IFREFELSEREF"
     }
@@ -10640,7 +23212,23 @@ data class TvmContConditionalIfretInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFRET"
     }
@@ -10657,7 +23245,23 @@ data class TvmContConditionalIfretaltInst(
 ): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "IFRETALT"
     }
@@ -10675,7 +23279,24 @@ data class TvmContCreateBlessInst(
 ): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLESS"
     }
@@ -10696,7 +23317,27 @@ data class TvmContCreateBlessargsInst(
 ): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLESSARGS"
     }
@@ -10713,7 +23354,35 @@ data class TvmContCreateBlessvarargsInst(
 ): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLESSVARARGS"
     }
@@ -10732,7 +23401,33 @@ data class TvmContDictCalldictInst(
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLDICT"
     }
@@ -10750,7 +23445,33 @@ data class TvmContDictCalldictLongInst(
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "CALLDICT_LONG"
     }
@@ -10769,7 +23490,23 @@ data class TvmContDictJmpdictInst(
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "register",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "JMPDICT"
     }
@@ -10790,7 +23527,23 @@ data class TvmContDictPreparedictInst(
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PREPAREDICT"
     }
@@ -10808,7 +23561,23 @@ data class TvmContLoopsAgainInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "AGAIN"
     }
@@ -10825,7 +23594,19 @@ data class TvmContLoopsAgainbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "AGAINBRK"
     }
@@ -10842,7 +23623,18 @@ data class TvmContLoopsAgainendInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "AGAINEND"
     }
@@ -10859,7 +23651,14 @@ data class TvmContLoopsAgainendbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "AGAINENDBRK"
     }
@@ -10880,7 +23679,27 @@ data class TvmContLoopsRepeatInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REPEAT"
     }
@@ -10899,7 +23718,27 @@ data class TvmContLoopsRepeatbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REPEATBRK"
     }
@@ -10916,7 +23755,23 @@ data class TvmContLoopsRepeatendInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REPEATEND"
     }
@@ -10934,7 +23789,23 @@ data class TvmContLoopsRepeatendbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "special",
+            )
+        )
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REPEATENDBRK"
     }
@@ -10956,7 +23827,29 @@ data class TvmContLoopsUntilInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "UNTIL"
     }
@@ -10973,7 +23866,40 @@ data class TvmContLoopsUntilbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    ),
+                    "c1" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            ),
+                            "c1" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "UNTILBRK"
     }
@@ -10991,7 +23917,23 @@ data class TvmContLoopsUntilendInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "cc",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "UNTILEND"
     }
@@ -11008,7 +23950,26 @@ data class TvmContLoopsUntilendbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "cc",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    ),
+                    "c1" to TvmControlFlowContinuation(
+                        type = "register",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "UNTILENDBRK"
     }
@@ -11027,7 +23988,33 @@ data class TvmContLoopsWhileInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "WHILE"
     }
@@ -11044,7 +24031,33 @@ data class TvmContLoopsWhilebrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "WHILEBRK"
     }
@@ -11061,7 +24074,29 @@ data class TvmContLoopsWhileendInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c2",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "WHILEEND"
     }
@@ -11078,7 +24113,19 @@ data class TvmContLoopsWhileendbrkInst(
 ): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "WHILEENDBRK"
     }
@@ -11096,7 +24143,19 @@ data class TvmContRegistersAtexitInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ATEXIT"
     }
@@ -11114,7 +24173,19 @@ data class TvmContRegistersAtexitaltInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ATEXITALT"
     }
@@ -11133,7 +24204,37 @@ data class TvmContRegistersBoolevalInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "special",
+                    ),
+                    "c1" to TvmControlFlowContinuation(
+                        type = "special",
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "BOOLEVAL"
     }
@@ -11152,7 +24253,28 @@ data class TvmContRegistersComposInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c3",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "COMPOS"
     }
@@ -11170,7 +24292,28 @@ data class TvmContRegistersComposaltInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c3",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "COMPOSALT"
     }
@@ -11188,7 +24331,28 @@ data class TvmContRegistersComposbothInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c3",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "COMPOSBOTH"
     }
@@ -11205,7 +24369,14 @@ data class TvmContRegistersInvertInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INVERT"
     }
@@ -11225,7 +24396,19 @@ data class TvmContRegistersPopctrInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POPCTR"
     }
@@ -11242,7 +24425,23 @@ data class TvmContRegistersPopctrxInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POPCTRX"
     }
@@ -11261,7 +24460,19 @@ data class TvmContRegistersPopsaveInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POPSAVE"
     }
@@ -11280,7 +24491,19 @@ data class TvmContRegistersPushctrInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHCTR"
     }
@@ -11300,7 +24523,24 @@ data class TvmContRegistersPushctrxInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSHCTRX"
     }
@@ -11317,7 +24557,14 @@ data class TvmContRegistersSamealtInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SAMEALT"
     }
@@ -11335,7 +24582,14 @@ data class TvmContRegistersSamealtsaveInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SAMEALTSAVE"
     }
@@ -11355,7 +24609,14 @@ data class TvmContRegistersSaveInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SAVE"
     }
@@ -11373,7 +24634,14 @@ data class TvmContRegistersSavealtInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SAVEALT"
     }
@@ -11391,7 +24659,14 @@ data class TvmContRegistersSavebothInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SAVEBOTH"
     }
@@ -11409,7 +24684,19 @@ data class TvmContRegistersSetaltctrInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETALTCTR"
     }
@@ -11429,7 +24716,28 @@ data class TvmContRegistersSetcontctrInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCONTCTR"
     }
@@ -11446,7 +24754,32 @@ data class TvmContRegistersSetcontctrxInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCONTCTRX"
     }
@@ -11465,7 +24798,19 @@ data class TvmContRegistersSetexitaltInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETEXITALT"
     }
@@ -11483,7 +24828,19 @@ data class TvmContRegistersSetretctrInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETRETCTR"
     }
@@ -11500,7 +24857,24 @@ data class TvmContRegistersThenretInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THENRET"
     }
@@ -11517,7 +24891,24 @@ data class TvmContRegistersThenretaltInst(
 ): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THENRETALT"
     }
@@ -11537,7 +24928,14 @@ data class TvmContStackReturnargsInst(
 ): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RETURNARGS"
     }
@@ -11554,7 +24952,14 @@ data class TvmContStackReturnvarargsInst(
 ): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "RETURNVARARGS"
     }
@@ -11576,7 +24981,27 @@ data class TvmContStackSetcontargsNInst(
 ): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCONTARGS_N"
     }
@@ -11593,7 +25018,35 @@ data class TvmContStackSetcontvarargsInst(
 ): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETCONTVARARGS"
     }
@@ -11612,7 +25065,28 @@ data class TvmContStackSetnumvarargsInst(
 ): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETNUMVARARGS"
     }
@@ -11631,7 +25105,14 @@ data class TvmDebugDebugInst(
 ): TvmRealInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DEBUG"
     }
@@ -11653,7 +25134,14 @@ data class TvmDebugDebugstrInst(
 ): TvmRealInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DEBUGSTR"
     }
@@ -11672,7 +25160,35 @@ data class TvmDictDeleteDictdelInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTDEL"
     }
@@ -11691,7 +25207,35 @@ data class TvmDictDeleteDictdelgetInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTDELGET"
     }
@@ -11709,7 +25253,35 @@ data class TvmDictDeleteDictdelgetrefInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTDELGETREF"
     }
@@ -11727,7 +25299,35 @@ data class TvmDictDeleteDictidelInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIDEL"
     }
@@ -11744,7 +25344,35 @@ data class TvmDictDeleteDictidelgetInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIDELGET"
     }
@@ -11761,7 +25389,35 @@ data class TvmDictDeleteDictidelgetrefInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIDELGETREF"
     }
@@ -11778,7 +25434,35 @@ data class TvmDictDeleteDictudelInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUDEL"
     }
@@ -11795,7 +25479,35 @@ data class TvmDictDeleteDictudelgetInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUDELGET"
     }
@@ -11812,7 +25524,35 @@ data class TvmDictDeleteDictudelgetrefInst(
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUDELGETREF"
     }
@@ -11831,7 +25571,35 @@ data class TvmDictGetDictgetInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGET"
     }
@@ -11849,7 +25617,35 @@ data class TvmDictGetDictgetrefInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETREF"
     }
@@ -11867,7 +25663,35 @@ data class TvmDictGetDictigetInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGET"
     }
@@ -11885,7 +25709,35 @@ data class TvmDictGetDictigetrefInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETREF"
     }
@@ -11902,7 +25754,35 @@ data class TvmDictGetDictugetInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGET"
     }
@@ -11919,7 +25799,35 @@ data class TvmDictGetDictugetrefInst(
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETREF"
     }
@@ -11937,7 +25845,32 @@ data class TvmDictMayberefDictgetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETOPTREF"
     }
@@ -11955,7 +25888,32 @@ data class TvmDictMayberefDictigetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETOPTREF"
     }
@@ -11973,7 +25931,40 @@ data class TvmDictMayberefDictisetgetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETGETOPTREF"
     }
@@ -11992,7 +25983,40 @@ data class TvmDictMayberefDictsetgetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETGETOPTREF"
     }
@@ -12010,7 +26034,32 @@ data class TvmDictMayberefDictugetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETOPTREF"
     }
@@ -12027,7 +26076,40 @@ data class TvmDictMayberefDictusetgetoptrefInst(
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Cell", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETGETOPTREF"
     }
@@ -12046,7 +26128,31 @@ data class TvmDictMinDictimaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIMAX"
     }
@@ -12063,7 +26169,31 @@ data class TvmDictMinDictimaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIMAXREF"
     }
@@ -12082,7 +26212,31 @@ data class TvmDictMinDictiminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIMIN"
     }
@@ -12099,7 +26253,31 @@ data class TvmDictMinDictiminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIMINREF"
     }
@@ -12118,7 +26296,31 @@ data class TvmDictMinDictiremmaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREMMAX"
     }
@@ -12135,7 +26337,31 @@ data class TvmDictMinDictiremmaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREMMAXREF"
     }
@@ -12154,7 +26380,31 @@ data class TvmDictMinDictiremminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREMMIN"
     }
@@ -12171,7 +26421,31 @@ data class TvmDictMinDictiremminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREMMINREF"
     }
@@ -12189,7 +26463,31 @@ data class TvmDictMinDictmaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTMAX"
     }
@@ -12206,7 +26504,31 @@ data class TvmDictMinDictmaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTMAXREF"
     }
@@ -12224,7 +26546,31 @@ data class TvmDictMinDictminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTMIN"
     }
@@ -12241,7 +26587,31 @@ data class TvmDictMinDictminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTMINREF"
     }
@@ -12260,7 +26630,31 @@ data class TvmDictMinDictremmaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREMMAX"
     }
@@ -12277,7 +26671,31 @@ data class TvmDictMinDictremmaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREMMAXREF"
     }
@@ -12296,7 +26714,31 @@ data class TvmDictMinDictremminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREMMIN"
     }
@@ -12313,7 +26755,31 @@ data class TvmDictMinDictremminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREMMINREF"
     }
@@ -12330,7 +26796,31 @@ data class TvmDictMinDictumaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUMAX"
     }
@@ -12347,7 +26837,31 @@ data class TvmDictMinDictumaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUMAXREF"
     }
@@ -12364,7 +26878,31 @@ data class TvmDictMinDictuminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUMIN"
     }
@@ -12381,7 +26919,31 @@ data class TvmDictMinDictuminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUMINREF"
     }
@@ -12398,7 +26960,31 @@ data class TvmDictMinDicturemmaxInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREMMAX"
     }
@@ -12415,7 +27001,31 @@ data class TvmDictMinDicturemmaxrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREMMAXREF"
     }
@@ -12432,7 +27042,31 @@ data class TvmDictMinDicturemminInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREMMIN"
     }
@@ -12449,7 +27083,31 @@ data class TvmDictMinDicturemminrefInst(
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREMMINREF"
     }
@@ -12468,7 +27126,35 @@ data class TvmDictNextDictgetnextInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETNEXT"
     }
@@ -12486,7 +27172,35 @@ data class TvmDictNextDictgetnexteqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETNEXTEQ"
     }
@@ -12503,7 +27217,35 @@ data class TvmDictNextDictgetprevInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETPREV"
     }
@@ -12521,7 +27263,35 @@ data class TvmDictNextDictgetpreveqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTGETPREVEQ"
     }
@@ -12540,7 +27310,35 @@ data class TvmDictNextDictigetnextInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETNEXT"
     }
@@ -12557,7 +27355,35 @@ data class TvmDictNextDictigetnexteqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETNEXTEQ"
     }
@@ -12574,7 +27400,35 @@ data class TvmDictNextDictigetprevInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETPREV"
     }
@@ -12591,7 +27445,35 @@ data class TvmDictNextDictigetpreveqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIGETPREVEQ"
     }
@@ -12610,7 +27492,35 @@ data class TvmDictNextDictugetnextInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETNEXT"
     }
@@ -12627,7 +27537,35 @@ data class TvmDictNextDictugetnexteqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETNEXTEQ"
     }
@@ -12644,7 +27582,35 @@ data class TvmDictNextDictugetprevInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETPREV"
     }
@@ -12661,7 +27627,35 @@ data class TvmDictNextDictugetpreveqInst(
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUGETPREVEQ"
     }
@@ -12678,7 +27672,39 @@ data class TvmDictPrefixPfxdictaddInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTADD"
     }
@@ -12697,7 +27723,19 @@ data class TvmDictPrefixPfxdictconstgetjmpInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "PFXDICTCONSTGETJMP"
     }
@@ -12714,7 +27752,35 @@ data class TvmDictPrefixPfxdictdelInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTDEL"
     }
@@ -12731,7 +27797,40 @@ data class TvmDictPrefixPfxdictgetInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTGET"
     }
@@ -12749,7 +27848,51 @@ data class TvmDictPrefixPfxdictgetexecInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "PFXDICTGETEXEC"
     }
@@ -12767,7 +27910,19 @@ data class TvmDictPrefixPfxdictgetjmpInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "PFXDICTGETJMP"
     }
@@ -12788,7 +27943,35 @@ data class TvmDictPrefixPfxdictgetqInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTGETQ"
     }
@@ -12805,7 +27988,39 @@ data class TvmDictPrefixPfxdictreplaceInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTREPLACE"
     }
@@ -12822,7 +28037,39 @@ data class TvmDictPrefixPfxdictsetInst(
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PFXDICTSET"
     }
@@ -12840,7 +28087,28 @@ data class TvmDictSerialLddictInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDDICT"
     }
@@ -12857,7 +28125,27 @@ data class TvmDictSerialLddictqInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDDICTQ"
     }
@@ -12876,7 +28164,28 @@ data class TvmDictSerialLddictsInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s3",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LDDICTS"
     }
@@ -12894,7 +28203,24 @@ data class TvmDictSerialPlddictInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDDICT"
     }
@@ -12911,7 +28237,27 @@ data class TvmDictSerialPlddictqInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDDICTQ"
     }
@@ -12929,7 +28275,24 @@ data class TvmDictSerialPlddictsInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PLDDICTS"
     }
@@ -12946,7 +28309,24 @@ data class TvmDictSerialSkipdictInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SKIPDICT"
     }
@@ -12965,7 +28345,28 @@ data class TvmDictSerialStdictInst(
 ): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Cell", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf("Builder")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "STDICT"
     }
@@ -12982,7 +28383,39 @@ data class TvmDictSetBuilderDictaddbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADDB"
     }
@@ -12999,7 +28432,39 @@ data class TvmDictSetBuilderDictaddgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADDGETB"
     }
@@ -13016,7 +28481,39 @@ data class TvmDictSetBuilderDictiaddbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADDB"
     }
@@ -13033,7 +28530,39 @@ data class TvmDictSetBuilderDictiaddgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADDGETB"
     }
@@ -13050,7 +28579,39 @@ data class TvmDictSetBuilderDictireplacebInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACEB"
     }
@@ -13067,7 +28628,39 @@ data class TvmDictSetBuilderDictireplacegetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACEGETB"
     }
@@ -13084,7 +28677,36 @@ data class TvmDictSetBuilderDictisetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETB"
     }
@@ -13101,7 +28723,39 @@ data class TvmDictSetBuilderDictisetgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETGETB"
     }
@@ -13118,7 +28772,39 @@ data class TvmDictSetBuilderDictreplacebInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACEB"
     }
@@ -13135,7 +28821,39 @@ data class TvmDictSetBuilderDictreplacegetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACEGETB"
     }
@@ -13152,7 +28870,36 @@ data class TvmDictSetBuilderDictsetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETB"
     }
@@ -13169,7 +28916,39 @@ data class TvmDictSetBuilderDictsetgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETGETB"
     }
@@ -13186,7 +28965,39 @@ data class TvmDictSetBuilderDictuaddbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADDB"
     }
@@ -13203,7 +29014,39 @@ data class TvmDictSetBuilderDictuaddgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADDGETB"
     }
@@ -13220,7 +29063,39 @@ data class TvmDictSetBuilderDictureplacebInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACEB"
     }
@@ -13237,7 +29112,39 @@ data class TvmDictSetBuilderDictureplacegetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACEGETB"
     }
@@ -13254,7 +29161,36 @@ data class TvmDictSetBuilderDictusetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETB"
     }
@@ -13271,7 +29207,39 @@ data class TvmDictSetBuilderDictusetgetbInst(
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf("Builder")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETGETB"
     }
@@ -13289,7 +29257,39 @@ data class TvmDictSetDictaddInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADD"
     }
@@ -13308,7 +29308,39 @@ data class TvmDictSetDictaddgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADDGET"
     }
@@ -13325,7 +29357,39 @@ data class TvmDictSetDictaddgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADDGETREF"
     }
@@ -13342,7 +29406,39 @@ data class TvmDictSetDictaddrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTADDREF"
     }
@@ -13359,7 +29455,39 @@ data class TvmDictSetDictiaddInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADD"
     }
@@ -13376,7 +29504,39 @@ data class TvmDictSetDictiaddgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADDGET"
     }
@@ -13393,7 +29553,39 @@ data class TvmDictSetDictiaddgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADDGETREF"
     }
@@ -13410,7 +29602,39 @@ data class TvmDictSetDictiaddrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIADDREF"
     }
@@ -13427,7 +29651,39 @@ data class TvmDictSetDictireplaceInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACE"
     }
@@ -13444,7 +29700,39 @@ data class TvmDictSetDictireplacegetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACEGET"
     }
@@ -13461,7 +29749,39 @@ data class TvmDictSetDictireplacegetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACEGETREF"
     }
@@ -13478,7 +29798,39 @@ data class TvmDictSetDictireplacerefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTIREPLACEREF"
     }
@@ -13496,7 +29848,36 @@ data class TvmDictSetDictisetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISET"
     }
@@ -13513,7 +29894,39 @@ data class TvmDictSetDictisetgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETGET"
     }
@@ -13530,7 +29943,39 @@ data class TvmDictSetDictisetgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETGETREF"
     }
@@ -13547,7 +29992,36 @@ data class TvmDictSetDictisetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTISETREF"
     }
@@ -13565,7 +30039,39 @@ data class TvmDictSetDictreplaceInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACE"
     }
@@ -13583,7 +30089,39 @@ data class TvmDictSetDictreplacegetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACEGET"
     }
@@ -13600,7 +30138,39 @@ data class TvmDictSetDictreplacegetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACEGETREF"
     }
@@ -13617,7 +30187,39 @@ data class TvmDictSetDictreplacerefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTREPLACEREF"
     }
@@ -13636,7 +30238,36 @@ data class TvmDictSetDictsetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSET"
     }
@@ -13654,7 +30285,39 @@ data class TvmDictSetDictsetgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETGET"
     }
@@ -13671,7 +30334,39 @@ data class TvmDictSetDictsetgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETGETREF"
     }
@@ -13688,7 +30383,36 @@ data class TvmDictSetDictsetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTSETREF"
     }
@@ -13705,7 +30429,39 @@ data class TvmDictSetDictuaddInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADD"
     }
@@ -13722,7 +30478,39 @@ data class TvmDictSetDictuaddgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADDGET"
     }
@@ -13739,7 +30527,39 @@ data class TvmDictSetDictuaddgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADDGETREF"
     }
@@ -13756,7 +30576,39 @@ data class TvmDictSetDictuaddrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUADDREF"
     }
@@ -13773,7 +30625,39 @@ data class TvmDictSetDictureplaceInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACE"
     }
@@ -13790,7 +30674,39 @@ data class TvmDictSetDictureplacegetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACEGET"
     }
@@ -13807,7 +30723,39 @@ data class TvmDictSetDictureplacegetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACEGETREF"
     }
@@ -13824,7 +30772,39 @@ data class TvmDictSetDictureplacerefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUREPLACEREF"
     }
@@ -13841,7 +30821,36 @@ data class TvmDictSetDictusetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSET"
     }
@@ -13858,7 +30867,39 @@ data class TvmDictSetDictusetgetInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETGET"
     }
@@ -13875,7 +30916,39 @@ data class TvmDictSetDictusetgetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETGETREF"
     }
@@ -13892,7 +30965,36 @@ data class TvmDictSetDictusetrefInst(
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Cell")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTUSETREF"
     }
@@ -13909,7 +31011,42 @@ data class TvmDictSpecialDictigetexecInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTIGETEXEC"
     }
@@ -13926,7 +31063,29 @@ data class TvmDictSpecialDictigetexeczInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTIGETEXECZ"
     }
@@ -13944,7 +31103,32 @@ data class TvmDictSpecialDictigetjmpInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTIGETJMP"
     }
@@ -13961,7 +31145,37 @@ data class TvmDictSpecialDictigetjmpzInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTIGETJMPZ"
     }
@@ -13985,7 +31199,23 @@ data class TvmDictSpecialDictpushconstInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DICTPUSHCONST"
     }
@@ -14002,7 +31232,42 @@ data class TvmDictSpecialDictugetexecInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTUGETEXEC"
     }
@@ -14019,7 +31284,29 @@ data class TvmDictSpecialDictugetexeczInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTUGETEXECZ"
     }
@@ -14036,7 +31323,32 @@ data class TvmDictSpecialDictugetjmpInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTUGETJMP"
     }
@@ -14053,7 +31365,19 @@ data class TvmDictSpecialDictugetjmpzInst(
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "x",
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "DICTUGETJMPZ"
     }
@@ -14073,7 +31397,36 @@ data class TvmDictSubSubdictgetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTGET"
     }
@@ -14091,7 +31444,36 @@ data class TvmDictSubSubdictigetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTIGET"
     }
@@ -14109,7 +31491,36 @@ data class TvmDictSubSubdictirpgetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTIRPGET"
     }
@@ -14127,7 +31538,36 @@ data class TvmDictSubSubdictrpgetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Slice")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTRPGET"
     }
@@ -14145,7 +31585,36 @@ data class TvmDictSubSubdictugetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTUGET"
     }
@@ -14163,7 +31632,36 @@ data class TvmDictSubSubdicturpgetInst(
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "l",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf("Slice", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "D2",
+                valueTypes = listOf("Slice", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SUBDICTURPGET"
     }
@@ -14181,7 +31679,14 @@ data class TvmExceptionsThrowInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "THROW"
     }
@@ -14201,7 +31706,14 @@ data class TvmExceptionsThrowShortInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "THROW_SHORT"
     }
@@ -14219,7 +31731,19 @@ data class TvmExceptionsThrowanyInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "THROWANY"
     }
@@ -14236,7 +31760,23 @@ data class TvmExceptionsThrowanyifInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWANYIF"
     }
@@ -14253,7 +31793,23 @@ data class TvmExceptionsThrowanyifnotInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWANYIFNOT"
     }
@@ -14272,7 +31828,19 @@ data class TvmExceptionsThrowargInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "THROWARG"
     }
@@ -14291,7 +31859,23 @@ data class TvmExceptionsThrowarganyInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "THROWARGANY"
     }
@@ -14308,7 +31892,27 @@ data class TvmExceptionsThrowarganyifInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWARGANYIF"
     }
@@ -14325,7 +31929,27 @@ data class TvmExceptionsThrowarganyifnotInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWARGANYIFNOT"
     }
@@ -14343,7 +31967,23 @@ data class TvmExceptionsThrowargifInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWARGIF"
     }
@@ -14361,7 +32001,23 @@ data class TvmExceptionsThrowargifnotInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWARGIFNOT"
     }
@@ -14379,7 +32035,19 @@ data class TvmExceptionsThrowifInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWIF"
     }
@@ -14397,7 +32065,19 @@ data class TvmExceptionsThrowifShortInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWIF_SHORT"
     }
@@ -14415,7 +32095,19 @@ data class TvmExceptionsThrowifnotInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWIFNOT"
     }
@@ -14433,7 +32125,19 @@ data class TvmExceptionsThrowifnotShortInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "f",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "THROWIFNOT_SHORT"
     }
@@ -14455,7 +32159,67 @@ data class TvmExceptionsTryInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            ),
+                            "c1" to TvmControlFlowContinuation(
+                                type = "register",
+                            ),
+                            "c2" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    ),
+                    "c2" to TvmControlFlowContinuation(
+                        type = "variable",
+                        variableName = "c2",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "cc",
+                                save = mapOf(
+                                    "c0" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    ),
+                                    "c1" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    ),
+                                    "c2" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    )
+                                )
+                            ),
+                            "c2" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "TRY"
     }
@@ -14477,7 +32241,70 @@ data class TvmExceptionsTryargsInst(
 ): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf("Continuation")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf("Continuation")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = listOf(
+            TvmControlFlowContinuation(
+                type = "variable",
+                variableName = "c",
+                save = mapOf(
+                    "c0" to TvmControlFlowContinuation(
+                        type = "cc",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "register",
+                            ),
+                            "c1" to TvmControlFlowContinuation(
+                                type = "register",
+                            ),
+                            "c2" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    ),
+                    "c2" to TvmControlFlowContinuation(
+                        type = "variable",
+                        variableName = "c2",
+                        save = mapOf(
+                            "c0" to TvmControlFlowContinuation(
+                                type = "cc",
+                                save = mapOf(
+                                    "c0" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    ),
+                                    "c1" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    ),
+                                    "c2" to TvmControlFlowContinuation(
+                                        type = "register",
+                                    )
+                                )
+                            ),
+                            "c2" to TvmControlFlowContinuation(
+                                type = "register",
+                            )
+                        )
+                    )
+                )
+            )
+        )
+    override val noBranch: Boolean get() = false
+    
     companion object {
         const val MNEMONIC = "TRYARGS"
     }
@@ -14494,7 +32321,14 @@ data class TvmStackBasicNopInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NOP"
     }
@@ -14512,7 +32346,14 @@ data class TvmStackBasicPopInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POP"
     }
@@ -14530,7 +32371,14 @@ data class TvmStackBasicPushInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSH"
     }
@@ -14548,7 +32396,14 @@ data class TvmStackBasicXchg0iInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG_0I"
     }
@@ -14566,7 +32421,14 @@ data class TvmStackBasicXchg0iLongInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG_0I_LONG"
     }
@@ -14584,7 +32446,14 @@ data class TvmStackBasicXchg1iInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG_1I"
     }
@@ -14603,7 +32472,14 @@ data class TvmStackBasicXchgIjInst(
 ): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG_IJ"
     }
@@ -14624,7 +32500,14 @@ data class TvmStackComplexBlkdrop2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLKDROP2"
     }
@@ -14642,7 +32525,14 @@ data class TvmStackComplexBlkdropInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLKDROP"
     }
@@ -14662,7 +32552,14 @@ data class TvmStackComplexBlkpushInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLKPUSH"
     }
@@ -14683,7 +32580,14 @@ data class TvmStackComplexBlkswapInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLKSWAP"
     }
@@ -14700,7 +32604,14 @@ data class TvmStackComplexBlkswxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "BLKSWX"
     }
@@ -14718,7 +32629,19 @@ data class TvmStackComplexChkdepthInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/58")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "CHKDEPTH"
     }
@@ -14735,7 +32658,19 @@ data class TvmStackComplexDepthInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "depth",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DEPTH"
     }
@@ -14752,7 +32687,14 @@ data class TvmStackComplexDrop2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DROP2"
     }
@@ -14769,7 +32711,14 @@ data class TvmStackComplexDropxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DROPX"
     }
@@ -14786,7 +32735,14 @@ data class TvmStackComplexDup2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "DUP2"
     }
@@ -14803,7 +32759,14 @@ data class TvmStackComplexMinusrollxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "-ROLLX"
     }
@@ -14820,7 +32783,14 @@ data class TvmStackComplexOnlytopxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ONLYTOPX"
     }
@@ -14838,7 +32808,14 @@ data class TvmStackComplexOnlyxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ONLYX"
     }
@@ -14855,7 +32832,14 @@ data class TvmStackComplexOver2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "OVER2"
     }
@@ -14872,7 +32856,14 @@ data class TvmStackComplexPickInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PICK"
     }
@@ -14891,7 +32882,14 @@ data class TvmStackComplexPopLongInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "POP_LONG"
     }
@@ -14911,7 +32909,14 @@ data class TvmStackComplexPu2xcInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PU2XC"
     }
@@ -14930,7 +32935,14 @@ data class TvmStackComplexPush2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSH2"
     }
@@ -14950,7 +32962,14 @@ data class TvmStackComplexPush3Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSH3"
     }
@@ -14969,7 +32988,14 @@ data class TvmStackComplexPushLongInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUSH_LONG"
     }
@@ -14989,7 +33015,14 @@ data class TvmStackComplexPuxc2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUXC2"
     }
@@ -15008,7 +33041,14 @@ data class TvmStackComplexPuxcInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUXC"
     }
@@ -15028,7 +33068,14 @@ data class TvmStackComplexPuxcpuInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "PUXCPU"
     }
@@ -15047,7 +33094,14 @@ data class TvmStackComplexReverseInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REVERSE"
     }
@@ -15064,7 +33118,14 @@ data class TvmStackComplexRevxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "REVX"
     }
@@ -15081,7 +33142,14 @@ data class TvmStackComplexRollxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ROLLX"
     }
@@ -15098,7 +33166,14 @@ data class TvmStackComplexRotInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ROT"
     }
@@ -15115,7 +33190,14 @@ data class TvmStackComplexRotrevInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ROTREV"
     }
@@ -15132,7 +33214,14 @@ data class TvmStackComplexSwap2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SWAP2"
     }
@@ -15149,7 +33238,14 @@ data class TvmStackComplexTuckInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TUCK"
     }
@@ -15169,7 +33265,14 @@ data class TvmStackComplexXc2puInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XC2PU"
     }
@@ -15188,7 +33291,14 @@ data class TvmStackComplexXchg2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG2"
     }
@@ -15208,7 +33318,14 @@ data class TvmStackComplexXchg3AltInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG3_ALT"
     }
@@ -15228,7 +33345,14 @@ data class TvmStackComplexXchg3Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHG3"
     }
@@ -15245,7 +33369,14 @@ data class TvmStackComplexXchgxInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCHGX"
     }
@@ -15265,7 +33396,14 @@ data class TvmStackComplexXcpu2Inst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCPU2"
     }
@@ -15284,7 +33422,14 @@ data class TvmStackComplexXcpuInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCPU"
     }
@@ -15304,7 +33449,14 @@ data class TvmStackComplexXcpuxcInst(
 ): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-
+    override val stackInputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription>? 
+        get() = null
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "XCPUXC"
     }
@@ -15323,7 +33475,27 @@ data class TvmTupleExplodeInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "m",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "EXPLODE"
     }
@@ -15340,7 +33512,31 @@ data class TvmTupleExplodevarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "m",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "EXPLODEVAR"
     }
@@ -15360,7 +33556,24 @@ data class TvmTupleIndex2Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEX2"
     }
@@ -15382,7 +33595,24 @@ data class TvmTupleIndex3Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEX3"
     }
@@ -15401,7 +33631,24 @@ data class TvmTupleIndexInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEX"
     }
@@ -15420,7 +33667,24 @@ data class TvmTupleIndexqInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple", "Null")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEXQ"
     }
@@ -15437,7 +33701,28 @@ data class TvmTupleIndexvarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEXVAR"
     }
@@ -15454,7 +33739,28 @@ data class TvmTupleIndexvarqInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "INDEXVARQ"
     }
@@ -15471,7 +33777,24 @@ data class TvmTupleIsnullInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer", "Null")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "result",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ISNULL"
     }
@@ -15488,7 +33811,24 @@ data class TvmTupleIstupleInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "ISTUPLE"
     }
@@ -15505,7 +33845,24 @@ data class TvmTupleLastInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "LAST"
     }
@@ -15522,7 +33879,19 @@ data class TvmTupleNullInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmConstStackEntryDescription(
+                value = null,
+                valueType = "Null"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULL"
     }
@@ -15541,7 +33910,35 @@ data class TvmTupleNullrotrif2Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLROTRIF2"
     }
@@ -15559,7 +33956,35 @@ data class TvmTupleNullrotrifInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLROTRIF"
     }
@@ -15578,7 +34003,35 @@ data class TvmTupleNullrotrifnot2Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLROTRIFNOT2"
     }
@@ -15596,7 +34049,35 @@ data class TvmTupleNullrotrifnotInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLROTRIFNOT"
     }
@@ -15614,7 +34095,27 @@ data class TvmTupleNullswapif2Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLSWAPIF2"
     }
@@ -15631,7 +34132,27 @@ data class TvmTupleNullswapifInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLSWAPIF"
     }
@@ -15649,7 +34170,27 @@ data class TvmTupleNullswapifnot2Inst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLSWAPIFNOT2"
     }
@@ -15667,7 +34208,27 @@ data class TvmTupleNullswapifnotInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "conditional"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "NULLSWAPIFNOT"
     }
@@ -15684,7 +34245,24 @@ data class TvmTupleQtlenInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "QTLEN"
     }
@@ -15704,7 +34282,28 @@ data class TvmTupleSetindexInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETINDEX"
     }
@@ -15727,7 +34326,28 @@ data class TvmTupleSetindexqInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETINDEXQ"
     }
@@ -15744,7 +34364,32 @@ data class TvmTupleSetindexvarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETINDEXVAR"
     }
@@ -15761,7 +34406,32 @@ data class TvmTupleSetindexvarqInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple", "Null")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "k",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple", "Null")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "SETINDEXVARQ"
     }
@@ -15778,7 +34448,24 @@ data class TvmTupleTlenInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TLEN"
     }
@@ -15796,7 +34483,28 @@ data class TvmTupleTpopInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TPOP"
     }
@@ -15814,7 +34522,28 @@ data class TvmTupleTpushInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t2",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TPUSH"
     }
@@ -15833,7 +34562,23 @@ data class TvmTupleTupleInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TUPLE"
     }
@@ -15851,7 +34596,27 @@ data class TvmTupleTuplevarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "TUPLEVAR"
     }
@@ -15870,7 +34635,23 @@ data class TvmTupleUnpackfirstInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+k")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UNPACKFIRST"
     }
@@ -15887,7 +34668,27 @@ data class TvmTupleUnpackfirstvarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UNPACKFIRSTVAR"
     }
@@ -15906,7 +34707,23 @@ data class TvmTupleUntupleInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UNTUPLE"
     }
@@ -15923,7 +34740,27 @@ data class TvmTupleUntuplevarInst(
 ): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf("Tuple")
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "n",
+                valueTypes = listOf("Integer")
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = "array"
+            )
+        )
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+    override val noBranch: Boolean get() = true
+    
     companion object {
         const val MNEMONIC = "UNTUPLEVAR"
     }

@@ -41,10 +41,11 @@ tvm-disasm-cli/build/libs/tvm-disasm-cli.jar
 
 ### Using the CLI Tool
 
-TON Disassembler CLI can be used in two modes:
+TON Disassembler CLI can be used in three modes:
 
 1. Disassembling compiled smart contract code into a JSON format containing internal instructions used by [TSA](https://github.com/espritoxyz/tsa).
 2. Generating a human-readable list of TVM instructions with arguments in a format similar to [TVM Retracer](https://retracer.ton.org).
+3. Generating three-address code with inputs and outputs for every TVM instruction.
 
 The CLI tool accepts compiled smart contract code either as a [BoC](https://docs.ton.org/v3/documentation/data-formats/tlb/cell-boc) file or as an on-chain address.
 
@@ -137,6 +138,40 @@ PUSHINT_4 i=1
 AND
 ...
 ```
+
+#### Three-address code representation
+
+In this mode, all stack instructions (except DEPTH, CHKDEPTH, ONLYTOPX and ONLYX) are processed and removed from code representation.
+
+You can see the result of printing TAC using the following command
+```bash
+java -jar tvm-disasm-cli.jar tac --address EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g > output.txt
+```
+It will produce an `output.txt` file with the following content:
+```
+Main method:
+  function(arg0: Integer) {
+  SETCP(n=0)
+  D_0, n_1 = DICTPUSHCONST(d=[Cell], n=19)
+  i_2 = DICTIGETJMPZ(n_1, D_0, arg0)
+  THROWARG(i_2, n=11)
+}
+
+Method ID: 0
+  function(arg0: Slice, arg1: Cell, arg2) {
+  result_0 = SEMPTY(arg0)
+  c_1 = PUSHCONT_SHORT()
+  IFJMP(result_0){
+    return()
+  }
+  s_2 = CTOS(arg1)
+  x_3, s2_4 = LDU(s_2, c=3)
+  x_5 = PUSHINT_4(i=1)
+  result_6 = AND(x_5, x_3)
+...
+```
+You can also use `--include-cell` option to include cell contents in the output (in both Instruction List with Arguments and Three-address code representation).
+If a cell represents blockchain address, the tool will automatically display it in [raw address format](https://docs.ton.org/v3/concepts/dive-into-ton/ton-blockchain/smart-contract-addresses#raw-address)
 
 ## Library Integration
 

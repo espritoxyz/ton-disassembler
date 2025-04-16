@@ -1,0 +1,307 @@
+package org.ton.tac
+
+import org.ton.bytecode.TvmConstDataInst
+import org.ton.bytecode.TvmContractCode
+import org.ton.bytecode.TvmControlFlowContinuation
+import org.ton.bytecode.TvmInlineBlock
+import org.ton.bytecode.TvmInst
+import org.ton.bytecode.TvmInstList
+import java.math.BigInteger
+import kotlin.reflect.full.memberProperties
+
+val CALLDICT_MNEMONICS = setOf("CALLDICT", "CALLDICT_LONG")
+
+data class ContinuationRef(val label: String) {
+    companion object {
+        private var contCounter = 0
+        fun next(): ContinuationRef = ContinuationRef("cont_${contCounter++}")
+    }
+}
+
+data class ContProcessingInfo(
+    val contStackPassedRef: ContinuationRef,
+    val stackEntriesBefore: List<TacVar>,
+    val stackEntriesAfter: List<TacVar>,
+    val contArgsNum: Int
+) {
+    val stackTakenSize: Int get() = contArgsNum
+    val stackPushedSize: Int get() = stackEntriesAfter.size - (stackEntriesBefore.size - contArgsNum)
+    val stackDelta: Int get() = stackPushedSize - stackTakenSize
+}
+
+
+//data class GotoRef(val label: Int) {
+//    companion object {
+//        private var labelCounter = 0
+//        fun next(): GotoRef = GotoRef()
+//    }
+//}
+
+fun checkAllBranchesWithSave(
+    branches: List<TvmControlFlowContinuation>,
+    mnemonic: String
+): Pair<Boolean, NonStackTacInst?> {
+    var allBranchesWithSave = true
+    var endingInst: NonStackTacInst? = null
+    if (branches.isNotEmpty()) {
+        allBranchesWithSave = branches.all { it.save != null }
+        if (!allBranchesWithSave) {
+            endingInst = NonStackTacInst(
+                mnemonic = "return",
+                inputs = emptyList(),
+                outputs = emptyList(),
+                operands = mutableMapOf(),
+                contIsolatedsRefs = mutableListOf(),
+                contStackPassedRefs = mutableListOf(),
+                saveC0 = false,
+                instPrefix = ""
+            )
+        } else {
+            val allVariablesWithCcSaveOnly = branches.all { branch ->
+                branch.save?.get("c0")?.type == "cc" &&
+                            branch.save!!.size == 1
+            }
+            if (!allVariablesWithCcSaveOnly) {
+                error("we can't process branches in $mnemonic")
+            }
+        }
+    }
+
+    return Pair(allBranchesWithSave, endingInst)
+}
+
+fun processInstWithContsIsolated(inst: TvmInst, contract: TvmContractCode): Pair<List<ContinuationRef>?, ContinuationRef?> {
+    val continuationsList = inst::class
+        .memberProperties
+        .filter { it.returnType.classifier == TvmInstList::class }
+
+    val operandsContRefs = continuationsList.map { cont ->
+        val ref = ContinuationRef.next()
+        val contList = (cont.getter.call(inst) as? TvmInstList)?.list ?: emptyList()
+        val contBlock = TvmInlineBlock(contList.toMutableList())
+        val (inlineInsts, inlineArgs) = generateTacCodeBlock(codeBlock = contBlock, contract = contract)
+
+        inlineMethodPool[ref.label] = TacInlineMethod(
+            instructions = inlineInsts,
+            methodArgs = inlineArgs,
+            originalTvmCode = contBlock,  // for later execution
+            endingAssignmentStr = ""
+        )
+
+        ref
+    }
+
+    // If instruction is TvmConstDataInst, pass the first (and only) ref to the stack
+    val stackContRef =
+        if (inst is TvmConstDataInst && operandsContRefs.isNotEmpty()) operandsContRefs.first() else null
+
+    return Pair(operandsContRefs, stackContRef)
+}
+
+internal fun processCALLDICT(
+    stack: Stack,
+    contract: TvmContractCode,
+    methodNumber: BigInteger,
+    calledMethodsSet: MutableSet<MethodId>,
+    inst: TvmInst,
+    operands: MutableMap<String, Any?>
+): NonStackTacInst {
+    var stackEntriesBefore = stack.copyEntries()
+    val method = (contract.methods[methodNumber]) ?: error("Missing method with number $methodNumber")
+
+    if (calledMethodsSet.contains(methodNumber)) {
+        error("Recursive CALLDICT detected for method $methodNumber")
+    }
+    calledMethodsSet.add(methodNumber)
+
+    val (_, methodArgs, _) = generateTacCodeBlock(
+        codeBlock = method,
+        contract = contract,
+        calledMethodsSet = calledMethodsSet
+    )
+
+    val argsSize = methodArgs.size
+    val updatedStackBeforeMethod = updateStack(stackEntriesBefore, methodArgs, stack)
+    val updatedStackEntriesBefore = updatedStackBeforeMethod.copyEntries()
+
+    val (inlineInsts, inlineArgs, inlineResultStack) = generateTacCodeBlock(
+        codeBlock = method,
+        stack = updatedStackBeforeMethod,
+        contract = contract,
+    )
+
+    val newRef = ContinuationRef.next()
+    inlineMethodPool[newRef.label] = TacInlineMethod(
+        instructions = inlineInsts,
+        methodArgs = inlineArgs,
+        originalTvmCode = method,
+        endingAssignmentStr = "",
+    )
+
+    val processedMethodInfo = ContProcessingInfo(
+        contStackPassedRef = newRef,
+        stackEntriesBefore = updatedStackEntriesBefore,
+        stackEntriesAfter = inlineResultStack.copyEntries(),
+        contArgsNum = argsSize
+    )
+    val globalStackTakenSize = processedMethodInfo.stackTakenSize
+    val globalStackPushedSize = processedMethodInfo.stackPushedSize
+    val newAddedElems = processedMethodInfo.stackEntriesAfter.takeLast(globalStackPushedSize)
+
+    stack.dropLastInPlace(globalStackTakenSize)
+    stack.addAll(newAddedElems)
+
+    val nonStackTacInst = NonStackTacInst(
+        mnemonic = inst.mnemonic,
+        inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
+        outputs = listOf(),
+        operands = operands,
+        saveC0 = true,
+    )
+    nonStackTacInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize" // delete after debug
+    nonStackTacInst.instSuffix = "new stack elems [${newAddedElems.joinToString(", ") { it.name }}]"
+
+    calledMethodsSet.remove(methodNumber)
+    return nonStackTacInst
+}
+
+fun addEndingAssignmentToCont(
+    globalPushedValues: List<TacVar>,
+    contInfo: ContProcessingInfo,
+) {
+    val endingAssignment = globalPushedValues
+        .zip(contInfo.stackEntriesAfter.takeLast(globalPushedValues.size))
+        .joinToString(", ") { (lhs, rhs) -> "${lhs.name} = ${rhs.name}" }
+
+    if (inlineMethodPool[contInfo.contStackPassedRef.label] != null) {
+        inlineMethodPool[contInfo.contStackPassedRef.label] =
+            inlineMethodPool[contInfo.contStackPassedRef.label]!!.copy(endingAssignmentStr = endingAssignment)
+    } else {
+        println("cont with ${contInfo.contStackPassedRef.label} not found")
+    }
+}
+
+internal fun throwErrorIfBranchesNotTypeVar(inst: TvmInst) {
+    if (inst.branches.isNotEmpty()) {
+        val allBranchesTypeVar = inst.branches.all { branch ->
+            branch.type == "variable"
+        }
+        if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
+            error("in ${inst.mnemonic} branch isn't type variable")
+        }
+    }
+}
+
+internal fun processStackEffectOneCont(
+    processedContInfos: MutableList<ContProcessingInfo>,
+    allBranchesWithSave: Boolean,
+    inst: TvmInst,
+    instPrefix: String,
+    stack: Stack,
+    nonStackTacInst: NonStackTacInst
+): String {
+    var newInstPrefix = instPrefix
+    val contInfo = processedContInfos.first()
+    val globalStackTakenSize = contInfo.stackTakenSize
+    val globalStackPushedSize = contInfo.stackPushedSize
+    val stackEntriesBeforeTaken = contInfo.stackEntriesBefore.takeLast(globalStackPushedSize)
+    val newElemsCont = contInfo.stackEntriesAfter.takeLast(globalStackPushedSize)
+    val globalPushedValues = newElemsCont.map { elem ->
+        TacVar(
+            name = TacVarFactory.nextContVarName(),
+            valueTypes = elem.valueTypes.toList(),
+            contRef = elem.contRef
+        )
+    }
+
+    val instPrefixAssignment = globalPushedValues
+        .zip(stackEntriesBeforeTaken)
+        .joinToString(separator = ", ") { (lhs, rhs) -> "${lhs.name} = ${rhs.name}" }
+
+    val instPrefixVars = globalPushedValues.joinToString(", ") { it.name }
+
+    if (allBranchesWithSave) {  // we check stack effect for insts with 'save'
+        val stackDelta = contInfo.stackDelta
+        if (!inst.noBranch) {
+            if (instPrefixVars.isNotEmpty()) {
+                newInstPrefix = "lateinit $instPrefixVars"
+            }
+
+        } else {
+            if (instPrefixAssignment.isNotEmpty()) {
+                newInstPrefix = "mut $instPrefixAssignment"
+            }
+            if (stackDelta != 0) {  // this is how we check stack effect so far
+                println("WARNING: non-null effect on stack in ${inst.mnemonic} in ${contInfo.contStackPassedRef.label}")
+            }
+        }
+
+        stack.dropLastInPlace(globalStackTakenSize)
+        stack.addAll(globalPushedValues)
+
+        addEndingAssignmentToCont(globalPushedValues, contInfo)
+    }
+
+    nonStackTacInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
+    return newInstPrefix
+}
+
+internal fun processStackEffectTwoConts(
+    processedContInfos: MutableList<ContProcessingInfo>,
+    inst: TvmInst,
+    nonStackTacInst: NonStackTacInst,
+    stack: Stack,
+    instPrefix: String
+): String {
+    var newInstPrefix = instPrefix
+    val (contInfo1, contInfo2) = processedContInfos
+    val stackDelta1 = contInfo1.stackDelta
+    val stackDelta2 = contInfo2.stackDelta
+
+    val commonStackEffect = stackDelta2 - stackDelta1
+    if (commonStackEffect != 0) {  // this is how we check stack effect so far
+        println("WARNING: branches causes different stack effect in ${inst.mnemonic}\nbranches: ${processedContInfos[0].contStackPassedRef} and ${processedContInfos[1].contStackPassedRef}")
+    }
+
+    val globalStackTakenSize = maxOf(contInfo1.stackTakenSize, contInfo2.stackTakenSize)
+    val globalStackPushedSize = maxOf(contInfo1.stackPushedSize, contInfo2.stackPushedSize)
+
+    val newElemsCont1 = contInfo1.stackEntriesAfter.takeLast(globalStackPushedSize)
+    val newElemsCont2 = contInfo2.stackEntriesAfter.takeLast(globalStackPushedSize)
+    val newElemsSameType = haveSameTypes(newElemsCont1, newElemsCont2)
+    if (!newElemsSameType) {
+        println("WARNING: branches in instruction ${inst.mnemonic} with conts ${nonStackTacInst.contIsolatedsRefs} and ${nonStackTacInst.contStackPassedRefs}  have different pushed values: $newElemsCont1 and $newElemsCont2")
+    }
+
+    val globalPushedValues: List<TacVar> = newElemsCont1.zip(newElemsCont2).map { (a, b) ->
+        val mergedTypes = when {
+            a.valueTypes.isEmpty() -> b.valueTypes
+            b.valueTypes.isEmpty() -> a.valueTypes
+            else -> (a.valueTypes + b.valueTypes).toSet().toList()
+        }
+
+        if (a.contRef != b.contRef) {
+            println("WARNING: different continuations in ${inst.mnemonic}: ${a.contRef} and ${b.contRef}")
+        }
+
+        TacVar(
+            name = TacVarFactory.nextContVarName(),
+            valueTypes = mergedTypes,
+            contRef = a.contRef
+        )
+    }
+
+    stack.dropLastInPlace(globalStackTakenSize)
+    stack.addAll(globalPushedValues)
+
+    addEndingAssignmentToCont(globalPushedValues, contInfo1)
+    addEndingAssignmentToCont(globalPushedValues, contInfo2)
+
+    val instPrefixVars = globalPushedValues.joinToString(", ") { it.name }
+    if (instPrefixVars.isNotEmpty()) {
+        newInstPrefix = "lateinit $instPrefixVars"
+    }
+
+    nonStackTacInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
+    return newInstPrefix
+}
