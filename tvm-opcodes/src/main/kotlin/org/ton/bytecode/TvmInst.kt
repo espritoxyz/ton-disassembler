@@ -7,6 +7,8 @@ sealed interface TvmInst {
     val mnemonic: String
     val location: TvmInstLocation
     val gasConsumption: TvmGas
+    val stackInputs: List<TvmStackEntry>?
+    val stackOutputs: List<TvmStackEntry>?
 }
 
 /**

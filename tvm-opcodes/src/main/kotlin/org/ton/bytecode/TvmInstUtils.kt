@@ -25,7 +25,7 @@ fun printInstruction(inst: TvmInst, indent: String = "", includeTvmCell: Boolean
 }
 
 @OptIn(ExperimentalStdlibApi::class)
-private fun formatOperand(value: Any?, indent: String = ""): String {
+fun formatOperand(value: Any?, indent: String = ""): String {
     return when {
         value is TvmCell -> {
             val cell = Cell(BitString(value.data.bits.map { it == '1' }))
