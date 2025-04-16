@@ -1,4 +1,3 @@
-import io.ktor.utils.io.core.*
 import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
@@ -62,7 +61,7 @@ private fun tvmInstCategoryClassName(categoryName: String): String =
 private fun tvmInstClassName(inst: InstructionDescription): String =
     "Tvm${snakeToCamel(inst.doc.category)}${snakeToCamel(inst.mnemonic)}Inst"
 
-private fun tvmInstOperandType(operand: InstructionOperandDescription): String? = when (operand.type) {
+private fun tvmInstOperandType(operand: InstructionOperandDescription): String = when (operand.type) {
     "uint", "int" -> "Int"
     "pushint_long" -> "String"
     "ref", "subslice" -> "TvmCell"
@@ -230,11 +229,11 @@ private fun tvmInstDeclaration(
     |    override val gasConsumption get() = $tvmGasUsage
     |    override val stackInputs: List<TvmStackEntry>
     |       get() = listOf(
-${extractStackEntries(inst, StackFlowDirection.INPUT)?.joinToString(",\n") {it}}
+${extractStackEntries(inst, StackFlowDirection.INPUT).joinToString(",\n") {it}}
     |       )
     |    override val stackOutputs: List<TvmStackEntry>
     |       get() = listOf(
-${extractStackEntries(inst, StackFlowDirection.OUTPUT)?.joinToString(",\n") {it}}
+${extractStackEntries(inst, StackFlowDirection.OUTPUT).joinToString(",\n") {it}}
     |       )
     |    
     |    companion object {

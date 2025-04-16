@@ -101,22 +101,22 @@ class InstructionStackConstValue(
     override val entryType: String = "const"
 
     val typedValue: Int?
-        get() = when {
-            value_type == "Null" -> null
-            value_type == "Integer" -> value?.jsonPrimitive?.int
+        get() = when (value_type) {
+            "Null" -> null
+            "Integer" -> value?.jsonPrimitive?.int
             else -> null
         }
 }
 
 @Serializable
 @SerialName("array")
-class InstructionStackArrayValue() : InstructionStackValueDescription() {
+class InstructionStackArrayValue : InstructionStackValueDescription() {
     override val entryType: String = "array"
 }
 
 @Serializable
 @SerialName("conditional")
-class InstructionStackConditionalValue() : InstructionStackValueDescription() {
+class InstructionStackConditionalValue : InstructionStackValueDescription() {
     override val entryType: String = "conditional"
 }
 
