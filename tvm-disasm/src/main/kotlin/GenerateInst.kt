@@ -16,6 +16,7 @@ import kotlin.io.use
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
 private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructionsDefaults.kt")
+
 enum class StackFlowDirection { INPUT, OUTPUT }
 
 private fun generateInstructionCellOperandTypes(
@@ -137,40 +138,46 @@ private fun tvmInstDefault(
 
 private fun extractStackEntries(
     inst: InstructionDescription,
-    direction: StackFlowDirection
-) : List<String> {
-    val entries = when (direction) {
-        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack.orEmpty()
-        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack.orEmpty()
-    }
+    direction: StackFlowDirection,
+): List<String> {
+    val entries =
+        when (direction) {
+            StackFlowDirection.INPUT ->
+                inst.valueFlow.inputs.stack
+                    .orEmpty()
+            StackFlowDirection.OUTPUT ->
+                inst.valueFlow.outputs.stack
+                    .orEmpty()
+        }
 
     return entries.map { entry ->
-        val raw = when (entry) {
-            is InstructionStackSimpleValue -> {
-                """
+        val raw =
+            when (entry) {
+                is InstructionStackSimpleValue -> {
+                    """
                     TvmSimpleStackEntry(
                         name = "${entry.name}",
                         valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
                     )
                     """
-            }
-            is InstructionStackConstValue -> {
-                val valueStr = entry.typedValue?.toString() ?: "null"
-                """
+                }
+                is InstructionStackConstValue -> {
+                    val valueStr = entry.typedValue?.toString() ?: "null"
+                    """
                 TvmConstStackEntry(
                     value = $valueStr,
                     valueType = "${entry.value_type}"
                 )
                 """
-            }
-            else -> {
-                """
+                }
+                else -> {
+                    """
                     TvmGenericStackEntry(
                         type = "${entry.entryType}"
                     )
                     """
+                }
             }
-        }
 
         raw.trimIndent().prependIndent("            ")
     }
@@ -240,7 +247,7 @@ ${extractStackEntries(inst, StackFlowDirection.OUTPUT).joinToString(",\n") {it}}
     |        const val MNEMONIC = "${inst.mnemonic}"
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 private fun generateInstructionSerializer(instructions: Set<String>): String {
@@ -251,7 +258,7 @@ private fun generateInstructionSerializer(instructions: Set<String>): String {
     $instructionSerializers
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 fun main() {
@@ -312,7 +319,7 @@ fun main() {
                 override val type: String
             ) : TvmStackEntry()
             
-        """.trimIndent()
+            """.trimIndent(),
         )
 
         categories.entries.sortedBy { it.key }.forEach {

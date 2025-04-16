@@ -8,12 +8,12 @@ data class DecompiledInstruction(
     val inputs: Map<String, StackVariable>,
     val outputs: Map<String, StackVariable>,
     val resultStack: List<StackVariable>,
-    val comment: String
+    val comment: String,
 )
 
 data class DecompiledMethod(
     val instructions: List<DecompiledInstruction>,
-    val args: List<StackVariable>
+    val args: List<StackVariable>,
 )
 
 fun decompileInstruction(
@@ -22,31 +22,30 @@ fun decompileInstruction(
     stack: Stack,
     inputSpec: List<TvmStackEntry>,
     outputSpec: List<TvmStackEntry>,
-    debug: Boolean = false
+    debug: Boolean = false,
 ): DecompiledInstruction {
-
     val inputs = mutableMapOf<String, StackVariable>()
     val outputs = mutableMapOf<String, StackVariable>()
     var constCounter = 0
 
-
     if (inst is TvmStackBasicInst || inst is TvmStackComplexInst) {
         stack.execStackInstruction(inst)
 
-        val stackInstInfo = if (debug) {
-            "${inst.mnemonic} ${extractPrimitiveOperands(inst)} stack: [${stack.dump()}]"
-        } else {
-            ""
-        }
+        val stackInstInfo =
+            if (debug) {
+                "${inst.mnemonic} ${extractPrimitiveOperands(inst)} stack: [${stack.dump()}]"
+            } else {
+                ""
+            }
 
         return DecompiledInstruction(
-                spec = inst,
-                operands = operands,
-                inputs = inputs,
-                outputs = outputs,
-                resultStack = stack.copyEntries(),
-                comment = stackInstInfo
-            )
+            spec = inst,
+            operands = operands,
+            inputs = inputs,
+            outputs = outputs,
+            resultStack = stack.copyEntries(),
+            comment = stackInstInfo,
+        )
     }
 
     // Pop inputs in reverse since we deal with stack
@@ -59,7 +58,6 @@ fun decompileInstruction(
             error("Unsupported input type: \${input.type}")
         }
     }
-
 
     var stackInfo: String = stack.getMessageCollector().joinToString("\n")
 
@@ -92,28 +90,26 @@ fun decompileInstruction(
         inputs = inputs,
         outputs = outputs,
         resultStack = stack.copyEntries(),
-        comment = stackInfo
+        comment = stackInfo,
     )
 }
 
-
-
-
 fun decompileMethod(
     method: TvmDisasmCodeBlock,
-    debug: Boolean = false
+    debug: Boolean = false,
 ): DecompiledMethod {
-
     val stack = Stack(emptyList())
     val code = mutableListOf<DecompiledInstruction>()
 
     for (inst in method.instList) {
         val operands = extractPrimitiveOperands(inst).toMutableMap()
 
-        val inputs = inst.stackInputs
-            ?.filter { it.type == "simple" || it.type == "const" } ?: emptyList()
-        val outputs = inst.stackOutputs
-            ?.filter { it.type == "simple" || it.type == "const" } ?: emptyList()
+        val inputs =
+            inst.stackInputs
+                ?.filter { it.type == "simple" || it.type == "const" } ?: emptyList()
+        val outputs =
+            inst.stackOutputs
+                ?.filter { it.type == "simple" || it.type == "const" } ?: emptyList()
 
         val di = decompileInstruction(inst, operands, stack, inputs, outputs, debug)
         code += di
@@ -122,12 +118,17 @@ fun decompileMethod(
     return DecompiledMethod(code, stack.getCreatedArgs())
 }
 
-
-private fun dumpOperandConts(inst: TvmContOperandInst, includeTvmCell: Boolean = false, debug: Boolean = false): List<String> {
+private fun dumpOperandConts(
+    inst: TvmContOperandInst,
+    includeTvmCell: Boolean = false,
+    debug: Boolean = false,
+): List<String> {
     val result = mutableListOf<String>()
 
-    val continuationProps = inst::class.memberProperties
-        .filter { it.returnType.classifier == TvmInstList::class }
+    val continuationProps =
+        inst::class
+            .memberProperties
+            .filter { it.returnType.classifier == TvmInstList::class }
 
     if (continuationProps.isEmpty()) {
         println("[Warning] No continuation blocks found for ${inst::class.simpleName}")
@@ -136,9 +137,12 @@ private fun dumpOperandConts(inst: TvmContOperandInst, includeTvmCell: Boolean =
     for (prop in continuationProps) {
         val instList = prop.getter.call(inst)
         if (instList is TvmInstList) {
-            val blockCode = dumpTAC(
-                TvmInlineBlock(instList.list.toMutableList()), includeTvmCell, debug
-            ).trimEnd().prependIndent("    ")
+            val blockCode =
+                dumpTAC(
+                    TvmInlineBlock(instList.list.toMutableList()),
+                    includeTvmCell,
+                    debug,
+                ).trimEnd().prependIndent("    ")
 
             result += "<{\n$blockCode\n}>"
         }
@@ -147,69 +151,86 @@ private fun dumpOperandConts(inst: TvmContOperandInst, includeTvmCell: Boolean =
     return result
 }
 
-
-
 fun dumpTAC(
     method: TvmDisasmCodeBlock,
     includeTvmCell: Boolean = false,
-    debug: Boolean = false
-    ): String {
+    debug: Boolean = false,
+): String {
     val codeBuilder = StringBuilder()
 
-    val decompiledMethod = when (method) {
-        is TvmMethod -> decompileMethod(method, debug)
-        is TvmMainMethod -> decompileMethod(method, debug)
-        is TvmInlineBlock -> decompileMethod(method, debug)
-        else -> error("Unsupported code block type: ${method::class.simpleName}")
-    }
+    val decompiledMethod =
+        when (method) {
+            is TvmMethod -> decompileMethod(method, debug)
+            is TvmMainMethod -> decompileMethod(method, debug)
+            is TvmInlineBlock -> decompileMethod(method, debug)
+            else -> error("Unsupported code block type: ${method::class.simpleName}")
+        }
 
     val args = decompiledMethod.args
-    val argList = args.joinToString(", ") {
-        if (it.valueTypes.isNotEmpty()) {
-            "${it.specName}: ${it.valueTypes.joinToString(" | ")}"
-        } else it.specName
-    }
-    codeBuilder.appendLine("function(${argList}) {")
+    val argList =
+        args.joinToString(", ") {
+            if (it.valueTypes.isNotEmpty()) {
+                "${it.specName}: ${it.valueTypes.joinToString(" | ")}"
+            } else {
+                it.specName
+            }
+        }
+    codeBuilder.appendLine("function($argList) {")
 
     val bodyBuilder = StringBuilder()
 
     for (instruction in decompiledMethod.instructions) {
         val instructionSpec = instruction.spec
         val mutableOperands = extractPrimitiveOperands(instructionSpec).toMutableMap()
-        val operandStrings = mutableOperands
-            .filterValues { it !is TvmInstList }
-            .map { (key, value) ->
-                "$key=${if (includeTvmCell) formatOperand(value) else if (value !is TvmCell) "$value" else "[Cell]"}"
-            }
+        val operandStrings =
+            mutableOperands
+                .filterValues { it !is TvmInstList }
+                .map { (key, value) ->
+                    "$key=${if (includeTvmCell) {
+                        formatOperand(value)
+                    } else if (value !is TvmCell) {
+                        "$value"
+                    } else {
+                        "[Cell]"
+                    }}"
+                }
         val operandsStr = operandStrings.joinToString(", ")
 
         val outputVars = instruction.outputs.values.map { it.specName } // reverse them back
-        val inputVars = instruction.inputs.values.map { it.specName }.reversed()
+        val inputVars =
+            instruction.inputs.values
+                .map { it.specName }
+                .reversed()
 
-        val lhs = if (outputVars.isNotEmpty()) {
-            outputVars.joinToString(", ") + " = "
-        } else ""
-
-        val rhs = buildString {
-            append("${instruction.spec.mnemonic}(")
-            append(inputVars.joinToString(", "))
-            if (operandsStr.isNotEmpty()) {
-                if (inputVars.isNotEmpty()) append(", ")
-                append(operandsStr)
+        val lhs =
+            if (outputVars.isNotEmpty()) {
+                outputVars.joinToString(", ") + " = "
+            } else {
+                ""
             }
-            append(")")
-        }
+
+        val rhs =
+            buildString {
+                append("${instruction.spec.mnemonic}(")
+                append(inputVars.joinToString(", "))
+                if (operandsStr.isNotEmpty()) {
+                    if (inputVars.isNotEmpty()) append(", ")
+                    append(operandsStr)
+                }
+                append(")")
+            }
 
         if (instructionSpec is TvmContOperandInst) {
             val continuationBlocks = dumpOperandConts(instructionSpec)
 
-            val baseLine = buildString {
-                append(lhs)
-                append(rhs)
-                if (instruction.comment.isNotEmpty()) {
-                    append("  // ${instruction.comment}")
+            val baseLine =
+                buildString {
+                    append(lhs)
+                    append(rhs)
+                    if (instruction.comment.isNotEmpty()) {
+                        append("  // ${instruction.comment}")
+                    }
                 }
-            }
             bodyBuilder.appendLine(baseLine)
 
             continuationBlocks.forEach { cont ->
@@ -235,12 +256,11 @@ fun dumpTAC(
     return codeBuilder.toString()
 }
 
-
 fun dumpContractTAC(
     contract: TvmContractCode,
     includeTvmCell: Boolean = false,
     debug: Boolean = false,
-):String {
+): String {
     val codeBuilder = StringBuilder()
 
     codeBuilder.append("Main method: ")

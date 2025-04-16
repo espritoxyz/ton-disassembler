@@ -64,18 +64,18 @@ internal data class InstructionOperandDescription(
     val bits_padding: Int?,
     val refs_length_var_size: Int?,
     val refs_add: Int?,
-    val completion_tag: Boolean?
+    val completion_tag: Boolean?,
 )
 
 @Serializable
 internal data class InstructionValueFlowDescription(
     val inputs: InstructionValueFlowValueDescription,
-    val outputs: InstructionValueFlowValueDescription
+    val outputs: InstructionValueFlowValueDescription,
 )
 
 @Serializable
 internal data class InstructionValueFlowValueDescription(
-    val stack: List<InstructionStackValueDescription>?
+    val stack: List<InstructionStackValueDescription>?,
 )
 
 @Serializable
@@ -96,16 +96,17 @@ class InstructionStackSimpleValue(
 @SerialName("const")
 class InstructionStackConstValue(
     val value_type: String,
-    val value: JsonElement? = null
+    val value: JsonElement? = null,
 ) : InstructionStackValueDescription() {
     override val entryType: String = "const"
 
     val typedValue: Int?
-        get() = when (value_type) {
-            "Null" -> null
-            "Integer" -> value?.jsonPrimitive?.int
-            else -> null
-        }
+        get() =
+            when (value_type) {
+                "Null" -> null
+                "Integer" -> value?.jsonPrimitive?.int
+                else -> null
+            }
 }
 
 @Serializable
