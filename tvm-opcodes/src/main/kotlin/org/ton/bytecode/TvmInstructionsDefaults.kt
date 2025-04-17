@@ -355,7 +355,7 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmConstDataPushrefcontInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmConstDataPushsliceInst(
             TvmMainMethodLocation(0),
@@ -371,11 +371,11 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmConstDataPushcontInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmConstDataPushcontShortInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
     ),
     "arithm_basic" to listOf(
@@ -1815,15 +1815,15 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmContBasicCallrefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContBasicJmprefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContBasicJmprefdataInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContBasicRetdataInst(
             TvmMainMethodLocation(0),
@@ -1860,19 +1860,19 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmContConditionalIfrefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfnotrefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfjmprefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfnotjmprefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalCondselInst(
             TvmMainMethodLocation(0),
@@ -1888,16 +1888,16 @@ val tvmDefaultInstructions = mapOf(
         ),
         TvmContConditionalIfrefelseInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfelserefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfrefelserefInst(
             TvmMainMethodLocation(0),
-            TvmInstList(emptyList()),
-            TvmInstList(emptyList()),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
+            TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList())),
         ),
         TvmContConditionalIfbitjmpInst(
             TvmMainMethodLocation(0),

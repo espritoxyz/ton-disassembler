@@ -38,23 +38,28 @@ data object TvmDisassembler {
         }
     }
 
-    val defaultRootForContinuation = listOf(
+    // like in here: https://github.com/tact-lang/ton-opcode/blob/7f70823f67f3acf73556a187403b281f6e72d15d/src/decompiler/decompileAll.ts#L28
+    private val defaultRootForContinuation = listOf(
         dictPushConstMnemonic,
         "DICTIGETJMPZ",
         "THROWARG",
     )
 
-    // like in here: https://github.com/tact-lang/ton-opcode/blob/7f70823f67f3acf73556a187403b281f6e72d15d/src/decompiler/decompileAll.ts#L28
     private val defaultRoot = listOf("SETCP") + defaultRootForContinuation
+
+    private val standardMainMethods = listOf(defaultRoot, defaultRootForContinuation)
 
     fun disassemble(codeBoc: ByteArray): JsonObject {
         val codeAsCell = BagOfCells(codeBoc).roots.first()
+        return disassemble(codeAsCell)
+    }
 
+    fun disassemble(codeAsCell: Cell): JsonObject {
         require(codeAsCell.type != CellType.LIBRARY_REFERENCE) {
             "Library cells are not supported"
         }
 
-        val (methods, mainMethod) = disassemble(codeAsCell)
+        val (methods, mainMethod) = disassembleInner(codeAsCell)
 
         return JsonObject(
             mapOf(
@@ -83,13 +88,13 @@ data object TvmDisassembler {
     private fun serializeInstList(instList: List<TvmInst>) =
         JsonArray(instList.map { it.toJson() })
 
-    private fun disassemble(cell: Cell): Pair<Map<String, List<TvmInst>>, List<TvmInst>> {
+    private fun disassembleInner(cell: Cell): Pair<Map<String, List<TvmInst>>, List<TvmInst>> {
         val slice = cell.beginParse()
         val initialLocation = TvmMainMethodLocation(index = 0)
 
         val insts = disassemble(slice, initialLocation)
 
-        val defaultMain = insts.size == defaultRoot.size && (insts zip defaultRoot).all { it.first.type == it.second }
+        val defaultMain = standardMainMethods.any { specificInstList(insts, it) }
 
         val methods = if (defaultMain) {
             val dictInst = insts.firstNotNullOf { it as? TvmConstDictInst }
@@ -99,6 +104,10 @@ data object TvmDisassembler {
         }
 
         return methods to insts
+    }
+
+    private fun specificInstList(insts: List<TvmInst>, mnemonics: List<String>): Boolean {
+        return insts.size == mnemonics.size && (insts zip mnemonics).all { it.first.type == it.second }
     }
 
     fun disassembleDictWithMethods(dict: Cell, keySize: Int): JsonObject {
@@ -304,7 +313,8 @@ data object TvmDisassembler {
                     ref.beginParse(),
                     newLocation,
                 )
-                return serializeInstList(insts) to emptyMap()
+                val raw = serializeSlice(ref.beginParse())
+                return serializeInstListOperand(insts, raw) to emptyMap()
             }
 
             CellOperandType.OrdinaryCell -> {
@@ -368,11 +378,12 @@ data object TvmDisassembler {
         when (operandType) {
             CellOperandType.CodeCell -> {
                 val newLocation = TvmInstLambdaLocation(0)
+                val raw = serializeSlice(newSlice)
                 val insts = disassemble(
                     newSlice,
                     newLocation,
                 )
-                return serializeInstList(insts)
+                return serializeInstListOperand(insts, raw)
             }
 
             CellOperandType.OrdinaryCell -> {
@@ -383,6 +394,16 @@ data object TvmDisassembler {
                 error("Unexpected operation $opname with special subslice operand")
             }
         }
+    }
+
+    private fun serializeInstListOperand(insts: List<TvmInst>, raw: JsonElement): JsonObject {
+        val list = serializeInstList(insts)
+        return JsonObject(
+            mapOf(
+                "list" to list,
+                "raw" to raw,
+            )
+        )
     }
 
     private fun serializeSlice(slice: CellSlice): JsonElement {

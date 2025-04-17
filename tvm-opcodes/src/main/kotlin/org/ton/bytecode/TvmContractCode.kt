@@ -53,21 +53,11 @@ data class TvmContractCode(
     }
 }
 
-@Serializable(with = TvmInstListSerializer::class)
-data class TvmInstList(val list: List<TvmInst>): List<TvmInst> by list
-
-class TvmInstListSerializer : KSerializer<TvmInstList> {
-    private val listSerializer = ListSerializer(TvmInst.serializer())
-
-    override val descriptor: SerialDescriptor = listSerializer.descriptor
-
-    override fun deserialize(decoder: Decoder): TvmInstList =
-        TvmInstList(listSerializer.deserialize(decoder))
-
-    override fun serialize(encoder: Encoder, value: TvmInstList) {
-        listSerializer.serialize(encoder, value.list)
-    }
-}
+@Serializable
+data class TvmInstList(
+    val list: List<TvmInst>,
+    val raw: TvmCell,
+)
 
 @Serializable
 data class TvmCell(

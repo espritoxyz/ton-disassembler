@@ -119,7 +119,7 @@ private fun tvmInstDefault(
             "Int" -> "0"
             "String" -> "\"0\""
             "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
-            "TvmInstList" -> "TvmInstList(emptyList())"
+            "TvmInstList" -> "TvmInstList(emptyList(), TvmCell(TvmCellData(\"\"), emptyList()))"
             else -> error("Unexpected operand type: $type")
         }
 

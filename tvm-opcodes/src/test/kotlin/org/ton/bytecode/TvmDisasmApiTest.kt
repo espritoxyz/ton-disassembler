@@ -42,7 +42,7 @@ class TvmDisasmApiTest {
         assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
 
         val pushContInst = contractCode.mainMethod.instList.firstNotNullOf { it as? TvmConstDataPushcontInst }
-        val disassembledContinuation = continuationToContractCode(pushContInst.c)
+        val disassembledContinuation = disassembleCell(pushContInst.c.raw)
 
         assertTrue { disassembledContinuation.methods.isNotEmpty() }
     }
