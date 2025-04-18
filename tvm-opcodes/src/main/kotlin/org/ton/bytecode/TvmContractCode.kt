@@ -56,8 +56,12 @@ data class TvmContractCode(
 @Serializable
 data class TvmInstList(
     val list: List<TvmInst>,
-    val raw: TvmCell,
-)
+    val raw: TvmCell, // cell that represents this continuation
+) {
+    companion object {
+        val empty = TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList()))
+    }
+}
 
 @Serializable
 data class TvmCell(
@@ -87,5 +91,5 @@ class TvmCellDataSerializer : KSerializer<TvmCellData> {
 fun TvmCell.toCell(): Cell {
     val children = refs.map { it.toCell() }
     val data = BitString(data.bits.map { it == '1' })
-    return Cell(data, *children.map { it }.toTypedArray())
+    return Cell(data, *children.toTypedArray())
 }

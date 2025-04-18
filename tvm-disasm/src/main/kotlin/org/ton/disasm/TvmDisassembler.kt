@@ -94,7 +94,7 @@ data object TvmDisassembler {
 
         val insts = disassemble(slice, initialLocation)
 
-        val defaultMain = standardMainMethods.any { specificInstList(insts, it) }
+        val defaultMain = standardMainMethods.any { matchesMnemonics(insts, it) }
 
         val methods = if (defaultMain) {
             val dictInst = insts.firstNotNullOf { it as? TvmConstDictInst }
@@ -106,14 +106,8 @@ data object TvmDisassembler {
         return methods to insts
     }
 
-    private fun specificInstList(insts: List<TvmInst>, mnemonics: List<String>): Boolean {
+    private fun matchesMnemonics(insts: List<TvmInst>, mnemonics: List<String>): Boolean {
         return insts.size == mnemonics.size && (insts zip mnemonics).all { it.first.type == it.second }
-    }
-
-    fun disassembleDictWithMethods(dict: Cell, keySize: Int): JsonObject {
-        val parsedDict = parseDict(dict, keySize)
-        val methods = disassembleDictWithMethods(parsedDict)
-        return serializeMethodMap(methods)
     }
 
     private fun disassembleDictWithMethods(dict: Map<String, Cell>): Map<String, List<TvmInst>> {

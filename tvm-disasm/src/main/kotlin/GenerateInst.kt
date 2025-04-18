@@ -1,4 +1,3 @@
-import io.ktor.utils.io.core.*
 import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
@@ -10,7 +9,6 @@ import org.ton.disasm.bytecode.specJson
 import kotlin.io.path.Path
 import kotlin.io.path.bufferedWriter
 import kotlin.io.path.readText
-import kotlin.io.use
 
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
@@ -119,7 +117,7 @@ private fun tvmInstDefault(
             "Int" -> "0"
             "String" -> "\"0\""
             "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
-            "TvmInstList" -> "TvmInstList(emptyList(), TvmCell(TvmCellData(\"\"), emptyList()))"
+            "TvmInstList" -> "TvmInstList.empty"
             else -> error("Unexpected operand type: $type")
         }
 
