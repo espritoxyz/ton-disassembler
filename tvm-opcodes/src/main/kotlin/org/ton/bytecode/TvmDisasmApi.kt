@@ -12,3 +12,8 @@ fun disassembleBoc(pathToBoc: Path): TvmContractCode {
     val file = pathToBoc.toFile()
     return disassembleBoc(file.readBytes())
 }
+
+fun disassembleCell(cell: TvmCell): TvmContractCode {
+    val json = TvmDisassembler.disassemble(cell.toCell())
+    return TvmContractCode.fromJson(json.toString())
+}

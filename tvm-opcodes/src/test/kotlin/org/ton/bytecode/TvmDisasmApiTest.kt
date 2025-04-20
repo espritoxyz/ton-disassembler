@@ -35,6 +35,18 @@ class TvmDisasmApiTest {
        assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
     }
 
+    @Test
+    fun testTactOptimization() {
+        val path = getResourcePath<TvmDisasmApiTest>("/samples/sample_Divider.code.boc")
+        val contractCode = disassembleBoc(path)
+        assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
+
+        val pushContInst = contractCode.mainMethod.instList.firstNotNullOf { it as? TvmConstDataPushcontInst }
+        val disassembledContinuation = disassembleCell(pushContInst.c.raw)
+
+        assertTrue { disassembledContinuation.methods.isNotEmpty() }
+    }
+
     private inline fun <reified T> getResourcePath(path: String): Path {
         return T::class.java.getResource(path)?.path?.let { Path(it) }
             ?: error("Resource $path was not found")

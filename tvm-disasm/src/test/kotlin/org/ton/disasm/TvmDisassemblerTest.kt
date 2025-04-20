@@ -4,6 +4,7 @@ import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.jsonObject
 import java.nio.file.Path
 import org.junit.jupiter.api.assertThrows
+import java.io.File
 import kotlin.io.path.Path
 import kotlin.test.Test
 import kotlin.test.assertEquals
@@ -84,9 +85,8 @@ class TvmDisassemblerTest {
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
         val expectedPath = getResourcePath<TvmDisassemblerTest>("/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.json")
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText()).jsonObject["methods"]!!
-        val resultMethods = result.jsonObject["methods"]!!
-        assertEquals(parsedExpected, resultMethods)
+        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
+        assertEquals(parsedExpected, result)
     }
 
     @Test
@@ -95,9 +95,8 @@ class TvmDisassemblerTest {
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
         val expectedPath = getResourcePath<TvmDisassemblerTest>("/samples/cheburashka_wallet.json")
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText()).jsonObject["methods"]!!
-        val resultMethods = result.jsonObject["methods"]!!
-        assertEquals(parsedExpected, resultMethods)
+        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
+        assertEquals(parsedExpected, result)
     }
 
     @Test

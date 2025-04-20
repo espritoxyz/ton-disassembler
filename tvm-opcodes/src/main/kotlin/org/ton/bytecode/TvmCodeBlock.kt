@@ -31,11 +31,11 @@ abstract class TvmDisasmCodeBlock : TvmCodeBlock() {
                     // do nothing
                 }
                 is TvmContOperand1Inst -> {
-                    setLocationParents(it.c, it.location)
+                    setLocationParents(it.c.list, it.location)
                 }
                 is TvmContOperand2Inst -> {
-                    setLocationParents(it.c1, it.location)
-                    setLocationParents(it.c2, it.location)
+                    setLocationParents(it.c1.list, it.location)
+                    setLocationParents(it.c2.list, it.location)
                 }
             }
         }

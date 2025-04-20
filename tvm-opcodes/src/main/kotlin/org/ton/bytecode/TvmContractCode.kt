@@ -19,6 +19,8 @@ import org.ton.disasm.bytecode.InstructionStackConstValue
 import org.ton.disasm.bytecode.InstructionStackArrayValue
 import org.ton.disasm.bytecode.InstructionStackConditionalValue
 import org.ton.disasm.bytecode.InstructionStackValueDescription
+import org.ton.bitstring.BitString
+import org.ton.cell.Cell
 
 @Serializable
 data class TvmContractCode(
@@ -63,19 +65,13 @@ data class TvmContractCode(
     }
 }
 
-@Serializable(with = TvmInstListSerializer::class)
-data class TvmInstList(val list: List<TvmInst>): List<TvmInst> by list
-
-class TvmInstListSerializer : KSerializer<TvmInstList> {
-    private val listSerializer = ListSerializer(TvmInst.serializer())
-
-    override val descriptor: SerialDescriptor = listSerializer.descriptor
-
-    override fun deserialize(decoder: Decoder): TvmInstList =
-        TvmInstList(listSerializer.deserialize(decoder))
-
-    override fun serialize(encoder: Encoder, value: TvmInstList) {
-        listSerializer.serialize(encoder, value.list)
+@Serializable
+data class TvmInstList(
+    val list: List<TvmInst>,
+    val raw: TvmCell, // cell that represents this continuation
+) {
+    companion object {
+        val empty = TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList()))
     }
 }
 
@@ -102,4 +98,10 @@ class TvmCellDataSerializer : KSerializer<TvmCellData> {
     override fun serialize(encoder: Encoder, value: TvmCellData) {
         listSerializer.serialize(encoder, value.bits.toList())
     }
+}
+
+fun TvmCell.toCell(): Cell {
+    val children = refs.map { it.toCell() }
+    val data = BitString(data.bits.map { it == '1' })
+    return Cell(data, *children.toTypedArray())
 }
