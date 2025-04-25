@@ -2,6 +2,8 @@ import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
+import org.ton.disasm.bytecode.InstructionStackConstValue
+import org.ton.disasm.bytecode.InstructionStackSimpleValue
 import org.ton.disasm.bytecode.InstructionsList
 import org.ton.disasm.bytecode.opcodeToRefOperandType
 import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
@@ -13,6 +15,8 @@ import kotlin.io.path.readText
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
 private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructionsDefaults.kt")
+
+enum class StackFlowDirection { INPUT, OUTPUT }
 
 private fun generateInstructionCellOperandTypes(
     instructions: Map<String, InstructionDescription>
@@ -57,7 +61,7 @@ private fun tvmInstCategoryClassName(categoryName: String): String =
 private fun tvmInstClassName(inst: InstructionDescription): String =
     "Tvm${snakeToCamel(inst.doc.category)}${snakeToCamel(inst.mnemonic)}Inst"
 
-private fun tvmInstOperandType(operand: InstructionOperandDescription): String? = when (operand.type) {
+private fun tvmInstOperandType(operand: InstructionOperandDescription): String = when (operand.type) {
     "uint", "int" -> "Int"
     "pushint_long" -> "String"
     "ref", "subslice" -> "TvmCell"
@@ -131,6 +135,53 @@ private fun tvmInstDefault(
     """.trimMargin()
 }
 
+private fun extractStackEntries(
+    inst: InstructionDescription,
+    direction: StackFlowDirection,
+): String {
+    val stack = when (direction) {
+        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack
+        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack
+    }
+
+    return when {
+        stack == null -> "null" // stack inputs/outputs are unconstrained OR this is stack manipulation instruction
+        stack.isEmpty() -> "emptyList<TvmStackEntry>()"
+        else -> {
+            "listOf(\n" + stack.joinToString(",\n") { entry ->
+                when (entry) {
+                    is InstructionStackSimpleValue -> {
+                        """
+                        |            TvmSimpleStackEntry(
+                        |                name = "${entry.name}",
+                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    is InstructionStackConstValue -> {
+                        val valueStr = entry.typedValue?.toString() ?: "null"
+                        """
+                        |            TvmConstStackEntry(
+                        |                value = $valueStr,
+                        |                valueType = "${entry.value_type}"
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    else -> {
+                        """
+                        |            TvmGenericStackEntry(
+                        |                type = "${entry.entryType}"
+                        |            )
+                        """.trimMargin()
+                    }
+                }
+            } + "\n|        )"
+        }
+    }
+}
+
 private fun tvmInstDeclaration(
     inst: InstructionDescription,
     instructionOperandTypes: Map<String, Map<String, String>>,
@@ -182,12 +233,16 @@ private fun tvmInstDeclaration(
     |): TvmInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
-    |
+    |    override val stackInputs: List<TvmStackEntry>? 
+    |        get() = ${extractStackEntries(inst, StackFlowDirection.INPUT)}
+    |    override val stackOutputs: List<TvmStackEntry>?
+    |        get() = ${extractStackEntries(inst, StackFlowDirection.OUTPUT)}
+    |    
     |    companion object {
     |        const val MNEMONIC = "${inst.mnemonic}"
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 private fun generateInstructionSerializer(instructions: Set<String>): String {
@@ -198,7 +253,7 @@ private fun generateInstructionSerializer(instructions: Set<String>): String {
     $instructionSerializers
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 fun main() {
@@ -237,7 +292,29 @@ fun main() {
             import kotlinx.serialization.modules.polymorphic
             import kotlinx.serialization.modules.subclass
             
-        """.trimIndent()
+            sealed class TvmStackEntry {
+                abstract val type: String
+            }
+            
+            data class TvmSimpleStackEntry(
+                val name: String,
+                val valueTypes: List<String>
+            ) : TvmStackEntry() {
+                override val type: String = "simple"
+            }
+            
+            data class TvmConstStackEntry(
+                val valueType: String,
+                val value: Int? = null
+            ) : TvmStackEntry() {
+                override val type: String = "const"
+            }
+
+            data class TvmGenericStackEntry(
+                override val type: String
+            ) : TvmStackEntry()
+            
+            """.trimIndent(),
         )
 
         categories.entries.sortedBy { it.key }.forEach {

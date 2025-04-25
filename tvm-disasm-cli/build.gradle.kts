@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":tvm-disasm"))
     implementation(project(":tvm-opcodes"))
     implementation(project(":tvm-utils"))
+    implementation(project(":tvm-tac"))
 
     implementation("com.github.ajalt.clikt:clikt:${Versions.clikt}")
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinx_serialization}")

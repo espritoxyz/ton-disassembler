@@ -24,6 +24,8 @@ import org.ton.disasm.TvmDisassembler
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
 import org.ton.net.toUrlAddress
+import org.ton.tac.dumpTacContract
+import org.ton.tac.generateTacContractCode
 import java.nio.file.Path
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
@@ -62,17 +64,16 @@ fun fetchContractCode(contractCode: ContractCode): ByteArray {
     }
 }
 
-fun ParameterHolder.contractCodeOption(): MutuallyExclusiveOptions<ContractCode, ContractCode> {
-    return mutuallyExclusiveOptions(
+fun ParameterHolder.contractCodeOption(): MutuallyExclusiveOptions<ContractCode, ContractCode> =
+    mutuallyExclusiveOptions(
         option("--boc")
             .help("The path to the smart contract in the BoC format")
             .path(mustExist = true, canBeFile = true, canBeDir = false)
             .convert { ContractCode.Boc(it) },
         option("--address")
             .help("The address of the contract deployed on the blockchain")
-            .convert { ContractCode.Address(it) }
+            .convert { ContractCode.Address(it) },
     ).single().required()
-}
 
 class JsonDisassemblerCommand : CliktCommand(
     name = "json",
@@ -90,10 +91,11 @@ class JsonDisassemblerCommand : CliktCommand(
     }
 }
 
-class PrettyPrintDisassemblerCommand : CliktCommand(
-    name = "pretty-print",
-    help = "Disassemble contract code and pretty print TVM instructions."
-) {
+class PrettyPrintDisassemblerCommand :
+    CliktCommand(
+        name = "pretty-print",
+        help = "Disassemble contract code and pretty print TVM instructions.",
+    ) {
     private val contractCode: ContractCode by contractCodeOption()
 
     private val includeTvmCell: Boolean by option("--include-cell")
@@ -108,11 +110,35 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
     }
 }
 
+class TacDisassemblerCommand :
+    CliktCommand(
+        name = "tac",
+        help = "Disassemble contract code and output Three-Address Code.",
+    ) {
+    private val contractCode: ContractCode by contractCodeOption()
+    private val includeTvmCell: Boolean by option("--include-cell")
+        .help("Include TvmCell in the output")
+        .flag(default = false)
+    private val debug: Boolean by option("--debug")
+        .help("Enable debug output: stack state and instructions")
+        .flag(default = false)
+
+    override fun run() {
+        val bocContent = fetchContractCode(contractCode)
+        val contract = disassembleBoc(bocContent)
+
+        val tacCode = generateTacContractCode(contract)
+        val tacOutput = dumpTacContract(tacCode, includeTvmCell, debug)
+        echo(tacOutput)
+    }
+}
+
 class TvmDisassemblerCommand : NoOpCliktCommand()
 
-fun main(args: Array<String>) = TvmDisassemblerCommand()
-    .subcommands(
-        JsonDisassemblerCommand(),
-        PrettyPrintDisassemblerCommand()
-    )
-    .main(args)
+fun main(args: Array<String>) =
+    TvmDisassemblerCommand()
+        .subcommands(
+            JsonDisassemblerCommand(),
+            PrettyPrintDisassemblerCommand(),
+            TacDisassemblerCommand(),
+        ).main(args)
