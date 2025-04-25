@@ -173,8 +173,8 @@ data class TvmAppActionsChangelibInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
@@ -183,11 +183,9 @@ data class TvmAppActionsChangelibInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CHANGELIB"
@@ -213,8 +211,8 @@ data class TvmAppActionsRawreserveInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -223,11 +221,9 @@ data class TvmAppActionsRawreserveInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RAWRESERVE"
@@ -245,8 +241,8 @@ data class TvmAppActionsRawreservexInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -259,11 +255,9 @@ data class TvmAppActionsRawreservexInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RAWRESERVEX"
@@ -287,8 +281,8 @@ data class TvmAppActionsSendmsgInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -297,14 +291,14 @@ data class TvmAppActionsSendmsgInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "fee",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SENDMSG"
@@ -333,8 +327,8 @@ data class TvmAppActionsSendrawmsgInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -343,11 +337,9 @@ data class TvmAppActionsSendrawmsgInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SENDRAWMSG"
@@ -366,17 +358,15 @@ data class TvmAppActionsSetcodeInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETCODE"
@@ -399,8 +389,8 @@ data class TvmAppActionsSetlibcodeInst(
 ): TvmInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -409,11 +399,9 @@ data class TvmAppActionsSetlibcodeInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETLIBCODE"
@@ -431,15 +419,15 @@ data class TvmAppAddrLdmsgaddrInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -448,7 +436,7 @@ data class TvmAppAddrLdmsgaddrInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDMSGADDR"
@@ -466,15 +454,15 @@ data class TvmAppAddrLdmsgaddrqInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -482,7 +470,7 @@ data class TvmAppAddrLdmsgaddrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDMSGADDRQ"
@@ -500,20 +488,20 @@ data class TvmAppAddrParsemsgaddrInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PARSEMSGADDR"
@@ -530,15 +518,15 @@ data class TvmAppAddrParsemsgaddrqInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -546,7 +534,7 @@ data class TvmAppAddrParsemsgaddrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PARSEMSGADDRQ"
@@ -566,15 +554,15 @@ data class TvmAppAddrRewritestdaddrInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -583,7 +571,7 @@ data class TvmAppAddrRewritestdaddrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "REWRITESTDADDR"
@@ -600,15 +588,15 @@ data class TvmAppAddrRewritestdaddrqInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -616,7 +604,7 @@ data class TvmAppAddrRewritestdaddrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "REWRITESTDADDRQ"
@@ -634,15 +622,15 @@ data class TvmAppAddrRewritevaraddrInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -651,7 +639,7 @@ data class TvmAppAddrRewritevaraddrInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "REWRITEVARADDR"
@@ -668,15 +656,15 @@ data class TvmAppAddrRewritevaraddrqInst(
 ): TvmInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -684,7 +672,7 @@ data class TvmAppAddrRewritevaraddrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "REWRITEVARADDRQ"
@@ -702,12 +690,10 @@ data class TvmAppConfigConfigdictInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice", "Null")
@@ -716,7 +702,7 @@ data class TvmAppConfigConfigdictInst(
                 value = 32,
                 valueType = "Integer"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CONFIGDICT"
@@ -735,20 +721,20 @@ data class TvmAppConfigConfigoptparamInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CONFIGOPTPARAM"
@@ -767,15 +753,15 @@ data class TvmAppConfigConfigparamInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -783,7 +769,7 @@ data class TvmAppConfigConfigparamInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CONFIGPARAM"
@@ -800,8 +786,8 @@ data class TvmAppConfigGetforwardfeeInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cells",
                 valueTypes = listOf("Integer")
@@ -814,14 +800,14 @@ data class TvmAppConfigGetforwardfeeInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "price",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETFORWARDFEE"
@@ -838,8 +824,8 @@ data class TvmAppConfigGetforwardfeesimpleInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cells",
                 valueTypes = listOf("Integer")
@@ -852,14 +838,14 @@ data class TvmAppConfigGetforwardfeesimpleInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "price",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETFORWARDFEESIMPLE"
@@ -876,8 +862,8 @@ data class TvmAppConfigGetgasfeeInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "gas_used",
                 valueTypes = listOf("Integer")
@@ -886,14 +872,14 @@ data class TvmAppConfigGetgasfeeInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "price",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETGASFEE"
@@ -910,8 +896,8 @@ data class TvmAppConfigGetgasfeesimpleInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "gas_used",
                 valueTypes = listOf("Integer")
@@ -920,14 +906,14 @@ data class TvmAppConfigGetgasfeesimpleInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "price",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETGASFEESIMPLE"
@@ -944,8 +930,8 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "fwd_fee",
                 valueTypes = listOf("Integer")
@@ -954,14 +940,14 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "orig_fwd_fee",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETORIGINALFWDFEE"
@@ -982,17 +968,15 @@ data class TvmAppConfigGetparamInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETPARAM"
@@ -1009,17 +993,15 @@ data class TvmAppConfigGetprecompiledgasInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETPRECOMPILEDGAS"
@@ -1036,8 +1018,8 @@ data class TvmAppConfigGetstoragefeeInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cells",
                 valueTypes = listOf("Integer")
@@ -1054,14 +1036,14 @@ data class TvmAppConfigGetstoragefeeInst(
                 name = "is_mc",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "price",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETSTORAGEFEE"
@@ -1078,17 +1060,15 @@ data class TvmAppConfigGlobalidInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GLOBALID"
@@ -1105,17 +1085,15 @@ data class TvmAppConfigPrevkeyblockInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PREVKEYBLOCK"
@@ -1132,17 +1110,15 @@ data class TvmAppConfigPrevmcblocksInst(
 ): TvmInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PREVMCBLOCKS"
@@ -1159,8 +1135,8 @@ data class TvmAppCryptoBlsAggregateInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "n*4350-2616")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1168,14 +1144,14 @@ data class TvmAppCryptoBlsAggregateInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_AGGREGATE"
@@ -1193,8 +1169,8 @@ data class TvmAppCryptoBlsAggregateverifyInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "38534+n*22500")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1206,14 +1182,14 @@ data class TvmAppCryptoBlsAggregateverifyInst(
                 name = "sgn",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_AGGREGATEVERIFY"
@@ -1231,8 +1207,8 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "58034+n*3000")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1248,14 +1224,14 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
                 name = "sig",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_FASTAGGREGATEVERIFY"
@@ -1272,8 +1248,8 @@ data class TvmAppCryptoBlsG1AddInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1282,14 +1258,14 @@ data class TvmAppCryptoBlsG1AddInst(
                 name = "y",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_ADD"
@@ -1306,20 +1282,20 @@ data class TvmAppCryptoBlsG1IngroupInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2984)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_INGROUP"
@@ -1336,20 +1312,20 @@ data class TvmAppCryptoBlsG1IszeroInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_ISZERO"
@@ -1366,8 +1342,8 @@ data class TvmAppCryptoBlsG1MulInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 5234)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1376,14 +1352,14 @@ data class TvmAppCryptoBlsG1MulInst(
                 name = "s",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_MUL"
@@ -1401,8 +1377,8 @@ data class TvmAppCryptoBlsG1MultiexpInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "11409+n*630+n/floor(max(log2(n),4))*8820")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1410,14 +1386,14 @@ data class TvmAppCryptoBlsG1MultiexpInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_MULTIEXP"
@@ -1434,20 +1410,20 @@ data class TvmAppCryptoBlsG1NegInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_NEG"
@@ -1464,8 +1440,8 @@ data class TvmAppCryptoBlsG1SubInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1474,14 +1450,14 @@ data class TvmAppCryptoBlsG1SubInst(
                 name = "y",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_SUB"
@@ -1498,17 +1474,15 @@ data class TvmAppCryptoBlsG1ZeroInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "zero",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G1_ZERO"
@@ -1525,8 +1499,8 @@ data class TvmAppCryptoBlsG2AddInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1535,14 +1509,14 @@ data class TvmAppCryptoBlsG2AddInst(
                 name = "y",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_ADD"
@@ -1559,20 +1533,20 @@ data class TvmAppCryptoBlsG2IngroupInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 4284)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_INGROUP"
@@ -1589,20 +1563,20 @@ data class TvmAppCryptoBlsG2IszeroInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_ISZERO"
@@ -1619,8 +1593,8 @@ data class TvmAppCryptoBlsG2MulInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 10584)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1629,14 +1603,14 @@ data class TvmAppCryptoBlsG2MulInst(
                 name = "s",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_MUL"
@@ -1654,8 +1628,8 @@ data class TvmAppCryptoBlsG2MultiexpInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "30422+n*1280+n/floor(max(log2(n),4))*22840")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1663,14 +1637,14 @@ data class TvmAppCryptoBlsG2MultiexpInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_MULTIEXP"
@@ -1687,20 +1661,20 @@ data class TvmAppCryptoBlsG2NegInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1584)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_NEG"
@@ -1717,8 +1691,8 @@ data class TvmAppCryptoBlsG2SubInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -1727,14 +1701,14 @@ data class TvmAppCryptoBlsG2SubInst(
                 name = "y",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_SUB"
@@ -1751,17 +1725,15 @@ data class TvmAppCryptoBlsG2ZeroInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "zero",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_G2_ZERO"
@@ -1778,20 +1750,20 @@ data class TvmAppCryptoBlsMapToG1Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2384)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_MAP_TO_G1"
@@ -1808,20 +1780,20 @@ data class TvmAppCryptoBlsMapToG2Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 7984)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_MAP_TO_G2"
@@ -1839,8 +1811,8 @@ data class TvmAppCryptoBlsPairingInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "20034+n*11800")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -1848,14 +1820,14 @@ data class TvmAppCryptoBlsPairingInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_PAIRING"
@@ -1872,17 +1844,15 @@ data class TvmAppCryptoBlsPushrInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_PUSHR"
@@ -1899,8 +1869,8 @@ data class TvmAppCryptoBlsVerifyInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 61034)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "pk",
                 valueTypes = listOf("Slice")
@@ -1913,14 +1883,14 @@ data class TvmAppCryptoBlsVerifyInst(
                 name = "sgn",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLS_VERIFY"
@@ -1940,8 +1910,8 @@ data class TvmAppCryptoChksignsInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "d",
                 valueTypes = listOf("Slice")
@@ -1954,14 +1924,14 @@ data class TvmAppCryptoChksignsInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CHKSIGNS"
@@ -1985,8 +1955,8 @@ data class TvmAppCryptoChksignuInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
@@ -1999,14 +1969,14 @@ data class TvmAppCryptoChksignuInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CHKSIGNU"
@@ -2025,8 +1995,8 @@ data class TvmAppCryptoEcrecoverInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "hash",
                 valueTypes = listOf("Integer")
@@ -2043,9 +2013,9 @@ data class TvmAppCryptoEcrecoverInst(
                 name = "s",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -2053,7 +2023,7 @@ data class TvmAppCryptoEcrecoverInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ECRECOVER"
@@ -2071,20 +2041,20 @@ data class TvmAppCryptoHashcuInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHCU"
@@ -2101,8 +2071,8 @@ data class TvmAppCryptoHashextBlake2bInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2110,9 +2080,9 @@ data class TvmAppCryptoHashextBlake2bInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2121,7 +2091,7 @@ data class TvmAppCryptoHashextBlake2bInst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXT_BLAKE2B"
@@ -2138,8 +2108,8 @@ data class TvmAppCryptoHashextKeccak256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2147,14 +2117,14 @@ data class TvmAppCryptoHashextKeccak256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXT_KECCAK256"
@@ -2171,8 +2141,8 @@ data class TvmAppCryptoHashextKeccak512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2180,9 +2150,9 @@ data class TvmAppCryptoHashextKeccak512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2191,7 +2161,7 @@ data class TvmAppCryptoHashextKeccak512Inst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXT_KECCAK512"
@@ -2208,8 +2178,8 @@ data class TvmAppCryptoHashextSha256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2217,14 +2187,14 @@ data class TvmAppCryptoHashextSha256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXT_SHA256"
@@ -2241,8 +2211,8 @@ data class TvmAppCryptoHashextSha512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2250,9 +2220,9 @@ data class TvmAppCryptoHashextSha512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2261,7 +2231,7 @@ data class TvmAppCryptoHashextSha512Inst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXT_SHA512"
@@ -2279,8 +2249,8 @@ data class TvmAppCryptoHashextaBlake2bInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2292,14 +2262,14 @@ data class TvmAppCryptoHashextaBlake2bInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTA_BLAKE2B"
@@ -2317,8 +2287,8 @@ data class TvmAppCryptoHashextaKeccak256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2330,14 +2300,14 @@ data class TvmAppCryptoHashextaKeccak256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTA_KECCAK256"
@@ -2355,8 +2325,8 @@ data class TvmAppCryptoHashextaKeccak512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2368,14 +2338,14 @@ data class TvmAppCryptoHashextaKeccak512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTA_KECCAK512"
@@ -2393,8 +2363,8 @@ data class TvmAppCryptoHashextaSha256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2406,14 +2376,14 @@ data class TvmAppCryptoHashextaSha256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTA_SHA256"
@@ -2431,8 +2401,8 @@ data class TvmAppCryptoHashextaSha512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2444,14 +2414,14 @@ data class TvmAppCryptoHashextaSha512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTA_SHA512"
@@ -2469,8 +2439,8 @@ data class TvmAppCryptoHashextarBlake2bInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2482,14 +2452,14 @@ data class TvmAppCryptoHashextarBlake2bInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTAR_BLAKE2B"
@@ -2507,8 +2477,8 @@ data class TvmAppCryptoHashextarKeccak256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2520,14 +2490,14 @@ data class TvmAppCryptoHashextarKeccak256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTAR_KECCAK256"
@@ -2545,8 +2515,8 @@ data class TvmAppCryptoHashextarKeccak512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2558,14 +2528,14 @@ data class TvmAppCryptoHashextarKeccak512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTAR_KECCAK512"
@@ -2583,8 +2553,8 @@ data class TvmAppCryptoHashextarSha256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2596,14 +2566,14 @@ data class TvmAppCryptoHashextarSha256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTAR_SHA256"
@@ -2621,8 +2591,8 @@ data class TvmAppCryptoHashextarSha512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -2634,14 +2604,14 @@ data class TvmAppCryptoHashextarSha512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTAR_SHA512"
@@ -2658,8 +2628,8 @@ data class TvmAppCryptoHashextrBlake2bInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2667,9 +2637,9 @@ data class TvmAppCryptoHashextrBlake2bInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2678,7 +2648,7 @@ data class TvmAppCryptoHashextrBlake2bInst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTR_BLAKE2B"
@@ -2695,8 +2665,8 @@ data class TvmAppCryptoHashextrKeccak256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2704,14 +2674,14 @@ data class TvmAppCryptoHashextrKeccak256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTR_KECCAK256"
@@ -2728,8 +2698,8 @@ data class TvmAppCryptoHashextrKeccak512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2737,9 +2707,9 @@ data class TvmAppCryptoHashextrKeccak512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2748,7 +2718,7 @@ data class TvmAppCryptoHashextrKeccak512Inst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTR_KECCAK512"
@@ -2765,8 +2735,8 @@ data class TvmAppCryptoHashextrSha256Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2774,14 +2744,14 @@ data class TvmAppCryptoHashextrSha256Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTR_SHA256"
@@ -2798,8 +2768,8 @@ data class TvmAppCryptoHashextrSha512Inst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -2807,9 +2777,9 @@ data class TvmAppCryptoHashextrSha512Inst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2818,7 +2788,7 @@ data class TvmAppCryptoHashextrSha512Inst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHEXTR_SHA512"
@@ -2837,20 +2807,20 @@ data class TvmAppCryptoHashsuInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "HASHSU"
@@ -2870,8 +2840,8 @@ data class TvmAppCryptoP256ChksignsInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "d",
                 valueTypes = listOf("Slice")
@@ -2884,14 +2854,14 @@ data class TvmAppCryptoP256ChksignsInst(
                 name = "k",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "P256_CHKSIGNS"
@@ -2911,8 +2881,8 @@ data class TvmAppCryptoP256ChksignuInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "d",
                 valueTypes = listOf("Slice")
@@ -2925,14 +2895,14 @@ data class TvmAppCryptoP256ChksignuInst(
                 name = "k",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "P256_CHKSIGNU"
@@ -2949,8 +2919,8 @@ data class TvmAppCryptoRist255AddInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -2959,14 +2929,14 @@ data class TvmAppCryptoRist255AddInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_ADD"
@@ -2983,8 +2953,8 @@ data class TvmAppCryptoRist255FromhashInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "h1",
                 valueTypes = listOf("Integer")
@@ -2993,14 +2963,14 @@ data class TvmAppCryptoRist255FromhashInst(
                 name = "h2",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_FROMHASH"
@@ -3017,8 +2987,8 @@ data class TvmAppCryptoRist255MulInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2026)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3027,14 +2997,14 @@ data class TvmAppCryptoRist255MulInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_MUL"
@@ -3051,20 +3021,20 @@ data class TvmAppCryptoRist255MulbaseInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 776)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_MULBASE"
@@ -3081,17 +3051,15 @@ data class TvmAppCryptoRist255PushlInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_PUSHL"
@@ -3108,8 +3076,8 @@ data class TvmAppCryptoRist255QaddInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3118,9 +3086,9 @@ data class TvmAppCryptoRist255QaddInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -3128,7 +3096,7 @@ data class TvmAppCryptoRist255QaddInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_QADD"
@@ -3146,8 +3114,8 @@ data class TvmAppCryptoRist255QmulInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2034)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3156,9 +3124,9 @@ data class TvmAppCryptoRist255QmulInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -3166,7 +3134,7 @@ data class TvmAppCryptoRist255QmulInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_QMUL"
@@ -3183,15 +3151,15 @@ data class TvmAppCryptoRist255QmulbaseInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -3199,7 +3167,7 @@ data class TvmAppCryptoRist255QmulbaseInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_QMULBASE"
@@ -3216,8 +3184,8 @@ data class TvmAppCryptoRist255QsubInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3226,9 +3194,9 @@ data class TvmAppCryptoRist255QsubInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -3236,7 +3204,7 @@ data class TvmAppCryptoRist255QsubInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_QSUB"
@@ -3254,20 +3222,20 @@ data class TvmAppCryptoRist255QvalidateInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 234)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_QVALIDATE"
@@ -3284,8 +3252,8 @@ data class TvmAppCryptoRist255SubInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3294,14 +3262,14 @@ data class TvmAppCryptoRist255SubInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RIST255_SUB"
@@ -3318,17 +3286,15 @@ data class TvmAppCryptoRist255ValidateInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 226)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RIST255_VALIDATE"
@@ -3346,20 +3312,20 @@ data class TvmAppCryptoSha256uInst(
 ): TvmInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SHA256U"
@@ -3380,15 +3346,15 @@ data class TvmAppCurrencyLdgramsInst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3397,7 +3363,7 @@ data class TvmAppCurrencyLdgramsInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDGRAMS"
@@ -3415,15 +3381,15 @@ data class TvmAppCurrencyLdvarint16Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3432,7 +3398,7 @@ data class TvmAppCurrencyLdvarint16Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDVARINT16"
@@ -3450,15 +3416,15 @@ data class TvmAppCurrencyLdvarint32Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3467,7 +3433,7 @@ data class TvmAppCurrencyLdvarint32Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDVARINT32"
@@ -3487,15 +3453,15 @@ data class TvmAppCurrencyLdvaruint32Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3504,7 +3470,7 @@ data class TvmAppCurrencyLdvaruint32Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDVARUINT32"
@@ -3525,8 +3491,8 @@ data class TvmAppCurrencyStgramsInst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -3535,14 +3501,14 @@ data class TvmAppCurrencyStgramsInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STGRAMS"
@@ -3559,8 +3525,8 @@ data class TvmAppCurrencyStvarint16Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -3569,14 +3535,14 @@ data class TvmAppCurrencyStvarint16Inst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STVARINT16"
@@ -3593,8 +3559,8 @@ data class TvmAppCurrencyStvarint32Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -3603,14 +3569,14 @@ data class TvmAppCurrencyStvarint32Inst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STVARINT32"
@@ -3631,8 +3597,8 @@ data class TvmAppCurrencyStvaruint32Inst(
 ): TvmInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -3641,14 +3607,14 @@ data class TvmAppCurrencyStvaruint32Inst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STVARUINT32"
@@ -3669,14 +3635,10 @@ data class TvmAppGasAcceptInst(
 ): TvmInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "ACCEPT"
@@ -3695,14 +3657,10 @@ data class TvmAppGasCommitInst(
 ): TvmInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "COMMIT"
@@ -3719,17 +3677,15 @@ data class TvmAppGasGasconsumedInst(
 ): TvmInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "g_c",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GASCONSUMED"
@@ -3749,17 +3705,15 @@ data class TvmAppGasSetgaslimitInst(
 ): TvmInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "g",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETGASLIMIT"
@@ -3778,17 +3732,15 @@ data class TvmAppGlobalGetglobInst(
 ): TvmInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETGLOB"
@@ -3806,20 +3758,20 @@ data class TvmAppGlobalGetglobvarInst(
 ): TvmInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GETGLOBVAR"
@@ -3838,17 +3790,15 @@ data class TvmAppGlobalSetglobInst(
 ): TvmInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETGLOB"
@@ -3866,8 +3816,8 @@ data class TvmAppGlobalSetglobvarInst(
 ): TvmInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -3876,11 +3826,9 @@ data class TvmAppGlobalSetglobvarInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETGLOBVAR"
@@ -3897,8 +3845,8 @@ data class TvmAppMiscCdatasizeInst(
 ): TvmInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -3907,9 +3855,9 @@ data class TvmAppMiscCdatasizeInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -3922,7 +3870,7 @@ data class TvmAppMiscCdatasizeInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CDATASIZE"
@@ -3945,8 +3893,8 @@ data class TvmAppMiscCdatasizeqInst(
 ): TvmInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -3955,9 +3903,9 @@ data class TvmAppMiscCdatasizeqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -3965,7 +3913,7 @@ data class TvmAppMiscCdatasizeqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CDATASIZEQ"
@@ -3982,8 +3930,8 @@ data class TvmAppMiscSdatasizeInst(
 ): TvmInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -3992,9 +3940,9 @@ data class TvmAppMiscSdatasizeInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4007,7 +3955,7 @@ data class TvmAppMiscSdatasizeInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDATASIZE"
@@ -4026,8 +3974,8 @@ data class TvmAppMiscSdatasizeqInst(
 ): TvmInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -4036,9 +3984,9 @@ data class TvmAppMiscSdatasizeqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -4046,7 +3994,7 @@ data class TvmAppMiscSdatasizeqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDATASIZEQ"
@@ -4065,17 +4013,15 @@ data class TvmAppRndAddrandInst(
 ): TvmInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "ADDRAND"
@@ -4095,20 +4041,20 @@ data class TvmAppRndRandInst(
 ): TvmInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RAND"
@@ -4129,17 +4075,15 @@ data class TvmAppRndRandu256Inst(
 ): TvmInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RANDU256"
@@ -4156,17 +4100,15 @@ data class TvmAppRndSetrandInst(
 ): TvmInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETRAND"
@@ -4183,8 +4125,8 @@ data class TvmArithmBasicAddInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4193,14 +4135,14 @@ data class TvmArithmBasicAddInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADD"
@@ -4218,20 +4160,20 @@ data class TvmArithmBasicAddconstInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDCONST"
@@ -4248,20 +4190,20 @@ data class TvmArithmBasicDecInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DEC"
@@ -4278,20 +4220,20 @@ data class TvmArithmBasicIncInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INC"
@@ -4308,8 +4250,8 @@ data class TvmArithmBasicMulInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4318,14 +4260,14 @@ data class TvmArithmBasicMulInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MUL"
@@ -4343,20 +4285,20 @@ data class TvmArithmBasicMulconstInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULCONST"
@@ -4374,20 +4316,20 @@ data class TvmArithmBasicNegateInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NEGATE"
@@ -4404,8 +4346,8 @@ data class TvmArithmBasicSubInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4414,14 +4356,14 @@ data class TvmArithmBasicSubInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUB"
@@ -4438,8 +4380,8 @@ data class TvmArithmBasicSubrInst(
 ): TvmInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4448,14 +4390,14 @@ data class TvmArithmBasicSubrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBR"
@@ -4472,8 +4414,8 @@ data class TvmArithmDivAdddivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4486,9 +4428,9 @@ data class TvmArithmDivAdddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4497,7 +4439,7 @@ data class TvmArithmDivAdddivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDDIVMOD"
@@ -4514,8 +4456,8 @@ data class TvmArithmDivAdddivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4528,9 +4470,9 @@ data class TvmArithmDivAdddivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4539,7 +4481,7 @@ data class TvmArithmDivAdddivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDDIVMODC"
@@ -4556,8 +4498,8 @@ data class TvmArithmDivAdddivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4570,9 +4512,9 @@ data class TvmArithmDivAdddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4581,7 +4523,7 @@ data class TvmArithmDivAdddivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDDIVMODR"
@@ -4599,8 +4541,8 @@ data class TvmArithmDivAddrshiftcmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4609,9 +4551,9 @@ data class TvmArithmDivAddrshiftcmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4620,7 +4562,7 @@ data class TvmArithmDivAddrshiftcmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTCMOD"
@@ -4638,8 +4580,8 @@ data class TvmArithmDivAddrshiftmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4648,9 +4590,9 @@ data class TvmArithmDivAddrshiftmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4659,7 +4601,7 @@ data class TvmArithmDivAddrshiftmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTMOD"
@@ -4676,8 +4618,8 @@ data class TvmArithmDivAddrshiftmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4690,9 +4632,9 @@ data class TvmArithmDivAddrshiftmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4701,7 +4643,7 @@ data class TvmArithmDivAddrshiftmodVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTMOD_VAR"
@@ -4718,8 +4660,8 @@ data class TvmArithmDivAddrshiftmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4732,9 +4674,9 @@ data class TvmArithmDivAddrshiftmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4743,7 +4685,7 @@ data class TvmArithmDivAddrshiftmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTMODC"
@@ -4760,8 +4702,8 @@ data class TvmArithmDivAddrshiftmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4774,9 +4716,9 @@ data class TvmArithmDivAddrshiftmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4785,7 +4727,7 @@ data class TvmArithmDivAddrshiftmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTMODR"
@@ -4803,8 +4745,8 @@ data class TvmArithmDivAddrshiftrmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4813,9 +4755,9 @@ data class TvmArithmDivAddrshiftrmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4824,7 +4766,7 @@ data class TvmArithmDivAddrshiftrmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ADDRSHIFTRMOD"
@@ -4841,8 +4783,8 @@ data class TvmArithmDivDivInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4851,14 +4793,14 @@ data class TvmArithmDivDivInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIV"
@@ -4875,8 +4817,8 @@ data class TvmArithmDivDivcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4885,14 +4827,14 @@ data class TvmArithmDivDivcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIVC"
@@ -4909,8 +4851,8 @@ data class TvmArithmDivDivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4919,9 +4861,9 @@ data class TvmArithmDivDivmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4930,7 +4872,7 @@ data class TvmArithmDivDivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIVMOD"
@@ -4947,8 +4889,8 @@ data class TvmArithmDivDivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4957,9 +4899,9 @@ data class TvmArithmDivDivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -4968,7 +4910,7 @@ data class TvmArithmDivDivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIVMODC"
@@ -4985,8 +4927,8 @@ data class TvmArithmDivDivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -4995,9 +4937,9 @@ data class TvmArithmDivDivmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -5006,7 +4948,7 @@ data class TvmArithmDivDivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIVMODR"
@@ -5023,8 +4965,8 @@ data class TvmArithmDivDivrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5033,14 +4975,14 @@ data class TvmArithmDivDivrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DIVR"
@@ -5058,8 +5000,8 @@ data class TvmArithmDivLshiftadddivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5072,14 +5014,14 @@ data class TvmArithmDivLshiftadddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMOD"
@@ -5096,8 +5038,8 @@ data class TvmArithmDivLshiftadddivmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5114,14 +5056,14 @@ data class TvmArithmDivLshiftadddivmodVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMOD_VAR"
@@ -5139,8 +5081,8 @@ data class TvmArithmDivLshiftadddivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5153,14 +5095,14 @@ data class TvmArithmDivLshiftadddivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODC"
@@ -5177,8 +5119,8 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5195,14 +5137,14 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODC_VAR"
@@ -5220,8 +5162,8 @@ data class TvmArithmDivLshiftadddivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5234,14 +5176,14 @@ data class TvmArithmDivLshiftadddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODR"
@@ -5258,8 +5200,8 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5276,14 +5218,14 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTADDDIVMODR_VAR"
@@ -5301,8 +5243,8 @@ data class TvmArithmDivLshiftdivInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5311,14 +5253,14 @@ data class TvmArithmDivLshiftdivInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIV"
@@ -5335,8 +5277,8 @@ data class TvmArithmDivLshiftdivVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5349,14 +5291,14 @@ data class TvmArithmDivLshiftdivVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIV_VAR"
@@ -5374,8 +5316,8 @@ data class TvmArithmDivLshiftdivcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5384,14 +5326,14 @@ data class TvmArithmDivLshiftdivcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVC"
@@ -5408,8 +5350,8 @@ data class TvmArithmDivLshiftdivcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5422,14 +5364,14 @@ data class TvmArithmDivLshiftdivcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVC_VAR"
@@ -5447,8 +5389,8 @@ data class TvmArithmDivLshiftdivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5457,14 +5399,14 @@ data class TvmArithmDivLshiftdivmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMOD"
@@ -5481,8 +5423,8 @@ data class TvmArithmDivLshiftdivmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5495,14 +5437,14 @@ data class TvmArithmDivLshiftdivmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMOD_VAR"
@@ -5520,8 +5462,8 @@ data class TvmArithmDivLshiftdivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5530,14 +5472,14 @@ data class TvmArithmDivLshiftdivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODC"
@@ -5554,8 +5496,8 @@ data class TvmArithmDivLshiftdivmodcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5568,14 +5510,14 @@ data class TvmArithmDivLshiftdivmodcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODC_VAR"
@@ -5593,8 +5535,8 @@ data class TvmArithmDivLshiftdivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5603,14 +5545,14 @@ data class TvmArithmDivLshiftdivmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODR"
@@ -5627,8 +5569,8 @@ data class TvmArithmDivLshiftdivmodrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5641,14 +5583,14 @@ data class TvmArithmDivLshiftdivmodrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVMODR_VAR"
@@ -5666,8 +5608,8 @@ data class TvmArithmDivLshiftdivrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5676,14 +5618,14 @@ data class TvmArithmDivLshiftdivrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVR"
@@ -5700,8 +5642,8 @@ data class TvmArithmDivLshiftdivrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5714,14 +5656,14 @@ data class TvmArithmDivLshiftdivrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTDIVR_VAR"
@@ -5739,8 +5681,8 @@ data class TvmArithmDivLshiftmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5749,14 +5691,14 @@ data class TvmArithmDivLshiftmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMOD"
@@ -5773,8 +5715,8 @@ data class TvmArithmDivLshiftmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5787,14 +5729,14 @@ data class TvmArithmDivLshiftmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMOD_VAR"
@@ -5812,8 +5754,8 @@ data class TvmArithmDivLshiftmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5822,14 +5764,14 @@ data class TvmArithmDivLshiftmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMODC"
@@ -5846,8 +5788,8 @@ data class TvmArithmDivLshiftmodcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5860,14 +5802,14 @@ data class TvmArithmDivLshiftmodcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMODC_VAR"
@@ -5885,8 +5827,8 @@ data class TvmArithmDivLshiftmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5895,14 +5837,14 @@ data class TvmArithmDivLshiftmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMODR"
@@ -5919,8 +5861,8 @@ data class TvmArithmDivLshiftmodrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5933,14 +5875,14 @@ data class TvmArithmDivLshiftmodrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFTMODR_VAR"
@@ -5957,8 +5899,8 @@ data class TvmArithmDivModInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -5967,14 +5909,14 @@ data class TvmArithmDivModInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MOD"
@@ -5991,8 +5933,8 @@ data class TvmArithmDivModcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6001,14 +5943,14 @@ data class TvmArithmDivModcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODC"
@@ -6026,20 +5968,20 @@ data class TvmArithmDivModpow2Inst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2"
@@ -6056,8 +5998,8 @@ data class TvmArithmDivModpow2VarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6066,14 +6008,14 @@ data class TvmArithmDivModpow2VarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2_VAR"
@@ -6091,20 +6033,20 @@ data class TvmArithmDivModpow2cInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2C"
@@ -6121,8 +6063,8 @@ data class TvmArithmDivModpow2cVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6131,14 +6073,14 @@ data class TvmArithmDivModpow2cVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2C_VAR"
@@ -6156,20 +6098,20 @@ data class TvmArithmDivModpow2rInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2R"
@@ -6186,8 +6128,8 @@ data class TvmArithmDivModpow2rVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6196,14 +6138,14 @@ data class TvmArithmDivModpow2rVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODPOW2R_VAR"
@@ -6220,8 +6162,8 @@ data class TvmArithmDivModrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6230,14 +6172,14 @@ data class TvmArithmDivModrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MODR"
@@ -6254,8 +6196,8 @@ data class TvmArithmDivMuladddivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6272,9 +6214,9 @@ data class TvmArithmDivMuladddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6283,7 +6225,7 @@ data class TvmArithmDivMuladddivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDDIVMOD"
@@ -6300,8 +6242,8 @@ data class TvmArithmDivMuladddivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6318,9 +6260,9 @@ data class TvmArithmDivMuladddivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6329,7 +6271,7 @@ data class TvmArithmDivMuladddivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDDIVMODC"
@@ -6346,8 +6288,8 @@ data class TvmArithmDivMuladddivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6364,9 +6306,9 @@ data class TvmArithmDivMuladddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6375,7 +6317,7 @@ data class TvmArithmDivMuladddivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDDIVMODR"
@@ -6393,8 +6335,8 @@ data class TvmArithmDivMuladdrshiftcmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6407,14 +6349,14 @@ data class TvmArithmDivMuladdrshiftcmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDRSHIFTCMOD"
@@ -6432,8 +6374,8 @@ data class TvmArithmDivMuladdrshiftmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6446,14 +6388,14 @@ data class TvmArithmDivMuladdrshiftmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDRSHIFTMOD"
@@ -6471,8 +6413,8 @@ data class TvmArithmDivMuladdrshiftrmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6485,14 +6427,14 @@ data class TvmArithmDivMuladdrshiftrmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULADDRSHIFTRMOD"
@@ -6509,8 +6451,8 @@ data class TvmArithmDivMuldivInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6523,14 +6465,14 @@ data class TvmArithmDivMuldivInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIV"
@@ -6547,8 +6489,8 @@ data class TvmArithmDivMuldivcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6561,14 +6503,14 @@ data class TvmArithmDivMuldivcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIVC"
@@ -6585,8 +6527,8 @@ data class TvmArithmDivMuldivmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6599,9 +6541,9 @@ data class TvmArithmDivMuldivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6610,7 +6552,7 @@ data class TvmArithmDivMuldivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIVMOD"
@@ -6627,8 +6569,8 @@ data class TvmArithmDivMuldivmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6641,9 +6583,9 @@ data class TvmArithmDivMuldivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6652,7 +6594,7 @@ data class TvmArithmDivMuldivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIVMODC"
@@ -6669,8 +6611,8 @@ data class TvmArithmDivMuldivmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6683,9 +6625,9 @@ data class TvmArithmDivMuldivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -6694,7 +6636,7 @@ data class TvmArithmDivMuldivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIVMODR"
@@ -6711,8 +6653,8 @@ data class TvmArithmDivMuldivrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6725,14 +6667,14 @@ data class TvmArithmDivMuldivrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULDIVR"
@@ -6749,8 +6691,8 @@ data class TvmArithmDivMulmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6763,14 +6705,14 @@ data class TvmArithmDivMulmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMOD"
@@ -6787,8 +6729,8 @@ data class TvmArithmDivMulmodcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6801,14 +6743,14 @@ data class TvmArithmDivMulmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODC"
@@ -6826,8 +6768,8 @@ data class TvmArithmDivMulmodpow2Inst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6836,14 +6778,14 @@ data class TvmArithmDivMulmodpow2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2"
@@ -6860,8 +6802,8 @@ data class TvmArithmDivMulmodpow2VarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6874,14 +6816,14 @@ data class TvmArithmDivMulmodpow2VarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2_VAR"
@@ -6899,8 +6841,8 @@ data class TvmArithmDivMulmodpow2cInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6909,14 +6851,14 @@ data class TvmArithmDivMulmodpow2cInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2C"
@@ -6933,8 +6875,8 @@ data class TvmArithmDivMulmodpow2cVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6947,14 +6889,14 @@ data class TvmArithmDivMulmodpow2cVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2C_VAR"
@@ -6972,8 +6914,8 @@ data class TvmArithmDivMulmodpow2rInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -6982,14 +6924,14 @@ data class TvmArithmDivMulmodpow2rInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2R"
@@ -7006,8 +6948,8 @@ data class TvmArithmDivMulmodpow2rVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7020,14 +6962,14 @@ data class TvmArithmDivMulmodpow2rVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODPOW2R_VAR"
@@ -7044,8 +6986,8 @@ data class TvmArithmDivMulmodrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7058,14 +7000,14 @@ data class TvmArithmDivMulmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULMODR"
@@ -7083,8 +7025,8 @@ data class TvmArithmDivMulrshiftInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7093,14 +7035,14 @@ data class TvmArithmDivMulrshiftInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFT"
@@ -7117,8 +7059,8 @@ data class TvmArithmDivMulrshiftVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7131,14 +7073,14 @@ data class TvmArithmDivMulrshiftVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFT_VAR"
@@ -7156,8 +7098,8 @@ data class TvmArithmDivMulrshiftcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7166,14 +7108,14 @@ data class TvmArithmDivMulrshiftcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTC"
@@ -7190,8 +7132,8 @@ data class TvmArithmDivMulrshiftcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7204,14 +7146,14 @@ data class TvmArithmDivMulrshiftcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTC_VAR"
@@ -7229,8 +7171,8 @@ data class TvmArithmDivMulrshiftcmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7239,14 +7181,14 @@ data class TvmArithmDivMulrshiftcmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTCMOD"
@@ -7263,8 +7205,8 @@ data class TvmArithmDivMulrshiftcmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7277,14 +7219,14 @@ data class TvmArithmDivMulrshiftcmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTCMOD_VAR"
@@ -7302,8 +7244,8 @@ data class TvmArithmDivMulrshiftmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7312,14 +7254,14 @@ data class TvmArithmDivMulrshiftmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTMOD"
@@ -7336,8 +7278,8 @@ data class TvmArithmDivMulrshiftmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7350,14 +7292,14 @@ data class TvmArithmDivMulrshiftmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTMOD_VAR"
@@ -7375,8 +7317,8 @@ data class TvmArithmDivMulrshiftrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7385,14 +7327,14 @@ data class TvmArithmDivMulrshiftrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTR"
@@ -7409,8 +7351,8 @@ data class TvmArithmDivMulrshiftrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7423,14 +7365,14 @@ data class TvmArithmDivMulrshiftrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTR_VAR"
@@ -7448,8 +7390,8 @@ data class TvmArithmDivMulrshiftrmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7458,14 +7400,14 @@ data class TvmArithmDivMulrshiftrmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTRMOD"
@@ -7482,8 +7424,8 @@ data class TvmArithmDivMulrshiftrmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7496,14 +7438,14 @@ data class TvmArithmDivMulrshiftrmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MULRSHIFTRMOD_VAR"
@@ -7521,20 +7463,20 @@ data class TvmArithmDivRshiftcInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTC"
@@ -7551,8 +7493,8 @@ data class TvmArithmDivRshiftcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7561,14 +7503,14 @@ data class TvmArithmDivRshiftcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTC_VAR"
@@ -7586,15 +7528,15 @@ data class TvmArithmDivRshiftcmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7603,7 +7545,7 @@ data class TvmArithmDivRshiftcmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTCMOD"
@@ -7621,15 +7563,15 @@ data class TvmArithmDivRshiftmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7638,7 +7580,7 @@ data class TvmArithmDivRshiftmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTMOD"
@@ -7655,8 +7597,8 @@ data class TvmArithmDivRshiftmodVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7665,9 +7607,9 @@ data class TvmArithmDivRshiftmodVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7676,7 +7618,7 @@ data class TvmArithmDivRshiftmodVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTMOD_VAR"
@@ -7693,8 +7635,8 @@ data class TvmArithmDivRshiftmodcVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7703,9 +7645,9 @@ data class TvmArithmDivRshiftmodcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7714,7 +7656,7 @@ data class TvmArithmDivRshiftmodcVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTMODC_VAR"
@@ -7731,8 +7673,8 @@ data class TvmArithmDivRshiftmodrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7741,9 +7683,9 @@ data class TvmArithmDivRshiftmodrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7752,7 +7694,7 @@ data class TvmArithmDivRshiftmodrVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTMODR_VAR"
@@ -7770,20 +7712,20 @@ data class TvmArithmDivRshiftrInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTR"
@@ -7800,8 +7742,8 @@ data class TvmArithmDivRshiftrVarInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7810,14 +7752,14 @@ data class TvmArithmDivRshiftrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTR_VAR"
@@ -7835,15 +7777,15 @@ data class TvmArithmDivRshiftrmodInst(
 ): TvmInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -7852,7 +7794,7 @@ data class TvmArithmDivRshiftrmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFTRMOD"
@@ -7869,20 +7811,20 @@ data class TvmArithmLogicalAbsInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ABS"
@@ -7899,8 +7841,8 @@ data class TvmArithmLogicalAndInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -7909,14 +7851,14 @@ data class TvmArithmLogicalAndInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "AND"
@@ -7934,20 +7876,20 @@ data class TvmArithmLogicalBitsizeInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BITSIZE"
@@ -7967,20 +7909,20 @@ data class TvmArithmLogicalFitsInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "FITS"
@@ -7997,8 +7939,8 @@ data class TvmArithmLogicalFitsxInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8007,14 +7949,14 @@ data class TvmArithmLogicalFitsxInst(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "FITSX"
@@ -8032,20 +7974,20 @@ data class TvmArithmLogicalLshiftInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFT"
@@ -8062,8 +8004,8 @@ data class TvmArithmLogicalLshiftVarInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8072,14 +8014,14 @@ data class TvmArithmLogicalLshiftVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LSHIFT_VAR"
@@ -8096,8 +8038,8 @@ data class TvmArithmLogicalMaxInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8106,14 +8048,14 @@ data class TvmArithmLogicalMaxInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MAX"
@@ -8130,8 +8072,8 @@ data class TvmArithmLogicalMinInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8140,14 +8082,14 @@ data class TvmArithmLogicalMinInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MIN"
@@ -8165,8 +8107,8 @@ data class TvmArithmLogicalMinmaxInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8175,9 +8117,9 @@ data class TvmArithmLogicalMinmaxInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "r1",
                 valueTypes = listOf("Integer")
@@ -8186,7 +8128,7 @@ data class TvmArithmLogicalMinmaxInst(
                 name = "r2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "MINMAX"
@@ -8203,20 +8145,20 @@ data class TvmArithmLogicalNotInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NOT"
@@ -8233,8 +8175,8 @@ data class TvmArithmLogicalOrInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8243,14 +8185,14 @@ data class TvmArithmLogicalOrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "OR"
@@ -8268,20 +8210,20 @@ data class TvmArithmLogicalPow2Inst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "POW2"
@@ -8299,20 +8241,20 @@ data class TvmArithmLogicalRshiftInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFT"
@@ -8329,8 +8271,8 @@ data class TvmArithmLogicalRshiftVarInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8339,14 +8281,14 @@ data class TvmArithmLogicalRshiftVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "RSHIFT_VAR"
@@ -8364,20 +8306,20 @@ data class TvmArithmLogicalUbitsizeInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UBITSIZE"
@@ -8396,20 +8338,20 @@ data class TvmArithmLogicalUfitsInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UFITS"
@@ -8426,8 +8368,8 @@ data class TvmArithmLogicalUfitsxInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8436,14 +8378,14 @@ data class TvmArithmLogicalUfitsxInst(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UFITSX"
@@ -8460,8 +8402,8 @@ data class TvmArithmLogicalXorInst(
 ): TvmInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8470,14 +8412,14 @@ data class TvmArithmLogicalXorInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "XOR"
@@ -8494,8 +8436,8 @@ data class TvmArithmQuietQaddInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8504,14 +8446,14 @@ data class TvmArithmQuietQaddInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADD"
@@ -8528,8 +8470,8 @@ data class TvmArithmQuietQadddivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8542,9 +8484,9 @@ data class TvmArithmQuietQadddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8553,7 +8495,7 @@ data class TvmArithmQuietQadddivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDDIVMOD"
@@ -8570,8 +8512,8 @@ data class TvmArithmQuietQadddivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8584,9 +8526,9 @@ data class TvmArithmQuietQadddivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8595,7 +8537,7 @@ data class TvmArithmQuietQadddivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDDIVMODC"
@@ -8612,8 +8554,8 @@ data class TvmArithmQuietQadddivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8626,9 +8568,9 @@ data class TvmArithmQuietQadddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8637,7 +8579,7 @@ data class TvmArithmQuietQadddivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDDIVMODR"
@@ -8655,8 +8597,8 @@ data class TvmArithmQuietQaddrshiftcmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8665,9 +8607,9 @@ data class TvmArithmQuietQaddrshiftcmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8676,7 +8618,7 @@ data class TvmArithmQuietQaddrshiftcmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDRSHIFTCMOD"
@@ -8694,8 +8636,8 @@ data class TvmArithmQuietQaddrshiftmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8704,9 +8646,9 @@ data class TvmArithmQuietQaddrshiftmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8715,7 +8657,7 @@ data class TvmArithmQuietQaddrshiftmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDRSHIFTMOD"
@@ -8732,8 +8674,8 @@ data class TvmArithmQuietQaddrshiftmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8746,9 +8688,9 @@ data class TvmArithmQuietQaddrshiftmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8757,7 +8699,7 @@ data class TvmArithmQuietQaddrshiftmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDRSHIFTMODC"
@@ -8774,8 +8716,8 @@ data class TvmArithmQuietQaddrshiftmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8788,9 +8730,9 @@ data class TvmArithmQuietQaddrshiftmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8799,7 +8741,7 @@ data class TvmArithmQuietQaddrshiftmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDRSHIFTMODR"
@@ -8817,8 +8759,8 @@ data class TvmArithmQuietQaddrshiftrmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8827,9 +8769,9 @@ data class TvmArithmQuietQaddrshiftrmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -8838,7 +8780,7 @@ data class TvmArithmQuietQaddrshiftrmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QADDRSHIFTRMOD"
@@ -8855,8 +8797,8 @@ data class TvmArithmQuietQandInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8865,14 +8807,14 @@ data class TvmArithmQuietQandInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QAND"
@@ -8889,20 +8831,20 @@ data class TvmArithmQuietQdecInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDEC"
@@ -8919,8 +8861,8 @@ data class TvmArithmQuietQdivInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8929,14 +8871,14 @@ data class TvmArithmQuietQdivInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIV"
@@ -8953,8 +8895,8 @@ data class TvmArithmQuietQdivcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8963,14 +8905,14 @@ data class TvmArithmQuietQdivcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIVC"
@@ -8987,8 +8929,8 @@ data class TvmArithmQuietQdivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -8997,9 +8939,9 @@ data class TvmArithmQuietQdivmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -9008,7 +8950,7 @@ data class TvmArithmQuietQdivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIVMOD"
@@ -9025,8 +8967,8 @@ data class TvmArithmQuietQdivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9035,9 +8977,9 @@ data class TvmArithmQuietQdivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -9046,7 +8988,7 @@ data class TvmArithmQuietQdivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIVMODC"
@@ -9063,8 +9005,8 @@ data class TvmArithmQuietQdivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9073,9 +9015,9 @@ data class TvmArithmQuietQdivmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -9084,7 +9026,7 @@ data class TvmArithmQuietQdivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIVMODR"
@@ -9101,8 +9043,8 @@ data class TvmArithmQuietQdivrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9111,14 +9053,14 @@ data class TvmArithmQuietQdivrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QDIVR"
@@ -9136,20 +9078,20 @@ data class TvmArithmQuietQfitsInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QFITS"
@@ -9166,8 +9108,8 @@ data class TvmArithmQuietQfitsxInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9176,14 +9118,14 @@ data class TvmArithmQuietQfitsxInst(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QFITSX"
@@ -9200,20 +9142,20 @@ data class TvmArithmQuietQincInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QINC"
@@ -9231,20 +9173,20 @@ data class TvmArithmQuietQlshiftInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFT"
@@ -9261,8 +9203,8 @@ data class TvmArithmQuietQlshiftVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9271,14 +9213,14 @@ data class TvmArithmQuietQlshiftVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFT_VAR"
@@ -9296,8 +9238,8 @@ data class TvmArithmQuietQlshiftadddivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9310,14 +9252,14 @@ data class TvmArithmQuietQlshiftadddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMOD"
@@ -9334,8 +9276,8 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9352,14 +9294,14 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMOD_VAR"
@@ -9377,8 +9319,8 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9391,14 +9333,14 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODC"
@@ -9415,8 +9357,8 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9433,14 +9375,14 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODC_VAR"
@@ -9458,8 +9400,8 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9472,14 +9414,14 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODR"
@@ -9496,8 +9438,8 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9514,14 +9456,14 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTADDDIVMODR_VAR"
@@ -9539,8 +9481,8 @@ data class TvmArithmQuietQlshiftdivInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9549,14 +9491,14 @@ data class TvmArithmQuietQlshiftdivInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIV"
@@ -9573,8 +9515,8 @@ data class TvmArithmQuietQlshiftdivVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9587,14 +9529,14 @@ data class TvmArithmQuietQlshiftdivVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIV_VAR"
@@ -9612,8 +9554,8 @@ data class TvmArithmQuietQlshiftdivcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9622,14 +9564,14 @@ data class TvmArithmQuietQlshiftdivcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVC"
@@ -9646,8 +9588,8 @@ data class TvmArithmQuietQlshiftdivcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9660,14 +9602,14 @@ data class TvmArithmQuietQlshiftdivcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVC_VAR"
@@ -9685,8 +9627,8 @@ data class TvmArithmQuietQlshiftdivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9695,14 +9637,14 @@ data class TvmArithmQuietQlshiftdivmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMOD"
@@ -9719,8 +9661,8 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9733,14 +9675,14 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMOD_VAR"
@@ -9758,8 +9700,8 @@ data class TvmArithmQuietQlshiftdivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9768,14 +9710,14 @@ data class TvmArithmQuietQlshiftdivmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODC"
@@ -9792,8 +9734,8 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9806,14 +9748,14 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODC_VAR"
@@ -9831,8 +9773,8 @@ data class TvmArithmQuietQlshiftdivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9841,14 +9783,14 @@ data class TvmArithmQuietQlshiftdivmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODR"
@@ -9865,8 +9807,8 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9879,14 +9821,14 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVMODR_VAR"
@@ -9904,8 +9846,8 @@ data class TvmArithmQuietQlshiftdivrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9914,14 +9856,14 @@ data class TvmArithmQuietQlshiftdivrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVR"
@@ -9938,8 +9880,8 @@ data class TvmArithmQuietQlshiftdivrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9952,14 +9894,14 @@ data class TvmArithmQuietQlshiftdivrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTDIVR_VAR"
@@ -9977,8 +9919,8 @@ data class TvmArithmQuietQlshiftmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -9987,14 +9929,14 @@ data class TvmArithmQuietQlshiftmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMOD"
@@ -10011,8 +9953,8 @@ data class TvmArithmQuietQlshiftmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10025,14 +9967,14 @@ data class TvmArithmQuietQlshiftmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMOD_VAR"
@@ -10050,8 +9992,8 @@ data class TvmArithmQuietQlshiftmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10060,14 +10002,14 @@ data class TvmArithmQuietQlshiftmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMODC"
@@ -10084,8 +10026,8 @@ data class TvmArithmQuietQlshiftmodcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10098,14 +10040,14 @@ data class TvmArithmQuietQlshiftmodcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMODC_VAR"
@@ -10123,8 +10065,8 @@ data class TvmArithmQuietQlshiftmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10133,14 +10075,14 @@ data class TvmArithmQuietQlshiftmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMODR"
@@ -10157,8 +10099,8 @@ data class TvmArithmQuietQlshiftmodrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10171,14 +10113,14 @@ data class TvmArithmQuietQlshiftmodrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QLSHIFTMODR_VAR"
@@ -10195,8 +10137,8 @@ data class TvmArithmQuietQmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10205,14 +10147,14 @@ data class TvmArithmQuietQmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMOD"
@@ -10229,8 +10171,8 @@ data class TvmArithmQuietQmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10239,14 +10181,14 @@ data class TvmArithmQuietQmodcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODC"
@@ -10264,20 +10206,20 @@ data class TvmArithmQuietQmodpow2Inst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2"
@@ -10294,8 +10236,8 @@ data class TvmArithmQuietQmodpow2VarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10304,14 +10246,14 @@ data class TvmArithmQuietQmodpow2VarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2_VAR"
@@ -10329,20 +10271,20 @@ data class TvmArithmQuietQmodpow2cInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2C"
@@ -10359,8 +10301,8 @@ data class TvmArithmQuietQmodpow2cVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10369,14 +10311,14 @@ data class TvmArithmQuietQmodpow2cVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2C_VAR"
@@ -10394,20 +10336,20 @@ data class TvmArithmQuietQmodpow2rInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2R"
@@ -10424,8 +10366,8 @@ data class TvmArithmQuietQmodpow2rVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10434,14 +10376,14 @@ data class TvmArithmQuietQmodpow2rVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODPOW2R_VAR"
@@ -10458,8 +10400,8 @@ data class TvmArithmQuietQmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10468,14 +10410,14 @@ data class TvmArithmQuietQmodrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMODR"
@@ -10492,8 +10434,8 @@ data class TvmArithmQuietQmulInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10502,14 +10444,14 @@ data class TvmArithmQuietQmulInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMUL"
@@ -10526,8 +10468,8 @@ data class TvmArithmQuietQmuladddivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10544,9 +10486,9 @@ data class TvmArithmQuietQmuladddivmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10555,7 +10497,7 @@ data class TvmArithmQuietQmuladddivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDDIVMOD"
@@ -10572,8 +10514,8 @@ data class TvmArithmQuietQmuladddivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10590,9 +10532,9 @@ data class TvmArithmQuietQmuladddivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10601,7 +10543,7 @@ data class TvmArithmQuietQmuladddivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDDIVMODC"
@@ -10618,8 +10560,8 @@ data class TvmArithmQuietQmuladddivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10636,9 +10578,9 @@ data class TvmArithmQuietQmuladddivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10647,7 +10589,7 @@ data class TvmArithmQuietQmuladddivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDDIVMODR"
@@ -10665,8 +10607,8 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10679,14 +10621,14 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTCMOD"
@@ -10704,8 +10646,8 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10718,14 +10660,14 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTMOD"
@@ -10743,8 +10685,8 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10757,14 +10699,14 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
                 name = "w",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTRMOD"
@@ -10781,8 +10723,8 @@ data class TvmArithmQuietQmuldivInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10795,14 +10737,14 @@ data class TvmArithmQuietQmuldivInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIV"
@@ -10819,8 +10761,8 @@ data class TvmArithmQuietQmuldivcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10833,14 +10775,14 @@ data class TvmArithmQuietQmuldivcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIVC"
@@ -10857,8 +10799,8 @@ data class TvmArithmQuietQmuldivmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10867,9 +10809,9 @@ data class TvmArithmQuietQmuldivmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10878,7 +10820,7 @@ data class TvmArithmQuietQmuldivmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIVMOD"
@@ -10895,8 +10837,8 @@ data class TvmArithmQuietQmuldivmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10909,9 +10851,9 @@ data class TvmArithmQuietQmuldivmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10920,7 +10862,7 @@ data class TvmArithmQuietQmuldivmodcInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIVMODC"
@@ -10937,8 +10879,8 @@ data class TvmArithmQuietQmuldivmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10951,9 +10893,9 @@ data class TvmArithmQuietQmuldivmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -10962,7 +10904,7 @@ data class TvmArithmQuietQmuldivmodrInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIVMODR"
@@ -10979,8 +10921,8 @@ data class TvmArithmQuietQmuldivrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -10993,14 +10935,14 @@ data class TvmArithmQuietQmuldivrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULDIVR"
@@ -11017,8 +10959,8 @@ data class TvmArithmQuietQmulmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11031,14 +10973,14 @@ data class TvmArithmQuietQmulmodInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMOD"
@@ -11055,8 +10997,8 @@ data class TvmArithmQuietQmulmodcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11069,14 +11011,14 @@ data class TvmArithmQuietQmulmodcInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODC"
@@ -11094,8 +11036,8 @@ data class TvmArithmQuietQmulmodpow2Inst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11104,14 +11046,14 @@ data class TvmArithmQuietQmulmodpow2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2"
@@ -11128,8 +11070,8 @@ data class TvmArithmQuietQmulmodpow2VarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11142,14 +11084,14 @@ data class TvmArithmQuietQmulmodpow2VarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2_VAR"
@@ -11167,8 +11109,8 @@ data class TvmArithmQuietQmulmodpow2cInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11177,14 +11119,14 @@ data class TvmArithmQuietQmulmodpow2cInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2C"
@@ -11201,8 +11143,8 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11215,14 +11157,14 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2C_VAR"
@@ -11240,8 +11182,8 @@ data class TvmArithmQuietQmulmodpow2rInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11250,14 +11192,14 @@ data class TvmArithmQuietQmulmodpow2rInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2R"
@@ -11274,8 +11216,8 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11288,14 +11230,14 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODPOW2R_VAR"
@@ -11312,8 +11254,8 @@ data class TvmArithmQuietQmulmodrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11326,14 +11268,14 @@ data class TvmArithmQuietQmulmodrInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULMODR"
@@ -11351,8 +11293,8 @@ data class TvmArithmQuietQmulrshiftInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11361,14 +11303,14 @@ data class TvmArithmQuietQmulrshiftInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFT"
@@ -11385,8 +11327,8 @@ data class TvmArithmQuietQmulrshiftVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11399,14 +11341,14 @@ data class TvmArithmQuietQmulrshiftVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFT_VAR"
@@ -11424,8 +11366,8 @@ data class TvmArithmQuietQmulrshiftcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11434,14 +11376,14 @@ data class TvmArithmQuietQmulrshiftcInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTC"
@@ -11458,8 +11400,8 @@ data class TvmArithmQuietQmulrshiftcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11472,14 +11414,14 @@ data class TvmArithmQuietQmulrshiftcVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTC_VAR"
@@ -11496,8 +11438,8 @@ data class TvmArithmQuietQmulrshiftcmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11506,14 +11448,14 @@ data class TvmArithmQuietQmulrshiftcmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTCMOD"
@@ -11530,8 +11472,8 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11544,14 +11486,14 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTCMOD_VAR"
@@ -11568,8 +11510,8 @@ data class TvmArithmQuietQmulrshiftmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11578,14 +11520,14 @@ data class TvmArithmQuietQmulrshiftmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTMOD"
@@ -11602,8 +11544,8 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11616,14 +11558,14 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTMOD_VAR"
@@ -11641,8 +11583,8 @@ data class TvmArithmQuietQmulrshiftrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11651,14 +11593,14 @@ data class TvmArithmQuietQmulrshiftrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTR"
@@ -11675,8 +11617,8 @@ data class TvmArithmQuietQmulrshiftrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11689,14 +11631,14 @@ data class TvmArithmQuietQmulrshiftrVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTR_VAR"
@@ -11713,8 +11655,8 @@ data class TvmArithmQuietQmulrshiftrmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11723,14 +11665,14 @@ data class TvmArithmQuietQmulrshiftrmodInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTRMOD"
@@ -11747,8 +11689,8 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11761,14 +11703,14 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
                 name = "z",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QMULRSHIFTRMOD_VAR"
@@ -11785,20 +11727,20 @@ data class TvmArithmQuietQnegateInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QNEGATE"
@@ -11815,20 +11757,20 @@ data class TvmArithmQuietQnotInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QNOT"
@@ -11845,8 +11787,8 @@ data class TvmArithmQuietQorInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11855,14 +11797,14 @@ data class TvmArithmQuietQorInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QOR"
@@ -11879,20 +11821,20 @@ data class TvmArithmQuietQpow2Inst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QPOW2"
@@ -11910,20 +11852,20 @@ data class TvmArithmQuietQrshiftInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFT"
@@ -11940,8 +11882,8 @@ data class TvmArithmQuietQrshiftVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -11950,14 +11892,14 @@ data class TvmArithmQuietQrshiftVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFT_VAR"
@@ -11975,20 +11917,20 @@ data class TvmArithmQuietQrshiftcInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTC"
@@ -12005,8 +11947,8 @@ data class TvmArithmQuietQrshiftcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12015,14 +11957,14 @@ data class TvmArithmQuietQrshiftcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTC_VAR"
@@ -12040,15 +11982,15 @@ data class TvmArithmQuietQrshiftcmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12057,7 +11999,7 @@ data class TvmArithmQuietQrshiftcmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTCMOD"
@@ -12075,15 +12017,15 @@ data class TvmArithmQuietQrshiftmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12092,7 +12034,7 @@ data class TvmArithmQuietQrshiftmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTMOD"
@@ -12109,8 +12051,8 @@ data class TvmArithmQuietQrshiftmodVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12119,9 +12061,9 @@ data class TvmArithmQuietQrshiftmodVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12130,7 +12072,7 @@ data class TvmArithmQuietQrshiftmodVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTMOD_VAR"
@@ -12147,8 +12089,8 @@ data class TvmArithmQuietQrshiftmodcVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12157,9 +12099,9 @@ data class TvmArithmQuietQrshiftmodcVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12168,7 +12110,7 @@ data class TvmArithmQuietQrshiftmodcVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTMODC_VAR"
@@ -12185,8 +12127,8 @@ data class TvmArithmQuietQrshiftmodrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12195,9 +12137,9 @@ data class TvmArithmQuietQrshiftmodrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12206,7 +12148,7 @@ data class TvmArithmQuietQrshiftmodrVarInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTMODR_VAR"
@@ -12224,20 +12166,20 @@ data class TvmArithmQuietQrshiftrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTR"
@@ -12254,8 +12196,8 @@ data class TvmArithmQuietQrshiftrVarInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12264,14 +12206,14 @@ data class TvmArithmQuietQrshiftrVarInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTR_VAR"
@@ -12289,15 +12231,15 @@ data class TvmArithmQuietQrshiftrmodInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "q",
                 valueTypes = listOf("Integer")
@@ -12306,7 +12248,7 @@ data class TvmArithmQuietQrshiftrmodInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QRSHIFTRMOD"
@@ -12323,8 +12265,8 @@ data class TvmArithmQuietQsubInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12333,14 +12275,14 @@ data class TvmArithmQuietQsubInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QSUB"
@@ -12357,8 +12299,8 @@ data class TvmArithmQuietQsubrInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12367,14 +12309,14 @@ data class TvmArithmQuietQsubrInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QSUBR"
@@ -12392,20 +12334,20 @@ data class TvmArithmQuietQufitsInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QUFITS"
@@ -12422,8 +12364,8 @@ data class TvmArithmQuietQufitsxInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12432,14 +12374,14 @@ data class TvmArithmQuietQufitsxInst(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QUFITSX"
@@ -12456,8 +12398,8 @@ data class TvmArithmQuietQxorInst(
 ): TvmInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12466,14 +12408,14 @@ data class TvmArithmQuietQxorInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QXOR"
@@ -12490,15 +12432,15 @@ data class TvmCellBuildBbitrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -12507,7 +12449,7 @@ data class TvmCellBuildBbitrefsInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BBITREFS"
@@ -12524,20 +12466,20 @@ data class TvmCellBuildBbitsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BBITS"
@@ -12554,8 +12496,8 @@ data class TvmCellBuildBchkbitrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12568,11 +12510,9 @@ data class TvmCellBuildBchkbitrefsInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "BCHKBITREFS"
@@ -12589,8 +12529,8 @@ data class TvmCellBuildBchkbitrefsqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12603,14 +12543,14 @@ data class TvmCellBuildBchkbitrefsqInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BCHKBITREFSQ"
@@ -12628,17 +12568,15 @@ data class TvmCellBuildBchkbitsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "BCHKBITS"
@@ -12656,8 +12594,8 @@ data class TvmCellBuildBchkbitsVarInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12666,11 +12604,9 @@ data class TvmCellBuildBchkbitsVarInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "BCHKBITS_VAR"
@@ -12688,20 +12624,20 @@ data class TvmCellBuildBchkbitsqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BCHKBITSQ"
@@ -12718,8 +12654,8 @@ data class TvmCellBuildBchkbitsqVarInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12728,14 +12664,14 @@ data class TvmCellBuildBchkbitsqVarInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BCHKBITSQ_VAR"
@@ -12752,8 +12688,8 @@ data class TvmCellBuildBchkrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12762,11 +12698,9 @@ data class TvmCellBuildBchkrefsInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "BCHKREFS"
@@ -12783,8 +12717,8 @@ data class TvmCellBuildBchkrefsqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -12793,14 +12727,14 @@ data class TvmCellBuildBchkrefsqInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BCHKREFSQ"
@@ -12818,20 +12752,20 @@ data class TvmCellBuildBdepthInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BDEPTH"
@@ -12848,20 +12782,20 @@ data class TvmCellBuildBrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BREFS"
@@ -12878,15 +12812,15 @@ data class TvmCellBuildBrembitrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x2",
                 valueTypes = listOf("Integer")
@@ -12895,7 +12829,7 @@ data class TvmCellBuildBrembitrefsInst(
                 name = "y2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BREMBITREFS"
@@ -12912,20 +12846,20 @@ data class TvmCellBuildBrembitsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BREMBITS"
@@ -12942,20 +12876,20 @@ data class TvmCellBuildBremrefsInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "y2",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BREMREFS"
@@ -12972,20 +12906,20 @@ data class TvmCellBuildEndcInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ENDC"
@@ -13005,8 +12939,8 @@ data class TvmCellBuildEndxcInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13015,14 +12949,14 @@ data class TvmCellBuildEndxcInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ENDXC"
@@ -13039,17 +12973,15 @@ data class TvmCellBuildNewcInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NEWC"
@@ -13066,8 +12998,8 @@ data class TvmCellBuildStbInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
@@ -13076,14 +13008,14 @@ data class TvmCellBuildStbInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b3",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STB"
@@ -13100,8 +13032,8 @@ data class TvmCellBuildStbqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
@@ -13110,9 +13042,9 @@ data class TvmCellBuildStbqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13120,7 +13052,7 @@ data class TvmCellBuildStbqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBQ"
@@ -13138,8 +13070,8 @@ data class TvmCellBuildStbrInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13148,14 +13080,14 @@ data class TvmCellBuildStbrInst(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b3",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBR"
@@ -13172,8 +13104,8 @@ data class TvmCellBuildStbrefInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "child",
                 valueTypes = listOf("Builder")
@@ -13182,14 +13114,14 @@ data class TvmCellBuildStbrefInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBREF"
@@ -13206,8 +13138,8 @@ data class TvmCellBuildStbrefqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
@@ -13216,9 +13148,9 @@ data class TvmCellBuildStbrefqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13226,7 +13158,7 @@ data class TvmCellBuildStbrefqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBREFQ"
@@ -13243,8 +13175,8 @@ data class TvmCellBuildStbrefrAltInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13253,14 +13185,14 @@ data class TvmCellBuildStbrefrAltInst(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b3",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBREFR_ALT"
@@ -13277,8 +13209,8 @@ data class TvmCellBuildStbrefrInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13287,14 +13219,14 @@ data class TvmCellBuildStbrefrInst(
                 name = "child",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBREFR"
@@ -13311,8 +13243,8 @@ data class TvmCellBuildStbrefrqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
@@ -13321,9 +13253,9 @@ data class TvmCellBuildStbrefrqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13331,7 +13263,7 @@ data class TvmCellBuildStbrefrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBREFRQ"
@@ -13348,8 +13280,8 @@ data class TvmCellBuildStbrqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13358,9 +13290,9 @@ data class TvmCellBuildStbrqInst(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13368,7 +13300,7 @@ data class TvmCellBuildStbrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STBRQ"
@@ -13386,8 +13318,8 @@ data class TvmCellBuildStiAltInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13396,14 +13328,14 @@ data class TvmCellBuildStiAltInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STI_ALT"
@@ -13422,8 +13354,8 @@ data class TvmCellBuildStiInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13432,14 +13364,14 @@ data class TvmCellBuildStiInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STI"
@@ -13456,8 +13388,8 @@ data class TvmCellBuildStile4Inst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13466,14 +13398,14 @@ data class TvmCellBuildStile4Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STILE4"
@@ -13490,8 +13422,8 @@ data class TvmCellBuildStile8Inst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13500,14 +13432,14 @@ data class TvmCellBuildStile8Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STILE8"
@@ -13525,8 +13457,8 @@ data class TvmCellBuildStiqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13535,9 +13467,9 @@ data class TvmCellBuildStiqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13545,7 +13477,7 @@ data class TvmCellBuildStiqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIQ"
@@ -13563,8 +13495,8 @@ data class TvmCellBuildStirInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13573,14 +13505,14 @@ data class TvmCellBuildStirInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIR"
@@ -13598,8 +13530,8 @@ data class TvmCellBuildStirqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13608,9 +13540,9 @@ data class TvmCellBuildStirqInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13618,7 +13550,7 @@ data class TvmCellBuildStirqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIRQ"
@@ -13635,8 +13567,8 @@ data class TvmCellBuildStixInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13649,14 +13581,14 @@ data class TvmCellBuildStixInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIX"
@@ -13676,8 +13608,8 @@ data class TvmCellBuildStixqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -13690,9 +13622,9 @@ data class TvmCellBuildStixqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13700,7 +13632,7 @@ data class TvmCellBuildStixqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIXQ"
@@ -13717,8 +13649,8 @@ data class TvmCellBuildStixrInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13731,14 +13663,14 @@ data class TvmCellBuildStixrInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIXR"
@@ -13755,8 +13687,8 @@ data class TvmCellBuildStixrqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13769,9 +13701,9 @@ data class TvmCellBuildStixrqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13779,7 +13711,7 @@ data class TvmCellBuildStixrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STIXRQ"
@@ -13796,8 +13728,8 @@ data class TvmCellBuildStonesInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -13806,14 +13738,14 @@ data class TvmCellBuildStonesInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STONES"
@@ -13832,20 +13764,20 @@ data class TvmCellBuildStref2constInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREF2CONST"
@@ -13862,8 +13794,8 @@ data class TvmCellBuildStrefAltInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -13872,14 +13804,14 @@ data class TvmCellBuildStrefAltInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREF_ALT"
@@ -13896,8 +13828,8 @@ data class TvmCellBuildStrefInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -13906,14 +13838,14 @@ data class TvmCellBuildStrefInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREF"
@@ -13931,20 +13863,20 @@ data class TvmCellBuildStrefconstInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREFCONST"
@@ -13961,8 +13893,8 @@ data class TvmCellBuildStrefqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -13971,9 +13903,9 @@ data class TvmCellBuildStrefqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -13981,7 +13913,7 @@ data class TvmCellBuildStrefqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREFQ"
@@ -13998,8 +13930,8 @@ data class TvmCellBuildStrefrInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14008,14 +13940,14 @@ data class TvmCellBuildStrefrInst(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREFR"
@@ -14032,8 +13964,8 @@ data class TvmCellBuildStrefrqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14042,9 +13974,9 @@ data class TvmCellBuildStrefrqInst(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14052,7 +13984,7 @@ data class TvmCellBuildStrefrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STREFRQ"
@@ -14069,8 +14001,8 @@ data class TvmCellBuildStsameInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14083,14 +14015,14 @@ data class TvmCellBuildStsameInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSAME"
@@ -14107,8 +14039,8 @@ data class TvmCellBuildStsliceAltInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -14117,14 +14049,14 @@ data class TvmCellBuildStsliceAltInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICE_ALT"
@@ -14141,8 +14073,8 @@ data class TvmCellBuildStsliceInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -14151,14 +14083,14 @@ data class TvmCellBuildStsliceInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICE"
@@ -14180,20 +14112,20 @@ data class TvmCellBuildStsliceconstInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 24)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICECONST"
@@ -14210,8 +14142,8 @@ data class TvmCellBuildStsliceqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -14220,9 +14152,9 @@ data class TvmCellBuildStsliceqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14230,7 +14162,7 @@ data class TvmCellBuildStsliceqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICEQ"
@@ -14247,8 +14179,8 @@ data class TvmCellBuildStslicerInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14257,14 +14189,14 @@ data class TvmCellBuildStslicerInst(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICER"
@@ -14281,8 +14213,8 @@ data class TvmCellBuildStslicerqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14291,9 +14223,9 @@ data class TvmCellBuildStslicerqInst(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14301,7 +14233,7 @@ data class TvmCellBuildStslicerqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STSLICERQ"
@@ -14319,8 +14251,8 @@ data class TvmCellBuildStuAltInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14329,14 +14261,14 @@ data class TvmCellBuildStuAltInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STU_ALT"
@@ -14355,8 +14287,8 @@ data class TvmCellBuildStuInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14365,14 +14297,14 @@ data class TvmCellBuildStuInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STU"
@@ -14389,8 +14321,8 @@ data class TvmCellBuildStule4Inst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14399,14 +14331,14 @@ data class TvmCellBuildStule4Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STULE4"
@@ -14423,8 +14355,8 @@ data class TvmCellBuildStule8Inst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14433,14 +14365,14 @@ data class TvmCellBuildStule8Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STULE8"
@@ -14458,8 +14390,8 @@ data class TvmCellBuildStuqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14468,9 +14400,9 @@ data class TvmCellBuildStuqInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14478,7 +14410,7 @@ data class TvmCellBuildStuqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUQ"
@@ -14496,8 +14428,8 @@ data class TvmCellBuildSturInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14506,14 +14438,14 @@ data class TvmCellBuildSturInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUR"
@@ -14531,8 +14463,8 @@ data class TvmCellBuildSturqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14541,9 +14473,9 @@ data class TvmCellBuildSturqInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14551,7 +14483,7 @@ data class TvmCellBuildSturqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STURQ"
@@ -14568,8 +14500,8 @@ data class TvmCellBuildStuxInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14582,14 +14514,14 @@ data class TvmCellBuildStuxInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUX"
@@ -14606,8 +14538,8 @@ data class TvmCellBuildStuxqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -14620,9 +14552,9 @@ data class TvmCellBuildStuxqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14630,7 +14562,7 @@ data class TvmCellBuildStuxqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUXQ"
@@ -14647,8 +14579,8 @@ data class TvmCellBuildStuxrInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14661,14 +14593,14 @@ data class TvmCellBuildStuxrInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUXR"
@@ -14685,8 +14617,8 @@ data class TvmCellBuildStuxrqInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14699,9 +14631,9 @@ data class TvmCellBuildStuxrqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -14709,7 +14641,7 @@ data class TvmCellBuildStuxrqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STUXRQ"
@@ -14726,8 +14658,8 @@ data class TvmCellBuildStzeroesInst(
 ): TvmInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -14736,14 +14668,14 @@ data class TvmCellBuildStzeroesInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STZEROES"
@@ -14762,20 +14694,20 @@ data class TvmCellParseCdepthInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CDEPTH"
@@ -14793,20 +14725,20 @@ data class TvmCellParseCdepthiInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "depth",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CDEPTHI"
@@ -14823,8 +14755,8 @@ data class TvmCellParseCdepthixInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
@@ -14833,14 +14765,14 @@ data class TvmCellParseCdepthixInst(
                 name = "i",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "depth",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CDEPTHIX"
@@ -14858,20 +14790,20 @@ data class TvmCellParseChashiInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "hash",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CHASHI"
@@ -14888,8 +14820,8 @@ data class TvmCellParseChashixInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
@@ -14898,14 +14830,14 @@ data class TvmCellParseChashixInst(
                 name = "i",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "hash",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CHASHIX"
@@ -14922,20 +14854,20 @@ data class TvmCellParseClevelInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "level",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CLEVEL"
@@ -14952,20 +14884,20 @@ data class TvmCellParseClevelmaskInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "cell",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "level_mask",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CLEVELMASK"
@@ -14984,20 +14916,20 @@ data class TvmCellParseCtosInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CTOS"
@@ -15014,17 +14946,15 @@ data class TvmCellParseEndsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "ENDS"
@@ -15042,15 +14972,15 @@ data class TvmCellParseLdiAltInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15059,7 +14989,7 @@ data class TvmCellParseLdiAltInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDI_ALT"
@@ -15078,15 +15008,15 @@ data class TvmCellParseLdiInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15095,7 +15025,7 @@ data class TvmCellParseLdiInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDI"
@@ -15112,15 +15042,15 @@ data class TvmCellParseLdile4Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15129,7 +15059,7 @@ data class TvmCellParseLdile4Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDILE4"
@@ -15146,15 +15076,15 @@ data class TvmCellParseLdile4qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15162,7 +15092,7 @@ data class TvmCellParseLdile4qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDILE4Q"
@@ -15179,15 +15109,15 @@ data class TvmCellParseLdile8Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15196,7 +15126,7 @@ data class TvmCellParseLdile8Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDILE8"
@@ -15213,15 +15143,15 @@ data class TvmCellParseLdile8qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15229,7 +15159,7 @@ data class TvmCellParseLdile8qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDILE8Q"
@@ -15247,15 +15177,15 @@ data class TvmCellParseLdiqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15263,7 +15193,7 @@ data class TvmCellParseLdiqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDIQ"
@@ -15281,8 +15211,8 @@ data class TvmCellParseLdixInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15291,9 +15221,9 @@ data class TvmCellParseLdixInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15302,7 +15232,7 @@ data class TvmCellParseLdixInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDIX"
@@ -15321,8 +15251,8 @@ data class TvmCellParseLdixqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15331,9 +15261,9 @@ data class TvmCellParseLdixqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15341,7 +15271,7 @@ data class TvmCellParseLdixqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDIXQ"
@@ -15358,15 +15288,15 @@ data class TvmCellParseLdonesInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -15375,7 +15305,7 @@ data class TvmCellParseLdonesInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDONES"
@@ -15392,15 +15322,15 @@ data class TvmCellParseLdrefInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -15409,7 +15339,7 @@ data class TvmCellParseLdrefInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDREF"
@@ -15426,15 +15356,15 @@ data class TvmCellParseLdrefrtosInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -15443,7 +15373,7 @@ data class TvmCellParseLdrefrtosInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDREFRTOS"
@@ -15461,8 +15391,8 @@ data class TvmCellParseLdsameInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15471,9 +15401,9 @@ data class TvmCellParseLdsameInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -15482,7 +15412,7 @@ data class TvmCellParseLdsameInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSAME"
@@ -15500,15 +15430,15 @@ data class TvmCellParseLdsliceAltInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
@@ -15517,7 +15447,7 @@ data class TvmCellParseLdsliceAltInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSLICE_ALT"
@@ -15535,15 +15465,15 @@ data class TvmCellParseLdsliceInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
@@ -15552,7 +15482,7 @@ data class TvmCellParseLdsliceInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSLICE"
@@ -15570,15 +15500,15 @@ data class TvmCellParseLdsliceqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15586,7 +15516,7 @@ data class TvmCellParseLdsliceqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSLICEQ"
@@ -15604,8 +15534,8 @@ data class TvmCellParseLdslicexInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15614,9 +15544,9 @@ data class TvmCellParseLdslicexInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
@@ -15625,7 +15555,7 @@ data class TvmCellParseLdslicexInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSLICEX"
@@ -15642,8 +15572,8 @@ data class TvmCellParseLdslicexqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15652,9 +15582,9 @@ data class TvmCellParseLdslicexqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15662,7 +15592,7 @@ data class TvmCellParseLdslicexqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDSLICEXQ"
@@ -15680,15 +15610,15 @@ data class TvmCellParseLduAltInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15697,7 +15627,7 @@ data class TvmCellParseLduAltInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDU_ALT"
@@ -15715,15 +15645,15 @@ data class TvmCellParseLduInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15732,7 +15662,7 @@ data class TvmCellParseLduInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDU"
@@ -15749,15 +15679,15 @@ data class TvmCellParseLdule4Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15766,7 +15696,7 @@ data class TvmCellParseLdule4Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDULE4"
@@ -15783,15 +15713,15 @@ data class TvmCellParseLdule4qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15799,7 +15729,7 @@ data class TvmCellParseLdule4qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDULE4Q"
@@ -15816,15 +15746,15 @@ data class TvmCellParseLdule8Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15833,7 +15763,7 @@ data class TvmCellParseLdule8Inst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDULE8"
@@ -15850,15 +15780,15 @@ data class TvmCellParseLdule8qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15866,7 +15796,7 @@ data class TvmCellParseLdule8qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDULE8Q"
@@ -15884,15 +15814,15 @@ data class TvmCellParseLduqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15900,7 +15830,7 @@ data class TvmCellParseLduqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDUQ"
@@ -15917,8 +15847,8 @@ data class TvmCellParseLduxInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15927,9 +15857,9 @@ data class TvmCellParseLduxInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -15938,7 +15868,7 @@ data class TvmCellParseLduxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDUX"
@@ -15955,8 +15885,8 @@ data class TvmCellParseLduxqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -15965,9 +15895,9 @@ data class TvmCellParseLduxqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -15975,7 +15905,7 @@ data class TvmCellParseLduxqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDUXQ"
@@ -15992,15 +15922,15 @@ data class TvmCellParseLdzeroesInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -16009,7 +15939,7 @@ data class TvmCellParseLdzeroesInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDZEROES"
@@ -16027,20 +15957,20 @@ data class TvmCellParsePldiInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDI"
@@ -16057,20 +15987,20 @@ data class TvmCellParsePldile4Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDILE4"
@@ -16087,15 +16017,15 @@ data class TvmCellParsePldile4qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16103,7 +16033,7 @@ data class TvmCellParsePldile4qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDILE4Q"
@@ -16120,20 +16050,20 @@ data class TvmCellParsePldile8Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDILE8"
@@ -16150,15 +16080,15 @@ data class TvmCellParsePldile8qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16166,7 +16096,7 @@ data class TvmCellParsePldile8qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDILE8Q"
@@ -16184,15 +16114,15 @@ data class TvmCellParsePldiqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16200,7 +16130,7 @@ data class TvmCellParsePldiqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDIQ"
@@ -16217,8 +16147,8 @@ data class TvmCellParsePldixInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16227,14 +16157,14 @@ data class TvmCellParsePldixInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDIX"
@@ -16251,8 +16181,8 @@ data class TvmCellParsePldixqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16261,9 +16191,9 @@ data class TvmCellParsePldixqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16271,7 +16201,7 @@ data class TvmCellParsePldixqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDIXQ"
@@ -16289,20 +16219,20 @@ data class TvmCellParsePldrefidxInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDREFIDX"
@@ -16319,8 +16249,8 @@ data class TvmCellParsePldrefvarInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16329,14 +16259,14 @@ data class TvmCellParsePldrefvarInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDREFVAR"
@@ -16354,20 +16284,20 @@ data class TvmCellParsePldsliceInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDSLICE"
@@ -16385,15 +16315,15 @@ data class TvmCellParsePldsliceqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16401,7 +16331,7 @@ data class TvmCellParsePldsliceqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDSLICEQ"
@@ -16418,8 +16348,8 @@ data class TvmCellParsePldslicexInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16428,14 +16358,14 @@ data class TvmCellParsePldslicexInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDSLICEX"
@@ -16452,8 +16382,8 @@ data class TvmCellParsePldslicexqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16462,9 +16392,9 @@ data class TvmCellParsePldslicexqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16472,7 +16402,7 @@ data class TvmCellParsePldslicexqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDSLICEXQ"
@@ -16490,20 +16420,20 @@ data class TvmCellParsePlduInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDU"
@@ -16520,20 +16450,20 @@ data class TvmCellParsePldule4Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDULE4"
@@ -16550,15 +16480,15 @@ data class TvmCellParsePldule4qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16566,7 +16496,7 @@ data class TvmCellParsePldule4qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDULE4Q"
@@ -16583,20 +16513,20 @@ data class TvmCellParsePldule8Inst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDULE8"
@@ -16613,15 +16543,15 @@ data class TvmCellParsePldule8qInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16629,7 +16559,7 @@ data class TvmCellParsePldule8qInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDULE8Q"
@@ -16647,15 +16577,15 @@ data class TvmCellParsePlduqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16663,7 +16593,7 @@ data class TvmCellParsePlduqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDUQ"
@@ -16680,8 +16610,8 @@ data class TvmCellParsePlduxInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16690,14 +16620,14 @@ data class TvmCellParsePlduxInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDUX"
@@ -16714,8 +16644,8 @@ data class TvmCellParsePlduxqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16724,9 +16654,9 @@ data class TvmCellParsePlduxqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -16734,7 +16664,7 @@ data class TvmCellParsePlduxqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDUXQ"
@@ -16754,15 +16684,15 @@ data class TvmCellParsePlduzInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16771,7 +16701,7 @@ data class TvmCellParsePlduzInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDUZ"
@@ -16788,15 +16718,15 @@ data class TvmCellParseSbitrefsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "l",
                 valueTypes = listOf("Integer")
@@ -16805,7 +16735,7 @@ data class TvmCellParseSbitrefsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SBITREFS"
@@ -16822,20 +16752,20 @@ data class TvmCellParseSbitsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SBITS"
@@ -16852,8 +16782,8 @@ data class TvmCellParseSchkbitrefsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16866,11 +16796,9 @@ data class TvmCellParseSchkbitrefsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SCHKBITREFS"
@@ -16887,8 +16815,8 @@ data class TvmCellParseSchkbitrefsqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16901,14 +16829,14 @@ data class TvmCellParseSchkbitrefsqInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SCHKBITREFSQ"
@@ -16926,8 +16854,8 @@ data class TvmCellParseSchkbitsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16936,11 +16864,9 @@ data class TvmCellParseSchkbitsInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SCHKBITS"
@@ -16957,8 +16883,8 @@ data class TvmCellParseSchkbitsqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -16967,14 +16893,14 @@ data class TvmCellParseSchkbitsqInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SCHKBITSQ"
@@ -16991,8 +16917,8 @@ data class TvmCellParseSchkrefsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17001,11 +16927,9 @@ data class TvmCellParseSchkrefsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SCHKREFS"
@@ -17022,8 +16946,8 @@ data class TvmCellParseSchkrefsqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17032,14 +16956,14 @@ data class TvmCellParseSchkrefsqInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SCHKREFSQ"
@@ -17056,8 +16980,8 @@ data class TvmCellParseScutfirstInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17070,14 +16994,14 @@ data class TvmCellParseScutfirstInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SCUTFIRST"
@@ -17094,8 +17018,8 @@ data class TvmCellParseScutlastInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17108,14 +17032,14 @@ data class TvmCellParseScutlastInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SCUTLAST"
@@ -17134,20 +17058,20 @@ data class TvmCellParseSdbeginsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDBEGINS"
@@ -17165,15 +17089,15 @@ data class TvmCellParseSdbeginsqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -17181,7 +17105,7 @@ data class TvmCellParseSdbeginsqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDBEGINSQ"
@@ -17200,8 +17124,8 @@ data class TvmCellParseSdbeginsxInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17210,14 +17134,14 @@ data class TvmCellParseSdbeginsxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDBEGINSX"
@@ -17234,8 +17158,8 @@ data class TvmCellParseSdbeginsxqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17244,9 +17168,9 @@ data class TvmCellParseSdbeginsxqInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -17254,7 +17178,7 @@ data class TvmCellParseSdbeginsxqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDBEGINSXQ"
@@ -17271,8 +17195,8 @@ data class TvmCellParseSdcutfirstInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17281,14 +17205,14 @@ data class TvmCellParseSdcutfirstInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCUTFIRST"
@@ -17305,8 +17229,8 @@ data class TvmCellParseSdcutlastInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17315,14 +17239,14 @@ data class TvmCellParseSdcutlastInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCUTLAST"
@@ -17340,20 +17264,20 @@ data class TvmCellParseSdepthInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDEPTH"
@@ -17370,8 +17294,8 @@ data class TvmCellParseSdskipfirstInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17380,14 +17304,14 @@ data class TvmCellParseSdskipfirstInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDSKIPFIRST"
@@ -17404,8 +17328,8 @@ data class TvmCellParseSdskiplastInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17414,14 +17338,14 @@ data class TvmCellParseSdskiplastInst(
                 name = "l",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDSKIPLAST"
@@ -17439,8 +17363,8 @@ data class TvmCellParseSdsubstrInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17453,14 +17377,14 @@ data class TvmCellParseSdsubstrInst(
                 name = "l2",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDSUBSTR"
@@ -17478,8 +17402,8 @@ data class TvmCellParseSplitInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17492,9 +17416,9 @@ data class TvmCellParseSplitInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -17503,7 +17427,7 @@ data class TvmCellParseSplitInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SPLIT"
@@ -17520,8 +17444,8 @@ data class TvmCellParseSplitqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17534,9 +17458,9 @@ data class TvmCellParseSplitqInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -17544,7 +17468,7 @@ data class TvmCellParseSplitqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SPLITQ"
@@ -17561,20 +17485,20 @@ data class TvmCellParseSrefsInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SREFS"
@@ -17591,8 +17515,8 @@ data class TvmCellParseSskipfirstInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17605,14 +17529,14 @@ data class TvmCellParseSskipfirstInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SSKIPFIRST"
@@ -17629,8 +17553,8 @@ data class TvmCellParseSskiplastInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17643,14 +17567,14 @@ data class TvmCellParseSskiplastInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SSKIPLAST"
@@ -17668,8 +17592,8 @@ data class TvmCellParseSubsliceInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17690,14 +17614,14 @@ data class TvmCellParseSubsliceInst(
                 name = "r2",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBSLICE"
@@ -17716,15 +17640,15 @@ data class TvmCellParseXctosInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -17733,7 +17657,7 @@ data class TvmCellParseXctosInst(
                 name = "flag",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "XCTOS"
@@ -17751,20 +17675,20 @@ data class TvmCellParseXloadInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "XLOAD"
@@ -17782,15 +17706,15 @@ data class TvmCellParseXloadqInst(
 ): TvmInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -17798,7 +17722,7 @@ data class TvmCellParseXloadqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "XLOADQ"
@@ -17817,14 +17741,10 @@ data class TvmCodepageSetcpInst(
 ): TvmInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETCP"
@@ -17845,14 +17765,10 @@ data class TvmCodepageSetcpSpecialInst(
 ): TvmInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETCP_SPECIAL"
@@ -17869,17 +17785,15 @@ data class TvmCodepageSetcpxInst(
 ): TvmInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETCPX"
@@ -17896,20 +17810,20 @@ data class TvmCompareIntChknanInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CHKNAN"
@@ -17928,8 +17842,8 @@ data class TvmCompareIntCmpInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -17938,14 +17852,14 @@ data class TvmCompareIntCmpInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CMP"
@@ -17964,20 +17878,20 @@ data class TvmCompareIntEqintInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "EQINT"
@@ -17994,8 +17908,8 @@ data class TvmCompareIntEqualInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18004,14 +17918,14 @@ data class TvmCompareIntEqualInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "EQUAL"
@@ -18028,8 +17942,8 @@ data class TvmCompareIntGeqInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18038,14 +17952,14 @@ data class TvmCompareIntGeqInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GEQ"
@@ -18062,8 +17976,8 @@ data class TvmCompareIntGreaterInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18072,14 +17986,14 @@ data class TvmCompareIntGreaterInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GREATER"
@@ -18098,20 +18012,20 @@ data class TvmCompareIntGtintInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "GTINT"
@@ -18128,20 +18042,20 @@ data class TvmCompareIntIsnanInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ISNAN"
@@ -18158,8 +18072,8 @@ data class TvmCompareIntLeqInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18168,14 +18082,14 @@ data class TvmCompareIntLeqInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LEQ"
@@ -18192,8 +18106,8 @@ data class TvmCompareIntLessInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18202,14 +18116,14 @@ data class TvmCompareIntLessInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LESS"
@@ -18228,20 +18142,20 @@ data class TvmCompareIntLessintInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LESSINT"
@@ -18258,8 +18172,8 @@ data class TvmCompareIntNeqInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -18268,14 +18182,14 @@ data class TvmCompareIntNeqInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NEQ"
@@ -18294,20 +18208,20 @@ data class TvmCompareIntNeqintInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NEQINT"
@@ -18325,20 +18239,20 @@ data class TvmCompareIntSgnInst(
 ): TvmInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SGN"
@@ -18355,20 +18269,20 @@ data class TvmCompareOtherSdcntlead0Inst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCNTLEAD0"
@@ -18385,20 +18299,20 @@ data class TvmCompareOtherSdcntlead1Inst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCNTLEAD1"
@@ -18415,20 +18329,20 @@ data class TvmCompareOtherSdcnttrail0Inst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCNTTRAIL0"
@@ -18445,20 +18359,20 @@ data class TvmCompareOtherSdcnttrail1Inst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDCNTTRAIL1"
@@ -18475,20 +18389,20 @@ data class TvmCompareOtherSdemptyInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDEMPTY"
@@ -18505,8 +18419,8 @@ data class TvmCompareOtherSdeqInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18515,14 +18429,14 @@ data class TvmCompareOtherSdeqInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDEQ"
@@ -18539,20 +18453,20 @@ data class TvmCompareOtherSdfirstInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDFIRST"
@@ -18570,8 +18484,8 @@ data class TvmCompareOtherSdlexcmpInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18580,14 +18494,14 @@ data class TvmCompareOtherSdlexcmpInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDLEXCMP"
@@ -18604,8 +18518,8 @@ data class TvmCompareOtherSdpfxInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18614,14 +18528,14 @@ data class TvmCompareOtherSdpfxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDPFX"
@@ -18638,8 +18552,8 @@ data class TvmCompareOtherSdpfxrevInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18648,14 +18562,14 @@ data class TvmCompareOtherSdpfxrevInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDPFXREV"
@@ -18672,8 +18586,8 @@ data class TvmCompareOtherSdppfxInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18682,14 +18596,14 @@ data class TvmCompareOtherSdppfxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDPPFX"
@@ -18706,8 +18620,8 @@ data class TvmCompareOtherSdppfxrevInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18716,11 +18630,9 @@ data class TvmCompareOtherSdppfxrevInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SDPPFXREV"
@@ -18737,8 +18649,8 @@ data class TvmCompareOtherSdpsfxInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18747,14 +18659,14 @@ data class TvmCompareOtherSdpsfxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDPSFX"
@@ -18771,8 +18683,8 @@ data class TvmCompareOtherSdpsfxrevInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18781,14 +18693,14 @@ data class TvmCompareOtherSdpsfxrevInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDPSFXREV"
@@ -18805,8 +18717,8 @@ data class TvmCompareOtherSdsfxInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18815,14 +18727,14 @@ data class TvmCompareOtherSdsfxInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDSFX"
@@ -18839,8 +18751,8 @@ data class TvmCompareOtherSdsfxrevInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -18849,14 +18761,14 @@ data class TvmCompareOtherSdsfxrevInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SDSFXREV"
@@ -18873,20 +18785,20 @@ data class TvmCompareOtherSemptyInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SEMPTY"
@@ -18903,20 +18815,20 @@ data class TvmCompareOtherSremptyInst(
 ): TvmInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SREMPTY"
@@ -18936,17 +18848,15 @@ data class TvmConstDataPushcontInst(
 ): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHCONT"
@@ -18965,17 +18875,15 @@ data class TvmConstDataPushcontShortInst(
 ): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHCONT_SHORT"
@@ -18995,17 +18903,15 @@ data class TvmConstDataPushrefInst(
 ): TvmInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Cell")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHREF"
@@ -19023,17 +18929,15 @@ data class TvmConstDataPushrefcontInst(
 ): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHREFCONT"
@@ -19051,17 +18955,15 @@ data class TvmConstDataPushrefsliceInst(
 ): TvmInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHREFSLICE"
@@ -19084,17 +18986,15 @@ data class TvmConstDataPushsliceInst(
 ): TvmInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 22)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHSLICE"
@@ -19115,17 +19015,15 @@ data class TvmConstDataPushsliceLongInst(
 ): TvmInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 28)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHSLICE_LONG"
@@ -19146,17 +19044,15 @@ data class TvmConstDataPushsliceRefsInst(
 ): TvmInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 25)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHSLICE_REFS"
@@ -19174,17 +19070,15 @@ data class TvmConstIntPushint16Inst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHINT_16"
@@ -19203,17 +19097,15 @@ data class TvmConstIntPushint4Inst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHINT_4"
@@ -19231,17 +19123,15 @@ data class TvmConstIntPushint8Inst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHINT_8"
@@ -19261,17 +19151,15 @@ data class TvmConstIntPushintLongInst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 23)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHINT_LONG"
@@ -19288,17 +19176,15 @@ data class TvmConstIntPushnanInst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmConstStackEntry(
                 value = null,
                 valueType = "Integer"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHNAN"
@@ -19316,17 +19202,15 @@ data class TvmConstIntPushnegpow2Inst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHNEGPOW2"
@@ -19345,17 +19229,15 @@ data class TvmConstIntPushpow2Inst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHPOW2"
@@ -19373,17 +19255,15 @@ data class TvmConstIntPushpow2decInst(
 ): TvmInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHPOW2DEC"
@@ -19400,17 +19280,15 @@ data class TvmContBasicBranchInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "BRANCH"
@@ -19428,17 +19306,15 @@ data class TvmContBasicCallccInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLCC"
@@ -19459,8 +19335,8 @@ data class TvmContBasicCallccargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19468,11 +19344,9 @@ data class TvmContBasicCallccargsInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLCCARGS"
@@ -19489,8 +19363,8 @@ data class TvmContBasicCallccvarargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19506,11 +19380,9 @@ data class TvmContBasicCallccvarargsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLCCVARARGS"
@@ -19528,14 +19400,10 @@ data class TvmContBasicCallrefInst(
 ): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLREF"
@@ -19555,8 +19423,8 @@ data class TvmContBasicCallxargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19564,11 +19432,9 @@ data class TvmContBasicCallxargsInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLXARGS"
@@ -19587,8 +19453,8 @@ data class TvmContBasicCallxargsVarInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19596,11 +19462,9 @@ data class TvmContBasicCallxargsVarInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLXARGS_VAR"
@@ -19618,8 +19482,8 @@ data class TvmContBasicCallxvarargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19635,11 +19499,9 @@ data class TvmContBasicCallxvarargsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CALLXVARARGS"
@@ -19656,17 +19518,15 @@ data class TvmContBasicExecuteInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "EXECUTE"
@@ -19684,14 +19544,10 @@ data class TvmContBasicJmprefInst(
 ): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPREF"
@@ -19709,14 +19565,10 @@ data class TvmContBasicJmprefdataInst(
 ): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPREFDATA"
@@ -19734,17 +19586,15 @@ data class TvmContBasicJmpxInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPX"
@@ -19763,8 +19613,8 @@ data class TvmContBasicJmpxargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19772,11 +19622,9 @@ data class TvmContBasicJmpxargsInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPXARGS"
@@ -19794,17 +19642,15 @@ data class TvmContBasicJmpxdataInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPXDATA"
@@ -19821,8 +19667,8 @@ data class TvmContBasicJmpxvarargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19838,11 +19684,9 @@ data class TvmContBasicJmpxvarargsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "JMPXVARARGS"
@@ -19860,14 +19704,10 @@ data class TvmContBasicRetInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RET"
@@ -19885,14 +19725,10 @@ data class TvmContBasicRetaltInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RETALT"
@@ -19910,16 +19746,14 @@ data class TvmContBasicRetargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RETARGS"
@@ -19937,14 +19771,10 @@ data class TvmContBasicRetdataInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RETDATA"
@@ -19961,8 +19791,8 @@ data class TvmContBasicRetvarargsInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -19974,11 +19804,9 @@ data class TvmContBasicRetvarargsInst(
                 name = "r",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "RETVARARGS"
@@ -19997,14 +19825,10 @@ data class TvmContBasicRunvmInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "RUNVM"
@@ -20022,14 +19846,10 @@ data class TvmContBasicRunvmxInst(
 ): TvmInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "RUNVMX"
@@ -20048,8 +19868,8 @@ data class TvmContConditionalCondselInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20062,14 +19882,14 @@ data class TvmContConditionalCondselInst(
                 name = "y",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CONDSEL"
@@ -20086,8 +19906,8 @@ data class TvmContConditionalCondselchkInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20100,14 +19920,14 @@ data class TvmContConditionalCondselchkInst(
                 name = "y",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CONDSELCHK"
@@ -20125,8 +19945,8 @@ data class TvmContConditionalIfInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20135,11 +19955,9 @@ data class TvmContConditionalIfInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IF"
@@ -20158,8 +19976,8 @@ data class TvmContConditionalIfbitjmpInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -20168,14 +19986,14 @@ data class TvmContConditionalIfbitjmpInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "IFBITJMP"
@@ -20194,20 +20012,20 @@ data class TvmContConditionalIfbitjmprefInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "IFBITJMPREF"
@@ -20225,8 +20043,8 @@ data class TvmContConditionalIfelseInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20239,11 +20057,9 @@ data class TvmContConditionalIfelseInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFELSE"
@@ -20261,8 +20077,8 @@ data class TvmContConditionalIfelserefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20271,11 +20087,9 @@ data class TvmContConditionalIfelserefInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFELSEREF"
@@ -20292,8 +20106,8 @@ data class TvmContConditionalIfjmpInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20302,11 +20116,9 @@ data class TvmContConditionalIfjmpInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFJMP"
@@ -20324,17 +20136,15 @@ data class TvmContConditionalIfjmprefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFJMPREF"
@@ -20352,8 +20162,8 @@ data class TvmContConditionalIfnbitjmpInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -20362,14 +20172,14 @@ data class TvmContConditionalIfnbitjmpInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "IFNBITJMP"
@@ -20388,20 +20198,20 @@ data class TvmContConditionalIfnbitjmprefInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "IFNBITJMPREF"
@@ -20418,8 +20228,8 @@ data class TvmContConditionalIfnotInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20428,11 +20238,9 @@ data class TvmContConditionalIfnotInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOT"
@@ -20449,8 +20257,8 @@ data class TvmContConditionalIfnotjmpInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20459,11 +20267,9 @@ data class TvmContConditionalIfnotjmpInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOTJMP"
@@ -20481,17 +20287,15 @@ data class TvmContConditionalIfnotjmprefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOTJMPREF"
@@ -20509,17 +20313,15 @@ data class TvmContConditionalIfnotrefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOTREF"
@@ -20536,17 +20338,15 @@ data class TvmContConditionalIfnotretInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOTRET"
@@ -20563,17 +20363,15 @@ data class TvmContConditionalIfnotretaltInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFNOTRETALT"
@@ -20595,17 +20393,15 @@ data class TvmContConditionalIfrefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFREF"
@@ -20625,8 +20421,8 @@ data class TvmContConditionalIfrefelseInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
@@ -20635,11 +20431,9 @@ data class TvmContConditionalIfrefelseInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFREFELSE"
@@ -20658,17 +20452,15 @@ data class TvmContConditionalIfrefelserefInst(
 ): TvmInst, TvmContConditionalInst, TvmContOperand2Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFREFELSEREF"
@@ -20686,17 +20478,15 @@ data class TvmContConditionalIfretInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFRET"
@@ -20713,17 +20503,15 @@ data class TvmContConditionalIfretaltInst(
 ): TvmInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "IFRETALT"
@@ -20741,20 +20529,20 @@ data class TvmContCreateBlessInst(
 ): TvmInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLESS"
@@ -20775,8 +20563,8 @@ data class TvmContCreateBlessargsInst(
 ): TvmInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -20784,14 +20572,14 @@ data class TvmContCreateBlessargsInst(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLESSARGS"
@@ -20808,8 +20596,8 @@ data class TvmContCreateBlessvarargsInst(
 ): TvmInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -20825,14 +20613,14 @@ data class TvmContCreateBlessvarargsInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BLESSVARARGS"
@@ -20851,17 +20639,15 @@ data class TvmContDictCalldictInst(
 ): TvmInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CALLDICT"
@@ -20879,17 +20665,15 @@ data class TvmContDictCalldictLongInst(
 ): TvmInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "CALLDICT_LONG"
@@ -20908,17 +20692,15 @@ data class TvmContDictJmpdictInst(
 ): TvmInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "JMPDICT"
@@ -20939,12 +20721,10 @@ data class TvmContDictPreparedictInst(
 ): TvmInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -20953,7 +20733,7 @@ data class TvmContDictPreparedictInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PREPAREDICT"
@@ -20971,17 +20751,15 @@ data class TvmContLoopsAgainInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "AGAIN"
@@ -20998,17 +20776,15 @@ data class TvmContLoopsAgainbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "AGAINBRK"
@@ -21025,14 +20801,10 @@ data class TvmContLoopsAgainendInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "AGAINEND"
@@ -21049,14 +20821,10 @@ data class TvmContLoopsAgainendbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "AGAINENDBRK"
@@ -21077,8 +20845,8 @@ data class TvmContLoopsRepeatInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -21087,11 +20855,9 @@ data class TvmContLoopsRepeatInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "REPEAT"
@@ -21110,8 +20876,8 @@ data class TvmContLoopsRepeatbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -21120,11 +20886,9 @@ data class TvmContLoopsRepeatbrkInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "REPEATBRK"
@@ -21141,17 +20905,15 @@ data class TvmContLoopsRepeatendInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "REPEATEND"
@@ -21169,17 +20931,15 @@ data class TvmContLoopsRepeatendbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "REPEATENDBRK"
@@ -21201,17 +20961,15 @@ data class TvmContLoopsUntilInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "UNTIL"
@@ -21228,17 +20986,15 @@ data class TvmContLoopsUntilbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "UNTILBRK"
@@ -21256,14 +21012,10 @@ data class TvmContLoopsUntilendInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "UNTILEND"
@@ -21280,14 +21032,10 @@ data class TvmContLoopsUntilendbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "UNTILENDBRK"
@@ -21306,8 +21054,8 @@ data class TvmContLoopsWhileInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
@@ -21316,11 +21064,9 @@ data class TvmContLoopsWhileInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "WHILE"
@@ -21337,8 +21083,8 @@ data class TvmContLoopsWhilebrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
@@ -21347,11 +21093,9 @@ data class TvmContLoopsWhilebrkInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "WHILEBRK"
@@ -21368,17 +21112,15 @@ data class TvmContLoopsWhileendInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "WHILEEND"
@@ -21395,17 +21137,15 @@ data class TvmContLoopsWhileendbrkInst(
 ): TvmInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "WHILEENDBRK"
@@ -21423,17 +21163,15 @@ data class TvmContRegistersAtexitInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "ATEXIT"
@@ -21451,17 +21189,15 @@ data class TvmContRegistersAtexitaltInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "ATEXITALT"
@@ -21480,20 +21216,20 @@ data class TvmContRegistersBoolevalInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "BOOLEVAL"
@@ -21512,8 +21248,8 @@ data class TvmContRegistersComposInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
@@ -21522,14 +21258,14 @@ data class TvmContRegistersComposInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c3",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "COMPOS"
@@ -21547,8 +21283,8 @@ data class TvmContRegistersComposaltInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
@@ -21557,14 +21293,14 @@ data class TvmContRegistersComposaltInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c3",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "COMPOSALT"
@@ -21582,8 +21318,8 @@ data class TvmContRegistersComposbothInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
@@ -21592,14 +21328,14 @@ data class TvmContRegistersComposbothInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c3",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "COMPOSBOTH"
@@ -21616,14 +21352,10 @@ data class TvmContRegistersInvertInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "INVERT"
@@ -21633,7 +21365,7 @@ data class TvmContRegistersInvertInst(
 /**
  * Pops a value `x` from the stack and stores it into control register `c(i)`, if supported in the curr
  * ent codepage. Notice that if a control register accepts only values of a specific type, a type-check
- * ing exception may occur.
+ * ing exception may occur. 
  */
 @Serializable
 @SerialName(TvmContRegistersPopctrInst.MNEMONIC)
@@ -21643,17 +21375,15 @@ data class TvmContRegistersPopctrInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "POPCTR"
@@ -21670,8 +21400,8 @@ data class TvmContRegistersPopctrxInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -21680,11 +21410,9 @@ data class TvmContRegistersPopctrxInst(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "POPCTRX"
@@ -21703,17 +21431,15 @@ data class TvmContRegistersPopsaveInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "POPSAVE"
@@ -21732,17 +21458,15 @@ data class TvmContRegistersPushctrInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHCTR"
@@ -21762,20 +21486,20 @@ data class TvmContRegistersPushctrxInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PUSHCTRX"
@@ -21792,14 +21516,10 @@ data class TvmContRegistersSamealtInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SAMEALT"
@@ -21817,14 +21537,10 @@ data class TvmContRegistersSamealtsaveInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SAMEALTSAVE"
@@ -21844,14 +21560,10 @@ data class TvmContRegistersSaveInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SAVE"
@@ -21869,14 +21581,10 @@ data class TvmContRegistersSavealtInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SAVEALT"
@@ -21894,14 +21602,10 @@ data class TvmContRegistersSavebothInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SAVEBOTH"
@@ -21919,17 +21623,15 @@ data class TvmContRegistersSetaltctrInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETALTCTR"
@@ -21949,8 +21651,8 @@ data class TvmContRegistersSetcontctrInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -21959,14 +21661,14 @@ data class TvmContRegistersSetcontctrInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETCONTCTR"
@@ -21983,8 +21685,8 @@ data class TvmContRegistersSetcontctrxInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -21997,14 +21699,14 @@ data class TvmContRegistersSetcontctrxInst(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETCONTCTRX"
@@ -22023,17 +21725,15 @@ data class TvmContRegistersSetexitaltInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETEXITALT"
@@ -22051,17 +21751,15 @@ data class TvmContRegistersSetretctrInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "SETRETCTR"
@@ -22078,20 +21776,20 @@ data class TvmContRegistersThenretInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "THENRET"
@@ -22108,20 +21806,20 @@ data class TvmContRegistersThenretaltInst(
 ): TvmInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "THENRETALT"
@@ -22141,14 +21839,10 @@ data class TvmContStackReturnargsInst(
 ): TvmInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "RETURNARGS"
@@ -22165,14 +21859,10 @@ data class TvmContStackReturnvarargsInst(
 ): TvmInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "RETURNVARARGS"
@@ -22194,8 +21884,8 @@ data class TvmContStackSetcontargsNInst(
 ): TvmInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -22203,14 +21893,14 @@ data class TvmContStackSetcontargsNInst(
                 name = "c",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETCONTARGS_N"
@@ -22227,8 +21917,8 @@ data class TvmContStackSetcontvarargsInst(
 ): TvmInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -22244,14 +21934,14 @@ data class TvmContStackSetcontvarargsInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETCONTVARARGS"
@@ -22270,8 +21960,8 @@ data class TvmContStackSetnumvarargsInst(
 ): TvmInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
@@ -22280,14 +21970,14 @@ data class TvmContStackSetnumvarargsInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETNUMVARARGS"
@@ -22306,14 +21996,10 @@ data class TvmDebugDebugInst(
 ): TvmInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DEBUG"
@@ -22335,14 +22021,10 @@ data class TvmDebugDebugstrInst(
 ): TvmInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DEBUGSTR"
@@ -22361,8 +22043,8 @@ data class TvmDictDeleteDictdelInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -22375,9 +22057,9 @@ data class TvmDictDeleteDictdelInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22385,7 +22067,7 @@ data class TvmDictDeleteDictdelInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTDEL"
@@ -22404,8 +22086,8 @@ data class TvmDictDeleteDictdelgetInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -22418,9 +22100,9 @@ data class TvmDictDeleteDictdelgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22428,7 +22110,7 @@ data class TvmDictDeleteDictdelgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTDELGET"
@@ -22446,8 +22128,8 @@ data class TvmDictDeleteDictdelgetrefInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -22460,9 +22142,9 @@ data class TvmDictDeleteDictdelgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22470,7 +22152,7 @@ data class TvmDictDeleteDictdelgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTDELGETREF"
@@ -22488,8 +22170,8 @@ data class TvmDictDeleteDictidelInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22502,9 +22184,9 @@ data class TvmDictDeleteDictidelInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22512,7 +22194,7 @@ data class TvmDictDeleteDictidelInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIDEL"
@@ -22529,8 +22211,8 @@ data class TvmDictDeleteDictidelgetInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22543,9 +22225,9 @@ data class TvmDictDeleteDictidelgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22553,7 +22235,7 @@ data class TvmDictDeleteDictidelgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIDELGET"
@@ -22570,8 +22252,8 @@ data class TvmDictDeleteDictidelgetrefInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22584,9 +22266,9 @@ data class TvmDictDeleteDictidelgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22594,7 +22276,7 @@ data class TvmDictDeleteDictidelgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIDELGETREF"
@@ -22611,8 +22293,8 @@ data class TvmDictDeleteDictudelInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22625,9 +22307,9 @@ data class TvmDictDeleteDictudelInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22635,7 +22317,7 @@ data class TvmDictDeleteDictudelInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUDEL"
@@ -22652,8 +22334,8 @@ data class TvmDictDeleteDictudelgetInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22666,9 +22348,9 @@ data class TvmDictDeleteDictudelgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22676,7 +22358,7 @@ data class TvmDictDeleteDictudelgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUDELGET"
@@ -22693,8 +22375,8 @@ data class TvmDictDeleteDictudelgetrefInst(
 ): TvmInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22707,9 +22389,9 @@ data class TvmDictDeleteDictudelgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22717,7 +22399,7 @@ data class TvmDictDeleteDictudelgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUDELGETREF"
@@ -22736,8 +22418,8 @@ data class TvmDictGetDictgetInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -22750,9 +22432,9 @@ data class TvmDictGetDictgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22760,7 +22442,7 @@ data class TvmDictGetDictgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGET"
@@ -22778,8 +22460,8 @@ data class TvmDictGetDictgetrefInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Integer")
@@ -22792,9 +22474,9 @@ data class TvmDictGetDictgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22802,7 +22484,7 @@ data class TvmDictGetDictgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETREF"
@@ -22820,8 +22502,8 @@ data class TvmDictGetDictigetInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22834,9 +22516,9 @@ data class TvmDictGetDictigetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22844,7 +22526,7 @@ data class TvmDictGetDictigetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGET"
@@ -22862,8 +22544,8 @@ data class TvmDictGetDictigetrefInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22876,9 +22558,9 @@ data class TvmDictGetDictigetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22886,7 +22568,7 @@ data class TvmDictGetDictigetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETREF"
@@ -22903,8 +22585,8 @@ data class TvmDictGetDictugetInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22917,9 +22599,9 @@ data class TvmDictGetDictugetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22927,7 +22609,7 @@ data class TvmDictGetDictugetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGET"
@@ -22944,8 +22626,8 @@ data class TvmDictGetDictugetrefInst(
 ): TvmInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -22958,9 +22640,9 @@ data class TvmDictGetDictugetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -22968,7 +22650,7 @@ data class TvmDictGetDictugetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETREF"
@@ -22986,8 +22668,8 @@ data class TvmDictMayberefDictgetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -23000,14 +22682,14 @@ data class TvmDictMayberefDictgetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETOPTREF"
@@ -23025,8 +22707,8 @@ data class TvmDictMayberefDictigetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -23039,14 +22721,14 @@ data class TvmDictMayberefDictigetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETOPTREF"
@@ -23064,8 +22746,8 @@ data class TvmDictMayberefDictisetgetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
@@ -23082,9 +22764,9 @@ data class TvmDictMayberefDictisetgetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
@@ -23093,7 +22775,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
                 name = "c2",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETGETOPTREF"
@@ -23112,8 +22794,8 @@ data class TvmDictMayberefDictsetgetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
@@ -23130,9 +22812,9 @@ data class TvmDictMayberefDictsetgetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
@@ -23141,7 +22823,7 @@ data class TvmDictMayberefDictsetgetoptrefInst(
                 name = "c2",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETGETOPTREF"
@@ -23159,8 +22841,8 @@ data class TvmDictMayberefDictugetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -23173,14 +22855,14 @@ data class TvmDictMayberefDictugetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETOPTREF"
@@ -23197,8 +22879,8 @@ data class TvmDictMayberefDictusetgetoptrefInst(
 ): TvmInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell", "Null")
@@ -23215,9 +22897,9 @@ data class TvmDictMayberefDictusetgetoptrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
@@ -23226,7 +22908,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
                 name = "c2",
                 valueTypes = listOf("Cell", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETGETOPTREF"
@@ -23245,8 +22927,8 @@ data class TvmDictMinDictimaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23255,9 +22937,9 @@ data class TvmDictMinDictimaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23265,7 +22947,7 @@ data class TvmDictMinDictimaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIMAX"
@@ -23282,8 +22964,8 @@ data class TvmDictMinDictimaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23292,9 +22974,9 @@ data class TvmDictMinDictimaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23302,7 +22984,7 @@ data class TvmDictMinDictimaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIMAXREF"
@@ -23321,8 +23003,8 @@ data class TvmDictMinDictiminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23331,9 +23013,9 @@ data class TvmDictMinDictiminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23341,7 +23023,7 @@ data class TvmDictMinDictiminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIMIN"
@@ -23358,8 +23040,8 @@ data class TvmDictMinDictiminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23368,9 +23050,9 @@ data class TvmDictMinDictiminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23378,7 +23060,7 @@ data class TvmDictMinDictiminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIMINREF"
@@ -23397,8 +23079,8 @@ data class TvmDictMinDictiremmaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23407,9 +23089,9 @@ data class TvmDictMinDictiremmaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23417,7 +23099,7 @@ data class TvmDictMinDictiremmaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREMMAX"
@@ -23434,8 +23116,8 @@ data class TvmDictMinDictiremmaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23444,9 +23126,9 @@ data class TvmDictMinDictiremmaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23454,7 +23136,7 @@ data class TvmDictMinDictiremmaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREMMAXREF"
@@ -23473,8 +23155,8 @@ data class TvmDictMinDictiremminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23483,9 +23165,9 @@ data class TvmDictMinDictiremminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23493,7 +23175,7 @@ data class TvmDictMinDictiremminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREMMIN"
@@ -23510,8 +23192,8 @@ data class TvmDictMinDictiremminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23520,9 +23202,9 @@ data class TvmDictMinDictiremminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23530,7 +23212,7 @@ data class TvmDictMinDictiremminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREMMINREF"
@@ -23548,8 +23230,8 @@ data class TvmDictMinDictmaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23558,9 +23240,9 @@ data class TvmDictMinDictmaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23568,7 +23250,7 @@ data class TvmDictMinDictmaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTMAX"
@@ -23585,8 +23267,8 @@ data class TvmDictMinDictmaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23595,9 +23277,9 @@ data class TvmDictMinDictmaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23605,7 +23287,7 @@ data class TvmDictMinDictmaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTMAXREF"
@@ -23623,8 +23305,8 @@ data class TvmDictMinDictminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23633,9 +23315,9 @@ data class TvmDictMinDictminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23643,7 +23325,7 @@ data class TvmDictMinDictminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTMIN"
@@ -23660,8 +23342,8 @@ data class TvmDictMinDictminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23670,9 +23352,9 @@ data class TvmDictMinDictminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23680,7 +23362,7 @@ data class TvmDictMinDictminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTMINREF"
@@ -23699,8 +23381,8 @@ data class TvmDictMinDictremmaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23709,9 +23391,9 @@ data class TvmDictMinDictremmaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23719,7 +23401,7 @@ data class TvmDictMinDictremmaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREMMAX"
@@ -23736,8 +23418,8 @@ data class TvmDictMinDictremmaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23746,9 +23428,9 @@ data class TvmDictMinDictremmaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23756,7 +23438,7 @@ data class TvmDictMinDictremmaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREMMAXREF"
@@ -23775,8 +23457,8 @@ data class TvmDictMinDictremminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23785,9 +23467,9 @@ data class TvmDictMinDictremminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23795,7 +23477,7 @@ data class TvmDictMinDictremminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREMMIN"
@@ -23812,8 +23494,8 @@ data class TvmDictMinDictremminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23822,9 +23504,9 @@ data class TvmDictMinDictremminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23832,7 +23514,7 @@ data class TvmDictMinDictremminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREMMINREF"
@@ -23849,8 +23531,8 @@ data class TvmDictMinDictumaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23859,9 +23541,9 @@ data class TvmDictMinDictumaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23869,7 +23551,7 @@ data class TvmDictMinDictumaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUMAX"
@@ -23886,8 +23568,8 @@ data class TvmDictMinDictumaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23896,9 +23578,9 @@ data class TvmDictMinDictumaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23906,7 +23588,7 @@ data class TvmDictMinDictumaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUMAXREF"
@@ -23923,8 +23605,8 @@ data class TvmDictMinDictuminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23933,9 +23615,9 @@ data class TvmDictMinDictuminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23943,7 +23625,7 @@ data class TvmDictMinDictuminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUMIN"
@@ -23960,8 +23642,8 @@ data class TvmDictMinDictuminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -23970,9 +23652,9 @@ data class TvmDictMinDictuminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -23980,7 +23662,7 @@ data class TvmDictMinDictuminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUMINREF"
@@ -23997,8 +23679,8 @@ data class TvmDictMinDicturemmaxInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -24007,9 +23689,9 @@ data class TvmDictMinDicturemmaxInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24017,7 +23699,7 @@ data class TvmDictMinDicturemmaxInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREMMAX"
@@ -24034,8 +23716,8 @@ data class TvmDictMinDicturemmaxrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -24044,9 +23726,9 @@ data class TvmDictMinDicturemmaxrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24054,7 +23736,7 @@ data class TvmDictMinDicturemmaxrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREMMAXREF"
@@ -24071,8 +23753,8 @@ data class TvmDictMinDicturemminInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -24081,9 +23763,9 @@ data class TvmDictMinDicturemminInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24091,7 +23773,7 @@ data class TvmDictMinDicturemminInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREMMIN"
@@ -24108,8 +23790,8 @@ data class TvmDictMinDicturemminrefInst(
 ): TvmInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -24118,9 +23800,9 @@ data class TvmDictMinDicturemminrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24128,7 +23810,7 @@ data class TvmDictMinDicturemminrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREMMINREF"
@@ -24147,8 +23829,8 @@ data class TvmDictNextDictgetnextInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -24161,9 +23843,9 @@ data class TvmDictNextDictgetnextInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24171,7 +23853,7 @@ data class TvmDictNextDictgetnextInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETNEXT"
@@ -24189,8 +23871,8 @@ data class TvmDictNextDictgetnexteqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -24203,9 +23885,9 @@ data class TvmDictNextDictgetnexteqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24213,7 +23895,7 @@ data class TvmDictNextDictgetnexteqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETNEXTEQ"
@@ -24230,8 +23912,8 @@ data class TvmDictNextDictgetprevInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -24244,9 +23926,9 @@ data class TvmDictNextDictgetprevInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24254,7 +23936,7 @@ data class TvmDictNextDictgetprevInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETPREV"
@@ -24272,8 +23954,8 @@ data class TvmDictNextDictgetpreveqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -24286,9 +23968,9 @@ data class TvmDictNextDictgetpreveqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24296,7 +23978,7 @@ data class TvmDictNextDictgetpreveqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTGETPREVEQ"
@@ -24315,8 +23997,8 @@ data class TvmDictNextDictigetnextInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24329,9 +24011,9 @@ data class TvmDictNextDictigetnextInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24339,7 +24021,7 @@ data class TvmDictNextDictigetnextInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETNEXT"
@@ -24356,8 +24038,8 @@ data class TvmDictNextDictigetnexteqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24370,9 +24052,9 @@ data class TvmDictNextDictigetnexteqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24380,7 +24062,7 @@ data class TvmDictNextDictigetnexteqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETNEXTEQ"
@@ -24397,8 +24079,8 @@ data class TvmDictNextDictigetprevInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24411,9 +24093,9 @@ data class TvmDictNextDictigetprevInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24421,7 +24103,7 @@ data class TvmDictNextDictigetprevInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETPREV"
@@ -24438,8 +24120,8 @@ data class TvmDictNextDictigetpreveqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24452,9 +24134,9 @@ data class TvmDictNextDictigetpreveqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24462,7 +24144,7 @@ data class TvmDictNextDictigetpreveqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETPREVEQ"
@@ -24481,8 +24163,8 @@ data class TvmDictNextDictugetnextInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24495,9 +24177,9 @@ data class TvmDictNextDictugetnextInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24505,7 +24187,7 @@ data class TvmDictNextDictugetnextInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETNEXT"
@@ -24522,8 +24204,8 @@ data class TvmDictNextDictugetnexteqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24536,9 +24218,9 @@ data class TvmDictNextDictugetnexteqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24546,7 +24228,7 @@ data class TvmDictNextDictugetnexteqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETNEXTEQ"
@@ -24563,8 +24245,8 @@ data class TvmDictNextDictugetprevInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24577,9 +24259,9 @@ data class TvmDictNextDictugetprevInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24587,7 +24269,7 @@ data class TvmDictNextDictugetprevInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETPREV"
@@ -24604,8 +24286,8 @@ data class TvmDictNextDictugetpreveqInst(
 ): TvmInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -24618,9 +24300,9 @@ data class TvmDictNextDictugetpreveqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24628,7 +24310,7 @@ data class TvmDictNextDictugetpreveqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUGETPREVEQ"
@@ -24645,8 +24327,8 @@ data class TvmDictPrefixPfxdictaddInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -24663,9 +24345,9 @@ data class TvmDictPrefixPfxdictaddInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24673,7 +24355,7 @@ data class TvmDictPrefixPfxdictaddInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTADD"
@@ -24692,14 +24374,10 @@ data class TvmDictPrefixPfxdictconstgetjmpInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PFXDICTCONSTGETJMP"
@@ -24716,8 +24394,8 @@ data class TvmDictPrefixPfxdictdelInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -24730,9 +24408,9 @@ data class TvmDictPrefixPfxdictdelInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24740,7 +24418,7 @@ data class TvmDictPrefixPfxdictdelInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTDEL"
@@ -24757,8 +24435,8 @@ data class TvmDictPrefixPfxdictgetInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -24771,9 +24449,9 @@ data class TvmDictPrefixPfxdictgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -24786,7 +24464,7 @@ data class TvmDictPrefixPfxdictgetInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTGET"
@@ -24804,8 +24482,8 @@ data class TvmDictPrefixPfxdictgetexecInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -24818,9 +24496,9 @@ data class TvmDictPrefixPfxdictgetexecInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -24829,7 +24507,7 @@ data class TvmDictPrefixPfxdictgetexecInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTGETEXEC"
@@ -24847,14 +24525,10 @@ data class TvmDictPrefixPfxdictgetjmpInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PFXDICTGETJMP"
@@ -24875,8 +24549,8 @@ data class TvmDictPrefixPfxdictgetqInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
@@ -24889,9 +24563,9 @@ data class TvmDictPrefixPfxdictgetqInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24899,7 +24573,7 @@ data class TvmDictPrefixPfxdictgetqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTGETQ"
@@ -24916,8 +24590,8 @@ data class TvmDictPrefixPfxdictreplaceInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -24934,9 +24608,9 @@ data class TvmDictPrefixPfxdictreplaceInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24944,7 +24618,7 @@ data class TvmDictPrefixPfxdictreplaceInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTREPLACE"
@@ -24961,8 +24635,8 @@ data class TvmDictPrefixPfxdictsetInst(
 ): TvmInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -24979,9 +24653,9 @@ data class TvmDictPrefixPfxdictsetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -24989,7 +24663,7 @@ data class TvmDictPrefixPfxdictsetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PFXDICTSET"
@@ -25007,15 +24681,15 @@ data class TvmDictSerialLddictInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -25024,7 +24698,7 @@ data class TvmDictSerialLddictInst(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDDICT"
@@ -25041,15 +24715,15 @@ data class TvmDictSerialLddictqInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25057,7 +24731,7 @@ data class TvmDictSerialLddictqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDDICTQ"
@@ -25076,15 +24750,15 @@ data class TvmDictSerialLddictsInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
@@ -25093,7 +24767,7 @@ data class TvmDictSerialLddictsInst(
                 name = "s3",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LDDICTS"
@@ -25111,20 +24785,20 @@ data class TvmDictSerialPlddictInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDDICT"
@@ -25141,15 +24815,15 @@ data class TvmDictSerialPlddictqInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25157,7 +24831,7 @@ data class TvmDictSerialPlddictqInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDDICTQ"
@@ -25175,20 +24849,20 @@ data class TvmDictSerialPlddictsInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "PLDDICTS"
@@ -25205,20 +24879,20 @@ data class TvmDictSerialSkipdictInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s",
                 valueTypes = listOf("Slice")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "s2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SKIPDICT"
@@ -25237,8 +24911,8 @@ data class TvmDictSerialStdictInst(
 ): TvmInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -25247,14 +24921,14 @@ data class TvmDictSerialStdictInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b2",
                 valueTypes = listOf("Builder")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "STDICT"
@@ -25271,8 +24945,8 @@ data class TvmDictSetBuilderDictaddbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25289,9 +24963,9 @@ data class TvmDictSetBuilderDictaddbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25299,7 +24973,7 @@ data class TvmDictSetBuilderDictaddbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADDB"
@@ -25316,8 +24990,8 @@ data class TvmDictSetBuilderDictaddgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25334,9 +25008,9 @@ data class TvmDictSetBuilderDictaddgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25344,7 +25018,7 @@ data class TvmDictSetBuilderDictaddgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADDGETB"
@@ -25361,8 +25035,8 @@ data class TvmDictSetBuilderDictiaddbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25379,9 +25053,9 @@ data class TvmDictSetBuilderDictiaddbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25389,7 +25063,7 @@ data class TvmDictSetBuilderDictiaddbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADDB"
@@ -25406,8 +25080,8 @@ data class TvmDictSetBuilderDictiaddgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25424,9 +25098,9 @@ data class TvmDictSetBuilderDictiaddgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25434,7 +25108,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADDGETB"
@@ -25451,8 +25125,8 @@ data class TvmDictSetBuilderDictireplacebInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25469,9 +25143,9 @@ data class TvmDictSetBuilderDictireplacebInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25479,7 +25153,7 @@ data class TvmDictSetBuilderDictireplacebInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACEB"
@@ -25496,8 +25170,8 @@ data class TvmDictSetBuilderDictireplacegetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25514,9 +25188,9 @@ data class TvmDictSetBuilderDictireplacegetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25524,7 +25198,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACEGETB"
@@ -25541,8 +25215,8 @@ data class TvmDictSetBuilderDictisetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25559,14 +25233,14 @@ data class TvmDictSetBuilderDictisetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETB"
@@ -25583,8 +25257,8 @@ data class TvmDictSetBuilderDictisetgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25601,9 +25275,9 @@ data class TvmDictSetBuilderDictisetgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25611,7 +25285,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETGETB"
@@ -25628,8 +25302,8 @@ data class TvmDictSetBuilderDictreplacebInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25646,9 +25320,9 @@ data class TvmDictSetBuilderDictreplacebInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25656,7 +25330,7 @@ data class TvmDictSetBuilderDictreplacebInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACEB"
@@ -25673,8 +25347,8 @@ data class TvmDictSetBuilderDictreplacegetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25691,9 +25365,9 @@ data class TvmDictSetBuilderDictreplacegetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25701,7 +25375,7 @@ data class TvmDictSetBuilderDictreplacegetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACEGETB"
@@ -25718,8 +25392,8 @@ data class TvmDictSetBuilderDictsetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25736,14 +25410,14 @@ data class TvmDictSetBuilderDictsetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETB"
@@ -25760,8 +25434,8 @@ data class TvmDictSetBuilderDictsetgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25778,9 +25452,9 @@ data class TvmDictSetBuilderDictsetgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25788,7 +25462,7 @@ data class TvmDictSetBuilderDictsetgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETGETB"
@@ -25805,8 +25479,8 @@ data class TvmDictSetBuilderDictuaddbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25823,9 +25497,9 @@ data class TvmDictSetBuilderDictuaddbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25833,7 +25507,7 @@ data class TvmDictSetBuilderDictuaddbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADDB"
@@ -25850,8 +25524,8 @@ data class TvmDictSetBuilderDictuaddgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25868,9 +25542,9 @@ data class TvmDictSetBuilderDictuaddgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25878,7 +25552,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADDGETB"
@@ -25895,8 +25569,8 @@ data class TvmDictSetBuilderDictureplacebInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25913,9 +25587,9 @@ data class TvmDictSetBuilderDictureplacebInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25923,7 +25597,7 @@ data class TvmDictSetBuilderDictureplacebInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACEB"
@@ -25940,8 +25614,8 @@ data class TvmDictSetBuilderDictureplacegetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -25958,9 +25632,9 @@ data class TvmDictSetBuilderDictureplacegetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -25968,7 +25642,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACEGETB"
@@ -25985,8 +25659,8 @@ data class TvmDictSetBuilderDictusetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -26003,14 +25677,14 @@ data class TvmDictSetBuilderDictusetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETB"
@@ -26027,8 +25701,8 @@ data class TvmDictSetBuilderDictusetgetbInst(
 ): TvmInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "b",
                 valueTypes = listOf("Builder")
@@ -26045,9 +25719,9 @@ data class TvmDictSetBuilderDictusetgetbInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26055,7 +25729,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETGETB"
@@ -26073,8 +25747,8 @@ data class TvmDictSetDictaddInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26091,9 +25765,9 @@ data class TvmDictSetDictaddInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26101,7 +25775,7 @@ data class TvmDictSetDictaddInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADD"
@@ -26120,8 +25794,8 @@ data class TvmDictSetDictaddgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26138,9 +25812,9 @@ data class TvmDictSetDictaddgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26148,7 +25822,7 @@ data class TvmDictSetDictaddgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADDGET"
@@ -26165,8 +25839,8 @@ data class TvmDictSetDictaddgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26183,9 +25857,9 @@ data class TvmDictSetDictaddgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26193,7 +25867,7 @@ data class TvmDictSetDictaddgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADDGETREF"
@@ -26210,8 +25884,8 @@ data class TvmDictSetDictaddrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26228,9 +25902,9 @@ data class TvmDictSetDictaddrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26238,7 +25912,7 @@ data class TvmDictSetDictaddrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTADDREF"
@@ -26255,8 +25929,8 @@ data class TvmDictSetDictiaddInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26273,9 +25947,9 @@ data class TvmDictSetDictiaddInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26283,7 +25957,7 @@ data class TvmDictSetDictiaddInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADD"
@@ -26300,8 +25974,8 @@ data class TvmDictSetDictiaddgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26318,9 +25992,9 @@ data class TvmDictSetDictiaddgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26328,7 +26002,7 @@ data class TvmDictSetDictiaddgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADDGET"
@@ -26345,8 +26019,8 @@ data class TvmDictSetDictiaddgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26363,9 +26037,9 @@ data class TvmDictSetDictiaddgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26373,7 +26047,7 @@ data class TvmDictSetDictiaddgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADDGETREF"
@@ -26390,8 +26064,8 @@ data class TvmDictSetDictiaddrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26408,9 +26082,9 @@ data class TvmDictSetDictiaddrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26418,7 +26092,7 @@ data class TvmDictSetDictiaddrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIADDREF"
@@ -26435,8 +26109,8 @@ data class TvmDictSetDictireplaceInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26453,9 +26127,9 @@ data class TvmDictSetDictireplaceInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26463,7 +26137,7 @@ data class TvmDictSetDictireplaceInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACE"
@@ -26480,8 +26154,8 @@ data class TvmDictSetDictireplacegetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26498,9 +26172,9 @@ data class TvmDictSetDictireplacegetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26508,7 +26182,7 @@ data class TvmDictSetDictireplacegetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACEGET"
@@ -26525,8 +26199,8 @@ data class TvmDictSetDictireplacegetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26543,9 +26217,9 @@ data class TvmDictSetDictireplacegetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26553,7 +26227,7 @@ data class TvmDictSetDictireplacegetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACEGETREF"
@@ -26570,8 +26244,8 @@ data class TvmDictSetDictireplacerefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26588,9 +26262,9 @@ data class TvmDictSetDictireplacerefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26598,7 +26272,7 @@ data class TvmDictSetDictireplacerefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIREPLACEREF"
@@ -26616,8 +26290,8 @@ data class TvmDictSetDictisetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26634,14 +26308,14 @@ data class TvmDictSetDictisetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISET"
@@ -26658,8 +26332,8 @@ data class TvmDictSetDictisetgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26676,9 +26350,9 @@ data class TvmDictSetDictisetgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26686,7 +26360,7 @@ data class TvmDictSetDictisetgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETGET"
@@ -26703,8 +26377,8 @@ data class TvmDictSetDictisetgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26721,9 +26395,9 @@ data class TvmDictSetDictisetgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26731,7 +26405,7 @@ data class TvmDictSetDictisetgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETGETREF"
@@ -26748,8 +26422,8 @@ data class TvmDictSetDictisetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26766,14 +26440,14 @@ data class TvmDictSetDictisetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTISETREF"
@@ -26791,8 +26465,8 @@ data class TvmDictSetDictreplaceInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26809,9 +26483,9 @@ data class TvmDictSetDictreplaceInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26819,7 +26493,7 @@ data class TvmDictSetDictreplaceInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACE"
@@ -26837,8 +26511,8 @@ data class TvmDictSetDictreplacegetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26855,9 +26529,9 @@ data class TvmDictSetDictreplacegetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26865,7 +26539,7 @@ data class TvmDictSetDictreplacegetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACEGET"
@@ -26882,8 +26556,8 @@ data class TvmDictSetDictreplacegetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26900,9 +26574,9 @@ data class TvmDictSetDictreplacegetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26910,7 +26584,7 @@ data class TvmDictSetDictreplacegetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACEGETREF"
@@ -26927,8 +26601,8 @@ data class TvmDictSetDictreplacerefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -26945,9 +26619,9 @@ data class TvmDictSetDictreplacerefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -26955,7 +26629,7 @@ data class TvmDictSetDictreplacerefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTREPLACEREF"
@@ -26974,8 +26648,8 @@ data class TvmDictSetDictsetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -26992,14 +26666,14 @@ data class TvmDictSetDictsetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSET"
@@ -27017,8 +26691,8 @@ data class TvmDictSetDictsetgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27035,9 +26709,9 @@ data class TvmDictSetDictsetgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27045,7 +26719,7 @@ data class TvmDictSetDictsetgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETGET"
@@ -27062,8 +26736,8 @@ data class TvmDictSetDictsetgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27080,9 +26754,9 @@ data class TvmDictSetDictsetgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27090,7 +26764,7 @@ data class TvmDictSetDictsetgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETGETREF"
@@ -27107,8 +26781,8 @@ data class TvmDictSetDictsetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27125,14 +26799,14 @@ data class TvmDictSetDictsetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTSETREF"
@@ -27149,8 +26823,8 @@ data class TvmDictSetDictuaddInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27167,9 +26841,9 @@ data class TvmDictSetDictuaddInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27177,7 +26851,7 @@ data class TvmDictSetDictuaddInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADD"
@@ -27194,8 +26868,8 @@ data class TvmDictSetDictuaddgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27212,9 +26886,9 @@ data class TvmDictSetDictuaddgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27222,7 +26896,7 @@ data class TvmDictSetDictuaddgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADDGET"
@@ -27239,8 +26913,8 @@ data class TvmDictSetDictuaddgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27257,9 +26931,9 @@ data class TvmDictSetDictuaddgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27267,7 +26941,7 @@ data class TvmDictSetDictuaddgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADDGETREF"
@@ -27284,8 +26958,8 @@ data class TvmDictSetDictuaddrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27302,9 +26976,9 @@ data class TvmDictSetDictuaddrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27312,7 +26986,7 @@ data class TvmDictSetDictuaddrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUADDREF"
@@ -27329,8 +27003,8 @@ data class TvmDictSetDictureplaceInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27347,9 +27021,9 @@ data class TvmDictSetDictureplaceInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27357,7 +27031,7 @@ data class TvmDictSetDictureplaceInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACE"
@@ -27374,8 +27048,8 @@ data class TvmDictSetDictureplacegetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27392,9 +27066,9 @@ data class TvmDictSetDictureplacegetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27402,7 +27076,7 @@ data class TvmDictSetDictureplacegetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACEGET"
@@ -27419,8 +27093,8 @@ data class TvmDictSetDictureplacegetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27437,9 +27111,9 @@ data class TvmDictSetDictureplacegetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27447,7 +27121,7 @@ data class TvmDictSetDictureplacegetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACEGETREF"
@@ -27464,8 +27138,8 @@ data class TvmDictSetDictureplacerefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27482,9 +27156,9 @@ data class TvmDictSetDictureplacerefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27492,7 +27166,7 @@ data class TvmDictSetDictureplacerefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUREPLACEREF"
@@ -27509,8 +27183,8 @@ data class TvmDictSetDictusetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27527,14 +27201,14 @@ data class TvmDictSetDictusetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSET"
@@ -27551,8 +27225,8 @@ data class TvmDictSetDictusetgetInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Slice")
@@ -27569,9 +27243,9 @@ data class TvmDictSetDictusetgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27579,7 +27253,7 @@ data class TvmDictSetDictusetgetInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETGET"
@@ -27596,8 +27270,8 @@ data class TvmDictSetDictusetgetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27614,9 +27288,9 @@ data class TvmDictSetDictusetgetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -27624,7 +27298,7 @@ data class TvmDictSetDictusetgetrefInst(
                 name = "status",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETGETREF"
@@ -27641,8 +27315,8 @@ data class TvmDictSetDictusetrefInst(
 ): TvmInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Cell")
@@ -27659,14 +27333,14 @@ data class TvmDictSetDictusetrefInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTUSETREF"
@@ -27683,8 +27357,8 @@ data class TvmDictSpecialDictigetexecInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -27697,11 +27371,9 @@ data class TvmDictSpecialDictigetexecInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DICTIGETEXEC"
@@ -27718,14 +27390,10 @@ data class TvmDictSpecialDictigetexeczInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DICTIGETEXECZ"
@@ -27743,8 +27411,8 @@ data class TvmDictSpecialDictigetjmpInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -27757,11 +27425,9 @@ data class TvmDictSpecialDictigetjmpInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DICTIGETJMP"
@@ -27778,8 +27444,8 @@ data class TvmDictSpecialDictigetjmpzInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -27792,14 +27458,14 @@ data class TvmDictSpecialDictigetjmpzInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTIGETJMPZ"
@@ -27823,12 +27489,10 @@ data class TvmDictSpecialDictpushconstInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D",
                 valueTypes = listOf("Slice", "Null")
@@ -27837,7 +27501,7 @@ data class TvmDictSpecialDictpushconstInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DICTPUSHCONST"
@@ -27854,8 +27518,8 @@ data class TvmDictSpecialDictugetexecInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -27868,11 +27532,9 @@ data class TvmDictSpecialDictugetexecInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DICTUGETEXEC"
@@ -27889,14 +27551,10 @@ data class TvmDictSpecialDictugetexeczInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DICTUGETEXECZ"
@@ -27913,8 +27571,8 @@ data class TvmDictSpecialDictugetjmpInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
@@ -27927,11 +27585,9 @@ data class TvmDictSpecialDictugetjmpInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "DICTUGETJMP"
@@ -27948,14 +27604,10 @@ data class TvmDictSpecialDictugetjmpzInst(
 ): TvmInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DICTUGETJMPZ"
@@ -27975,8 +27627,8 @@ data class TvmDictSubSubdictgetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -27993,14 +27645,14 @@ data class TvmDictSubSubdictgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTGET"
@@ -28018,8 +27670,8 @@ data class TvmDictSubSubdictigetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -28036,14 +27688,14 @@ data class TvmDictSubSubdictigetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTIGET"
@@ -28061,8 +27713,8 @@ data class TvmDictSubSubdictirpgetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -28079,14 +27731,14 @@ data class TvmDictSubSubdictirpgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTIRPGET"
@@ -28104,8 +27756,8 @@ data class TvmDictSubSubdictrpgetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "k",
                 valueTypes = listOf("Slice")
@@ -28122,14 +27774,14 @@ data class TvmDictSubSubdictrpgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTRPGET"
@@ -28147,8 +27799,8 @@ data class TvmDictSubSubdictugetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -28165,14 +27817,14 @@ data class TvmDictSubSubdictugetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTUGET"
@@ -28190,8 +27842,8 @@ data class TvmDictSubSubdicturpgetInst(
 ): TvmInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
@@ -28208,14 +27860,14 @@ data class TvmDictSubSubdicturpgetInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "D2",
                 valueTypes = listOf("Slice", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SUBDICTURPGET"
@@ -28233,14 +27885,10 @@ data class TvmExceptionsThrowInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROW"
@@ -28260,14 +27908,10 @@ data class TvmExceptionsThrowShortInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROW_SHORT"
@@ -28285,17 +27929,15 @@ data class TvmExceptionsThrowanyInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWANY"
@@ -28312,8 +27954,8 @@ data class TvmExceptionsThrowanyifInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -28322,11 +27964,9 @@ data class TvmExceptionsThrowanyifInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWANYIF"
@@ -28343,8 +27983,8 @@ data class TvmExceptionsThrowanyifnotInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
@@ -28353,11 +27993,9 @@ data class TvmExceptionsThrowanyifnotInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWANYIFNOT"
@@ -28376,17 +28014,15 @@ data class TvmExceptionsThrowargInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARG"
@@ -28405,8 +28041,8 @@ data class TvmExceptionsThrowarganyInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -28415,11 +28051,9 @@ data class TvmExceptionsThrowarganyInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARGANY"
@@ -28436,8 +28070,8 @@ data class TvmExceptionsThrowarganyifInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -28450,11 +28084,9 @@ data class TvmExceptionsThrowarganyifInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARGANYIF"
@@ -28471,8 +28103,8 @@ data class TvmExceptionsThrowarganyifnotInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -28485,11 +28117,9 @@ data class TvmExceptionsThrowarganyifnotInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARGANYIFNOT"
@@ -28507,8 +28137,8 @@ data class TvmExceptionsThrowargifInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -28517,11 +28147,9 @@ data class TvmExceptionsThrowargifInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARGIF"
@@ -28539,8 +28167,8 @@ data class TvmExceptionsThrowargifnotInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -28549,11 +28177,9 @@ data class TvmExceptionsThrowargifnotInst(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWARGIFNOT"
@@ -28571,17 +28197,15 @@ data class TvmExceptionsThrowifInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWIF"
@@ -28599,17 +28223,15 @@ data class TvmExceptionsThrowifShortInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWIF_SHORT"
@@ -28627,17 +28249,15 @@ data class TvmExceptionsThrowifnotInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWIFNOT"
@@ -28655,17 +28275,15 @@ data class TvmExceptionsThrowifnotShortInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "f",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "THROWIFNOT_SHORT"
@@ -28687,8 +28305,8 @@ data class TvmExceptionsTryInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "c",
                 valueTypes = listOf("Continuation")
@@ -28697,11 +28315,9 @@ data class TvmExceptionsTryInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "TRY"
@@ -28723,8 +28339,8 @@ data class TvmExceptionsTryargsInst(
 ): TvmInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -28736,11 +28352,9 @@ data class TvmExceptionsTryargsInst(
                 name = "c2",
                 valueTypes = listOf("Continuation")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "TRYARGS"
@@ -28757,14 +28371,10 @@ data class TvmStackBasicNopInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "NOP"
@@ -28782,14 +28392,10 @@ data class TvmStackBasicPopInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "POP"
@@ -28807,14 +28413,10 @@ data class TvmStackBasicPushInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUSH"
@@ -28832,14 +28434,10 @@ data class TvmStackBasicXchg0iInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG_0I"
@@ -28857,14 +28455,10 @@ data class TvmStackBasicXchg0iLongInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG_0I_LONG"
@@ -28882,14 +28476,10 @@ data class TvmStackBasicXchg1iInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG_1I"
@@ -28908,14 +28498,10 @@ data class TvmStackBasicXchgIjInst(
 ): TvmInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG_IJ"
@@ -28936,14 +28522,10 @@ data class TvmStackComplexBlkdrop2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "BLKDROP2"
@@ -28961,14 +28543,10 @@ data class TvmStackComplexBlkdropInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "BLKDROP"
@@ -28988,14 +28566,10 @@ data class TvmStackComplexBlkpushInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "BLKPUSH"
@@ -29016,14 +28590,10 @@ data class TvmStackComplexBlkswapInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "BLKSWAP"
@@ -29040,17 +28610,13 @@ data class TvmStackComplexBlkswxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
-            const val MNEMONIC = "BLKSWX"
+        const val MNEMONIC = "BLKSWX"
     }
 }
 
@@ -29065,17 +28631,15 @@ data class TvmStackComplexChkdepthInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/58")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "i",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = emptyList<TvmStackEntry>()
     
     companion object {
         const val MNEMONIC = "CHKDEPTH"
@@ -29092,17 +28656,15 @@ data class TvmStackComplexDepthInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "depth",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "DEPTH"
@@ -29119,14 +28681,10 @@ data class TvmStackComplexDrop2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DROP2"
@@ -29143,14 +28701,10 @@ data class TvmStackComplexDropxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DROPX"
@@ -29167,14 +28721,10 @@ data class TvmStackComplexDup2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "DUP2"
@@ -29191,14 +28741,10 @@ data class TvmStackComplexMinusrollxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "-ROLLX"
@@ -29215,14 +28761,10 @@ data class TvmStackComplexOnlytopxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "ONLYTOPX"
@@ -29240,14 +28782,10 @@ data class TvmStackComplexOnlyxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "ONLYX"
@@ -29264,14 +28802,10 @@ data class TvmStackComplexOver2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "OVER2"
@@ -29288,14 +28822,10 @@ data class TvmStackComplexPickInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PICK"
@@ -29314,14 +28844,10 @@ data class TvmStackComplexPopLongInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "POP_LONG"
@@ -29341,14 +28867,10 @@ data class TvmStackComplexPu2xcInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PU2XC"
@@ -29367,14 +28889,10 @@ data class TvmStackComplexPush2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUSH2"
@@ -29394,14 +28912,10 @@ data class TvmStackComplexPush3Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUSH3"
@@ -29420,14 +28934,10 @@ data class TvmStackComplexPushLongInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUSH_LONG"
@@ -29447,14 +28957,10 @@ data class TvmStackComplexPuxc2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUXC2"
@@ -29473,14 +28979,10 @@ data class TvmStackComplexPuxcInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUXC"
@@ -29500,14 +29002,10 @@ data class TvmStackComplexPuxcpuInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "PUXCPU"
@@ -29526,14 +29024,10 @@ data class TvmStackComplexReverseInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "REVERSE"
@@ -29550,14 +29044,10 @@ data class TvmStackComplexRevxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "REVX"
@@ -29574,14 +29064,10 @@ data class TvmStackComplexRollxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "ROLLX"
@@ -29598,14 +29084,10 @@ data class TvmStackComplexRotInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "ROT"
@@ -29622,14 +29104,10 @@ data class TvmStackComplexRotrevInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "ROTREV"
@@ -29646,14 +29124,10 @@ data class TvmStackComplexSwap2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "SWAP2"
@@ -29670,14 +29144,10 @@ data class TvmStackComplexTuckInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "TUCK"
@@ -29697,14 +29167,10 @@ data class TvmStackComplexXc2puInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XC2PU"
@@ -29723,14 +29189,10 @@ data class TvmStackComplexXchg2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG2"
@@ -29750,14 +29212,10 @@ data class TvmStackComplexXchg3AltInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG3_ALT"
@@ -29777,14 +29235,10 @@ data class TvmStackComplexXchg3Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHG3"
@@ -29801,14 +29255,10 @@ data class TvmStackComplexXchgxInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCHGX"
@@ -29828,14 +29278,10 @@ data class TvmStackComplexXcpu2Inst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCPU2"
@@ -29854,14 +29300,10 @@ data class TvmStackComplexXcpuInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCPU"
@@ -29881,14 +29323,10 @@ data class TvmStackComplexXcpuxcInst(
 ): TvmInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = null
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = null
     
     companion object {
         const val MNEMONIC = "XCPUXC"
@@ -29907,15 +29345,15 @@ data class TvmTupleExplodeInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -29923,7 +29361,7 @@ data class TvmTupleExplodeInst(
                 name = "m",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "EXPLODE"
@@ -29940,8 +29378,8 @@ data class TvmTupleExplodevarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -29950,9 +29388,9 @@ data class TvmTupleExplodevarInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -29960,7 +29398,7 @@ data class TvmTupleExplodevarInst(
                 name = "m",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "EXPLODEVAR"
@@ -29980,20 +29418,20 @@ data class TvmTupleIndex2Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEX2"
@@ -30015,20 +29453,20 @@ data class TvmTupleIndex3Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEX3"
@@ -30047,20 +29485,20 @@ data class TvmTupleIndexInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEX"
@@ -30079,20 +29517,20 @@ data class TvmTupleIndexqInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple", "Null")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEXQ"
@@ -30109,8 +29547,8 @@ data class TvmTupleIndexvarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -30119,14 +29557,14 @@ data class TvmTupleIndexvarInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEXVAR"
@@ -30143,8 +29581,8 @@ data class TvmTupleIndexvarqInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple", "Null")
@@ -30153,14 +29591,14 @@ data class TvmTupleIndexvarqInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "INDEXVARQ"
@@ -30177,20 +29615,20 @@ data class TvmTupleIsnullInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "result",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ISNULL"
@@ -30207,20 +29645,20 @@ data class TvmTupleIstupleInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "ISTUPLE"
@@ -30237,20 +29675,20 @@ data class TvmTupleLastInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "LAST"
@@ -30267,17 +29705,15 @@ data class TvmTupleNullInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
-
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = emptyList<TvmStackEntry>()
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmConstStackEntry(
                 value = null,
                 valueType = "Null"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULL"
@@ -30296,8 +29732,8 @@ data class TvmTupleNullrotrif2Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -30306,9 +29742,9 @@ data class TvmTupleNullrotrif2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30320,7 +29756,7 @@ data class TvmTupleNullrotrif2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLROTRIF2"
@@ -30338,8 +29774,8 @@ data class TvmTupleNullrotrifInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -30348,9 +29784,9 @@ data class TvmTupleNullrotrifInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30362,7 +29798,7 @@ data class TvmTupleNullrotrifInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLROTRIF"
@@ -30381,8 +29817,8 @@ data class TvmTupleNullrotrifnot2Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -30391,9 +29827,9 @@ data class TvmTupleNullrotrifnot2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30405,7 +29841,7 @@ data class TvmTupleNullrotrifnot2Inst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLROTRIFNOT2"
@@ -30423,8 +29859,8 @@ data class TvmTupleNullrotrifnotInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf()
@@ -30433,9 +29869,9 @@ data class TvmTupleNullrotrifnotInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30447,7 +29883,7 @@ data class TvmTupleNullrotrifnotInst(
                 name = "y",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLROTRIFNOT"
@@ -30465,15 +29901,15 @@ data class TvmTupleNullswapif2Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30481,7 +29917,7 @@ data class TvmTupleNullswapif2Inst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLSWAPIF2"
@@ -30498,15 +29934,15 @@ data class TvmTupleNullswapifInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30514,7 +29950,7 @@ data class TvmTupleNullswapifInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLSWAPIF"
@@ -30532,15 +29968,15 @@ data class TvmTupleNullswapifnot2Inst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30548,7 +29984,7 @@ data class TvmTupleNullswapifnot2Inst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLSWAPIFNOT2"
@@ -30566,15 +30002,15 @@ data class TvmTupleNullswapifnotInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "conditional"
             ),
@@ -30582,7 +30018,7 @@ data class TvmTupleNullswapifnotInst(
                 name = "x",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "NULLSWAPIFNOT"
@@ -30599,20 +30035,20 @@ data class TvmTupleQtlenInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "QTLEN"
@@ -30632,8 +30068,8 @@ data class TvmTupleSetindexInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -30642,14 +30078,14 @@ data class TvmTupleSetindexInst(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETINDEX"
@@ -30672,8 +30108,8 @@ data class TvmTupleSetindexqInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple", "Null")
@@ -30682,14 +30118,14 @@ data class TvmTupleSetindexqInst(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETINDEXQ"
@@ -30706,8 +30142,8 @@ data class TvmTupleSetindexvarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -30720,14 +30156,14 @@ data class TvmTupleSetindexvarInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETINDEXVAR"
@@ -30744,8 +30180,8 @@ data class TvmTupleSetindexvarqInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple", "Null")
@@ -30758,14 +30194,14 @@ data class TvmTupleSetindexvarqInst(
                 name = "k",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple", "Null")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "SETINDEXVARQ"
@@ -30782,20 +30218,20 @@ data class TvmTupleTlenInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "TLEN"
@@ -30813,15 +30249,15 @@ data class TvmTupleTpopInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple")
@@ -30830,7 +30266,7 @@ data class TvmTupleTpopInst(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "TPOP"
@@ -30848,8 +30284,8 @@ data class TvmTupleTpushInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -30858,14 +30294,14 @@ data class TvmTupleTpushInst(
                 name = "x",
                 valueTypes = listOf()
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t2",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "TPUSH"
@@ -30884,19 +30320,19 @@ data class TvmTupleTupleInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "TUPLE"
@@ -30914,8 +30350,8 @@ data class TvmTupleTuplevarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             ),
@@ -30923,14 +30359,14 @@ data class TvmTupleTuplevarInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "TUPLEVAR"
@@ -30949,19 +30385,19 @@ data class TvmTupleUnpackfirstInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+k")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UNPACKFIRST"
@@ -30978,8 +30414,8 @@ data class TvmTupleUnpackfirstvarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -30988,13 +30424,13 @@ data class TvmTupleUnpackfirstvarInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UNPACKFIRSTVAR"
@@ -31013,19 +30449,19 @@ data class TvmTupleUntupleInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UNTUPLE"
@@ -31042,8 +30478,8 @@ data class TvmTupleUntuplevarInst(
 ): TvmInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
-    override val stackInputs: List<TvmStackEntry>
-       get() = listOf(
+    override val stackInputs: List<TvmStackEntry>? 
+        get() = listOf(
             TvmSimpleStackEntry(
                 name = "t",
                 valueTypes = listOf("Tuple")
@@ -31052,13 +30488,13 @@ data class TvmTupleUntuplevarInst(
                 name = "n",
                 valueTypes = listOf("Integer")
             )
-       )
-    override val stackOutputs: List<TvmStackEntry>
-       get() = listOf(
+        )
+    override val stackOutputs: List<TvmStackEntry>?
+        get() = listOf(
             TvmGenericStackEntry(
                 type = "array"
             )
-       )
+        )
     
     companion object {
         const val MNEMONIC = "UNTUPLEVAR"

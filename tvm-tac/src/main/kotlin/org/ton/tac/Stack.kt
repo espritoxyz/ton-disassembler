@@ -1,22 +1,66 @@
-package org.ton.bytecode
+package org.ton.tac
 
+import org.ton.bytecode.TvmConstStackEntry
+import org.ton.bytecode.TvmInst
+import org.ton.bytecode.TvmSimpleStackEntry
+import org.ton.bytecode.TvmStackBasicInst
+import org.ton.bytecode.TvmStackBasicNopInst
+import org.ton.bytecode.TvmStackBasicPopInst
+import org.ton.bytecode.TvmStackBasicPushInst
+import org.ton.bytecode.TvmStackBasicXchg0iInst
+import org.ton.bytecode.TvmStackBasicXchg0iLongInst
+import org.ton.bytecode.TvmStackBasicXchg1iInst
+import org.ton.bytecode.TvmStackBasicXchgIjInst
+import org.ton.bytecode.TvmStackComplexBlkdrop2Inst
+import org.ton.bytecode.TvmStackComplexBlkdropInst
+import org.ton.bytecode.TvmStackComplexBlkpushInst
+import org.ton.bytecode.TvmStackComplexBlkswapInst
+import org.ton.bytecode.TvmStackComplexBlkswxInst
+import org.ton.bytecode.TvmStackComplexChkdepthInst
+import org.ton.bytecode.TvmStackComplexDepthInst
+import org.ton.bytecode.TvmStackComplexDrop2Inst
+import org.ton.bytecode.TvmStackComplexDropxInst
+import org.ton.bytecode.TvmStackComplexDup2Inst
+import org.ton.bytecode.TvmStackComplexInst
+import org.ton.bytecode.TvmStackComplexMinusrollxInst
+import org.ton.bytecode.TvmStackComplexOnlytopxInst
+import org.ton.bytecode.TvmStackComplexOnlyxInst
+import org.ton.bytecode.TvmStackComplexOver2Inst
+import org.ton.bytecode.TvmStackComplexPickInst
+import org.ton.bytecode.TvmStackComplexPopLongInst
+import org.ton.bytecode.TvmStackComplexPu2xcInst
+import org.ton.bytecode.TvmStackComplexPush2Inst
+import org.ton.bytecode.TvmStackComplexPush3Inst
+import org.ton.bytecode.TvmStackComplexPushLongInst
+import org.ton.bytecode.TvmStackComplexPuxc2Inst
+import org.ton.bytecode.TvmStackComplexPuxcInst
+import org.ton.bytecode.TvmStackComplexPuxcpuInst
+import org.ton.bytecode.TvmStackComplexReverseInst
+import org.ton.bytecode.TvmStackComplexRevxInst
+import org.ton.bytecode.TvmStackComplexRollxInst
+import org.ton.bytecode.TvmStackComplexRotInst
+import org.ton.bytecode.TvmStackComplexRotrevInst
+import org.ton.bytecode.TvmStackComplexSwap2Inst
+import org.ton.bytecode.TvmStackComplexTuckInst
+import org.ton.bytecode.TvmStackComplexXc2puInst
+import org.ton.bytecode.TvmStackComplexXchg2Inst
+import org.ton.bytecode.TvmStackComplexXchg3AltInst
+import org.ton.bytecode.TvmStackComplexXchg3Inst
+import org.ton.bytecode.TvmStackComplexXchgxInst
+import org.ton.bytecode.TvmStackComplexXcpu2Inst
+import org.ton.bytecode.TvmStackComplexXcpuInst
+import org.ton.bytecode.TvmStackComplexXcpuxcInst
+import org.ton.bytecode.TvmStackEntry
+import org.ton.bytecode.extractPrimitiveOperands
 import java.util.Collections.swap
 
-typealias VarMap = MutableMap<String, Any?>
-
-data class StackVariable(
-    val specName: String,
-    val producedBy: String = "",
-    var valueTypes: List<String> = listOf(),
-)
-
 class Stack(
-    initialStack: List<StackVariable>,
-    private val messageCollector: MutableList<String> = ArrayList(),
+    initialStack: List<TacVar>,
+    private val warningCollector: MutableList<String> = ArrayList(),
 ) {
     private var varCounter = 0
     private var argCounter = 0
-    private val createdArguments = mutableListOf<StackVariable>()
+    private val createdArguments = mutableListOf<TacVar>()
 
     private fun getNextVar(): Int = varCounter++
 
@@ -26,40 +70,33 @@ class Stack(
 
     private fun stackIndex(i: Int): Int = size - i - 1
 
-    private val stack: MutableList<StackVariable> = initialStack.toMutableList()
+    private val stack: MutableList<TacVar> = initialStack.toMutableList()
 
-    fun getMessageCollector(): MutableList<String> = messageCollector
+    private fun getWarningCollector() = warningCollector.joinToString("\n")
 
-    fun clearMessagesCollector() = messageCollector.clear()
+    private fun clearMessagesCollector() = warningCollector.clear()
 
-    fun copy(): Stack {
-        val newStack = Stack(stack.toList())
-        newStack.varCounter = this.varCounter
-        newStack.argCounter = this.argCounter
-        return newStack
-    }
+    private fun dumpStackState(): String = stack.joinToString(", ") { it.name }
 
-    fun copyEntries(): List<StackVariable> = stack.toList()
-
-    fun dump(): String = stack.joinToString(", ") { it.specName }
-
-    fun pop(
+    private fun pop(
         instName: String,
         valuesCheck: List<String>,
-    ): StackVariable {
+    ): TacVar {
         if (stack.isEmpty()) {
             extendStack(size + 1, valuesCheck)
         }
-        val inputVar: StackVariable = stack.removeAt(stack.size - 1)
+        var inputVar: TacVar = stack.removeAt(stack.size - 1)
 
         if (inputVar.valueTypes.isNotEmpty() && valuesCheck.isNotEmpty()) {
             val hasMatchingType = inputVar.valueTypes.any { it in valuesCheck }
             if (hasMatchingType) {
-//                    messageCollector.add("success type match in var ${inputVar.specName}. actual types: ${inputVar.valueTypes}, valuesCheck: $valuesCheck ")
+                val matchedTypes = inputVar.valueTypes.filter { it in valuesCheck }
+                inputVar = inputVar.copy(valueTypes = matchedTypes)
+//                    warningCollector.add("success type match in var ${inputVar.name}. actual types: ${inputVar.valueTypes}, valuesCheck: $valuesCheck ")
                 return inputVar
             }
-            messageCollector.add(
-                "Type mismatch in $instName: var ${inputVar.specName}: expected one of $valuesCheck, but got ${inputVar.valueTypes}",
+            warningCollector.add(
+                "Type mismatch in $instName: var ${inputVar.name}: expected one of $valuesCheck, but got ${inputVar.valueTypes}",
             )
             return inputVar
         }
@@ -71,17 +108,11 @@ class Stack(
         return inputVar
     }
 
-    fun push(
-        specName: String = "noName",
-        inst: String,
-        valueTypes: List<String> = listOf(),
-    ): StackVariable {
-        val variable = StackVariable(specName + "_" + getNextVar(), inst, valueTypes)
-        stack.add(variable)
-        return variable
+    private fun push(value: TacVar) {
+        stack.add(value)
     }
 
-    fun getCreatedArgs(): List<StackVariable> = createdArguments
+    fun getCreatedArgs(): List<TacVar> = createdArguments
 
     private fun extendStack(
         newSize: Int,
@@ -92,7 +123,7 @@ class Stack(
         }
 
         val newValuesSize = newSize - size
-        val newValues = (0 until newValuesSize).map { StackVariable(specName = "arg${getNextArg()}", valueTypes = valueTypes) }
+        val newValues = (0 until newValuesSize).map { TacVar(name = "arg${getNextArg()}", valueTypes = valueTypes) }
 
         createdArguments.addAll(newValues)
         stack.addAll(0, newValues.asReversed()) // reversed because the "newest" values are at the beginning
@@ -108,12 +139,18 @@ class Stack(
         }
     }
 
-    fun execStackInstruction(inst: TvmInst) {
+    fun execStackInstruction(inst: TvmInst): StackTacInst {
         when (inst) {
             is TvmStackBasicInst -> execBasicStackInstruction(inst)
             is TvmStackComplexInst -> execComplexStackInstruction(inst)
             else -> error("not stack instruction type")
         }
+
+        return StackTacInst(
+            mnemonic = inst.mnemonic,
+            stackState = "stack: [${dumpStackState()}]",
+            operands = extractPrimitiveOperands(inst),
+        )
     }
 
     private fun execBasicStackInstruction(inst: TvmStackBasicInst) {
@@ -320,7 +357,7 @@ class Stack(
         val newSize = i + j
         extendStack(newSize)
 
-        val topElements = mutableListOf<StackVariable>()
+        val topElements = mutableListOf<TacVar>()
             for (k in 0 until newSize) {
                 val topElement = stack.last()
                 stack.removeAt(size - 1)
@@ -342,6 +379,78 @@ class Stack(
         doSwap(2, i)
         doSwap(1, j)
         doSwap(0, k)
+    }
+
+    fun processNonStackInst(
+        mnemonic: String,
+        stack: Stack,
+        inputSpec: List<TvmStackEntry>,
+        outputSpec: List<TvmStackEntry>,
+        operands: MutableMap<String, Any?>,
+        contRef: ContinuationRef? = null
+    ): NonStackTacInst {
+        val inputs = mutableListOf<TacVar>()
+        val outputs = mutableListOf<TacVar>()
+        var constCounter = 0
+        var debugInfo = ""
+
+        // Pop inputs in reverse since we deal with stack
+        inputSpec.reversed().forEach { input ->
+            if (input.type == "simple") {
+                val specInput = input as TvmSimpleStackEntry
+                val specValueTypes = specInput.valueTypes
+                val poppedValue = stack.pop(instName = mnemonic, valuesCheck = specValueTypes)
+                val poppedValueName = poppedValue.name
+                val poppedValueTypes = poppedValue.valueTypes
+                inputs.add(
+                    TacVar(
+                        name = poppedValueName,
+                        valueTypes = poppedValueTypes,
+                    )
+                )
+            } else {
+                error("Unsupported input type: \${input.type}")
+            }
+        }
+        val warningInfo = getWarningCollector()
+        stack.clearMessagesCollector()
+
+        outputSpec.forEach { output ->
+            when (output.type) {
+                "simple" -> {
+                    val specOutput = output as TvmSimpleStackEntry
+                    val specName = specOutput.name
+                    val specValueTypes = specOutput.valueTypes
+                    val pushValue = TacVar(
+                        name = "${specName}_${getNextVar()}",
+                        valueTypes = specValueTypes,
+                        contRef = contRef
+                    )
+                    stack.push(pushValue)
+                    outputs.add(pushValue)
+                }
+                "const" -> {
+                    val valueType = listOf((output as TvmConstStackEntry).valueType)
+                    val pushValue = TacVar(
+                        name = "const${constCounter++}",
+                        valueTypes = valueType,
+                    )
+                    stack.push(pushValue)
+                    outputs.add(pushValue)
+                }
+                else -> error("${output.type} from instruction $mnemonic isn't supported yet")
+            }
+        }
+        debugInfo += " stack: [${stack.dumpStackState()}]"
+
+        return NonStackTacInst(
+            mnemonic = mnemonic,
+            inputs = inputs,
+            outputs = outputs,
+            operands = operands,
+            warningInfo = warningInfo,
+            debugInfo = debugInfo,
+        )
     }
 }
 

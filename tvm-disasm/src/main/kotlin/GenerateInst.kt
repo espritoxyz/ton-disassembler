@@ -138,47 +138,47 @@ private fun tvmInstDefault(
 private fun extractStackEntries(
     inst: InstructionDescription,
     direction: StackFlowDirection,
-): List<String> {
-    val entries =
-        when (direction) {
-            StackFlowDirection.INPUT ->
-                inst.valueFlow.inputs.stack
-                    .orEmpty()
-            StackFlowDirection.OUTPUT ->
-                inst.valueFlow.outputs.stack
-                    .orEmpty()
+): String {
+    val stack = when (direction) {
+        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack
+        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack
+    }
+
+    return when {
+        stack == null -> "null" // stack inputs/outputs are unconstrained OR this is stack manipulation instruction
+        stack.isEmpty() -> "emptyList<TvmStackEntry>()"
+        else -> {
+            "listOf(\n" + stack.joinToString(",\n") { entry ->
+                when (entry) {
+                    is InstructionStackSimpleValue -> {
+                        """
+                        |            TvmSimpleStackEntry(
+                        |                name = "${entry.name}",
+                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    is InstructionStackConstValue -> {
+                        val valueStr = entry.typedValue?.toString() ?: "null"
+                        """
+                        |            TvmConstStackEntry(
+                        |                value = $valueStr,
+                        |                valueType = "${entry.value_type}"
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    else -> {
+                        """
+                        |            TvmGenericStackEntry(
+                        |                type = "${entry.entryType}"
+                        |            )
+                        """.trimMargin()
+                    }
+                }
+            } + "\n|        )"
         }
-
-    return entries.map { entry ->
-        val raw =
-            when (entry) {
-                is InstructionStackSimpleValue -> {
-                    """
-                    TvmSimpleStackEntry(
-                        name = "${entry.name}",
-                        valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
-                    )
-                    """
-                }
-                is InstructionStackConstValue -> {
-                    val valueStr = entry.typedValue?.toString() ?: "null"
-                    """
-                TvmConstStackEntry(
-                    value = $valueStr,
-                    valueType = "${entry.value_type}"
-                )
-                """
-                }
-                else -> {
-                    """
-                    TvmGenericStackEntry(
-                        type = "${entry.entryType}"
-                    )
-                    """
-                }
-            }
-
-        raw.trimIndent().prependIndent("            ")
     }
 }
 
@@ -233,14 +233,10 @@ private fun tvmInstDeclaration(
     |): TvmInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
-    |    override val stackInputs: List<TvmStackEntry>
-    |       get() = listOf(
-${extractStackEntries(inst, StackFlowDirection.INPUT).joinToString(",\n") {it}}
-    |       )
-    |    override val stackOutputs: List<TvmStackEntry>
-    |       get() = listOf(
-${extractStackEntries(inst, StackFlowDirection.OUTPUT).joinToString(",\n") {it}}
-    |       )
+    |    override val stackInputs: List<TvmStackEntry>? 
+    |        get() = ${extractStackEntries(inst, StackFlowDirection.INPUT)}
+    |    override val stackOutputs: List<TvmStackEntry>?
+    |        get() = ${extractStackEntries(inst, StackFlowDirection.OUTPUT)}
     |    
     |    companion object {
     |        const val MNEMONIC = "${inst.mnemonic}"
