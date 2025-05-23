@@ -1,4 +1,4 @@
-package org.ton
+package org.ton.disasm
 
 import com.github.ajalt.clikt.core.CliktCommand
 import com.github.ajalt.clikt.core.NoOpCliktCommand
@@ -20,7 +20,6 @@ import kotlinx.serialization.json.jsonObject
 import kotlinx.serialization.json.jsonPrimitive
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.disassembleBoc
-import org.ton.disasm.TvmDisassembler
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
 import org.ton.net.toUrlAddress
@@ -104,7 +103,8 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
         val contractCodeSource = contractCode
         val bocContent = fetchContractCode(contractCodeSource)
         val disassembledFile: TvmContractCode = disassembleBoc(bocContent)
-        prettyPrint(disassembledFile, includeTvmCell)
+        val prettyString = StringBuilder().prettyPrint(disassembledFile, includeTvmCell).toString()
+        println(prettyString)
     }
 }
 
