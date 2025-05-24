@@ -23,7 +23,7 @@ fun prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) : St
     return sb.toString()
 }
 
-fun appendInstructions(
+private fun appendInstructions(
     sb: StringBuilder,
     instList: List<TvmInst>,
     indent: String = "",
