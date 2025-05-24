@@ -11,7 +11,7 @@ fun extractPrimitiveOperands(inst: TvmInst): Map<String, Any?> {
             .associate { it.name to it.getter.call(inst) }
 }
 
-fun printInstruction(inst: TvmInst, indent: String = "", includeTvmCell: Boolean) {
+fun formatInstruction(inst: TvmInst, indent: String = "", includeTvmCell: Boolean) : String {
     val type = inst.mnemonic
     val operandsString = extractPrimitiveOperands(inst)
         .entries.joinToString { "${it.key}=" +
@@ -21,7 +21,7 @@ fun printInstruction(inst: TvmInst, indent: String = "", includeTvmCell: Boolean
                     if (it.value !is TvmCell) "${it.value}" else "[Cell]"
                 }
         }
-    println("$indent$type ${operandsString.ifEmpty { "" }}")
+    return "$indent$type ${operandsString.ifEmpty { "" }}"
 }
 
 @OptIn(ExperimentalStdlibApi::class)
