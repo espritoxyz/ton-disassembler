@@ -103,8 +103,8 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
         val contractCodeSource = contractCode
         val bocContent = fetchContractCode(contractCodeSource)
         val disassembledFile: TvmContractCode = disassembleBoc(bocContent)
-        val prettyString = StringBuilder().prettyPrint(disassembledFile, includeTvmCell).toString()
-        println(prettyString)
+        val formattedStr = prettyPrint(disassembledFile, includeTvmCell)
+        echo(formattedStr)
     }
 }
 

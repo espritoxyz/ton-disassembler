@@ -4,24 +4,31 @@ import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmInstList
-import org.ton.bytecode.printInstruction
+import org.ton.bytecode.formatInstruction
 import kotlin.reflect.full.memberProperties
 
-fun StringBuilder.prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) {
-    appendLine("Main method instructions:")
-    printInstructions(disassembledFile.mainMethod.instList, includeTvmCell = includeTvmCell)
+fun prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) : String {
+    val sb = StringBuilder()
+    sb.appendLine("Main method instructions:")
+    appendInstructions(sb, disassembledFile.mainMethod.instList, includeTvmCell = includeTvmCell)
 
-    appendLine()
-    appendLine("Methods instructions:")
+    sb.appendLine()
+    sb.appendLine("Methods instructions:")
     disassembledFile.methods.forEach { (methodId, method) ->
-        appendLine()
-        appendLine("Method ID: $methodId")
-        printInstructions(method.instList, includeTvmCell = includeTvmCell)
+        sb.appendLine()
+        sb.appendLine("Method ID: $methodId")
+        appendInstructions(sb, method.instList, includeTvmCell = includeTvmCell)
     }
 
+    return sb.toString()
 }
 
-fun StringBuilder.printInstructions(instList: List<TvmInst>, indent: String = "", includeTvmCell: Boolean) {
+private fun appendInstructions(
+    sb: StringBuilder,
+    instList: List<TvmInst>,
+    indent: String = "",
+    includeTvmCell: Boolean
+) {
     instList.forEach { inst ->
         val type = inst.mnemonic
 
@@ -30,12 +37,12 @@ fun StringBuilder.printInstructions(instList: List<TvmInst>, indent: String = ""
                 .mapNotNull { it.getter.call(inst) as? TvmInstList }
 
             operandInstLists.forEach { operandInstList ->
-                appendLine("$indent$type <{")
-                printInstructions(operandInstList.list, "$indent  ", includeTvmCell)
-                appendLine("$indent}>")
+                sb.appendLine("$indent$type <{")
+                appendInstructions(sb, operandInstList.list, "$indent  ", includeTvmCell)
+                sb.appendLine("$indent}>")
             }
         } else {
-            printInstruction(inst, indent, includeTvmCell)
+            sb.appendLine(formatInstruction(inst, indent, includeTvmCell))
         }
     }
 }
