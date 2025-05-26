@@ -1,20 +1,15 @@
-package org.ton.disasm
+package org.ton.bytecode
 
-import org.ton.bytecode.TvmContOperandInst
-import org.ton.bytecode.TvmContractCode
-import org.ton.bytecode.TvmInst
-import org.ton.bytecode.TvmInstList
-import org.ton.bytecode.formatInstruction
 import kotlin.reflect.full.memberProperties
 
-fun prettyPrint(disassembledFile: TvmContractCode, includeTvmCell: Boolean) : String {
+fun TvmContractCode.prettyPrint(includeTvmCell: Boolean) : String {
     val sb = StringBuilder()
     sb.appendLine("Main method instructions:")
-    appendInstructions(sb, disassembledFile.mainMethod.instList, includeTvmCell = includeTvmCell)
+    appendInstructions(sb, mainMethod.instList, includeTvmCell = includeTvmCell)
 
     sb.appendLine()
     sb.appendLine("Methods instructions:")
-    disassembledFile.methods.forEach { (methodId, method) ->
+    methods.forEach { (methodId, method) ->
         sb.appendLine()
         sb.appendLine("Method ID: $methodId")
         appendInstructions(sb, method.instList, includeTvmCell = includeTvmCell)

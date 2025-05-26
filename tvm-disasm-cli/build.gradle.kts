@@ -34,11 +34,3 @@ tasks.withType<ShadowJar> {
     val dependencies = (implementation + runtimeOnly)
     project.configurations.shadow.get().dependencies.addAll(dependencies)
 }
-
-publishing {
-    publications {
-        create<MavenPublication>("maven") {
-            from(components["java"])
-        }
-    }
-}
