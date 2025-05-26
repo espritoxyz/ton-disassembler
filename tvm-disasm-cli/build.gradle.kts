@@ -14,7 +14,7 @@ dependencies {
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinx_serialization}")
 }
 
-val mainClassName = "org.ton.MainKt"
+val mainClassName = "org.ton.disasm.MainKt"
 
 tasks.register<JavaExec>("run") {
     classpath = sourceSets.main.get().runtimeClasspath
