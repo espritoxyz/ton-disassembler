@@ -4,8 +4,8 @@ plugins {
 }
 
 dependencies {
-    implementation("org.ton:ton-kotlin-tvm:0.3.1")
-    implementation("org.ton:ton-kotlin-hashmap-tlb:0.3.1")
+    implementation("org.ton:ton-kotlin-tvm:0.4.3")
+    implementation("org.ton:ton-kotlin-hashmap-tlb:0.4.3")
 
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:${Versions.kotlinx_serialization}")
 }

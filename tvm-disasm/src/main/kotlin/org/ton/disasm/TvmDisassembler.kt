@@ -161,7 +161,7 @@ data object TvmDisassembler {
             check(slice.remainingBits > 0) {
                 "Slice must not be empty at this point, but it is"
             }
-            val bit = slice.loadBit()
+            val bit = slice.loadBoolean()
             position = position.step(bit)
         }
 
@@ -364,7 +364,7 @@ data object TvmDisassembler {
         }
 
         val refs = List(refsLength) { slice.loadRef() }
-        val newSlice = CellSlice.of(bits, refs)
+        val newSlice = CellSlice(bits, refs)
         newSlice.bitsPosition = slice.bitsPosition
 
         slice.skipBits(bitsLength)
