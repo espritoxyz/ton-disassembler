@@ -6,7 +6,7 @@ import org.ton.cell.CellBuilder
 import org.ton.cell.CellSlice
 import org.ton.tlb.TlbCodec
 
-internal data object HashMapESerializer : TlbCodec<Cell> {
+data object HashMapESerializer : TlbCodec<Cell> {
     override fun loadTlb(cellSlice: CellSlice): Cell {
         return Cell(
             BitString(cellSlice.bits.drop(cellSlice.bitsPosition)),

@@ -1,0 +1,42 @@
+[
+  {
+    "cell": "7173fccd30f5e59aee50f6c8fb8983bb7b57627966515e3da60d8d0cedcf11f7",
+    "offset": 0,
+    "inst": "SETCP"
+  },
+  {
+    "cell": "7173fccd30f5e59aee50f6c8fb8983bb7b57627966515e3da60d8d0cedcf11f7",
+    "offset": 16,
+    "inst": "DICTPUSHCONST"
+  },
+  {
+    "cell": "7173fccd30f5e59aee50f6c8fb8983bb7b57627966515e3da60d8d0cedcf11f7",
+    "offset": 40,
+    "inst": "DICTIGETJMPZ"
+  },
+  {
+    "cell": "7173fccd30f5e59aee50f6c8fb8983bb7b57627966515e3da60d8d0cedcf11f7",
+    "offset": 56,
+    "inst": "THROWARG"
+  },
+  {
+    "cell": "7bd46ecfcf268b038793b43f8e78c4d7d4ee64f9db51fbc074c877c9c555db86",
+    "offset": 0,
+    "inst": "PUSHINT_LONG"
+  },
+  {
+    "cell": "7bd46ecfcf268b038793b43f8e78c4d7d4ee64f9db51fbc074c877c9c555db86",
+    "offset": 248,
+    "inst": "XCHG_0I"
+  },
+  {
+    "cell": "7bd46ecfcf268b038793b43f8e78c4d7d4ee64f9db51fbc074c877c9c555db86",
+    "offset": 256,
+    "inst": "ADD"
+  },
+  {
+    "cell": "7bd46ecfcf268b038793b43f8e78c4d7d4ee64f9db51fbc074c877c9c555db86",
+    "offset": 264,
+    "inst": "POP"
+  }
+]
