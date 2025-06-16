@@ -92,7 +92,7 @@ data object TvmDisassembler {
         val slice = cell.beginParse()
         val initialLocation = TvmMainMethodLocation(index = 0)
 
-        val insts = disassemble(slice, initialLocation)
+        val insts = disassemble(slice, initialLocation, cell.hash().toHex())
 
         val defaultMain = standardMainMethods.any { matchesMnemonics(insts, it) }
 
@@ -115,7 +115,7 @@ data object TvmDisassembler {
 
         dict.forEach { (newMethodId, codeCell) ->
             val newInitialLocation = TvmInstMethodLocation(newMethodId, index = 0)
-            result[newMethodId] = disassemble(codeCell.beginParse(), newInitialLocation)
+            result[newMethodId] = disassemble(codeCell.beginParse(), newInitialLocation, codeCell.hash().toHex())
         }
 
         return result
@@ -124,23 +124,29 @@ data object TvmDisassembler {
     private fun disassemble(
         slice: CellSlice,
         initialLocation: TvmInstLocation,
+        cellHashHex: String,
     ): List<TvmInst> {
         val resultInstructions = mutableListOf<TvmInst>()
 
         var location = initialLocation
 
         while (slice.remainingBits > 0) {
+            val physicalInstLocation = TvmPhysicalInstLocation(
+                cellHashHex = cellHashHex,
+                offset = slice.bitsPosition,
+            )
+
             val instDescriptor = getInstructionDescriptor(slice)
 
-            val inst = parseInstruction(slice, instDescriptor, location)
+            val inst = parseInstruction(slice, instDescriptor, location, physicalInstLocation)
 
             location = location.increment()
             resultInstructions.add(inst)
         }
         while (slice.refsPosition < slice.refs.size) {
-            val nextSlice = slice.loadRef()
+            val nextCell = slice.loadRef()
 
-            val insts = disassemble(nextSlice.beginParse(), location)
+            val insts = disassemble(nextCell.beginParse(), location, nextCell.hash().toHex())
             location = location.increment(insts.size)
 
             resultInstructions.addAll(insts)
@@ -180,6 +186,7 @@ data object TvmDisassembler {
         slice: CellSlice,
         instDescriptor: InstructionDescription,
         location: TvmInstLocation,
+        physicalInstLocation: TvmPhysicalInstLocation,
     ): TvmInst {
         val name = instDescriptor.mnemonic
         var operandsInfo = instDescriptor.bytecode.operands
@@ -223,7 +230,16 @@ data object TvmDisassembler {
                     val bitPadding = operand.bits_padding ?: 0
                     val refsAdd = operand.refs_add ?: 0
                     val completionTag = operand.completion_tag ?: false
-                    parseSubSlice(slice, bitLengthVarSize, refLengthVarSize, bitPadding, refsAdd, completionTag, name)
+                    parseSubSlice(
+                        slice,
+                        bitLengthVarSize,
+                        refLengthVarSize,
+                        bitPadding,
+                        refsAdd,
+                        completionTag,
+                        name,
+                        physicalInstLocation.cellHashHex,
+                    )
                 }
 
                 else -> {
@@ -235,8 +251,8 @@ data object TvmDisassembler {
         }
 
         return parsedOperandMap?.let {
-            TvmConstDictInst(name, location, operandsValue, it)
-        } ?: TvmInst(name, location, operandsValue)
+            TvmConstDictInst(name, location, operandsValue, physicalInstLocation, it)
+        } ?: TvmInst(name, location, operandsValue, physicalInstLocation)
     }
 
     private fun parseInt(slice: CellSlice, size: Int): JsonPrimitive {
@@ -306,6 +322,7 @@ data object TvmDisassembler {
                 val insts = disassemble(
                     ref.beginParse(),
                     newLocation,
+                    ref.hash().toHex(),
                 )
                 val raw = serializeSlice(ref.beginParse())
                 return serializeInstListOperand(insts, raw) to emptyMap()
@@ -336,6 +353,7 @@ data object TvmDisassembler {
         refsAdd: Int,
         completionTag: Boolean,
         opname: String,
+        cellHashHex: String,
     ): JsonElement {
 
         val operandType = opcodeToSubSliceOperandType[opname]
@@ -376,6 +394,7 @@ data object TvmDisassembler {
                 val insts = disassemble(
                     newSlice,
                     newLocation,
+                    cellHashHex,
                 )
                 return serializeInstListOperand(insts, raw)
             }

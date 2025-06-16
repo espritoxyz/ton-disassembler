@@ -1,5 +1,6 @@
 package org.ton.disasm
 
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
 
@@ -48,3 +49,9 @@ internal data class TvmInstLambdaLocation(
         )
     )
 }
+
+@Serializable
+data class TvmPhysicalInstLocation(
+    val cellHashHex: String,
+    val offset: Int,
+)

@@ -72,7 +72,7 @@ private fun tvmInstCategoryDeclaration(category: String): String {
 
     return """
         @Serializable
-        sealed interface ${tvmInstCategoryClassName(category)}: TvmInst$additionalCategories
+        sealed interface ${tvmInstCategoryClassName(category)}: TvmRealInst$additionalCategories
     """.trimIndent()
 }
 
@@ -107,6 +107,8 @@ private fun tvmInstDefault(
     val arguments = mutableListOf<String>()
 
     arguments += "|            TvmMainMethodLocation(0),"
+    // dummy physical locations
+    arguments += "|            TvmPhysicalInstLocation(\"\", 0),"
 
     for (type in types) {
         if (type == null) {
@@ -139,6 +141,7 @@ private fun tvmInstDeclaration(
     val arguments = mutableListOf<String>()
 
     arguments += "|    override val location: TvmInstLocation,"
+    arguments += "|    override val physicalLocation: TvmPhysicalInstLocation,"
 
     val types = tvmInstArgumentTypes(inst, instructionOperandTypes)
 
@@ -179,7 +182,7 @@ private fun tvmInstDeclaration(
     |@SerialName($className.MNEMONIC)
     |data class $className(
     ${arguments.joinToString("\n")}
-    |): TvmInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
+    |): TvmRealInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
     |
@@ -236,6 +239,7 @@ fun main() {
             import kotlinx.serialization.modules.SerializersModuleBuilder
             import kotlinx.serialization.modules.polymorphic
             import kotlinx.serialization.modules.subclass
+            import org.ton.disasm.TvmPhysicalInstLocation
             
         """.trimIndent()
         )
@@ -260,6 +264,7 @@ fun main() {
             """
             // Generated
             package org.ton.bytecode
+            import org.ton.disasm.TvmPhysicalInstLocation
             
             val tvmDefaultInstructions = mapOf(
             """.trimIndent()

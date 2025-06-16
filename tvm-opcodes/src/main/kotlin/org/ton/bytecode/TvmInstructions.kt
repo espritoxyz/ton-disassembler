@@ -6,138 +6,139 @@ import kotlinx.serialization.Serializable
 import kotlinx.serialization.modules.SerializersModuleBuilder
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
+import org.ton.disasm.TvmPhysicalInstLocation
 
 @Serializable
-sealed interface TvmAppActionsInst: TvmInst
+sealed interface TvmAppActionsInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppAddrInst: TvmInst
+sealed interface TvmAppAddrInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppConfigInst: TvmInst
+sealed interface TvmAppConfigInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppCryptoInst: TvmInst
+sealed interface TvmAppCryptoInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppCurrencyInst: TvmInst
+sealed interface TvmAppCurrencyInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppGasInst: TvmInst
+sealed interface TvmAppGasInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppGlobalInst: TvmInst
+sealed interface TvmAppGlobalInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppMiscInst: TvmInst
+sealed interface TvmAppMiscInst: TvmRealInst
 
 @Serializable
-sealed interface TvmAppRndInst: TvmInst
+sealed interface TvmAppRndInst: TvmRealInst
 
 @Serializable
-sealed interface TvmArithmBasicInst: TvmInst
+sealed interface TvmArithmBasicInst: TvmRealInst
 
 @Serializable
-sealed interface TvmArithmDivInst: TvmInst
+sealed interface TvmArithmDivInst: TvmRealInst
 
 @Serializable
-sealed interface TvmArithmLogicalInst: TvmInst
+sealed interface TvmArithmLogicalInst: TvmRealInst
 
 @Serializable
-sealed interface TvmArithmQuietInst: TvmInst
+sealed interface TvmArithmQuietInst: TvmRealInst
 
 @Serializable
-sealed interface TvmCellBuildInst: TvmInst
+sealed interface TvmCellBuildInst: TvmRealInst
 
 @Serializable
-sealed interface TvmCellParseInst: TvmInst
+sealed interface TvmCellParseInst: TvmRealInst
 
 @Serializable
-sealed interface TvmCodepageInst: TvmInst
+sealed interface TvmCodepageInst: TvmRealInst
 
 @Serializable
-sealed interface TvmCompareIntInst: TvmInst
+sealed interface TvmCompareIntInst: TvmRealInst
 
 @Serializable
-sealed interface TvmCompareOtherInst: TvmInst
+sealed interface TvmCompareOtherInst: TvmRealInst
 
 @Serializable
-sealed interface TvmConstDataInst: TvmInst
+sealed interface TvmConstDataInst: TvmRealInst
 
 @Serializable
-sealed interface TvmConstIntInst: TvmInst
+sealed interface TvmConstIntInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContBasicInst: TvmInst
+sealed interface TvmContBasicInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContConditionalInst: TvmInst
+sealed interface TvmContConditionalInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContCreateInst: TvmInst
+sealed interface TvmContCreateInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContDictInst: TvmInst
+sealed interface TvmContDictInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContLoopsInst: TvmInst
+sealed interface TvmContLoopsInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContRegistersInst: TvmInst
+sealed interface TvmContRegistersInst: TvmRealInst
 
 @Serializable
-sealed interface TvmContStackInst: TvmInst
+sealed interface TvmContStackInst: TvmRealInst
 
 @Serializable
-sealed interface TvmDebugInst: TvmInst
+sealed interface TvmDebugInst: TvmRealInst
 
 @Serializable
-sealed interface TvmDictInst: TvmInst
+sealed interface TvmDictInst: TvmRealInst
 
 @Serializable
-sealed interface TvmDictDeleteInst: TvmInst, TvmDictInst
+sealed interface TvmDictDeleteInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictGetInst: TvmInst, TvmDictInst
+sealed interface TvmDictGetInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictMayberefInst: TvmInst, TvmDictInst
+sealed interface TvmDictMayberefInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictMinInst: TvmInst, TvmDictInst
+sealed interface TvmDictMinInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictNextInst: TvmInst, TvmDictInst
+sealed interface TvmDictNextInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictPrefixInst: TvmInst, TvmDictInst
+sealed interface TvmDictPrefixInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictSerialInst: TvmInst, TvmDictInst
+sealed interface TvmDictSerialInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictSetInst: TvmInst, TvmDictInst
+sealed interface TvmDictSetInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictSetBuilderInst: TvmInst, TvmDictInst
+sealed interface TvmDictSetBuilderInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictSpecialInst: TvmInst, TvmDictInst
+sealed interface TvmDictSpecialInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmDictSubInst: TvmInst, TvmDictInst
+sealed interface TvmDictSubInst: TvmRealInst, TvmDictInst
 
 @Serializable
-sealed interface TvmExceptionsInst: TvmInst
+sealed interface TvmExceptionsInst: TvmRealInst
 
 @Serializable
-sealed interface TvmStackBasicInst: TvmInst
+sealed interface TvmStackBasicInst: TvmRealInst
 
 @Serializable
-sealed interface TvmStackComplexInst: TvmInst
+sealed interface TvmStackComplexInst: TvmRealInst
 
 @Serializable
-sealed interface TvmTupleInst: TvmInst
+sealed interface TvmTupleInst: TvmRealInst
 
 /**
  * Creates an output action similarly to `SETLIBCODE`, but instead of the library code accepts its hash
@@ -148,7 +149,8 @@ sealed interface TvmTupleInst: TvmInst
 @SerialName(TvmAppActionsChangelibInst.MNEMONIC)
 data class TvmAppActionsChangelibInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -173,7 +175,8 @@ data class TvmAppActionsChangelibInst(
 @SerialName(TvmAppActionsRawreserveInst.MNEMONIC)
 data class TvmAppActionsRawreserveInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -190,7 +193,8 @@ data class TvmAppActionsRawreserveInst(
 @SerialName(TvmAppActionsRawreservexInst.MNEMONIC)
 data class TvmAppActionsRawreservexInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -213,7 +217,8 @@ data class TvmAppActionsRawreservexInst(
 @SerialName(TvmAppActionsSendmsgInst.MNEMONIC)
 data class TvmAppActionsSendmsgInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -241,7 +246,8 @@ data class TvmAppActionsSendmsgInst(
 @SerialName(TvmAppActionsSendrawmsgInst.MNEMONIC)
 data class TvmAppActionsSendrawmsgInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -259,7 +265,8 @@ data class TvmAppActionsSendrawmsgInst(
 @SerialName(TvmAppActionsSetcodeInst.MNEMONIC)
 data class TvmAppActionsSetcodeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -281,7 +288,8 @@ data class TvmAppActionsSetcodeInst(
 @SerialName(TvmAppActionsSetlibcodeInst.MNEMONIC)
 data class TvmAppActionsSetlibcodeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppActionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppActionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -298,7 +306,8 @@ data class TvmAppActionsSetlibcodeInst(
 @SerialName(TvmAppAddrLdmsgaddrInst.MNEMONIC)
 data class TvmAppAddrLdmsgaddrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -315,7 +324,8 @@ data class TvmAppAddrLdmsgaddrInst(
 @SerialName(TvmAppAddrLdmsgaddrqInst.MNEMONIC)
 data class TvmAppAddrLdmsgaddrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -332,7 +342,8 @@ data class TvmAppAddrLdmsgaddrqInst(
 @SerialName(TvmAppAddrParsemsgaddrInst.MNEMONIC)
 data class TvmAppAddrParsemsgaddrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -348,7 +359,8 @@ data class TvmAppAddrParsemsgaddrInst(
 @SerialName(TvmAppAddrParsemsgaddrqInst.MNEMONIC)
 data class TvmAppAddrParsemsgaddrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -367,7 +379,8 @@ data class TvmAppAddrParsemsgaddrqInst(
 @SerialName(TvmAppAddrRewritestdaddrInst.MNEMONIC)
 data class TvmAppAddrRewritestdaddrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -383,7 +396,8 @@ data class TvmAppAddrRewritestdaddrInst(
 @SerialName(TvmAppAddrRewritestdaddrqInst.MNEMONIC)
 data class TvmAppAddrRewritestdaddrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -400,7 +414,8 @@ data class TvmAppAddrRewritestdaddrqInst(
 @SerialName(TvmAppAddrRewritevaraddrInst.MNEMONIC)
 data class TvmAppAddrRewritevaraddrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -416,7 +431,8 @@ data class TvmAppAddrRewritevaraddrInst(
 @SerialName(TvmAppAddrRewritevaraddrqInst.MNEMONIC)
 data class TvmAppAddrRewritevaraddrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppAddrInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -433,7 +449,8 @@ data class TvmAppAddrRewritevaraddrqInst(
 @SerialName(TvmAppConfigConfigdictInst.MNEMONIC)
 data class TvmAppConfigConfigdictInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -451,7 +468,8 @@ data class TvmAppConfigConfigdictInst(
 @SerialName(TvmAppConfigConfigoptparamInst.MNEMONIC)
 data class TvmAppConfigConfigoptparamInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -469,7 +487,8 @@ data class TvmAppConfigConfigoptparamInst(
 @SerialName(TvmAppConfigConfigparamInst.MNEMONIC)
 data class TvmAppConfigConfigparamInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -485,7 +504,8 @@ data class TvmAppConfigConfigparamInst(
 @SerialName(TvmAppConfigGetforwardfeeInst.MNEMONIC)
 data class TvmAppConfigGetforwardfeeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -501,7 +521,8 @@ data class TvmAppConfigGetforwardfeeInst(
 @SerialName(TvmAppConfigGetforwardfeesimpleInst.MNEMONIC)
 data class TvmAppConfigGetforwardfeesimpleInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -517,7 +538,8 @@ data class TvmAppConfigGetforwardfeesimpleInst(
 @SerialName(TvmAppConfigGetgasfeeInst.MNEMONIC)
 data class TvmAppConfigGetgasfeeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -533,7 +555,8 @@ data class TvmAppConfigGetgasfeeInst(
 @SerialName(TvmAppConfigGetgasfeesimpleInst.MNEMONIC)
 data class TvmAppConfigGetgasfeesimpleInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -549,7 +572,8 @@ data class TvmAppConfigGetgasfeesimpleInst(
 @SerialName(TvmAppConfigGetoriginalfwdfeeInst.MNEMONIC)
 data class TvmAppConfigGetoriginalfwdfeeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -568,8 +592,9 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
 @SerialName(TvmAppConfigGetparamInst.MNEMONIC)
 data class TvmAppConfigGetparamInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmAppConfigInst {
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -585,7 +610,8 @@ data class TvmAppConfigGetparamInst(
 @SerialName(TvmAppConfigGetprecompiledgasInst.MNEMONIC)
 data class TvmAppConfigGetprecompiledgasInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -601,7 +627,8 @@ data class TvmAppConfigGetprecompiledgasInst(
 @SerialName(TvmAppConfigGetstoragefeeInst.MNEMONIC)
 data class TvmAppConfigGetstoragefeeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -617,7 +644,8 @@ data class TvmAppConfigGetstoragefeeInst(
 @SerialName(TvmAppConfigGlobalidInst.MNEMONIC)
 data class TvmAppConfigGlobalidInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -633,7 +661,8 @@ data class TvmAppConfigGlobalidInst(
 @SerialName(TvmAppConfigPrevkeyblockInst.MNEMONIC)
 data class TvmAppConfigPrevkeyblockInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -649,7 +678,8 @@ data class TvmAppConfigPrevkeyblockInst(
 @SerialName(TvmAppConfigPrevmcblocksInst.MNEMONIC)
 data class TvmAppConfigPrevmcblocksInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppConfigInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -665,7 +695,8 @@ data class TvmAppConfigPrevmcblocksInst(
 @SerialName(TvmAppCryptoBlsAggregateInst.MNEMONIC)
 data class TvmAppCryptoBlsAggregateInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "n*4350-2616")
 
@@ -682,7 +713,8 @@ data class TvmAppCryptoBlsAggregateInst(
 @SerialName(TvmAppCryptoBlsAggregateverifyInst.MNEMONIC)
 data class TvmAppCryptoBlsAggregateverifyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "38534+n*22500")
 
@@ -699,7 +731,8 @@ data class TvmAppCryptoBlsAggregateverifyInst(
 @SerialName(TvmAppCryptoBlsFastaggregateverifyInst.MNEMONIC)
 data class TvmAppCryptoBlsFastaggregateverifyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "58034+n*3000")
 
@@ -715,7 +748,8 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
 @SerialName(TvmAppCryptoBlsG1AddInst.MNEMONIC)
 data class TvmAppCryptoBlsG1AddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
 
@@ -731,7 +765,8 @@ data class TvmAppCryptoBlsG1AddInst(
 @SerialName(TvmAppCryptoBlsG1IngroupInst.MNEMONIC)
 data class TvmAppCryptoBlsG1IngroupInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2984)
 
@@ -747,7 +782,8 @@ data class TvmAppCryptoBlsG1IngroupInst(
 @SerialName(TvmAppCryptoBlsG1IszeroInst.MNEMONIC)
 data class TvmAppCryptoBlsG1IszeroInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -763,7 +799,8 @@ data class TvmAppCryptoBlsG1IszeroInst(
 @SerialName(TvmAppCryptoBlsG1MulInst.MNEMONIC)
 data class TvmAppCryptoBlsG1MulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 5234)
 
@@ -780,7 +817,8 @@ data class TvmAppCryptoBlsG1MulInst(
 @SerialName(TvmAppCryptoBlsG1MultiexpInst.MNEMONIC)
 data class TvmAppCryptoBlsG1MultiexpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "11409+n*630+n/floor(max(log2(n),4))*8820")
 
@@ -796,7 +834,8 @@ data class TvmAppCryptoBlsG1MultiexpInst(
 @SerialName(TvmAppCryptoBlsG1NegInst.MNEMONIC)
 data class TvmAppCryptoBlsG1NegInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
 
@@ -812,7 +851,8 @@ data class TvmAppCryptoBlsG1NegInst(
 @SerialName(TvmAppCryptoBlsG1SubInst.MNEMONIC)
 data class TvmAppCryptoBlsG1SubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3934)
 
@@ -828,7 +868,8 @@ data class TvmAppCryptoBlsG1SubInst(
 @SerialName(TvmAppCryptoBlsG1ZeroInst.MNEMONIC)
 data class TvmAppCryptoBlsG1ZeroInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -844,7 +885,8 @@ data class TvmAppCryptoBlsG1ZeroInst(
 @SerialName(TvmAppCryptoBlsG2AddInst.MNEMONIC)
 data class TvmAppCryptoBlsG2AddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
 
@@ -860,7 +902,8 @@ data class TvmAppCryptoBlsG2AddInst(
 @SerialName(TvmAppCryptoBlsG2IngroupInst.MNEMONIC)
 data class TvmAppCryptoBlsG2IngroupInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 4284)
 
@@ -876,7 +919,8 @@ data class TvmAppCryptoBlsG2IngroupInst(
 @SerialName(TvmAppCryptoBlsG2IszeroInst.MNEMONIC)
 data class TvmAppCryptoBlsG2IszeroInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -892,7 +936,8 @@ data class TvmAppCryptoBlsG2IszeroInst(
 @SerialName(TvmAppCryptoBlsG2MulInst.MNEMONIC)
 data class TvmAppCryptoBlsG2MulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 10584)
 
@@ -909,7 +954,8 @@ data class TvmAppCryptoBlsG2MulInst(
 @SerialName(TvmAppCryptoBlsG2MultiexpInst.MNEMONIC)
 data class TvmAppCryptoBlsG2MultiexpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "30422+n*1280+n/floor(max(log2(n),4))*22840")
 
@@ -925,7 +971,8 @@ data class TvmAppCryptoBlsG2MultiexpInst(
 @SerialName(TvmAppCryptoBlsG2NegInst.MNEMONIC)
 data class TvmAppCryptoBlsG2NegInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1584)
 
@@ -941,7 +988,8 @@ data class TvmAppCryptoBlsG2NegInst(
 @SerialName(TvmAppCryptoBlsG2SubInst.MNEMONIC)
 data class TvmAppCryptoBlsG2SubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 6134)
 
@@ -957,7 +1005,8 @@ data class TvmAppCryptoBlsG2SubInst(
 @SerialName(TvmAppCryptoBlsG2ZeroInst.MNEMONIC)
 data class TvmAppCryptoBlsG2ZeroInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -973,7 +1022,8 @@ data class TvmAppCryptoBlsG2ZeroInst(
 @SerialName(TvmAppCryptoBlsMapToG1Inst.MNEMONIC)
 data class TvmAppCryptoBlsMapToG1Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2384)
 
@@ -989,7 +1039,8 @@ data class TvmAppCryptoBlsMapToG1Inst(
 @SerialName(TvmAppCryptoBlsMapToG2Inst.MNEMONIC)
 data class TvmAppCryptoBlsMapToG2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 7984)
 
@@ -1006,7 +1057,8 @@ data class TvmAppCryptoBlsMapToG2Inst(
 @SerialName(TvmAppCryptoBlsPairingInst.MNEMONIC)
 data class TvmAppCryptoBlsPairingInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "20034+n*11800")
 
@@ -1022,7 +1074,8 @@ data class TvmAppCryptoBlsPairingInst(
 @SerialName(TvmAppCryptoBlsPushrInst.MNEMONIC)
 data class TvmAppCryptoBlsPushrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -1038,7 +1091,8 @@ data class TvmAppCryptoBlsPushrInst(
 @SerialName(TvmAppCryptoBlsVerifyInst.MNEMONIC)
 data class TvmAppCryptoBlsVerifyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 61034)
 
@@ -1057,7 +1111,8 @@ data class TvmAppCryptoBlsVerifyInst(
 @SerialName(TvmAppCryptoChksignsInst.MNEMONIC)
 data class TvmAppCryptoChksignsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1080,7 +1135,8 @@ data class TvmAppCryptoChksignsInst(
 @SerialName(TvmAppCryptoChksignuInst.MNEMONIC)
 data class TvmAppCryptoChksignuInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1098,7 +1154,8 @@ data class TvmAppCryptoChksignuInst(
 @SerialName(TvmAppCryptoEcrecoverInst.MNEMONIC)
 data class TvmAppCryptoEcrecoverInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 1526)
 
@@ -1115,7 +1172,8 @@ data class TvmAppCryptoEcrecoverInst(
 @SerialName(TvmAppCryptoHashcuInst.MNEMONIC)
 data class TvmAppCryptoHashcuInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1131,7 +1189,8 @@ data class TvmAppCryptoHashcuInst(
 @SerialName(TvmAppCryptoHashextBlake2bInst.MNEMONIC)
 data class TvmAppCryptoHashextBlake2bInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1147,7 +1206,8 @@ data class TvmAppCryptoHashextBlake2bInst(
 @SerialName(TvmAppCryptoHashextKeccak256Inst.MNEMONIC)
 data class TvmAppCryptoHashextKeccak256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
 
@@ -1163,7 +1223,8 @@ data class TvmAppCryptoHashextKeccak256Inst(
 @SerialName(TvmAppCryptoHashextKeccak512Inst.MNEMONIC)
 data class TvmAppCryptoHashextKeccak512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1179,7 +1240,8 @@ data class TvmAppCryptoHashextKeccak512Inst(
 @SerialName(TvmAppCryptoHashextSha256Inst.MNEMONIC)
 data class TvmAppCryptoHashextSha256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
 
@@ -1195,7 +1257,8 @@ data class TvmAppCryptoHashextSha256Inst(
 @SerialName(TvmAppCryptoHashextSha512Inst.MNEMONIC)
 data class TvmAppCryptoHashextSha512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
 
@@ -1212,7 +1275,8 @@ data class TvmAppCryptoHashextSha512Inst(
 @SerialName(TvmAppCryptoHashextaBlake2bInst.MNEMONIC)
 data class TvmAppCryptoHashextaBlake2bInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1229,7 +1293,8 @@ data class TvmAppCryptoHashextaBlake2bInst(
 @SerialName(TvmAppCryptoHashextaKeccak256Inst.MNEMONIC)
 data class TvmAppCryptoHashextaKeccak256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
 
@@ -1246,7 +1311,8 @@ data class TvmAppCryptoHashextaKeccak256Inst(
 @SerialName(TvmAppCryptoHashextaKeccak512Inst.MNEMONIC)
 data class TvmAppCryptoHashextaKeccak512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
 
@@ -1263,7 +1329,8 @@ data class TvmAppCryptoHashextaKeccak512Inst(
 @SerialName(TvmAppCryptoHashextaSha256Inst.MNEMONIC)
 data class TvmAppCryptoHashextaSha256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
 
@@ -1280,7 +1347,8 @@ data class TvmAppCryptoHashextaSha256Inst(
 @SerialName(TvmAppCryptoHashextaSha512Inst.MNEMONIC)
 data class TvmAppCryptoHashextaSha512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
 
@@ -1297,7 +1365,8 @@ data class TvmAppCryptoHashextaSha512Inst(
 @SerialName(TvmAppCryptoHashextarBlake2bInst.MNEMONIC)
 data class TvmAppCryptoHashextarBlake2bInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1314,7 +1383,8 @@ data class TvmAppCryptoHashextarBlake2bInst(
 @SerialName(TvmAppCryptoHashextarKeccak256Inst.MNEMONIC)
 data class TvmAppCryptoHashextarKeccak256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
 
@@ -1331,7 +1401,8 @@ data class TvmAppCryptoHashextarKeccak256Inst(
 @SerialName(TvmAppCryptoHashextarKeccak512Inst.MNEMONIC)
 data class TvmAppCryptoHashextarKeccak512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/6 gas per byte")
 
@@ -1348,7 +1419,8 @@ data class TvmAppCryptoHashextarKeccak512Inst(
 @SerialName(TvmAppCryptoHashextarSha256Inst.MNEMONIC)
 data class TvmAppCryptoHashextarSha256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
 
@@ -1365,7 +1437,8 @@ data class TvmAppCryptoHashextarSha256Inst(
 @SerialName(TvmAppCryptoHashextarSha512Inst.MNEMONIC)
 data class TvmAppCryptoHashextarSha512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
 
@@ -1381,7 +1454,8 @@ data class TvmAppCryptoHashextarSha512Inst(
 @SerialName(TvmAppCryptoHashextrBlake2bInst.MNEMONIC)
 data class TvmAppCryptoHashextrBlake2bInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1397,7 +1471,8 @@ data class TvmAppCryptoHashextrBlake2bInst(
 @SerialName(TvmAppCryptoHashextrKeccak256Inst.MNEMONIC)
 data class TvmAppCryptoHashextrKeccak256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
 
@@ -1413,7 +1488,8 @@ data class TvmAppCryptoHashextrKeccak256Inst(
 @SerialName(TvmAppCryptoHashextrKeccak512Inst.MNEMONIC)
 data class TvmAppCryptoHashextrKeccak512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
 
@@ -1429,7 +1505,8 @@ data class TvmAppCryptoHashextrKeccak512Inst(
 @SerialName(TvmAppCryptoHashextrSha256Inst.MNEMONIC)
 data class TvmAppCryptoHashextrSha256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
 
@@ -1445,7 +1522,8 @@ data class TvmAppCryptoHashextrSha256Inst(
 @SerialName(TvmAppCryptoHashextrSha512Inst.MNEMONIC)
 data class TvmAppCryptoHashextrSha512Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
 
@@ -1463,7 +1541,8 @@ data class TvmAppCryptoHashextrSha512Inst(
 @SerialName(TvmAppCryptoHashsuInst.MNEMONIC)
 data class TvmAppCryptoHashsuInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -1482,7 +1561,8 @@ data class TvmAppCryptoHashsuInst(
 @SerialName(TvmAppCryptoP256ChksignsInst.MNEMONIC)
 data class TvmAppCryptoP256ChksignsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
 
@@ -1501,7 +1581,8 @@ data class TvmAppCryptoP256ChksignsInst(
 @SerialName(TvmAppCryptoP256ChksignuInst.MNEMONIC)
 data class TvmAppCryptoP256ChksignuInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 3526)
 
@@ -1517,7 +1598,8 @@ data class TvmAppCryptoP256ChksignuInst(
 @SerialName(TvmAppCryptoRist255AddInst.MNEMONIC)
 data class TvmAppCryptoRist255AddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
 
@@ -1533,7 +1615,8 @@ data class TvmAppCryptoRist255AddInst(
 @SerialName(TvmAppCryptoRist255FromhashInst.MNEMONIC)
 data class TvmAppCryptoRist255FromhashInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
 
@@ -1549,7 +1632,8 @@ data class TvmAppCryptoRist255FromhashInst(
 @SerialName(TvmAppCryptoRist255MulInst.MNEMONIC)
 data class TvmAppCryptoRist255MulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2026)
 
@@ -1565,7 +1649,8 @@ data class TvmAppCryptoRist255MulInst(
 @SerialName(TvmAppCryptoRist255MulbaseInst.MNEMONIC)
 data class TvmAppCryptoRist255MulbaseInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 776)
 
@@ -1581,7 +1666,8 @@ data class TvmAppCryptoRist255MulbaseInst(
 @SerialName(TvmAppCryptoRist255PushlInst.MNEMONIC)
 data class TvmAppCryptoRist255PushlInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1597,7 +1683,8 @@ data class TvmAppCryptoRist255PushlInst(
 @SerialName(TvmAppCryptoRist255QaddInst.MNEMONIC)
 data class TvmAppCryptoRist255QaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
 
@@ -1614,7 +1701,8 @@ data class TvmAppCryptoRist255QaddInst(
 @SerialName(TvmAppCryptoRist255QmulInst.MNEMONIC)
 data class TvmAppCryptoRist255QmulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 2034)
 
@@ -1630,7 +1718,8 @@ data class TvmAppCryptoRist255QmulInst(
 @SerialName(TvmAppCryptoRist255QmulbaseInst.MNEMONIC)
 data class TvmAppCryptoRist255QmulbaseInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 784)
 
@@ -1646,7 +1735,8 @@ data class TvmAppCryptoRist255QmulbaseInst(
 @SerialName(TvmAppCryptoRist255QsubInst.MNEMONIC)
 data class TvmAppCryptoRist255QsubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 634)
 
@@ -1663,7 +1753,8 @@ data class TvmAppCryptoRist255QsubInst(
 @SerialName(TvmAppCryptoRist255QvalidateInst.MNEMONIC)
 data class TvmAppCryptoRist255QvalidateInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 234)
 
@@ -1679,7 +1770,8 @@ data class TvmAppCryptoRist255QvalidateInst(
 @SerialName(TvmAppCryptoRist255SubInst.MNEMONIC)
 data class TvmAppCryptoRist255SubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 626)
 
@@ -1695,7 +1787,8 @@ data class TvmAppCryptoRist255SubInst(
 @SerialName(TvmAppCryptoRist255ValidateInst.MNEMONIC)
 data class TvmAppCryptoRist255ValidateInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 226)
 
@@ -1712,7 +1805,8 @@ data class TvmAppCryptoRist255ValidateInst(
 @SerialName(TvmAppCryptoSha256uInst.MNEMONIC)
 data class TvmAppCryptoSha256uInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCryptoInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1732,7 +1826,8 @@ data class TvmAppCryptoSha256uInst(
 @SerialName(TvmAppCurrencyLdgramsInst.MNEMONIC)
 data class TvmAppCurrencyLdgramsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1749,7 +1844,8 @@ data class TvmAppCurrencyLdgramsInst(
 @SerialName(TvmAppCurrencyLdvarint16Inst.MNEMONIC)
 data class TvmAppCurrencyLdvarint16Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1766,7 +1862,8 @@ data class TvmAppCurrencyLdvarint16Inst(
 @SerialName(TvmAppCurrencyLdvarint32Inst.MNEMONIC)
 data class TvmAppCurrencyLdvarint32Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1785,7 +1882,8 @@ data class TvmAppCurrencyLdvarint32Inst(
 @SerialName(TvmAppCurrencyLdvaruint32Inst.MNEMONIC)
 data class TvmAppCurrencyLdvaruint32Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1805,7 +1903,8 @@ data class TvmAppCurrencyLdvaruint32Inst(
 @SerialName(TvmAppCurrencyStgramsInst.MNEMONIC)
 data class TvmAppCurrencyStgramsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1821,7 +1920,8 @@ data class TvmAppCurrencyStgramsInst(
 @SerialName(TvmAppCurrencyStvarint16Inst.MNEMONIC)
 data class TvmAppCurrencyStvarint16Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1837,7 +1937,8 @@ data class TvmAppCurrencyStvarint16Inst(
 @SerialName(TvmAppCurrencyStvarint32Inst.MNEMONIC)
 data class TvmAppCurrencyStvarint32Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1857,7 +1958,8 @@ data class TvmAppCurrencyStvarint32Inst(
 @SerialName(TvmAppCurrencyStvaruint32Inst.MNEMONIC)
 data class TvmAppCurrencyStvaruint32Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppCurrencyInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCurrencyInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1877,7 +1979,8 @@ data class TvmAppCurrencyStvaruint32Inst(
 @SerialName(TvmAppGasAcceptInst.MNEMONIC)
 data class TvmAppGasAcceptInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGasInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1895,7 +1998,8 @@ data class TvmAppGasAcceptInst(
 @SerialName(TvmAppGasCommitInst.MNEMONIC)
 data class TvmAppGasCommitInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGasInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1911,7 +2015,8 @@ data class TvmAppGasCommitInst(
 @SerialName(TvmAppGasGasconsumedInst.MNEMONIC)
 data class TvmAppGasGasconsumedInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGasInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1930,7 +2035,8 @@ data class TvmAppGasGasconsumedInst(
 @SerialName(TvmAppGasSetgaslimitInst.MNEMONIC)
 data class TvmAppGasSetgaslimitInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGasInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGasInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1947,8 +2053,9 @@ data class TvmAppGasSetgaslimitInst(
 @SerialName(TvmAppGlobalGetglobInst.MNEMONIC)
 data class TvmAppGlobalGetglobInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmAppGlobalInst {
+): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1965,7 +2072,8 @@ data class TvmAppGlobalGetglobInst(
 @SerialName(TvmAppGlobalGetglobvarInst.MNEMONIC)
 data class TvmAppGlobalGetglobvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGlobalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -1982,8 +2090,9 @@ data class TvmAppGlobalGetglobvarInst(
 @SerialName(TvmAppGlobalSetglobInst.MNEMONIC)
 data class TvmAppGlobalSetglobInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmAppGlobalInst {
+): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
 
@@ -2000,7 +2109,8 @@ data class TvmAppGlobalSetglobInst(
 @SerialName(TvmAppGlobalSetglobvarInst.MNEMONIC)
 data class TvmAppGlobalSetglobvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppGlobalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGlobalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7'|")
 
@@ -2016,7 +2126,8 @@ data class TvmAppGlobalSetglobvarInst(
 @SerialName(TvmAppMiscCdatasizeInst.MNEMONIC)
 data class TvmAppMiscCdatasizeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppMiscInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -2038,7 +2149,8 @@ data class TvmAppMiscCdatasizeInst(
 @SerialName(TvmAppMiscCdatasizeqInst.MNEMONIC)
 data class TvmAppMiscCdatasizeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppMiscInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -2054,7 +2166,8 @@ data class TvmAppMiscCdatasizeqInst(
 @SerialName(TvmAppMiscSdatasizeInst.MNEMONIC)
 data class TvmAppMiscSdatasizeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppMiscInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -2072,7 +2185,8 @@ data class TvmAppMiscSdatasizeInst(
 @SerialName(TvmAppMiscSdatasizeqInst.MNEMONIC)
 data class TvmAppMiscSdatasizeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppMiscInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -2090,7 +2204,8 @@ data class TvmAppMiscSdatasizeqInst(
 @SerialName(TvmAppRndAddrandInst.MNEMONIC)
 data class TvmAppRndAddrandInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppRndInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2109,7 +2224,8 @@ data class TvmAppRndAddrandInst(
 @SerialName(TvmAppRndRandInst.MNEMONIC)
 data class TvmAppRndRandInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppRndInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
 
@@ -2129,7 +2245,8 @@ data class TvmAppRndRandInst(
 @SerialName(TvmAppRndRandu256Inst.MNEMONIC)
 data class TvmAppRndRandu256Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppRndInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
 
@@ -2145,7 +2262,8 @@ data class TvmAppRndRandu256Inst(
 @SerialName(TvmAppRndSetrandInst.MNEMONIC)
 data class TvmAppRndSetrandInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmAppRndInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppRndInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|c7|+|c1_1|")
 
@@ -2161,7 +2279,8 @@ data class TvmAppRndSetrandInst(
 @SerialName(TvmArithmBasicAddInst.MNEMONIC)
 data class TvmArithmBasicAddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2177,8 +2296,9 @@ data class TvmArithmBasicAddInst(
 @SerialName(TvmArithmBasicAddconstInst.MNEMONIC)
 data class TvmArithmBasicAddconstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // int
-): TvmInst, TvmArithmBasicInst {
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2194,7 +2314,8 @@ data class TvmArithmBasicAddconstInst(
 @SerialName(TvmArithmBasicDecInst.MNEMONIC)
 data class TvmArithmBasicDecInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2210,7 +2331,8 @@ data class TvmArithmBasicDecInst(
 @SerialName(TvmArithmBasicIncInst.MNEMONIC)
 data class TvmArithmBasicIncInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2226,7 +2348,8 @@ data class TvmArithmBasicIncInst(
 @SerialName(TvmArithmBasicMulInst.MNEMONIC)
 data class TvmArithmBasicMulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2242,8 +2365,9 @@ data class TvmArithmBasicMulInst(
 @SerialName(TvmArithmBasicMulconstInst.MNEMONIC)
 data class TvmArithmBasicMulconstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // int
-): TvmInst, TvmArithmBasicInst {
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2260,7 +2384,8 @@ data class TvmArithmBasicMulconstInst(
 @SerialName(TvmArithmBasicNegateInst.MNEMONIC)
 data class TvmArithmBasicNegateInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2276,7 +2401,8 @@ data class TvmArithmBasicNegateInst(
 @SerialName(TvmArithmBasicSubInst.MNEMONIC)
 data class TvmArithmBasicSubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2292,7 +2418,8 @@ data class TvmArithmBasicSubInst(
 @SerialName(TvmArithmBasicSubrInst.MNEMONIC)
 data class TvmArithmBasicSubrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -2308,7 +2435,8 @@ data class TvmArithmBasicSubrInst(
 @SerialName(TvmArithmDivAdddivmodInst.MNEMONIC)
 data class TvmArithmDivAdddivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2324,7 +2452,8 @@ data class TvmArithmDivAdddivmodInst(
 @SerialName(TvmArithmDivAdddivmodcInst.MNEMONIC)
 data class TvmArithmDivAdddivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2340,7 +2469,8 @@ data class TvmArithmDivAdddivmodcInst(
 @SerialName(TvmArithmDivAdddivmodrInst.MNEMONIC)
 data class TvmArithmDivAdddivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2356,8 +2486,9 @@ data class TvmArithmDivAdddivmodrInst(
 @SerialName(TvmArithmDivAddrshiftcmodInst.MNEMONIC)
 data class TvmArithmDivAddrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2373,8 +2504,9 @@ data class TvmArithmDivAddrshiftcmodInst(
 @SerialName(TvmArithmDivAddrshiftmodInst.MNEMONIC)
 data class TvmArithmDivAddrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2390,7 +2522,8 @@ data class TvmArithmDivAddrshiftmodInst(
 @SerialName(TvmArithmDivAddrshiftmodVarInst.MNEMONIC)
 data class TvmArithmDivAddrshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2406,7 +2539,8 @@ data class TvmArithmDivAddrshiftmodVarInst(
 @SerialName(TvmArithmDivAddrshiftmodcInst.MNEMONIC)
 data class TvmArithmDivAddrshiftmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2422,7 +2556,8 @@ data class TvmArithmDivAddrshiftmodcInst(
 @SerialName(TvmArithmDivAddrshiftmodrInst.MNEMONIC)
 data class TvmArithmDivAddrshiftmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2438,8 +2573,9 @@ data class TvmArithmDivAddrshiftmodrInst(
 @SerialName(TvmArithmDivAddrshiftrmodInst.MNEMONIC)
 data class TvmArithmDivAddrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2455,7 +2591,8 @@ data class TvmArithmDivAddrshiftrmodInst(
 @SerialName(TvmArithmDivDivInst.MNEMONIC)
 data class TvmArithmDivDivInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2471,7 +2608,8 @@ data class TvmArithmDivDivInst(
 @SerialName(TvmArithmDivDivcInst.MNEMONIC)
 data class TvmArithmDivDivcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2487,7 +2625,8 @@ data class TvmArithmDivDivcInst(
 @SerialName(TvmArithmDivDivmodInst.MNEMONIC)
 data class TvmArithmDivDivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2503,7 +2642,8 @@ data class TvmArithmDivDivmodInst(
 @SerialName(TvmArithmDivDivmodcInst.MNEMONIC)
 data class TvmArithmDivDivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2519,7 +2659,8 @@ data class TvmArithmDivDivmodcInst(
 @SerialName(TvmArithmDivDivmodrInst.MNEMONIC)
 data class TvmArithmDivDivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2535,7 +2676,8 @@ data class TvmArithmDivDivmodrInst(
 @SerialName(TvmArithmDivDivrInst.MNEMONIC)
 data class TvmArithmDivDivrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2551,8 +2693,9 @@ data class TvmArithmDivDivrInst(
 @SerialName(TvmArithmDivLshiftadddivmodInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2568,7 +2711,8 @@ data class TvmArithmDivLshiftadddivmodInst(
 @SerialName(TvmArithmDivLshiftadddivmodVarInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2584,8 +2728,9 @@ data class TvmArithmDivLshiftadddivmodVarInst(
 @SerialName(TvmArithmDivLshiftadddivmodcInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2601,7 +2746,8 @@ data class TvmArithmDivLshiftadddivmodcInst(
 @SerialName(TvmArithmDivLshiftadddivmodcVarInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2617,8 +2763,9 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
 @SerialName(TvmArithmDivLshiftadddivmodrInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2634,7 +2781,8 @@ data class TvmArithmDivLshiftadddivmodrInst(
 @SerialName(TvmArithmDivLshiftadddivmodrVarInst.MNEMONIC)
 data class TvmArithmDivLshiftadddivmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2650,8 +2798,9 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
 @SerialName(TvmArithmDivLshiftdivInst.MNEMONIC)
 data class TvmArithmDivLshiftdivInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2667,7 +2816,8 @@ data class TvmArithmDivLshiftdivInst(
 @SerialName(TvmArithmDivLshiftdivVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2683,8 +2833,9 @@ data class TvmArithmDivLshiftdivVarInst(
 @SerialName(TvmArithmDivLshiftdivcInst.MNEMONIC)
 data class TvmArithmDivLshiftdivcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2700,7 +2851,8 @@ data class TvmArithmDivLshiftdivcInst(
 @SerialName(TvmArithmDivLshiftdivcVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2716,8 +2868,9 @@ data class TvmArithmDivLshiftdivcVarInst(
 @SerialName(TvmArithmDivLshiftdivmodInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2733,7 +2886,8 @@ data class TvmArithmDivLshiftdivmodInst(
 @SerialName(TvmArithmDivLshiftdivmodVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2749,8 +2903,9 @@ data class TvmArithmDivLshiftdivmodVarInst(
 @SerialName(TvmArithmDivLshiftdivmodcInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2766,7 +2921,8 @@ data class TvmArithmDivLshiftdivmodcInst(
 @SerialName(TvmArithmDivLshiftdivmodcVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2782,8 +2938,9 @@ data class TvmArithmDivLshiftdivmodcVarInst(
 @SerialName(TvmArithmDivLshiftdivmodrInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2799,7 +2956,8 @@ data class TvmArithmDivLshiftdivmodrInst(
 @SerialName(TvmArithmDivLshiftdivmodrVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2815,8 +2973,9 @@ data class TvmArithmDivLshiftdivmodrVarInst(
 @SerialName(TvmArithmDivLshiftdivrInst.MNEMONIC)
 data class TvmArithmDivLshiftdivrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2832,7 +2991,8 @@ data class TvmArithmDivLshiftdivrInst(
 @SerialName(TvmArithmDivLshiftdivrVarInst.MNEMONIC)
 data class TvmArithmDivLshiftdivrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2848,8 +3008,9 @@ data class TvmArithmDivLshiftdivrVarInst(
 @SerialName(TvmArithmDivLshiftmodInst.MNEMONIC)
 data class TvmArithmDivLshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2865,7 +3026,8 @@ data class TvmArithmDivLshiftmodInst(
 @SerialName(TvmArithmDivLshiftmodVarInst.MNEMONIC)
 data class TvmArithmDivLshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2881,8 +3043,9 @@ data class TvmArithmDivLshiftmodVarInst(
 @SerialName(TvmArithmDivLshiftmodcInst.MNEMONIC)
 data class TvmArithmDivLshiftmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2898,7 +3061,8 @@ data class TvmArithmDivLshiftmodcInst(
 @SerialName(TvmArithmDivLshiftmodcVarInst.MNEMONIC)
 data class TvmArithmDivLshiftmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2914,8 +3078,9 @@ data class TvmArithmDivLshiftmodcVarInst(
 @SerialName(TvmArithmDivLshiftmodrInst.MNEMONIC)
 data class TvmArithmDivLshiftmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2931,7 +3096,8 @@ data class TvmArithmDivLshiftmodrInst(
 @SerialName(TvmArithmDivLshiftmodrVarInst.MNEMONIC)
 data class TvmArithmDivLshiftmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2947,7 +3113,8 @@ data class TvmArithmDivLshiftmodrVarInst(
 @SerialName(TvmArithmDivModInst.MNEMONIC)
 data class TvmArithmDivModInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2963,7 +3130,8 @@ data class TvmArithmDivModInst(
 @SerialName(TvmArithmDivModcInst.MNEMONIC)
 data class TvmArithmDivModcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -2979,8 +3147,9 @@ data class TvmArithmDivModcInst(
 @SerialName(TvmArithmDivModpow2Inst.MNEMONIC)
 data class TvmArithmDivModpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -2996,7 +3165,8 @@ data class TvmArithmDivModpow2Inst(
 @SerialName(TvmArithmDivModpow2VarInst.MNEMONIC)
 data class TvmArithmDivModpow2VarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3012,8 +3182,9 @@ data class TvmArithmDivModpow2VarInst(
 @SerialName(TvmArithmDivModpow2cInst.MNEMONIC)
 data class TvmArithmDivModpow2cInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3029,7 +3200,8 @@ data class TvmArithmDivModpow2cInst(
 @SerialName(TvmArithmDivModpow2cVarInst.MNEMONIC)
 data class TvmArithmDivModpow2cVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3045,8 +3217,9 @@ data class TvmArithmDivModpow2cVarInst(
 @SerialName(TvmArithmDivModpow2rInst.MNEMONIC)
 data class TvmArithmDivModpow2rInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3062,7 +3235,8 @@ data class TvmArithmDivModpow2rInst(
 @SerialName(TvmArithmDivModpow2rVarInst.MNEMONIC)
 data class TvmArithmDivModpow2rVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3078,7 +3252,8 @@ data class TvmArithmDivModpow2rVarInst(
 @SerialName(TvmArithmDivModrInst.MNEMONIC)
 data class TvmArithmDivModrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3094,7 +3269,8 @@ data class TvmArithmDivModrInst(
 @SerialName(TvmArithmDivMuladddivmodInst.MNEMONIC)
 data class TvmArithmDivMuladddivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3110,7 +3286,8 @@ data class TvmArithmDivMuladddivmodInst(
 @SerialName(TvmArithmDivMuladddivmodcInst.MNEMONIC)
 data class TvmArithmDivMuladddivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3126,7 +3303,8 @@ data class TvmArithmDivMuladddivmodcInst(
 @SerialName(TvmArithmDivMuladddivmodrInst.MNEMONIC)
 data class TvmArithmDivMuladddivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3142,8 +3320,9 @@ data class TvmArithmDivMuladddivmodrInst(
 @SerialName(TvmArithmDivMuladdrshiftcmodInst.MNEMONIC)
 data class TvmArithmDivMuladdrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3159,8 +3338,9 @@ data class TvmArithmDivMuladdrshiftcmodInst(
 @SerialName(TvmArithmDivMuladdrshiftmodInst.MNEMONIC)
 data class TvmArithmDivMuladdrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3176,8 +3356,9 @@ data class TvmArithmDivMuladdrshiftmodInst(
 @SerialName(TvmArithmDivMuladdrshiftrmodInst.MNEMONIC)
 data class TvmArithmDivMuladdrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3193,7 +3374,8 @@ data class TvmArithmDivMuladdrshiftrmodInst(
 @SerialName(TvmArithmDivMuldivInst.MNEMONIC)
 data class TvmArithmDivMuldivInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3209,7 +3391,8 @@ data class TvmArithmDivMuldivInst(
 @SerialName(TvmArithmDivMuldivcInst.MNEMONIC)
 data class TvmArithmDivMuldivcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3225,7 +3408,8 @@ data class TvmArithmDivMuldivcInst(
 @SerialName(TvmArithmDivMuldivmodInst.MNEMONIC)
 data class TvmArithmDivMuldivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3241,7 +3425,8 @@ data class TvmArithmDivMuldivmodInst(
 @SerialName(TvmArithmDivMuldivmodcInst.MNEMONIC)
 data class TvmArithmDivMuldivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3257,7 +3442,8 @@ data class TvmArithmDivMuldivmodcInst(
 @SerialName(TvmArithmDivMuldivmodrInst.MNEMONIC)
 data class TvmArithmDivMuldivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3273,7 +3459,8 @@ data class TvmArithmDivMuldivmodrInst(
 @SerialName(TvmArithmDivMuldivrInst.MNEMONIC)
 data class TvmArithmDivMuldivrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3289,7 +3476,8 @@ data class TvmArithmDivMuldivrInst(
 @SerialName(TvmArithmDivMulmodInst.MNEMONIC)
 data class TvmArithmDivMulmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3305,7 +3493,8 @@ data class TvmArithmDivMulmodInst(
 @SerialName(TvmArithmDivMulmodcInst.MNEMONIC)
 data class TvmArithmDivMulmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3321,8 +3510,9 @@ data class TvmArithmDivMulmodcInst(
 @SerialName(TvmArithmDivMulmodpow2Inst.MNEMONIC)
 data class TvmArithmDivMulmodpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3338,7 +3528,8 @@ data class TvmArithmDivMulmodpow2Inst(
 @SerialName(TvmArithmDivMulmodpow2VarInst.MNEMONIC)
 data class TvmArithmDivMulmodpow2VarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3354,8 +3545,9 @@ data class TvmArithmDivMulmodpow2VarInst(
 @SerialName(TvmArithmDivMulmodpow2cInst.MNEMONIC)
 data class TvmArithmDivMulmodpow2cInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3371,7 +3563,8 @@ data class TvmArithmDivMulmodpow2cInst(
 @SerialName(TvmArithmDivMulmodpow2cVarInst.MNEMONIC)
 data class TvmArithmDivMulmodpow2cVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3387,8 +3580,9 @@ data class TvmArithmDivMulmodpow2cVarInst(
 @SerialName(TvmArithmDivMulmodpow2rInst.MNEMONIC)
 data class TvmArithmDivMulmodpow2rInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3404,7 +3598,8 @@ data class TvmArithmDivMulmodpow2rInst(
 @SerialName(TvmArithmDivMulmodpow2rVarInst.MNEMONIC)
 data class TvmArithmDivMulmodpow2rVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3420,7 +3615,8 @@ data class TvmArithmDivMulmodpow2rVarInst(
 @SerialName(TvmArithmDivMulmodrInst.MNEMONIC)
 data class TvmArithmDivMulmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3436,8 +3632,9 @@ data class TvmArithmDivMulmodrInst(
 @SerialName(TvmArithmDivMulrshiftInst.MNEMONIC)
 data class TvmArithmDivMulrshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3453,7 +3650,8 @@ data class TvmArithmDivMulrshiftInst(
 @SerialName(TvmArithmDivMulrshiftVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3469,8 +3667,9 @@ data class TvmArithmDivMulrshiftVarInst(
 @SerialName(TvmArithmDivMulrshiftcInst.MNEMONIC)
 data class TvmArithmDivMulrshiftcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3486,7 +3685,8 @@ data class TvmArithmDivMulrshiftcInst(
 @SerialName(TvmArithmDivMulrshiftcVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3502,8 +3702,9 @@ data class TvmArithmDivMulrshiftcVarInst(
 @SerialName(TvmArithmDivMulrshiftcmodInst.MNEMONIC)
 data class TvmArithmDivMulrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3519,7 +3720,8 @@ data class TvmArithmDivMulrshiftcmodInst(
 @SerialName(TvmArithmDivMulrshiftcmodVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftcmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3535,8 +3737,9 @@ data class TvmArithmDivMulrshiftcmodVarInst(
 @SerialName(TvmArithmDivMulrshiftmodInst.MNEMONIC)
 data class TvmArithmDivMulrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3552,7 +3755,8 @@ data class TvmArithmDivMulrshiftmodInst(
 @SerialName(TvmArithmDivMulrshiftmodVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3568,8 +3772,9 @@ data class TvmArithmDivMulrshiftmodVarInst(
 @SerialName(TvmArithmDivMulrshiftrInst.MNEMONIC)
 data class TvmArithmDivMulrshiftrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3585,7 +3790,8 @@ data class TvmArithmDivMulrshiftrInst(
 @SerialName(TvmArithmDivMulrshiftrVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3601,8 +3807,9 @@ data class TvmArithmDivMulrshiftrVarInst(
 @SerialName(TvmArithmDivMulrshiftrmodInst.MNEMONIC)
 data class TvmArithmDivMulrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3618,7 +3825,8 @@ data class TvmArithmDivMulrshiftrmodInst(
 @SerialName(TvmArithmDivMulrshiftrmodVarInst.MNEMONIC)
 data class TvmArithmDivMulrshiftrmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3634,8 +3842,9 @@ data class TvmArithmDivMulrshiftrmodVarInst(
 @SerialName(TvmArithmDivRshiftcInst.MNEMONIC)
 data class TvmArithmDivRshiftcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3651,7 +3860,8 @@ data class TvmArithmDivRshiftcInst(
 @SerialName(TvmArithmDivRshiftcVarInst.MNEMONIC)
 data class TvmArithmDivRshiftcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3667,8 +3877,9 @@ data class TvmArithmDivRshiftcVarInst(
 @SerialName(TvmArithmDivRshiftcmodInst.MNEMONIC)
 data class TvmArithmDivRshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3684,8 +3895,9 @@ data class TvmArithmDivRshiftcmodInst(
 @SerialName(TvmArithmDivRshiftmodInst.MNEMONIC)
 data class TvmArithmDivRshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3701,7 +3913,8 @@ data class TvmArithmDivRshiftmodInst(
 @SerialName(TvmArithmDivRshiftmodVarInst.MNEMONIC)
 data class TvmArithmDivRshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3717,7 +3930,8 @@ data class TvmArithmDivRshiftmodVarInst(
 @SerialName(TvmArithmDivRshiftmodcVarInst.MNEMONIC)
 data class TvmArithmDivRshiftmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3733,7 +3947,8 @@ data class TvmArithmDivRshiftmodcVarInst(
 @SerialName(TvmArithmDivRshiftmodrVarInst.MNEMONIC)
 data class TvmArithmDivRshiftmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3749,8 +3964,9 @@ data class TvmArithmDivRshiftmodrVarInst(
 @SerialName(TvmArithmDivRshiftrInst.MNEMONIC)
 data class TvmArithmDivRshiftrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3766,7 +3982,8 @@ data class TvmArithmDivRshiftrInst(
 @SerialName(TvmArithmDivRshiftrVarInst.MNEMONIC)
 data class TvmArithmDivRshiftrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmDivInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3782,8 +3999,9 @@ data class TvmArithmDivRshiftrVarInst(
 @SerialName(TvmArithmDivRshiftrmodInst.MNEMONIC)
 data class TvmArithmDivRshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmDivInst {
+): TvmRealInst, TvmArithmDivInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -3799,7 +4017,8 @@ data class TvmArithmDivRshiftrmodInst(
 @SerialName(TvmArithmLogicalAbsInst.MNEMONIC)
 data class TvmArithmLogicalAbsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3815,7 +4034,8 @@ data class TvmArithmLogicalAbsInst(
 @SerialName(TvmArithmLogicalAndInst.MNEMONIC)
 data class TvmArithmLogicalAndInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -3832,7 +4052,8 @@ data class TvmArithmLogicalAndInst(
 @SerialName(TvmArithmLogicalBitsizeInst.MNEMONIC)
 data class TvmArithmLogicalBitsizeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3850,8 +4071,9 @@ data class TvmArithmLogicalBitsizeInst(
 @SerialName(TvmArithmLogicalFitsInst.MNEMONIC)
 data class TvmArithmLogicalFitsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmLogicalInst {
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -3867,7 +4089,8 @@ data class TvmArithmLogicalFitsInst(
 @SerialName(TvmArithmLogicalFitsxInst.MNEMONIC)
 data class TvmArithmLogicalFitsxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -3883,8 +4106,9 @@ data class TvmArithmLogicalFitsxInst(
 @SerialName(TvmArithmLogicalLshiftInst.MNEMONIC)
 data class TvmArithmLogicalLshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmLogicalInst {
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3900,7 +4124,8 @@ data class TvmArithmLogicalLshiftInst(
 @SerialName(TvmArithmLogicalLshiftVarInst.MNEMONIC)
 data class TvmArithmLogicalLshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -3916,7 +4141,8 @@ data class TvmArithmLogicalLshiftVarInst(
 @SerialName(TvmArithmLogicalMaxInst.MNEMONIC)
 data class TvmArithmLogicalMaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3932,7 +4158,8 @@ data class TvmArithmLogicalMaxInst(
 @SerialName(TvmArithmLogicalMinInst.MNEMONIC)
 data class TvmArithmLogicalMinInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3949,7 +4176,8 @@ data class TvmArithmLogicalMinInst(
 @SerialName(TvmArithmLogicalMinmaxInst.MNEMONIC)
 data class TvmArithmLogicalMinmaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3965,7 +4193,8 @@ data class TvmArithmLogicalMinmaxInst(
 @SerialName(TvmArithmLogicalNotInst.MNEMONIC)
 data class TvmArithmLogicalNotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -3981,7 +4210,8 @@ data class TvmArithmLogicalNotInst(
 @SerialName(TvmArithmLogicalOrInst.MNEMONIC)
 data class TvmArithmLogicalOrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -3998,7 +4228,8 @@ data class TvmArithmLogicalOrInst(
 @SerialName(TvmArithmLogicalPow2Inst.MNEMONIC)
 data class TvmArithmLogicalPow2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -4014,8 +4245,9 @@ data class TvmArithmLogicalPow2Inst(
 @SerialName(TvmArithmLogicalRshiftInst.MNEMONIC)
 data class TvmArithmLogicalRshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmLogicalInst {
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -4031,7 +4263,8 @@ data class TvmArithmLogicalRshiftInst(
 @SerialName(TvmArithmLogicalRshiftVarInst.MNEMONIC)
 data class TvmArithmLogicalRshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -4048,7 +4281,8 @@ data class TvmArithmLogicalRshiftVarInst(
 @SerialName(TvmArithmLogicalUbitsizeInst.MNEMONIC)
 data class TvmArithmLogicalUbitsizeInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4065,8 +4299,9 @@ data class TvmArithmLogicalUbitsizeInst(
 @SerialName(TvmArithmLogicalUfitsInst.MNEMONIC)
 data class TvmArithmLogicalUfitsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmLogicalInst {
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -4082,7 +4317,8 @@ data class TvmArithmLogicalUfitsInst(
 @SerialName(TvmArithmLogicalUfitsxInst.MNEMONIC)
 data class TvmArithmLogicalUfitsxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -4098,7 +4334,8 @@ data class TvmArithmLogicalUfitsxInst(
 @SerialName(TvmArithmLogicalXorInst.MNEMONIC)
 data class TvmArithmLogicalXorInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmLogicalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -4114,7 +4351,8 @@ data class TvmArithmLogicalXorInst(
 @SerialName(TvmArithmQuietQaddInst.MNEMONIC)
 data class TvmArithmQuietQaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4130,7 +4368,8 @@ data class TvmArithmQuietQaddInst(
 @SerialName(TvmArithmQuietQadddivmodInst.MNEMONIC)
 data class TvmArithmQuietQadddivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4146,7 +4385,8 @@ data class TvmArithmQuietQadddivmodInst(
 @SerialName(TvmArithmQuietQadddivmodcInst.MNEMONIC)
 data class TvmArithmQuietQadddivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4162,7 +4402,8 @@ data class TvmArithmQuietQadddivmodcInst(
 @SerialName(TvmArithmQuietQadddivmodrInst.MNEMONIC)
 data class TvmArithmQuietQadddivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4178,8 +4419,9 @@ data class TvmArithmQuietQadddivmodrInst(
 @SerialName(TvmArithmQuietQaddrshiftcmodInst.MNEMONIC)
 data class TvmArithmQuietQaddrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4195,8 +4437,9 @@ data class TvmArithmQuietQaddrshiftcmodInst(
 @SerialName(TvmArithmQuietQaddrshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQaddrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4212,7 +4455,8 @@ data class TvmArithmQuietQaddrshiftmodInst(
 @SerialName(TvmArithmQuietQaddrshiftmodcInst.MNEMONIC)
 data class TvmArithmQuietQaddrshiftmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4228,7 +4472,8 @@ data class TvmArithmQuietQaddrshiftmodcInst(
 @SerialName(TvmArithmQuietQaddrshiftmodrInst.MNEMONIC)
 data class TvmArithmQuietQaddrshiftmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4244,8 +4489,9 @@ data class TvmArithmQuietQaddrshiftmodrInst(
 @SerialName(TvmArithmQuietQaddrshiftrmodInst.MNEMONIC)
 data class TvmArithmQuietQaddrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4261,7 +4507,8 @@ data class TvmArithmQuietQaddrshiftrmodInst(
 @SerialName(TvmArithmQuietQandInst.MNEMONIC)
 data class TvmArithmQuietQandInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4277,7 +4524,8 @@ data class TvmArithmQuietQandInst(
 @SerialName(TvmArithmQuietQdecInst.MNEMONIC)
 data class TvmArithmQuietQdecInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4293,7 +4541,8 @@ data class TvmArithmQuietQdecInst(
 @SerialName(TvmArithmQuietQdivInst.MNEMONIC)
 data class TvmArithmQuietQdivInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4309,7 +4558,8 @@ data class TvmArithmQuietQdivInst(
 @SerialName(TvmArithmQuietQdivcInst.MNEMONIC)
 data class TvmArithmQuietQdivcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4325,7 +4575,8 @@ data class TvmArithmQuietQdivcInst(
 @SerialName(TvmArithmQuietQdivmodInst.MNEMONIC)
 data class TvmArithmQuietQdivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4341,7 +4592,8 @@ data class TvmArithmQuietQdivmodInst(
 @SerialName(TvmArithmQuietQdivmodcInst.MNEMONIC)
 data class TvmArithmQuietQdivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4357,7 +4609,8 @@ data class TvmArithmQuietQdivmodcInst(
 @SerialName(TvmArithmQuietQdivmodrInst.MNEMONIC)
 data class TvmArithmQuietQdivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4373,7 +4626,8 @@ data class TvmArithmQuietQdivmodrInst(
 @SerialName(TvmArithmQuietQdivrInst.MNEMONIC)
 data class TvmArithmQuietQdivrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4389,8 +4643,9 @@ data class TvmArithmQuietQdivrInst(
 @SerialName(TvmArithmQuietQfitsInst.MNEMONIC)
 data class TvmArithmQuietQfitsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4406,7 +4661,8 @@ data class TvmArithmQuietQfitsInst(
 @SerialName(TvmArithmQuietQfitsxInst.MNEMONIC)
 data class TvmArithmQuietQfitsxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4422,7 +4678,8 @@ data class TvmArithmQuietQfitsxInst(
 @SerialName(TvmArithmQuietQincInst.MNEMONIC)
 data class TvmArithmQuietQincInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4438,8 +4695,9 @@ data class TvmArithmQuietQincInst(
 @SerialName(TvmArithmQuietQlshiftInst.MNEMONIC)
 data class TvmArithmQuietQlshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4455,7 +4713,8 @@ data class TvmArithmQuietQlshiftInst(
 @SerialName(TvmArithmQuietQlshiftVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -4471,8 +4730,9 @@ data class TvmArithmQuietQlshiftVarInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4488,7 +4748,8 @@ data class TvmArithmQuietQlshiftadddivmodInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4504,8 +4765,9 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodcInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4521,7 +4783,8 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodcVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4537,8 +4800,9 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodrInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4554,7 +4818,8 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
 @SerialName(TvmArithmQuietQlshiftadddivmodrVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftadddivmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4570,8 +4835,9 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
 @SerialName(TvmArithmQuietQlshiftdivInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4587,7 +4853,8 @@ data class TvmArithmQuietQlshiftdivInst(
 @SerialName(TvmArithmQuietQlshiftdivVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4603,8 +4870,9 @@ data class TvmArithmQuietQlshiftdivVarInst(
 @SerialName(TvmArithmQuietQlshiftdivcInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4620,7 +4888,8 @@ data class TvmArithmQuietQlshiftdivcInst(
 @SerialName(TvmArithmQuietQlshiftdivcVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4636,8 +4905,9 @@ data class TvmArithmQuietQlshiftdivcVarInst(
 @SerialName(TvmArithmQuietQlshiftdivmodInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4653,7 +4923,8 @@ data class TvmArithmQuietQlshiftdivmodInst(
 @SerialName(TvmArithmQuietQlshiftdivmodVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4669,8 +4940,9 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
 @SerialName(TvmArithmQuietQlshiftdivmodcInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4686,7 +4958,8 @@ data class TvmArithmQuietQlshiftdivmodcInst(
 @SerialName(TvmArithmQuietQlshiftdivmodcVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4702,8 +4975,9 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
 @SerialName(TvmArithmQuietQlshiftdivmodrInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4719,7 +4993,8 @@ data class TvmArithmQuietQlshiftdivmodrInst(
 @SerialName(TvmArithmQuietQlshiftdivmodrVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4735,8 +5010,9 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
 @SerialName(TvmArithmQuietQlshiftdivrInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4752,7 +5028,8 @@ data class TvmArithmQuietQlshiftdivrInst(
 @SerialName(TvmArithmQuietQlshiftdivrVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftdivrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4768,8 +5045,9 @@ data class TvmArithmQuietQlshiftdivrVarInst(
 @SerialName(TvmArithmQuietQlshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4785,7 +5063,8 @@ data class TvmArithmQuietQlshiftmodInst(
 @SerialName(TvmArithmQuietQlshiftmodVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4801,8 +5080,9 @@ data class TvmArithmQuietQlshiftmodVarInst(
 @SerialName(TvmArithmQuietQlshiftmodcInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4818,7 +5098,8 @@ data class TvmArithmQuietQlshiftmodcInst(
 @SerialName(TvmArithmQuietQlshiftmodcVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4834,8 +5115,9 @@ data class TvmArithmQuietQlshiftmodcVarInst(
 @SerialName(TvmArithmQuietQlshiftmodrInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4851,7 +5133,8 @@ data class TvmArithmQuietQlshiftmodrInst(
 @SerialName(TvmArithmQuietQlshiftmodrVarInst.MNEMONIC)
 data class TvmArithmQuietQlshiftmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4867,7 +5150,8 @@ data class TvmArithmQuietQlshiftmodrVarInst(
 @SerialName(TvmArithmQuietQmodInst.MNEMONIC)
 data class TvmArithmQuietQmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4883,7 +5167,8 @@ data class TvmArithmQuietQmodInst(
 @SerialName(TvmArithmQuietQmodcInst.MNEMONIC)
 data class TvmArithmQuietQmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4899,8 +5184,9 @@ data class TvmArithmQuietQmodcInst(
 @SerialName(TvmArithmQuietQmodpow2Inst.MNEMONIC)
 data class TvmArithmQuietQmodpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4916,7 +5202,8 @@ data class TvmArithmQuietQmodpow2Inst(
 @SerialName(TvmArithmQuietQmodpow2VarInst.MNEMONIC)
 data class TvmArithmQuietQmodpow2VarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4932,8 +5219,9 @@ data class TvmArithmQuietQmodpow2VarInst(
 @SerialName(TvmArithmQuietQmodpow2cInst.MNEMONIC)
 data class TvmArithmQuietQmodpow2cInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4949,7 +5237,8 @@ data class TvmArithmQuietQmodpow2cInst(
 @SerialName(TvmArithmQuietQmodpow2cVarInst.MNEMONIC)
 data class TvmArithmQuietQmodpow2cVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4965,8 +5254,9 @@ data class TvmArithmQuietQmodpow2cVarInst(
 @SerialName(TvmArithmQuietQmodpow2rInst.MNEMONIC)
 data class TvmArithmQuietQmodpow2rInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -4982,7 +5272,8 @@ data class TvmArithmQuietQmodpow2rInst(
 @SerialName(TvmArithmQuietQmodpow2rVarInst.MNEMONIC)
 data class TvmArithmQuietQmodpow2rVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -4998,7 +5289,8 @@ data class TvmArithmQuietQmodpow2rVarInst(
 @SerialName(TvmArithmQuietQmodrInst.MNEMONIC)
 data class TvmArithmQuietQmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5014,7 +5306,8 @@ data class TvmArithmQuietQmodrInst(
 @SerialName(TvmArithmQuietQmulInst.MNEMONIC)
 data class TvmArithmQuietQmulInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5030,7 +5323,8 @@ data class TvmArithmQuietQmulInst(
 @SerialName(TvmArithmQuietQmuladddivmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladddivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5046,7 +5340,8 @@ data class TvmArithmQuietQmuladddivmodInst(
 @SerialName(TvmArithmQuietQmuladddivmodcInst.MNEMONIC)
 data class TvmArithmQuietQmuladddivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5062,7 +5357,8 @@ data class TvmArithmQuietQmuladddivmodcInst(
 @SerialName(TvmArithmQuietQmuladddivmodrInst.MNEMONIC)
 data class TvmArithmQuietQmuladddivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5078,8 +5374,9 @@ data class TvmArithmQuietQmuladddivmodrInst(
 @SerialName(TvmArithmQuietQmuladdrshiftcmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladdrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5095,8 +5392,9 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
 @SerialName(TvmArithmQuietQmuladdrshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladdrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5112,8 +5410,9 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
 @SerialName(TvmArithmQuietQmuladdrshiftrmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladdrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5129,7 +5428,8 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
 @SerialName(TvmArithmQuietQmuldivInst.MNEMONIC)
 data class TvmArithmQuietQmuldivInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5145,7 +5445,8 @@ data class TvmArithmQuietQmuldivInst(
 @SerialName(TvmArithmQuietQmuldivcInst.MNEMONIC)
 data class TvmArithmQuietQmuldivcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5161,7 +5462,8 @@ data class TvmArithmQuietQmuldivcInst(
 @SerialName(TvmArithmQuietQmuldivmodInst.MNEMONIC)
 data class TvmArithmQuietQmuldivmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5177,7 +5479,8 @@ data class TvmArithmQuietQmuldivmodInst(
 @SerialName(TvmArithmQuietQmuldivmodcInst.MNEMONIC)
 data class TvmArithmQuietQmuldivmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5193,7 +5496,8 @@ data class TvmArithmQuietQmuldivmodcInst(
 @SerialName(TvmArithmQuietQmuldivmodrInst.MNEMONIC)
 data class TvmArithmQuietQmuldivmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5209,7 +5513,8 @@ data class TvmArithmQuietQmuldivmodrInst(
 @SerialName(TvmArithmQuietQmuldivrInst.MNEMONIC)
 data class TvmArithmQuietQmuldivrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5225,7 +5530,8 @@ data class TvmArithmQuietQmuldivrInst(
 @SerialName(TvmArithmQuietQmulmodInst.MNEMONIC)
 data class TvmArithmQuietQmulmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5241,7 +5547,8 @@ data class TvmArithmQuietQmulmodInst(
 @SerialName(TvmArithmQuietQmulmodcInst.MNEMONIC)
 data class TvmArithmQuietQmulmodcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5257,8 +5564,9 @@ data class TvmArithmQuietQmulmodcInst(
 @SerialName(TvmArithmQuietQmulmodpow2Inst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5274,7 +5582,8 @@ data class TvmArithmQuietQmulmodpow2Inst(
 @SerialName(TvmArithmQuietQmulmodpow2VarInst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2VarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5290,8 +5599,9 @@ data class TvmArithmQuietQmulmodpow2VarInst(
 @SerialName(TvmArithmQuietQmulmodpow2cInst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2cInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5307,7 +5617,8 @@ data class TvmArithmQuietQmulmodpow2cInst(
 @SerialName(TvmArithmQuietQmulmodpow2cVarInst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2cVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5323,8 +5634,9 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
 @SerialName(TvmArithmQuietQmulmodpow2rInst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2rInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5340,7 +5652,8 @@ data class TvmArithmQuietQmulmodpow2rInst(
 @SerialName(TvmArithmQuietQmulmodpow2rVarInst.MNEMONIC)
 data class TvmArithmQuietQmulmodpow2rVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5356,7 +5669,8 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
 @SerialName(TvmArithmQuietQmulmodrInst.MNEMONIC)
 data class TvmArithmQuietQmulmodrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5372,8 +5686,9 @@ data class TvmArithmQuietQmulmodrInst(
 @SerialName(TvmArithmQuietQmulrshiftInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5389,7 +5704,8 @@ data class TvmArithmQuietQmulrshiftInst(
 @SerialName(TvmArithmQuietQmulrshiftVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5405,8 +5721,9 @@ data class TvmArithmQuietQmulrshiftVarInst(
 @SerialName(TvmArithmQuietQmulrshiftcInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5422,7 +5739,8 @@ data class TvmArithmQuietQmulrshiftcInst(
 @SerialName(TvmArithmQuietQmulrshiftcVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5438,7 +5756,8 @@ data class TvmArithmQuietQmulrshiftcVarInst(
 @SerialName(TvmArithmQuietQmulrshiftcmodInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftcmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5454,7 +5773,8 @@ data class TvmArithmQuietQmulrshiftcmodInst(
 @SerialName(TvmArithmQuietQmulrshiftcmodVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftcmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5470,7 +5790,8 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
 @SerialName(TvmArithmQuietQmulrshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5486,7 +5807,8 @@ data class TvmArithmQuietQmulrshiftmodInst(
 @SerialName(TvmArithmQuietQmulrshiftmodVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5502,8 +5824,9 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
 @SerialName(TvmArithmQuietQmulrshiftrInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5519,7 +5842,8 @@ data class TvmArithmQuietQmulrshiftrInst(
 @SerialName(TvmArithmQuietQmulrshiftrVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5535,7 +5859,8 @@ data class TvmArithmQuietQmulrshiftrVarInst(
 @SerialName(TvmArithmQuietQmulrshiftrmodInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftrmodInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5551,7 +5876,8 @@ data class TvmArithmQuietQmulrshiftrmodInst(
 @SerialName(TvmArithmQuietQmulrshiftrmodVarInst.MNEMONIC)
 data class TvmArithmQuietQmulrshiftrmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5567,7 +5893,8 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
 @SerialName(TvmArithmQuietQnegateInst.MNEMONIC)
 data class TvmArithmQuietQnegateInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5583,7 +5910,8 @@ data class TvmArithmQuietQnegateInst(
 @SerialName(TvmArithmQuietQnotInst.MNEMONIC)
 data class TvmArithmQuietQnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5599,7 +5927,8 @@ data class TvmArithmQuietQnotInst(
 @SerialName(TvmArithmQuietQorInst.MNEMONIC)
 data class TvmArithmQuietQorInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5615,7 +5944,8 @@ data class TvmArithmQuietQorInst(
 @SerialName(TvmArithmQuietQpow2Inst.MNEMONIC)
 data class TvmArithmQuietQpow2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5631,8 +5961,9 @@ data class TvmArithmQuietQpow2Inst(
 @SerialName(TvmArithmQuietQrshiftInst.MNEMONIC)
 data class TvmArithmQuietQrshiftInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5648,7 +5979,8 @@ data class TvmArithmQuietQrshiftInst(
 @SerialName(TvmArithmQuietQrshiftVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5664,8 +5996,9 @@ data class TvmArithmQuietQrshiftVarInst(
 @SerialName(TvmArithmQuietQrshiftcInst.MNEMONIC)
 data class TvmArithmQuietQrshiftcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5681,7 +6014,8 @@ data class TvmArithmQuietQrshiftcInst(
 @SerialName(TvmArithmQuietQrshiftcVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5697,8 +6031,9 @@ data class TvmArithmQuietQrshiftcVarInst(
 @SerialName(TvmArithmQuietQrshiftcmodInst.MNEMONIC)
 data class TvmArithmQuietQrshiftcmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5714,8 +6049,9 @@ data class TvmArithmQuietQrshiftcmodInst(
 @SerialName(TvmArithmQuietQrshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQrshiftmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5731,7 +6067,8 @@ data class TvmArithmQuietQrshiftmodInst(
 @SerialName(TvmArithmQuietQrshiftmodVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftmodVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5747,7 +6084,8 @@ data class TvmArithmQuietQrshiftmodVarInst(
 @SerialName(TvmArithmQuietQrshiftmodcVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftmodcVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5763,7 +6101,8 @@ data class TvmArithmQuietQrshiftmodcVarInst(
 @SerialName(TvmArithmQuietQrshiftmodrVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftmodrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5779,8 +6118,9 @@ data class TvmArithmQuietQrshiftmodrVarInst(
 @SerialName(TvmArithmQuietQrshiftrInst.MNEMONIC)
 data class TvmArithmQuietQrshiftrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5796,7 +6136,8 @@ data class TvmArithmQuietQrshiftrInst(
 @SerialName(TvmArithmQuietQrshiftrVarInst.MNEMONIC)
 data class TvmArithmQuietQrshiftrVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5812,8 +6153,9 @@ data class TvmArithmQuietQrshiftrVarInst(
 @SerialName(TvmArithmQuietQrshiftrmodInst.MNEMONIC)
 data class TvmArithmQuietQrshiftrmodInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val t: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 42)
 
@@ -5829,7 +6171,8 @@ data class TvmArithmQuietQrshiftrmodInst(
 @SerialName(TvmArithmQuietQsubInst.MNEMONIC)
 data class TvmArithmQuietQsubInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5845,7 +6188,8 @@ data class TvmArithmQuietQsubInst(
 @SerialName(TvmArithmQuietQsubrInst.MNEMONIC)
 data class TvmArithmQuietQsubrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5861,8 +6205,9 @@ data class TvmArithmQuietQsubrInst(
 @SerialName(TvmArithmQuietQufitsInst.MNEMONIC)
 data class TvmArithmQuietQufitsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmArithmQuietInst {
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5878,7 +6223,8 @@ data class TvmArithmQuietQufitsInst(
 @SerialName(TvmArithmQuietQufitsxInst.MNEMONIC)
 data class TvmArithmQuietQufitsxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -5894,7 +6240,8 @@ data class TvmArithmQuietQufitsxInst(
 @SerialName(TvmArithmQuietQxorInst.MNEMONIC)
 data class TvmArithmQuietQxorInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmArithmQuietInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5910,7 +6257,8 @@ data class TvmArithmQuietQxorInst(
 @SerialName(TvmCellBuildBbitrefsInst.MNEMONIC)
 data class TvmCellBuildBbitrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5926,7 +6274,8 @@ data class TvmCellBuildBbitrefsInst(
 @SerialName(TvmCellBuildBbitsInst.MNEMONIC)
 data class TvmCellBuildBbitsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5942,7 +6291,8 @@ data class TvmCellBuildBbitsInst(
 @SerialName(TvmCellBuildBchkbitrefsInst.MNEMONIC)
 data class TvmCellBuildBchkbitrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -5958,7 +6308,8 @@ data class TvmCellBuildBchkbitrefsInst(
 @SerialName(TvmCellBuildBchkbitrefsqInst.MNEMONIC)
 data class TvmCellBuildBchkbitrefsqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -5974,8 +6325,9 @@ data class TvmCellBuildBchkbitrefsqInst(
 @SerialName(TvmCellBuildBchkbitsInst.MNEMONIC)
 data class TvmCellBuildBchkbitsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
 
@@ -5992,7 +6344,8 @@ data class TvmCellBuildBchkbitsInst(
 @SerialName(TvmCellBuildBchkbitsVarInst.MNEMONIC)
 data class TvmCellBuildBchkbitsVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -6008,8 +6361,9 @@ data class TvmCellBuildBchkbitsVarInst(
 @SerialName(TvmCellBuildBchkbitsqInst.MNEMONIC)
 data class TvmCellBuildBchkbitsqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6025,7 +6379,8 @@ data class TvmCellBuildBchkbitsqInst(
 @SerialName(TvmCellBuildBchkbitsqVarInst.MNEMONIC)
 data class TvmCellBuildBchkbitsqVarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6041,7 +6396,8 @@ data class TvmCellBuildBchkbitsqVarInst(
 @SerialName(TvmCellBuildBchkrefsInst.MNEMONIC)
 data class TvmCellBuildBchkrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -6057,7 +6413,8 @@ data class TvmCellBuildBchkrefsInst(
 @SerialName(TvmCellBuildBchkrefsqInst.MNEMONIC)
 data class TvmCellBuildBchkrefsqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6074,7 +6431,8 @@ data class TvmCellBuildBchkrefsqInst(
 @SerialName(TvmCellBuildBdepthInst.MNEMONIC)
 data class TvmCellBuildBdepthInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6090,7 +6448,8 @@ data class TvmCellBuildBdepthInst(
 @SerialName(TvmCellBuildBrefsInst.MNEMONIC)
 data class TvmCellBuildBrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6106,7 +6465,8 @@ data class TvmCellBuildBrefsInst(
 @SerialName(TvmCellBuildBrembitrefsInst.MNEMONIC)
 data class TvmCellBuildBrembitrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6122,7 +6482,8 @@ data class TvmCellBuildBrembitrefsInst(
 @SerialName(TvmCellBuildBrembitsInst.MNEMONIC)
 data class TvmCellBuildBrembitsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6138,7 +6499,8 @@ data class TvmCellBuildBrembitsInst(
 @SerialName(TvmCellBuildBremrefsInst.MNEMONIC)
 data class TvmCellBuildBremrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6154,7 +6516,8 @@ data class TvmCellBuildBremrefsInst(
 @SerialName(TvmCellBuildEndcInst.MNEMONIC)
 data class TvmCellBuildEndcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
 
@@ -6173,7 +6536,8 @@ data class TvmCellBuildEndcInst(
 @SerialName(TvmCellBuildEndxcInst.MNEMONIC)
 data class TvmCellBuildEndxcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -6189,7 +6553,8 @@ data class TvmCellBuildEndxcInst(
 @SerialName(TvmCellBuildNewcInst.MNEMONIC)
 data class TvmCellBuildNewcInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -6205,7 +6570,8 @@ data class TvmCellBuildNewcInst(
 @SerialName(TvmCellBuildStbInst.MNEMONIC)
 data class TvmCellBuildStbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6221,7 +6587,8 @@ data class TvmCellBuildStbInst(
 @SerialName(TvmCellBuildStbqInst.MNEMONIC)
 data class TvmCellBuildStbqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6238,7 +6605,8 @@ data class TvmCellBuildStbqInst(
 @SerialName(TvmCellBuildStbrInst.MNEMONIC)
 data class TvmCellBuildStbrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6254,7 +6622,8 @@ data class TvmCellBuildStbrInst(
 @SerialName(TvmCellBuildStbrefInst.MNEMONIC)
 data class TvmCellBuildStbrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -6270,7 +6639,8 @@ data class TvmCellBuildStbrefInst(
 @SerialName(TvmCellBuildStbrefqInst.MNEMONIC)
 data class TvmCellBuildStbrefqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -6286,7 +6656,8 @@ data class TvmCellBuildStbrefqInst(
 @SerialName(TvmCellBuildStbrefrAltInst.MNEMONIC)
 data class TvmCellBuildStbrefrAltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -6302,7 +6673,8 @@ data class TvmCellBuildStbrefrAltInst(
 @SerialName(TvmCellBuildStbrefrInst.MNEMONIC)
 data class TvmCellBuildStbrefrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 518)
 
@@ -6318,7 +6690,8 @@ data class TvmCellBuildStbrefrInst(
 @SerialName(TvmCellBuildStbrefrqInst.MNEMONIC)
 data class TvmCellBuildStbrefrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 526)
 
@@ -6334,7 +6707,8 @@ data class TvmCellBuildStbrefrqInst(
 @SerialName(TvmCellBuildStbrqInst.MNEMONIC)
 data class TvmCellBuildStbrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6350,8 +6724,9 @@ data class TvmCellBuildStbrqInst(
 @SerialName(TvmCellBuildStiAltInst.MNEMONIC)
 data class TvmCellBuildStiAltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6368,8 +6743,9 @@ data class TvmCellBuildStiAltInst(
 @SerialName(TvmCellBuildStiInst.MNEMONIC)
 data class TvmCellBuildStiInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6385,7 +6761,8 @@ data class TvmCellBuildStiInst(
 @SerialName(TvmCellBuildStile4Inst.MNEMONIC)
 data class TvmCellBuildStile4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6401,7 +6778,8 @@ data class TvmCellBuildStile4Inst(
 @SerialName(TvmCellBuildStile8Inst.MNEMONIC)
 data class TvmCellBuildStile8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6417,8 +6795,9 @@ data class TvmCellBuildStile8Inst(
 @SerialName(TvmCellBuildStiqInst.MNEMONIC)
 data class TvmCellBuildStiqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6434,8 +6813,9 @@ data class TvmCellBuildStiqInst(
 @SerialName(TvmCellBuildStirInst.MNEMONIC)
 data class TvmCellBuildStirInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6451,8 +6831,9 @@ data class TvmCellBuildStirInst(
 @SerialName(TvmCellBuildStirqInst.MNEMONIC)
 data class TvmCellBuildStirqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6468,7 +6849,8 @@ data class TvmCellBuildStirqInst(
 @SerialName(TvmCellBuildStixInst.MNEMONIC)
 data class TvmCellBuildStixInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6487,7 +6869,8 @@ data class TvmCellBuildStixInst(
 @SerialName(TvmCellBuildStixqInst.MNEMONIC)
 data class TvmCellBuildStixqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6503,7 +6886,8 @@ data class TvmCellBuildStixqInst(
 @SerialName(TvmCellBuildStixrInst.MNEMONIC)
 data class TvmCellBuildStixrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6519,7 +6903,8 @@ data class TvmCellBuildStixrInst(
 @SerialName(TvmCellBuildStixrqInst.MNEMONIC)
 data class TvmCellBuildStixrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6535,7 +6920,8 @@ data class TvmCellBuildStixrqInst(
 @SerialName(TvmCellBuildStonesInst.MNEMONIC)
 data class TvmCellBuildStonesInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6551,9 +6937,10 @@ data class TvmCellBuildStonesInst(
 @SerialName(TvmCellBuildStref2constInst.MNEMONIC)
 data class TvmCellBuildStref2constInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c1: TvmCell, // ref
     val c2: TvmCell, // ref
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6569,7 +6956,8 @@ data class TvmCellBuildStref2constInst(
 @SerialName(TvmCellBuildStrefAltInst.MNEMONIC)
 data class TvmCellBuildStrefAltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6585,7 +6973,8 @@ data class TvmCellBuildStrefAltInst(
 @SerialName(TvmCellBuildStrefInst.MNEMONIC)
 data class TvmCellBuildStrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -6601,8 +6990,9 @@ data class TvmCellBuildStrefInst(
 @SerialName(TvmCellBuildStrefconstInst.MNEMONIC)
 data class TvmCellBuildStrefconstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: TvmCell, // ref
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6618,7 +7008,8 @@ data class TvmCellBuildStrefconstInst(
 @SerialName(TvmCellBuildStrefqInst.MNEMONIC)
 data class TvmCellBuildStrefqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6634,7 +7025,8 @@ data class TvmCellBuildStrefqInst(
 @SerialName(TvmCellBuildStrefrInst.MNEMONIC)
 data class TvmCellBuildStrefrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6650,7 +7042,8 @@ data class TvmCellBuildStrefrInst(
 @SerialName(TvmCellBuildStrefrqInst.MNEMONIC)
 data class TvmCellBuildStrefrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6666,7 +7059,8 @@ data class TvmCellBuildStrefrqInst(
 @SerialName(TvmCellBuildStsameInst.MNEMONIC)
 data class TvmCellBuildStsameInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6682,7 +7076,8 @@ data class TvmCellBuildStsameInst(
 @SerialName(TvmCellBuildStsliceAltInst.MNEMONIC)
 data class TvmCellBuildStsliceAltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6698,7 +7093,8 @@ data class TvmCellBuildStsliceAltInst(
 @SerialName(TvmCellBuildStsliceInst.MNEMONIC)
 data class TvmCellBuildStsliceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -6718,8 +7114,9 @@ data class TvmCellBuildStsliceInst(
 @SerialName(TvmCellBuildStsliceconstInst.MNEMONIC)
 data class TvmCellBuildStsliceconstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val s: TvmCell, // subslice
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 24)
 
@@ -6735,7 +7132,8 @@ data class TvmCellBuildStsliceconstInst(
 @SerialName(TvmCellBuildStsliceqInst.MNEMONIC)
 data class TvmCellBuildStsliceqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6751,7 +7149,8 @@ data class TvmCellBuildStsliceqInst(
 @SerialName(TvmCellBuildStslicerInst.MNEMONIC)
 data class TvmCellBuildStslicerInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6767,7 +7166,8 @@ data class TvmCellBuildStslicerInst(
 @SerialName(TvmCellBuildStslicerqInst.MNEMONIC)
 data class TvmCellBuildStslicerqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6783,8 +7183,9 @@ data class TvmCellBuildStslicerqInst(
 @SerialName(TvmCellBuildStuAltInst.MNEMONIC)
 data class TvmCellBuildStuAltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6801,8 +7202,9 @@ data class TvmCellBuildStuAltInst(
 @SerialName(TvmCellBuildStuInst.MNEMONIC)
 data class TvmCellBuildStuInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6818,7 +7220,8 @@ data class TvmCellBuildStuInst(
 @SerialName(TvmCellBuildStule4Inst.MNEMONIC)
 data class TvmCellBuildStule4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6834,7 +7237,8 @@ data class TvmCellBuildStule4Inst(
 @SerialName(TvmCellBuildStule8Inst.MNEMONIC)
 data class TvmCellBuildStule8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6850,8 +7254,9 @@ data class TvmCellBuildStule8Inst(
 @SerialName(TvmCellBuildStuqInst.MNEMONIC)
 data class TvmCellBuildStuqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6867,8 +7272,9 @@ data class TvmCellBuildStuqInst(
 @SerialName(TvmCellBuildSturInst.MNEMONIC)
 data class TvmCellBuildSturInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6884,8 +7290,9 @@ data class TvmCellBuildSturInst(
 @SerialName(TvmCellBuildSturqInst.MNEMONIC)
 data class TvmCellBuildSturqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellBuildInst {
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -6901,7 +7308,8 @@ data class TvmCellBuildSturqInst(
 @SerialName(TvmCellBuildStuxInst.MNEMONIC)
 data class TvmCellBuildStuxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6917,7 +7325,8 @@ data class TvmCellBuildStuxInst(
 @SerialName(TvmCellBuildStuxqInst.MNEMONIC)
 data class TvmCellBuildStuxqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6933,7 +7342,8 @@ data class TvmCellBuildStuxqInst(
 @SerialName(TvmCellBuildStuxrInst.MNEMONIC)
 data class TvmCellBuildStuxrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6949,7 +7359,8 @@ data class TvmCellBuildStuxrInst(
 @SerialName(TvmCellBuildStuxrqInst.MNEMONIC)
 data class TvmCellBuildStuxrqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6965,7 +7376,8 @@ data class TvmCellBuildStuxrqInst(
 @SerialName(TvmCellBuildStzeroesInst.MNEMONIC)
 data class TvmCellBuildStzeroesInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellBuildInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6983,7 +7395,8 @@ data class TvmCellBuildStzeroesInst(
 @SerialName(TvmCellParseCdepthInst.MNEMONIC)
 data class TvmCellParseCdepthInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -6999,8 +7412,9 @@ data class TvmCellParseCdepthInst(
 @SerialName(TvmCellParseCdepthiInst.MNEMONIC)
 data class TvmCellParseCdepthiInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7016,7 +7430,8 @@ data class TvmCellParseCdepthiInst(
 @SerialName(TvmCellParseCdepthixInst.MNEMONIC)
 data class TvmCellParseCdepthixInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7032,8 +7447,9 @@ data class TvmCellParseCdepthixInst(
 @SerialName(TvmCellParseChashiInst.MNEMONIC)
 data class TvmCellParseChashiInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7049,7 +7465,8 @@ data class TvmCellParseChashiInst(
 @SerialName(TvmCellParseChashixInst.MNEMONIC)
 data class TvmCellParseChashixInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7065,7 +7482,8 @@ data class TvmCellParseChashixInst(
 @SerialName(TvmCellParseClevelInst.MNEMONIC)
 data class TvmCellParseClevelInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7081,7 +7499,8 @@ data class TvmCellParseClevelInst(
 @SerialName(TvmCellParseClevelmaskInst.MNEMONIC)
 data class TvmCellParseClevelmaskInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7099,7 +7518,8 @@ data class TvmCellParseClevelmaskInst(
 @SerialName(TvmCellParseCtosInst.MNEMONIC)
 data class TvmCellParseCtosInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
 
@@ -7115,7 +7535,8 @@ data class TvmCellParseCtosInst(
 @SerialName(TvmCellParseEndsInst.MNEMONIC)
 data class TvmCellParseEndsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
 
@@ -7131,8 +7552,9 @@ data class TvmCellParseEndsInst(
 @SerialName(TvmCellParseLdiAltInst.MNEMONIC)
 data class TvmCellParseLdiAltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7149,8 +7571,9 @@ data class TvmCellParseLdiAltInst(
 @SerialName(TvmCellParseLdiInst.MNEMONIC)
 data class TvmCellParseLdiInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7166,7 +7589,8 @@ data class TvmCellParseLdiInst(
 @SerialName(TvmCellParseLdile4Inst.MNEMONIC)
 data class TvmCellParseLdile4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7182,7 +7606,8 @@ data class TvmCellParseLdile4Inst(
 @SerialName(TvmCellParseLdile4qInst.MNEMONIC)
 data class TvmCellParseLdile4qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7198,7 +7623,8 @@ data class TvmCellParseLdile4qInst(
 @SerialName(TvmCellParseLdile8Inst.MNEMONIC)
 data class TvmCellParseLdile8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7214,7 +7640,8 @@ data class TvmCellParseLdile8Inst(
 @SerialName(TvmCellParseLdile8qInst.MNEMONIC)
 data class TvmCellParseLdile8qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7230,8 +7657,9 @@ data class TvmCellParseLdile8qInst(
 @SerialName(TvmCellParseLdiqInst.MNEMONIC)
 data class TvmCellParseLdiqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7248,7 +7676,8 @@ data class TvmCellParseLdiqInst(
 @SerialName(TvmCellParseLdixInst.MNEMONIC)
 data class TvmCellParseLdixInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7266,7 +7695,8 @@ data class TvmCellParseLdixInst(
 @SerialName(TvmCellParseLdixqInst.MNEMONIC)
 data class TvmCellParseLdixqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7282,7 +7712,8 @@ data class TvmCellParseLdixqInst(
 @SerialName(TvmCellParseLdonesInst.MNEMONIC)
 data class TvmCellParseLdonesInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7298,7 +7729,8 @@ data class TvmCellParseLdonesInst(
 @SerialName(TvmCellParseLdrefInst.MNEMONIC)
 data class TvmCellParseLdrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -7314,7 +7746,8 @@ data class TvmCellParseLdrefInst(
 @SerialName(TvmCellParseLdrefrtosInst.MNEMONIC)
 data class TvmCellParseLdrefrtosInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
 
@@ -7331,7 +7764,8 @@ data class TvmCellParseLdrefrtosInst(
 @SerialName(TvmCellParseLdsameInst.MNEMONIC)
 data class TvmCellParseLdsameInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7347,8 +7781,9 @@ data class TvmCellParseLdsameInst(
 @SerialName(TvmCellParseLdsliceAltInst.MNEMONIC)
 data class TvmCellParseLdsliceAltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7364,8 +7799,9 @@ data class TvmCellParseLdsliceAltInst(
 @SerialName(TvmCellParseLdsliceInst.MNEMONIC)
 data class TvmCellParseLdsliceInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7381,8 +7817,9 @@ data class TvmCellParseLdsliceInst(
 @SerialName(TvmCellParseLdsliceqInst.MNEMONIC)
 data class TvmCellParseLdsliceqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7399,7 +7836,8 @@ data class TvmCellParseLdsliceqInst(
 @SerialName(TvmCellParseLdslicexInst.MNEMONIC)
 data class TvmCellParseLdslicexInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7415,7 +7853,8 @@ data class TvmCellParseLdslicexInst(
 @SerialName(TvmCellParseLdslicexqInst.MNEMONIC)
 data class TvmCellParseLdslicexqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7431,8 +7870,9 @@ data class TvmCellParseLdslicexqInst(
 @SerialName(TvmCellParseLduAltInst.MNEMONIC)
 data class TvmCellParseLduAltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7448,8 +7888,9 @@ data class TvmCellParseLduAltInst(
 @SerialName(TvmCellParseLduInst.MNEMONIC)
 data class TvmCellParseLduInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7465,7 +7906,8 @@ data class TvmCellParseLduInst(
 @SerialName(TvmCellParseLdule4Inst.MNEMONIC)
 data class TvmCellParseLdule4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7481,7 +7923,8 @@ data class TvmCellParseLdule4Inst(
 @SerialName(TvmCellParseLdule4qInst.MNEMONIC)
 data class TvmCellParseLdule4qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7497,7 +7940,8 @@ data class TvmCellParseLdule4qInst(
 @SerialName(TvmCellParseLdule8Inst.MNEMONIC)
 data class TvmCellParseLdule8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7513,7 +7957,8 @@ data class TvmCellParseLdule8Inst(
 @SerialName(TvmCellParseLdule8qInst.MNEMONIC)
 data class TvmCellParseLdule8qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7529,8 +7974,9 @@ data class TvmCellParseLdule8qInst(
 @SerialName(TvmCellParseLduqInst.MNEMONIC)
 data class TvmCellParseLduqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7546,7 +7992,8 @@ data class TvmCellParseLduqInst(
 @SerialName(TvmCellParseLduxInst.MNEMONIC)
 data class TvmCellParseLduxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7562,7 +8009,8 @@ data class TvmCellParseLduxInst(
 @SerialName(TvmCellParseLduxqInst.MNEMONIC)
 data class TvmCellParseLduxqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7578,7 +8026,8 @@ data class TvmCellParseLduxqInst(
 @SerialName(TvmCellParseLdzeroesInst.MNEMONIC)
 data class TvmCellParseLdzeroesInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7594,8 +8043,9 @@ data class TvmCellParseLdzeroesInst(
 @SerialName(TvmCellParsePldiInst.MNEMONIC)
 data class TvmCellParsePldiInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7611,7 +8061,8 @@ data class TvmCellParsePldiInst(
 @SerialName(TvmCellParsePldile4Inst.MNEMONIC)
 data class TvmCellParsePldile4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7627,7 +8078,8 @@ data class TvmCellParsePldile4Inst(
 @SerialName(TvmCellParsePldile4qInst.MNEMONIC)
 data class TvmCellParsePldile4qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7643,7 +8095,8 @@ data class TvmCellParsePldile4qInst(
 @SerialName(TvmCellParsePldile8Inst.MNEMONIC)
 data class TvmCellParsePldile8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7659,7 +8112,8 @@ data class TvmCellParsePldile8Inst(
 @SerialName(TvmCellParsePldile8qInst.MNEMONIC)
 data class TvmCellParsePldile8qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7675,8 +8129,9 @@ data class TvmCellParsePldile8qInst(
 @SerialName(TvmCellParsePldiqInst.MNEMONIC)
 data class TvmCellParsePldiqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7692,7 +8147,8 @@ data class TvmCellParsePldiqInst(
 @SerialName(TvmCellParsePldixInst.MNEMONIC)
 data class TvmCellParsePldixInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7708,7 +8164,8 @@ data class TvmCellParsePldixInst(
 @SerialName(TvmCellParsePldixqInst.MNEMONIC)
 data class TvmCellParsePldixqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7724,8 +8181,9 @@ data class TvmCellParsePldixqInst(
 @SerialName(TvmCellParsePldrefidxInst.MNEMONIC)
 data class TvmCellParsePldrefidxInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7741,7 +8199,8 @@ data class TvmCellParsePldrefidxInst(
 @SerialName(TvmCellParsePldrefvarInst.MNEMONIC)
 data class TvmCellParsePldrefvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7757,8 +8216,9 @@ data class TvmCellParsePldrefvarInst(
 @SerialName(TvmCellParsePldsliceInst.MNEMONIC)
 data class TvmCellParsePldsliceInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7774,8 +8234,9 @@ data class TvmCellParsePldsliceInst(
 @SerialName(TvmCellParsePldsliceqInst.MNEMONIC)
 data class TvmCellParsePldsliceqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7791,7 +8252,8 @@ data class TvmCellParsePldsliceqInst(
 @SerialName(TvmCellParsePldslicexInst.MNEMONIC)
 data class TvmCellParsePldslicexInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7807,7 +8269,8 @@ data class TvmCellParsePldslicexInst(
 @SerialName(TvmCellParsePldslicexqInst.MNEMONIC)
 data class TvmCellParsePldslicexqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7823,8 +8286,9 @@ data class TvmCellParsePldslicexqInst(
 @SerialName(TvmCellParsePlduInst.MNEMONIC)
 data class TvmCellParsePlduInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7840,7 +8304,8 @@ data class TvmCellParsePlduInst(
 @SerialName(TvmCellParsePldule4Inst.MNEMONIC)
 data class TvmCellParsePldule4Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7856,7 +8321,8 @@ data class TvmCellParsePldule4Inst(
 @SerialName(TvmCellParsePldule4qInst.MNEMONIC)
 data class TvmCellParsePldule4qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7872,7 +8338,8 @@ data class TvmCellParsePldule4qInst(
 @SerialName(TvmCellParsePldule8Inst.MNEMONIC)
 data class TvmCellParsePldule8Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7888,7 +8355,8 @@ data class TvmCellParsePldule8Inst(
 @SerialName(TvmCellParsePldule8qInst.MNEMONIC)
 data class TvmCellParsePldule8qInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7904,8 +8372,9 @@ data class TvmCellParsePldule8qInst(
 @SerialName(TvmCellParsePlduqInst.MNEMONIC)
 data class TvmCellParsePlduqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -7921,7 +8390,8 @@ data class TvmCellParsePlduqInst(
 @SerialName(TvmCellParsePlduxInst.MNEMONIC)
 data class TvmCellParsePlduxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7937,7 +8407,8 @@ data class TvmCellParsePlduxInst(
 @SerialName(TvmCellParsePlduxqInst.MNEMONIC)
 data class TvmCellParsePlduxqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7955,8 +8426,9 @@ data class TvmCellParsePlduxqInst(
 @SerialName(TvmCellParsePlduzInst.MNEMONIC)
 data class TvmCellParsePlduzInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: Int, // uint
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7972,7 +8444,8 @@ data class TvmCellParsePlduzInst(
 @SerialName(TvmCellParseSbitrefsInst.MNEMONIC)
 data class TvmCellParseSbitrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -7988,7 +8461,8 @@ data class TvmCellParseSbitrefsInst(
 @SerialName(TvmCellParseSbitsInst.MNEMONIC)
 data class TvmCellParseSbitsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8004,7 +8478,8 @@ data class TvmCellParseSbitsInst(
 @SerialName(TvmCellParseSchkbitrefsInst.MNEMONIC)
 data class TvmCellParseSchkbitrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -8020,7 +8495,8 @@ data class TvmCellParseSchkbitrefsInst(
 @SerialName(TvmCellParseSchkbitrefsqInst.MNEMONIC)
 data class TvmCellParseSchkbitrefsqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8037,7 +8513,8 @@ data class TvmCellParseSchkbitrefsqInst(
 @SerialName(TvmCellParseSchkbitsInst.MNEMONIC)
 data class TvmCellParseSchkbitsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -8053,7 +8530,8 @@ data class TvmCellParseSchkbitsInst(
 @SerialName(TvmCellParseSchkbitsqInst.MNEMONIC)
 data class TvmCellParseSchkbitsqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8069,7 +8547,8 @@ data class TvmCellParseSchkbitsqInst(
 @SerialName(TvmCellParseSchkrefsInst.MNEMONIC)
 data class TvmCellParseSchkrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -8085,7 +8564,8 @@ data class TvmCellParseSchkrefsInst(
 @SerialName(TvmCellParseSchkrefsqInst.MNEMONIC)
 data class TvmCellParseSchkrefsqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8101,7 +8581,8 @@ data class TvmCellParseSchkrefsqInst(
 @SerialName(TvmCellParseScutfirstInst.MNEMONIC)
 data class TvmCellParseScutfirstInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8117,7 +8598,8 @@ data class TvmCellParseScutfirstInst(
 @SerialName(TvmCellParseScutlastInst.MNEMONIC)
 data class TvmCellParseScutlastInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8134,8 +8616,9 @@ data class TvmCellParseScutlastInst(
 @SerialName(TvmCellParseSdbeginsInst.MNEMONIC)
 data class TvmCellParseSdbeginsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val s: TvmCell, // subslice
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
 
@@ -8151,8 +8634,9 @@ data class TvmCellParseSdbeginsInst(
 @SerialName(TvmCellParseSdbeginsqInst.MNEMONIC)
 data class TvmCellParseSdbeginsqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val s: TvmCell, // subslice
-): TvmInst, TvmCellParseInst {
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
 
@@ -8170,7 +8654,8 @@ data class TvmCellParseSdbeginsqInst(
 @SerialName(TvmCellParseSdbeginsxInst.MNEMONIC)
 data class TvmCellParseSdbeginsxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8186,7 +8671,8 @@ data class TvmCellParseSdbeginsxInst(
 @SerialName(TvmCellParseSdbeginsxqInst.MNEMONIC)
 data class TvmCellParseSdbeginsxqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8202,7 +8688,8 @@ data class TvmCellParseSdbeginsxqInst(
 @SerialName(TvmCellParseSdcutfirstInst.MNEMONIC)
 data class TvmCellParseSdcutfirstInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8218,7 +8705,8 @@ data class TvmCellParseSdcutfirstInst(
 @SerialName(TvmCellParseSdcutlastInst.MNEMONIC)
 data class TvmCellParseSdcutlastInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8235,7 +8723,8 @@ data class TvmCellParseSdcutlastInst(
 @SerialName(TvmCellParseSdepthInst.MNEMONIC)
 data class TvmCellParseSdepthInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8251,7 +8740,8 @@ data class TvmCellParseSdepthInst(
 @SerialName(TvmCellParseSdskipfirstInst.MNEMONIC)
 data class TvmCellParseSdskipfirstInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8267,7 +8757,8 @@ data class TvmCellParseSdskipfirstInst(
 @SerialName(TvmCellParseSdskiplastInst.MNEMONIC)
 data class TvmCellParseSdskiplastInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8284,7 +8775,8 @@ data class TvmCellParseSdskiplastInst(
 @SerialName(TvmCellParseSdsubstrInst.MNEMONIC)
 data class TvmCellParseSdsubstrInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8301,7 +8793,8 @@ data class TvmCellParseSdsubstrInst(
 @SerialName(TvmCellParseSplitInst.MNEMONIC)
 data class TvmCellParseSplitInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8317,7 +8810,8 @@ data class TvmCellParseSplitInst(
 @SerialName(TvmCellParseSplitqInst.MNEMONIC)
 data class TvmCellParseSplitqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8333,7 +8827,8 @@ data class TvmCellParseSplitqInst(
 @SerialName(TvmCellParseSrefsInst.MNEMONIC)
 data class TvmCellParseSrefsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8349,7 +8844,8 @@ data class TvmCellParseSrefsInst(
 @SerialName(TvmCellParseSskipfirstInst.MNEMONIC)
 data class TvmCellParseSskipfirstInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8365,7 +8861,8 @@ data class TvmCellParseSskipfirstInst(
 @SerialName(TvmCellParseSskiplastInst.MNEMONIC)
 data class TvmCellParseSskiplastInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8382,7 +8879,8 @@ data class TvmCellParseSskiplastInst(
 @SerialName(TvmCellParseSubsliceInst.MNEMONIC)
 data class TvmCellParseSubsliceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8400,7 +8898,8 @@ data class TvmCellParseSubsliceInst(
 @SerialName(TvmCellParseXctosInst.MNEMONIC)
 data class TvmCellParseXctosInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -8417,7 +8916,8 @@ data class TvmCellParseXctosInst(
 @SerialName(TvmCellParseXloadInst.MNEMONIC)
 data class TvmCellParseXloadInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -8434,7 +8934,8 @@ data class TvmCellParseXloadInst(
 @SerialName(TvmCellParseXloadqInst.MNEMONIC)
 data class TvmCellParseXloadqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCellParseInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -8451,8 +8952,9 @@ data class TvmCellParseXloadqInst(
 @SerialName(TvmCodepageSetcpInst.MNEMONIC)
 data class TvmCodepageSetcpInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmCodepageInst {
+): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8471,8 +8973,9 @@ data class TvmCodepageSetcpInst(
 @SerialName(TvmCodepageSetcpSpecialInst.MNEMONIC)
 data class TvmCodepageSetcpSpecialInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val z: Int, // uint
-): TvmInst, TvmCodepageInst {
+): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8488,7 +8991,8 @@ data class TvmCodepageSetcpSpecialInst(
 @SerialName(TvmCodepageSetcpxInst.MNEMONIC)
 data class TvmCodepageSetcpxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCodepageInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCodepageInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8504,7 +9008,8 @@ data class TvmCodepageSetcpxInst(
 @SerialName(TvmCompareIntChknanInst.MNEMONIC)
 data class TvmCompareIntChknanInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/68")
 
@@ -8522,7 +9027,8 @@ data class TvmCompareIntChknanInst(
 @SerialName(TvmCompareIntCmpInst.MNEMONIC)
 data class TvmCompareIntCmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8539,8 +9045,9 @@ data class TvmCompareIntCmpInst(
 @SerialName(TvmCompareIntEqintInst.MNEMONIC)
 data class TvmCompareIntEqintInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val y: Int, // int
-): TvmInst, TvmCompareIntInst {
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8556,7 +9063,8 @@ data class TvmCompareIntEqintInst(
 @SerialName(TvmCompareIntEqualInst.MNEMONIC)
 data class TvmCompareIntEqualInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8572,7 +9080,8 @@ data class TvmCompareIntEqualInst(
 @SerialName(TvmCompareIntGeqInst.MNEMONIC)
 data class TvmCompareIntGeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8588,7 +9097,8 @@ data class TvmCompareIntGeqInst(
 @SerialName(TvmCompareIntGreaterInst.MNEMONIC)
 data class TvmCompareIntGreaterInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8605,8 +9115,9 @@ data class TvmCompareIntGreaterInst(
 @SerialName(TvmCompareIntGtintInst.MNEMONIC)
 data class TvmCompareIntGtintInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val y: Int, // int
-): TvmInst, TvmCompareIntInst {
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8622,7 +9133,8 @@ data class TvmCompareIntGtintInst(
 @SerialName(TvmCompareIntIsnanInst.MNEMONIC)
 data class TvmCompareIntIsnanInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8638,7 +9150,8 @@ data class TvmCompareIntIsnanInst(
 @SerialName(TvmCompareIntLeqInst.MNEMONIC)
 data class TvmCompareIntLeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8654,7 +9167,8 @@ data class TvmCompareIntLeqInst(
 @SerialName(TvmCompareIntLessInst.MNEMONIC)
 data class TvmCompareIntLessInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8671,8 +9185,9 @@ data class TvmCompareIntLessInst(
 @SerialName(TvmCompareIntLessintInst.MNEMONIC)
 data class TvmCompareIntLessintInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val y: Int, // int
-): TvmInst, TvmCompareIntInst {
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8688,7 +9203,8 @@ data class TvmCompareIntLessintInst(
 @SerialName(TvmCompareIntNeqInst.MNEMONIC)
 data class TvmCompareIntNeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8705,8 +9221,9 @@ data class TvmCompareIntNeqInst(
 @SerialName(TvmCompareIntNeqintInst.MNEMONIC)
 data class TvmCompareIntNeqintInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val y: Int, // int
-): TvmInst, TvmCompareIntInst {
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8723,7 +9240,8 @@ data class TvmCompareIntNeqintInst(
 @SerialName(TvmCompareIntSgnInst.MNEMONIC)
 data class TvmCompareIntSgnInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -8739,7 +9257,8 @@ data class TvmCompareIntSgnInst(
 @SerialName(TvmCompareOtherSdcntlead0Inst.MNEMONIC)
 data class TvmCompareOtherSdcntlead0Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8755,7 +9274,8 @@ data class TvmCompareOtherSdcntlead0Inst(
 @SerialName(TvmCompareOtherSdcntlead1Inst.MNEMONIC)
 data class TvmCompareOtherSdcntlead1Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8771,7 +9291,8 @@ data class TvmCompareOtherSdcntlead1Inst(
 @SerialName(TvmCompareOtherSdcnttrail0Inst.MNEMONIC)
 data class TvmCompareOtherSdcnttrail0Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8787,7 +9308,8 @@ data class TvmCompareOtherSdcnttrail0Inst(
 @SerialName(TvmCompareOtherSdcnttrail1Inst.MNEMONIC)
 data class TvmCompareOtherSdcnttrail1Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8803,7 +9325,8 @@ data class TvmCompareOtherSdcnttrail1Inst(
 @SerialName(TvmCompareOtherSdemptyInst.MNEMONIC)
 data class TvmCompareOtherSdemptyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8819,7 +9342,8 @@ data class TvmCompareOtherSdemptyInst(
 @SerialName(TvmCompareOtherSdeqInst.MNEMONIC)
 data class TvmCompareOtherSdeqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8835,7 +9359,8 @@ data class TvmCompareOtherSdeqInst(
 @SerialName(TvmCompareOtherSdfirstInst.MNEMONIC)
 data class TvmCompareOtherSdfirstInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8852,7 +9377,8 @@ data class TvmCompareOtherSdfirstInst(
 @SerialName(TvmCompareOtherSdlexcmpInst.MNEMONIC)
 data class TvmCompareOtherSdlexcmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8868,7 +9394,8 @@ data class TvmCompareOtherSdlexcmpInst(
 @SerialName(TvmCompareOtherSdpfxInst.MNEMONIC)
 data class TvmCompareOtherSdpfxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8884,7 +9411,8 @@ data class TvmCompareOtherSdpfxInst(
 @SerialName(TvmCompareOtherSdpfxrevInst.MNEMONIC)
 data class TvmCompareOtherSdpfxrevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8900,7 +9428,8 @@ data class TvmCompareOtherSdpfxrevInst(
 @SerialName(TvmCompareOtherSdppfxInst.MNEMONIC)
 data class TvmCompareOtherSdppfxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8916,7 +9445,8 @@ data class TvmCompareOtherSdppfxInst(
 @SerialName(TvmCompareOtherSdppfxrevInst.MNEMONIC)
 data class TvmCompareOtherSdppfxrevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8932,7 +9462,8 @@ data class TvmCompareOtherSdppfxrevInst(
 @SerialName(TvmCompareOtherSdpsfxInst.MNEMONIC)
 data class TvmCompareOtherSdpsfxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8948,7 +9479,8 @@ data class TvmCompareOtherSdpsfxInst(
 @SerialName(TvmCompareOtherSdpsfxrevInst.MNEMONIC)
 data class TvmCompareOtherSdpsfxrevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8964,7 +9496,8 @@ data class TvmCompareOtherSdpsfxrevInst(
 @SerialName(TvmCompareOtherSdsfxInst.MNEMONIC)
 data class TvmCompareOtherSdsfxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8980,7 +9513,8 @@ data class TvmCompareOtherSdsfxInst(
 @SerialName(TvmCompareOtherSdsfxrevInst.MNEMONIC)
 data class TvmCompareOtherSdsfxrevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -8996,7 +9530,8 @@ data class TvmCompareOtherSdsfxrevInst(
 @SerialName(TvmCompareOtherSemptyInst.MNEMONIC)
 data class TvmCompareOtherSemptyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9012,7 +9547,8 @@ data class TvmCompareOtherSemptyInst(
 @SerialName(TvmCompareOtherSremptyInst.MNEMONIC)
 data class TvmCompareOtherSremptyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmCompareOtherInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCompareOtherInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9030,8 +9566,9 @@ data class TvmCompareOtherSremptyInst(
 @SerialName(TvmConstDataPushcontInst.MNEMONIC)
 data class TvmConstDataPushcontInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // subslice
-): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
+): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9048,8 +9585,9 @@ data class TvmConstDataPushcontInst(
 @SerialName(TvmConstDataPushcontShortInst.MNEMONIC)
 data class TvmConstDataPushcontShortInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // subslice
-): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
+): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9067,8 +9605,9 @@ data class TvmConstDataPushcontShortInst(
 @SerialName(TvmConstDataPushrefInst.MNEMONIC)
 data class TvmConstDataPushrefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: TvmCell, // ref
-): TvmInst, TvmConstDataInst {
+): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9084,8 +9623,9 @@ data class TvmConstDataPushrefInst(
 @SerialName(TvmConstDataPushrefcontInst.MNEMONIC)
 data class TvmConstDataPushrefcontInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmConstDataInst, TvmContOperand1Inst {
+): TvmRealInst, TvmConstDataInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
 
@@ -9101,8 +9641,9 @@ data class TvmConstDataPushrefcontInst(
 @SerialName(TvmConstDataPushrefsliceInst.MNEMONIC)
 data class TvmConstDataPushrefsliceInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val c: TvmCell, // ref
-): TvmInst, TvmConstDataInst {
+): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
 
@@ -9123,8 +9664,9 @@ data class TvmConstDataPushrefsliceInst(
 @SerialName(TvmConstDataPushsliceInst.MNEMONIC)
 data class TvmConstDataPushsliceInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val s: TvmCell, // subslice
-): TvmInst, TvmConstDataInst {
+): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 22)
 
@@ -9143,8 +9685,9 @@ data class TvmConstDataPushsliceInst(
 @SerialName(TvmConstDataPushsliceLongInst.MNEMONIC)
 data class TvmConstDataPushsliceLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val slice: TvmCell, // subslice
-): TvmInst, TvmConstDataInst {
+): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 28)
 
@@ -9163,8 +9706,9 @@ data class TvmConstDataPushsliceLongInst(
 @SerialName(TvmConstDataPushsliceRefsInst.MNEMONIC)
 data class TvmConstDataPushsliceRefsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val slice: TvmCell, // subslice
-): TvmInst, TvmConstDataInst {
+): TvmRealInst, TvmConstDataInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 25)
 
@@ -9180,8 +9724,9 @@ data class TvmConstDataPushsliceRefsInst(
 @SerialName(TvmConstIntPushint16Inst.MNEMONIC)
 data class TvmConstIntPushint16Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: Int, // int
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -9198,8 +9743,9 @@ data class TvmConstIntPushint16Inst(
 @SerialName(TvmConstIntPushint4Inst.MNEMONIC)
 data class TvmConstIntPushint4Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9215,8 +9761,9 @@ data class TvmConstIntPushint4Inst(
 @SerialName(TvmConstIntPushint8Inst.MNEMONIC)
 data class TvmConstIntPushint8Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: Int, // int
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9234,8 +9781,9 @@ data class TvmConstIntPushint8Inst(
 @SerialName(TvmConstIntPushintLongInst.MNEMONIC)
 data class TvmConstIntPushintLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: String, // pushint_long
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 23)
 
@@ -9251,7 +9799,8 @@ data class TvmConstIntPushintLongInst(
 @SerialName(TvmConstIntPushnanInst.MNEMONIC)
 data class TvmConstIntPushnanInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmConstIntInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9267,8 +9816,9 @@ data class TvmConstIntPushnanInst(
 @SerialName(TvmConstIntPushnegpow2Inst.MNEMONIC)
 data class TvmConstIntPushnegpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: Int, // uint
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9285,8 +9835,9 @@ data class TvmConstIntPushnegpow2Inst(
 @SerialName(TvmConstIntPushpow2Inst.MNEMONIC)
 data class TvmConstIntPushpow2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: Int, // uint
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9302,8 +9853,9 @@ data class TvmConstIntPushpow2Inst(
 @SerialName(TvmConstIntPushpow2decInst.MNEMONIC)
 data class TvmConstIntPushpow2decInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val x: Int, // uint
-): TvmInst, TvmConstIntInst {
+): TvmRealInst, TvmConstIntInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9319,7 +9871,8 @@ data class TvmConstIntPushpow2decInst(
 @SerialName(TvmContBasicBranchInst.MNEMONIC)
 data class TvmContBasicBranchInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9336,7 +9889,8 @@ data class TvmContBasicBranchInst(
 @SerialName(TvmContBasicCallccInst.MNEMONIC)
 data class TvmContBasicCallccInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9354,9 +9908,10 @@ data class TvmContBasicCallccInst(
 @SerialName(TvmContBasicCallccargsInst.MNEMONIC)
 data class TvmContBasicCallccargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
     val r: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -9372,7 +9927,8 @@ data class TvmContBasicCallccargsInst(
 @SerialName(TvmContBasicCallccvarargsInst.MNEMONIC)
 data class TvmContBasicCallccvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9388,8 +9944,9 @@ data class TvmContBasicCallccvarargsInst(
 @SerialName(TvmContBasicCallrefInst.MNEMONIC)
 data class TvmContBasicCallrefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -9406,9 +9963,10 @@ data class TvmContBasicCallrefInst(
 @SerialName(TvmContBasicCallxargsInst.MNEMONIC)
 data class TvmContBasicCallxargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
     val r: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9425,8 +9983,9 @@ data class TvmContBasicCallxargsInst(
 @SerialName(TvmContBasicCallxargsVarInst.MNEMONIC)
 data class TvmContBasicCallxargsVarInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9443,7 +10002,8 @@ data class TvmContBasicCallxargsVarInst(
 @SerialName(TvmContBasicCallxvarargsInst.MNEMONIC)
 data class TvmContBasicCallxvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9459,7 +10019,8 @@ data class TvmContBasicCallxvarargsInst(
 @SerialName(TvmContBasicExecuteInst.MNEMONIC)
 data class TvmContBasicExecuteInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9475,8 +10036,9 @@ data class TvmContBasicExecuteInst(
 @SerialName(TvmContBasicJmprefInst.MNEMONIC)
 data class TvmContBasicJmprefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -9492,8 +10054,9 @@ data class TvmContBasicJmprefInst(
 @SerialName(TvmContBasicJmprefdataInst.MNEMONIC)
 data class TvmContBasicJmprefdataInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContBasicInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContBasicInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -9510,7 +10073,8 @@ data class TvmContBasicJmprefdataInst(
 @SerialName(TvmContBasicJmpxInst.MNEMONIC)
 data class TvmContBasicJmpxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9527,8 +10091,9 @@ data class TvmContBasicJmpxInst(
 @SerialName(TvmContBasicJmpxargsInst.MNEMONIC)
 data class TvmContBasicJmpxargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9545,7 +10110,8 @@ data class TvmContBasicJmpxargsInst(
 @SerialName(TvmContBasicJmpxdataInst.MNEMONIC)
 data class TvmContBasicJmpxdataInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9561,7 +10127,8 @@ data class TvmContBasicJmpxdataInst(
 @SerialName(TvmContBasicJmpxvarargsInst.MNEMONIC)
 data class TvmContBasicJmpxvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9578,7 +10145,8 @@ data class TvmContBasicJmpxvarargsInst(
 @SerialName(TvmContBasicRetInst.MNEMONIC)
 data class TvmContBasicRetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9595,7 +10163,8 @@ data class TvmContBasicRetInst(
 @SerialName(TvmContBasicRetaltInst.MNEMONIC)
 data class TvmContBasicRetaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9611,8 +10180,9 @@ data class TvmContBasicRetaltInst(
 @SerialName(TvmContBasicRetargsInst.MNEMONIC)
 data class TvmContBasicRetargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val r: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9629,7 +10199,8 @@ data class TvmContBasicRetargsInst(
 @SerialName(TvmContBasicRetdataInst.MNEMONIC)
 data class TvmContBasicRetdataInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9645,7 +10216,8 @@ data class TvmContBasicRetdataInst(
 @SerialName(TvmContBasicRetvarargsInst.MNEMONIC)
 data class TvmContBasicRetvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9662,8 +10234,9 @@ data class TvmContBasicRetvarargsInst(
 @SerialName(TvmContBasicRunvmInst.MNEMONIC)
 data class TvmContBasicRunvmInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val flags: Int, // uint
-): TvmInst, TvmContBasicInst {
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -9680,7 +10253,8 @@ data class TvmContBasicRunvmInst(
 @SerialName(TvmContBasicRunvmxInst.MNEMONIC)
 data class TvmContBasicRunvmxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -9698,7 +10272,8 @@ data class TvmContBasicRunvmxInst(
 @SerialName(TvmContConditionalCondselInst.MNEMONIC)
 data class TvmContConditionalCondselInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9714,7 +10289,8 @@ data class TvmContConditionalCondselInst(
 @SerialName(TvmContConditionalCondselchkInst.MNEMONIC)
 data class TvmContConditionalCondselchkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9731,7 +10307,8 @@ data class TvmContConditionalCondselchkInst(
 @SerialName(TvmContConditionalIfInst.MNEMONIC)
 data class TvmContConditionalIfInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9748,8 +10325,9 @@ data class TvmContConditionalIfInst(
 @SerialName(TvmContConditionalIfbitjmpInst.MNEMONIC)
 data class TvmContConditionalIfbitjmpInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContConditionalInst {
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9765,9 +10343,10 @@ data class TvmContConditionalIfbitjmpInst(
 @SerialName(TvmContConditionalIfbitjmprefInst.MNEMONIC)
 data class TvmContConditionalIfbitjmprefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
     val c: TvmCell, // ref
-): TvmInst, TvmContConditionalInst {
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -9784,7 +10363,8 @@ data class TvmContConditionalIfbitjmprefInst(
 @SerialName(TvmContConditionalIfelseInst.MNEMONIC)
 data class TvmContConditionalIfelseInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9800,8 +10380,9 @@ data class TvmContConditionalIfelseInst(
 @SerialName(TvmContConditionalIfelserefInst.MNEMONIC)
 data class TvmContConditionalIfelserefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -9817,7 +10398,8 @@ data class TvmContConditionalIfelserefInst(
 @SerialName(TvmContConditionalIfjmpInst.MNEMONIC)
 data class TvmContConditionalIfjmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9833,8 +10415,9 @@ data class TvmContConditionalIfjmpInst(
 @SerialName(TvmContConditionalIfjmprefInst.MNEMONIC)
 data class TvmContConditionalIfjmprefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -9850,8 +10433,9 @@ data class TvmContConditionalIfjmprefInst(
 @SerialName(TvmContConditionalIfnbitjmpInst.MNEMONIC)
 data class TvmContConditionalIfnbitjmpInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContConditionalInst {
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9867,9 +10451,10 @@ data class TvmContConditionalIfnbitjmpInst(
 @SerialName(TvmContConditionalIfnbitjmprefInst.MNEMONIC)
 data class TvmContConditionalIfnbitjmprefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
     val c: TvmCell, // ref
-): TvmInst, TvmContConditionalInst {
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -9885,7 +10470,8 @@ data class TvmContConditionalIfnbitjmprefInst(
 @SerialName(TvmContConditionalIfnotInst.MNEMONIC)
 data class TvmContConditionalIfnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9901,7 +10487,8 @@ data class TvmContConditionalIfnotInst(
 @SerialName(TvmContConditionalIfnotjmpInst.MNEMONIC)
 data class TvmContConditionalIfnotjmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9917,8 +10504,9 @@ data class TvmContConditionalIfnotjmpInst(
 @SerialName(TvmContConditionalIfnotjmprefInst.MNEMONIC)
 data class TvmContConditionalIfnotjmprefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -9934,8 +10522,9 @@ data class TvmContConditionalIfnotjmprefInst(
 @SerialName(TvmContConditionalIfnotrefInst.MNEMONIC)
 data class TvmContConditionalIfnotrefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -9951,7 +10540,8 @@ data class TvmContConditionalIfnotrefInst(
 @SerialName(TvmContConditionalIfnotretInst.MNEMONIC)
 data class TvmContConditionalIfnotretInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -9967,7 +10557,8 @@ data class TvmContConditionalIfnotretInst(
 @SerialName(TvmContConditionalIfnotretaltInst.MNEMONIC)
 data class TvmContConditionalIfnotretaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -9987,8 +10578,9 @@ data class TvmContConditionalIfnotretaltInst(
 @SerialName(TvmContConditionalIfrefInst.MNEMONIC)
 data class TvmContConditionalIfrefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -10006,8 +10598,9 @@ data class TvmContConditionalIfrefInst(
 @SerialName(TvmContConditionalIfrefelseInst.MNEMONIC)
 data class TvmContConditionalIfrefelseInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand1Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand1Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/126/51")
 
@@ -10023,9 +10616,10 @@ data class TvmContConditionalIfrefelseInst(
 @SerialName(TvmContConditionalIfrefelserefInst.MNEMONIC)
 data class TvmContConditionalIfrefelserefInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     override val c1: TvmInstList, // ref
     override val c2: TvmInstList, // ref
-): TvmInst, TvmContConditionalInst, TvmContOperand2Inst {
+): TvmRealInst, TvmContConditionalInst, TvmContOperand2Inst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
 
@@ -10042,7 +10636,8 @@ data class TvmContConditionalIfrefelserefInst(
 @SerialName(TvmContConditionalIfretInst.MNEMONIC)
 data class TvmContConditionalIfretInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10058,7 +10653,8 @@ data class TvmContConditionalIfretInst(
 @SerialName(TvmContConditionalIfretaltInst.MNEMONIC)
 data class TvmContConditionalIfretaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContConditionalInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContConditionalInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10075,7 +10671,8 @@ data class TvmContConditionalIfretaltInst(
 @SerialName(TvmContCreateBlessInst.MNEMONIC)
 data class TvmContCreateBlessInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContCreateInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10093,9 +10690,10 @@ data class TvmContCreateBlessInst(
 @SerialName(TvmContCreateBlessargsInst.MNEMONIC)
 data class TvmContCreateBlessargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val r: Int, // uint
     val n: Int, // uint
-): TvmInst, TvmContCreateInst {
+): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10111,7 +10709,8 @@ data class TvmContCreateBlessargsInst(
 @SerialName(TvmContCreateBlessvarargsInst.MNEMONIC)
 data class TvmContCreateBlessvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContCreateInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContCreateInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
 
@@ -10128,8 +10727,9 @@ data class TvmContCreateBlessvarargsInst(
 @SerialName(TvmContDictCalldictInst.MNEMONIC)
 data class TvmContDictCalldictInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContDictInst {
+): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -10145,8 +10745,9 @@ data class TvmContDictCalldictInst(
 @SerialName(TvmContDictCalldictLongInst.MNEMONIC)
 data class TvmContDictCalldictLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContDictInst {
+): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -10163,8 +10764,9 @@ data class TvmContDictCalldictLongInst(
 @SerialName(TvmContDictJmpdictInst.MNEMONIC)
 data class TvmContDictJmpdictInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContDictInst {
+): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -10183,8 +10785,9 @@ data class TvmContDictJmpdictInst(
 @SerialName(TvmContDictPreparedictInst.MNEMONIC)
 data class TvmContDictPreparedictInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmContDictInst {
+): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -10201,7 +10804,8 @@ data class TvmContDictPreparedictInst(
 @SerialName(TvmContLoopsAgainInst.MNEMONIC)
 data class TvmContLoopsAgainInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10217,7 +10821,8 @@ data class TvmContLoopsAgainInst(
 @SerialName(TvmContLoopsAgainbrkInst.MNEMONIC)
 data class TvmContLoopsAgainbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10233,7 +10838,8 @@ data class TvmContLoopsAgainbrkInst(
 @SerialName(TvmContLoopsAgainendInst.MNEMONIC)
 data class TvmContLoopsAgainendInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10249,7 +10855,8 @@ data class TvmContLoopsAgainendInst(
 @SerialName(TvmContLoopsAgainendbrkInst.MNEMONIC)
 data class TvmContLoopsAgainendbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10269,7 +10876,8 @@ data class TvmContLoopsAgainendbrkInst(
 @SerialName(TvmContLoopsRepeatInst.MNEMONIC)
 data class TvmContLoopsRepeatInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10287,7 +10895,8 @@ data class TvmContLoopsRepeatInst(
 @SerialName(TvmContLoopsRepeatbrkInst.MNEMONIC)
 data class TvmContLoopsRepeatbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10303,7 +10912,8 @@ data class TvmContLoopsRepeatbrkInst(
 @SerialName(TvmContLoopsRepeatendInst.MNEMONIC)
 data class TvmContLoopsRepeatendInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10320,7 +10930,8 @@ data class TvmContLoopsRepeatendInst(
 @SerialName(TvmContLoopsRepeatendbrkInst.MNEMONIC)
 data class TvmContLoopsRepeatendbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10341,7 +10952,8 @@ data class TvmContLoopsRepeatendbrkInst(
 @SerialName(TvmContLoopsUntilInst.MNEMONIC)
 data class TvmContLoopsUntilInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10357,7 +10969,8 @@ data class TvmContLoopsUntilInst(
 @SerialName(TvmContLoopsUntilbrkInst.MNEMONIC)
 data class TvmContLoopsUntilbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10374,7 +10987,8 @@ data class TvmContLoopsUntilbrkInst(
 @SerialName(TvmContLoopsUntilendInst.MNEMONIC)
 data class TvmContLoopsUntilendInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10390,7 +11004,8 @@ data class TvmContLoopsUntilendInst(
 @SerialName(TvmContLoopsUntilendbrkInst.MNEMONIC)
 data class TvmContLoopsUntilendbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10408,7 +11023,8 @@ data class TvmContLoopsUntilendbrkInst(
 @SerialName(TvmContLoopsWhileInst.MNEMONIC)
 data class TvmContLoopsWhileInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10424,7 +11040,8 @@ data class TvmContLoopsWhileInst(
 @SerialName(TvmContLoopsWhilebrkInst.MNEMONIC)
 data class TvmContLoopsWhilebrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10440,7 +11057,8 @@ data class TvmContLoopsWhilebrkInst(
 @SerialName(TvmContLoopsWhileendInst.MNEMONIC)
 data class TvmContLoopsWhileendInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -10456,7 +11074,8 @@ data class TvmContLoopsWhileendInst(
 @SerialName(TvmContLoopsWhileendbrkInst.MNEMONIC)
 data class TvmContLoopsWhileendbrkInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContLoopsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContLoopsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10473,7 +11092,8 @@ data class TvmContLoopsWhileendbrkInst(
 @SerialName(TvmContRegistersAtexitInst.MNEMONIC)
 data class TvmContRegistersAtexitInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10490,7 +11110,8 @@ data class TvmContRegistersAtexitInst(
 @SerialName(TvmContRegistersAtexitaltInst.MNEMONIC)
 data class TvmContRegistersAtexitaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10508,7 +11129,8 @@ data class TvmContRegistersAtexitaltInst(
 @SerialName(TvmContRegistersBoolevalInst.MNEMONIC)
 data class TvmContRegistersBoolevalInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10526,7 +11148,8 @@ data class TvmContRegistersBoolevalInst(
 @SerialName(TvmContRegistersComposInst.MNEMONIC)
 data class TvmContRegistersComposInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10543,7 +11166,8 @@ data class TvmContRegistersComposInst(
 @SerialName(TvmContRegistersComposaltInst.MNEMONIC)
 data class TvmContRegistersComposaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10560,7 +11184,8 @@ data class TvmContRegistersComposaltInst(
 @SerialName(TvmContRegistersComposbothInst.MNEMONIC)
 data class TvmContRegistersComposbothInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10576,7 +11201,8 @@ data class TvmContRegistersComposbothInst(
 @SerialName(TvmContRegistersInvertInst.MNEMONIC)
 data class TvmContRegistersInvertInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10594,8 +11220,9 @@ data class TvmContRegistersInvertInst(
 @SerialName(TvmContRegistersPopctrInst.MNEMONIC)
 data class TvmContRegistersPopctrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10611,7 +11238,8 @@ data class TvmContRegistersPopctrInst(
 @SerialName(TvmContRegistersPopctrxInst.MNEMONIC)
 data class TvmContRegistersPopctrxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10628,8 +11256,9 @@ data class TvmContRegistersPopctrxInst(
 @SerialName(TvmContRegistersPopsaveInst.MNEMONIC)
 data class TvmContRegistersPopsaveInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10646,8 +11275,9 @@ data class TvmContRegistersPopsaveInst(
 @SerialName(TvmContRegistersPushctrInst.MNEMONIC)
 data class TvmContRegistersPushctrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10666,7 +11296,8 @@ data class TvmContRegistersPushctrInst(
 @SerialName(TvmContRegistersPushctrxInst.MNEMONIC)
 data class TvmContRegistersPushctrxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10682,7 +11313,8 @@ data class TvmContRegistersPushctrxInst(
 @SerialName(TvmContRegistersSamealtInst.MNEMONIC)
 data class TvmContRegistersSamealtInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10699,7 +11331,8 @@ data class TvmContRegistersSamealtInst(
 @SerialName(TvmContRegistersSamealtsaveInst.MNEMONIC)
 data class TvmContRegistersSamealtsaveInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10717,8 +11350,9 @@ data class TvmContRegistersSamealtsaveInst(
 @SerialName(TvmContRegistersSaveInst.MNEMONIC)
 data class TvmContRegistersSaveInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10734,8 +11368,9 @@ data class TvmContRegistersSaveInst(
 @SerialName(TvmContRegistersSavealtInst.MNEMONIC)
 data class TvmContRegistersSavealtInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10751,8 +11386,9 @@ data class TvmContRegistersSavealtInst(
 @SerialName(TvmContRegistersSavebothInst.MNEMONIC)
 data class TvmContRegistersSavebothInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10768,8 +11404,9 @@ data class TvmContRegistersSavebothInst(
 @SerialName(TvmContRegistersSetaltctrInst.MNEMONIC)
 data class TvmContRegistersSetaltctrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10787,8 +11424,9 @@ data class TvmContRegistersSetaltctrInst(
 @SerialName(TvmContRegistersSetcontctrInst.MNEMONIC)
 data class TvmContRegistersSetcontctrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10804,7 +11442,8 @@ data class TvmContRegistersSetcontctrInst(
 @SerialName(TvmContRegistersSetcontctrxInst.MNEMONIC)
 data class TvmContRegistersSetcontctrxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10822,7 +11461,8 @@ data class TvmContRegistersSetcontctrxInst(
 @SerialName(TvmContRegistersSetexitaltInst.MNEMONIC)
 data class TvmContRegistersSetexitaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10838,8 +11478,9 @@ data class TvmContRegistersSetexitaltInst(
 @SerialName(TvmContRegistersSetretctrInst.MNEMONIC)
 data class TvmContRegistersSetretctrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmContRegistersInst {
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10855,7 +11496,8 @@ data class TvmContRegistersSetretctrInst(
 @SerialName(TvmContRegistersThenretInst.MNEMONIC)
 data class TvmContRegistersThenretInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10871,7 +11513,8 @@ data class TvmContRegistersThenretInst(
 @SerialName(TvmContRegistersThenretaltInst.MNEMONIC)
 data class TvmContRegistersThenretaltInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContRegistersInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10889,8 +11532,9 @@ data class TvmContRegistersThenretaltInst(
 @SerialName(TvmContStackReturnargsInst.MNEMONIC)
 data class TvmContStackReturnargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
-): TvmInst, TvmContStackInst {
+): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
 
@@ -10906,7 +11550,8 @@ data class TvmContStackReturnargsInst(
 @SerialName(TvmContStackReturnvarargsInst.MNEMONIC)
 data class TvmContStackReturnvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContStackInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
 
@@ -10925,9 +11570,10 @@ data class TvmContStackReturnvarargsInst(
 @SerialName(TvmContStackSetcontargsNInst.MNEMONIC)
 data class TvmContStackSetcontargsNInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val r: Int, // uint
     val n: Int, // uint
-): TvmInst, TvmContStackInst {
+): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
 
@@ -10943,7 +11589,8 @@ data class TvmContStackSetcontargsNInst(
 @SerialName(TvmContStackSetcontvarargsInst.MNEMONIC)
 data class TvmContStackSetcontvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContStackInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
 
@@ -10961,7 +11608,8 @@ data class TvmContStackSetcontvarargsInst(
 @SerialName(TvmContStackSetnumvarargsInst.MNEMONIC)
 data class TvmContStackSetnumvarargsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmContStackInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContStackInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10977,9 +11625,10 @@ data class TvmContStackSetnumvarargsInst(
 @SerialName(TvmDebugDebugInst.MNEMONIC)
 data class TvmDebugDebugInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmDebugInst {
+): TvmRealInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -10999,8 +11648,9 @@ data class TvmDebugDebugInst(
 @SerialName(TvmDebugDebugstrInst.MNEMONIC)
 data class TvmDebugDebugstrInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val s: TvmCell, // subslice
-): TvmInst, TvmDebugInst {
+): TvmRealInst, TvmDebugInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -11018,7 +11668,8 @@ data class TvmDebugDebugstrInst(
 @SerialName(TvmDictDeleteDictdelInst.MNEMONIC)
 data class TvmDictDeleteDictdelInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11036,7 +11687,8 @@ data class TvmDictDeleteDictdelInst(
 @SerialName(TvmDictDeleteDictdelgetInst.MNEMONIC)
 data class TvmDictDeleteDictdelgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11053,7 +11705,8 @@ data class TvmDictDeleteDictdelgetInst(
 @SerialName(TvmDictDeleteDictdelgetrefInst.MNEMONIC)
 data class TvmDictDeleteDictdelgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11070,7 +11723,8 @@ data class TvmDictDeleteDictdelgetrefInst(
 @SerialName(TvmDictDeleteDictidelInst.MNEMONIC)
 data class TvmDictDeleteDictidelInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11086,7 +11740,8 @@ data class TvmDictDeleteDictidelInst(
 @SerialName(TvmDictDeleteDictidelgetInst.MNEMONIC)
 data class TvmDictDeleteDictidelgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11102,7 +11757,8 @@ data class TvmDictDeleteDictidelgetInst(
 @SerialName(TvmDictDeleteDictidelgetrefInst.MNEMONIC)
 data class TvmDictDeleteDictidelgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11118,7 +11774,8 @@ data class TvmDictDeleteDictidelgetrefInst(
 @SerialName(TvmDictDeleteDictudelInst.MNEMONIC)
 data class TvmDictDeleteDictudelInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11134,7 +11791,8 @@ data class TvmDictDeleteDictudelInst(
 @SerialName(TvmDictDeleteDictudelgetInst.MNEMONIC)
 data class TvmDictDeleteDictudelgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11150,7 +11808,8 @@ data class TvmDictDeleteDictudelgetInst(
 @SerialName(TvmDictDeleteDictudelgetrefInst.MNEMONIC)
 data class TvmDictDeleteDictudelgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictDeleteInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11168,7 +11827,8 @@ data class TvmDictDeleteDictudelgetrefInst(
 @SerialName(TvmDictGetDictgetInst.MNEMONIC)
 data class TvmDictGetDictgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11185,7 +11845,8 @@ data class TvmDictGetDictgetInst(
 @SerialName(TvmDictGetDictgetrefInst.MNEMONIC)
 data class TvmDictGetDictgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11202,7 +11863,8 @@ data class TvmDictGetDictgetrefInst(
 @SerialName(TvmDictGetDictigetInst.MNEMONIC)
 data class TvmDictGetDictigetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11219,7 +11881,8 @@ data class TvmDictGetDictigetInst(
 @SerialName(TvmDictGetDictigetrefInst.MNEMONIC)
 data class TvmDictGetDictigetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11235,7 +11898,8 @@ data class TvmDictGetDictigetrefInst(
 @SerialName(TvmDictGetDictugetInst.MNEMONIC)
 data class TvmDictGetDictugetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11251,7 +11915,8 @@ data class TvmDictGetDictugetInst(
 @SerialName(TvmDictGetDictugetrefInst.MNEMONIC)
 data class TvmDictGetDictugetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictGetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11268,7 +11933,8 @@ data class TvmDictGetDictugetrefInst(
 @SerialName(TvmDictMayberefDictgetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictgetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11285,7 +11951,8 @@ data class TvmDictMayberefDictgetoptrefInst(
 @SerialName(TvmDictMayberefDictigetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictigetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11302,7 +11969,8 @@ data class TvmDictMayberefDictigetoptrefInst(
 @SerialName(TvmDictMayberefDictisetgetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictisetgetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11320,7 +11988,8 @@ data class TvmDictMayberefDictisetgetoptrefInst(
 @SerialName(TvmDictMayberefDictsetgetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictsetgetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11337,7 +12006,8 @@ data class TvmDictMayberefDictsetgetoptrefInst(
 @SerialName(TvmDictMayberefDictugetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictugetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11353,7 +12023,8 @@ data class TvmDictMayberefDictugetoptrefInst(
 @SerialName(TvmDictMayberefDictusetgetoptrefInst.MNEMONIC)
 data class TvmDictMayberefDictusetgetoptrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMayberefInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11371,7 +12042,8 @@ data class TvmDictMayberefDictusetgetoptrefInst(
 @SerialName(TvmDictMinDictimaxInst.MNEMONIC)
 data class TvmDictMinDictimaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11387,7 +12059,8 @@ data class TvmDictMinDictimaxInst(
 @SerialName(TvmDictMinDictimaxrefInst.MNEMONIC)
 data class TvmDictMinDictimaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11405,7 +12078,8 @@ data class TvmDictMinDictimaxrefInst(
 @SerialName(TvmDictMinDictiminInst.MNEMONIC)
 data class TvmDictMinDictiminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11421,7 +12095,8 @@ data class TvmDictMinDictiminInst(
 @SerialName(TvmDictMinDictiminrefInst.MNEMONIC)
 data class TvmDictMinDictiminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11439,7 +12114,8 @@ data class TvmDictMinDictiminrefInst(
 @SerialName(TvmDictMinDictiremmaxInst.MNEMONIC)
 data class TvmDictMinDictiremmaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11455,7 +12131,8 @@ data class TvmDictMinDictiremmaxInst(
 @SerialName(TvmDictMinDictiremmaxrefInst.MNEMONIC)
 data class TvmDictMinDictiremmaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11473,7 +12150,8 @@ data class TvmDictMinDictiremmaxrefInst(
 @SerialName(TvmDictMinDictiremminInst.MNEMONIC)
 data class TvmDictMinDictiremminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11489,7 +12167,8 @@ data class TvmDictMinDictiremminInst(
 @SerialName(TvmDictMinDictiremminrefInst.MNEMONIC)
 data class TvmDictMinDictiremminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11506,7 +12185,8 @@ data class TvmDictMinDictiremminrefInst(
 @SerialName(TvmDictMinDictmaxInst.MNEMONIC)
 data class TvmDictMinDictmaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11522,7 +12202,8 @@ data class TvmDictMinDictmaxInst(
 @SerialName(TvmDictMinDictmaxrefInst.MNEMONIC)
 data class TvmDictMinDictmaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11539,7 +12220,8 @@ data class TvmDictMinDictmaxrefInst(
 @SerialName(TvmDictMinDictminInst.MNEMONIC)
 data class TvmDictMinDictminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11555,7 +12237,8 @@ data class TvmDictMinDictminInst(
 @SerialName(TvmDictMinDictminrefInst.MNEMONIC)
 data class TvmDictMinDictminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11573,7 +12256,8 @@ data class TvmDictMinDictminrefInst(
 @SerialName(TvmDictMinDictremmaxInst.MNEMONIC)
 data class TvmDictMinDictremmaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11589,7 +12273,8 @@ data class TvmDictMinDictremmaxInst(
 @SerialName(TvmDictMinDictremmaxrefInst.MNEMONIC)
 data class TvmDictMinDictremmaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11607,7 +12292,8 @@ data class TvmDictMinDictremmaxrefInst(
 @SerialName(TvmDictMinDictremminInst.MNEMONIC)
 data class TvmDictMinDictremminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11623,7 +12309,8 @@ data class TvmDictMinDictremminInst(
 @SerialName(TvmDictMinDictremminrefInst.MNEMONIC)
 data class TvmDictMinDictremminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11639,7 +12326,8 @@ data class TvmDictMinDictremminrefInst(
 @SerialName(TvmDictMinDictumaxInst.MNEMONIC)
 data class TvmDictMinDictumaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11655,7 +12343,8 @@ data class TvmDictMinDictumaxInst(
 @SerialName(TvmDictMinDictumaxrefInst.MNEMONIC)
 data class TvmDictMinDictumaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11671,7 +12360,8 @@ data class TvmDictMinDictumaxrefInst(
 @SerialName(TvmDictMinDictuminInst.MNEMONIC)
 data class TvmDictMinDictuminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11687,7 +12377,8 @@ data class TvmDictMinDictuminInst(
 @SerialName(TvmDictMinDictuminrefInst.MNEMONIC)
 data class TvmDictMinDictuminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11703,7 +12394,8 @@ data class TvmDictMinDictuminrefInst(
 @SerialName(TvmDictMinDicturemmaxInst.MNEMONIC)
 data class TvmDictMinDicturemmaxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11719,7 +12411,8 @@ data class TvmDictMinDicturemmaxInst(
 @SerialName(TvmDictMinDicturemmaxrefInst.MNEMONIC)
 data class TvmDictMinDicturemmaxrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11735,7 +12428,8 @@ data class TvmDictMinDicturemmaxrefInst(
 @SerialName(TvmDictMinDicturemminInst.MNEMONIC)
 data class TvmDictMinDicturemminInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11751,7 +12445,8 @@ data class TvmDictMinDicturemminInst(
 @SerialName(TvmDictMinDicturemminrefInst.MNEMONIC)
 data class TvmDictMinDicturemminrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictMinInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11769,7 +12464,8 @@ data class TvmDictMinDicturemminrefInst(
 @SerialName(TvmDictNextDictgetnextInst.MNEMONIC)
 data class TvmDictNextDictgetnextInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11786,7 +12482,8 @@ data class TvmDictNextDictgetnextInst(
 @SerialName(TvmDictNextDictgetnexteqInst.MNEMONIC)
 data class TvmDictNextDictgetnexteqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11802,7 +12499,8 @@ data class TvmDictNextDictgetnexteqInst(
 @SerialName(TvmDictNextDictgetprevInst.MNEMONIC)
 data class TvmDictNextDictgetprevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11819,7 +12517,8 @@ data class TvmDictNextDictgetprevInst(
 @SerialName(TvmDictNextDictgetpreveqInst.MNEMONIC)
 data class TvmDictNextDictgetpreveqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11837,7 +12536,8 @@ data class TvmDictNextDictgetpreveqInst(
 @SerialName(TvmDictNextDictigetnextInst.MNEMONIC)
 data class TvmDictNextDictigetnextInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11853,7 +12553,8 @@ data class TvmDictNextDictigetnextInst(
 @SerialName(TvmDictNextDictigetnexteqInst.MNEMONIC)
 data class TvmDictNextDictigetnexteqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11869,7 +12570,8 @@ data class TvmDictNextDictigetnexteqInst(
 @SerialName(TvmDictNextDictigetprevInst.MNEMONIC)
 data class TvmDictNextDictigetprevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11885,7 +12587,8 @@ data class TvmDictNextDictigetprevInst(
 @SerialName(TvmDictNextDictigetpreveqInst.MNEMONIC)
 data class TvmDictNextDictigetpreveqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11903,7 +12606,8 @@ data class TvmDictNextDictigetpreveqInst(
 @SerialName(TvmDictNextDictugetnextInst.MNEMONIC)
 data class TvmDictNextDictugetnextInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11919,7 +12623,8 @@ data class TvmDictNextDictugetnextInst(
 @SerialName(TvmDictNextDictugetnexteqInst.MNEMONIC)
 data class TvmDictNextDictugetnexteqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11935,7 +12640,8 @@ data class TvmDictNextDictugetnexteqInst(
 @SerialName(TvmDictNextDictugetprevInst.MNEMONIC)
 data class TvmDictNextDictugetprevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11951,7 +12657,8 @@ data class TvmDictNextDictugetprevInst(
 @SerialName(TvmDictNextDictugetpreveqInst.MNEMONIC)
 data class TvmDictNextDictugetpreveqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictNextInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11967,7 +12674,8 @@ data class TvmDictNextDictugetpreveqInst(
 @SerialName(TvmDictPrefixPfxdictaddInst.MNEMONIC)
 data class TvmDictPrefixPfxdictaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -11983,9 +12691,10 @@ data class TvmDictPrefixPfxdictaddInst(
 @SerialName(TvmDictPrefixPfxdictconstgetjmpInst.MNEMONIC)
 data class TvmDictPrefixPfxdictconstgetjmpInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val d: TvmCell, // ref
     val n: Int, // uint
-): TvmInst, TvmDictPrefixInst {
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12001,7 +12710,8 @@ data class TvmDictPrefixPfxdictconstgetjmpInst(
 @SerialName(TvmDictPrefixPfxdictdelInst.MNEMONIC)
 data class TvmDictPrefixPfxdictdelInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12017,7 +12727,8 @@ data class TvmDictPrefixPfxdictdelInst(
 @SerialName(TvmDictPrefixPfxdictgetInst.MNEMONIC)
 data class TvmDictPrefixPfxdictgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12034,7 +12745,8 @@ data class TvmDictPrefixPfxdictgetInst(
 @SerialName(TvmDictPrefixPfxdictgetexecInst.MNEMONIC)
 data class TvmDictPrefixPfxdictgetexecInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12051,7 +12763,8 @@ data class TvmDictPrefixPfxdictgetexecInst(
 @SerialName(TvmDictPrefixPfxdictgetjmpInst.MNEMONIC)
 data class TvmDictPrefixPfxdictgetjmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12071,7 +12784,8 @@ data class TvmDictPrefixPfxdictgetjmpInst(
 @SerialName(TvmDictPrefixPfxdictgetqInst.MNEMONIC)
 data class TvmDictPrefixPfxdictgetqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12087,7 +12801,8 @@ data class TvmDictPrefixPfxdictgetqInst(
 @SerialName(TvmDictPrefixPfxdictreplaceInst.MNEMONIC)
 data class TvmDictPrefixPfxdictreplaceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12103,7 +12818,8 @@ data class TvmDictPrefixPfxdictreplaceInst(
 @SerialName(TvmDictPrefixPfxdictsetInst.MNEMONIC)
 data class TvmDictPrefixPfxdictsetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictPrefixInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12120,7 +12836,8 @@ data class TvmDictPrefixPfxdictsetInst(
 @SerialName(TvmDictSerialLddictInst.MNEMONIC)
 data class TvmDictSerialLddictInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12136,7 +12853,8 @@ data class TvmDictSerialLddictInst(
 @SerialName(TvmDictSerialLddictqInst.MNEMONIC)
 data class TvmDictSerialLddictqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12154,7 +12872,8 @@ data class TvmDictSerialLddictqInst(
 @SerialName(TvmDictSerialLddictsInst.MNEMONIC)
 data class TvmDictSerialLddictsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12171,7 +12890,8 @@ data class TvmDictSerialLddictsInst(
 @SerialName(TvmDictSerialPlddictInst.MNEMONIC)
 data class TvmDictSerialPlddictInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12187,7 +12907,8 @@ data class TvmDictSerialPlddictInst(
 @SerialName(TvmDictSerialPlddictqInst.MNEMONIC)
 data class TvmDictSerialPlddictqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12204,7 +12925,8 @@ data class TvmDictSerialPlddictqInst(
 @SerialName(TvmDictSerialPlddictsInst.MNEMONIC)
 data class TvmDictSerialPlddictsInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12220,7 +12942,8 @@ data class TvmDictSerialPlddictsInst(
 @SerialName(TvmDictSerialSkipdictInst.MNEMONIC)
 data class TvmDictSerialSkipdictInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12238,7 +12961,8 @@ data class TvmDictSerialSkipdictInst(
 @SerialName(TvmDictSerialStdictInst.MNEMONIC)
 data class TvmDictSerialStdictInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSerialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSerialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -12254,7 +12978,8 @@ data class TvmDictSerialStdictInst(
 @SerialName(TvmDictSetBuilderDictaddbInst.MNEMONIC)
 data class TvmDictSetBuilderDictaddbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12270,7 +12995,8 @@ data class TvmDictSetBuilderDictaddbInst(
 @SerialName(TvmDictSetBuilderDictaddgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictaddgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12286,7 +13012,8 @@ data class TvmDictSetBuilderDictaddgetbInst(
 @SerialName(TvmDictSetBuilderDictiaddbInst.MNEMONIC)
 data class TvmDictSetBuilderDictiaddbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12302,7 +13029,8 @@ data class TvmDictSetBuilderDictiaddbInst(
 @SerialName(TvmDictSetBuilderDictiaddgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictiaddgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12318,7 +13046,8 @@ data class TvmDictSetBuilderDictiaddgetbInst(
 @SerialName(TvmDictSetBuilderDictireplacebInst.MNEMONIC)
 data class TvmDictSetBuilderDictireplacebInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12334,7 +13063,8 @@ data class TvmDictSetBuilderDictireplacebInst(
 @SerialName(TvmDictSetBuilderDictireplacegetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictireplacegetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12350,7 +13080,8 @@ data class TvmDictSetBuilderDictireplacegetbInst(
 @SerialName(TvmDictSetBuilderDictisetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictisetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12366,7 +13097,8 @@ data class TvmDictSetBuilderDictisetbInst(
 @SerialName(TvmDictSetBuilderDictisetgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictisetgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12382,7 +13114,8 @@ data class TvmDictSetBuilderDictisetgetbInst(
 @SerialName(TvmDictSetBuilderDictreplacebInst.MNEMONIC)
 data class TvmDictSetBuilderDictreplacebInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12398,7 +13131,8 @@ data class TvmDictSetBuilderDictreplacebInst(
 @SerialName(TvmDictSetBuilderDictreplacegetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictreplacegetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12414,7 +13148,8 @@ data class TvmDictSetBuilderDictreplacegetbInst(
 @SerialName(TvmDictSetBuilderDictsetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictsetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12430,7 +13165,8 @@ data class TvmDictSetBuilderDictsetbInst(
 @SerialName(TvmDictSetBuilderDictsetgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictsetgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12446,7 +13182,8 @@ data class TvmDictSetBuilderDictsetgetbInst(
 @SerialName(TvmDictSetBuilderDictuaddbInst.MNEMONIC)
 data class TvmDictSetBuilderDictuaddbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12462,7 +13199,8 @@ data class TvmDictSetBuilderDictuaddbInst(
 @SerialName(TvmDictSetBuilderDictuaddgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictuaddgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12478,7 +13216,8 @@ data class TvmDictSetBuilderDictuaddgetbInst(
 @SerialName(TvmDictSetBuilderDictureplacebInst.MNEMONIC)
 data class TvmDictSetBuilderDictureplacebInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12494,7 +13233,8 @@ data class TvmDictSetBuilderDictureplacebInst(
 @SerialName(TvmDictSetBuilderDictureplacegetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictureplacegetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12510,7 +13250,8 @@ data class TvmDictSetBuilderDictureplacegetbInst(
 @SerialName(TvmDictSetBuilderDictusetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictusetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12526,7 +13267,8 @@ data class TvmDictSetBuilderDictusetbInst(
 @SerialName(TvmDictSetBuilderDictusetgetbInst.MNEMONIC)
 data class TvmDictSetBuilderDictusetgetbInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetBuilderInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12543,7 +13285,8 @@ data class TvmDictSetBuilderDictusetgetbInst(
 @SerialName(TvmDictSetDictaddInst.MNEMONIC)
 data class TvmDictSetDictaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12561,7 +13304,8 @@ data class TvmDictSetDictaddInst(
 @SerialName(TvmDictSetDictaddgetInst.MNEMONIC)
 data class TvmDictSetDictaddgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12577,7 +13321,8 @@ data class TvmDictSetDictaddgetInst(
 @SerialName(TvmDictSetDictaddgetrefInst.MNEMONIC)
 data class TvmDictSetDictaddgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12593,7 +13338,8 @@ data class TvmDictSetDictaddgetrefInst(
 @SerialName(TvmDictSetDictaddrefInst.MNEMONIC)
 data class TvmDictSetDictaddrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12609,7 +13355,8 @@ data class TvmDictSetDictaddrefInst(
 @SerialName(TvmDictSetDictiaddInst.MNEMONIC)
 data class TvmDictSetDictiaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12625,7 +13372,8 @@ data class TvmDictSetDictiaddInst(
 @SerialName(TvmDictSetDictiaddgetInst.MNEMONIC)
 data class TvmDictSetDictiaddgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12641,7 +13389,8 @@ data class TvmDictSetDictiaddgetInst(
 @SerialName(TvmDictSetDictiaddgetrefInst.MNEMONIC)
 data class TvmDictSetDictiaddgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12657,7 +13406,8 @@ data class TvmDictSetDictiaddgetrefInst(
 @SerialName(TvmDictSetDictiaddrefInst.MNEMONIC)
 data class TvmDictSetDictiaddrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12673,7 +13423,8 @@ data class TvmDictSetDictiaddrefInst(
 @SerialName(TvmDictSetDictireplaceInst.MNEMONIC)
 data class TvmDictSetDictireplaceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12689,7 +13440,8 @@ data class TvmDictSetDictireplaceInst(
 @SerialName(TvmDictSetDictireplacegetInst.MNEMONIC)
 data class TvmDictSetDictireplacegetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12705,7 +13457,8 @@ data class TvmDictSetDictireplacegetInst(
 @SerialName(TvmDictSetDictireplacegetrefInst.MNEMONIC)
 data class TvmDictSetDictireplacegetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12721,7 +13474,8 @@ data class TvmDictSetDictireplacegetrefInst(
 @SerialName(TvmDictSetDictireplacerefInst.MNEMONIC)
 data class TvmDictSetDictireplacerefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12738,7 +13492,8 @@ data class TvmDictSetDictireplacerefInst(
 @SerialName(TvmDictSetDictisetInst.MNEMONIC)
 data class TvmDictSetDictisetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12754,7 +13509,8 @@ data class TvmDictSetDictisetInst(
 @SerialName(TvmDictSetDictisetgetInst.MNEMONIC)
 data class TvmDictSetDictisetgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12770,7 +13526,8 @@ data class TvmDictSetDictisetgetInst(
 @SerialName(TvmDictSetDictisetgetrefInst.MNEMONIC)
 data class TvmDictSetDictisetgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12786,7 +13543,8 @@ data class TvmDictSetDictisetgetrefInst(
 @SerialName(TvmDictSetDictisetrefInst.MNEMONIC)
 data class TvmDictSetDictisetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12803,7 +13561,8 @@ data class TvmDictSetDictisetrefInst(
 @SerialName(TvmDictSetDictreplaceInst.MNEMONIC)
 data class TvmDictSetDictreplaceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12820,7 +13579,8 @@ data class TvmDictSetDictreplaceInst(
 @SerialName(TvmDictSetDictreplacegetInst.MNEMONIC)
 data class TvmDictSetDictreplacegetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12836,7 +13596,8 @@ data class TvmDictSetDictreplacegetInst(
 @SerialName(TvmDictSetDictreplacegetrefInst.MNEMONIC)
 data class TvmDictSetDictreplacegetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12852,7 +13613,8 @@ data class TvmDictSetDictreplacegetrefInst(
 @SerialName(TvmDictSetDictreplacerefInst.MNEMONIC)
 data class TvmDictSetDictreplacerefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12870,7 +13632,8 @@ data class TvmDictSetDictreplacerefInst(
 @SerialName(TvmDictSetDictsetInst.MNEMONIC)
 data class TvmDictSetDictsetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12887,7 +13650,8 @@ data class TvmDictSetDictsetInst(
 @SerialName(TvmDictSetDictsetgetInst.MNEMONIC)
 data class TvmDictSetDictsetgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12903,7 +13667,8 @@ data class TvmDictSetDictsetgetInst(
 @SerialName(TvmDictSetDictsetgetrefInst.MNEMONIC)
 data class TvmDictSetDictsetgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12919,7 +13684,8 @@ data class TvmDictSetDictsetgetrefInst(
 @SerialName(TvmDictSetDictsetrefInst.MNEMONIC)
 data class TvmDictSetDictsetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12935,7 +13701,8 @@ data class TvmDictSetDictsetrefInst(
 @SerialName(TvmDictSetDictuaddInst.MNEMONIC)
 data class TvmDictSetDictuaddInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12951,7 +13718,8 @@ data class TvmDictSetDictuaddInst(
 @SerialName(TvmDictSetDictuaddgetInst.MNEMONIC)
 data class TvmDictSetDictuaddgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12967,7 +13735,8 @@ data class TvmDictSetDictuaddgetInst(
 @SerialName(TvmDictSetDictuaddgetrefInst.MNEMONIC)
 data class TvmDictSetDictuaddgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12983,7 +13752,8 @@ data class TvmDictSetDictuaddgetrefInst(
 @SerialName(TvmDictSetDictuaddrefInst.MNEMONIC)
 data class TvmDictSetDictuaddrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -12999,7 +13769,8 @@ data class TvmDictSetDictuaddrefInst(
 @SerialName(TvmDictSetDictureplaceInst.MNEMONIC)
 data class TvmDictSetDictureplaceInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13015,7 +13786,8 @@ data class TvmDictSetDictureplaceInst(
 @SerialName(TvmDictSetDictureplacegetInst.MNEMONIC)
 data class TvmDictSetDictureplacegetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13031,7 +13803,8 @@ data class TvmDictSetDictureplacegetInst(
 @SerialName(TvmDictSetDictureplacegetrefInst.MNEMONIC)
 data class TvmDictSetDictureplacegetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13047,7 +13820,8 @@ data class TvmDictSetDictureplacegetrefInst(
 @SerialName(TvmDictSetDictureplacerefInst.MNEMONIC)
 data class TvmDictSetDictureplacerefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13063,7 +13837,8 @@ data class TvmDictSetDictureplacerefInst(
 @SerialName(TvmDictSetDictusetInst.MNEMONIC)
 data class TvmDictSetDictusetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13079,7 +13854,8 @@ data class TvmDictSetDictusetInst(
 @SerialName(TvmDictSetDictusetgetInst.MNEMONIC)
 data class TvmDictSetDictusetgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13095,7 +13871,8 @@ data class TvmDictSetDictusetgetInst(
 @SerialName(TvmDictSetDictusetgetrefInst.MNEMONIC)
 data class TvmDictSetDictusetgetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13111,7 +13888,8 @@ data class TvmDictSetDictusetgetrefInst(
 @SerialName(TvmDictSetDictusetrefInst.MNEMONIC)
 data class TvmDictSetDictusetrefInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSetInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13127,7 +13905,8 @@ data class TvmDictSetDictusetrefInst(
 @SerialName(TvmDictSpecialDictigetexecInst.MNEMONIC)
 data class TvmDictSpecialDictigetexecInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13143,7 +13922,8 @@ data class TvmDictSpecialDictigetexecInst(
 @SerialName(TvmDictSpecialDictigetexeczInst.MNEMONIC)
 data class TvmDictSpecialDictigetexeczInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13160,7 +13940,8 @@ data class TvmDictSpecialDictigetexeczInst(
 @SerialName(TvmDictSpecialDictigetjmpInst.MNEMONIC)
 data class TvmDictSpecialDictigetjmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13176,7 +13957,8 @@ data class TvmDictSpecialDictigetjmpInst(
 @SerialName(TvmDictSpecialDictigetjmpzInst.MNEMONIC)
 data class TvmDictSpecialDictigetjmpzInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13197,9 +13979,10 @@ data class TvmDictSpecialDictigetjmpzInst(
 @SerialName(TvmDictSpecialDictpushconstInst.MNEMONIC)
 data class TvmDictSpecialDictpushconstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val d: TvmCell, // ref
     val n: Int, // uint
-): TvmInst, TvmDictSpecialInst {
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -13215,7 +13998,8 @@ data class TvmDictSpecialDictpushconstInst(
 @SerialName(TvmDictSpecialDictugetexecInst.MNEMONIC)
 data class TvmDictSpecialDictugetexecInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13231,7 +14015,8 @@ data class TvmDictSpecialDictugetexecInst(
 @SerialName(TvmDictSpecialDictugetexeczInst.MNEMONIC)
 data class TvmDictSpecialDictugetexeczInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13247,7 +14032,8 @@ data class TvmDictSpecialDictugetexeczInst(
 @SerialName(TvmDictSpecialDictugetjmpInst.MNEMONIC)
 data class TvmDictSpecialDictugetjmpInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13263,7 +14049,8 @@ data class TvmDictSpecialDictugetjmpInst(
 @SerialName(TvmDictSpecialDictugetjmpzInst.MNEMONIC)
 data class TvmDictSpecialDictugetjmpzInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSpecialInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13282,7 +14069,8 @@ data class TvmDictSpecialDictugetjmpzInst(
 @SerialName(TvmDictSubSubdictgetInst.MNEMONIC)
 data class TvmDictSubSubdictgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13299,7 +14087,8 @@ data class TvmDictSubSubdictgetInst(
 @SerialName(TvmDictSubSubdictigetInst.MNEMONIC)
 data class TvmDictSubSubdictigetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13316,7 +14105,8 @@ data class TvmDictSubSubdictigetInst(
 @SerialName(TvmDictSubSubdictirpgetInst.MNEMONIC)
 data class TvmDictSubSubdictirpgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13333,7 +14123,8 @@ data class TvmDictSubSubdictirpgetInst(
 @SerialName(TvmDictSubSubdictrpgetInst.MNEMONIC)
 data class TvmDictSubSubdictrpgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13350,7 +14141,8 @@ data class TvmDictSubSubdictrpgetInst(
 @SerialName(TvmDictSubSubdictugetInst.MNEMONIC)
 data class TvmDictSubSubdictugetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13367,7 +14159,8 @@ data class TvmDictSubSubdictugetInst(
 @SerialName(TvmDictSubSubdicturpgetInst.MNEMONIC)
 data class TvmDictSubSubdicturpgetInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmDictSubInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmSimpleGas
 
@@ -13383,8 +14176,9 @@ data class TvmDictSubSubdicturpgetInst(
 @SerialName(TvmExceptionsThrowInst.MNEMONIC)
 data class TvmExceptionsThrowInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
 
@@ -13402,8 +14196,9 @@ data class TvmExceptionsThrowInst(
 @SerialName(TvmExceptionsThrowShortInst.MNEMONIC)
 data class TvmExceptionsThrowShortInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
 
@@ -13420,7 +14215,8 @@ data class TvmExceptionsThrowShortInst(
 @SerialName(TvmExceptionsThrowanyInst.MNEMONIC)
 data class TvmExceptionsThrowanyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
 
@@ -13436,7 +14232,8 @@ data class TvmExceptionsThrowanyInst(
 @SerialName(TvmExceptionsThrowanyifInst.MNEMONIC)
 data class TvmExceptionsThrowanyifInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13452,7 +14249,8 @@ data class TvmExceptionsThrowanyifInst(
 @SerialName(TvmExceptionsThrowanyifnotInst.MNEMONIC)
 data class TvmExceptionsThrowanyifnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13469,8 +14267,9 @@ data class TvmExceptionsThrowanyifnotInst(
 @SerialName(TvmExceptionsThrowargInst.MNEMONIC)
 data class TvmExceptionsThrowargInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 84)
 
@@ -13488,7 +14287,8 @@ data class TvmExceptionsThrowargInst(
 @SerialName(TvmExceptionsThrowarganyInst.MNEMONIC)
 data class TvmExceptionsThrowarganyInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 76)
 
@@ -13504,7 +14304,8 @@ data class TvmExceptionsThrowarganyInst(
 @SerialName(TvmExceptionsThrowarganyifInst.MNEMONIC)
 data class TvmExceptionsThrowarganyifInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13520,7 +14321,8 @@ data class TvmExceptionsThrowarganyifInst(
 @SerialName(TvmExceptionsThrowarganyifnotInst.MNEMONIC)
 data class TvmExceptionsThrowarganyifnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13536,8 +14338,9 @@ data class TvmExceptionsThrowarganyifnotInst(
 @SerialName(TvmExceptionsThrowargifInst.MNEMONIC)
 data class TvmExceptionsThrowargifInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
 
@@ -13553,8 +14356,9 @@ data class TvmExceptionsThrowargifInst(
 @SerialName(TvmExceptionsThrowargifnotInst.MNEMONIC)
 data class TvmExceptionsThrowargifnotInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
 
@@ -13570,8 +14374,9 @@ data class TvmExceptionsThrowargifnotInst(
 @SerialName(TvmExceptionsThrowifInst.MNEMONIC)
 data class TvmExceptionsThrowifInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
 
@@ -13587,8 +14392,9 @@ data class TvmExceptionsThrowifInst(
 @SerialName(TvmExceptionsThrowifShortInst.MNEMONIC)
 data class TvmExceptionsThrowifShortInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13604,8 +14410,9 @@ data class TvmExceptionsThrowifShortInst(
 @SerialName(TvmExceptionsThrowifnotInst.MNEMONIC)
 data class TvmExceptionsThrowifnotInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "34/84")
 
@@ -13621,8 +14428,9 @@ data class TvmExceptionsThrowifnotInst(
 @SerialName(TvmExceptionsThrowifnotShortInst.MNEMONIC)
 data class TvmExceptionsThrowifnotShortInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26/76")
 
@@ -13643,7 +14451,8 @@ data class TvmExceptionsThrowifnotShortInst(
 @SerialName(TvmExceptionsTryInst.MNEMONIC)
 data class TvmExceptionsTryInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmExceptionsInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13662,9 +14471,10 @@ data class TvmExceptionsTryInst(
 @SerialName(TvmExceptionsTryargsInst.MNEMONIC)
 data class TvmExceptionsTryargsInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val p: Int, // uint
     val r: Int, // uint
-): TvmInst, TvmExceptionsInst {
+): TvmRealInst, TvmExceptionsInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13680,7 +14490,8 @@ data class TvmExceptionsTryargsInst(
 @SerialName(TvmStackBasicNopInst.MNEMONIC)
 data class TvmStackBasicNopInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackBasicInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13696,8 +14507,9 @@ data class TvmStackBasicNopInst(
 @SerialName(TvmStackBasicPopInst.MNEMONIC)
 data class TvmStackBasicPopInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13713,8 +14525,9 @@ data class TvmStackBasicPopInst(
 @SerialName(TvmStackBasicPushInst.MNEMONIC)
 data class TvmStackBasicPushInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13730,8 +14543,9 @@ data class TvmStackBasicPushInst(
 @SerialName(TvmStackBasicXchg0iInst.MNEMONIC)
 data class TvmStackBasicXchg0iInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13747,8 +14561,9 @@ data class TvmStackBasicXchg0iInst(
 @SerialName(TvmStackBasicXchg0iLongInst.MNEMONIC)
 data class TvmStackBasicXchg0iLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13764,8 +14579,9 @@ data class TvmStackBasicXchg0iLongInst(
 @SerialName(TvmStackBasicXchg1iInst.MNEMONIC)
 data class TvmStackBasicXchg1iInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13781,9 +14597,10 @@ data class TvmStackBasicXchg1iInst(
 @SerialName(TvmStackBasicXchgIjInst.MNEMONIC)
 data class TvmStackBasicXchgIjInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackBasicInst {
+): TvmRealInst, TvmStackBasicInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13801,9 +14618,10 @@ data class TvmStackBasicXchgIjInst(
 @SerialName(TvmStackComplexBlkdrop2Inst.MNEMONIC)
 data class TvmStackComplexBlkdrop2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13819,8 +14637,9 @@ data class TvmStackComplexBlkdrop2Inst(
 @SerialName(TvmStackComplexBlkdropInst.MNEMONIC)
 data class TvmStackComplexBlkdropInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13837,9 +14656,10 @@ data class TvmStackComplexBlkdropInst(
 @SerialName(TvmStackComplexBlkpushInst.MNEMONIC)
 data class TvmStackComplexBlkpushInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13857,9 +14677,10 @@ data class TvmStackComplexBlkpushInst(
 @SerialName(TvmStackComplexBlkswapInst.MNEMONIC)
 data class TvmStackComplexBlkswapInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -13875,7 +14696,8 @@ data class TvmStackComplexBlkswapInst(
 @SerialName(TvmStackComplexBlkswxInst.MNEMONIC)
 data class TvmStackComplexBlkswxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13892,7 +14714,8 @@ data class TvmStackComplexBlkswxInst(
 @SerialName(TvmStackComplexChkdepthInst.MNEMONIC)
 data class TvmStackComplexChkdepthInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "18/58")
 
@@ -13908,7 +14731,8 @@ data class TvmStackComplexChkdepthInst(
 @SerialName(TvmStackComplexDepthInst.MNEMONIC)
 data class TvmStackComplexDepthInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13924,7 +14748,8 @@ data class TvmStackComplexDepthInst(
 @SerialName(TvmStackComplexDrop2Inst.MNEMONIC)
 data class TvmStackComplexDrop2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13940,7 +14765,8 @@ data class TvmStackComplexDrop2Inst(
 @SerialName(TvmStackComplexDropxInst.MNEMONIC)
 data class TvmStackComplexDropxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13956,7 +14782,8 @@ data class TvmStackComplexDropxInst(
 @SerialName(TvmStackComplexDup2Inst.MNEMONIC)
 data class TvmStackComplexDup2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13972,7 +14799,8 @@ data class TvmStackComplexDup2Inst(
 @SerialName(TvmStackComplexMinusrollxInst.MNEMONIC)
 data class TvmStackComplexMinusrollxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -13988,7 +14816,8 @@ data class TvmStackComplexMinusrollxInst(
 @SerialName(TvmStackComplexOnlytopxInst.MNEMONIC)
 data class TvmStackComplexOnlytopxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14005,7 +14834,8 @@ data class TvmStackComplexOnlytopxInst(
 @SerialName(TvmStackComplexOnlyxInst.MNEMONIC)
 data class TvmStackComplexOnlyxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14021,7 +14851,8 @@ data class TvmStackComplexOnlyxInst(
 @SerialName(TvmStackComplexOver2Inst.MNEMONIC)
 data class TvmStackComplexOver2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14037,7 +14868,8 @@ data class TvmStackComplexOver2Inst(
 @SerialName(TvmStackComplexPickInst.MNEMONIC)
 data class TvmStackComplexPickInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14054,8 +14886,9 @@ data class TvmStackComplexPickInst(
 @SerialName(TvmStackComplexPopLongInst.MNEMONIC)
 data class TvmStackComplexPopLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14071,10 +14904,11 @@ data class TvmStackComplexPopLongInst(
 @SerialName(TvmStackComplexPu2xcInst.MNEMONIC)
 data class TvmStackComplexPu2xcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14090,9 +14924,10 @@ data class TvmStackComplexPu2xcInst(
 @SerialName(TvmStackComplexPush2Inst.MNEMONIC)
 data class TvmStackComplexPush2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14108,10 +14943,11 @@ data class TvmStackComplexPush2Inst(
 @SerialName(TvmStackComplexPush3Inst.MNEMONIC)
 data class TvmStackComplexPush3Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14128,8 +14964,9 @@ data class TvmStackComplexPush3Inst(
 @SerialName(TvmStackComplexPushLongInst.MNEMONIC)
 data class TvmStackComplexPushLongInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14145,10 +14982,11 @@ data class TvmStackComplexPushLongInst(
 @SerialName(TvmStackComplexPuxc2Inst.MNEMONIC)
 data class TvmStackComplexPuxc2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14164,9 +15002,10 @@ data class TvmStackComplexPuxc2Inst(
 @SerialName(TvmStackComplexPuxcInst.MNEMONIC)
 data class TvmStackComplexPuxcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14182,10 +15021,11 @@ data class TvmStackComplexPuxcInst(
 @SerialName(TvmStackComplexPuxcpuInst.MNEMONIC)
 data class TvmStackComplexPuxcpuInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14201,9 +15041,10 @@ data class TvmStackComplexPuxcpuInst(
 @SerialName(TvmStackComplexReverseInst.MNEMONIC)
 data class TvmStackComplexReverseInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14219,7 +15060,8 @@ data class TvmStackComplexReverseInst(
 @SerialName(TvmStackComplexRevxInst.MNEMONIC)
 data class TvmStackComplexRevxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14235,7 +15077,8 @@ data class TvmStackComplexRevxInst(
 @SerialName(TvmStackComplexRollxInst.MNEMONIC)
 data class TvmStackComplexRollxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14251,7 +15094,8 @@ data class TvmStackComplexRollxInst(
 @SerialName(TvmStackComplexRotInst.MNEMONIC)
 data class TvmStackComplexRotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14267,7 +15111,8 @@ data class TvmStackComplexRotInst(
 @SerialName(TvmStackComplexRotrevInst.MNEMONIC)
 data class TvmStackComplexRotrevInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14283,7 +15128,8 @@ data class TvmStackComplexRotrevInst(
 @SerialName(TvmStackComplexSwap2Inst.MNEMONIC)
 data class TvmStackComplexSwap2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14299,7 +15145,8 @@ data class TvmStackComplexSwap2Inst(
 @SerialName(TvmStackComplexTuckInst.MNEMONIC)
 data class TvmStackComplexTuckInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14315,10 +15162,11 @@ data class TvmStackComplexTuckInst(
 @SerialName(TvmStackComplexXc2puInst.MNEMONIC)
 data class TvmStackComplexXc2puInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14334,9 +15182,10 @@ data class TvmStackComplexXc2puInst(
 @SerialName(TvmStackComplexXchg2Inst.MNEMONIC)
 data class TvmStackComplexXchg2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14352,10 +15201,11 @@ data class TvmStackComplexXchg2Inst(
 @SerialName(TvmStackComplexXchg3AltInst.MNEMONIC)
 data class TvmStackComplexXchg3AltInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14371,10 +15221,11 @@ data class TvmStackComplexXchg3AltInst(
 @SerialName(TvmStackComplexXchg3Inst.MNEMONIC)
 data class TvmStackComplexXchg3Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14390,7 +15241,8 @@ data class TvmStackComplexXchg3Inst(
 @SerialName(TvmStackComplexXchgxInst.MNEMONIC)
 data class TvmStackComplexXchgxInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmStackComplexInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14406,10 +15258,11 @@ data class TvmStackComplexXchgxInst(
 @SerialName(TvmStackComplexXcpu2Inst.MNEMONIC)
 data class TvmStackComplexXcpu2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14425,9 +15278,10 @@ data class TvmStackComplexXcpu2Inst(
 @SerialName(TvmStackComplexXcpuInst.MNEMONIC)
 data class TvmStackComplexXcpuInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14443,10 +15297,11 @@ data class TvmStackComplexXcpuInst(
 @SerialName(TvmStackComplexXcpuxcInst.MNEMONIC)
 data class TvmStackComplexXcpuxcInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmStackComplexInst {
+): TvmRealInst, TvmStackComplexInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
 
@@ -14463,8 +15318,9 @@ data class TvmStackComplexXcpuxcInst(
 @SerialName(TvmTupleExplodeInst.MNEMONIC)
 data class TvmTupleExplodeInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
 
@@ -14480,7 +15336,8 @@ data class TvmTupleExplodeInst(
 @SerialName(TvmTupleExplodevarInst.MNEMONIC)
 data class TvmTupleExplodevarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+m")
 
@@ -14497,9 +15354,10 @@ data class TvmTupleExplodevarInst(
 @SerialName(TvmTupleIndex2Inst.MNEMONIC)
 data class TvmTupleIndex2Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14517,10 +15375,11 @@ data class TvmTupleIndex2Inst(
 @SerialName(TvmTupleIndex3Inst.MNEMONIC)
 data class TvmTupleIndex3Inst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val i: Int, // uint
     val j: Int, // uint
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14537,8 +15396,9 @@ data class TvmTupleIndex3Inst(
 @SerialName(TvmTupleIndexInst.MNEMONIC)
 data class TvmTupleIndexInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14555,8 +15415,9 @@ data class TvmTupleIndexInst(
 @SerialName(TvmTupleIndexqInst.MNEMONIC)
 data class TvmTupleIndexqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14572,7 +15433,8 @@ data class TvmTupleIndexqInst(
 @SerialName(TvmTupleIndexvarInst.MNEMONIC)
 data class TvmTupleIndexvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14588,7 +15450,8 @@ data class TvmTupleIndexvarInst(
 @SerialName(TvmTupleIndexvarqInst.MNEMONIC)
 data class TvmTupleIndexvarqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14604,7 +15467,8 @@ data class TvmTupleIndexvarqInst(
 @SerialName(TvmTupleIsnullInst.MNEMONIC)
 data class TvmTupleIsnullInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14620,7 +15484,8 @@ data class TvmTupleIsnullInst(
 @SerialName(TvmTupleIstupleInst.MNEMONIC)
 data class TvmTupleIstupleInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14636,7 +15501,8 @@ data class TvmTupleIstupleInst(
 @SerialName(TvmTupleLastInst.MNEMONIC)
 data class TvmTupleLastInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14652,7 +15518,8 @@ data class TvmTupleLastInst(
 @SerialName(TvmTupleNullInst.MNEMONIC)
 data class TvmTupleNullInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
 
@@ -14670,7 +15537,8 @@ data class TvmTupleNullInst(
 @SerialName(TvmTupleNullrotrif2Inst.MNEMONIC)
 data class TvmTupleNullrotrif2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14687,7 +15555,8 @@ data class TvmTupleNullrotrif2Inst(
 @SerialName(TvmTupleNullrotrifInst.MNEMONIC)
 data class TvmTupleNullrotrifInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14705,7 +15574,8 @@ data class TvmTupleNullrotrifInst(
 @SerialName(TvmTupleNullrotrifnot2Inst.MNEMONIC)
 data class TvmTupleNullrotrifnot2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14722,7 +15592,8 @@ data class TvmTupleNullrotrifnot2Inst(
 @SerialName(TvmTupleNullrotrifnotInst.MNEMONIC)
 data class TvmTupleNullrotrifnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14739,7 +15610,8 @@ data class TvmTupleNullrotrifnotInst(
 @SerialName(TvmTupleNullswapif2Inst.MNEMONIC)
 data class TvmTupleNullswapif2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14755,7 +15627,8 @@ data class TvmTupleNullswapif2Inst(
 @SerialName(TvmTupleNullswapifInst.MNEMONIC)
 data class TvmTupleNullswapifInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14772,7 +15645,8 @@ data class TvmTupleNullswapifInst(
 @SerialName(TvmTupleNullswapifnot2Inst.MNEMONIC)
 data class TvmTupleNullswapifnot2Inst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14789,7 +15663,8 @@ data class TvmTupleNullswapifnot2Inst(
 @SerialName(TvmTupleNullswapifnotInst.MNEMONIC)
 data class TvmTupleNullswapifnotInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14805,7 +15680,8 @@ data class TvmTupleNullswapifnotInst(
 @SerialName(TvmTupleQtlenInst.MNEMONIC)
 data class TvmTupleQtlenInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14823,8 +15699,9 @@ data class TvmTupleQtlenInst(
 @SerialName(TvmTupleSetindexInst.MNEMONIC)
 data class TvmTupleSetindexInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t|")
 
@@ -14845,8 +15722,9 @@ data class TvmTupleSetindexInst(
 @SerialName(TvmTupleSetindexqInst.MNEMONIC)
 data class TvmTupleSetindexqInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
 
@@ -14862,7 +15740,8 @@ data class TvmTupleSetindexqInst(
 @SerialName(TvmTupleSetindexvarInst.MNEMONIC)
 data class TvmTupleSetindexvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
 
@@ -14878,7 +15757,8 @@ data class TvmTupleSetindexvarInst(
 @SerialName(TvmTupleSetindexvarqInst.MNEMONIC)
 data class TvmTupleSetindexvarqInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
 
@@ -14894,7 +15774,8 @@ data class TvmTupleSetindexvarqInst(
 @SerialName(TvmTupleTlenInst.MNEMONIC)
 data class TvmTupleTlenInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
 
@@ -14911,7 +15792,8 @@ data class TvmTupleTlenInst(
 @SerialName(TvmTupleTpopInst.MNEMONIC)
 data class TvmTupleTpopInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
 
@@ -14928,7 +15810,8 @@ data class TvmTupleTpopInst(
 @SerialName(TvmTupleTpushInst.MNEMONIC)
 data class TvmTupleTpushInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+|t'|")
 
@@ -14945,8 +15828,9 @@ data class TvmTupleTpushInst(
 @SerialName(TvmTupleTupleInst.MNEMONIC)
 data class TvmTupleTupleInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
 
@@ -14963,7 +15847,8 @@ data class TvmTupleTupleInst(
 @SerialName(TvmTupleTuplevarInst.MNEMONIC)
 data class TvmTupleTuplevarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
 
@@ -14980,8 +15865,9 @@ data class TvmTupleTuplevarInst(
 @SerialName(TvmTupleUnpackfirstInst.MNEMONIC)
 data class TvmTupleUnpackfirstInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val k: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+k")
 
@@ -14997,7 +15883,8 @@ data class TvmTupleUnpackfirstInst(
 @SerialName(TvmTupleUnpackfirstvarInst.MNEMONIC)
 data class TvmTupleUnpackfirstvarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
 
@@ -15014,8 +15901,9 @@ data class TvmTupleUnpackfirstvarInst(
 @SerialName(TvmTupleUntupleInst.MNEMONIC)
 data class TvmTupleUntupleInst(
     override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-): TvmInst, TvmTupleInst {
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
 
@@ -15031,7 +15919,8 @@ data class TvmTupleUntupleInst(
 @SerialName(TvmTupleUntuplevarInst.MNEMONIC)
 data class TvmTupleUntuplevarInst(
     override val location: TvmInstLocation,
-): TvmInst, TvmTupleInst {
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmTupleInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
 

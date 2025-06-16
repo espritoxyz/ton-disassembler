@@ -1,12 +1,18 @@
 package org.ton.bytecode
 
 import kotlinx.serialization.Serializable
+import org.ton.disasm.TvmPhysicalInstLocation
 
 @Serializable
 sealed interface TvmInst {
     val mnemonic: String
     val location: TvmInstLocation
     val gasConsumption: TvmGas
+}
+
+@Serializable
+sealed interface TvmRealInst : TvmInst {
+    val physicalLocation: TvmPhysicalInstLocation
 }
 
 /**
