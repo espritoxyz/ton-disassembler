@@ -19,11 +19,6 @@ sealed interface TvmRealInst : TvmInst {
     val physicalLocation: TvmPhysicalInstLocation
 }
 
-@Serializable
-sealed interface TvmRealInst : TvmInst {
-    val physicalLocation: TvmPhysicalInstLocation
-}
-
 /**
  * These instructions never occur in disassembler output.
  * They are needed for custom modifications of [TvmContractCode].
