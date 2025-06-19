@@ -1,7 +1,10 @@
 import kotlinx.serialization.decodeFromString
 import org.ton.disasm.bytecode.CellOperandType
+import org.ton.disasm.bytecode.ControlFlowBranchContinuation
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
+import org.ton.disasm.bytecode.InstructionStackConstValue
+import org.ton.disasm.bytecode.InstructionStackSimpleValue
 import org.ton.disasm.bytecode.InstructionsList
 import org.ton.disasm.bytecode.opcodeToRefOperandType
 import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
@@ -13,6 +16,8 @@ import kotlin.io.path.readText
 private val instructionsListPath = Path("tvm-spec/cp0.json")
 private val generatedInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructions.kt")
 private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode/TvmInstructionsDefaults.kt")
+
+enum class StackFlowDirection { INPUT, OUTPUT }
 
 private fun generateInstructionCellOperandTypes(
     instructions: Map<String, InstructionDescription>
@@ -57,7 +62,7 @@ private fun tvmInstCategoryClassName(categoryName: String): String =
 private fun tvmInstClassName(inst: InstructionDescription): String =
     "Tvm${snakeToCamel(inst.doc.category)}${snakeToCamel(inst.mnemonic)}Inst"
 
-private fun tvmInstOperandType(operand: InstructionOperandDescription): String? = when (operand.type) {
+private fun tvmInstOperandType(operand: InstructionOperandDescription): String = when (operand.type) {
     "uint", "int" -> "Int"
     "pushint_long" -> "String"
     "ref", "subslice" -> "TvmCell"
@@ -133,6 +138,86 @@ private fun tvmInstDefault(
     """.trimMargin()
 }
 
+private fun extractStackEntries(
+    inst: InstructionDescription,
+    direction: StackFlowDirection,
+): String {
+    val stack = when (direction) {
+        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack
+        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack
+    }
+
+    return when {
+        stack == null -> "List<TvmStackEntryDescription>? \n" +
+                "        get() = null"    // stack inputs/outputs are unconstrained OR this is stack manipulation instruction
+        stack.isEmpty() -> "List<TvmStackEntryDescription> \n" +
+                "        get() = emptyList()"
+        else -> {
+            "List<TvmStackEntryDescription> \n" +
+                    "        get() = listOf(\n" + stack.joinToString(",\n") { entry ->
+                when (entry) {
+                    is InstructionStackSimpleValue -> {
+                        """
+                        |            TvmSimpleStackEntryDescription(
+                        |                name = "${entry.name}",
+                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    is InstructionStackConstValue -> {
+                        val valueStr = entry.typedValue?.toString() ?: "null"
+                        """
+                        |            TvmConstStackEntryDescription(
+                        |                value = $valueStr,
+                        |                valueType = "${entry.value_type}"
+                        |            )
+                        """.trimMargin()
+                    }
+
+                    else -> {
+                        """
+                        |            TvmGenericStackEntryDescription(
+                        |                type = "${entry.entryType}"
+                        |            )
+                        """.trimMargin()
+                    }
+                }
+            } + "\n        )"
+        }
+    }
+}
+
+private fun extractControlFlowBranches(branches: List<ControlFlowBranchContinuation>): String {
+    if (branches.isEmpty()) {
+        return "emptyList()"
+    }
+
+    fun formatBranch(branch: ControlFlowBranchContinuation, indent: String = "            ", isFstLine: Boolean = false): String {
+        val saveFormatted = branch.save?.entries?.joinToString(",\n") { (key, value) ->
+            """$indent        "$key" to ${formatBranch(value, "$indent        ")}"""
+        }
+
+        return buildString {
+            appendLine((if (isFstLine) indent else "") + "TvmControlFlowContinuation(")
+            appendLine("""$indent    type = "${branch.type}",""")
+            if (branch.var_name != null) {
+                appendLine("""$indent    variableName = "${branch.var_name}",""")
+            }
+            if (!saveFormatted.isNullOrEmpty()) {
+                appendLine("""$indent    save = mapOf(""" )
+                append(saveFormatted)
+                appendLine()
+                appendLine("$indent    )")
+            }
+            append("$indent)")
+        }
+    }
+
+    return "listOf(\n" + branches.joinToString(",\n") { formatBranch(it, isFstLine = true) } + "\n        )"
+}
+
+
 private fun tvmInstDeclaration(
     inst: InstructionDescription,
     instructionOperandTypes: Map<String, Map<String, String>>,
@@ -185,12 +270,17 @@ private fun tvmInstDeclaration(
     |): TvmRealInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
-    |
+    |    override val stackInputs: ${extractStackEntries(inst, StackFlowDirection.INPUT)}
+    |    override val stackOutputs: ${extractStackEntries(inst, StackFlowDirection.OUTPUT)}
+    |    override val branches: List<TvmControlFlowContinuation> 
+    |        get() = ${extractControlFlowBranches(inst.controlFlow.branches)}
+    |    override val noBranch: Boolean get() = ${inst.controlFlow.nobranch}
+    |    
     |    companion object {
     |        const val MNEMONIC = "${inst.mnemonic}"
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 private fun generateInstructionSerializer(instructions: Set<String>): String {
@@ -201,7 +291,7 @@ private fun generateInstructionSerializer(instructions: Set<String>): String {
     $instructionSerializers
     |    }
     |}
-    """.trimMargin()
+        """.trimMargin()
 }
 
 fun main() {
@@ -241,7 +331,7 @@ fun main() {
             import kotlinx.serialization.modules.subclass
             import org.ton.disasm.TvmPhysicalInstLocation
             
-        """.trimIndent()
+            """.trimIndent(),
         )
 
         categories.entries.sortedBy { it.key }.forEach {
