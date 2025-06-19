@@ -173,6 +173,35 @@ Method ID: 0
 You can also use `--include-cell` option to include cell contents in the output (in both Instruction List with Arguments and Three-address code representation).
 If a cell represents blockchain address, the tool will automatically display it in [raw address format](https://docs.ton.org/v3/concepts/dive-into-ton/ton-blockchain/smart-contract-addresses#raw-address)
 
+#### Current Limitations of TAC feature
+
+The current three-address code representation does not yet support the following TVM features:
+
+- **Array & conditional stack variables**  
+  Stack variables of type [`array`](https://github.com/ton-community/tvm-spec?tab=readme-ov-file#array) (e.g. values constructed by `TUPLE`) and [`conditional`](https://github.com/ton-community/tvm-spec?tab=readme-ov-file#conditional) (used by instructions like `UNTIL`) are not supported.
+
+- **Instructions with dynamic parameters**  
+  Instructions with an unconstrained number of input or output parameters are not supported (e.g. `RUNVM` instruction).
+
+- **Non-variable continuations**  
+  Only continuations of type [`variable`](https://github.com/ton-community/tvm-spec?tab=readme-ov-file#variable-1) are supported.
+  Moreover, we currently support only *variable continuations* whose `save` field is either empty, or contains only `c0` continuations of type `cc`. For example, `IF` instruction contains continuation like this in its `save` field:
+   ```json
+   {
+     "type": "variable",
+     "var_name": "c",
+     "save": {
+       "c0": {
+         "type": "cc"
+         ...
+       }
+     }
+   }
+    ```
+- **Instructions that pass control flow to control registers**  
+  Instructions that transfer execution to Continuations stored in control registers (e.g., `RETALT`) are not supported.
+
+
 ## Library Integration
 
 To integrate TON Disassembler into a JVM-based application, use the `tvm-opcodes` module. It can be included either by using a manually built JAR file or via a build system.
