@@ -14,6 +14,11 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import org.ton.bigint.BigIntSerializer
+import org.ton.disasm.bytecode.InstructionStackSimpleValue
+import org.ton.disasm.bytecode.InstructionStackConstValue
+import org.ton.disasm.bytecode.InstructionStackArrayValue
+import org.ton.disasm.bytecode.InstructionStackConditionalValue
+import org.ton.disasm.bytecode.InstructionStackValueDescription
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
 
@@ -34,6 +39,13 @@ data class TvmContractCode(
                 polymorphic(TvmCodeBlock::class) {
                     subclass(TvmMethod::class)
                     subclass(TvmMainMethod::class)
+                }
+
+                polymorphic(InstructionStackValueDescription::class) {
+                    subclass(InstructionStackSimpleValue::class)
+                    subclass(InstructionStackConstValue::class)
+                    subclass(InstructionStackArrayValue::class)
+                    subclass(InstructionStackConditionalValue::class)
                 }
 
                 registerTvmInstSerializer()
