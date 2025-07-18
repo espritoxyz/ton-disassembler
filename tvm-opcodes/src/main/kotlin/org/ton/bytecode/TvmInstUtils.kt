@@ -59,5 +59,7 @@ fun bitStringToHex(bits: String): String {
         .joinToString("") { it.toInt(2).toString(16) }
 }
 
-
-private val IGNORED_PROPS = TvmInst::class.memberProperties.map { it.name }.toSet() // exclude mnemonic, location and gasConsumption fields
+private val IGNORED_PROPS = buildSet {  // exclude mnemonic, location, physicalLocation and gasConsumption fields
+    addAll(TvmInst::class.memberProperties.map { it.name })
+    addAll(TvmRealInst::class.memberProperties.map { it.name })
+}
