@@ -48,40 +48,66 @@ private fun processInstruction(
     stack: Stack,
     inst: TvmInst,
 ): AbstractTacInst? {
-    val operands = extractPrimitiveOperands(inst).toMutableMap()
-
     throwErrorIfStackTypesNotSupported(inst)
     throwErrorIfBranchesNotTypeVar(inst)
 
-    val (allBranchesWithSave, endingInst) = checkAllBranchesWithSave(inst.branches, inst.mnemonic)
-    val specInputs = inst.stackInputs ?: emptyList()
-    val specOutputs = inst.stackOutputs ?: emptyList()
-
     if (inst is TvmStackBasicInst || inst is TvmStackComplexInst) {
         return if (ctx.debug) {
-            stack.execStackInstructionAndSaveStackState(inst)
+            val stateBefore = stack.copyEntries()
+            stack.execStackInstruction(inst)
+            val stateAfter = stack.copyEntries()
+            return TacDebugStackInst(
+                mnemonic = inst.mnemonic,
+                parameters = extractPrimitiveOperands(inst),
+                stackBefore = stateBefore,
+                stackAfter = stateAfter,
+            )
         } else {
             stack.execStackInstruction(inst)
             null
         }
     }
 
-    var operandsContRefs: List<Int>? = null
-    var stackContRef: Int? = null
-
-    if (inst is TvmContOperandInst) {
-        val contRefs = processInstWithContsIsolated(ctx, inst)
-        operandsContRefs = contRefs.first
-        stackContRef = contRefs.second
-    }
-
     if (inst.mnemonic in CALLDICT_MNEMONICS) {
+        val operands = extractPrimitiveOperands(inst).toMutableMap()
+
         var methodNumber = operands["n"] ?: error("Missing method number in CALLDICT")
         methodNumber = methodNumber as? Int
             ?: error("Expected method number to be Int in CALLDICT, but it is: ${methodNumber::class.simpleName}")
         methodNumber = methodNumber.toBigInteger()
 
         return processCallDict(ctx, stack, methodNumber, inst, operands)
+    }
+
+    return if (ctx.debug) {
+        val stateBefore = stack.copyEntries()
+        val innerInst = constructOrdinaryInst(ctx, stack, inst)
+        val stateAfter = stack.copyEntries()
+        return TacInstDebugWrapper(innerInst, stackBefore = stateBefore, stackAfter = stateAfter)
+    } else {
+        constructOrdinaryInst(ctx, stack, inst)
+    }
+}
+
+private fun constructOrdinaryInst(
+    ctx: TacGenerationContext,
+    stack: Stack,
+    inst: TvmInst,
+): TacOrdinaryInst {
+    val operands = extractPrimitiveOperands(inst).toMutableMap()
+
+    val (allBranchesWithSave, endingInst) = checkAllBranchesWithSave(inst.branches, inst.mnemonic)
+    val specInputs = inst.stackInputs ?: emptyList()
+    val specOutputs = inst.stackOutputs ?: emptyList()
+
+    var operandsContRefs: List<Int>? = null
+    var stackContRef: Int? = null
+
+    // what is that?
+    if (inst is TvmContOperandInst) {
+        val contRefs = processInstWithContsIsolated(ctx, inst)
+        operandsContRefs = contRefs.first
+        stackContRef = contRefs.second
     }
 
     var nonStackTacInst = stack.processNonStackInst(

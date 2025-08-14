@@ -51,7 +51,6 @@ import org.ton.bytecode.TvmStackComplexXcpu2Inst
 import org.ton.bytecode.TvmStackComplexXcpuInst
 import org.ton.bytecode.TvmStackComplexXcpuxcInst
 import org.ton.bytecode.TvmStackEntryDescription
-import org.ton.bytecode.extractPrimitiveOperands
 import java.util.Collections.swap
 
 val SUPPORTED_STACK_TYPES = setOf("simple", "const")
@@ -157,7 +156,6 @@ class Stack(
             if (hasMatchingType) {
                 val matchedTypes = inputVar.valueTypes.filter { it in valuesCheck }
                 inputVar = inputVar.copy(valueTypes = matchedTypes)
-//                    warningCollector.add("success type match in var ${inputVar.name}. actual types: ${inputVar.valueTypes}, valuesCheck: $valuesCheck ")
                 return inputVar
             }
             warningCollector.add(
@@ -215,21 +213,6 @@ class Stack(
             is TvmStackComplexInst -> execComplexStackInstruction(inst)
             else -> error("not stack instruction type")
         }
-    }
-
-    fun execStackInstructionAndSaveStackState(inst: TvmInst): TacDebugStackInst {
-        val stackBefore = stack.toList()
-
-        execStackInstruction(inst)
-
-        val stackAfter = stack.toList()
-
-        return TacDebugStackInst(
-            mnemonic = inst.mnemonic,
-            parameters = extractPrimitiveOperands(inst),
-            stackBefore = stackBefore,
-            stackAfter = stackAfter,
-        )
     }
 
     private fun execBasicStackInstruction(inst: TvmStackBasicInst) {
@@ -467,7 +450,6 @@ class Stack(
         val outputs = mutableListOf<TacVar>()
         val contRefList = mutableListOf<Int>()
         var constCounter = 0
-        var debugInfo = ""
 
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
@@ -475,8 +457,8 @@ class Stack(
                 val specInput = input as TvmSimpleStackEntryDescription
                 val specValueTypes = specInput.valueTypes
                 val poppedValue = stack.pop(instName = mnemonic, valuesCheck = specValueTypes)
-                if (poppedValue.contRef != null) {
-                    contRefList.add(poppedValue.contRef)
+                if (poppedValue.concreteContinuationRef != null) {
+                    contRefList.add(poppedValue.concreteContinuationRef)
                 }
                 inputs.add(poppedValue)
             } else {
@@ -495,7 +477,7 @@ class Stack(
                     val pushValue = TacVar(
                         name = "${specName}_${getNextVar()}",
                         valueTypes = specValueTypes,
-                        contRef = contRef
+                        concreteContinuationRef = contRef
                     )
                     stack.push(pushValue)
                     outputs.add(pushValue)
@@ -512,7 +494,6 @@ class Stack(
                 else -> error("${output.type} from instruction $mnemonic isn't supported yet")
             }
         }
-        debugInfo += " stack: [${stack.dumpStackState()}]"
 
         return TacOrdinaryInst(
             mnemonic = mnemonic,
@@ -521,7 +502,6 @@ class Stack(
             operands = operands,
             contIsolatedsRefs = contRefList,
             warningInfo = warningInfo,
-            debugInfo = debugInfo,
             saveC0 = false,
             instPrefix = "",
         )

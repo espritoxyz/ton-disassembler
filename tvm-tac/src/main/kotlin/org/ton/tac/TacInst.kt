@@ -16,7 +16,6 @@ data class TacOrdinaryInst(
     val saveC0: Boolean,
     val instPrefix: String = "",  // for lateinit and mut
     var instSuffix: String = "",  // now only for CALLDICT return stack[]
-    var debugInfo: String? = null,
     var warningInfo: String? = null,
 ) : TacInst
 
@@ -30,5 +29,5 @@ data class TacReturnInst(
 data class TacVar(
     val name: String,
     var valueTypes: List<String> = listOf(),
-    val contRef: Int? = null, // if CONT was pushed on a stack
+    val concreteContinuationRef: Int? = null, // if this variable is a concrete continuation
 )

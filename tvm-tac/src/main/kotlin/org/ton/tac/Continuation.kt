@@ -141,7 +141,7 @@ internal fun processCallDict(
         operands = operands,
         saveC0 = true,
     )
-    nonStackTacInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize" // delete after debug
+//    nonStackTacInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize" // delete after debug
     nonStackTacInst.instSuffix = "new stack elems [${newAddedElems.joinToString(", ") { it.name }}]"
 
     ctx.calledMethodsSet.remove(methodNumber)
@@ -193,7 +193,7 @@ internal fun processStackEffectOneCont(
         TacVar(
             name = ctx.nextContVarName(),
             valueTypes = elem.valueTypes.toList(),
-            contRef = elem.contRef
+            concreteContinuationRef = elem.concreteContinuationRef
         )
     }
 
@@ -225,7 +225,7 @@ internal fun processStackEffectOneCont(
         addEndingAssignmentToCont(ctx, globalPushedValues, contInfo)
     }
 
-    tacOrdinaryInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
+//    tacOrdinaryInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
     return newInstPrefix
 }
 
@@ -264,14 +264,14 @@ internal fun processStackEffectTwoConts(
             else -> (a.valueTypes + b.valueTypes).toSet().toList()
         }
 
-        if (a.contRef != b.contRef) {
-            println("WARNING: different continuations in ${inst.mnemonic}: ${a.contRef} and ${b.contRef}")
+        if (a.concreteContinuationRef != b.concreteContinuationRef) {
+            println("WARNING: different continuations in ${inst.mnemonic}: ${a.concreteContinuationRef} and ${b.concreteContinuationRef}")
         }
 
         TacVar(
             name = ctx.nextContVarName(),
             valueTypes = mergedTypes,
-            contRef = a.contRef
+            concreteContinuationRef = a.concreteContinuationRef
         )
     }
 
@@ -286,6 +286,6 @@ internal fun processStackEffectTwoConts(
         newInstPrefix = "lateinit $instPrefixVars"
     }
 
-    tacOrdinaryInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
+//    tacOrdinaryInst.debugInfo += "globalStackTakenSize: $globalStackTakenSize, globalStackPushedSize: $globalStackPushedSize"
     return newInstPrefix
 }

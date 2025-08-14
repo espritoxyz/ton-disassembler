@@ -111,11 +111,10 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
     }
 }
 
-class TacDisassemblerCommand :
-    CliktCommand(
-        name = "tac",
-        help = "Disassemble contract code and output Three-Address Code.",
-    ) {
+class TacDisassemblerCommand : CliktCommand(
+    name = "tac",
+    help = "Disassemble contract code and output Three-Address Code.",
+) {
     private val contractCode: ContractCode by contractCodeOption()
     private val includeTvmCell: Boolean by option("--include-cell")
         .help("Include TvmCell in the output")
