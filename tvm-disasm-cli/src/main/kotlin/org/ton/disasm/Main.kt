@@ -129,7 +129,7 @@ class TacDisassemblerCommand :
         val contract = disassembleBoc(bocContent)
 
         val tacCode = generateTacContractCode(contract)
-        val tacOutput = dumpTacContract(tacCode, includeTvmCell, debug)
+        val tacOutput = dumpTacContract(tacCode, includeTvmCell)
         echo(tacOutput)
     }
 }

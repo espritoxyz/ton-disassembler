@@ -36,7 +36,6 @@ fun formatOperand(value: Any?, indent: String = ""): String {
     }
 }
 
-@OptIn(ExperimentalStdlibApi::class)
 fun extractTvmAddress(cell: TvmCell): String? {
     if (cell.refs.isNotEmpty()) return null
 
@@ -49,7 +48,6 @@ fun extractTvmAddress(cell: TvmCell): String? {
     return if (prefix == "100" && zeros == "0".repeat(8)) {
         val addressBits = bitString.substring(11, 267)
         val addressHex = bitStringToHex(addressBits).padStart(64, '0')
-//        val addressHex = addressBits.toByteArray().toHexString()
         "0:$addressHex"
     } else null
 }

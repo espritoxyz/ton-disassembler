@@ -209,17 +209,26 @@ class Stack(
         }
     }
 
-    fun execStackInstruction(inst: TvmInst): StackTacInst {
+    fun execStackInstruction(inst: TvmInst) {
         when (inst) {
             is TvmStackBasicInst -> execBasicStackInstruction(inst)
             is TvmStackComplexInst -> execComplexStackInstruction(inst)
             else -> error("not stack instruction type")
         }
+    }
 
-        return StackTacInst(
+    fun execStackInstructionAndSaveStackState(inst: TvmInst): TacDebugStackInst {
+        val stackBefore = stack.toList()
+
+        execStackInstruction(inst)
+
+        val stackAfter = stack.toList()
+
+        return TacDebugStackInst(
             mnemonic = inst.mnemonic,
-            stackState = "stack: [${dumpStackState()}]",
-            operands = extractPrimitiveOperands(inst),
+            parameters = extractPrimitiveOperands(inst),
+            stackBefore = stackBefore,
+            stackAfter = stackAfter,
         )
     }
 
@@ -452,11 +461,11 @@ class Stack(
         inputSpec: List<TvmStackEntryDescription>,
         outputSpec: List<TvmStackEntryDescription>,
         operands: MutableMap<String, Any?>,
-        contRef: ContinuationRef? = null
-    ): NonStackTacInst {
+        contRef: Int? = null
+    ): TacOrdinaryInst {
         val inputs = mutableListOf<TacVar>()
         val outputs = mutableListOf<TacVar>()
-        val contRefList = mutableListOf<ContinuationRef>()
+        val contRefList = mutableListOf<Int>()
         var constCounter = 0
         var debugInfo = ""
 
@@ -505,7 +514,7 @@ class Stack(
         }
         debugInfo += " stack: [${stack.dumpStackState()}]"
 
-        return NonStackTacInst(
+        return TacOrdinaryInst(
             mnemonic = mnemonic,
             inputs = inputs,
             outputs = outputs,

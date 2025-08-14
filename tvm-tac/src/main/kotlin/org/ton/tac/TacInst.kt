@@ -1,31 +1,34 @@
 package org.ton.tac
 
-sealed class TacInst(
-    open val mnemonic: String
-)
+sealed interface AbstractTacInst
 
-data class StackTacInst(
-    override val mnemonic: String,
-    val stackState: String,
-    val operands:  Map<String, Any?>
-): TacInst(mnemonic)
+sealed interface TacInst : AbstractTacInst {
+    val mnemonic: String
+}
 
-data class NonStackTacInst(
+data class TacOrdinaryInst(
     override val mnemonic: String,
     val inputs: List<TacVar>,
     val outputs: List<TacVar>,
     val operands: MutableMap<String, Any?>,
-    val contIsolatedsRefs: MutableList<ContinuationRef> = mutableListOf(),  // if CONT was retrieved from stack or from operands
-    val contStackPassedRefs: MutableList<ContinuationRef> = mutableListOf(),
+    val contIsolatedsRefs: MutableList<Int> = mutableListOf(),  // if CONT was retrieved from stack or from operands
+    val contStackPassedRefs: MutableList<Int> = mutableListOf(),
     val saveC0: Boolean,
     val instPrefix: String = "",  // for lateinit and mut
     var instSuffix: String = "",  // now only for CALLDICT return stack[]
     var debugInfo: String? = null,
     var warningInfo: String? = null,
-) : TacInst(mnemonic)
+) : TacInst
+
+data class TacReturnInst(
+    val result: List<TacVar>,
+) : TacInst {
+    override val mnemonic: String
+        get() = "return"
+}
 
 data class TacVar(
     val name: String,
     var valueTypes: List<String> = listOf(),
-    val contRef: ContinuationRef? = null, // if CONT was pushed on a stack
+    val contRef: Int? = null, // if CONT was pushed on a stack
 )

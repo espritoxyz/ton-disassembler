@@ -4,24 +4,22 @@ import org.ton.bytecode.TvmCell
 import org.ton.bytecode.TvmInstList
 import org.ton.bytecode.formatOperand
 
-fun dumpTacContract(contract: TacContractCode, includeTvmCell: Boolean = false, debug: Boolean = false): String {
+fun dumpTacContract(contract: TacContractCode<AbstractTacInst>, includeTvmCell: Boolean = false): String {
     val builder = StringBuilder()
 
     builder.appendLine("Main method:")
-    builder.appendLine(dumpTacCodeBlock(contract.mainMethod, includeTvmCell, contract.inlineMethods, debug = debug))
+    builder.appendLine(dumpTacCodeBlock(contract.mainMethod, includeTvmCell, contract.isolatedContinuations))
 
     for ((methodId, method) in contract.methods) {
         builder.appendLine("\nMethod ID: $methodId")
-        builder.appendLine(dumpTacCodeBlock(method, includeTvmCell, contract.inlineMethods, debug = debug))
+        builder.appendLine(dumpTacCodeBlock(method, includeTvmCell, contract.isolatedContinuations))
     }
 
-    if (debug) {
-        if (contract.inlineMethods.isNotEmpty()) {
-            builder.appendLine("\nInline Methods:")
-            for ((contIndex, contMethod) in contract.inlineMethods) {
-                builder.appendLine("\nContinuation_index: $contIndex")
-                builder.appendLine(dumpTacCodeBlock(contMethod, includeTvmCell, contract.inlineMethods, debug = debug))
-            }
+    if (contract.isolatedContinuations.isNotEmpty()) {
+        builder.appendLine("\nInline Methods:")
+        for ((contIndex, contMethod) in contract.isolatedContinuations) {
+            builder.appendLine("\nContinuation_index: $contIndex")
+            builder.appendLine(dumpTacCodeBlock(contMethod, includeTvmCell, contract.isolatedContinuations))
         }
     }
 
@@ -33,78 +31,89 @@ fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean = false): 
         operands
             .filterValues { it !is TvmInstList }
             .map { (key, value) ->
-                "$key=${if (includeTvmCell) {
-                    formatOperand(value)
-                } else if (value !is TvmCell) {
-                    "$value"
-                } else {
-                    "[Cell]"
-                }}"
+                "$key=${
+                    if (includeTvmCell) {
+                        formatOperand(value)
+                    } else if (value !is TvmCell) {
+                        "$value"
+                    } else {
+                        "[Cell]"
+                    }
+                }"
             }
     val operandsStr = operandStrings.joinToString(", ")
     return operandsStr
 }
 
+private fun printStackState(stack: List<TacVar>) =
+    stack.joinToString(prefix = "stack: [", postfix = "]") { it.name }
+
 fun dumpTacCodeBlock(
-    block: TacCodeBlock,
+    block: TacCodeBlock<AbstractTacInst>,
     includeTvmCell: Boolean = false,
-    inlineMethods: Map<String, TacInlineMethod>,
+    inlineMethods: Map<Int, TacInlineMethod<AbstractTacInst>>,
     indent: String = "  ",
-    debug: Boolean = false,
-    isRecursive: Boolean = false,
+    isRoot: Boolean = true,
     endingContAssignment: String = ""
-) : String {
+): String {
     val builder = StringBuilder()
 
     val argsStr = block.methodArgs.joinToString(", ") { arg ->
         if (arg.valueTypes.isNotEmpty()) "${arg.name}: ${arg.valueTypes.joinToString(" | ")}" else arg.name
     }
 
-    if (debug || !isRecursive) {
-        builder.appendLine(indent + "function($argsStr) {")
+    if (isRoot) {
+        builder.appendLine("function($argsStr) {")
     } else {
         builder.appendLine("{")
     }
 
 
     for (inst in block.instructions) {
-        if (inst is StackTacInst && !debug) continue
-
         val base = buildString {
             when (inst) {
-                is StackTacInst -> {
-                    appendLine(indent + "${inst.mnemonic} ${dumpOperands(inst.operands, includeTvmCell)}")
-                    append(indent + "  // ${inst.stackState}")
+                is TacDebugStackInst -> {
+                    appendLine(indent + "${inst.mnemonic} ${dumpOperands(inst.parameters, includeTvmCell)}")
+                    append(indent + "  // ${printStackState(inst.stackAfter)}")
                 }
 
-                is NonStackTacInst -> {
+                is TacInstDebugWrapper -> {
+                    TODO()
+                }
+
+                is TacReturnInst -> {
+                    TODO()
+                }
+
+                is TacOrdinaryInst -> {
                     val instPrefix = buildString {
-                            append(indent)
-                            append(inst.instPrefix)
+                        append(indent)
+                        append(inst.instPrefix)
                     }
 
                     val instLine = buildString {
                         append(indent)
                         if (inst.outputs.isNotEmpty()) {
                             append(inst.outputs.joinToString(", ") { output ->
-                                val continuationSuffix = if (debug && "Continuation" in output.valueTypes && output.contRef != null) {
-                                    " -> ${output.contRef.label}"
-                                } else ""
+                                val continuationSuffix =
+                                    if ("Continuation" in output.valueTypes && output.contRef != null) {
+                                        " -> cont_${output.contRef}"
+                                    } else ""
                                 output.name + continuationSuffix
                             } + " = ")
                         }
                         append("${inst.mnemonic}(")
                         append(
                             inst.inputs
-                                .filter { "Continuation" !in it.valueTypes}
+                                .filter { "Continuation" !in it.valueTypes }
                                 .joinToString(", ") { it.name }
                         )
 
-                        if (debug && inst.contIsolatedsRefs.isNotEmpty()) {
-                            append(", isolatedRefs:" + inst.contIsolatedsRefs.joinToString(", ") { " -> ${it.label}, " })
+                        if (inst.contIsolatedsRefs.isNotEmpty()) {
+                            append(", isolatedRefs:" + inst.contIsolatedsRefs.joinToString(", ") { " -> cont_$it, " })
                         }
-                        if (debug && inst.contStackPassedRefs.isNotEmpty()) {
-                            append("stackPassedRefs:" + inst.contStackPassedRefs.joinToString(", ") { " -> ${it.label}, " })
+                        if (inst.contStackPassedRefs.isNotEmpty()) {
+                            append("stackPassedRefs:" + inst.contStackPassedRefs.joinToString(", ") { " -> cont_$it., " })
                         }
 
                         if (inst.operands.isNotEmpty()) {
@@ -119,23 +128,31 @@ fun dumpTacCodeBlock(
                             append(indent + inst.instSuffix)
                         }
 
-                        if (debug && inst.contIsolatedsRefs.isNotEmpty()) {
+                        if (inst.contIsolatedsRefs.isNotEmpty()) {
                             appendLine(indent + "  // ${inst.debugInfo}")
                         }
 
                         if (inst.contStackPassedRefs.isNotEmpty()) {
-                            val contRefs = inst.contStackPassedRefs.map { it.label }
+                            val contRefs = inst.contStackPassedRefs
                             contRefs.forEach { ref ->
                                 val inlineMethod = inlineMethods[ref]
                                 if (inlineMethod != null) {
                                     val endingContAssignmentStr = inlineMethod.endingAssignmentStr
-                                    append(dumpTacCodeBlock(block = inlineMethod, includeTvmCell = includeTvmCell ,inlineMethods = inlineMethods, indent = "$indent  ", debug = debug, isRecursive = true, endingContAssignment = endingContAssignmentStr))
+                                    append(
+                                        dumpTacCodeBlock(
+                                            block = inlineMethod,
+                                            includeTvmCell = includeTvmCell,
+                                            inlineMethods = inlineMethods,
+                                            indent = "$indent  ",
+                                            isRoot = false,
+                                            endingContAssignment = endingContAssignmentStr
+                                        )
+                                    )
                                 }
                             }
                         }
                     }
 
-//                    if (prefix.isNotEmpty()) append(indent + prefix)
                     if (inst.instPrefix.isNotEmpty()) appendLine(instPrefix.trimEnd())
                     append(instLine.trimEnd())
 
@@ -145,18 +162,18 @@ fun dumpTacCodeBlock(
 
         builder.appendLine(base)
 
-        if (inst is NonStackTacInst && debug && inst.debugInfo != null && inst.contStackPassedRefs.isEmpty()) {
+        if (inst is TacOrdinaryInst && inst.debugInfo != null && inst.contStackPassedRefs.isEmpty()) {
             builder.appendLine(indent + "  // ${inst.debugInfo}")
         }
 
-        if (inst is NonStackTacInst && !inst.warningInfo.isNullOrBlank()) {
+        if (inst is TacOrdinaryInst && !inst.warningInfo.isNullOrBlank()) {
             builder.appendLine(indent + "  // WARNING: ${inst.warningInfo}")
         }
     }
 
     if (endingContAssignment.isNotEmpty()) builder.appendLine(indent + endingContAssignment)
 
-    val resultStack = (block as? TacMethod)?.resultStack
+    val resultStack = (block as? TacMethod)?.returnValues
     if (resultStack != null) {
         builder.appendLine(indent + "return [${resultStack.joinToString(", ") { it.name }}]")
     }

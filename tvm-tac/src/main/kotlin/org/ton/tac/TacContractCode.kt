@@ -1,7 +1,9 @@
 package org.ton.tac
 
-data class TacContractCode(
-    val mainMethod: TacMainMethod,
-    val methods: Map<MethodId, TacMethod>,
-    val inlineMethods: Map<String, TacInlineMethod>
+import org.ton.bytecode.MethodId
+
+data class TacContractCode<Inst>(
+    val mainMethod: TacMainMethod<Inst>,
+    val methods: Map<MethodId, TacMethod<Inst>>,
+    val isolatedContinuations: Map<Int, TacInlineMethod<Inst>>
 )
