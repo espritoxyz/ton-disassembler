@@ -6,5 +6,5 @@ import kotlinx.serialization.Serializable
 data class TvmControlFlowContinuation(
     val type: String,
     val variableName: String? = null, // only in 'type: variable'
-    val save: Map<String, TvmControlFlowContinuation>? = null, // continuation is a recursive type
+    val save: Map<String, TvmControlFlowContinuation>? = null,
 )

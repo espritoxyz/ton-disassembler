@@ -10,21 +10,18 @@ sealed class TacCodeBlock<out Inst> {
 
 data class TacMainMethod<out Inst>(
     override val instructions: List<Inst>,
-    override val methodArgs: List<TacVar> = emptyList(),
+    override val methodArgs: List<TacVar>,
 ) : TacCodeBlock<Inst>()
 
 data class TacMethod<out Inst>(
     val methodId: MethodId,
     override val instructions: List<Inst>,
-    override val methodArgs: List<TacVar> = emptyList(),
-    val returnValues: List<TacVar>,
+    override val methodArgs: List<TacVar>,
 ) : TacCodeBlock<Inst>()
 
-data class TacInlineMethod<out Inst>(
-    override val instructions: List<Inst> = emptyList(),
-    override val methodArgs: List<TacVar> = emptyList(),
-    val originalTvmCode: TvmDisasmCodeBlock?,
-    val endingAssignmentStr: String, // for strings like "var0 = a1, var1 = b3 ..." inside continuations branches
-//    val id: String,
-//    val parentId: String? = null - could use that for 'goto'
+data class TacContinuationInfo<out Inst>(
+    override val instructions: List<Inst>,
+    override val methodArgs: List<TacVar>,
+    val numberOfReturnedValues: Int?,
+    val originalTvmCode: TvmDisasmCodeBlock,
 ) : TacCodeBlock<Inst>()

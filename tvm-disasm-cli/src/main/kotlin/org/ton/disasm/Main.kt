@@ -24,7 +24,10 @@ import org.ton.bytecode.prettyPrint
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
 import org.ton.net.toUrlAddress
+import org.ton.tac.AbstractTacInst
+import org.ton.tac.TacContractCode
 import org.ton.tac.dumpTacContract
+import org.ton.tac.generateDebugTacContractCode
 import org.ton.tac.generateTacContractCode
 import java.nio.file.Path
 import kotlin.io.encoding.Base64
@@ -127,7 +130,12 @@ class TacDisassemblerCommand : CliktCommand(
         val bocContent = fetchContractCode(contractCode)
         val contract = disassembleBoc(bocContent)
 
-        val tacCode = generateTacContractCode(contract)
+        val tacCode: TacContractCode<AbstractTacInst> = if (debug) {
+            generateDebugTacContractCode(contract)
+        } else {
+            generateTacContractCode(contract)
+        }
+
         val tacOutput = dumpTacContract(tacCode, includeTvmCell)
         echo(tacOutput)
     }

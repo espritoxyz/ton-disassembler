@@ -2,29 +2,32 @@ package org.ton.tac
 
 sealed interface AbstractTacInst
 
-sealed interface TacInst : AbstractTacInst {
-    val mnemonic: String
-}
+sealed interface TacInst : AbstractTacInst
 
-data class TacOrdinaryInst(
-    override val mnemonic: String,
+data class TacOrdinaryInst<Inst : AbstractTacInst>(
+    val mnemonic: String,
+    val operands: Map<String, Any?>,
     val inputs: List<TacVar>,
     val outputs: List<TacVar>,
-    val operands: MutableMap<String, Any?>,
-    val contIsolatedsRefs: MutableList<Int> = mutableListOf(),  // if CONT was retrieved from stack or from operands
-    val contStackPassedRefs: MutableList<Int> = mutableListOf(),
-    val saveC0: Boolean,
-    val instPrefix: String = "",  // for lateinit and mut
-    var instSuffix: String = "",  // now only for CALLDICT return stack[]
-    var warningInfo: String? = null,
+    val blocks: List<List<Inst>>,
+) : TacInst
+
+data class TacAssignInst(
+    val lhs: TacVar,
+    val rhs: TacVar,
 ) : TacInst
 
 data class TacReturnInst(
     val result: List<TacVar>,
-) : TacInst {
-    override val mnemonic: String
-        get() = "return"
-}
+) : TacInst
+
+data class TacGotoInst(
+    val label: String,
+) : TacInst
+
+data class TacLabel(
+    val label: String
+) : TacInst
 
 data class TacVar(
     val name: String,

@@ -83,7 +83,7 @@ internal fun updateStack(
     stackEntriesBefore: List<TacVar>,
     methodArgs: List<TacVar>,
     stack: Stack
-) : Stack {
+): Stack {
     val argsSize = methodArgs.size
     if (stackEntriesBefore.size < argsSize) {
         val addedArgsList = methodArgs.takeLast(argsSize - stackEntriesBefore.size)
@@ -97,11 +97,8 @@ class Stack(
     initialStack: List<TacVar>,
     private val warningCollector: MutableList<String> = ArrayList(),
 ) {
-    private var varCounter = 0
     private var argCounter = 0
     private val createdArguments = mutableListOf<TacVar>()
-
-    private fun getNextVar(): Int = varCounter++
 
     private fun getNextArg(): Int = argCounter++
 
@@ -110,7 +107,7 @@ class Stack(
     fun copy(): Stack {
         val copiedVars = stack.map { it.copy() }
         val newStack = Stack(copiedVars)
-        newStack.varCounter = this.varCounter
+        newStack.argCounter = this.argCounter
         return newStack
     }
 
@@ -139,39 +136,53 @@ class Stack(
 
     private fun clearMessagesCollector() = warningCollector.clear()
 
-    private fun dumpStackState(): String = stack.joinToString(", ") { it.name }
+    fun getAssignInst(newVar: TacVar, i: Int): TacAssignInst {
+        val value = pop(i)
+        val result = TacAssignInst(lhs = newVar, rhs = value)
+        push(newVar)
+        return result
+    }
 
-    private fun pop(
-        instName: String,
-        valuesCheck: List<String>,
+    fun pop(i: Int): TacVar {
+        doReverse(i + 1, 0)
+        // empty expected types == no type check
+        val result = popWithTypeCheck(expectedTypes = emptyList())
+        if (i > 0) {
+            doReverse(i, 0)
+        }
+        return result
+    }
+
+    private fun popWithTypeCheck(
+        expectedTypes: List<String>,
     ): TacVar {
         if (stack.isEmpty()) {
-            extendStack(size + 1, listOf(valuesCheck))
+            extendStack(size + 1, listOf(expectedTypes))
         }
         var inputVar: TacVar = stack.removeAt(stack.size - 1)
 
-        if (inputVar.valueTypes.isNotEmpty() && valuesCheck.isNotEmpty()) {
-            val hasMatchingType = inputVar.valueTypes.any { type -> type in valuesCheck }
+        if (inputVar.valueTypes.isNotEmpty() && expectedTypes.isNotEmpty()) {
+            val hasMatchingType = inputVar.valueTypes.any { type -> type in expectedTypes }
 
             if (hasMatchingType) {
-                val matchedTypes = inputVar.valueTypes.filter { it in valuesCheck }
+                val matchedTypes = inputVar.valueTypes.filter { it in expectedTypes }
                 inputVar = inputVar.copy(valueTypes = matchedTypes)
                 return inputVar
             }
             warningCollector.add(
-                "Type mismatch in $instName: var ${inputVar.name}: expected one of $valuesCheck, but got ${inputVar.valueTypes}",
+                "Type mismatch: var ${inputVar.name}: expected one of $expectedTypes, but got ${inputVar.valueTypes}",
             )
             return inputVar
         }
 
-        if (inputVar.valueTypes.isEmpty() && valuesCheck.isNotEmpty()) { // populate type
-            inputVar.valueTypes = valuesCheck
+        if (inputVar.valueTypes.isEmpty() && expectedTypes.isNotEmpty()) { // populate type
+            inputVar.valueTypes = expectedTypes
         }
 
         return inputVar
     }
 
-    private fun push(value: TacVar) {
+    fun push(value: TacVar) {
         stack.add(value)
     }
 
@@ -240,110 +251,137 @@ class Stack(
                 val i = takeLastIntOrThrowTypeError()
                 doBlkSwap(i - 1, j - 1)
             }
+
             is TvmStackComplexDrop2Inst -> {
                 doBlkPop(1, 0)
                 doBlkPop(1, 0)
             }
+
             is TvmStackComplexDropxInst -> {
                 val i = takeLastIntOrThrowTypeError()
                 doBlkDrop2(i, 0)
             }
+
             is TvmStackComplexDup2Inst -> {
                 doPush(1)
                 doPush(1)
             }
+
             is TvmStackComplexPopLongInst -> doPop(inst.i)
             is TvmStackComplexPush2Inst -> {
                 doPush(inst.i)
                 doPush(inst.j + 1)
             }
+
             is TvmStackComplexPush3Inst -> {
                 doPush(inst.i)
                 doPush(inst.j + 1)
                 doPush(inst.k + 2)
             }
+
             is TvmStackComplexPushLongInst -> {
                 doPush(inst.i)
             }
+
             is TvmStackComplexXchg2Inst -> {
                 doXchg2(inst.i, inst.j)
             }
+
             is TvmStackComplexOver2Inst -> {
                 doPush(3)
                 doPush(3)
             }
+
             is TvmStackComplexSwap2Inst -> {
                 doBlkSwap(1, 1)
             }
+
             is TvmStackComplexXcpuInst -> {
                 doSwap(inst.i, 0)
                 doPush(inst.j)
             }
+
             is TvmStackComplexTuckInst -> {
                 doSwap(0, 1)
                 doPush(1)
             }
+
             is TvmStackComplexMinusrollxInst -> {
                 val i = takeLastIntOrThrowTypeError()
                 doBlkSwap(i - 1, 0)
             }
+
             is TvmStackComplexRollxInst -> {
                 val i = takeLastIntOrThrowTypeError()
                 doBlkSwap(0, i - 1)
             }
+
             is TvmStackComplexPickInst -> {
                 val i = takeLastIntOrThrowTypeError()
                 doPush(i)
             }
+
             is TvmStackComplexPuxcInst -> {
                 doPuxc(inst.i, inst.j - 1)
             }
+
             is TvmStackComplexRevxInst -> {
                 val j = takeLastIntOrThrowTypeError()
                 val i = takeLastIntOrThrowTypeError()
                 doReverse(i, j)
             }
+
             is TvmStackComplexRotrevInst -> {
                 doSwap(1, 2)
                 doSwap(0, 2)
             }
+
             is TvmStackComplexXchgxInst -> {
                 val i = takeLastIntOrThrowTypeError()
                 doSwap(0, i)
             }
+
             is TvmStackComplexPu2xcInst -> {
                 doPush(inst.i)
                 doSwap(0, 1)
                 doPuxc(inst.j, inst.k - 1)
             }
+
             is TvmStackComplexPuxc2Inst -> {
                 doPush(inst.i)
                 doSwap(0, 2)
                 doXchg2(inst.j, inst.k)
             }
+
             is TvmStackComplexPuxcpuInst -> {
                 doPuxc(inst.i, inst.j - 1)
                 doPush(inst.k)
             }
+
             is TvmStackComplexXc2puInst -> {
                 doXchg2(inst.i, inst.j)
                 doPush(inst.k)
             }
+
             is TvmStackComplexXchg3Inst -> {
                 doXchg3(inst.i, inst.j, inst.k)
             }
+
             is TvmStackComplexXchg3AltInst -> {
                 doXchg3(inst.i, inst.j, inst.k)
             }
+
             is TvmStackComplexXcpu2Inst -> {
                 doSwap(inst.i, 0)
                 doPush(inst.j)
                 doPush(inst.k + 1)
             }
+
             is TvmStackComplexXcpuxcInst -> {
                 doSwap(1, inst.i)
                 doPuxc(inst.j, inst.k - 1)
             }
+
             is TvmStackComplexDepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexDepthInst)")
             is TvmStackComplexChkdepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexChkdepthInst)")
             is TvmStackComplexOnlytopxInst -> TODO("??")
@@ -372,7 +410,7 @@ class Stack(
         repeat(i) {
             doSwap(0, j)
             stack.removeAt(stack.size - 1)
-            }
+        }
     }
 
     /**
@@ -415,13 +453,13 @@ class Stack(
         extendStack(newSize)
 
         val topElements = mutableListOf<TacVar>()
-            for (k in 0 until newSize) {
-                val topElement = stack.last()
-                stack.removeAt(size - 1)
-                if (k < j) {
-                    topElements += topElement
-                }
+        for (k in 0 until newSize) {
+            val topElement = stack.last()
+            stack.removeAt(size - 1)
+            if (k < j) {
+                topElements += topElement
             }
+        }
 
         topElements.asReversed().forEach { stack.add(it) }
     }
@@ -438,35 +476,37 @@ class Stack(
         doSwap(0, k)
     }
 
-    fun processNonStackInst(
-        mnemonic: String,
-        stack: Stack,
+    data class TacInstInfo(
+        val inputs: List<Pair<String, TacVar>>, // input + input name from spec
+        val outputs: List<TacVar>,
+        val continuationMap: Map<String, Int>,
+    )
+
+    fun <Inst : AbstractTacInst> processNonStackInst(
+        ctx: TacGenerationContext<Inst>,
         inputSpec: List<TvmStackEntryDescription>,
         outputSpec: List<TvmStackEntryDescription>,
-        operands: MutableMap<String, Any?>,
-        contRef: Int? = null
-    ): TacOrdinaryInst {
-        val inputs = mutableListOf<TacVar>()
+        contRef: Int? = null, // if this is PUSHCONT
+    ): TacInstInfo {
+        val inputs = mutableListOf<Pair<String, TacVar>>()
         val outputs = mutableListOf<TacVar>()
-        val contRefList = mutableListOf<Int>()
-        var constCounter = 0
+        val continuationMap = mutableMapOf<String, Int>()
 
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
             if (input.type == "simple") {
                 val specInput = input as TvmSimpleStackEntryDescription
                 val specValueTypes = specInput.valueTypes
-                val poppedValue = stack.pop(instName = mnemonic, valuesCheck = specValueTypes)
+                val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
                 if (poppedValue.concreteContinuationRef != null) {
-                    contRefList.add(poppedValue.concreteContinuationRef)
+                    continuationMap[input.name] = poppedValue.concreteContinuationRef
                 }
-                inputs.add(poppedValue)
+                inputs.add(input.name to poppedValue)
             } else {
                 error("Unsupported input type: \${input.type}")
             }
         }
-        val warningInfo = getWarningCollector()
-        stack.clearMessagesCollector()
+        clearMessagesCollector()  // TODO: what is this?
 
         outputSpec.forEach { output ->
             when (output.type) {
@@ -475,38 +515,28 @@ class Stack(
                     val specName = specOutput.name
                     val specValueTypes = specOutput.valueTypes
                     val pushValue = TacVar(
-                        name = "${specName}_${getNextVar()}",
+                        name = "${specName}_${ctx.nextVarId()}",
                         valueTypes = specValueTypes,
                         concreteContinuationRef = contRef
                     )
-                    stack.push(pushValue)
+                    push(pushValue)
                     outputs.add(pushValue)
                 }
+
                 "const" -> {
                     val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
                     val pushValue = TacVar(
-                        name = "const${constCounter++}",
+                        name = "const${ctx.nextVarId()}",
                         valueTypes = valueType,
                     )
-                    stack.push(pushValue)
+                    push(pushValue)
                     outputs.add(pushValue)
                 }
-                else -> error("${output.type} from instruction $mnemonic isn't supported yet")
+
+                else -> error("${output.type} isn't supported yet")
             }
         }
 
-        return TacOrdinaryInst(
-            mnemonic = mnemonic,
-            inputs = inputs,
-            outputs = outputs,
-            operands = operands,
-            contIsolatedsRefs = contRefList,
-            warningInfo = warningInfo,
-            saveC0 = false,
-            instPrefix = "",
-        )
+        return TacInstInfo(inputs, outputs, continuationMap)
     }
 }
-
-
-

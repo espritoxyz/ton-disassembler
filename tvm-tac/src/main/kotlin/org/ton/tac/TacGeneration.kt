@@ -1,34 +1,45 @@
 package org.ton.tac
 
-import org.ton.bytecode.TvmConstDataInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
+import org.ton.bytecode.TvmControlFlowContinuation
+import org.ton.bytecode.TvmDictSpecialDictigetjmpzInst
 import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
 import org.ton.bytecode.extractPrimitiveOperands
 
-data class ContGeneratedInfo(
-    val instructions: MutableList<AbstractTacInst>,
-    val arguments: List<TacVar>,
-)
-
-fun generateTacCodeBlock(
-    ctx: TacGenerationContext,
+internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
+    ctx: TacGenerationContext<Inst>,
     codeBlock: TvmDisasmCodeBlock,
     stack: Stack = Stack(emptyList()),
-    endingFromParentInst: TacOrdinaryInst? = null,
-): ContGeneratedInfo {
-    val tacInstructions = mutableListOf<AbstractTacInst>()
+    endingInstGenerator: EndingInstGenerator<Inst> = ReturnInstGenerator(),
+): TacContinuationInfo<Inst> {
+    val tacInstructions = mutableListOf<Inst>()
+
+    var noExit = false
 
     for (inst in codeBlock.instList) {
-        val curInstruction = processInstruction(ctx, stack, inst)
-            ?: continue
-        tacInstructions += curInstruction
+        val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator)
+        tacInstructions += curInstructions
+
+        // like THROW
+        if (!inst.noBranch && inst.branches.isEmpty()) {
+            noExit = true
+            break
+        }
     }
 
-    if (endingFromParentInst != null) tacInstructions += endingFromParentInst  // insert 'return' at the end of CONT
+    if (!noExit) {
+        tacInstructions += endingInstGenerator.generateEndingInst(ctx, stack)
+    }
+
+    val numberOfResultElements = if (!noExit) {
+        stack.size
+    } else {
+        null
+    }
 
     val methodArgs = stack.getCreatedArgs().map {
         TacVar(
@@ -37,34 +48,37 @@ fun generateTacCodeBlock(
         )
     }
 
-    return ContGeneratedInfo(
+    return TacContinuationInfo(
         instructions = tacInstructions,
-        arguments = methodArgs,
+        methodArgs = methodArgs,
+        numberOfReturnedValues = numberOfResultElements,
+        originalTvmCode = codeBlock,
     )
 }
 
-private fun processInstruction(
-    ctx: TacGenerationContext,
+private fun <Inst : AbstractTacInst> processInstruction(
+    ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmInst,
-): AbstractTacInst? {
+    endingInstGenerator: EndingInstGenerator<Inst>,
+): List<Inst> {
     throwErrorIfStackTypesNotSupported(inst)
-    throwErrorIfBranchesNotTypeVar(inst)
 
     if (inst is TvmStackBasicInst || inst is TvmStackComplexInst) {
+        stack.execStackInstruction(inst)
+
         return if (ctx.debug) {
-            val stateBefore = stack.copyEntries()
-            stack.execStackInstruction(inst)
             val stateAfter = stack.copyEntries()
             return TacDebugStackInst(
                 mnemonic = inst.mnemonic,
                 parameters = extractPrimitiveOperands(inst),
-                stackBefore = stateBefore,
                 stackAfter = stateAfter,
-            )
+            ).let {
+                @Suppress("unchecked_cast")
+                listOf(it as Inst)
+            }
         } else {
-            stack.execStackInstruction(inst)
-            null
+            emptyList()
         }
     }
 
@@ -76,143 +90,263 @@ private fun processInstruction(
             ?: error("Expected method number to be Int in CALLDICT, but it is: ${methodNumber::class.simpleName}")
         methodNumber = methodNumber.toBigInteger()
 
-        return processCallDict(ctx, stack, methodNumber, inst, operands)
+        val callInst = processCallDict(ctx, stack, methodNumber, inst, operands)
+
+        val resultInst = if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(callInst, stackAfter)
+        } else {
+            callInst
+        }
+
+        @Suppress("unchecked_cast")
+        return listOf(resultInst as Inst)
     }
 
-    return if (ctx.debug) {
-        val stateBefore = stack.copyEntries()
-        val innerInst = constructOrdinaryInst(ctx, stack, inst)
-        val stateAfter = stack.copyEntries()
-        return TacInstDebugWrapper(innerInst, stackBefore = stateBefore, stackAfter = stateAfter)
-    } else {
-        constructOrdinaryInst(ctx, stack, inst)
-    }
+    return processOrdinaryInst(ctx, stack, inst, endingInstGenerator)
 }
 
-private fun constructOrdinaryInst(
-    ctx: TacGenerationContext,
+/**
+ * Checks that save structure is the following:
+ *  {
+*     "type": "variable",
+*     "save": {
+*       "c0": {
+*         "type": "cc",
+*         "save": { "c0": { "type": "register", "index": 0 } }
+*       }
+*     }
+*   }
+ * */
+private fun TvmControlFlowContinuation.hasStandardC0Save(): Boolean {
+    val castedSave = save
+        ?: return false
+    if (castedSave.size != 1) {
+        return false
+    }
+    val entry = castedSave.entries.single()
+    if (entry.key != "c0") {
+        return false
+    }
+    val value = entry.value
+    if (value.type != "cc") {
+        return false
+    }
+    val valueSave = value.save
+        ?: return false
+    if (valueSave.size != 1) {
+        return false
+    }
+    val valueSaveEntry = valueSave.entries.single()
+    if (valueSaveEntry.key != "c0") {
+        return false
+    }
+    // TODO: also check index
+    if (valueSaveEntry.value.type != "register") {
+        return false
+    }
+    return true
+}
+
+// special cases
+private fun TvmInst.ignoreBranches(): Boolean =
+    this is TvmDictSpecialDictigetjmpzInst
+
+private fun <Inst : AbstractTacInst> processOrdinaryInst(
+    ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmInst,
-): TacOrdinaryInst {
-    val operands = extractPrimitiveOperands(inst).toMutableMap()
+    endingInstGenerator: EndingInstGenerator<Inst>,
+): List<Inst> {
+    val operands = extractPrimitiveOperands(inst)
 
-    val (allBranchesWithSave, endingInst) = checkAllBranchesWithSave(inst.branches, inst.mnemonic)
     val specInputs = inst.stackInputs ?: emptyList()
     val specOutputs = inst.stackOutputs ?: emptyList()
 
-    var operandsContRefs: List<Int>? = null
-    var stackContRef: Int? = null
-
-    // what is that?
-    if (inst is TvmContOperandInst) {
-        val contRefs = processInstWithContsIsolated(ctx, inst)
-        operandsContRefs = contRefs.first
-        stackContRef = contRefs.second
+    val operandContinuationInfo = if (inst is TvmContOperandInst) {
+        extractOperandContinuations(ctx, inst)
+    } else {
+        null
     }
 
-    var nonStackTacInst = stack.processNonStackInst(
-        mnemonic = inst.mnemonic,
-        stack = stack,
+    val (inputs, outputs, stackContinuationMap) = stack.processNonStackInst(
+        ctx,
         inputSpec = specInputs,
         outputSpec = specOutputs,
-        operands = operands,
-        contRef = stackContRef
+        contRef = operandContinuationInfo?.resultContinuationId
     )
 
-    if (inst !is TvmConstDataInst) {  // i.e. operands don't contain CONT that meant to be pushed on stack
-        nonStackTacInst.contIsolatedsRefs.addAll(operandsContRefs ?: emptyList())
+    if (inst.branches.isEmpty() || inst.ignoreBranches()) {
+        val tacInst = TacOrdinaryInst<Inst>(
+            mnemonic = inst.mnemonic,
+            operands = operands,
+            inputs = inputs.map { it.second },
+            outputs = outputs,
+            blocks = emptyList(),
+        )
+
+        val result = if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(tacInst, stackAfter)
+        } else {
+            tacInst
+        }
+
+        @Suppress("unchecked_cast")
+        return listOf(result as Inst)
     }
 
-    if (nonStackTacInst.contIsolatedsRefs.isNotEmpty()) {
+    val continuationMap = operandContinuationInfo?.let {
+        it.operandContinuationIds + stackContinuationMap
+    } ?: stackContinuationMap
 
-        val stackEntriesBefore = stack.copyEntries()
+    throwErrorIfBranchesNotTypeVar(inst)
 
-        val argsFromConts = nonStackTacInst.contIsolatedsRefs.mapNotNull { ref ->
-            val cont = ctx.isolatedContinuations[ref]
-            if (cont?.originalTvmCode == null) {
-                println("WARNING: continuation with label $ref not found")
-                null
-            } else {
-                cont.methodArgs
-            }
-        }
+    val (haveStandardC0, haveNoSave) = inst.branches.map {
+        it.hasStandardC0Save() to (it.save?.isNotEmpty() != true)
+    }.unzip()
 
-        val maxArgsList = argsFromConts.maxByOrNull { it.size }
-        val totalArgsSize = maxArgsList!!.size
-
-        val updatedStackBeforeConts = updateStack(stackEntriesBefore, maxArgsList, stack)
-        val updatedStackEntriesBefore = stack.copyEntries()
-
-        val processedContInfos = mutableListOf<ContProcessingInfo>()
-        for (contRef in nonStackTacInst.contIsolatedsRefs) {
-            val isolatedCont = ctx.isolatedContinuations[contRef]
-
-            val continuationStack = updatedStackBeforeConts.copy()
-            val (inlineInsts, inlineArgs) = generateTacCodeBlock(
-                ctx,
-                codeBlock = isolatedCont!!.originalTvmCode!!,
-                stack = continuationStack,
-                endingFromParentInst = endingInst,
-            )
-
-            val newRef = ctx.nextContinuationId()
-            ctx.isolatedContinuations[newRef] = TacInlineMethod(
-                instructions = inlineInsts,
-                methodArgs = inlineArgs,
-                originalTvmCode = isolatedCont.originalTvmCode,
-                endingAssignmentStr = "",
-            )
-
-            nonStackTacInst.contStackPassedRefs.add(newRef)
-
-            processedContInfos += ContProcessingInfo(
-                contStackPassedRef = newRef,
-                stackEntriesBefore = updatedStackEntriesBefore,
-                stackEntriesAfter = continuationStack.copyEntries(),
-                contArgsNum = totalArgsSize
-            )
-        }
-
-        var instPrefix = ""
-
-        when (processedContInfos.size) {
-            1 -> {
-                instPrefix = processStackEffectOneCont(
-                    ctx,
-                    processedContInfos,
-                    allBranchesWithSave,
-                    inst,
-                    instPrefix,
-                    stack,
-                    nonStackTacInst
-                )
-            }
-
-            2 -> {
-                instPrefix =
-                    processStackEffectTwoConts(ctx, processedContInfos, inst, nonStackTacInst, stack, instPrefix)
-            }
-
-            else -> error("Unexpected number of continuations: ${processedContInfos.size}")
-        }
-        nonStackTacInst = nonStackTacInst.copy(instPrefix = instPrefix)
+    check(haveStandardC0.toSet().size == 1) {
+        "All branches must either all have standard c0 structure, or all don't have it"
     }
 
-    return if (!allBranchesWithSave) {
-        nonStackTacInst
+    val saveC0 = haveStandardC0.first()
+
+    check(haveNoSave.toSet().size == 1) {
+        "All branches must either all not have save, or all have them"
+    }
+
+    val noSave = haveNoSave.first()
+
+    if (!saveC0 && !noSave) {
+        TODO("Control flow of instruction ${inst.mnemonic} not supported")
+    }
+
+    val controlFlowContinuationIds = inst.branches.map {
+        continuationMap[it.variableName]
+            ?: error("Continuation of name ${it.variableName} not found.")
+    }
+
+    val continuationInfos = controlFlowContinuationIds.map { ref ->
+        ctx.isolatedContinuations[ref]
+            ?: error("Continuation with label $ref not found")
+    }
+
+    val stackEffects = continuationInfos.mapNotNull {
+        it.numberOfReturnedValues?.let { numberOfReturnedValues ->
+            numberOfReturnedValues - it.methodArgs.size
+        }
+    }.toSet()
+
+    if (stackEffects.isEmpty()) {
+        TODO("Case when all branches of instruction fail")
+    }
+    check(stackEffects.size == 1) {
+        "Cannot build three address code if stack effects are different"
+    }
+
+    val maxArguments = continuationInfos.maxOf { it.methodArgs.size }
+    val maxResultValues = continuationInfos.mapNotNull { it.numberOfReturnedValues }.max()
+
+    val inputVars = List(maxArguments) {
+        TacVar(ctx.nextVarName())
+    }
+
+    // TODO: check out values when [!saveC0]
+    val outputVars = if (inst.noBranch) {
+        check(!saveC0 || stackEffects.single() == 0) {
+            "If [saveC0] and [noBranch], stack effect must be zero, but it is ${stackEffects.single()}. Instruction ${inst.mnemonic}"
+        }
+        inputVars
+    } else if (!inst.noBranch && saveC0) {
+        List(maxResultValues) {
+            TacVar(ctx.nextVarName())
+        }
     } else {
-        nonStackTacInst.copy(saveC0 = true)
+        error("Unexpected control flow in ${inst.mnemonic}")
     }
+
+    val (newEndInstGenerator, label) = if (saveC0) {
+        val label = ctx.nextLabel()
+
+        GotoInstGenerator<Inst>(outputVars, label) to label
+    } else {
+        endingInstGenerator to null
+    }
+
+    val result = mutableListOf<Inst>()
+
+    inputVars.forEach { inputVar ->
+        val assignInst = stack.getAssignInst(inputVar, inputVars.size - 1)
+        val newInst = if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(assignInst, stackAfter)
+        } else {
+            assignInst
+        }
+
+        @Suppress("unchecked_cast")
+        result += newInst as Inst
+    }
+
+    val blocks = continuationInfos.map { continuationInfo ->
+        generateTacCodeBlock(
+            ctx,
+            codeBlock = continuationInfo.originalTvmCode,
+            stack = stack.copy(),
+            endingInstGenerator = newEndInstGenerator,
+        )
+    }
+
+    inputVars.forEach { _ ->
+        stack.pop(0)
+    }
+
+    outputVars.forEach {
+        stack.push(it)
+    }
+
+    val controlFlowInputNames = inst.branches.mapNotNull { it.variableName }
+
+    val controlFlowInst = TacOrdinaryInst(
+        mnemonic = inst.mnemonic,
+        operands = operands,
+        inputs = inputs.filter { it.first !in controlFlowInputNames }.map { it.second },
+        outputs = outputs,
+        blocks = blocks.map { it.instructions }
+    )
+
+    val resultInst = if (ctx.debug) {
+        val stackAfter = stack.copyEntries()
+        TacInstDebugWrapper(controlFlowInst, stackAfter)
+    } else {
+        controlFlowInst
+    }
+
+    @Suppress("unchecked_cast")
+    result += resultInst as Inst
+
+    if (label != null) {
+        val labelInst = TacLabel(label)
+        val resultLabelInst = if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(labelInst, stackAfter)
+        } else {
+            labelInst
+        }
+
+        @Suppress("unchecked_cast")
+        result += resultLabelInst as Inst
+    }
+
+    return result
 }
 
-fun haveSameTypes(stackElems: List<TacVar>, args: List<TacVar>): Boolean {
-    return stackElems.zip(args).all { (b, a) ->
-        a.valueTypes.isEmpty() || b.valueTypes.isEmpty() || a.valueTypes.contains("Null") || b.valueTypes.contains("Null") || b.valueTypes.any { it in a.valueTypes }
-    }
-}
-
-fun generateTacContractCode(contract: TvmContractCode): TacContractCode<AbstractTacInst> {
-    val ctx = TacGenerationContext(contract, debug = true)
+private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
+    contract: TvmContractCode,
+    debug: Boolean,
+): TacContractCode<Inst> {
+    val ctx = TacGenerationContext<Inst>(contract, debug = debug)
 
     val (mainInstructions, mainArgs) = generateTacCodeBlock(ctx, codeBlock = contract.mainMethod)
     val main = TacMainMethod(
@@ -228,13 +362,19 @@ fun generateTacContractCode(contract: TvmContractCode): TacContractCode<Abstract
             methodId = id,
             instructions = insts,
             methodArgs = methodArgs,
-            returnValues = methodStack.copyEntries(),
         )
     }
 
     return TacContractCode(
         mainMethod = main,
         methods = methods,
-        isolatedContinuations = ctx.isolatedContinuations,
     )
+}
+
+fun generateDebugTacContractCode(contract: TvmContractCode): TacContractCode<TacDebugInst> {
+    return generateTacContractCodeInternal(contract, debug = true)
+}
+
+fun generateTacContractCode(contract: TvmContractCode): TacContractCode<TacInst> {
+    return generateTacContractCodeInternal(contract, debug = false)
 }

@@ -8,25 +8,17 @@ fun dumpTacContract(contract: TacContractCode<AbstractTacInst>, includeTvmCell: 
     val builder = StringBuilder()
 
     builder.appendLine("Main method:")
-    builder.appendLine(dumpTacCodeBlock(contract.mainMethod, includeTvmCell, contract.isolatedContinuations))
+    builder.appendLine(dumpTacCodeBlock(contract.mainMethod, includeTvmCell))
 
     for ((methodId, method) in contract.methods) {
         builder.appendLine("\nMethod ID: $methodId")
-        builder.appendLine(dumpTacCodeBlock(method, includeTvmCell, contract.isolatedContinuations))
-    }
-
-    if (contract.isolatedContinuations.isNotEmpty()) {
-        builder.appendLine("\nInline Methods:")
-        for ((contIndex, contMethod) in contract.isolatedContinuations) {
-            builder.appendLine("\nContinuation_index: $contIndex")
-            builder.appendLine(dumpTacCodeBlock(contMethod, includeTvmCell, contract.isolatedContinuations))
-        }
+        builder.appendLine(dumpTacCodeBlock(method, includeTvmCell))
     }
 
     return builder.toString()
 }
 
-fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean = false): String {
+fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean): String {
     val operandStrings =
         operands
             .filterValues { it !is TvmInstList }
@@ -45,160 +37,154 @@ fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean = false): 
     return operandsStr
 }
 
-private fun printStackState(stack: List<TacVar>) =
+fun dumpTacCodeBlock(
+    code: TacCodeBlock<AbstractTacInst>,
+    includeTvmCell: Boolean,
+): String {
+    return buildString {
+        val args = code.methodArgs.joinToString {
+            if (it.valueTypes.size == 1) {
+                "${it.valueTypes.single()} ${it.name}"
+            } else {
+                it.name
+            }
+        }
+        appendLine("function ($args) {")
+        dumpTacCodeBlock(code.instructions, includeTvmCell, indent = " ".repeat(INDENT))
+        appendLine("}")
+    }
+}
+
+private fun StringBuilder.dumpTacCodeBlock(
+    code: List<AbstractTacInst>,
+    includeTvmCell: Boolean,
+    indent: String,
+) {
+    code.forEach {
+        dumpInstruction(it, includeTvmCell, indent)
+    }
+}
+
+private fun dumpStackState(stack: List<TacVar>) =
     stack.joinToString(prefix = "stack: [", postfix = "]") { it.name }
 
-fun dumpTacCodeBlock(
-    block: TacCodeBlock<AbstractTacInst>,
-    includeTvmCell: Boolean = false,
-    inlineMethods: Map<Int, TacInlineMethod<AbstractTacInst>>,
-    indent: String = "  ",
-    isRoot: Boolean = true,
-    endingContAssignment: String = ""
-): String {
-    val builder = StringBuilder()
-
-    val argsStr = block.methodArgs.joinToString(", ") { arg ->
-        if (arg.valueTypes.isNotEmpty()) "${arg.name}: ${arg.valueTypes.joinToString(" | ")}" else arg.name
-    }
-
-    if (isRoot) {
-        builder.appendLine("function($argsStr) {")
-    } else {
-        builder.appendLine("{")
-    }
-
-
-    for (inst in block.instructions) {
-        val base = buildString {
-            printInstruction(inst, indent, includeTvmCell, inlineMethods)
-        }
-
-        builder.appendLine(base)
-
-//        if (inst is TacOrdinaryInst && inst.debugInfo != null && inst.contStackPassedRefs.isEmpty()) {
-//            builder.appendLine(indent + "  // ${inst.debugInfo}")
-//        }
-
-        if (inst is TacOrdinaryInst && !inst.warningInfo.isNullOrBlank()) {
-            builder.appendLine(indent + "  // WARNING: ${inst.warningInfo}")
-        }
-    }
-
-    if (endingContAssignment.isNotEmpty()) builder.appendLine(indent + endingContAssignment)
-
-    val resultStack = (block as? TacMethod)?.returnValues
-    if (resultStack != null) {
-        builder.appendLine(indent + "return [${resultStack.joinToString(", ") { it.name }}]")
-    }
-
-    builder.append(indent.removeSuffix("  ") + "}")
-    return builder.toString()
-}
-
-fun StringBuilder.printInstruction(
+private fun StringBuilder.dumpInstruction(
     inst: AbstractTacInst,
-    indent: String,
     includeTvmCell: Boolean,
-    inlineMethods: Map<Int, TacInlineMethod<AbstractTacInst>>,
+    indent: String,
 ) {
     when (inst) {
-        is TacDebugStackInst -> {
-            appendLine(indent + "${inst.mnemonic} ${dumpOperands(inst.parameters, includeTvmCell)}")
-            append(indent + "  // ${printStackState(inst.stackAfter)}")
-        }
-
-        is TacInstDebugWrapper -> {
-            printInstruction(inst.inst, indent, includeTvmCell, inlineMethods)
-            appendLine()
-            append(indent + "  // ${printStackState(inst.stackAfter)}")
-        }
-
-        is TacReturnInst -> {
-            TODO()
-        }
-
-        is TacOrdinaryInst -> {
-            val instPrefix = buildString {
-                append(indent)
-                append(inst.instPrefix)
-            }
-
-            val instLine = buildString {
-                printOrdinaryInstruction(inst, indent, includeTvmCell, inlineMethods)
-            }
-
-            if (inst.instPrefix.isNotEmpty()) appendLine(instPrefix.trimEnd())
-            append(instLine.trimEnd())
-
-        }
+        is TacDebugInst -> dumpInstruction(inst, includeTvmCell, indent)
+        is TacInst -> dumpInstruction(inst, includeTvmCell, indent)
     }
 }
 
-fun StringBuilder.printOrdinaryInstruction(
-    inst: TacOrdinaryInst,
-    indent: String,
+private fun StringBuilder.dumpInstruction(
+    inst: TacDebugInst,
     includeTvmCell: Boolean,
-    inlineMethods: Map<Int, TacInlineMethod<AbstractTacInst>>,
+    indent: String,
+) {
+    when (inst) {
+        is TacInstDebugWrapper -> {
+            dumpInstruction(inst.inst, includeTvmCell, indent)
+        }
+        is TacDebugStackInst -> {
+            append(indent)
+            append(inst.mnemonic)
+            append("(")
+            append(dumpOperands(inst.parameters, includeTvmCell))
+            append(")")
+            appendLine()
+        }
+    }
+    append(indent)
+    append(" // ")
+    append(dumpStackState(inst.stackAfter))
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacInst,
+    includeTvmCell: Boolean,
+    indent: String,
+) {
+   when (inst) {
+       is TacOrdinaryInst<*> -> dumpInstruction(inst, includeTvmCell, indent)
+       is TacAssignInst -> dumpInstruction(inst, indent)
+       is TacGotoInst -> dumpInstruction(inst, indent)
+       is TacLabel -> dumpInstruction(inst, indent)
+       is TacReturnInst -> dumpInstruction(inst, indent)
+   }
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacAssignInst,
+    indent: String,
+) {
+    append(indent)
+    append(inst.lhs.name)
+    append(" = ")
+    append(inst.rhs.name)
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacGotoInst,
+    indent: String,
+) {
+    append(indent)
+    append("goto ${inst.label}")
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacLabel,
+    indent: String,
+) {
+    append(indent)
+    append("${inst.label}:")
+    appendLine()
+}
+
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacReturnInst,
+    indent: String,
+) {
+    append(indent)
+    append("return ")
+    append(inst.result.joinToString { it.name })
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacOrdinaryInst<*>,
+    includeTvmCell: Boolean,
+    indent: String,
 ) {
     append(indent)
     if (inst.outputs.isNotEmpty()) {
-        append(inst.outputs.joinToString(", ") { output ->
-            val continuationSuffix =
-                if ("Continuation" in output.valueTypes && output.concreteContinuationRef != null) {
-                    " -> cont_${output.concreteContinuationRef}"
-                } else ""
-            output.name + continuationSuffix
-        } + " = ")
+        append(inst.outputs.joinToString { it.name })
+        append(" = ")
     }
-    append("${inst.mnemonic}(")
-    append(
-        inst.inputs
-            .filter { "Continuation" !in it.valueTypes }
-            .joinToString(", ") { it.name }
-    )
+    append(inst.mnemonic)
 
-    if (inst.contIsolatedsRefs.isNotEmpty()) {
-        append(", isolatedRefs:" + inst.contIsolatedsRefs.joinToString(", ") { " -> cont_$it, " })
-    }
-    if (inst.contStackPassedRefs.isNotEmpty()) {
-        append("stackPassedRefs:" + inst.contStackPassedRefs.joinToString(", ") { " -> cont_$it., " })
-    }
-
-    if (inst.operands.isNotEmpty()) {
-        val operandsStr = dumpOperands(inst.operands, includeTvmCell)
-        if (inst.inputs.isNotEmpty() && operandsStr.isNotEmpty()) append(", ")
-        append(operandsStr)
-    }
+    append("(")
+    val operandsStr = dumpOperands(inst.operands, includeTvmCell)
+    val stackInputStr = inst.inputs.joinToString { it.name }
+    val params = listOf(operandsStr, stackInputStr).filter {
+        it.isNotEmpty()
+    }.joinToString()
+    append(params)
     append(")")
 
-    if (inst.instSuffix.isNotEmpty()) {
-        appendLine()
-        append(indent + inst.instSuffix)
+    inst.blocks.forEach {
+        appendLine(" {")
+        dumpTacCodeBlock(it, includeTvmCell, indent + " ".repeat(INDENT))
+        append(indent)
+        append("}")
     }
-
-//                        if (inst.contIsolatedsRefs.isNotEmpty()) {
-//                            appendLine(indent + "  // ${inst.debugInfo}")
-//                        }
-
-    // TODO: what is that?
-    if (inst.contStackPassedRefs.isNotEmpty()) {
-        val contRefs = inst.contStackPassedRefs
-        contRefs.forEach { ref ->
-            val inlineMethod = inlineMethods[ref]
-            if (inlineMethod != null) {
-                val endingContAssignmentStr = inlineMethod.endingAssignmentStr
-                append(
-                    dumpTacCodeBlock(
-                        block = inlineMethod,
-                        includeTvmCell = includeTvmCell,
-                        inlineMethods = inlineMethods,
-                        indent = "$indent  ",
-                        isRoot = false,
-                        endingContAssignment = endingContAssignmentStr
-                    )
-                )
-            }
-        }
-    }
+    appendLine()
 }
+
+private const val INDENT = 4
