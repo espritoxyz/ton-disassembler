@@ -150,25 +150,25 @@ java -jar tvm-disasm-cli.jar tac --address EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz
 It will produce an `output.txt` file with the following content:
 ```
 Main method:
-  function(arg0: Integer) {
-  SETCP(n=0)
-  D_0, n_1 = DICTPUSHCONST(d=[Cell], n=19)
-  i_2 = DICTIGETJMPZ(n_1, D_0, arg0)
-  THROWARG(i_2, n=11)
+function (arg0: Integer) {
+    SETCP(n=0)
+    D_0, n_1 = DICTPUSHCONST(d=[Cell], n=19)
+    i_2 = DICTIGETJMPZ(n_1, D_0, arg0)
+    THROWARG(n=11, i_2)
 }
 
 Method ID: 0
-  function(arg0: Slice, arg1: Cell, arg2) {
-  result_0 = SEMPTY(arg0)
-  c_1 = PUSHCONT_SHORT()
-  IFJMP(result_0){
-    return()
-  }
-  s_2 = CTOS(arg1)
-  x_3, s2_4 = LDU(s_2, c=3)
-  x_5 = PUSHINT_4(i=1)
-  result_6 = AND(x_5, x_3)
-...
+function (arg0: Slice, arg1: Cell, arg2) {
+    result_3 = SEMPTY(arg0)
+    c_4 = PUSHCONT_SHORT()
+    IFJMP(result_3) {
+        return 
+    }
+    s_5 = CTOS(arg1)
+    x_6, s2_7 = LDU(c=3, s_5)
+    x_8 = PUSHINT_4(i=1)
+    result_9 = AND(x_8, x_6)
+    ...
 ```
 You can also use `--include-cell` option to include cell contents in the output (in both Instruction List with Arguments and Three-address code representation).
 If a cell represents blockchain address, the tool will automatically display it in [raw address format](https://docs.ton.org/v3/concepts/dive-into-ton/ton-blockchain/smart-contract-addresses#raw-address)

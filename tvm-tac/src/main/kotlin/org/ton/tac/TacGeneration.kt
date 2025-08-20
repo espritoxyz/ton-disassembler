@@ -248,17 +248,22 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
     val maxArguments = continuationInfos.maxOf { it.methodArgs.size }
     val maxResultValues = continuationInfos.mapNotNull { it.numberOfReturnedValues }.max()
 
-    val inputVars = List(maxArguments) {
-        TacVar(ctx.nextVarName())
+    val inputVars = if (saveC0) {
+        List(maxArguments) {
+            TacVar(ctx.nextVarName())
+        }
+    } else {
+        emptyList()
     }
 
-    // TODO: check out values when [!saveC0]
-    val outputVars = if (inst.noBranch) {
-        check(!saveC0 || stackEffects.single() == 0) {
+    val outputVars = if (!saveC0) {
+        emptyList()
+    } else if (inst.noBranch) {
+        check(stackEffects.single() == 0) {
             "If [saveC0] and [noBranch], stack effect must be zero, but it is ${stackEffects.single()}. Instruction ${inst.mnemonic}"
         }
         inputVars
-    } else if (!inst.noBranch && saveC0) {
+    } else if (!inst.noBranch) {
         List(maxResultValues) {
             TacVar(ctx.nextVarName())
         }

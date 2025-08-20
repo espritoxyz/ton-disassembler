@@ -44,7 +44,7 @@ fun dumpTacCodeBlock(
     return buildString {
         val args = code.methodArgs.joinToString {
             if (it.valueTypes.size == 1) {
-                "${it.valueTypes.single()} ${it.name}"
+                "${it.name}: ${it.valueTypes.single()}"
             } else {
                 it.name
             }
