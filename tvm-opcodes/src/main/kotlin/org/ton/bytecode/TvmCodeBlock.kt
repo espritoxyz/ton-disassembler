@@ -43,6 +43,25 @@ abstract class TvmDisasmCodeBlock : TvmCodeBlock() {
 }
 
 @Serializable
+@SerialName("TvmInlineBlock")
+class TvmInlineBlock(
+    @SerialName("instList")
+    private val instListRaw: MutableList<TvmInst>
+) : TvmDisasmCodeBlock() {
+
+    override val instList: List<TvmInst>
+        get() = instListRaw
+
+    init {
+        setLocationParents(instListRaw, parent = null)
+        initLocationsCodeBlock()
+    }
+
+    override fun toString(): String = "TvmInlineBlock(${instList.size} instructions)"
+}
+
+
+@Serializable
 @SerialName("TvmMethod")
 open class TvmMethod(
     val id: @Contextual MethodId,

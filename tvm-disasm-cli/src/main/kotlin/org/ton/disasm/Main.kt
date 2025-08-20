@@ -24,6 +24,11 @@ import org.ton.bytecode.prettyPrint
 import org.ton.net.TONCENTER_API_V3
 import org.ton.net.makeRequest
 import org.ton.net.toUrlAddress
+import org.ton.tac.AbstractTacInst
+import org.ton.tac.TacContractCode
+import org.ton.tac.dumpTacContract
+import org.ton.tac.generateDebugTacContractCode
+import org.ton.tac.generateTacContractCode
 import java.nio.file.Path
 import kotlin.io.encoding.Base64
 import kotlin.io.encoding.ExperimentalEncodingApi
@@ -109,11 +114,39 @@ class PrettyPrintDisassemblerCommand : CliktCommand(
     }
 }
 
+class TacDisassemblerCommand : CliktCommand(
+    name = "tac",
+    help = "Disassemble contract code and output Three-Address Code.",
+) {
+    private val contractCode: ContractCode by contractCodeOption()
+    private val includeTvmCell: Boolean by option("--include-cell")
+        .help("Include TvmCell in the output")
+        .flag(default = false)
+    private val debug: Boolean by option("--debug")
+        .help("Enable debug output: stack state and instructions")
+        .flag(default = false)
+
+    override fun run() {
+        val bocContent = fetchContractCode(contractCode)
+        val contract = disassembleBoc(bocContent)
+
+        val tacCode: TacContractCode<AbstractTacInst> = if (debug) {
+            generateDebugTacContractCode(contract)
+        } else {
+            generateTacContractCode(contract)
+        }
+
+        val tacOutput = dumpTacContract(tacCode, includeTvmCell)
+        echo(tacOutput)
+    }
+}
+
 class TvmDisassemblerCommand : NoOpCliktCommand()
 
-fun main(args: Array<String>) = TvmDisassemblerCommand()
-    .subcommands(
-        JsonDisassemblerCommand(),
-        PrettyPrintDisassemblerCommand()
-    )
-    .main(args)
+fun main(args: Array<String>) =
+    TvmDisassemblerCommand()
+        .subcommands(
+            JsonDisassemblerCommand(),
+            PrettyPrintDisassemblerCommand(),
+            TacDisassemblerCommand(),
+        ).main(args)

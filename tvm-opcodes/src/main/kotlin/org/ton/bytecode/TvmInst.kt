@@ -13,6 +13,10 @@ sealed interface TvmInst {
 @Serializable
 sealed interface TvmRealInst : TvmInst {
     val physicalLocation: TvmPhysicalInstLocation
+    val stackInputs: List<TvmStackEntryDescription>?
+    val stackOutputs: List<TvmStackEntryDescription>?
+    val branches: List<TvmControlFlowContinuation>
+    val noBranch: Boolean
 }
 
 /**

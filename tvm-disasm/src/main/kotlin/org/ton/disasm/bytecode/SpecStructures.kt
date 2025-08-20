@@ -4,6 +4,9 @@ import kotlinx.serialization.ExperimentalSerializationApi
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonElement
+import kotlinx.serialization.json.int
+import kotlinx.serialization.json.jsonPrimitive
 
 @OptIn(ExperimentalSerializationApi::class)
 internal val specJson = Json {
@@ -61,28 +64,72 @@ internal data class InstructionOperandDescription(
     val bits_padding: Int?,
     val refs_length_var_size: Int?,
     val refs_add: Int?,
-    val completion_tag: Boolean?
+    val completion_tag: Boolean?,
 )
 
 @Serializable
 internal data class InstructionValueFlowDescription(
-    val inputs: InstructionValueFlowValueDescription?,
-    val outputs: InstructionValueFlowValueDescription?
+    val inputs: InstructionValueFlowValueDescription,
+    val outputs: InstructionValueFlowValueDescription,
 )
 
 @Serializable
 internal data class InstructionValueFlowValueDescription(
-    val stack: List<InstructionStackValueDescription>?
+    val stack: List<InstructionStackValueDescription>?,
 )
 
 @Serializable
-internal data class InstructionStackValueDescription(
-    val type: String,
-    // TODO unused for now, could be useful in the future
-)
+sealed class InstructionStackValueDescription {
+    abstract val entryType: String
+}
+
+@Serializable
+@SerialName("simple")
+class InstructionStackSimpleValue(
+    val name: String,
+    val value_types: List<String>? = null,
+) : InstructionStackValueDescription() {
+    override val entryType: String = "simple"
+}
+
+@Serializable
+@SerialName("const")
+class InstructionStackConstValue(
+    val value_type: String,
+    val value: JsonElement? = null,
+) : InstructionStackValueDescription() {
+    override val entryType: String = "const"
+
+    val typedValue: Int?
+        get() =
+            when (value_type) {
+                "Null" -> null
+                "Integer" -> value?.jsonPrimitive?.int
+                else -> null
+            }
+}
+
+@Serializable
+@SerialName("array")
+class InstructionStackArrayValue : InstructionStackValueDescription() {
+    override val entryType: String = "array"
+}
+
+@Serializable
+@SerialName("conditional")
+class InstructionStackConditionalValue : InstructionStackValueDescription() {
+    override val entryType: String = "conditional"
+}
 
 @Serializable
 internal data class ControlFlowValueDescription(
+    val branches: List<ControlFlowBranchContinuation>,
     val nobranch: Boolean,
-    // TODO unused for now, could be useful in the future
+)
+
+@Serializable
+internal data class ControlFlowBranchContinuation(
+    val type: String,
+    val var_name: String? = null, // only in 'type: variable'
+    val save: Map<String, ControlFlowBranchContinuation>? = null, // continuation is a recursive type
 )
