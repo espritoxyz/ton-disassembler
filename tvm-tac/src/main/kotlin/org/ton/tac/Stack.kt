@@ -3,6 +3,7 @@ package org.ton.tac
 import mu.KLogging
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmInst
+import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackBasicNopInst
@@ -56,7 +57,7 @@ import java.util.Collections.swap
 
 val SUPPORTED_STACK_TYPES = setOf("simple", "const")
 
-internal fun throwErrorIfStackTypesNotSupported(inst: TvmInst) {
+internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
     if (inst !is TvmStackBasicInst && inst !is TvmStackComplexInst) {
         if (inst.stackInputs == null || inst.stackOutputs == null) {
             error("Instruction: ${inst.mnemonic} is not supported, since stackInputs/Outputs are unconstrained")

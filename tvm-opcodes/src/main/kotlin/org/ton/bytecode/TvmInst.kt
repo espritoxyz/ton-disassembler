@@ -8,15 +8,15 @@ sealed interface TvmInst {
     val mnemonic: String
     val location: TvmInstLocation
     val gasConsumption: TvmGas
-    val stackInputs: List<TvmStackEntryDescription>?
-    val stackOutputs: List<TvmStackEntryDescription>?
-    val branches: List<TvmControlFlowContinuation>
-    val noBranch: Boolean
 }
 
 @Serializable
 sealed interface TvmRealInst : TvmInst {
     val physicalLocation: TvmPhysicalInstLocation
+    val stackInputs: List<TvmStackEntryDescription>?
+    val stackOutputs: List<TvmStackEntryDescription>?
+    val branches: List<TvmControlFlowContinuation>
+    val noBranch: Boolean
 }
 
 /**

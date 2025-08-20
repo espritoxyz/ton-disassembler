@@ -5,6 +5,7 @@ import org.ton.bytecode.TvmConstDataInst
 import org.ton.bytecode.TvmInlineBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmInstList
+import org.ton.bytecode.TvmRealInst
 import kotlin.reflect.full.memberProperties
 
 val CALLDICT_MNEMONICS = setOf("CALLDICT", "CALLDICT_LONG")
@@ -123,7 +124,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     return nonStackTacInst
 }
 
-internal fun throwErrorIfBranchesNotTypeVar(inst: TvmInst) {
+internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
     if (inst.branches.isNotEmpty()) {
         val allBranchesTypeVar = inst.branches.all { branch ->
             branch.type == "variable"

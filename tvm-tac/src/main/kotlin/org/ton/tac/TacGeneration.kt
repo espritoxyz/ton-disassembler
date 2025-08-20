@@ -6,6 +6,7 @@ import org.ton.bytecode.TvmControlFlowContinuation
 import org.ton.bytecode.TvmDictSpecialDictigetjmpzInst
 import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
+import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
 import org.ton.bytecode.extractPrimitiveOperands
@@ -21,6 +22,10 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     var noExit = false
 
     for (inst in codeBlock.instList) {
+        check(inst is TvmRealInst) {
+            "Unexpected artificial instruction: $inst"
+        }
+
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator)
         tacInstructions += curInstructions
 
@@ -59,7 +64,7 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
 private fun <Inst : AbstractTacInst> processInstruction(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
-    inst: TvmInst,
+    inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
 ): List<Inst> {
     throwErrorIfStackTypesNotSupported(inst)
@@ -155,7 +160,7 @@ private fun TvmInst.ignoreBranches(): Boolean =
 private fun <Inst : AbstractTacInst> processOrdinaryInst(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
-    inst: TvmInst,
+    inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
 ): List<Inst> {
     val operands = extractPrimitiveOperands(inst)
