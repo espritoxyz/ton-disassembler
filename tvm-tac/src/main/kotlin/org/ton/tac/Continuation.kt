@@ -11,8 +11,8 @@ val CALLDICT_MNEMONICS = setOf("CALLDICT", "CALLDICT_LONG")
 
 data class ContProcessingInfo(
     val contStackPassedRef: Int,
-    val stackEntriesBefore: List<TacVar>,
-    val stackEntriesAfter: List<TacVar>,
+    val stackEntriesBefore: List<TacStackValue>,
+    val stackEntriesAfter: List<TacStackValue>,
     val contArgsNum: Int
 ) {
     val stackTakenSize: Int get() = contArgsNum
@@ -83,7 +83,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
     // TODO: why analyze second time?
-    val (inlineInsts, inlineArgs) = generateTacCodeBlock<Inst>(
+    val (inlineInsts, inlineArgs) = generateTacCodeBlock(
         ctx,
         codeBlock = method,
         stack = methodStack,

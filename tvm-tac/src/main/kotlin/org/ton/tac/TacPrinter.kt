@@ -65,7 +65,7 @@ private fun StringBuilder.dumpTacCodeBlock(
     }
 }
 
-private fun dumpStackState(stack: List<TacVar>) =
+private fun dumpStackState(stack: List<TacStackValue>) =
     stack.joinToString(prefix = "stack: [", postfix = "]") { it.name }
 
 private fun StringBuilder.dumpInstruction(

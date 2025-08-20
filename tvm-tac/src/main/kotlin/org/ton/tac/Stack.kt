@@ -1,5 +1,6 @@
 package org.ton.tac
 
+import mu.KLogging
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
@@ -80,8 +81,8 @@ internal fun throwErrorIfStackTypesNotSupported(inst: TvmInst) {
 }
 
 internal fun updateStack(
-    stackEntriesBefore: List<TacVar>,
-    methodArgs: List<TacVar>,
+    stackEntriesBefore: List<TacStackValue>,
+    methodArgs: List<TacStackValue>,
     stack: Stack
 ): Stack {
     val argsSize = methodArgs.size
@@ -94,8 +95,7 @@ internal fun updateStack(
 }
 
 class Stack(
-    initialStack: List<TacVar>,
-    private val warningCollector: MutableList<String> = ArrayList(),
+    initialStack: List<TacStackValue>,
 ) {
     private var argCounter = 0
     private val createdArguments = mutableListOf<TacVar>()
@@ -111,7 +111,7 @@ class Stack(
         return newStack
     }
 
-    fun copyEntries(): List<TacVar> {
+    fun copyEntries(): List<TacStackValue> {
         return stack.map { it.copy() }
     }
 
@@ -124,17 +124,13 @@ class Stack(
         }
     }
 
-    fun addAll(elems: List<TacVar>) {
+    fun addAll(elems: List<TacStackValue>) {
         stack.addAll(elems)
     }
 
     private fun stackIndex(i: Int): Int = size - i - 1
 
-    private val stack: MutableList<TacVar> = initialStack.toMutableList()
-
-    private fun getWarningCollector() = warningCollector.joinToString("\n")
-
-    private fun clearMessagesCollector() = warningCollector.clear()
+    private val stack: MutableList<TacStackValue> = initialStack.toMutableList()
 
     fun getAssignInst(newVar: TacVar, i: Int): TacAssignInst {
         val value = pop(i)
@@ -143,7 +139,7 @@ class Stack(
         return result
     }
 
-    fun pop(i: Int): TacVar {
+    fun pop(i: Int): TacStackValue {
         doReverse(i + 1, 0)
         // empty expected types == no type check
         val result = popWithTypeCheck(expectedTypes = emptyList())
@@ -155,34 +151,38 @@ class Stack(
 
     private fun popWithTypeCheck(
         expectedTypes: List<String>,
-    ): TacVar {
+    ): TacStackValue {
         if (stack.isEmpty()) {
             extendStack(size + 1, listOf(expectedTypes))
         }
-        var inputVar: TacVar = stack.removeAt(stack.size - 1)
+        var inputVar: TacStackValue = stack.removeAt(stack.size - 1)
 
         if (inputVar.valueTypes.isNotEmpty() && expectedTypes.isNotEmpty()) {
             val hasMatchingType = inputVar.valueTypes.any { type -> type in expectedTypes }
 
-            if (hasMatchingType) {
+            if (inputVar is TacVar && hasMatchingType) {
                 val matchedTypes = inputVar.valueTypes.filter { it in expectedTypes }
                 inputVar = inputVar.copy(valueTypes = matchedTypes)
                 return inputVar
             }
-            warningCollector.add(
-                "Type mismatch: var ${inputVar.name}: expected one of $expectedTypes, but got ${inputVar.valueTypes}",
-            )
+
+            if (!hasMatchingType) {
+                logger.warn {
+                    "Type mismatch: var $inputVar: expected one of $expectedTypes, but got ${inputVar.valueTypes}"
+                }
+            }
+
             return inputVar
         }
 
-        if (inputVar.valueTypes.isEmpty() && expectedTypes.isNotEmpty()) { // populate type
+        if (inputVar is TacVar && inputVar.valueTypes.isEmpty() && expectedTypes.isNotEmpty()) { // populate type
             inputVar.valueTypes = expectedTypes
         }
 
         return inputVar
     }
 
-    fun push(value: TacVar) {
+    fun push(value: TacStackValue) {
         stack.add(value)
     }
 
@@ -452,7 +452,7 @@ class Stack(
         val newSize = i + j
         extendStack(newSize)
 
-        val topElements = mutableListOf<TacVar>()
+        val topElements = mutableListOf<TacStackValue>()
         for (k in 0 until newSize) {
             val topElement = stack.last()
             stack.removeAt(size - 1)
@@ -477,8 +477,8 @@ class Stack(
     }
 
     data class TacInstInfo(
-        val inputs: List<Pair<String, TacVar>>, // input + input name from spec
-        val outputs: List<TacVar>,
+        val inputs: List<Pair<String, TacStackValue>>, // input + input name from spec
+        val outputs: List<TacStackValue>,
         val continuationMap: Map<String, Int>,
     )
 
@@ -488,8 +488,8 @@ class Stack(
         outputSpec: List<TvmStackEntryDescription>,
         contRef: Int? = null, // if this is PUSHCONT
     ): TacInstInfo {
-        val inputs = mutableListOf<Pair<String, TacVar>>()
-        val outputs = mutableListOf<TacVar>()
+        val inputs = mutableListOf<Pair<String, TacStackValue>>()
+        val outputs = mutableListOf<TacStackValue>()
         val continuationMap = mutableMapOf<String, Int>()
 
         // Pop inputs in reverse since we deal with stack
@@ -498,15 +498,14 @@ class Stack(
                 val specInput = input as TvmSimpleStackEntryDescription
                 val specValueTypes = specInput.valueTypes
                 val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
-                if (poppedValue.concreteContinuationRef != null) {
-                    continuationMap[input.name] = poppedValue.concreteContinuationRef
+                if (poppedValue is ContinuationValue) {
+                    continuationMap[input.name] = poppedValue.continuationRef
                 }
                 inputs.add(input.name to poppedValue)
             } else {
                 error("Unsupported input type: \${input.type}")
             }
         }
-        clearMessagesCollector()  // TODO: what is this?
 
         outputSpec.forEach { output ->
             when (output.type) {
@@ -514,19 +513,27 @@ class Stack(
                     val specOutput = output as TvmSimpleStackEntryDescription
                     val specName = specOutput.name
                     val specValueTypes = specOutput.valueTypes
-                    val pushValue = TacVar(
-                        name = "${specName}_${ctx.nextVarId()}",
-                        valueTypes = specValueTypes,
-                        concreteContinuationRef = contRef
-                    )
+                    val name = "${specName}_${ctx.nextVarId()}"
+                    val pushValue = if (contRef != null) {
+                        ContinuationValue(name, contRef).also {
+                            check(it.valueTypes == specValueTypes) {
+                                "Unexpected output value types for $output. Expected ${it.valueTypes}."
+                            }
+                        }
+                    } else {
+                        TacVar(name = name, valueTypes = specValueTypes)
+                    }
                     push(pushValue)
                     outputs.add(pushValue)
                 }
 
                 "const" -> {
                     val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
+                    check(contRef == null) {
+                        "Unexpected continuation reference for output $output."
+                    }
                     val pushValue = TacVar(
-                        name = "const${ctx.nextVarId()}",
+                        name = "const_${ctx.nextVarId()}",
                         valueTypes = valueType,
                     )
                     push(pushValue)
@@ -540,3 +547,5 @@ class Stack(
         return TacInstInfo(inputs, outputs, continuationMap)
     }
 }
+
+private val logger = object : KLogging() {}.logger

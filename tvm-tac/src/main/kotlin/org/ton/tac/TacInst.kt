@@ -7,18 +7,18 @@ sealed interface TacInst : AbstractTacInst
 data class TacOrdinaryInst<Inst : AbstractTacInst>(
     val mnemonic: String,
     val operands: Map<String, Any?>,
-    val inputs: List<TacVar>,
-    val outputs: List<TacVar>,
+    val inputs: List<TacStackValue>,
+    val outputs: List<TacStackValue>,
     val blocks: List<List<Inst>>,
 ) : TacInst
 
 data class TacAssignInst(
     val lhs: TacVar,
-    val rhs: TacVar,
+    val rhs: TacStackValue,
 ) : TacInst
 
 data class TacReturnInst(
-    val result: List<TacVar>,
+    val result: List<TacStackValue>,
 ) : TacInst
 
 data class TacGotoInst(
@@ -29,8 +29,25 @@ data class TacLabel(
     val label: String
 ) : TacInst
 
+sealed interface TacStackValue {
+    val valueTypes: List<String>
+    val name: String
+    fun copy(): TacStackValue
+}
+
 data class TacVar(
-    val name: String,
-    var valueTypes: List<String> = listOf(),
-    val concreteContinuationRef: Int? = null, // if this variable is a concrete continuation
-)
+    override val name: String,
+    override var valueTypes: List<String> = listOf(),
+) : TacStackValue {
+    override fun copy() = TacVar(name, valueTypes)
+}
+
+data class ContinuationValue(
+    override val name: String,
+    val continuationRef: Int,
+) : TacStackValue {
+    override val valueTypes: List<String>
+        get() = listOf("Continuation")
+
+    override fun copy() = this
+}
