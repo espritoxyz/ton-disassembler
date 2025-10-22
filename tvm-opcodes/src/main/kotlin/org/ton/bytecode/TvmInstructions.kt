@@ -1233,8 +1233,15 @@ data class TvmAppCryptoBlsAggregateInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "n*4350-2616")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "signatures",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "sig",
+                    valueTypes = listOf("Slice")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -1271,8 +1278,19 @@ data class TvmAppCryptoBlsAggregateverifyInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "38534+n*22500")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "key_message_pairs",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "pk",
+                    valueTypes = listOf("Slice")
+                ),
+                TvmSimpleStackEntryDescription(
+                    name = "msg",
+                    valueTypes = listOf("Slice")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -1313,8 +1331,15 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "58034+n*3000")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "public_keys",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "pk",
+                    valueTypes = listOf("Slice")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -1503,8 +1528,19 @@ data class TvmAppCryptoBlsG1MultiexpInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "11409+n*630+n/floor(max(log2(n),4))*8820")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "components",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf("Slice")
+                ),
+                TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Integer")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -1786,8 +1822,19 @@ data class TvmAppCryptoBlsG2MultiexpInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "30422+n*1280+n/floor(max(log2(n),4))*22840")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "components",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf("Slice")
+                ),
+                TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Integer")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -1993,8 +2040,19 @@ data class TvmAppCryptoBlsPairingInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "20034+n*11800")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "components",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf("Slice")
+                ),
+                TvmSimpleStackEntryDescription(
+                    name = "y",
+                    valueTypes = listOf("Slice")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2281,8 +2339,15 @@ data class TvmAppCryptoHashextBlake2bInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2322,8 +2387,15 @@ data class TvmAppCryptoHashextKeccak256Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2359,8 +2431,15 @@ data class TvmAppCryptoHashextKeccak512Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2400,8 +2479,15 @@ data class TvmAppCryptoHashextSha256Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2437,8 +2523,15 @@ data class TvmAppCryptoHashextSha512Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2483,8 +2576,15 @@ data class TvmAppCryptoHashextaBlake2bInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2525,8 +2625,15 @@ data class TvmAppCryptoHashextaKeccak256Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2567,8 +2674,15 @@ data class TvmAppCryptoHashextaKeccak512Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2609,8 +2723,15 @@ data class TvmAppCryptoHashextaSha256Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2651,8 +2772,15 @@ data class TvmAppCryptoHashextaSha512Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2693,8 +2821,15 @@ data class TvmAppCryptoHashextarBlake2bInst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2735,8 +2870,15 @@ data class TvmAppCryptoHashextarKeccak256Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2777,8 +2919,15 @@ data class TvmAppCryptoHashextarKeccak512Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2819,8 +2968,15 @@ data class TvmAppCryptoHashextarSha256Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2861,8 +3017,15 @@ data class TvmAppCryptoHashextarSha512Inst(
                 name = "b",
                 valueTypes = listOf("Builder")
             ),
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2898,8 +3061,15 @@ data class TvmAppCryptoHashextrBlake2bInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2939,8 +3109,15 @@ data class TvmAppCryptoHashextrKeccak256Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/11 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -2976,8 +3153,15 @@ data class TvmAppCryptoHashextrKeccak512Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/19 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -3017,8 +3201,15 @@ data class TvmAppCryptoHashextrSha256Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/33 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -3054,8 +3245,15 @@ data class TvmAppCryptoHashextrSha512Inst(
     override val gasConsumption get() = TvmComplexGas(this, description = "1/16 gas per byte")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "input_parts",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "s",
+                    valueTypes = listOf("Slice", "Builder")
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -21541,8 +21739,15 @@ data class TvmContBasicCallccargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 34)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -21578,8 +21783,15 @@ data class TvmContBasicCallccvarargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -21666,8 +21878,15 @@ data class TvmContBasicCallxargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -21715,8 +21934,15 @@ data class TvmContBasicCallxargsVarInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -21763,8 +21989,15 @@ data class TvmContBasicCallxvarargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -21959,8 +22192,15 @@ data class TvmContBasicJmpxargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -22031,8 +22271,15 @@ data class TvmContBasicJmpxvarargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -22135,8 +22382,15 @@ data class TvmContBasicRetargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22196,8 +22450,15 @@ data class TvmContBasicRetvarargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "p",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
@@ -23319,8 +23580,15 @@ data class TvmContCreateBlessargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "r",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
@@ -23356,8 +23624,15 @@ data class TvmContCreateBlessvarargsInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "r",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
@@ -24983,8 +25258,15 @@ data class TvmContStackSetcontargsNInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "r",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -25020,8 +25302,15 @@ data class TvmContStackSetcontvarargsInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "26+s''")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "r",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -32243,8 +32532,15 @@ data class TvmExceptionsTryargsInst(
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "args",
+                lengthVar = "r",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "arg",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
@@ -33484,8 +33780,15 @@ data class TvmTupleExplodeInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "m",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
@@ -33525,8 +33828,15 @@ data class TvmTupleExplodevarInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "m",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
@@ -34564,8 +34874,15 @@ data class TvmTupleTupleInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34598,8 +34915,15 @@ data class TvmTupleTuplevarInst(
     override val gasConsumption get() = TvmComplexGas(this, description = "26+n")
     override val stackInputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34644,8 +34968,15 @@ data class TvmTupleUnpackfirstInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "k",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34681,8 +35012,15 @@ data class TvmTupleUnpackfirstvarInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34716,8 +35054,15 @@ data class TvmTupleUntupleInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34753,8 +35098,15 @@ data class TvmTupleUntuplevarInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = "array"
+            TvmArrayStackEntryDescription(
+                name = "tuple_elements",
+                lengthVar = "n",
+                arrayEntry = listOf(
+                                        TvmSimpleStackEntryDescription(
+                    name = "x",
+                    valueTypes = listOf()
+                )
+                )
             )
         )
     override val branches: List<TvmControlFlowContinuation> 

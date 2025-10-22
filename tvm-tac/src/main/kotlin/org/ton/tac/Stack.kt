@@ -1,6 +1,7 @@
 package org.ton.tac
 
 import mu.KLogging
+import org.ton.bytecode.TvmArrayStackEntryDescription
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
@@ -55,7 +56,7 @@ import org.ton.bytecode.TvmStackComplexXcpuxcInst
 import org.ton.bytecode.TvmStackEntryDescription
 import java.util.Collections.swap
 
-val SUPPORTED_STACK_TYPES = setOf("simple", "const")
+val SUPPORTED_STACK_TYPES = setOf("simple", "const", "array")
 
 internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
     if (inst !is TvmStackBasicInst && inst !is TvmStackComplexInst) {
@@ -525,16 +526,28 @@ class Stack(
 
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
-            if (input.type == "simple") {
-                val specInput = input as TvmSimpleStackEntryDescription
-                val specValueTypes = specInput.valueTypes
-                val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
-                if (poppedValue is ContinuationValue) {
-                    continuationMap[input.name] = poppedValue.continuationRef
+            when (input.type) {
+                "simple" -> {
+                    println(input)
+                    val specInput = input as TvmSimpleStackEntryDescription
+                    val specValueTypes = specInput.valueTypes
+                    val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
+                    if (poppedValue is ContinuationValue) {
+                        continuationMap[input.name] = poppedValue.continuationRef
+                    }
+                    inputs.add(input.name to poppedValue)
                 }
-                inputs.add(input.name to poppedValue)
-            } else {
-                error("Unsupported input type: \${input.type}")
+
+                "array" -> {
+                    println(input)
+                    val specInput = input as TvmArrayStackEntryDescription
+                    println(specInput)
+                    error("1")
+                    val specLengthType = specInput.lengthVar
+                    val specArrayEntry = specInput.arrayEntry
+                }
+
+                else -> error("Unsupported input type: \${input.type}")
             }
         }
 
@@ -571,6 +584,10 @@ class Stack(
                         )
                     push(pushValue)
                     outputs.add(pushValue)
+                }
+
+                "array" -> {
+                    //
                 }
 
                 else -> error("${output.type} isn't supported yet")

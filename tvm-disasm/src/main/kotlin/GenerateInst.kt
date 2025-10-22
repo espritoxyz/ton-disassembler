@@ -5,6 +5,7 @@ import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
 import org.ton.disasm.bytecode.InstructionStackConstValue
 import org.ton.disasm.bytecode.InstructionStackSimpleValue
+import org.ton.disasm.bytecode.InstructionStackArrayValue
 import org.ton.disasm.bytecode.InstructionsList
 import org.ton.disasm.bytecode.opcodeToRefOperandType
 import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
@@ -20,36 +21,32 @@ private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode
 enum class StackFlowDirection { INPUT, OUTPUT }
 
 private fun generateInstructionCellOperandTypes(
-    instructions: Map<String, InstructionDescription>,
+    instructions: Map<String, InstructionDescription>
 ): Map<String, Map<String, String>> =
-    (opcodeToSubSliceOperandType + opcodeToRefOperandType)
-        .mapNotNull { (opname, type) ->
-            val inst =
-                instructions[opname]
-                    ?: error("Instruction $opname not found")
-            val typeName =
-                when (type) {
-                    CellOperandType.CodeCell -> {
-                        "TvmInstList"
-                    }
-                    CellOperandType.OrdinaryCell -> {
-                        "TvmCell"
-                    }
-                    CellOperandType.SpecialCell -> {
-                        return@mapNotNull null
-                    }
-                }
-            check(inst.bytecode.operands.isNotEmpty()) {
-                "Expected operands for instruction $opname"
+    (opcodeToSubSliceOperandType + opcodeToRefOperandType).mapNotNull { (opname, type) ->
+        val inst = instructions[opname]
+            ?: error("Instruction $opname not found")
+        val typeName = when (type) {
+            CellOperandType.CodeCell -> {
+                "TvmInstList"
             }
-            val map =
-                if (inst.bytecode.operands.size == 1) {
-                    mapOf("c" to typeName)
-                } else {
-                    List(inst.bytecode.operands.size) { index -> "c${index + 1}" to typeName }.toMap()
-                }
-            opname to map
-        }.toMap()
+            CellOperandType.OrdinaryCell -> {
+                "TvmCell"
+            }
+            CellOperandType.SpecialCell -> {
+                return@mapNotNull null
+            }
+        }
+        check(inst.bytecode.operands.isNotEmpty()) {
+            "Expected operands for instruction $opname"
+        }
+        val map = if (inst.bytecode.operands.size == 1) {
+            mapOf("c" to typeName)
+        } else {
+            List(inst.bytecode.operands.size) { index -> "c${index + 1}" to typeName }.toMap()
+        }
+        opname to map
+    }.toMap()
 
 private const val ADDITIONAL_CATEGORY_DICT = "dict"
 
@@ -60,18 +57,18 @@ private fun snakeToCamel(value: String): String =
         it.replace("-", "Minus").lowercase().replaceFirstChar(Char::titlecase)
     }
 
-private fun tvmInstCategoryClassName(categoryName: String): String = "Tvm${snakeToCamel(categoryName)}Inst"
+private fun tvmInstCategoryClassName(categoryName: String): String =
+    "Tvm${snakeToCamel(categoryName)}Inst"
 
 private fun tvmInstClassName(inst: InstructionDescription): String =
     "Tvm${snakeToCamel(inst.doc.category)}${snakeToCamel(inst.mnemonic)}Inst"
 
-private fun tvmInstOperandType(operand: InstructionOperandDescription): String =
-    when (operand.type) {
-        "uint", "int" -> "Int"
-        "pushint_long" -> "String"
-        "ref", "subslice" -> "TvmCell"
-        else -> error("Unexpected operand type: $operand")
-    }
+private fun tvmInstOperandType(operand: InstructionOperandDescription): String = when (operand.type) {
+    "uint", "int" -> "Int"
+    "pushint_long" -> "String"
+    "ref", "subslice" -> "TvmCell"
+    else -> error("Unexpected operand type: $operand")
+}
 
 private fun tvmInstCategoryDeclaration(category: String): String {
     var additionalCategories = ""
@@ -82,7 +79,7 @@ private fun tvmInstCategoryDeclaration(category: String): String {
     return """
         @Serializable
         sealed interface ${tvmInstCategoryClassName(category)}: TvmRealInst$additionalCategories
-        """.trimIndent()
+    """.trimIndent()
 }
 
 private fun normalizeDocString(docStr: String): List<String> =
@@ -124,14 +121,13 @@ private fun tvmInstDefault(
             continue
         }
 
-        val value =
-            when (type) {
-                "Int" -> "0"
-                "String" -> "\"0\""
-                "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
-                "TvmInstList" -> "TvmInstList.empty"
-                else -> error("Unexpected operand type: $type")
-            }
+        val value = when (type) {
+            "Int" -> "0"
+            "String" -> "\"0\""
+            "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
+            "TvmInstList" -> "TvmInstList.empty"
+            else -> error("Unexpected operand type: $type")
+        }
 
         arguments += "|            $value,"
     }
@@ -140,62 +136,75 @@ private fun tvmInstDefault(
         |        $className(
         ${arguments.joinToString("\n")}
         |        ),
-        """.trimMargin()
+    """.trimMargin()
 }
 
 private fun extractStackEntries(
     inst: InstructionDescription,
     direction: StackFlowDirection,
 ): String {
-    val stack =
-        when (direction) {
-            StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack
-            StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack
-        }
+    val stack = when (direction) {
+        StackFlowDirection.INPUT -> inst.valueFlow.inputs.stack
+        StackFlowDirection.OUTPUT -> inst.valueFlow.outputs.stack
+    }
 
     return when {
-        stack == null ->
-            "List<TvmStackEntryDescription>? \n" +
-                "        get() = null" // stack inputs/outputs are unconstrained OR this is stack
-        // manipulation instruction
-        stack.isEmpty() ->
-            "List<TvmStackEntryDescription> \n" +
+        stack == null -> "List<TvmStackEntryDescription>? \n" +
+                "        get() = null"    // stack inputs/outputs are unconstrained OR this is stack manipulation instruction
+        stack.isEmpty() -> "List<TvmStackEntryDescription> \n" +
                 "        get() = emptyList()"
         else -> {
             "List<TvmStackEntryDescription> \n" +
-                "        get() = listOf(\n" +
-                stack.joinToString(",\n") { entry ->
-                    when (entry) {
-                        is InstructionStackSimpleValue -> {
-                            """
+                    "        get() = listOf(\n" + stack.joinToString(",\n") { entry ->
+                when (entry) {
+                    is InstructionStackSimpleValue -> {
+                        """
                         |            TvmSimpleStackEntryDescription(
                         |                name = "${entry.name}",
-                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(
-                                ", ",
-                            ) { "\"$it\"" }})
+                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
                         |            )
-                            """.trimMargin()
-                        }
+                        """.trimMargin()
+                    }
 
-                        is InstructionStackConstValue -> {
-                            val valueStr = entry.typedValue?.toString() ?: "null"
-                            """
+                    is InstructionStackConstValue -> {
+                        val valueStr = entry.typedValue?.toString() ?: "null"
+                        """
                         |            TvmConstStackEntryDescription(
                         |                value = $valueStr,
                         |                valueType = "${entry.value_type}"
                         |            )
-                            """.trimMargin()
-                        }
+                        """.trimMargin()
+                    }
 
-                        else -> {
+                    is InstructionStackArrayValue -> {
+                        val arrayEntriesStr = entry.array_entry.joinToString(",\n") { arrayEntry ->
                             """
+                        |                TvmSimpleStackEntryDescription(
+                        |                    name = "${arrayEntry.name}",
+                        |                    valueTypes = listOf(${arrayEntry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |                )
+                        """.trimMargin()
+                        }
+                        """
+                        |            TvmArrayStackEntryDescription(
+                        |                name = "${entry.name}",
+                        |                lengthVar = "${entry.length_var}",
+                        |                arrayEntry = listOf(
+                        $arrayEntriesStr
+                        |                )
+                        |            )
+                        """.trimMargin()
+                }
+
+                    else -> {
+                        """
                         |            TvmGenericStackEntryDescription(
                         |                type = "${entry.entryType}"
                         |            )
-                            """.trimMargin()
-                        }
+                        """.trimMargin()
                     }
-                } + "\n        )"
+                }
+            } + "\n        )"
         }
     }
 }
@@ -205,15 +214,10 @@ private fun extractControlFlowBranches(branches: List<ControlFlowBranchContinuat
         return "emptyList()"
     }
 
-    fun formatBranch(
-        branch: ControlFlowBranchContinuation,
-        indent: String = "            ",
-        isFstLine: Boolean = false,
-    ): String {
-        val saveFormatted =
-            branch.save?.entries?.joinToString(",\n") { (key, value) ->
-                """$indent        "$key" to ${formatBranch(value, "$indent        ")}"""
-            }
+    fun formatBranch(branch: ControlFlowBranchContinuation, indent: String = "            ", isFstLine: Boolean = false): String {
+        val saveFormatted = branch.save?.entries?.joinToString(",\n") { (key, value) ->
+            """$indent        "$key" to ${formatBranch(value, "$indent        ")}"""
+        }
 
         return buildString {
             appendLine((if (isFstLine) indent else "") + "TvmControlFlowContinuation(")
@@ -222,7 +226,7 @@ private fun extractControlFlowBranches(branches: List<ControlFlowBranchContinuat
                 appendLine("""$indent    variableName = "${branch.var_name}",""")
             }
             if (!saveFormatted.isNullOrEmpty()) {
-                appendLine("""$indent    save = mapOf(""")
+                appendLine("""$indent    save = mapOf(""" )
                 append(saveFormatted)
                 appendLine()
                 appendLine("$indent    )")
@@ -233,6 +237,7 @@ private fun extractControlFlowBranches(branches: List<ControlFlowBranchContinuat
 
     return "listOf(\n" + branches.joinToString(",\n") { formatBranch(it, isFstLine = true) } + "\n        )"
 }
+
 
 private fun tvmInstDeclaration(
     inst: InstructionDescription,
@@ -252,31 +257,28 @@ private fun tvmInstDeclaration(
             continue
         }
 
-        val modifier =
-            if (type == "TvmInstList") {
-                contArgsCount++
-                "override "
-            } else {
-                ""
-            }
+        val modifier = if (type == "TvmInstList") {
+            contArgsCount++
+            "override "
+        } else {
+            ""
+        }
 
-        arguments += "|    ${modifier}val ${arg.name}: $type, // ${arg.type}"
+        arguments += "|    ${modifier}val ${arg.name}: ${type}, // ${arg.type}"
     }
 
-    val additionalInterfaces =
-        ", TvmContOperand${contArgsCount}Inst".takeIf {
-            contArgsCount > 0
-        } ?: ""
+    val additionalInterfaces = ", TvmContOperand${contArgsCount}Inst".takeIf {
+        contArgsCount > 0
+    } ?: ""
 
     val docs = normalizeDocString(inst.doc.description).joinToString("\n") { "| * $it" }
 
     val gasUsage = inst.doc.gas.toIntOrNull()
-    val tvmGasUsage =
-        when {
-            inst.doc.gas.isBlank() -> "TvmSimpleGas"
-            gasUsage != null -> "TvmFixedGas(value = $gasUsage)"
-            else -> "TvmComplexGas(this, description = \"${inst.doc.gas}\")"
-        }
+    val tvmGasUsage = when{
+        inst.doc.gas.isBlank() -> "TvmSimpleGas"
+        gasUsage != null -> "TvmFixedGas(value = $gasUsage)"
+        else -> "TvmComplexGas(this, description = \"${inst.doc.gas}\")"
+    }
 
     return """
     |/**
@@ -319,28 +321,23 @@ fun main() {
 
     val basicInstructions = instructions.instructions.associateBy { tvmInstClassName(it) }
 
-    val categories =
-        instructions.instructions
-            .mapTo(mutableSetOf()) { it.doc.category }
-            .also { it += additionalCategories }
-            .associateWith { tvmInstCategoryDeclaration(it) }
+    val categories = instructions.instructions.mapTo(mutableSetOf()) { it.doc.category }
+        .also { it += additionalCategories }
+        .associateWith { tvmInstCategoryDeclaration(it) }
 
     val instructionOperandTypes = generateInstructionCellOperandTypes(instructionByMnemonic)
 
-    val basicInstructionsDeclarations =
-        basicInstructions.mapValues {
-            tvmInstDeclaration(it.value, instructionOperandTypes)
-        }
+    val basicInstructionsDeclarations = basicInstructions.mapValues {
+        tvmInstDeclaration(it.value, instructionOperandTypes)
+    }
 
-    val categoryToInstructionDefault =
-        categories.keys.associateWith { category ->
-            val correspondingInstructions = basicInstructions.values.filter { it.doc.category == category }
-            val defaults =
-                correspondingInstructions.map {
-                    tvmInstDefault(it, instructionOperandTypes)
-                }
-            defaults
+    val categoryToInstructionDefault = categories.keys.associateWith { category ->
+        val correspondingInstructions = basicInstructions.values.filter { it.doc.category == category }
+        val defaults = correspondingInstructions.map {
+            tvmInstDefault(it, instructionOperandTypes)
         }
+        defaults
+    }
 
     generatedInstPath.bufferedWriter().use { writer ->
         writer.appendLine(
@@ -381,7 +378,7 @@ fun main() {
             import org.ton.disasm.TvmPhysicalInstLocation
             
             val tvmDefaultInstructions = mapOf(
-            """.trimIndent(),
+            """.trimIndent()
         )
 
         categoryToInstructionDefault.entries.forEach { (category, insts) ->
@@ -391,7 +388,7 @@ fun main() {
             writer.appendLine(
                 """
                 |    "$category" to listOf(
-                """.trimMargin(),
+                """.trimMargin()
             )
             insts.forEach {
                 writer.appendLine(it)

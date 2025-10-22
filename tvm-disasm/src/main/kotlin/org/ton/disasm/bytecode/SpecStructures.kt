@@ -112,7 +112,11 @@ class InstructionStackConstValue(
 
 @Serializable
 @SerialName("array")
-class InstructionStackArrayValue : InstructionStackValueDescription() {
+class InstructionStackArrayValue(
+    val name: String,
+    val length_var: String,
+    val array_entry: List<InstructionStackSimpleValue>
+) : InstructionStackValueDescription() {
     override val entryType: String = "array"
 }
 
