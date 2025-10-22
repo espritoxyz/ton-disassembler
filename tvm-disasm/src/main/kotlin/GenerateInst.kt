@@ -5,6 +5,7 @@ import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
 import org.ton.disasm.bytecode.InstructionStackConstValue
 import org.ton.disasm.bytecode.InstructionStackSimpleValue
+import org.ton.disasm.bytecode.InstructionStackArrayValue
 import org.ton.disasm.bytecode.InstructionsList
 import org.ton.disasm.bytecode.opcodeToRefOperandType
 import org.ton.disasm.bytecode.opcodeToSubSliceOperandType
@@ -174,6 +175,26 @@ private fun extractStackEntries(
                         |            )
                         """.trimMargin()
                     }
+
+                    is InstructionStackArrayValue -> {
+                        val arrayEntriesStr = entry.array_entry.joinToString(",\n") { arrayEntry ->
+                            """
+                        |                TvmSimpleStackEntryDescription(
+                        |                    name = "${arrayEntry.name}",
+                        |                    valueTypes = listOf(${arrayEntry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |                )
+                        """.trimMargin()
+                        }
+                        """
+                        |            TvmArrayStackEntryDescription(
+                        |                name = "${entry.name}",
+                        |                lengthVar = "${entry.length_var}",
+                        |                arrayEntry = listOf(
+                        $arrayEntriesStr
+                        |                )
+                        |            )
+                        """.trimMargin()
+                }
 
                     else -> {
                         """

@@ -23,6 +23,15 @@ data class TvmConstStackEntryDescription(
 }
 
 @Serializable
+data class TvmArrayStackEntryDescription(
+    val name: String,
+    val lengthVar: String,
+    val arrayEntry: List<TvmSimpleStackEntryDescription>
+) : TvmStackEntryDescription() {
+    override val type: String = "array"
+}
+
+@Serializable
 data class TvmGenericStackEntryDescription(
     override val type: String
 ) : TvmStackEntryDescription()
