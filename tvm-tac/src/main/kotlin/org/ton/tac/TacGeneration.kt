@@ -169,6 +169,14 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
 ): List<Inst> {
 
     when (inst) {
+        is TvmAppGlobalSetglobInst -> {
+            val value = stack.pop(0)
+            val globalName = "global_${inst.k}"
+
+            if (value is TacTupleValue) ctx.tupleRegistry[globalName] = value.elements
+
+            return emptyList()
+        }
         is TvmContRegistersPopctrInst -> {
             val registerValue = when (val poppedValue = stack.pop(0)) {
                 is ContinuationValue -> ControlRegisterValue(

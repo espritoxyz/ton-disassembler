@@ -503,15 +503,17 @@ class Stack(
 
                     val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
                     val valueToStore = if (specValueTypes.contains("Tuple")) {
+                        var tmp: String? = null // временные изменения
+                        for (x in ctx.tupleRegistry.keys){
+                            if (x.startsWith("global")) tmp = x
+                        }
                         TacTupleValue(
                             name = poppedValue.name,
-                            elements = ctx.tupleRegistry[poppedValue.name] ?: emptyList()
+                            elements = ctx.tupleRegistry[tmp] ?: emptyList()
                         )
                     } else {
                         poppedValue
                     }
-
-                    println(valueToStore)
 
                     if (valueToStore is ContinuationValue) {
                         continuationMap[input.name] = valueToStore.continuationRef
