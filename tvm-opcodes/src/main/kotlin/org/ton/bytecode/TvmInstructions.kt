@@ -34876,11 +34876,11 @@ data class TvmTupleTupleInst(
         get() = listOf(
             TvmArrayStackEntryDescription(
                 name = "tuple_elements",
-                lengthVar = "n",
+                lengthVar = n.toString(),
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf()
+                    valueTypes = listOf("Integer", "Slice", "Cell", "Tuple", "Continuation")
                 )
                 )
             )
@@ -35056,11 +35056,11 @@ data class TvmTupleUntupleInst(
         get() = listOf(
             TvmArrayStackEntryDescription(
                 name = "tuple_elements",
-                lengthVar = "n",
+                lengthVar = n.toString(),
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf()
+                    valueTypes = listOf("Integer", "Slice", "Cell", "Tuple", "Continuation")
                 )
                 )
             )

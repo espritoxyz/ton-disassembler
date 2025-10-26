@@ -498,23 +498,46 @@ class Stack(
         inputSpec.reversed().forEach { input ->
             when (input.type) {
                 "simple" -> {
-                    println(input)
                     val specInput = input as TvmSimpleStackEntryDescription
                     val specValueTypes = specInput.valueTypes
+
                     val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
-                    if (poppedValue is ContinuationValue) {
-                        continuationMap[input.name] = poppedValue.continuationRef
+                    val valueToStore = if (specValueTypes.contains("Tuple")) {
+                        TacTupleValue(
+                            name = poppedValue.name,
+                            elements = ctx.tupleRegistry[poppedValue.name] ?: emptyList()
+                        )
+                    } else {
+                        poppedValue
                     }
-                    inputs.add(input.name to poppedValue)
+
+                    println(valueToStore)
+
+                    if (valueToStore is ContinuationValue) {
+                        continuationMap[input.name] = valueToStore.continuationRef
+                    }
+                    inputs.add(input.name to valueToStore)
                 }
 
                 "array" -> {
-                    println(input)
                     val specInput = input as TvmArrayStackEntryDescription
-                    println(specInput)
-                    error("1")
-                    val specLengthType = specInput.lengthVar
-                    val specArrayEntry = specInput.arrayEntry
+                    val specLengthType = specInput.lengthVar.toIntOrNull() ?: error("Incorrect tuple length")
+                    val tupleElements: MutableList<TacStackValue> = mutableListOf()
+                    repeat(specLengthType) {
+                        val poppedValue = popWithTypeCheck(expectedTypes = emptyList())
+                        tupleElements.add(poppedValue)
+                        if (poppedValue is ContinuationValue) {
+                            continuationMap["${input.name}_$it"] = poppedValue.continuationRef
+                        }
+                    }
+                    tupleElements.reverse()
+
+                    val tupleVar = TacTupleValue(
+                        name = "t_${ctx.nextVarId()}",
+                        elements = tupleElements
+                    )
+                    ctx.tupleRegistry[tupleVar.name] = tupleElements
+                    inputs.add(input.name to tupleVar)
                 }
 
                 else -> error("Unsupported input type: \${input.type}")
@@ -535,7 +558,16 @@ class Stack(
                             }
                         }
                     } else {
-                        TacVar(name = name, valueTypes = specValueTypes)
+                        if (specValueTypes.contains("Tuple")) {
+                            val tupleInput = inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
+                                ?: error("Tuple input not found for TUPLE output")
+                            TacTupleValue(
+                                name = name,
+                                elements = tupleInput.elements
+                            )
+                        } else {
+                            TacVar(name = name, valueTypes = specValueTypes)
+                        }
                     }
                     push(pushValue)
                     outputs.add(pushValue)
@@ -555,7 +587,20 @@ class Stack(
                 }
 
                 "array" -> {
-                    //
+                    val specOutput = output as TvmArrayStackEntryDescription
+                    val specLengthType = specOutput.lengthVar.toIntOrNull() ?: error("Incorrect tuple length")
+
+                    val tupleVar = inputs.find { it.first == "t" }?.second as? TacTupleValue
+                        ?: error("Tuple input not found for UNTUPLE")
+
+                    if (tupleVar.elements.size != specLengthType) {
+                        error("Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType")
+                    }
+
+                    tupleVar.elements.forEach { element ->
+                        push(element)
+                        outputs.add(element)
+                    }
                 }
 
                 else -> error("${output.type} isn't supported yet")
