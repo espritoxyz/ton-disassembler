@@ -507,10 +507,16 @@ class Stack(
                         for (x in ctx.tupleRegistry.keys){
                             if (x.startsWith("global")) tmp = x
                         }
-                        TacTupleValue(
+                        val result = TacTupleValue(
                             name = poppedValue.name,
                             elements = ctx.tupleRegistry[tmp] ?: emptyList()
                         )
+
+                        if (tmp != null) {
+                            ctx.tupleRegistry.remove(tmp)
+                        }
+
+                        result
                     } else {
                         poppedValue
                     }
