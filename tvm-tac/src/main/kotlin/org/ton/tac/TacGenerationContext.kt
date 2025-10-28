@@ -13,7 +13,7 @@ class TacGenerationContext<Inst : AbstractTacInst>(
     val contract: TvmContractCode,
     val debug: Boolean,
 ) {
-    val tupleRegistry = mutableMapOf<String, List<TacStackValue>>()
+    val tupleRegistry = LinkedHashMap<String, List<TacStackValue>>()
     val controlRegisters = mutableMapOf<Int, ControlRegisterValue>()
     val isolatedContinuations = mutableMapOf<Int, TacContinuationInfo<Inst>>()
     val methodsWithSubstitutedStack = mutableMapOf<Int, TacContinuationInfo<Inst>>()
