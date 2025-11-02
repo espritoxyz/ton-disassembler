@@ -599,7 +599,7 @@ class Stack(
                     val specLengthType = specOutput.lengthVar.toIntOrNull() ?: error("Incorrect tuple length")
 
                     val tupleVar = inputs.find { it.first == "t" }?.second as? TacTupleValue
-                        ?: error("Tuple input not found for UNTUPLE")
+                        ?: error("Tuple input not found if your instruction is UNTUPLE or instruction isn't supported yet")
 
                     if (tupleVar.elements.size != specLengthType) {
                         error("Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType")
