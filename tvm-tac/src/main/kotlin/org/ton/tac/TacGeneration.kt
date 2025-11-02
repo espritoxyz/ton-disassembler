@@ -33,6 +33,8 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator)
         tacInstructions += curInstructions
 
+        if (inst.mnemonic == "JMPX") noExit = true
+
         // like THROW
         if (!inst.noBranch && inst.branches.isEmpty()) {
             noExit = true
