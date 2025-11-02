@@ -1,6 +1,5 @@
 package org.ton.tac
 
-import org.ton.bytecode.TvmAppGlobalGetglobInst
 import org.ton.bytecode.TvmAppGlobalSetglobInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContRegistersPopctrInst
@@ -20,6 +19,7 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     codeBlock: TvmDisasmCodeBlock,
     stack: Stack = Stack(emptyList()),
     endingInstGenerator: EndingInstGenerator<Inst> = ReturnInstGenerator(),
+    registerState: RegisterState = RegisterState(),
 ): TacContinuationInfo<Inst> {
     val tacInstructions = mutableListOf<Inst>()
 
@@ -30,7 +30,7 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
             "Unexpected artificial instruction: $inst"
         }
 
-        val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator)
+        val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
         tacInstructions += curInstructions
 
         if (inst.mnemonic == "JMPX") noExit = true
@@ -72,6 +72,7 @@ private fun <Inst : AbstractTacInst> processInstruction(
     stack: Stack,
     inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
+    registerState: RegisterState,
 ): List<Inst> {
     throwErrorIfStackTypesNotSupported(inst)
 
@@ -114,7 +115,7 @@ private fun <Inst : AbstractTacInst> processInstruction(
         return listOf(resultInst as Inst)
     }
 
-    return processOrdinaryInst(ctx, stack, inst, endingInstGenerator)
+    return processOrdinaryInst(ctx, stack, inst, endingInstGenerator, registerState)
 }
 
 /**
@@ -168,6 +169,8 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
     stack: Stack,
     inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
+    registerState: RegisterState
+
 ): List<Inst> {
 
     when (inst) {
@@ -175,7 +178,7 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
             val value = stack.pop(0)
             val globalName = "global_${inst.k}"
 
-            if (value is TacTupleValue) ctx.tupleRegistry[globalName] = value.elements
+            if (value is TacTupleValue) registerState.tupleRegistry[globalName] = value.elements
 
             return emptyList()
         }
@@ -194,11 +197,11 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     ref = -1
                 )
             }
-            ctx.controlRegisters[inst.i] = registerValue
+            registerState.controlRegisters[inst.i] = registerValue
             return emptyList()
         }
         is TvmContRegistersPushctrInst -> {
-            val registerValue = ctx.controlRegisters[inst.i] ?: ControlRegisterValue(type = "Cell", ref = -1)
+            val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue(type = "Cell", ref = -1)
 
             val pushValue = when(registerValue.type){
                 "Continuation" -> ContinuationValue("ctr_${inst.i}", registerValue.ref)
@@ -227,7 +230,8 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                 ctx,
                 inputSpec = specInputs,
                 outputSpec = specOutputs,
-                contRef = operandContinuationInfo?.resultContinuationId
+                contRef = operandContinuationInfo?.resultContinuationId,
+                registerState = registerState
             )
 
             if (inst.branches.isEmpty() || inst.ignoreBranches()) {
@@ -357,6 +361,7 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     codeBlock = continuationInfo.originalTvmCode,
                     stack = stack.copy(),
                     endingInstGenerator = newEndInstGenerator,
+                    registerState = registerState.copy()
                 )
             }
 
