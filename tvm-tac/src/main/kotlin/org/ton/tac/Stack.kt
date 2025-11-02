@@ -96,6 +96,18 @@ internal fun updateStack(
     return stack.copy()
 }
 
+
+data class RegisterState(
+    val tupleRegistry: LinkedHashMap<String, List<TacStackValue>> = LinkedHashMap(),
+    val controlRegisters: MutableMap<Int, ControlRegisterValue> = mutableMapOf()
+) {
+    fun copy(): RegisterState = RegisterState(
+        tupleRegistry = tupleRegistry.toMutableMap() as LinkedHashMap<String, List<TacStackValue>>,
+        controlRegisters = controlRegisters.toMutableMap()
+    )
+}
+
+
 class Stack(
     initialStack: List<TacStackValue>,
 ) {
@@ -489,6 +501,7 @@ class Stack(
         inputSpec: List<TvmStackEntryDescription>,
         outputSpec: List<TvmStackEntryDescription>,
         contRef: Int? = null, // if this is PUSHCONT
+        registerState: RegisterState
     ): TacInstInfo {
         val inputs = mutableListOf<Pair<String, TacStackValue>>()
         val outputs = mutableListOf<TacStackValue>()
@@ -504,16 +517,16 @@ class Stack(
                     val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
                     val valueToStore = if (specValueTypes.contains("Tuple")) {
                         var tmp: String? = null
-                        for (x in ctx.tupleRegistry.keys){
+                        for (x in registerState.tupleRegistry.keys){
                             if (x.startsWith("global")) tmp = x
                         }
                         val result = TacTupleValue(
                             name = poppedValue.name,
-                            elements = ctx.tupleRegistry[tmp] ?: emptyList()
+                            elements = registerState.tupleRegistry[tmp] ?: emptyList()
                         )
 
                         if (tmp != null) {
-                            ctx.tupleRegistry.remove(tmp)
+                            registerState.tupleRegistry.remove(tmp)
                         }
 
                         result
@@ -529,7 +542,10 @@ class Stack(
 
                 "array" -> {
                     val specInput = input as TvmArrayStackEntryDescription
-                    val specLengthType = specInput.lengthVar.toIntOrNull() ?: error("Incorrect tuple length")
+                    val specLengthType = specInput.lengthVar.toIntOrNull() ?: error("""
+                        If you are using the TUPLE instruction, the tuple has an invalid length.
+                        Otherwise, the instruction is not supported.
+                    """.trimIndent())
                     val tupleElements: MutableList<TacStackValue> = mutableListOf()
                     repeat(specLengthType) {
                         val poppedValue = popWithTypeCheck(expectedTypes = emptyList())
@@ -544,7 +560,7 @@ class Stack(
                         name = "t_${ctx.nextVarId()}",
                         elements = tupleElements
                     )
-                    ctx.tupleRegistry[tupleVar.name] = tupleElements
+                    registerState.tupleRegistry[tupleVar.name] = tupleElements
                     inputs.add(input.name to tupleVar)
                 }
 
@@ -596,13 +612,23 @@ class Stack(
 
                 "array" -> {
                     val specOutput = output as TvmArrayStackEntryDescription
-                    val specLengthType = specOutput.lengthVar.toIntOrNull() ?: error("Incorrect tuple length")
-
                     val tupleVar = inputs.find { it.first == "t" }?.second as? TacTupleValue
-                        ?: error("Tuple input not found if your instruction is UNTUPLE or instruction isn't supported yet")
+                        ?: error("""
+                            If you are using the TUPLE instruction, tuple input not found.
+                            Otherwise, the instruction is not supported.
+                        """.trimIndent())
+
+                    val specLengthType = specOutput.lengthVar.toIntOrNull() ?: error("""
+                        If you are using the TUPLE instruction, the tuple has an invalid length.
+                        Otherwise, the instruction is not supported.
+                    """.trimIndent())
 
                     if (tupleVar.elements.size != specLengthType) {
-                        error("Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType")
+                        error("""
+                            If you are using the TUPLE instruction,
+                            tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.
+                            Otherwise, the instruction is not supported.
+                        """.trimMargin())
                     }
 
                     tupleVar.elements.forEach { element ->
