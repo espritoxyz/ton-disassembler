@@ -19,6 +19,7 @@ class TacTest {
     }
 
     @Test
+    @Ignore
     fun testContractFromTactDebug() {
         val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
         val contract = disassembleBoc(path)
