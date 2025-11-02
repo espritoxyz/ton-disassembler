@@ -503,7 +503,7 @@ class Stack(
 
                     val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
                     val valueToStore = if (specValueTypes.contains("Tuple")) {
-                        var tmp: String? = null // временные изменения
+                        var tmp: String? = null
                         for (x in ctx.tupleRegistry.keys){
                             if (x.startsWith("global")) tmp = x
                         }

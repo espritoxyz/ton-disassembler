@@ -19,6 +19,7 @@ class ReturnInstGenerator<Inst : AbstractTacInst> : EndingInstGenerator<Inst> {
         }
 
         @Suppress("unchecked_cast")
+        println(resultInst as Inst)
         return listOf(resultInst as Inst)
     }
 }
