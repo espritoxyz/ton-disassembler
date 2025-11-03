@@ -4,7 +4,10 @@ import org.ton.bytecode.TvmCell
 import org.ton.bytecode.TvmInstList
 import org.ton.bytecode.formatOperand
 
-fun dumpTacContract(contract: TacContractCode<AbstractTacInst>, includeTvmCell: Boolean = false): String {
+fun dumpTacContract(
+    contract: TacContractCode<AbstractTacInst>,
+    includeTvmCell: Boolean = false,
+): String {
     val builder = StringBuilder()
 
     builder.appendLine("Main method:")
@@ -18,7 +21,10 @@ fun dumpTacContract(contract: TacContractCode<AbstractTacInst>, includeTvmCell: 
     return builder.toString()
 }
 
-fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean): String {
+fun dumpOperands(
+    operands: Map<String, Any?>,
+    includeTvmCell: Boolean,
+): String {
     val operandStrings =
         operands
             .filterValues { it !is TvmInstList }
@@ -40,20 +46,20 @@ fun dumpOperands(operands: Map<String, Any?>, includeTvmCell: Boolean): String {
 fun dumpTacCodeBlock(
     code: TacCodeBlock<AbstractTacInst>,
     includeTvmCell: Boolean,
-): String {
-    return buildString {
-        val args = code.methodArgs.joinToString {
-            if (it.valueTypes.size == 1) {
-                "${it.name}: ${it.valueTypes.single()}"
-            } else {
-                it.name
+): String =
+    buildString {
+        val args =
+            code.methodArgs.joinToString {
+                if (it.valueTypes.size == 1) {
+                    "${it.name}: ${it.valueTypes.single()}"
+                } else {
+                    it.name
+                }
             }
-        }
         appendLine("function ($args) {")
         dumpTacCodeBlock(code.instructions, includeTvmCell, indent = " ".repeat(INDENT))
         appendLine("}")
     }
-}
 
 private fun StringBuilder.dumpTacCodeBlock(
     code: List<AbstractTacInst>,
@@ -65,8 +71,7 @@ private fun StringBuilder.dumpTacCodeBlock(
     }
 }
 
-private fun dumpStackState(stack: List<TacStackValue>) =
-    stack.joinToString(prefix = "stack: [", postfix = "]") { it.name }
+private fun dumpStackState(stack: List<TacStackValue>) = stack.joinToString(prefix = "stack: [", postfix = "]") { it.name }
 
 private fun StringBuilder.dumpInstruction(
     inst: AbstractTacInst,
@@ -108,13 +113,13 @@ private fun StringBuilder.dumpInstruction(
     includeTvmCell: Boolean,
     indent: String,
 ) {
-   when (inst) {
-       is TacOrdinaryInst<*> -> dumpInstruction(inst, includeTvmCell, indent)
-       is TacAssignInst -> dumpInstruction(inst, indent)
-       is TacGotoInst -> dumpInstruction(inst, indent)
-       is TacLabel -> dumpInstruction(inst, indent)
-       is TacReturnInst -> dumpInstruction(inst, indent)
-   }
+    when (inst) {
+        is TacOrdinaryInst<*> -> dumpInstruction(inst, includeTvmCell, indent)
+        is TacAssignInst -> dumpInstruction(inst, indent)
+        is TacGotoInst -> dumpInstruction(inst, indent)
+        is TacLabel -> dumpInstruction(inst, indent)
+        is TacReturnInst -> dumpInstruction(inst, indent)
+    }
 }
 
 private fun StringBuilder.dumpInstruction(
@@ -146,7 +151,6 @@ private fun StringBuilder.dumpInstruction(
     appendLine()
 }
 
-
 private fun StringBuilder.dumpInstruction(
     inst: TacReturnInst,
     indent: String,
@@ -172,9 +176,11 @@ private fun StringBuilder.dumpInstruction(
     append("(")
     val operandsStr = dumpOperands(inst.operands, includeTvmCell)
     val stackInputStr = inst.inputs.joinToString { it.name }
-    val params = listOf(operandsStr, stackInputStr).filter {
-        it.isNotEmpty()
-    }.joinToString()
+    val params =
+        listOf(operandsStr, stackInputStr)
+            .filter {
+                it.isNotEmpty()
+            }.joinToString()
     append(params)
     append(")")
 
