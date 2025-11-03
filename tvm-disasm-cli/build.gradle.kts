@@ -3,6 +3,7 @@ import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
 plugins {
     id("tvm-disasm.kotlin-conventions")
     id("com.github.johnrengelman.shadow") version "8.1.1"
+    id("org.jmailen.kotlinter") version Versions.kotlinterPluginVersion
 }
 
 dependencies {
@@ -36,4 +37,11 @@ tasks.withType<ShadowJar> {
     val runtimeOnly = project.configurations["runtimeOnly"].dependencies.toSet()
     val dependencies = (implementation + runtimeOnly)
     project.configurations.shadow.get().dependencies.addAll(dependencies)
+}
+
+tasks.register("formatAndLintAll") {
+    group = "formatting"
+
+    dependsOn(tasks.findByName("formatKotlin"))
+    dependsOn(tasks.findByName("lintKotlin"))
 }
