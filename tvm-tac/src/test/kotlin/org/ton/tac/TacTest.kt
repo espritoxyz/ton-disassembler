@@ -11,6 +11,20 @@ import kotlin.test.assertTrue
 class TacTest {
 
     @Test
+    fun testArray() {
+        val path = getResourcePath<TacTest>("/samples/array.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testArrayDebug() {
+        val path = getResourcePath<TacTest>("/samples/array.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateDebugTacContractCode(contract)
+    }
+
+    @Test
     @Ignore
     fun testContractFromTact() {
         val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
@@ -22,13 +36,6 @@ class TacTest {
     @Ignore
     fun testContractFromTactDebug() {
         val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
-        val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
-    }
-
-    @Test
-    fun testArrayDebug() {
-        val path = getResourcePath<TacTest>("/samples/array.boc")
         val contract = disassembleBoc(path)
         val tacCode = generateDebugTacContractCode(contract)
     }
