@@ -6,20 +6,24 @@ import kotlinx.serialization.json.JsonPrimitive
 
 internal sealed interface TvmInstLocation {
     val index: Int
+
     fun increment(steps: Int = 1): TvmInstLocation
+
     fun toJson(): JsonObject
 }
 
 internal data class TvmMainMethodLocation(
-    override val index: Int
+    override val index: Int,
 ) : TvmInstLocation {
     override fun increment(steps: Int) = TvmMainMethodLocation(index + steps)
-    override fun toJson() = JsonObject(
-        mapOf(
-            "type" to JsonPrimitive("TvmMainMethodLocation"),
-            "index" to JsonPrimitive(index),
+
+    override fun toJson() =
+        JsonObject(
+            mapOf(
+                "type" to JsonPrimitive("TvmMainMethodLocation"),
+                "index" to JsonPrimitive(index),
+            ),
         )
-    )
 }
 
 internal data class TvmInstMethodLocation(
@@ -28,13 +32,14 @@ internal data class TvmInstMethodLocation(
 ) : TvmInstLocation {
     override fun increment(steps: Int) = TvmInstMethodLocation(methodId, index + steps)
 
-    override fun toJson() = JsonObject(
-        mapOf(
-            "type" to JsonPrimitive("TvmInstMethodLocation"),
-            "methodId" to JsonPrimitive(methodId),
-            "index" to JsonPrimitive(index),
+    override fun toJson() =
+        JsonObject(
+            mapOf(
+                "type" to JsonPrimitive("TvmInstMethodLocation"),
+                "methodId" to JsonPrimitive(methodId),
+                "index" to JsonPrimitive(index),
+            ),
         )
-    )
 }
 
 internal data class TvmInstLambdaLocation(
@@ -42,12 +47,13 @@ internal data class TvmInstLambdaLocation(
 ) : TvmInstLocation {
     override fun increment(steps: Int) = TvmInstLambdaLocation(index + steps)
 
-    override fun toJson() = JsonObject(
-        mapOf(
-            "type" to JsonPrimitive("TvmInstLambdaLocation"),
-            "index" to JsonPrimitive(index),
+    override fun toJson() =
+        JsonObject(
+            mapOf(
+                "type" to JsonPrimitive("TvmInstLambdaLocation"),
+                "index" to JsonPrimitive(index),
+            ),
         )
-    )
 }
 
 @Serializable

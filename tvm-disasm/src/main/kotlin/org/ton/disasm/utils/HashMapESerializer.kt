@@ -7,14 +7,16 @@ import org.ton.cell.CellSlice
 import org.ton.tlb.TlbCodec
 
 data object HashMapESerializer : TlbCodec<Cell> {
-    override fun loadTlb(cellSlice: CellSlice): Cell {
-        return Cell(
+    override fun loadTlb(cellSlice: CellSlice): Cell =
+        Cell(
             BitString(cellSlice.bits.drop(cellSlice.bitsPosition)),
-            *cellSlice.refs.drop(cellSlice.refsPosition).toTypedArray()
+            *cellSlice.refs.drop(cellSlice.refsPosition).toTypedArray(),
         )
-    }
 
-    override fun storeTlb(cellBuilder: CellBuilder, value: Cell) {
+    override fun storeTlb(
+        cellBuilder: CellBuilder,
+        value: Cell,
+    ) {
         error("Should not be called")
     }
 }

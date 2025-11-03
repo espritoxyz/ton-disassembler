@@ -15,50 +15,51 @@ interface TvmInstLocation {
 @SerialName("TvmInstMethodLocation")
 data class TvmInstMethodLocation(
     val methodId: @Contextual MethodId,
-    override val index: Int
+    override val index: Int,
 ) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 
-    override fun increment() = TvmInstMethodLocation(methodId, index + 1).also {
-        it.codeBlock = codeBlock
-    }
+    override fun increment() =
+        TvmInstMethodLocation(methodId, index + 1).also {
+            it.codeBlock = codeBlock
+        }
 
-    override fun toString(): String {
-        return "$methodId:#$index"
-    }
+    override fun toString(): String = "$methodId:#$index"
 }
 
 @Serializable
 @SerialName("TvmInstLambdaLocation")
-class TvmInstLambdaLocation(override val index: Int) : TvmInstLocation {
+class TvmInstLambdaLocation(
+    override val index: Int,
+) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 
     @kotlinx.serialization.Transient
     lateinit var parent: TvmInstLocation
 
-    override fun increment() = TvmInstLambdaLocation(index + 1).also {
-        it.codeBlock = codeBlock
-        it.parent = parent
-    }
+    override fun increment() =
+        TvmInstLambdaLocation(index + 1).also {
+            it.codeBlock = codeBlock
+            it.parent = parent
+        }
 
-    override fun toString(): String {
-        return "Lambda:#$index"
-    }
+    override fun toString(): String = "Lambda:#$index"
 }
 
 @Serializable
 @SerialName("TvmMainMethodLocation")
-data class TvmMainMethodLocation(override val index: Int) : TvmInstLocation {
+data class TvmMainMethodLocation(
+    override val index: Int,
+) : TvmInstLocation {
     @kotlinx.serialization.Transient
     override lateinit var codeBlock: TvmCodeBlock
 
-    override fun increment() = TvmMainMethodLocation(index + 1).also {
-        it.codeBlock = codeBlock
-    }
+    override fun increment() =
+        TvmMainMethodLocation(index + 1).also {
+            it.codeBlock = codeBlock
+        }
 
-    override fun toString(): String {
-        return "MainMethod:#$index"
-    }
+    override fun toString(): String = "MainMethod:#$index"
 }

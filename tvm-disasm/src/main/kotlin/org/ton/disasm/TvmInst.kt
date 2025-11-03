@@ -13,13 +13,14 @@ internal open class TvmInst(
     val operands: Map<String, JsonElement>,
     val physicalLocation: TvmPhysicalInstLocation,
 ) {
-    fun toJson(): JsonObject = JsonObject(
-        mapOf(
-            "type" to JsonPrimitive(type),
-            "location" to location.toJson(),
-            "physicalLocation" to Json.encodeToJsonElement(physicalLocation)
-        ) + operands
-    )
+    fun toJson(): JsonObject =
+        JsonObject(
+            mapOf(
+                "type" to JsonPrimitive(type),
+                "location" to location.toJson(),
+                "physicalLocation" to Json.encodeToJsonElement(physicalLocation),
+            ) + operands,
+        )
 }
 
 internal class TvmConstDictInst(
