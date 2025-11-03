@@ -1,6 +1,7 @@
 plugins {
     id("tvm-disasm.kotlin-conventions")
     id("org.jetbrains.kotlin.plugin.serialization") version "1.9.22"
+    id("org.jmailen.kotlinter") version Versions.kotlinterPluginVersion
 }
 
 dependencies {
@@ -21,4 +22,11 @@ publishing {
             from(components["java"])
         }
     }
+}
+
+tasks.register("formatAndLintAll") {
+    group = "formatting"
+
+    dependsOn(tasks.findByName("formatKotlin"))
+    dependsOn(tasks.findByName("lintKotlin"))
 }
