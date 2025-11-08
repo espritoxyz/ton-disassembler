@@ -10,6 +10,20 @@ dependencies {
     testImplementation("ch.qos.logback:logback-classic:${Versions.logback}")
 }
 
+val ignoredFiles = listOf("TvmInstructions.kt", "TvmInstructionsDefaults.kt")
+
+tasks.lintKotlinMain {
+    exclude {
+        it.file.name in ignoredFiles
+    }
+}
+
+tasks.formatKotlinMain {
+    exclude {
+        it.file.name in ignoredFiles
+    }
+}
+
 tasks.register("formatAndLintAll") {
     group = "formatting"
 
