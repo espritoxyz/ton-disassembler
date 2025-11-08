@@ -409,4 +409,5 @@ private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
 fun generateDebugTacContractCode(contract: TvmContractCode): TacContractCode<TacDebugInst> =
     generateTacContractCodeInternal(contract, debug = true)
 
-fun generateTacContractCode(contract: TvmContractCode): TacContractCode<TacInst> = generateTacContractCodeInternal(contract, debug = false)
+fun generateTacContractCode(contract: TvmContractCode): TacContractCode<TacInst> =
+    generateTacContractCodeInternal(contract, debug = false)

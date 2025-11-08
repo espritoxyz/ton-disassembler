@@ -97,7 +97,8 @@ class TvmCellDataSerializer : KSerializer<TvmCellData> {
 
     override val descriptor: SerialDescriptor = listSerializer.descriptor
 
-    override fun deserialize(decoder: Decoder): TvmCellData = TvmCellData(listSerializer.deserialize(decoder).joinToString(separator = ""))
+    override fun deserialize(decoder: Decoder): TvmCellData =
+        TvmCellData(listSerializer.deserialize(decoder).joinToString(separator = ""))
 
     override fun serialize(
         encoder: Encoder,

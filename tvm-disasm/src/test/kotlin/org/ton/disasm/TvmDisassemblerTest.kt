@@ -90,15 +90,22 @@ class TvmDisassemblerTest {
     @Test
     fun testHoneypotWallet() {
         val boc =
-            getResourcePath<TvmDisassemblerTest>("/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.boc")
+            getResourcePath<TvmDisassemblerTest>(
+                "/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.boc",
+            )
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
         val expectedPath =
-            getResourcePath<TvmDisassemblerTest>("/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.json")
+            getResourcePath<TvmDisassemblerTest>(
+                "/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.json",
+            )
         val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
         assertEquals(parsedExpected, removePhysicalLocationKey(result))
 
-        checkPhysicalLocations(result, "/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g_positions.json")
+        checkPhysicalLocations(
+            result,
+            "/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g_positions.json",
+        )
     }
 
     @Test
@@ -140,9 +147,14 @@ class TvmDisassemblerTest {
         parsedExpected.forEach { elem ->
             val atThisPosition =
                 actual.firstOrNull {
-                    it.jsonObject["cell"] == elem.jsonObject["cell"] && it.jsonObject["offset"] == elem.jsonObject["offset"]
+                    it.jsonObject["cell"] == elem.jsonObject["cell"] &&
+                        it.jsonObject["offset"] == elem.jsonObject["offset"]
                 }
-            assertContains(actual, elem, message = "$elem not found in actual physical location list. At this position: $atThisPosition")
+            assertContains(
+                actual,
+                elem,
+                message = "$elem not found in actual physical location list. At this position: $atThisPosition",
+            )
         }
         assertEquals(parsedExpected.size, actual.size)
     }

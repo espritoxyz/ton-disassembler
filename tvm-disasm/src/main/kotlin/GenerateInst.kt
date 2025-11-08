@@ -19,7 +19,9 @@ private val defaultInstPath = Path("tvm-opcodes/src/main/kotlin/org/ton/bytecode
 
 enum class StackFlowDirection { INPUT, OUTPUT }
 
-private fun generateInstructionCellOperandTypes(instructions: Map<String, InstructionDescription>): Map<String, Map<String, String>> =
+private fun generateInstructionCellOperandTypes(
+    instructions: Map<String, InstructionDescription>,
+): Map<String, Map<String, String>> =
     (opcodeToSubSliceOperandType + opcodeToRefOperandType)
         .mapNotNull { (opname, type) ->
             val inst =
@@ -154,7 +156,8 @@ private fun extractStackEntries(
     return when {
         stack == null ->
             "List<TvmStackEntryDescription>? \n" +
-                "        get() = null" // stack inputs/outputs are unconstrained OR this is stack manipulation instruction
+                "        get() = null" // stack inputs/outputs are unconstrained OR this is stack
+        // manipulation instruction
         stack.isEmpty() ->
             "List<TvmStackEntryDescription> \n" +
                 "        get() = emptyList()"
@@ -167,7 +170,9 @@ private fun extractStackEntries(
                             """
                         |            TvmSimpleStackEntryDescription(
                         |                name = "${entry.name}",
-                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(", ") { "\"$it\"" }})
+                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(
+                                ", ",
+                            ) { "\"$it\"" }})
                         |            )
                             """.trimMargin()
                         }
