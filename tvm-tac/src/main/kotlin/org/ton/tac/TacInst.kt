@@ -1,5 +1,7 @@
 package org.ton.tac
 
+import org.ton.bytecode.TvmType
+
 sealed interface AbstractTacInst
 
 sealed interface TacInst : AbstractTacInst
@@ -30,7 +32,7 @@ data class TacLabel(
 ) : TacInst
 
 sealed interface TacStackValue {
-    val valueTypes: List<String>
+    val valueTypes: List<TvmType>
     val name: String
 
     fun copy(): TacStackValue
@@ -38,7 +40,7 @@ sealed interface TacStackValue {
 
 data class TacVar(
     override val name: String,
-    override var valueTypes: List<String> = listOf(),
+    override var valueTypes: List<TvmType> = listOf(),
 ) : TacStackValue {
     override fun copy() = TacVar(name, valueTypes)
 }

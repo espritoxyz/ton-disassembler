@@ -54,9 +54,11 @@ import org.ton.bytecode.TvmStackComplexXcpu2Inst
 import org.ton.bytecode.TvmStackComplexXcpuInst
 import org.ton.bytecode.TvmStackComplexXcpuxcInst
 import org.ton.bytecode.TvmStackEntryDescription
+import org.ton.bytecode.TvmStackEntryType
+import org.ton.bytecode.TvmType
 import java.util.Collections.swap
 
-val SUPPORTED_STACK_TYPES = setOf("simple", "const", "array")
+val SUPPORTED_STACK_TYPES = setOf(TvmStackEntryType.SIMPLE, TvmStackEntryType.ARRAY, TvmStackEntryType.CONST)
 
 internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
     if (inst !is TvmStackBasicInst && inst !is TvmStackComplexInst) {
@@ -187,7 +189,7 @@ class Stack(
         return result
     }
 
-    private fun popWithTypeCheck(expectedTypes: List<String>): TacStackValue {
+    private fun popWithTypeCheck(expectedTypes: List<TvmType>): TacStackValue {
         if (stack.isEmpty()) {
             extendStack(size + 1, listOf(expectedTypes))
         }
@@ -226,7 +228,7 @@ class Stack(
 
     fun extendStack(
         newSize: Int,
-        listWithValueTypes: List<List<String>> = listOf(),
+        listWithValueTypes: List<List<TvmType>> = listOf(),
     ) {
         if (size >= newSize) {
             return
@@ -247,9 +249,9 @@ class Stack(
 
     private fun takeLastIntOrThrowTypeError(): Int {
         val lastVar = stack.removeAt(stack.size - 1)
-        val intValue = lastVar.valueTypes.find { it == "Int" }
+        val intValue = lastVar.valueTypes.find { it == TvmType.INT }
         if (intValue != null) {
-            return intValue.toInt()
+            return 0 // early it was intValue.toInt(), but "Int".toInt() !? Need to fix
         } else {
             throw IllegalArgumentException("Expected an Int type but found: ${lastVar.valueTypes}")
         }
@@ -593,7 +595,7 @@ class Stack(
 
         val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
         val valueToStore =
-            if (specValueTypes.contains("Tuple")) {
+            if (specValueTypes.contains(TvmType.TUPLE)) {
                 var tmp: String? = null
                 for (x in registerState.tupleRegistry.keys) {
                     if (x.startsWith("global")) tmp = x
@@ -638,7 +640,7 @@ class Stack(
                     }
                 }
             } else {
-                if (specValueTypes.contains("Tuple")) {
+                if (specValueTypes.contains(TvmType.TUPLE)) {
                     val tupleInput =
                         inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
                             ?: error("Tuple input not found for TUPLE output")
@@ -726,17 +728,17 @@ class Stack(
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
             when (input.type) {
-                "simple" -> handleSimpleInput(input, continuationMap, registerState, inputs)
-                "array" -> handleArrayInput(input, ctx, continuationMap, registerState, inputs)
+                TvmStackEntryType.SIMPLE -> handleSimpleInput(input, continuationMap, registerState, inputs)
+                TvmStackEntryType.ARRAY -> handleArrayInput(input, ctx, continuationMap, registerState, inputs)
                 else -> error("Unsupported input type: \${input.type}")
             }
         }
 
         outputSpec.forEach { output ->
             when (output.type) {
-                "simple" -> handleSimpleOutput(output, ctx, contRef, inputs, outputs)
-                "const" -> handleConstOutput(output, ctx, contRef, outputs)
-                "array" -> handleArrayOutput(output, inputs, outputs)
+                TvmStackEntryType.SIMPLE -> handleSimpleOutput(output, ctx, contRef, inputs, outputs)
+                TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
+                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs)
 
                 else -> error("${output.type} isn't supported yet")
             }

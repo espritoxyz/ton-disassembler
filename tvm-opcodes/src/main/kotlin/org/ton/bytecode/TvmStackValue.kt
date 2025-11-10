@@ -3,23 +3,40 @@ package org.ton.bytecode
 import kotlinx.serialization.Serializable
 
 abstract class TvmStackEntryDescription {
-    abstract val type: String
+    abstract val type: TvmStackEntryType
+}
+
+enum class TvmType {
+    INT,
+    SLICE,
+    CELL,
+    TUPLE,
+    CONTINUATION,
+    BUILDER,
+    ANY,
+}
+
+enum class TvmStackEntryType {
+    SIMPLE,
+    CONST,
+    ARRAY,
+    GENERIC,
 }
 
 @Serializable
 data class TvmSimpleStackEntryDescription(
     val name: String,
-    val valueTypes: List<String>,
+    val valueTypes: List<TvmType>,
 ) : TvmStackEntryDescription() {
-    override val type: String = "simple"
+    override val type: TvmStackEntryType = TvmStackEntryType.SIMPLE
 }
 
 @Serializable
 data class TvmConstStackEntryDescription(
-    val valueType: String,
+    val valueType: TvmType,
     val value: Int? = null,
 ) : TvmStackEntryDescription() {
-    override val type: String = "const"
+    override val type: TvmStackEntryType = TvmStackEntryType.CONST
 }
 
 @Serializable
@@ -28,10 +45,10 @@ data class TvmArrayStackEntryDescription(
     val lengthVar: String,
     val arrayEntry: List<TvmSimpleStackEntryDescription>,
 ) : TvmStackEntryDescription() {
-    override val type: String = "array"
+    override val type: TvmStackEntryType = TvmStackEntryType.ARRAY
 }
 
 @Serializable
 data class TvmGenericStackEntryDescription(
-    override val type: String,
+    override val type: TvmStackEntryType,
 ) : TvmStackEntryDescription()
