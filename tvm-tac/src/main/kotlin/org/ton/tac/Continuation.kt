@@ -14,7 +14,7 @@ data class ContProcessingInfo(
     val contStackPassedRef: Int,
     val stackEntriesBefore: List<TacStackValue>,
     val stackEntriesAfter: List<TacStackValue>,
-    val contArgsNum: Int
+    val contArgsNum: Int,
 ) {
     val stackTakenSize: Int get() = contArgsNum
     val stackPushedSize: Int get() = stackEntriesAfter.size - (stackEntriesBefore.size - contArgsNum)
@@ -30,33 +30,37 @@ internal fun <Inst : AbstractTacInst> extractOperandContinuations(
     ctx: TacGenerationContext<Inst>,
     inst: TvmInst,
 ): OperandContinuationInfo {
-    val continuationsList = inst::class
-        .memberProperties
-        .filter { it.returnType.classifier == TvmInstList::class }
+    val continuationsList =
+        inst::class
+            .memberProperties
+            .filter { it.returnType.classifier == TvmInstList::class }
 
-    val operandsContinuations = continuationsList.associate { cont ->
-        val contId = ctx.nextContinuationId()
-        val contList = (cont.getter.call(inst) as? TvmInstList)?.list ?: emptyList()
-        val contBlock = TvmInlineBlock(contList.toMutableList())
-        val stack = Stack(emptyList())
-        val (inlineInsts, inlineArgs) = generateTacCodeBlock(ctx, codeBlock = contBlock, stack)
+    val operandsContinuations =
+        continuationsList.associate { cont ->
+            val contId = ctx.nextContinuationId()
+            val contList = (cont.getter.call(inst) as? TvmInstList)?.list ?: emptyList()
+            val contBlock = TvmInlineBlock(contList.toMutableList())
+            val stack = Stack(emptyList())
+            val (inlineInsts, inlineArgs) = generateTacCodeBlock(ctx, codeBlock = contBlock, stack)
 
-        ctx.isolatedContinuations[contId] = TacContinuationInfo(
-            instructions = inlineInsts,
-            methodArgs = inlineArgs,
-            numberOfReturnedValues = stack.size,
-            originalTvmCode = contBlock,
-        )
+            ctx.isolatedContinuations[contId] =
+                TacContinuationInfo(
+                    instructions = inlineInsts,
+                    methodArgs = inlineArgs,
+                    numberOfReturnedValues = stack.size,
+                    originalTvmCode = contBlock,
+                )
 
-        cont.name to contId
-    }
+            cont.name to contId
+        }
 
-    val stackContRef = if (inst is TvmConstDataInst && operandsContinuations.isNotEmpty()) {
-        // This is PUSHCONT or something similar
-        operandsContinuations.values.single()
-    } else {
-        null
-    }
+    val stackContRef =
+        if (inst is TvmConstDataInst && operandsContinuations.isNotEmpty()) {
+            // This is PUSHCONT or something similar
+            operandsContinuations.values.single()
+        } else {
+            null
+        }
 
     return OperandContinuationInfo(operandsContinuations, stackContRef)
 }
@@ -66,11 +70,12 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     stack: Stack,
     methodNumber: MethodId,
     inst: TvmInst,
-    operands: MutableMap<String, Any?>
+    operands: MutableMap<String, Any?>,
 ): TacOrdinaryInst<Inst> {
     val stackEntriesBefore = stack.copyEntries()
-    val method = ctx.contract.methods[methodNumber]
-        ?: error("Missing method with number $methodNumber")
+    val method =
+        ctx.contract.methods[methodNumber]
+            ?: error("Missing method with number $methodNumber")
 
     if (ctx.calledMethodsSet.contains(methodNumber)) {
         error("Recursive CALLDICT detected for method $methodNumber")
@@ -84,27 +89,30 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
     // TODO: why analyze second time?
-    val (inlineInsts, inlineArgs) = generateTacCodeBlock(
-        ctx,
-        codeBlock = method,
-        stack = methodStack,
-    )
+    val (inlineInsts, inlineArgs) =
+        generateTacCodeBlock(
+            ctx,
+            codeBlock = method,
+            stack = methodStack,
+        )
 
     // for debugging?
     val newRef = ctx.nextContinuationId()
-    ctx.methodsWithSubstitutedStack[newRef] = TacContinuationInfo(
-        instructions = inlineInsts,
-        methodArgs = inlineArgs,
-        numberOfReturnedValues = methodStack.size,
-        originalTvmCode = method,
-    )
+    ctx.methodsWithSubstitutedStack[newRef] =
+        TacContinuationInfo(
+            instructions = inlineInsts,
+            methodArgs = inlineArgs,
+            numberOfReturnedValues = methodStack.size,
+            originalTvmCode = method,
+        )
 
-    val processedMethodInfo = ContProcessingInfo(
-        contStackPassedRef = newRef,
-        stackEntriesBefore = updatedStackEntriesBefore,
-        stackEntriesAfter = methodStack.copyEntries(),
-        contArgsNum = argsSize
-    )
+    val processedMethodInfo =
+        ContProcessingInfo(
+            contStackPassedRef = newRef,
+            stackEntriesBefore = updatedStackEntriesBefore,
+            stackEntriesAfter = methodStack.copyEntries(),
+            contArgsNum = argsSize,
+        )
     val globalStackTakenSize = processedMethodInfo.stackTakenSize
     val globalStackPushedSize = processedMethodInfo.stackPushedSize
     val newAddedElems = processedMethodInfo.stackEntriesAfter.takeLast(globalStackPushedSize)
@@ -112,13 +120,14 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     stack.dropLastInPlace(globalStackTakenSize)
     stack.addAll(newAddedElems)
 
-    val nonStackTacInst = TacOrdinaryInst<Inst>(
-        mnemonic = inst.mnemonic,
-        inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
-        outputs = listOf(),
-        operands = operands,
-        blocks = emptyList()
-    )
+    val nonStackTacInst =
+        TacOrdinaryInst<Inst>(
+            mnemonic = inst.mnemonic,
+            inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
+            outputs = listOf(),
+            operands = operands,
+            blocks = emptyList(),
+        )
 
     ctx.calledMethodsSet.remove(methodNumber)
     return nonStackTacInst
@@ -126,9 +135,10 @@ internal fun <Inst : AbstractTacInst> processCallDict(
 
 internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
     if (inst.branches.isNotEmpty()) {
-        val allBranchesTypeVar = inst.branches.all { branch ->
-            branch.type == "variable"
-        }
+        val allBranchesTypeVar =
+            inst.branches.all { branch ->
+                branch.type == "variable"
+            }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
             TODO("in ${inst.mnemonic} branch isn't type variable")
         }

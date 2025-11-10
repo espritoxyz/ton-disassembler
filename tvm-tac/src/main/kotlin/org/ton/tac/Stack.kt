@@ -63,19 +63,21 @@ internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
             error("Instruction: ${inst.mnemonic} is not supported, since stackInputs/Outputs are unconstrained")
         }
 
-        val unsupportedInputTypes = inst.stackInputs!!
-            .map { it.type }
-            .filter { it !in SUPPORTED_STACK_TYPES }
+        val unsupportedInputTypes =
+            inst.stackInputs!!
+                .map { it.type }
+                .filter { it !in SUPPORTED_STACK_TYPES }
 
-        val unsupportedOutputTypes = inst.stackOutputs!!
-            .map { it.type }
-            .filter { it !in SUPPORTED_STACK_TYPES }
+        val unsupportedOutputTypes =
+            inst.stackOutputs!!
+                .map { it.type }
+                .filter { it !in SUPPORTED_STACK_TYPES }
 
         if (unsupportedInputTypes.isNotEmpty() || unsupportedOutputTypes.isNotEmpty()) {
             error(
                 "Unsupported stack value types in ${inst.mnemonic}: " +
-                        unsupportedInputTypes.joinToString(", ") +
-                        unsupportedOutputTypes.joinToString(", ")
+                    unsupportedInputTypes.joinToString(", ") +
+                    unsupportedOutputTypes.joinToString(", "),
             )
         }
     }
@@ -84,7 +86,7 @@ internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
 internal fun updateStack(
     stackEntriesBefore: List<TacStackValue>,
     methodArgs: List<TacStackValue>,
-    stack: Stack
+    stack: Stack,
 ): Stack {
     val argsSize = methodArgs.size
     if (stackEntriesBefore.size < argsSize) {
@@ -112,9 +114,7 @@ class Stack(
         return newStack
     }
 
-    fun copyEntries(): List<TacStackValue> {
-        return stack.map { it.copy() }
-    }
+    fun copyEntries(): List<TacStackValue> = stack.map { it.copy() }
 
     fun dropLastInPlace(i: Int) {
         if (i <= 0) return
@@ -133,7 +133,10 @@ class Stack(
 
     private val stack: MutableList<TacStackValue> = initialStack.toMutableList()
 
-    fun getAssignInst(newVar: TacVar, i: Int): TacAssignInst {
+    fun getAssignInst(
+        newVar: TacVar,
+        i: Int,
+    ): TacAssignInst {
         val value = pop(i)
         val result = TacAssignInst(lhs = newVar, rhs = value)
         push(newVar)
@@ -150,9 +153,7 @@ class Stack(
         return result
     }
 
-    private fun popWithTypeCheck(
-        expectedTypes: List<String>,
-    ): TacStackValue {
+    private fun popWithTypeCheck(expectedTypes: List<String>): TacStackValue {
         if (stack.isEmpty()) {
             extendStack(size + 1, listOf(expectedTypes))
         }
@@ -198,12 +199,13 @@ class Stack(
         }
 
         val newValuesSize = newSize - size
-        val newValues = (0 until newValuesSize).mapIndexed { idx, _ ->
-            TacVar(
-                name = "arg${getNextArg()}",
-                valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList()
-            )
-        }
+        val newValues =
+            (0 until newValuesSize).mapIndexed { idx, _ ->
+                TacVar(
+                    name = "arg${getNextArg()}",
+                    valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList(),
+                )
+            }
 
         createdArguments.addAll(newValues)
         stack.addAll(0, newValues.asReversed()) // reversed because the "newest" values are at the beginning
@@ -390,14 +392,20 @@ class Stack(
         }
     }
 
-    private fun doSwap(i: Int, j: Int) {
+    private fun doSwap(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = maxOf(i + 1, j + 1)
         extendStack(newSize)
 
         swap(stack, stackIndex(i), stackIndex(j))
     }
 
-    private fun doBlkPush(i: Int, j: Int) {
+    private fun doBlkPush(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = j + 1
         extendStack(newSize)
 
@@ -407,7 +415,10 @@ class Stack(
         }
     }
 
-    private fun doBlkPop(i: Int, j: Int) {
+    private fun doBlkPop(
+        i: Int,
+        j: Int,
+    ) {
         repeat(i) {
             doSwap(0, j)
             stack.removeAt(stack.size - 1)
@@ -419,7 +430,10 @@ class Stack(
      * @param i -- number of stack entries to reverse
      * @param j -- offset before first reversed entry
      * */
-    private fun doReverse(i: Int, j: Int) {
+    private fun doReverse(
+        i: Int,
+        j: Int,
+    ) {
         extendStack(i + j)
 
         val blockStart = stack.size - j
@@ -435,13 +449,19 @@ class Stack(
         doBlkPop(1, i)
     }
 
-    private fun doBlkSwap(i: Int, j: Int) {
+    private fun doBlkSwap(
+        i: Int,
+        j: Int,
+    ) {
         doReverse(i + 1, j + 1)
         doReverse(j + 1, 0)
         doReverse(i + j + 2, 0)
     }
 
-    private fun doXchg2(i: Int, j: Int) {
+    private fun doXchg2(
+        i: Int,
+        j: Int,
+    ) {
         doSwap(1, i)
         doSwap(0, j)
     }
@@ -449,7 +469,10 @@ class Stack(
     /**
      * Drops [i] stack elements under the top [j] elements.
      */
-    private fun doBlkDrop2(i: Int, j: Int) {
+    private fun doBlkDrop2(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = i + j
         extendStack(newSize)
 
@@ -465,13 +488,20 @@ class Stack(
         topElements.asReversed().forEach { stack.add(it) }
     }
 
-    private fun doPuxc(i: Int, j: Int) {
+    private fun doPuxc(
+        i: Int,
+        j: Int,
+    ) {
         doPush(i)
         doSwap(0, 1)
         doSwap(0, j + 1)
     }
 
-    private fun doXchg3(i: Int, j: Int, k: Int) {
+    private fun doXchg3(
+        i: Int,
+        j: Int,
+        k: Int,
+    ) {
         doSwap(2, i)
         doSwap(1, j)
         doSwap(0, k)
@@ -515,15 +545,16 @@ class Stack(
                     val specName = specOutput.name
                     val specValueTypes = specOutput.valueTypes
                     val name = "${specName}_${ctx.nextVarId()}"
-                    val pushValue = if (contRef != null) {
-                        ContinuationValue(name, contRef).also {
-                            check(it.valueTypes == specValueTypes) {
-                                "Unexpected output value types for $output. Expected ${it.valueTypes}."
+                    val pushValue =
+                        if (contRef != null) {
+                            ContinuationValue(name, contRef).also {
+                                check(it.valueTypes == specValueTypes) {
+                                    "Unexpected output value types for $output. Expected ${it.valueTypes}."
+                                }
                             }
+                        } else {
+                            TacVar(name = name, valueTypes = specValueTypes)
                         }
-                    } else {
-                        TacVar(name = name, valueTypes = specValueTypes)
-                    }
                     push(pushValue)
                     outputs.add(pushValue)
                 }
@@ -533,10 +564,11 @@ class Stack(
                     check(contRef == null) {
                         "Unexpected continuation reference for output $output."
                     }
-                    val pushValue = TacVar(
-                        name = "const_${ctx.nextVarId()}",
-                        valueTypes = valueType,
-                    )
+                    val pushValue =
+                        TacVar(
+                            name = "const_${ctx.nextVarId()}",
+                            valueTypes = valueType,
+                        )
                     push(pushValue)
                     outputs.add(pushValue)
                 }

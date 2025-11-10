@@ -9,14 +9,15 @@ import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonPrimitive
 
 @OptIn(ExperimentalSerializationApi::class)
-internal val specJson = Json {
-    explicitNulls = false
-    ignoreUnknownKeys = true
-}
+internal val specJson =
+    Json {
+        explicitNulls = false
+        ignoreUnknownKeys = true
+    }
 
 @Serializable
 internal data class InstructionsList(
-    val instructions: List<InstructionDescription>
+    val instructions: List<InstructionDescription>,
 )
 
 @Serializable

@@ -10,45 +10,44 @@ internal enum class CellOperandType {
     SpecialCell,
 }
 
-internal const val dictPushConstMnemonic = "DICTPUSHCONST"
-internal const val pfxDictConstGetJmpMnemonic = "PFXDICTCONSTGETJMP"
+internal const val DICT_PUSH_CONST_MNEMONIC = "DICTPUSHCONST"
+internal const val PFX_DICT_CONST_GET_JMP_MNEMONIC = "PFXDICTCONSTGETJMP"
 
-internal val opcodeToSubSliceOperandType = mapOf(
-    "PUSHCONT_SHORT" to CodeCell,
-    "PUSHCONT" to CodeCell,
+internal val opcodeToSubSliceOperandType =
+    mapOf(
+        "PUSHCONT_SHORT" to CodeCell,
+        "PUSHCONT" to CodeCell,
+        "PUSHSLICE_LONG" to OrdinaryCell,
+        "PUSHSLICE" to OrdinaryCell,
+        "PUSHSLICE_REFS" to OrdinaryCell,
+        "STSLICECONST" to OrdinaryCell,
+        "SDBEGINS" to OrdinaryCell,
+        "SDBEGINSQ" to OrdinaryCell,
+        "DEBUGSTR" to OrdinaryCell,
+    )
 
-    "PUSHSLICE_LONG" to OrdinaryCell,
-    "PUSHSLICE" to OrdinaryCell,
-    "PUSHSLICE_REFS" to OrdinaryCell,
-    "STSLICECONST" to OrdinaryCell,
-    "SDBEGINS" to OrdinaryCell,
-    "SDBEGINSQ" to OrdinaryCell,
-    "DEBUGSTR" to OrdinaryCell,
-)
-
-internal val opcodeToRefOperandType = mapOf(
-    dictPushConstMnemonic to SpecialCell,
-    pfxDictConstGetJmpMnemonic to SpecialCell,
-
-    "CALLREF" to CodeCell,
-    "IFELSEREF" to CodeCell,
-    "IFREFELSE" to CodeCell,
-    "IFJMPREF" to CodeCell,
-    "PUSHREFCONT" to CodeCell,
-    "JMPREF" to CodeCell,
-    "JMPREFDATA" to CodeCell,
-    "IFREF" to CodeCell,
-    "IFNOTREF" to CodeCell,
-    "IFNOTJMPREF" to CodeCell,
-    "IFREFELSEREF" to CodeCell,
-    "IFBITJMPREF" to CodeCell,
-    "IFNBITJMPREF" to CodeCell,
-
-    "PUSHREFSLICE" to OrdinaryCell,
-    "PUSHREF" to OrdinaryCell,
-    "STREFCONST" to OrdinaryCell,
-    "STREF2CONST" to OrdinaryCell,
-)
+internal val opcodeToRefOperandType =
+    mapOf(
+        DICT_PUSH_CONST_MNEMONIC to SpecialCell,
+        PFX_DICT_CONST_GET_JMP_MNEMONIC to SpecialCell,
+        "CALLREF" to CodeCell,
+        "IFELSEREF" to CodeCell,
+        "IFREFELSE" to CodeCell,
+        "IFJMPREF" to CodeCell,
+        "PUSHREFCONT" to CodeCell,
+        "JMPREF" to CodeCell,
+        "JMPREFDATA" to CodeCell,
+        "IFREF" to CodeCell,
+        "IFNOTREF" to CodeCell,
+        "IFNOTJMPREF" to CodeCell,
+        "IFREFELSEREF" to CodeCell,
+        "IFBITJMPREF" to CodeCell,
+        "IFNBITJMPREF" to CodeCell,
+        "PUSHREFSLICE" to OrdinaryCell,
+        "PUSHREF" to OrdinaryCell,
+        "STREFCONST" to OrdinaryCell,
+        "STREF2CONST" to OrdinaryCell,
+    )
 
 internal fun validateCellOperandTypes(parsedSpec: InstructionsList) {
     val instList = parsedSpec.instructions

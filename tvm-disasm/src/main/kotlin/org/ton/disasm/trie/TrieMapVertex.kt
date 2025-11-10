@@ -7,19 +7,19 @@ internal class TrieMapVertex(
     private var zeroBitChild: TrieMapVertex? = null,
     private var oneBitChild: TrieMapVertex? = null,
 ) {
-    fun step(nextBit: Boolean): TrieMapVertex? = if (nextBit) {
-        oneBitChild
-    } else {
-        zeroBitChild
-    }
+    fun step(nextBit: Boolean): TrieMapVertex? =
+        if (nextBit) {
+            oneBitChild
+        } else {
+            zeroBitChild
+        }
 
-    fun addChild(bit: Boolean): TrieMapVertex {
-        return TrieMapVertex(inst = null).also {
+    fun addChild(bit: Boolean): TrieMapVertex =
+        TrieMapVertex(inst = null).also {
             if (bit) {
                 oneBitChild = it
             } else {
                 zeroBitChild = it
             }
         }
-    }
 }

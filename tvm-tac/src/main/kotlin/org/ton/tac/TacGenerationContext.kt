@@ -15,19 +15,11 @@ class TacGenerationContext<Inst : AbstractTacInst>(
     private var contCounter = 0
     private var labelCounter = 0
 
-    fun nextVarName(): String {
-        return "var_${varCounter++}"
-    }
+    fun nextVarName(): String = "var_${varCounter++}"
 
-    fun nextVarId(): Int {
-        return varCounter++
-    }
+    fun nextVarId(): Int = varCounter++
 
-    fun nextContinuationId(): Int {
-        return contCounter++
-    }
+    fun nextContinuationId(): Int = contCounter++
 
-    fun nextLabel(): String {
-        return "label_${labelCounter++}"
-    }
+    fun nextLabel(): String = "label_${labelCounter++}"
 }

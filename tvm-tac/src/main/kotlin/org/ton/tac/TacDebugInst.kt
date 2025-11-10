@@ -12,5 +12,5 @@ data class TacDebugStackInst(
 
 data class TacInstDebugWrapper(
     val inst: TacInst,
-    override val stackAfter: List<TacStackValue>
+    override val stackAfter: List<TacStackValue>,
 ) : TacDebugInst

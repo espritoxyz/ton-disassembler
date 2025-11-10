@@ -2,7 +2,7 @@ package org.ton.bytecode
 
 import kotlin.reflect.full.memberProperties
 
-fun TvmContractCode.prettyPrint(includeTvmCell: Boolean) : String {
+fun TvmContractCode.prettyPrint(includeTvmCell: Boolean): String {
     val sb = StringBuilder()
     sb.appendLine("Main method instructions:")
     appendInstructions(sb, mainMethod.instList, includeTvmCell = includeTvmCell)
@@ -22,14 +22,16 @@ private fun appendInstructions(
     sb: StringBuilder,
     instList: List<TvmInst>,
     indent: String = "",
-    includeTvmCell: Boolean
+    includeTvmCell: Boolean,
 ) {
     instList.forEach { inst ->
         val type = inst.mnemonic
 
         if (inst is TvmContOperandInst) {
-            val operandInstLists = inst::class.memberProperties
-                .mapNotNull { it.getter.call(inst) as? TvmInstList }
+            val operandInstLists =
+                inst::class
+                    .memberProperties
+                    .mapNotNull { it.getter.call(inst) as? TvmInstList }
 
             operandInstLists.forEach { operandInstList ->
                 sb.appendLine("$indent$type <{")
