@@ -9,7 +9,6 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class TacTest {
-
     @Test
     fun testArray() {
         val path = getResourcePath<TacTest>("/samples/array.boc")

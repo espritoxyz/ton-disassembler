@@ -64,19 +64,21 @@ internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
             error("Instruction: ${inst.mnemonic} is not supported, since stackInputs/Outputs are unconstrained")
         }
 
-        val unsupportedInputTypes = inst.stackInputs!!
-            .map { it.type }
-            .filter { it !in SUPPORTED_STACK_TYPES }
+        val unsupportedInputTypes =
+            inst.stackInputs!!
+                .map { it.type }
+                .filter { it !in SUPPORTED_STACK_TYPES }
 
-        val unsupportedOutputTypes = inst.stackOutputs!!
-            .map { it.type }
-            .filter { it !in SUPPORTED_STACK_TYPES }
+        val unsupportedOutputTypes =
+            inst.stackOutputs!!
+                .map { it.type }
+                .filter { it !in SUPPORTED_STACK_TYPES }
 
         if (unsupportedInputTypes.isNotEmpty() || unsupportedOutputTypes.isNotEmpty()) {
             error(
                 "Unsupported stack value types in ${inst.mnemonic}: " +
-                        unsupportedInputTypes.joinToString(", ") +
-                        unsupportedOutputTypes.joinToString(", ")
+                    unsupportedInputTypes.joinToString(", ") +
+                    unsupportedOutputTypes.joinToString(", "),
             )
         }
     }
@@ -85,7 +87,7 @@ internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
 internal fun updateStack(
     stackEntriesBefore: List<TacStackValue>,
     methodArgs: List<TacStackValue>,
-    stack: Stack
+    stack: Stack,
 ): Stack {
     val argsSize = methodArgs.size
     if (stackEntriesBefore.size < argsSize) {
@@ -96,17 +98,22 @@ internal fun updateStack(
     return stack.copy()
 }
 
+data class ControlRegisterValue(
+    val type: String, // "Continuation", "Cell", "Integer", etc.
+    val ref: Int, // for continuation
+    val value: Any? = null, // for other types
+)
 
 data class RegisterState(
     val tupleRegistry: LinkedHashMap<String, List<TacStackValue>> = LinkedHashMap(),
-    val controlRegisters: MutableMap<Int, ControlRegisterValue> = mutableMapOf()
+    val controlRegisters: MutableMap<Int, ControlRegisterValue> = mutableMapOf(),
 ) {
-    fun copy(): RegisterState = RegisterState(
-        tupleRegistry = tupleRegistry.toMutableMap() as LinkedHashMap<String, List<TacStackValue>>,
-        controlRegisters = controlRegisters.toMutableMap()
-    )
+    fun copy(): RegisterState =
+        RegisterState(
+            tupleRegistry = tupleRegistry.toMutableMap() as LinkedHashMap<String, List<TacStackValue>>,
+            controlRegisters = controlRegisters.toMutableMap(),
+        )
 }
-
 
 class Stack(
     initialStack: List<TacStackValue>,
@@ -125,9 +132,7 @@ class Stack(
         return newStack
     }
 
-    fun copyEntries(): List<TacStackValue> {
-        return stack.map { it.copy() }
-    }
+    fun copyEntries(): List<TacStackValue> = stack.map { it.copy() }
 
     fun dropLastInPlace(i: Int) {
         if (i <= 0) return
@@ -146,7 +151,10 @@ class Stack(
 
     private val stack: MutableList<TacStackValue> = initialStack.toMutableList()
 
-    fun getAssignInst(newVar: TacVar, i: Int): TacAssignInst {
+    fun getAssignInst(
+        newVar: TacVar,
+        i: Int,
+    ): TacAssignInst {
         val value = pop(i)
         val result = TacAssignInst(lhs = newVar, rhs = value)
         push(newVar)
@@ -163,9 +171,7 @@ class Stack(
         return result
     }
 
-    private fun popWithTypeCheck(
-        expectedTypes: List<String>,
-    ): TacStackValue {
+    private fun popWithTypeCheck(expectedTypes: List<String>): TacStackValue {
         if (stack.isEmpty()) {
             extendStack(size + 1, listOf(expectedTypes))
         }
@@ -211,12 +217,13 @@ class Stack(
         }
 
         val newValuesSize = newSize - size
-        val newValues = (0 until newValuesSize).mapIndexed { idx, _ ->
-            TacVar(
-                name = "arg${getNextArg()}",
-                valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList()
-            )
-        }
+        val newValues =
+            (0 until newValuesSize).mapIndexed { idx, _ ->
+                TacVar(
+                    name = "arg${getNextArg()}",
+                    valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList(),
+                )
+            }
 
         createdArguments.addAll(newValues)
         stack.addAll(0, newValues.asReversed()) // reversed because the "newest" values are at the beginning
@@ -403,14 +410,20 @@ class Stack(
         }
     }
 
-    private fun doSwap(i: Int, j: Int) {
+    private fun doSwap(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = maxOf(i + 1, j + 1)
         extendStack(newSize)
 
         swap(stack, stackIndex(i), stackIndex(j))
     }
 
-    private fun doBlkPush(i: Int, j: Int) {
+    private fun doBlkPush(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = j + 1
         extendStack(newSize)
 
@@ -420,7 +433,10 @@ class Stack(
         }
     }
 
-    private fun doBlkPop(i: Int, j: Int) {
+    private fun doBlkPop(
+        i: Int,
+        j: Int,
+    ) {
         repeat(i) {
             doSwap(0, j)
             stack.removeAt(stack.size - 1)
@@ -432,7 +448,10 @@ class Stack(
      * @param i -- number of stack entries to reverse
      * @param j -- offset before first reversed entry
      * */
-    private fun doReverse(i: Int, j: Int) {
+    private fun doReverse(
+        i: Int,
+        j: Int,
+    ) {
         extendStack(i + j)
 
         val blockStart = stack.size - j
@@ -448,13 +467,19 @@ class Stack(
         doBlkPop(1, i)
     }
 
-    private fun doBlkSwap(i: Int, j: Int) {
+    private fun doBlkSwap(
+        i: Int,
+        j: Int,
+    ) {
         doReverse(i + 1, j + 1)
         doReverse(j + 1, 0)
         doReverse(i + j + 2, 0)
     }
 
-    private fun doXchg2(i: Int, j: Int) {
+    private fun doXchg2(
+        i: Int,
+        j: Int,
+    ) {
         doSwap(1, i)
         doSwap(0, j)
     }
@@ -462,7 +487,10 @@ class Stack(
     /**
      * Drops [i] stack elements under the top [j] elements.
      */
-    private fun doBlkDrop2(i: Int, j: Int) {
+    private fun doBlkDrop2(
+        i: Int,
+        j: Int,
+    ) {
         val newSize = i + j
         extendStack(newSize)
 
@@ -478,13 +506,20 @@ class Stack(
         topElements.asReversed().forEach { stack.add(it) }
     }
 
-    private fun doPuxc(i: Int, j: Int) {
+    private fun doPuxc(
+        i: Int,
+        j: Int,
+    ) {
         doPush(i)
         doSwap(0, 1)
         doSwap(0, j + 1)
     }
 
-    private fun doXchg3(i: Int, j: Int, k: Int) {
+    private fun doXchg3(
+        i: Int,
+        j: Int,
+        k: Int,
+    ) {
         doSwap(2, i)
         doSwap(1, j)
         doSwap(0, k)
@@ -496,12 +531,177 @@ class Stack(
         val continuationMap: Map<String, Int>,
     )
 
+    private fun handleArrayInput(
+        input: TvmStackEntryDescription,
+        ctx: TacGenerationContext<*>,
+        continuationMap: MutableMap<String, Int>,
+        registerState: RegisterState,
+        inputs: MutableList<Pair<String, TacStackValue>>,
+    ) {
+        val specInput = input as TvmArrayStackEntryDescription
+        val specLengthType =
+            specInput.lengthVar.toIntOrNull() ?: error(
+                """
+                If you are using the TUPLE instruction, the tuple has an invalid length.
+                Otherwise, the instruction is not supported.
+                """.trimIndent(),
+            )
+
+        val tupleElements: MutableList<TacStackValue> = mutableListOf()
+        repeat(specLengthType) {
+            val poppedValue = popWithTypeCheck(expectedTypes = emptyList())
+            tupleElements.add(poppedValue)
+            if (poppedValue is ContinuationValue) {
+                continuationMap["${input.name}_$it"] = poppedValue.continuationRef
+            }
+        }
+        tupleElements.reverse()
+
+        val tupleVar =
+            TacTupleValue(
+                name = "t_${ctx.nextVarId()}",
+                elements = tupleElements,
+            )
+        registerState.tupleRegistry[tupleVar.name] = tupleElements
+        inputs.add(input.name to tupleVar)
+    }
+
+    private fun handleSimpleInput(
+        input: TvmStackEntryDescription,
+        continuationMap: MutableMap<String, Int>,
+        registerState: RegisterState,
+        inputs: MutableList<Pair<String, TacStackValue>>,
+    ) {
+        val specInput = input as TvmSimpleStackEntryDescription
+        val specValueTypes = specInput.valueTypes
+
+        val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
+        val valueToStore =
+            if (specValueTypes.contains("Tuple")) {
+                var tmp: String? = null
+                for (x in registerState.tupleRegistry.keys) {
+                    if (x.startsWith("global")) tmp = x
+                }
+                val result =
+                    TacTupleValue(
+                        name = poppedValue.name,
+                        elements = registerState.tupleRegistry[tmp] ?: emptyList(),
+                    )
+
+                if (tmp != null) {
+                    registerState.tupleRegistry.remove(tmp)
+                }
+
+                result
+            } else {
+                poppedValue
+            }
+
+        if (valueToStore is ContinuationValue) {
+            continuationMap[input.name] = valueToStore.continuationRef
+        }
+        inputs.add(input.name to valueToStore)
+    }
+
+    private fun handleSimpleOutput(
+        output: TvmStackEntryDescription,
+        ctx: TacGenerationContext<*>,
+        contRef: Int?,
+        inputs: List<Pair<String, TacStackValue>>,
+        outputs: MutableList<TacStackValue>,
+    ) {
+        val specOutput = output as TvmSimpleStackEntryDescription
+        val specName = specOutput.name
+        val specValueTypes = specOutput.valueTypes
+        val name = "${specName}_${ctx.nextVarId()}"
+        val pushValue =
+            if (contRef != null) {
+                ContinuationValue(name, contRef).also {
+                    check(it.valueTypes == specValueTypes) {
+                        "Unexpected output value types for $output. Expected ${it.valueTypes}."
+                    }
+                }
+            } else {
+                if (specValueTypes.contains("Tuple")) {
+                    val tupleInput =
+                        inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
+                            ?: error("Tuple input not found for TUPLE output")
+                    TacTupleValue(
+                        name = name,
+                        elements = tupleInput.elements,
+                    )
+                } else {
+                    TacVar(name = name, valueTypes = specValueTypes)
+                }
+            }
+        push(pushValue)
+        outputs.add(pushValue)
+    }
+
+    private fun handleConstOutput(
+        output: TvmStackEntryDescription,
+        ctx: TacGenerationContext<*>,
+        contRef: Int?,
+        outputs: MutableList<TacStackValue>,
+    ) {
+        val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
+        check(contRef == null) {
+            "Unexpected continuation reference for output $output."
+        }
+        val pushValue =
+            TacVar(
+                name = "const_${ctx.nextVarId()}",
+                valueTypes = valueType,
+            )
+        push(pushValue)
+        outputs.add(pushValue)
+    }
+
+    private fun handleArrayOutput(
+        output: TvmStackEntryDescription,
+        inputs: List<Pair<String, TacStackValue>>,
+        outputs: MutableList<TacStackValue>,
+    ) {
+        val specOutput = output as TvmArrayStackEntryDescription
+        val tupleVar =
+            inputs.find { it.first == "t" }?.second as? TacTupleValue
+                ?: error(
+                    """
+                    If you are using the TUPLE instruction, tuple input not found.
+                    Otherwise, the instruction is not supported.
+                    """.trimIndent(),
+                )
+
+        val specLengthType =
+            specOutput.lengthVar.toIntOrNull() ?: error(
+                """
+                If you are using the TUPLE instruction, the tuple has an invalid length.
+                Otherwise, the instruction is not supported.
+                """.trimIndent(),
+            )
+
+        if (tupleVar.elements.size != specLengthType) {
+            error(
+                """
+                            If you are using the TUPLE instruction,
+                            tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.
+                            Otherwise, the instruction is not supported.
+                """.trimMargin(),
+            )
+        }
+
+        tupleVar.elements.forEach { element ->
+            push(element)
+            outputs.add(element)
+        }
+    }
+
     fun <Inst : AbstractTacInst> processNonStackInst(
         ctx: TacGenerationContext<Inst>,
         inputSpec: List<TvmStackEntryDescription>,
         outputSpec: List<TvmStackEntryDescription>,
         contRef: Int? = null, // if this is PUSHCONT
-        registerState: RegisterState
+        registerState: RegisterState,
     ): TacInstInfo {
         val inputs = mutableListOf<Pair<String, TacStackValue>>()
         val outputs = mutableListOf<TacStackValue>()
@@ -510,132 +710,17 @@ class Stack(
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
             when (input.type) {
-                "simple" -> {
-                    val specInput = input as TvmSimpleStackEntryDescription
-                    val specValueTypes = specInput.valueTypes
-
-                    val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
-                    val valueToStore = if (specValueTypes.contains("Tuple")) {
-                        var tmp: String? = null
-                        for (x in registerState.tupleRegistry.keys){
-                            if (x.startsWith("global")) tmp = x
-                        }
-                        val result = TacTupleValue(
-                            name = poppedValue.name,
-                            elements = registerState.tupleRegistry[tmp] ?: emptyList()
-                        )
-
-                        if (tmp != null) {
-                            registerState.tupleRegistry.remove(tmp)
-                        }
-
-                        result
-                    } else {
-                        poppedValue
-                    }
-
-                    if (valueToStore is ContinuationValue) {
-                        continuationMap[input.name] = valueToStore.continuationRef
-                    }
-                    inputs.add(input.name to valueToStore)
-                }
-
-                "array" -> {
-                    val specInput = input as TvmArrayStackEntryDescription
-                    val specLengthType = specInput.lengthVar.toIntOrNull() ?: error("""
-                        If you are using the TUPLE instruction, the tuple has an invalid length.
-                        Otherwise, the instruction is not supported.
-                    """.trimIndent())
-                    val tupleElements: MutableList<TacStackValue> = mutableListOf()
-                    repeat(specLengthType) {
-                        val poppedValue = popWithTypeCheck(expectedTypes = emptyList())
-                        tupleElements.add(poppedValue)
-                        if (poppedValue is ContinuationValue) {
-                            continuationMap["${input.name}_$it"] = poppedValue.continuationRef
-                        }
-                    }
-                    tupleElements.reverse()
-
-                    val tupleVar = TacTupleValue(
-                        name = "t_${ctx.nextVarId()}",
-                        elements = tupleElements
-                    )
-                    registerState.tupleRegistry[tupleVar.name] = tupleElements
-                    inputs.add(input.name to tupleVar)
-                }
-
+                "simple" -> handleSimpleInput(input, continuationMap, registerState, inputs)
+                "array" -> handleArrayInput(input, ctx, continuationMap, registerState, inputs)
                 else -> error("Unsupported input type: \${input.type}")
             }
         }
 
         outputSpec.forEach { output ->
             when (output.type) {
-                "simple" -> {
-                    val specOutput = output as TvmSimpleStackEntryDescription
-                    val specName = specOutput.name
-                    val specValueTypes = specOutput.valueTypes
-                    val name = "${specName}_${ctx.nextVarId()}"
-                    val pushValue = if (contRef != null) {
-                        ContinuationValue(name, contRef).also {
-                            check(it.valueTypes == specValueTypes) {
-                                "Unexpected output value types for $output. Expected ${it.valueTypes}."
-                            }
-                        }
-                    } else {
-                        if (specValueTypes.contains("Tuple")) {
-                            val tupleInput = inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
-                                ?: error("Tuple input not found for TUPLE output")
-                            TacTupleValue(
-                                name = name,
-                                elements = tupleInput.elements
-                            )
-                        } else {
-                            TacVar(name = name, valueTypes = specValueTypes)
-                        }
-                    }
-                    push(pushValue)
-                    outputs.add(pushValue)
-                }
-
-                "const" -> {
-                    val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
-                    check(contRef == null) {
-                        "Unexpected continuation reference for output $output."
-                    }
-                    val pushValue = TacVar(
-                        name = "const_${ctx.nextVarId()}",
-                        valueTypes = valueType,
-                    )
-                    push(pushValue)
-                    outputs.add(pushValue)
-                }
-
-                "array" -> {
-                    val specOutput = output as TvmArrayStackEntryDescription
-                    val tupleVar = inputs.find { it.first == "t" }?.second as? TacTupleValue
-                        ?: error("""
-                            If you are using the TUPLE instruction, tuple input not found.
-                            Otherwise, the instruction is not supported.
-                        """.trimIndent())
-
-                    val specLengthType = specOutput.lengthVar.toIntOrNull() ?: error("""
-                        If you are using the TUPLE instruction, the tuple has an invalid length.
-                        Otherwise, the instruction is not supported.
-                    """.trimIndent())
-
-                    if (tupleVar.elements.size != specLengthType) {
-                        error("""
-                            If you are using the TUPLE instruction,
-                            tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.
-                            Otherwise, the instruction is not supported.
-                        """.trimMargin())
-                    }
-
-                    tupleVar.elements.forEach { element ->
-                        push(element)
-                        outputs.add(element)
-                    }
-                }
+                "simple" -> handleSimpleOutput(output, ctx, contRef, inputs, outputs)
+                "const" -> handleConstOutput(output, ctx, contRef, outputs)
+                "array" -> handleArrayOutput(output, inputs, outputs)
 
                 else -> error("${output.type} isn't supported yet")
             }

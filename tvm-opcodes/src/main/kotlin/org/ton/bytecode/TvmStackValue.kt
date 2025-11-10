@@ -26,7 +26,7 @@ data class TvmConstStackEntryDescription(
 data class TvmArrayStackEntryDescription(
     val name: String,
     val lengthVar: String,
-    val arrayEntry: List<TvmSimpleStackEntryDescription>
+    val arrayEntry: List<TvmSimpleStackEntryDescription>,
 ) : TvmStackEntryDescription() {
     override val type: String = "array"
 }
