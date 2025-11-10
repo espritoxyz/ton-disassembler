@@ -188,34 +188,53 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
             val registerValue =
                 when (val poppedValue = stack.pop(0)) {
                     is ContinuationValue ->
-                        ControlRegisterValue(
-                            type = "Continuation",
+                        ControlRegisterValue.ContinuationRegisterValue(
                             ref = poppedValue.continuationRef,
                         )
-                    is TacVar ->
-                        ControlRegisterValue(
-                            type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value"),
-                            ref = -1,
-                        )
-                    is TacTupleValue ->
-                        ControlRegisterValue(
-                            type = "Tuple",
-                            ref = -1,
-                        )
+                    is TacVar -> {
+                        val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
+                        when (type) {
+                            "Cell" -> ControlRegisterValue.CellRegisterValue()
+                            "Integer" -> ControlRegisterValue.IntegerRegisterValue()
+                            "Slice" -> ControlRegisterValue.SliceRegisterValue()
+                            else -> error("Unsupported type: $type")
+                        }
+                    }
+                    is TacTupleValue -> ControlRegisterValue.TupleRegisterValue()
                 }
             registerState.controlRegisters[inst.i] = registerValue
             return emptyList()
         }
         is TvmContRegistersPushctrInst -> {
-            val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue(type = "Cell", ref = -1)
+            val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue()
 
             val pushValue =
-                when (registerValue.type) {
-                    "Continuation" -> ContinuationValue("ctr_${inst.i}", registerValue.ref)
-                    "Cell" -> TacVar(name = "ctr_${inst.i}", valueTypes = listOf("Cell"))
-                    "Integer" -> TacVar(name = "ctr_${inst.i}", valueTypes = listOf("Integer"))
-                    "Slice" -> TacVar(name = "ctr_${inst.i}", valueTypes = listOf("Slice"))
-                    else -> error("Unexpected type: ${registerValue.type}")
+                when (registerValue) {
+                    is ControlRegisterValue.ContinuationRegisterValue ->
+                        ContinuationValue(
+                            "ctr_${inst.i}",
+                            registerValue.ref,
+                        )
+                    is ControlRegisterValue.CellRegisterValue ->
+                        TacVar(
+                            name = "ctr_${inst.i}",
+                            valueTypes = listOf("Cell"),
+                        )
+                    is ControlRegisterValue.IntegerRegisterValue ->
+                        TacVar(
+                            name = "ctr_${inst.i}",
+                            valueTypes = listOf("Integer"),
+                        )
+                    is ControlRegisterValue.SliceRegisterValue ->
+                        TacVar(
+                            name = "ctr_${inst.i}",
+                            valueTypes = listOf("Slice"),
+                        )
+                    is ControlRegisterValue.TupleRegisterValue ->
+                        TacVar(
+                            name = "ctr_${inst.i}",
+                            valueTypes = listOf("Tuple"),
+                        )
                 }
             stack.push(pushValue)
             return emptyList()

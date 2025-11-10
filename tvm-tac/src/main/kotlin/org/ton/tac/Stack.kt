@@ -98,11 +98,27 @@ internal fun updateStack(
     return stack.copy()
 }
 
-data class ControlRegisterValue(
-    val type: String, // "Continuation", "Cell", "Integer", etc.
-    val ref: Int, // for continuation
-    val value: Any? = null, // for other types
-)
+sealed interface ControlRegisterValue {
+    data class ContinuationRegisterValue(
+        val ref: Int,
+    ) : ControlRegisterValue
+
+    data class CellRegisterValue(
+        val value: Any? = null,
+    ) : ControlRegisterValue
+
+    data class IntegerRegisterValue(
+        val value: Any? = null,
+    ) : ControlRegisterValue
+
+    data class SliceRegisterValue(
+        val value: Any? = null,
+    ) : ControlRegisterValue
+
+    data class TupleRegisterValue(
+        val value: Any? = null,
+    ) : ControlRegisterValue
+}
 
 data class RegisterState(
     val tupleRegistry: LinkedHashMap<String, List<TacStackValue>> = LinkedHashMap(),
