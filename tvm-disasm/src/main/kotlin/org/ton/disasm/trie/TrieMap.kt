@@ -10,9 +10,12 @@ import org.ton.disasm.bytecode.validateCellOperandTypes
 import java.io.InputStream
 
 internal class TrieMap private constructor(
-    val root: TrieMapVertex = TrieMapVertex(inst = null)
+    val root: TrieMapVertex = TrieMapVertex(inst = null),
 ) {
-    private fun addInstruction(bitString: BitString, inst: InstructionDescription) {
+    private fun addInstruction(
+        bitString: BitString,
+        inst: InstructionDescription,
+    ) {
         var position = root
         bitString.forEach { bit ->
             position = position.step(bit)
@@ -26,9 +29,10 @@ internal class TrieMap private constructor(
 
     companion object {
         fun construct(specStream: InputStream): TrieMap {
-            val spec = specStream.bufferedReader().use {
-                it.readText()
-            }
+            val spec =
+                specStream.bufferedReader().use {
+                    it.readText()
+                }
             val parsed = specJson.decodeFromString<InstructionsList>(spec)
 
             validateCellOperandTypes(parsed)

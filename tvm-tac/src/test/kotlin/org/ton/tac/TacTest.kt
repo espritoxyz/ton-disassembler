@@ -64,8 +64,10 @@ class TacTest {
         assertEquals(2, returnInsts)
     }
 
-    private inline fun <reified T> getResourcePath(path: String): Path {
-        return T::class.java.getResource(path)?.path?.let { Path(it) }
+    private inline fun <reified T> getResourcePath(path: String): Path =
+        T::class.java
+            .getResource(path)
+            ?.path
+            ?.let { Path(it) }
             ?: error("Resource $path was not found")
-    }
 }

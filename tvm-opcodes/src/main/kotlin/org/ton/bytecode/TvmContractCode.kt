@@ -14,54 +14,58 @@ import kotlinx.serialization.modules.SerializersModule
 import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import org.ton.bigint.BigIntSerializer
-import org.ton.disasm.bytecode.InstructionStackSimpleValue
-import org.ton.disasm.bytecode.InstructionStackConstValue
-import org.ton.disasm.bytecode.InstructionStackArrayValue
-import org.ton.disasm.bytecode.InstructionStackConditionalValue
-import org.ton.disasm.bytecode.InstructionStackValueDescription
 import org.ton.bitstring.BitString
 import org.ton.cell.Cell
+import org.ton.disasm.bytecode.InstructionStackArrayValue
+import org.ton.disasm.bytecode.InstructionStackConditionalValue
+import org.ton.disasm.bytecode.InstructionStackConstValue
+import org.ton.disasm.bytecode.InstructionStackSimpleValue
+import org.ton.disasm.bytecode.InstructionStackValueDescription
 
 @Serializable
 data class TvmContractCode(
     val mainMethod: TvmMainMethod,
-    val methods: Map<@Serializable(BigIntSerializer::class) MethodId, TvmMethod>
+    val methods: Map<
+        @Serializable(BigIntSerializer::class)
+        MethodId,
+        TvmMethod,
+    >,
 ) {
     companion object {
         private val defaultSerializationModule: SerializersModule
-            get() = SerializersModule {
-                polymorphic(TvmInstLocation::class) {
-                    subclass(TvmInstMethodLocation::class)
-                    subclass(TvmInstLambdaLocation::class)
-                    subclass(TvmMainMethodLocation::class)
+            get() =
+                SerializersModule {
+                    polymorphic(TvmInstLocation::class) {
+                        subclass(TvmInstMethodLocation::class)
+                        subclass(TvmInstLambdaLocation::class)
+                        subclass(TvmMainMethodLocation::class)
+                    }
+
+                    polymorphic(TvmCodeBlock::class) {
+                        subclass(TvmMethod::class)
+                        subclass(TvmMainMethod::class)
+                    }
+
+                    polymorphic(InstructionStackValueDescription::class) {
+                        subclass(InstructionStackSimpleValue::class)
+                        subclass(InstructionStackConstValue::class)
+                        subclass(InstructionStackArrayValue::class)
+                        subclass(InstructionStackConditionalValue::class)
+                    }
+
+                    registerTvmInstSerializer()
+
+                    contextual(MethodId::class, BigIntSerializer)
                 }
 
-                polymorphic(TvmCodeBlock::class) {
-                    subclass(TvmMethod::class)
-                    subclass(TvmMainMethod::class)
-                }
-
-                polymorphic(InstructionStackValueDescription::class) {
-                    subclass(InstructionStackSimpleValue::class)
-                    subclass(InstructionStackConstValue::class)
-                    subclass(InstructionStackArrayValue::class)
-                    subclass(InstructionStackConditionalValue::class)
-                }
-
-                registerTvmInstSerializer()
-
-                contextual(MethodId::class, BigIntSerializer)
+        val json =
+            Json {
+                prettyPrint = true
+                ignoreUnknownKeys = true
+                serializersModule = defaultSerializationModule
             }
 
-        val json = Json {
-            prettyPrint = true
-            ignoreUnknownKeys = true
-            serializersModule = defaultSerializationModule
-        }
-
-        fun fromJson(bytecode: String): TvmContractCode {
-            return json.decodeFromString<TvmContractCode>(bytecode)
-        }
+        fun fromJson(bytecode: String): TvmContractCode = json.decodeFromString<TvmContractCode>(bytecode)
     }
 }
 
@@ -79,13 +83,14 @@ data class TvmInstList(
 data class TvmCell(
     @SerialName("_bits")
     val data: TvmCellData,
-
     @SerialName("_refs")
     val refs: List<TvmCell>,
 )
 
 @Serializable(with = TvmCellDataSerializer::class)
-data class TvmCellData(val bits: String)
+data class TvmCellData(
+    val bits: String,
+)
 
 class TvmCellDataSerializer : KSerializer<TvmCellData> {
     private val listSerializer = ListSerializer(Char.serializer())
@@ -95,7 +100,10 @@ class TvmCellDataSerializer : KSerializer<TvmCellData> {
     override fun deserialize(decoder: Decoder): TvmCellData =
         TvmCellData(listSerializer.deserialize(decoder).joinToString(separator = ""))
 
-    override fun serialize(encoder: Encoder, value: TvmCellData) {
+    override fun serialize(
+        encoder: Encoder,
+        value: TvmCellData,
+    ) {
         listSerializer.serialize(encoder, value.bits.toList())
     }
 }

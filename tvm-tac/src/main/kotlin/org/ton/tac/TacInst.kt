@@ -26,12 +26,13 @@ data class TacGotoInst(
 ) : TacInst
 
 data class TacLabel(
-    val label: String
+    val label: String,
 ) : TacInst
 
 sealed interface TacStackValue {
     val valueTypes: List<String>
     val name: String
+
     fun copy(): TacStackValue
 }
 

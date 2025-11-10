@@ -19,6 +19,9 @@ jobs:
         with:
           submodules: recursive
 
+      - name: "Linter check"
+        run: ./gradlew clean lintKotlin
+
       - uses: actions/setup-java@v4
         with:
           distribution: 'temurin'

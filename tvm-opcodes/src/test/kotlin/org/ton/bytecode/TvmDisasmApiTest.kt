@@ -6,7 +6,6 @@ import kotlin.test.Test
 import kotlin.test.assertTrue
 
 class TvmDisasmApiTest {
-
     @Test
     fun testLongInt() {
         val path = getResourcePath<TvmDisasmApiTest>("/samples/longint.boc")
@@ -32,7 +31,7 @@ class TvmDisasmApiTest {
     fun testWithEmptyCellAsDictPushConstOperand() {
         val path = getResourcePath<TvmDisasmApiTest>("/samples/EQC62pJE0q787DFRcgg1ymGmghrcNbaFyKjo9ZUbr0QL0pmT.boc")
         val contractCode = disassembleBoc(path)
-       assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
+        assertTrue { contractCode.mainMethod.instList.isNotEmpty() }
     }
 
     @Test
@@ -47,8 +46,10 @@ class TvmDisasmApiTest {
         assertTrue { disassembledContinuation.methods.isNotEmpty() }
     }
 
-    private inline fun <reified T> getResourcePath(path: String): Path {
-        return T::class.java.getResource(path)?.path?.let { Path(it) }
+    private inline fun <reified T> getResourcePath(path: String): Path =
+        T::class.java
+            .getResource(path)
+            ?.path
+            ?.let { Path(it) }
             ?: error("Resource $path was not found")
-    }
 }

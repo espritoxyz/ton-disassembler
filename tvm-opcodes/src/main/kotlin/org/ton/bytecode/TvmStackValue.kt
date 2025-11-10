@@ -9,7 +9,7 @@ abstract class TvmStackEntryDescription {
 @Serializable
 data class TvmSimpleStackEntryDescription(
     val name: String,
-    val valueTypes: List<String>
+    val valueTypes: List<String>,
 ) : TvmStackEntryDescription() {
     override val type: String = "simple"
 }
@@ -17,12 +17,12 @@ data class TvmSimpleStackEntryDescription(
 @Serializable
 data class TvmConstStackEntryDescription(
     val valueType: String,
-    val value: Int? = null
+    val value: Int? = null,
 ) : TvmStackEntryDescription() {
     override val type: String = "const"
 }
 
 @Serializable
 data class TvmGenericStackEntryDescription(
-    override val type: String
+    override val type: String,
 ) : TvmStackEntryDescription()
