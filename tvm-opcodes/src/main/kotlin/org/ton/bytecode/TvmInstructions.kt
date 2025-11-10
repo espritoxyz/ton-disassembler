@@ -157,11 +157,11 @@ data class TvmAppActionsChangelibInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -199,11 +199,11 @@ data class TvmAppActionsRawreserveInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -233,15 +233,15 @@ data class TvmAppActionsRawreservexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -277,18 +277,18 @@ data class TvmAppActionsSendmsgInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "fee",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -327,11 +327,11 @@ data class TvmAppActionsSendrawmsgInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -362,7 +362,7 @@ data class TvmAppActionsSetcodeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -397,11 +397,11 @@ data class TvmAppActionsSetlibcodeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -431,18 +431,18 @@ data class TvmAppAddrLdmsgaddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -470,17 +470,17 @@ data class TvmAppAddrLdmsgaddrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -508,14 +508,14 @@ data class TvmAppAddrParsemsgaddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -542,17 +542,17 @@ data class TvmAppAddrParsemsgaddrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -582,18 +582,18 @@ data class TvmAppAddrRewritestdaddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -620,17 +620,17 @@ data class TvmAppAddrRewritestdaddrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -658,18 +658,18 @@ data class TvmAppAddrRewritevaraddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -696,17 +696,17 @@ data class TvmAppAddrRewritevaraddrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -736,11 +736,11 @@ data class TvmAppConfigConfigdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmConstStackEntryDescription(
                 value = 32,
-                valueType = "Integer"
+                valueType = TvmType.INT
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -769,14 +769,14 @@ data class TvmAppConfigConfigoptparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -805,17 +805,17 @@ data class TvmAppConfigConfigparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -842,22 +842,22 @@ data class TvmAppConfigGetforwardfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -884,22 +884,22 @@ data class TvmAppConfigGetforwardfeesimpleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -926,18 +926,18 @@ data class TvmAppConfigGetgasfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "gas_used",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -964,18 +964,18 @@ data class TvmAppConfigGetgasfeesimpleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "gas_used",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1002,18 +1002,18 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "fwd_fee",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "orig_fwd_fee",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1046,7 +1046,7 @@ data class TvmAppConfigGetparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer", "Slice")
+                valueTypes = listOf(TvmType.INT, TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1075,7 +1075,7 @@ data class TvmAppConfigGetprecompiledgasInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1102,26 +1102,26 @@ data class TvmAppConfigGetstoragefeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "seconds",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1150,7 +1150,7 @@ data class TvmAppConfigGlobalidInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1179,7 +1179,7 @@ data class TvmAppConfigPrevkeyblockInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1208,7 +1208,7 @@ data class TvmAppConfigPrevmcblocksInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1239,20 +1239,20 @@ data class TvmAppCryptoBlsAggregateInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "sig",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1284,28 +1284,28 @@ data class TvmAppCryptoBlsAggregateverifyInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "pk",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "msg",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sgn",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1337,28 +1337,28 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "pk",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "msg",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sig",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1385,18 +1385,18 @@ data class TvmAppCryptoBlsG1AddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1423,14 +1423,14 @@ data class TvmAppCryptoBlsG1IngroupInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1457,14 +1457,14 @@ data class TvmAppCryptoBlsG1IszeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1491,18 +1491,18 @@ data class TvmAppCryptoBlsG1MulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1534,24 +1534,24 @@ data class TvmAppCryptoBlsG1MultiexpInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Integer")
+                    valueTypes = listOf(TvmType.INT)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1578,14 +1578,14 @@ data class TvmAppCryptoBlsG1NegInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1612,18 +1612,18 @@ data class TvmAppCryptoBlsG1SubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1652,7 +1652,7 @@ data class TvmAppCryptoBlsG1ZeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "zero",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1679,18 +1679,18 @@ data class TvmAppCryptoBlsG2AddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1717,14 +1717,14 @@ data class TvmAppCryptoBlsG2IngroupInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1751,14 +1751,14 @@ data class TvmAppCryptoBlsG2IszeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1785,18 +1785,18 @@ data class TvmAppCryptoBlsG2MulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1828,24 +1828,24 @@ data class TvmAppCryptoBlsG2MultiexpInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Integer")
+                    valueTypes = listOf(TvmType.INT)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1872,14 +1872,14 @@ data class TvmAppCryptoBlsG2NegInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1906,18 +1906,18 @@ data class TvmAppCryptoBlsG2SubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1946,7 +1946,7 @@ data class TvmAppCryptoBlsG2ZeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "zero",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -1973,14 +1973,14 @@ data class TvmAppCryptoBlsMapToG1Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2007,14 +2007,14 @@ data class TvmAppCryptoBlsMapToG2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2046,24 +2046,24 @@ data class TvmAppCryptoBlsPairingInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "y",
-                    valueTypes = listOf("Slice")
+                    valueTypes = listOf(TvmType.SLICE)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2092,7 +2092,7 @@ data class TvmAppCryptoBlsPushrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2119,22 +2119,22 @@ data class TvmAppCryptoBlsVerifyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "pk",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "msg",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sgn",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2164,22 +2164,22 @@ data class TvmAppCryptoChksignsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "d",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2213,22 +2213,22 @@ data class TvmAppCryptoChksignuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2257,29 +2257,29 @@ data class TvmAppCryptoEcrecoverInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "v",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2307,14 +2307,14 @@ data class TvmAppCryptoHashcuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2345,24 +2345,24 @@ data class TvmAppCryptoHashextBlake2bInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2393,20 +2393,20 @@ data class TvmAppCryptoHashextKeccak256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2437,24 +2437,24 @@ data class TvmAppCryptoHashextKeccak512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2485,20 +2485,20 @@ data class TvmAppCryptoHashextSha256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2529,24 +2529,24 @@ data class TvmAppCryptoHashextSha512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2574,7 +2574,7 @@ data class TvmAppCryptoHashextaBlake2bInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2582,20 +2582,20 @@ data class TvmAppCryptoHashextaBlake2bInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2623,7 +2623,7 @@ data class TvmAppCryptoHashextaKeccak256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2631,20 +2631,20 @@ data class TvmAppCryptoHashextaKeccak256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2672,7 +2672,7 @@ data class TvmAppCryptoHashextaKeccak512Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2680,20 +2680,20 @@ data class TvmAppCryptoHashextaKeccak512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2721,7 +2721,7 @@ data class TvmAppCryptoHashextaSha256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2729,20 +2729,20 @@ data class TvmAppCryptoHashextaSha256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2770,7 +2770,7 @@ data class TvmAppCryptoHashextaSha512Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2778,20 +2778,20 @@ data class TvmAppCryptoHashextaSha512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2819,7 +2819,7 @@ data class TvmAppCryptoHashextarBlake2bInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2827,20 +2827,20 @@ data class TvmAppCryptoHashextarBlake2bInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2868,7 +2868,7 @@ data class TvmAppCryptoHashextarKeccak256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2876,20 +2876,20 @@ data class TvmAppCryptoHashextarKeccak256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2917,7 +2917,7 @@ data class TvmAppCryptoHashextarKeccak512Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2925,20 +2925,20 @@ data class TvmAppCryptoHashextarKeccak512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -2966,7 +2966,7 @@ data class TvmAppCryptoHashextarSha256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -2974,20 +2974,20 @@ data class TvmAppCryptoHashextarSha256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3015,7 +3015,7 @@ data class TvmAppCryptoHashextarSha512Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmArrayStackEntryDescription(
                 name = "input_parts",
@@ -3023,20 +3023,20 @@ data class TvmAppCryptoHashextarSha512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3067,24 +3067,24 @@ data class TvmAppCryptoHashextrBlake2bInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3115,20 +3115,20 @@ data class TvmAppCryptoHashextrKeccak256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3159,24 +3159,24 @@ data class TvmAppCryptoHashextrKeccak512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3207,20 +3207,20 @@ data class TvmAppCryptoHashextrSha256Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3251,24 +3251,24 @@ data class TvmAppCryptoHashextrSha512Inst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf("Slice", "Builder")
+                    valueTypes = listOf(TvmType.SLICE, TvmType.BUILDER)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3297,14 +3297,14 @@ data class TvmAppCryptoHashsuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3334,22 +3334,22 @@ data class TvmAppCryptoP256ChksignsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "d",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sig",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3379,22 +3379,22 @@ data class TvmAppCryptoP256ChksignuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "d",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sig",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3421,18 +3421,18 @@ data class TvmAppCryptoRist255AddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3459,18 +3459,18 @@ data class TvmAppCryptoRist255FromhashInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3497,18 +3497,18 @@ data class TvmAppCryptoRist255MulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3535,14 +3535,14 @@ data class TvmAppCryptoRist255MulbaseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3571,7 +3571,7 @@ data class TvmAppCryptoRist255PushlInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3598,21 +3598,21 @@ data class TvmAppCryptoRist255QaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3640,21 +3640,21 @@ data class TvmAppCryptoRist255QmulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3681,17 +3681,17 @@ data class TvmAppCryptoRist255QmulbaseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3718,21 +3718,21 @@ data class TvmAppCryptoRist255QsubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3760,14 +3760,14 @@ data class TvmAppCryptoRist255QvalidateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3794,18 +3794,18 @@ data class TvmAppCryptoRist255SubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3832,7 +3832,7 @@ data class TvmAppCryptoRist255ValidateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3862,14 +3862,14 @@ data class TvmAppCryptoSha256uInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3900,18 +3900,18 @@ data class TvmAppCurrencyLdgramsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3939,18 +3939,18 @@ data class TvmAppCurrencyLdvarint16Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -3978,18 +3978,18 @@ data class TvmAppCurrencyLdvarint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4019,18 +4019,18 @@ data class TvmAppCurrencyLdvaruint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4061,18 +4061,18 @@ data class TvmAppCurrencyStgramsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4099,18 +4099,18 @@ data class TvmAppCurrencyStvarint16Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4137,18 +4137,18 @@ data class TvmAppCurrencyStvarint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4179,18 +4179,18 @@ data class TvmAppCurrencyStvaruint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4273,7 +4273,7 @@ data class TvmAppGasGasconsumedInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "g_c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4303,7 +4303,7 @@ data class TvmAppGasSetgaslimitInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "g",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4364,7 +4364,7 @@ data class TvmAppGlobalGetglobvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4434,7 +4434,7 @@ data class TvmAppGlobalSetglobvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4463,26 +4463,26 @@ data class TvmAppMiscCdatasizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4515,21 +4515,21 @@ data class TvmAppMiscCdatasizeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4556,26 +4556,26 @@ data class TvmAppMiscSdatasizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4604,21 +4604,21 @@ data class TvmAppMiscSdatasizeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4647,7 +4647,7 @@ data class TvmAppRndAddrandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4679,14 +4679,14 @@ data class TvmAppRndRandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4719,7 +4719,7 @@ data class TvmAppRndRandu256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4746,7 +4746,7 @@ data class TvmAppRndSetrandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4775,18 +4775,18 @@ data class TvmArithmBasicAddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4814,14 +4814,14 @@ data class TvmArithmBasicAddconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4848,14 +4848,14 @@ data class TvmArithmBasicDecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4882,14 +4882,14 @@ data class TvmArithmBasicIncInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4916,18 +4916,18 @@ data class TvmArithmBasicMulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4955,14 +4955,14 @@ data class TvmArithmBasicMulconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -4990,14 +4990,14 @@ data class TvmArithmBasicNegateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5024,18 +5024,18 @@ data class TvmArithmBasicSubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5062,18 +5062,18 @@ data class TvmArithmBasicSubrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5100,26 +5100,26 @@ data class TvmArithmDivAdddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5146,26 +5146,26 @@ data class TvmArithmDivAdddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5192,26 +5192,26 @@ data class TvmArithmDivAdddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5239,22 +5239,22 @@ data class TvmArithmDivAddrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5282,22 +5282,22 @@ data class TvmArithmDivAddrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5324,26 +5324,26 @@ data class TvmArithmDivAddrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5370,26 +5370,26 @@ data class TvmArithmDivAddrshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5416,26 +5416,26 @@ data class TvmArithmDivAddrshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5463,22 +5463,22 @@ data class TvmArithmDivAddrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5505,18 +5505,18 @@ data class TvmArithmDivDivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5543,18 +5543,18 @@ data class TvmArithmDivDivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5581,22 +5581,22 @@ data class TvmArithmDivDivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5623,22 +5623,22 @@ data class TvmArithmDivDivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5665,22 +5665,22 @@ data class TvmArithmDivDivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5707,18 +5707,18 @@ data class TvmArithmDivDivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5746,22 +5746,22 @@ data class TvmArithmDivLshiftadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5788,26 +5788,26 @@ data class TvmArithmDivLshiftadddivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5835,22 +5835,22 @@ data class TvmArithmDivLshiftadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5877,26 +5877,26 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5924,22 +5924,22 @@ data class TvmArithmDivLshiftadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -5966,26 +5966,26 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6013,18 +6013,18 @@ data class TvmArithmDivLshiftdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6051,22 +6051,22 @@ data class TvmArithmDivLshiftdivVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6094,18 +6094,18 @@ data class TvmArithmDivLshiftdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6132,22 +6132,22 @@ data class TvmArithmDivLshiftdivcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6175,18 +6175,18 @@ data class TvmArithmDivLshiftdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6213,22 +6213,22 @@ data class TvmArithmDivLshiftdivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6256,18 +6256,18 @@ data class TvmArithmDivLshiftdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6294,22 +6294,22 @@ data class TvmArithmDivLshiftdivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6337,18 +6337,18 @@ data class TvmArithmDivLshiftdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6375,22 +6375,22 @@ data class TvmArithmDivLshiftdivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6418,18 +6418,18 @@ data class TvmArithmDivLshiftdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6456,22 +6456,22 @@ data class TvmArithmDivLshiftdivrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6499,18 +6499,18 @@ data class TvmArithmDivLshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6537,22 +6537,22 @@ data class TvmArithmDivLshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6580,18 +6580,18 @@ data class TvmArithmDivLshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6618,22 +6618,22 @@ data class TvmArithmDivLshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6661,18 +6661,18 @@ data class TvmArithmDivLshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6699,22 +6699,22 @@ data class TvmArithmDivLshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6741,18 +6741,18 @@ data class TvmArithmDivModInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6779,18 +6779,18 @@ data class TvmArithmDivModcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6818,14 +6818,14 @@ data class TvmArithmDivModpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6852,18 +6852,18 @@ data class TvmArithmDivModpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6891,14 +6891,14 @@ data class TvmArithmDivModpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6925,18 +6925,18 @@ data class TvmArithmDivModpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6964,14 +6964,14 @@ data class TvmArithmDivModpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -6998,18 +6998,18 @@ data class TvmArithmDivModpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7036,18 +7036,18 @@ data class TvmArithmDivModrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7074,30 +7074,30 @@ data class TvmArithmDivMuladddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7124,30 +7124,30 @@ data class TvmArithmDivMuladddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7174,30 +7174,30 @@ data class TvmArithmDivMuladddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7225,22 +7225,22 @@ data class TvmArithmDivMuladdrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7268,22 +7268,22 @@ data class TvmArithmDivMuladdrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7311,22 +7311,22 @@ data class TvmArithmDivMuladdrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7353,22 +7353,22 @@ data class TvmArithmDivMuldivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7395,22 +7395,22 @@ data class TvmArithmDivMuldivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7437,26 +7437,26 @@ data class TvmArithmDivMuldivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7483,26 +7483,26 @@ data class TvmArithmDivMuldivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7529,26 +7529,26 @@ data class TvmArithmDivMuldivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7575,22 +7575,22 @@ data class TvmArithmDivMuldivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7617,22 +7617,22 @@ data class TvmArithmDivMulmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7659,22 +7659,22 @@ data class TvmArithmDivMulmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7702,18 +7702,18 @@ data class TvmArithmDivMulmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7740,22 +7740,22 @@ data class TvmArithmDivMulmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7783,18 +7783,18 @@ data class TvmArithmDivMulmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7821,22 +7821,22 @@ data class TvmArithmDivMulmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7864,18 +7864,18 @@ data class TvmArithmDivMulmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7902,22 +7902,22 @@ data class TvmArithmDivMulmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7944,22 +7944,22 @@ data class TvmArithmDivMulmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -7987,18 +7987,18 @@ data class TvmArithmDivMulrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8025,22 +8025,22 @@ data class TvmArithmDivMulrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8068,18 +8068,18 @@ data class TvmArithmDivMulrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8106,22 +8106,22 @@ data class TvmArithmDivMulrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8149,18 +8149,18 @@ data class TvmArithmDivMulrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8187,22 +8187,22 @@ data class TvmArithmDivMulrshiftcmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8230,18 +8230,18 @@ data class TvmArithmDivMulrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8268,22 +8268,22 @@ data class TvmArithmDivMulrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8311,18 +8311,18 @@ data class TvmArithmDivMulrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8349,22 +8349,22 @@ data class TvmArithmDivMulrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8392,18 +8392,18 @@ data class TvmArithmDivMulrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8430,22 +8430,22 @@ data class TvmArithmDivMulrshiftrmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8473,14 +8473,14 @@ data class TvmArithmDivRshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8507,18 +8507,18 @@ data class TvmArithmDivRshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8546,18 +8546,18 @@ data class TvmArithmDivRshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8585,18 +8585,18 @@ data class TvmArithmDivRshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8623,22 +8623,22 @@ data class TvmArithmDivRshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8665,22 +8665,22 @@ data class TvmArithmDivRshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8707,22 +8707,22 @@ data class TvmArithmDivRshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8750,14 +8750,14 @@ data class TvmArithmDivRshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8784,18 +8784,18 @@ data class TvmArithmDivRshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8823,18 +8823,18 @@ data class TvmArithmDivRshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8861,14 +8861,14 @@ data class TvmArithmLogicalAbsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8895,18 +8895,18 @@ data class TvmArithmLogicalAndInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8934,14 +8934,14 @@ data class TvmArithmLogicalBitsizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -8971,14 +8971,14 @@ data class TvmArithmLogicalFitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9005,18 +9005,18 @@ data class TvmArithmLogicalFitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9044,14 +9044,14 @@ data class TvmArithmLogicalLshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9078,18 +9078,18 @@ data class TvmArithmLogicalLshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9116,18 +9116,18 @@ data class TvmArithmLogicalMaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9154,18 +9154,18 @@ data class TvmArithmLogicalMinInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9193,22 +9193,22 @@ data class TvmArithmLogicalMinmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "r1",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9235,14 +9235,14 @@ data class TvmArithmLogicalNotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9269,18 +9269,18 @@ data class TvmArithmLogicalOrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9308,14 +9308,14 @@ data class TvmArithmLogicalPow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9343,14 +9343,14 @@ data class TvmArithmLogicalRshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9377,18 +9377,18 @@ data class TvmArithmLogicalRshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9416,14 +9416,14 @@ data class TvmArithmLogicalUbitsizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9452,14 +9452,14 @@ data class TvmArithmLogicalUfitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9486,18 +9486,18 @@ data class TvmArithmLogicalUfitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9524,18 +9524,18 @@ data class TvmArithmLogicalXorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9562,18 +9562,18 @@ data class TvmArithmQuietQaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9600,26 +9600,26 @@ data class TvmArithmQuietQadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9646,26 +9646,26 @@ data class TvmArithmQuietQadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9692,26 +9692,26 @@ data class TvmArithmQuietQadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9739,22 +9739,22 @@ data class TvmArithmQuietQaddrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9782,22 +9782,22 @@ data class TvmArithmQuietQaddrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9824,26 +9824,26 @@ data class TvmArithmQuietQaddrshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9870,26 +9870,26 @@ data class TvmArithmQuietQaddrshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9917,22 +9917,22 @@ data class TvmArithmQuietQaddrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9959,18 +9959,18 @@ data class TvmArithmQuietQandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -9997,14 +9997,14 @@ data class TvmArithmQuietQdecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10031,18 +10031,18 @@ data class TvmArithmQuietQdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10069,18 +10069,18 @@ data class TvmArithmQuietQdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10107,22 +10107,22 @@ data class TvmArithmQuietQdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10149,22 +10149,22 @@ data class TvmArithmQuietQdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10191,22 +10191,22 @@ data class TvmArithmQuietQdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10233,18 +10233,18 @@ data class TvmArithmQuietQdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10272,14 +10272,14 @@ data class TvmArithmQuietQfitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10306,18 +10306,18 @@ data class TvmArithmQuietQfitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10344,14 +10344,14 @@ data class TvmArithmQuietQincInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10379,14 +10379,14 @@ data class TvmArithmQuietQlshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10413,18 +10413,18 @@ data class TvmArithmQuietQlshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10452,22 +10452,22 @@ data class TvmArithmQuietQlshiftadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10494,26 +10494,26 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10541,22 +10541,22 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10583,26 +10583,26 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10630,22 +10630,22 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10672,26 +10672,26 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10719,18 +10719,18 @@ data class TvmArithmQuietQlshiftdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10757,22 +10757,22 @@ data class TvmArithmQuietQlshiftdivVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10800,18 +10800,18 @@ data class TvmArithmQuietQlshiftdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10838,22 +10838,22 @@ data class TvmArithmQuietQlshiftdivcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10881,18 +10881,18 @@ data class TvmArithmQuietQlshiftdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10919,22 +10919,22 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -10962,18 +10962,18 @@ data class TvmArithmQuietQlshiftdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11000,22 +11000,22 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11043,18 +11043,18 @@ data class TvmArithmQuietQlshiftdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11081,22 +11081,22 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11124,18 +11124,18 @@ data class TvmArithmQuietQlshiftdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11162,22 +11162,22 @@ data class TvmArithmQuietQlshiftdivrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11205,18 +11205,18 @@ data class TvmArithmQuietQlshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11243,22 +11243,22 @@ data class TvmArithmQuietQlshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11286,18 +11286,18 @@ data class TvmArithmQuietQlshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11324,22 +11324,22 @@ data class TvmArithmQuietQlshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11367,18 +11367,18 @@ data class TvmArithmQuietQlshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11405,22 +11405,22 @@ data class TvmArithmQuietQlshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11447,18 +11447,18 @@ data class TvmArithmQuietQmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11485,18 +11485,18 @@ data class TvmArithmQuietQmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11524,14 +11524,14 @@ data class TvmArithmQuietQmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11558,18 +11558,18 @@ data class TvmArithmQuietQmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11597,14 +11597,14 @@ data class TvmArithmQuietQmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11631,18 +11631,18 @@ data class TvmArithmQuietQmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11670,14 +11670,14 @@ data class TvmArithmQuietQmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11704,18 +11704,18 @@ data class TvmArithmQuietQmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11742,18 +11742,18 @@ data class TvmArithmQuietQmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11780,18 +11780,18 @@ data class TvmArithmQuietQmulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11818,30 +11818,30 @@ data class TvmArithmQuietQmuladddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11868,30 +11868,30 @@ data class TvmArithmQuietQmuladddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11918,30 +11918,30 @@ data class TvmArithmQuietQmuladddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -11969,22 +11969,22 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12012,22 +12012,22 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12055,22 +12055,22 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12097,22 +12097,22 @@ data class TvmArithmQuietQmuldivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12139,22 +12139,22 @@ data class TvmArithmQuietQmuldivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12181,22 +12181,22 @@ data class TvmArithmQuietQmuldivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12223,26 +12223,26 @@ data class TvmArithmQuietQmuldivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12269,26 +12269,26 @@ data class TvmArithmQuietQmuldivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12315,22 +12315,22 @@ data class TvmArithmQuietQmuldivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12357,22 +12357,22 @@ data class TvmArithmQuietQmulmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12399,22 +12399,22 @@ data class TvmArithmQuietQmulmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12442,18 +12442,18 @@ data class TvmArithmQuietQmulmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12480,22 +12480,22 @@ data class TvmArithmQuietQmulmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12523,18 +12523,18 @@ data class TvmArithmQuietQmulmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12561,22 +12561,22 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12604,18 +12604,18 @@ data class TvmArithmQuietQmulmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12642,22 +12642,22 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12684,22 +12684,22 @@ data class TvmArithmQuietQmulmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12727,18 +12727,18 @@ data class TvmArithmQuietQmulrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12765,22 +12765,22 @@ data class TvmArithmQuietQmulrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12808,18 +12808,18 @@ data class TvmArithmQuietQmulrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12846,22 +12846,22 @@ data class TvmArithmQuietQmulrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12888,18 +12888,18 @@ data class TvmArithmQuietQmulrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12926,22 +12926,22 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -12968,18 +12968,18 @@ data class TvmArithmQuietQmulrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13006,22 +13006,22 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13049,18 +13049,18 @@ data class TvmArithmQuietQmulrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13087,22 +13087,22 @@ data class TvmArithmQuietQmulrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13129,18 +13129,18 @@ data class TvmArithmQuietQmulrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13167,22 +13167,22 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13209,14 +13209,14 @@ data class TvmArithmQuietQnegateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13243,14 +13243,14 @@ data class TvmArithmQuietQnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13277,18 +13277,18 @@ data class TvmArithmQuietQorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13315,14 +13315,14 @@ data class TvmArithmQuietQpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13350,14 +13350,14 @@ data class TvmArithmQuietQrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13384,18 +13384,18 @@ data class TvmArithmQuietQrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13423,14 +13423,14 @@ data class TvmArithmQuietQrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13457,18 +13457,18 @@ data class TvmArithmQuietQrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13496,18 +13496,18 @@ data class TvmArithmQuietQrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13535,18 +13535,18 @@ data class TvmArithmQuietQrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13573,22 +13573,22 @@ data class TvmArithmQuietQrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13615,22 +13615,22 @@ data class TvmArithmQuietQrshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13657,22 +13657,22 @@ data class TvmArithmQuietQrshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13700,14 +13700,14 @@ data class TvmArithmQuietQrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13734,18 +13734,18 @@ data class TvmArithmQuietQrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13773,18 +13773,18 @@ data class TvmArithmQuietQrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13811,18 +13811,18 @@ data class TvmArithmQuietQsubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13849,18 +13849,18 @@ data class TvmArithmQuietQsubrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13888,14 +13888,14 @@ data class TvmArithmQuietQufitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13922,18 +13922,18 @@ data class TvmArithmQuietQufitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13960,18 +13960,18 @@ data class TvmArithmQuietQxorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -13998,18 +13998,18 @@ data class TvmCellBuildBbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14036,14 +14036,14 @@ data class TvmCellBuildBbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14070,15 +14070,15 @@ data class TvmCellBuildBchkbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -14107,22 +14107,22 @@ data class TvmCellBuildBchkbitrefsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14150,7 +14150,7 @@ data class TvmCellBuildBchkbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -14180,11 +14180,11 @@ data class TvmCellBuildBchkbitsVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -14214,14 +14214,14 @@ data class TvmCellBuildBchkbitsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14248,18 +14248,18 @@ data class TvmCellBuildBchkbitsqVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14286,11 +14286,11 @@ data class TvmCellBuildBchkrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -14319,18 +14319,18 @@ data class TvmCellBuildBchkrefsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14358,14 +14358,14 @@ data class TvmCellBuildBdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14392,14 +14392,14 @@ data class TvmCellBuildBrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14426,18 +14426,18 @@ data class TvmCellBuildBrembitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14464,14 +14464,14 @@ data class TvmCellBuildBrembitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14498,14 +14498,14 @@ data class TvmCellBuildBremrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14532,14 +14532,14 @@ data class TvmCellBuildEndcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14569,18 +14569,18 @@ data class TvmCellBuildEndxcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14609,7 +14609,7 @@ data class TvmCellBuildNewcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14636,18 +14636,18 @@ data class TvmCellBuildStbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b3",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14674,21 +14674,21 @@ data class TvmCellBuildStbqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14716,18 +14716,18 @@ data class TvmCellBuildStbrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b3",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14754,18 +14754,18 @@ data class TvmCellBuildStbrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "child",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14792,21 +14792,21 @@ data class TvmCellBuildStbrefqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14833,18 +14833,18 @@ data class TvmCellBuildStbrefrAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b3",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14871,18 +14871,18 @@ data class TvmCellBuildStbrefrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "child",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14909,21 +14909,21 @@ data class TvmCellBuildStbrefrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14950,21 +14950,21 @@ data class TvmCellBuildStbrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -14992,18 +14992,18 @@ data class TvmCellBuildStiAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15032,18 +15032,18 @@ data class TvmCellBuildStiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15070,18 +15070,18 @@ data class TvmCellBuildStile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15108,18 +15108,18 @@ data class TvmCellBuildStile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15147,21 +15147,21 @@ data class TvmCellBuildStiqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15189,18 +15189,18 @@ data class TvmCellBuildStirInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15228,21 +15228,21 @@ data class TvmCellBuildStirqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15269,22 +15269,22 @@ data class TvmCellBuildStixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15314,25 +15314,25 @@ data class TvmCellBuildStixqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15359,22 +15359,22 @@ data class TvmCellBuildStixrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15401,25 +15401,25 @@ data class TvmCellBuildStixrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15446,18 +15446,18 @@ data class TvmCellBuildStonesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15486,14 +15486,14 @@ data class TvmCellBuildStref2constInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15520,18 +15520,18 @@ data class TvmCellBuildStrefAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15558,18 +15558,18 @@ data class TvmCellBuildStrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15597,14 +15597,14 @@ data class TvmCellBuildStrefconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15631,21 +15631,21 @@ data class TvmCellBuildStrefqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15672,18 +15672,18 @@ data class TvmCellBuildStrefrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15710,21 +15710,21 @@ data class TvmCellBuildStrefrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15751,22 +15751,22 @@ data class TvmCellBuildStsameInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15793,18 +15793,18 @@ data class TvmCellBuildStsliceAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15831,18 +15831,18 @@ data class TvmCellBuildStsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15874,14 +15874,14 @@ data class TvmCellBuildStsliceconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15908,21 +15908,21 @@ data class TvmCellBuildStsliceqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15949,18 +15949,18 @@ data class TvmCellBuildStslicerInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -15987,21 +15987,21 @@ data class TvmCellBuildStslicerqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16029,18 +16029,18 @@ data class TvmCellBuildStuAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16069,18 +16069,18 @@ data class TvmCellBuildStuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16107,18 +16107,18 @@ data class TvmCellBuildStule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16145,18 +16145,18 @@ data class TvmCellBuildStule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16184,21 +16184,21 @@ data class TvmCellBuildStuqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16226,18 +16226,18 @@ data class TvmCellBuildSturInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16265,21 +16265,21 @@ data class TvmCellBuildSturqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16306,22 +16306,22 @@ data class TvmCellBuildStuxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16348,25 +16348,25 @@ data class TvmCellBuildStuxqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16393,22 +16393,22 @@ data class TvmCellBuildStuxrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16435,25 +16435,25 @@ data class TvmCellBuildStuxrqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16480,18 +16480,18 @@ data class TvmCellBuildStzeroesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16520,14 +16520,14 @@ data class TvmCellParseCdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16555,14 +16555,14 @@ data class TvmCellParseCdepthiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16589,18 +16589,18 @@ data class TvmCellParseCdepthixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16628,14 +16628,14 @@ data class TvmCellParseChashiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16662,18 +16662,18 @@ data class TvmCellParseChashixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16700,14 +16700,14 @@ data class TvmCellParseClevelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "level",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16734,14 +16734,14 @@ data class TvmCellParseClevelmaskInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cell",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "level_mask",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16770,14 +16770,14 @@ data class TvmCellParseCtosInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16804,7 +16804,7 @@ data class TvmCellParseEndsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -16834,18 +16834,18 @@ data class TvmCellParseLdiAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16874,18 +16874,18 @@ data class TvmCellParseLdiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16912,18 +16912,18 @@ data class TvmCellParseLdile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16950,17 +16950,17 @@ data class TvmCellParseLdile4qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -16987,18 +16987,18 @@ data class TvmCellParseLdile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17025,17 +17025,17 @@ data class TvmCellParseLdile8qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17063,17 +17063,17 @@ data class TvmCellParseLdiqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17101,22 +17101,22 @@ data class TvmCellParseLdixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17145,21 +17145,21 @@ data class TvmCellParseLdixqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17186,18 +17186,18 @@ data class TvmCellParseLdonesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17224,18 +17224,18 @@ data class TvmCellParseLdrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17262,18 +17262,18 @@ data class TvmCellParseLdrefrtosInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17301,22 +17301,22 @@ data class TvmCellParseLdsameInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17344,18 +17344,18 @@ data class TvmCellParseLdsliceAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17383,18 +17383,18 @@ data class TvmCellParseLdsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17422,17 +17422,17 @@ data class TvmCellParseLdsliceqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17460,22 +17460,22 @@ data class TvmCellParseLdslicexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17502,21 +17502,21 @@ data class TvmCellParseLdslicexqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17544,18 +17544,18 @@ data class TvmCellParseLduAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17583,18 +17583,18 @@ data class TvmCellParseLduInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17621,18 +17621,18 @@ data class TvmCellParseLdule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17659,17 +17659,17 @@ data class TvmCellParseLdule4qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17696,18 +17696,18 @@ data class TvmCellParseLdule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17734,17 +17734,17 @@ data class TvmCellParseLdule8qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17772,17 +17772,17 @@ data class TvmCellParseLduqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17809,22 +17809,22 @@ data class TvmCellParseLduxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17851,21 +17851,21 @@ data class TvmCellParseLduxqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17892,18 +17892,18 @@ data class TvmCellParseLdzeroesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17931,14 +17931,14 @@ data class TvmCellParsePldiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17965,14 +17965,14 @@ data class TvmCellParsePldile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -17999,17 +17999,17 @@ data class TvmCellParsePldile4qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18036,14 +18036,14 @@ data class TvmCellParsePldile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18070,17 +18070,17 @@ data class TvmCellParsePldile8qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18108,17 +18108,17 @@ data class TvmCellParsePldiqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18145,18 +18145,18 @@ data class TvmCellParsePldixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18183,21 +18183,21 @@ data class TvmCellParsePldixqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18225,14 +18225,14 @@ data class TvmCellParsePldrefidxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18259,18 +18259,18 @@ data class TvmCellParsePldrefvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18298,14 +18298,14 @@ data class TvmCellParsePldsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18333,17 +18333,17 @@ data class TvmCellParsePldsliceqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18370,18 +18370,18 @@ data class TvmCellParsePldslicexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18408,21 +18408,21 @@ data class TvmCellParsePldslicexqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18450,14 +18450,14 @@ data class TvmCellParsePlduInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18484,14 +18484,14 @@ data class TvmCellParsePldule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18518,17 +18518,17 @@ data class TvmCellParsePldule4qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18555,14 +18555,14 @@ data class TvmCellParsePldule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18589,17 +18589,17 @@ data class TvmCellParsePldule8qInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18627,17 +18627,17 @@ data class TvmCellParsePlduqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18664,18 +18664,18 @@ data class TvmCellParsePlduxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18702,21 +18702,21 @@ data class TvmCellParsePlduxqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18746,18 +18746,18 @@ data class TvmCellParsePlduzInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18784,18 +18784,18 @@ data class TvmCellParseSbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18822,14 +18822,14 @@ data class TvmCellParseSbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18856,15 +18856,15 @@ data class TvmCellParseSchkbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18893,22 +18893,22 @@ data class TvmCellParseSchkbitrefsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -18936,11 +18936,11 @@ data class TvmCellParseSchkbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18969,18 +18969,18 @@ data class TvmCellParseSchkbitsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19007,11 +19007,11 @@ data class TvmCellParseSchkrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -19040,18 +19040,18 @@ data class TvmCellParseSchkrefsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19078,22 +19078,22 @@ data class TvmCellParseScutfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19120,22 +19120,22 @@ data class TvmCellParseScutlastInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19164,14 +19164,14 @@ data class TvmCellParseSdbeginsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19199,17 +19199,17 @@ data class TvmCellParseSdbeginsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19238,18 +19238,18 @@ data class TvmCellParseSdbeginsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19276,21 +19276,21 @@ data class TvmCellParseSdbeginsxqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19317,18 +19317,18 @@ data class TvmCellParseSdcutfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19355,18 +19355,18 @@ data class TvmCellParseSdcutlastInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19394,14 +19394,14 @@ data class TvmCellParseSdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19428,18 +19428,18 @@ data class TvmCellParseSdskipfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19466,18 +19466,18 @@ data class TvmCellParseSdskiplastInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19505,22 +19505,22 @@ data class TvmCellParseSdsubstrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19548,26 +19548,26 @@ data class TvmCellParseSplitInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19594,25 +19594,25 @@ data class TvmCellParseSplitqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19639,14 +19639,14 @@ data class TvmCellParseSrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19673,22 +19673,22 @@ data class TvmCellParseSskipfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19715,22 +19715,22 @@ data class TvmCellParseSskiplastInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19758,30 +19758,30 @@ data class TvmCellParseSubsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r2",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19810,18 +19810,18 @@ data class TvmCellParseXctosInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "flag",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19849,14 +19849,14 @@ data class TvmCellParseXloadInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19884,17 +19884,17 @@ data class TvmCellParseXloadqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -19975,7 +19975,7 @@ data class TvmCodepageSetcpxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20004,14 +20004,14 @@ data class TvmCompareIntChknanInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20040,18 +20040,18 @@ data class TvmCompareIntCmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20080,14 +20080,14 @@ data class TvmCompareIntEqintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20114,18 +20114,18 @@ data class TvmCompareIntEqualInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20152,18 +20152,18 @@ data class TvmCompareIntGeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20190,18 +20190,18 @@ data class TvmCompareIntGreaterInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20230,14 +20230,14 @@ data class TvmCompareIntGtintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20264,14 +20264,14 @@ data class TvmCompareIntIsnanInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20298,18 +20298,18 @@ data class TvmCompareIntLeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20336,18 +20336,18 @@ data class TvmCompareIntLessInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20376,14 +20376,14 @@ data class TvmCompareIntLessintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20410,18 +20410,18 @@ data class TvmCompareIntNeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20450,14 +20450,14 @@ data class TvmCompareIntNeqintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20485,14 +20485,14 @@ data class TvmCompareIntSgnInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20519,14 +20519,14 @@ data class TvmCompareOtherSdcntlead0Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20553,14 +20553,14 @@ data class TvmCompareOtherSdcntlead1Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20587,14 +20587,14 @@ data class TvmCompareOtherSdcnttrail0Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20621,14 +20621,14 @@ data class TvmCompareOtherSdcnttrail1Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20655,14 +20655,14 @@ data class TvmCompareOtherSdemptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20689,18 +20689,18 @@ data class TvmCompareOtherSdeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20727,14 +20727,14 @@ data class TvmCompareOtherSdfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20762,18 +20762,18 @@ data class TvmCompareOtherSdlexcmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20800,18 +20800,18 @@ data class TvmCompareOtherSdpfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20838,18 +20838,18 @@ data class TvmCompareOtherSdpfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20876,18 +20876,18 @@ data class TvmCompareOtherSdppfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20914,11 +20914,11 @@ data class TvmCompareOtherSdppfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20947,18 +20947,18 @@ data class TvmCompareOtherSdpsfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -20985,18 +20985,18 @@ data class TvmCompareOtherSdpsfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21023,18 +21023,18 @@ data class TvmCompareOtherSdsfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21061,18 +21061,18 @@ data class TvmCompareOtherSdsfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21099,14 +21099,14 @@ data class TvmCompareOtherSemptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21133,14 +21133,14 @@ data class TvmCompareOtherSremptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21172,7 +21172,7 @@ data class TvmConstDataPushcontInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21203,7 +21203,7 @@ data class TvmConstDataPushcontShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21235,7 +21235,7 @@ data class TvmConstDataPushrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21265,7 +21265,7 @@ data class TvmConstDataPushrefcontInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21295,7 +21295,7 @@ data class TvmConstDataPushrefsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21330,7 +21330,7 @@ data class TvmConstDataPushsliceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21363,7 +21363,7 @@ data class TvmConstDataPushsliceLongInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21396,7 +21396,7 @@ data class TvmConstDataPushsliceRefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21426,7 +21426,7 @@ data class TvmConstIntPushint16Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21457,7 +21457,7 @@ data class TvmConstIntPushint4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21487,7 +21487,7 @@ data class TvmConstIntPushint8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21519,7 +21519,7 @@ data class TvmConstIntPushintLongInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21548,7 +21548,7 @@ data class TvmConstIntPushnanInst(
         get() = listOf(
             TvmConstStackEntryDescription(
                 value = null,
-                valueType = "Integer"
+                valueType = TvmType.INT
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21578,7 +21578,7 @@ data class TvmConstIntPushnegpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21609,7 +21609,7 @@ data class TvmConstIntPushpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21639,7 +21639,7 @@ data class TvmConstIntPushpow2decInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -21666,7 +21666,7 @@ data class TvmContBasicBranchInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21703,7 +21703,7 @@ data class TvmContBasicCallccInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21751,7 +21751,7 @@ data class TvmContBasicCallccargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21795,15 +21795,15 @@ data class TvmContBasicCallccvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21890,7 +21890,7 @@ data class TvmContBasicCallxargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21946,7 +21946,7 @@ data class TvmContBasicCallxargsVarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22001,15 +22001,15 @@ data class TvmContBasicCallxvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22053,7 +22053,7 @@ data class TvmContBasicExecuteInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22158,7 +22158,7 @@ data class TvmContBasicJmpxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22204,7 +22204,7 @@ data class TvmContBasicJmpxargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22239,7 +22239,7 @@ data class TvmContBasicJmpxdataInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22283,15 +22283,15 @@ data class TvmContBasicJmpxvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22462,11 +22462,11 @@ data class TvmContBasicRetvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22563,7 +22563,7 @@ data class TvmContConditionalCondselInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -22605,7 +22605,7 @@ data class TvmContConditionalCondselchkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -22648,11 +22648,11 @@ data class TvmContConditionalIfInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22698,18 +22698,18 @@ data class TvmContConditionalIfbitjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -22743,14 +22743,14 @@ data class TvmContConditionalIfbitjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -22783,15 +22783,15 @@ data class TvmContConditionalIfelseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22850,11 +22850,11 @@ data class TvmContConditionalIfelserefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22912,11 +22912,11 @@ data class TvmContConditionalIfjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22951,7 +22951,7 @@ data class TvmContConditionalIfjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22986,18 +22986,18 @@ data class TvmContConditionalIfnbitjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23031,14 +23031,14 @@ data class TvmContConditionalIfnbitjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23070,11 +23070,11 @@ data class TvmContConditionalIfnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23118,11 +23118,11 @@ data class TvmContConditionalIfnotjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23157,7 +23157,7 @@ data class TvmContConditionalIfnotjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23192,7 +23192,7 @@ data class TvmContConditionalIfnotrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23236,7 +23236,7 @@ data class TvmContConditionalIfnotretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23269,7 +23269,7 @@ data class TvmContConditionalIfnotretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23307,7 +23307,7 @@ data class TvmContConditionalIfrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23354,11 +23354,11 @@ data class TvmContConditionalIfrefelseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23418,7 +23418,7 @@ data class TvmContConditionalIfrefelserefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23477,7 +23477,7 @@ data class TvmContConditionalIfretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23510,7 +23510,7 @@ data class TvmContConditionalIfretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23544,14 +23544,14 @@ data class TvmContCreateBlessInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23592,14 +23592,14 @@ data class TvmContCreateBlessargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23636,22 +23636,22 @@ data class TvmContCreateBlessvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23682,7 +23682,7 @@ data class TvmContDictCalldictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23726,7 +23726,7 @@ data class TvmContDictCalldictLongInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23771,7 +23771,7 @@ data class TvmContDictJmpdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23808,11 +23808,11 @@ data class TvmContDictPreparedictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -23840,7 +23840,7 @@ data class TvmContLoopsAgainInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23873,7 +23873,7 @@ data class TvmContLoopsAgainbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23958,11 +23958,11 @@ data class TvmContLoopsRepeatInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -23997,11 +23997,11 @@ data class TvmContLoopsRepeatbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24034,7 +24034,7 @@ data class TvmContLoopsRepeatendInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24068,7 +24068,7 @@ data class TvmContLoopsRepeatendbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24106,7 +24106,7 @@ data class TvmContLoopsUntilInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24145,7 +24145,7 @@ data class TvmContLoopsUntilbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24267,11 +24267,11 @@ data class TvmContLoopsWhileInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24310,11 +24310,11 @@ data class TvmContLoopsWhilebrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24353,7 +24353,7 @@ data class TvmContLoopsWhileendInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24392,7 +24392,7 @@ data class TvmContLoopsWhileendbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24422,7 +24422,7 @@ data class TvmContRegistersAtexitInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24452,7 +24452,7 @@ data class TvmContRegistersAtexitaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24483,14 +24483,14 @@ data class TvmContRegistersBoolevalInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -24532,18 +24532,18 @@ data class TvmContRegistersComposInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -24571,18 +24571,18 @@ data class TvmContRegistersComposaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -24610,18 +24610,18 @@ data class TvmContRegistersComposbothInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -24708,7 +24708,7 @@ data class TvmContRegistersPopctrxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24802,7 +24802,7 @@ data class TvmContRegistersPushctrxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24999,14 +24999,14 @@ data class TvmContRegistersSetcontctrInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25037,18 +25037,18 @@ data class TvmContRegistersSetcontctrxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25077,7 +25077,7 @@ data class TvmContRegistersSetexitaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25136,14 +25136,14 @@ data class TvmContRegistersThenretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25170,14 +25170,14 @@ data class TvmContRegistersThenretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25270,14 +25270,14 @@ data class TvmContStackSetcontargsNInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25314,22 +25314,22 @@ data class TvmContStackSetcontvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25358,18 +25358,18 @@ data class TvmContStackSetnumvarargsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25453,25 +25453,25 @@ data class TvmDictDeleteDictdelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25500,25 +25500,25 @@ data class TvmDictDeleteDictdelgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25546,25 +25546,25 @@ data class TvmDictDeleteDictdelgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25592,25 +25592,25 @@ data class TvmDictDeleteDictidelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25637,25 +25637,25 @@ data class TvmDictDeleteDictidelgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25682,25 +25682,25 @@ data class TvmDictDeleteDictidelgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25727,25 +25727,25 @@ data class TvmDictDeleteDictudelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25772,25 +25772,25 @@ data class TvmDictDeleteDictudelgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25817,25 +25817,25 @@ data class TvmDictDeleteDictudelgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25864,25 +25864,25 @@ data class TvmDictGetDictgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25910,25 +25910,25 @@ data class TvmDictGetDictgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -25956,25 +25956,25 @@ data class TvmDictGetDictigetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26002,25 +26002,25 @@ data class TvmDictGetDictigetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26047,25 +26047,25 @@ data class TvmDictGetDictugetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26092,25 +26092,25 @@ data class TvmDictGetDictugetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26138,22 +26138,22 @@ data class TvmDictMayberefDictgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26181,22 +26181,22 @@ data class TvmDictMayberefDictigetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26224,30 +26224,30 @@ data class TvmDictMayberefDictisetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26276,30 +26276,30 @@ data class TvmDictMayberefDictsetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26327,22 +26327,22 @@ data class TvmDictMayberefDictugetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26369,30 +26369,30 @@ data class TvmDictMayberefDictusetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26421,21 +26421,21 @@ data class TvmDictMinDictimaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26462,21 +26462,21 @@ data class TvmDictMinDictimaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26505,21 +26505,21 @@ data class TvmDictMinDictiminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26546,21 +26546,21 @@ data class TvmDictMinDictiminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26589,21 +26589,21 @@ data class TvmDictMinDictiremmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26630,21 +26630,21 @@ data class TvmDictMinDictiremmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26673,21 +26673,21 @@ data class TvmDictMinDictiremminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26714,21 +26714,21 @@ data class TvmDictMinDictiremminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26756,21 +26756,21 @@ data class TvmDictMinDictmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26797,21 +26797,21 @@ data class TvmDictMinDictmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26839,21 +26839,21 @@ data class TvmDictMinDictminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26880,21 +26880,21 @@ data class TvmDictMinDictminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26923,21 +26923,21 @@ data class TvmDictMinDictremmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -26964,21 +26964,21 @@ data class TvmDictMinDictremmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27007,21 +27007,21 @@ data class TvmDictMinDictremminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27048,21 +27048,21 @@ data class TvmDictMinDictremminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27089,21 +27089,21 @@ data class TvmDictMinDictumaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27130,21 +27130,21 @@ data class TvmDictMinDictumaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27171,21 +27171,21 @@ data class TvmDictMinDictuminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27212,21 +27212,21 @@ data class TvmDictMinDictuminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27253,21 +27253,21 @@ data class TvmDictMinDicturemmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27294,21 +27294,21 @@ data class TvmDictMinDicturemmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27335,21 +27335,21 @@ data class TvmDictMinDicturemminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27376,21 +27376,21 @@ data class TvmDictMinDicturemminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27419,25 +27419,25 @@ data class TvmDictNextDictgetnextInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27465,25 +27465,25 @@ data class TvmDictNextDictgetnexteqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27510,25 +27510,25 @@ data class TvmDictNextDictgetprevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27556,25 +27556,25 @@ data class TvmDictNextDictgetpreveqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27603,25 +27603,25 @@ data class TvmDictNextDictigetnextInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27648,25 +27648,25 @@ data class TvmDictNextDictigetnexteqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27693,25 +27693,25 @@ data class TvmDictNextDictigetprevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27738,25 +27738,25 @@ data class TvmDictNextDictigetpreveqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27785,25 +27785,25 @@ data class TvmDictNextDictugetnextInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27830,25 +27830,25 @@ data class TvmDictNextDictugetnexteqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27875,25 +27875,25 @@ data class TvmDictNextDictugetprevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27920,25 +27920,25 @@ data class TvmDictNextDictugetpreveqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -27965,29 +27965,29 @@ data class TvmDictPrefixPfxdictaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28045,25 +28045,25 @@ data class TvmDictPrefixPfxdictdelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28090,30 +28090,30 @@ data class TvmDictPrefixPfxdictgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28141,26 +28141,26 @@ data class TvmDictPrefixPfxdictgetexecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28236,25 +28236,25 @@ data class TvmDictPrefixPfxdictgetqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28281,29 +28281,29 @@ data class TvmDictPrefixPfxdictreplaceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28330,29 +28330,29 @@ data class TvmDictPrefixPfxdictsetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28380,18 +28380,18 @@ data class TvmDictSerialLddictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28418,17 +28418,17 @@ data class TvmDictSerialLddictqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28457,18 +28457,18 @@ data class TvmDictSerialLddictsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s3",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28496,14 +28496,14 @@ data class TvmDictSerialPlddictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28530,17 +28530,17 @@ data class TvmDictSerialPlddictqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28568,14 +28568,14 @@ data class TvmDictSerialPlddictsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28602,14 +28602,14 @@ data class TvmDictSerialSkipdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28638,18 +28638,18 @@ data class TvmDictSerialStdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Cell", "Null")
+                valueTypes = listOf(TvmType.CELL, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b2",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28676,29 +28676,29 @@ data class TvmDictSetBuilderDictaddbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28725,29 +28725,29 @@ data class TvmDictSetBuilderDictaddgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28774,29 +28774,29 @@ data class TvmDictSetBuilderDictiaddbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28823,29 +28823,29 @@ data class TvmDictSetBuilderDictiaddgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28872,29 +28872,29 @@ data class TvmDictSetBuilderDictireplacebInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28921,29 +28921,29 @@ data class TvmDictSetBuilderDictireplacegetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -28970,26 +28970,26 @@ data class TvmDictSetBuilderDictisetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29016,29 +29016,29 @@ data class TvmDictSetBuilderDictisetgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29065,29 +29065,29 @@ data class TvmDictSetBuilderDictreplacebInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29114,29 +29114,29 @@ data class TvmDictSetBuilderDictreplacegetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29163,26 +29163,26 @@ data class TvmDictSetBuilderDictsetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29209,29 +29209,29 @@ data class TvmDictSetBuilderDictsetgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29258,29 +29258,29 @@ data class TvmDictSetBuilderDictuaddbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29307,29 +29307,29 @@ data class TvmDictSetBuilderDictuaddgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29356,29 +29356,29 @@ data class TvmDictSetBuilderDictureplacebInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29405,29 +29405,29 @@ data class TvmDictSetBuilderDictureplacegetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29454,26 +29454,26 @@ data class TvmDictSetBuilderDictusetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29500,29 +29500,29 @@ data class TvmDictSetBuilderDictusetgetbInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "b",
-                valueTypes = listOf("Builder")
+                valueTypes = listOf(TvmType.BUILDER)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29550,29 +29550,29 @@ data class TvmDictSetDictaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29601,29 +29601,29 @@ data class TvmDictSetDictaddgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29650,29 +29650,29 @@ data class TvmDictSetDictaddgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29699,29 +29699,29 @@ data class TvmDictSetDictaddrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29748,29 +29748,29 @@ data class TvmDictSetDictiaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29797,29 +29797,29 @@ data class TvmDictSetDictiaddgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29846,29 +29846,29 @@ data class TvmDictSetDictiaddgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29895,29 +29895,29 @@ data class TvmDictSetDictiaddrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29944,29 +29944,29 @@ data class TvmDictSetDictireplaceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -29993,29 +29993,29 @@ data class TvmDictSetDictireplacegetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30042,29 +30042,29 @@ data class TvmDictSetDictireplacegetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30091,29 +30091,29 @@ data class TvmDictSetDictireplacerefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30141,26 +30141,26 @@ data class TvmDictSetDictisetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30187,29 +30187,29 @@ data class TvmDictSetDictisetgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30236,29 +30236,29 @@ data class TvmDictSetDictisetgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30285,26 +30285,26 @@ data class TvmDictSetDictisetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30332,29 +30332,29 @@ data class TvmDictSetDictreplaceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30382,29 +30382,29 @@ data class TvmDictSetDictreplacegetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30431,29 +30431,29 @@ data class TvmDictSetDictreplacegetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30480,29 +30480,29 @@ data class TvmDictSetDictreplacerefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30531,26 +30531,26 @@ data class TvmDictSetDictsetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30578,29 +30578,29 @@ data class TvmDictSetDictsetgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30627,29 +30627,29 @@ data class TvmDictSetDictsetgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30676,26 +30676,26 @@ data class TvmDictSetDictsetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30722,29 +30722,29 @@ data class TvmDictSetDictuaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30771,29 +30771,29 @@ data class TvmDictSetDictuaddgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30820,29 +30820,29 @@ data class TvmDictSetDictuaddgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30869,29 +30869,29 @@ data class TvmDictSetDictuaddrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30918,29 +30918,29 @@ data class TvmDictSetDictureplaceInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -30967,29 +30967,29 @@ data class TvmDictSetDictureplacegetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31016,29 +31016,29 @@ data class TvmDictSetDictureplacegetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31065,29 +31065,29 @@ data class TvmDictSetDictureplacerefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31114,26 +31114,26 @@ data class TvmDictSetDictusetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31160,29 +31160,29 @@ data class TvmDictSetDictusetgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31209,29 +31209,29 @@ data class TvmDictSetDictusetgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31258,26 +31258,26 @@ data class TvmDictSetDictusetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Cell")
+                valueTypes = listOf(TvmType.CELL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31304,15 +31304,15 @@ data class TvmDictSpecialDictigetexecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31396,15 +31396,15 @@ data class TvmDictSpecialDictigetjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31438,22 +31438,22 @@ data class TvmDictSpecialDictigetjmpzInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31494,11 +31494,11 @@ data class TvmDictSpecialDictpushconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31525,15 +31525,15 @@ data class TvmDictSpecialDictugetexecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31616,15 +31616,15 @@ data class TvmDictSpecialDictugetjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31690,26 +31690,26 @@ data class TvmDictSubSubdictgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31737,26 +31737,26 @@ data class TvmDictSubSubdictigetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31784,26 +31784,26 @@ data class TvmDictSubSubdictirpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31831,26 +31831,26 @@ data class TvmDictSubSubdictrpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Slice")
+                valueTypes = listOf(TvmType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31878,26 +31878,26 @@ data class TvmDictSubSubdictugetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -31925,26 +31925,26 @@ data class TvmDictSubSubdicturpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf("Slice", "Null")
+                valueTypes = listOf(TvmType.SLICE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -32024,7 +32024,7 @@ data class TvmExceptionsThrowanyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32053,11 +32053,11 @@ data class TvmExceptionsThrowanyifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32086,11 +32086,11 @@ data class TvmExceptionsThrowanyifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32156,7 +32156,7 @@ data class TvmExceptionsThrowarganyInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32189,11 +32189,11 @@ data class TvmExceptionsThrowarganyifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32226,11 +32226,11 @@ data class TvmExceptionsThrowarganyifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32264,7 +32264,7 @@ data class TvmExceptionsThrowargifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32298,7 +32298,7 @@ data class TvmExceptionsThrowargifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32328,7 +32328,7 @@ data class TvmExceptionsThrowifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32358,7 +32358,7 @@ data class TvmExceptionsThrowifShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32388,7 +32388,7 @@ data class TvmExceptionsThrowifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32418,7 +32418,7 @@ data class TvmExceptionsThrowifnotShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32452,11 +32452,11 @@ data class TvmExceptionsTryInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32544,11 +32544,11 @@ data class TvmExceptionsTryargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf("Continuation")
+                valueTypes = listOf(TvmType.CONTINUATION)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32929,7 +32929,7 @@ data class TvmStackComplexChkdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32960,7 +32960,7 @@ data class TvmStackComplexDepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -33775,7 +33775,7 @@ data class TvmTupleExplodeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33792,7 +33792,7 @@ data class TvmTupleExplodeInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -33819,11 +33819,11 @@ data class TvmTupleExplodevarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33840,7 +33840,7 @@ data class TvmTupleExplodevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -33870,7 +33870,7 @@ data class TvmTupleIndex2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33909,7 +33909,7 @@ data class TvmTupleIndex3Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33945,7 +33945,7 @@ data class TvmTupleIndexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33981,7 +33981,7 @@ data class TvmTupleIndexqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34015,11 +34015,11 @@ data class TvmTupleIndexvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34053,11 +34053,11 @@ data class TvmTupleIndexvarqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34091,14 +34091,14 @@ data class TvmTupleIsnullInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer", "Null")
+                valueTypes = listOf(TvmType.INT, TvmType.NULL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34125,14 +34125,14 @@ data class TvmTupleIstupleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34159,7 +34159,7 @@ data class TvmTupleLastInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34195,7 +34195,7 @@ data class TvmTupleNullInst(
         get() = listOf(
             TvmConstStackEntryDescription(
                 value = null,
-                valueType = "Null"
+                valueType = TvmType.NULL
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34228,13 +34228,13 @@ data class TvmTupleNullrotrif2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34242,7 +34242,7 @@ data class TvmTupleNullrotrif2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34274,13 +34274,13 @@ data class TvmTupleNullrotrifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34288,7 +34288,7 @@ data class TvmTupleNullrotrifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34321,13 +34321,13 @@ data class TvmTupleNullrotrifnot2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34335,7 +34335,7 @@ data class TvmTupleNullrotrifnot2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34367,13 +34367,13 @@ data class TvmTupleNullrotrifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34381,7 +34381,7 @@ data class TvmTupleNullrotrifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34409,17 +34409,17 @@ data class TvmTupleNullswapif2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34446,17 +34446,17 @@ data class TvmTupleNullswapifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34484,17 +34484,17 @@ data class TvmTupleNullswapifnot2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34522,17 +34522,17 @@ data class TvmTupleNullswapifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmGenericStackEntryDescription(
-                type = "conditional"
+                type = TvmStackEntryType.CONDITIONAL
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34559,14 +34559,14 @@ data class TvmTupleQtlenInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34596,7 +34596,7 @@ data class TvmTupleSetindexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34607,7 +34607,7 @@ data class TvmTupleSetindexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34640,7 +34640,7 @@ data class TvmTupleSetindexqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34651,7 +34651,7 @@ data class TvmTupleSetindexqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34678,7 +34678,7 @@ data class TvmTupleSetindexvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34686,14 +34686,14 @@ data class TvmTupleSetindexvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34720,7 +34720,7 @@ data class TvmTupleSetindexvarqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34728,14 +34728,14 @@ data class TvmTupleSetindexvarqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple", "Null")
+                valueTypes = listOf(TvmType.TUPLE, TvmType.NULL)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34762,14 +34762,14 @@ data class TvmTupleTlenInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34797,14 +34797,14 @@ data class TvmTupleTpopInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34836,7 +34836,7 @@ data class TvmTupleTpushInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -34847,7 +34847,7 @@ data class TvmTupleTpushInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t2",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34880,7 +34880,7 @@ data class TvmTupleTupleInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf("Integer", "Slice", "Cell", "Tuple", "Continuation")
+                    valueTypes = listOf(TvmType.INT, TvmType.SLICE, TvmType.CELL, TvmType.TUPLE, TvmType.CONTINUATION)
                 )
                 )
             )
@@ -34889,7 +34889,7 @@ data class TvmTupleTupleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34927,14 +34927,14 @@ data class TvmTupleTuplevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val branches: List<TvmControlFlowContinuation> 
@@ -34963,7 +34963,7 @@ data class TvmTupleUnpackfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35003,11 +35003,11 @@ data class TvmTupleUnpackfirstvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35049,7 +35049,7 @@ data class TvmTupleUntupleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35060,7 +35060,7 @@ data class TvmTupleUntupleInst(
                 arrayEntry = listOf(
                                         TvmSimpleStackEntryDescription(
                     name = "x",
-                    valueTypes = listOf("Integer", "Slice", "Cell", "Tuple", "Continuation")
+                    valueTypes = listOf(TvmType.INT, TvmType.SLICE, TvmType.CELL, TvmType.TUPLE, TvmType.CONTINUATION)
                 )
                 )
             )
@@ -35089,11 +35089,11 @@ data class TvmTupleUntuplevarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "t",
-                valueTypes = listOf("Tuple")
+                valueTypes = listOf(TvmType.TUPLE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf("Integer")
+                valueTypes = listOf(TvmType.INT)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 

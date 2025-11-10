@@ -13,7 +13,7 @@ enum class TvmType {
     TUPLE,
     CONTINUATION,
     BUILDER,
-    ANY,
+    NULL,
 }
 
 enum class TvmStackEntryType {
@@ -21,6 +21,7 @@ enum class TvmStackEntryType {
     CONST,
     ARRAY,
     GENERIC,
+    CONDITIONAL,
 }
 
 @Serializable
