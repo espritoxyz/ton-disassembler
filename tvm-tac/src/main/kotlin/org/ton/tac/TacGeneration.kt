@@ -12,6 +12,7 @@ import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
+import org.ton.bytecode.TvmType
 import org.ton.bytecode.extractPrimitiveOperands
 
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
@@ -194,9 +195,9 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     is TacVar -> {
                         val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
                         when (type) {
-                            "Cell" -> ControlRegisterValue.CellRegisterValue()
-                            "Integer" -> ControlRegisterValue.IntegerRegisterValue()
-                            "Slice" -> ControlRegisterValue.SliceRegisterValue()
+                            TvmType.CELL -> ControlRegisterValue.CellRegisterValue()
+                            TvmType.INT -> ControlRegisterValue.IntegerRegisterValue()
+                            TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue()
                             else -> error("Unsupported type: $type")
                         }
                     }
@@ -218,22 +219,22 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     is ControlRegisterValue.CellRegisterValue ->
                         TacVar(
                             name = "ctr_${inst.i}",
-                            valueTypes = listOf("Cell"),
+                            valueTypes = listOf(TvmType.CELL),
                         )
                     is ControlRegisterValue.IntegerRegisterValue ->
                         TacVar(
                             name = "ctr_${inst.i}",
-                            valueTypes = listOf("Integer"),
+                            valueTypes = listOf(TvmType.INT),
                         )
                     is ControlRegisterValue.SliceRegisterValue ->
                         TacVar(
                             name = "ctr_${inst.i}",
-                            valueTypes = listOf("Slice"),
+                            valueTypes = listOf(TvmType.SLICE),
                         )
                     is ControlRegisterValue.TupleRegisterValue ->
                         TacVar(
                             name = "ctr_${inst.i}",
-                            valueTypes = listOf("Tuple"),
+                            valueTypes = listOf(TvmType.TUPLE),
                         )
                 }
             stack.push(pushValue)
