@@ -115,7 +115,7 @@ class InstructionStackConstValue(
 class InstructionStackArrayValue(
     val name: String,
     val length_var: String,
-    val array_entry: List<InstructionStackSimpleValue>
+    val array_entry: List<InstructionStackSimpleValue>,
 ) : InstructionStackValueDescription() {
     override val entryType: String = "array"
 }

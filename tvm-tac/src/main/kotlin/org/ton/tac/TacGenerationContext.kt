@@ -3,12 +3,6 @@ package org.ton.tac
 import org.ton.bytecode.MethodId
 import org.ton.bytecode.TvmContractCode
 
-data class ControlRegisterValue(
-    val type: String, // "Continuation", "Cell", "Integer", etc.
-    val ref: Int,     // for continuation
-    val value: Any? = null // for other types
-)
-
 class TacGenerationContext<Inst : AbstractTacInst>(
     val contract: TvmContractCode,
     val debug: Boolean,
