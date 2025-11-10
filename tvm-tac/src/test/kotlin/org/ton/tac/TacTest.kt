@@ -40,22 +40,6 @@ class TacTest {
     }
 
     @Test
-    @Ignore
-    fun testArray() {
-        val path = getResourcePath<TacTest>("/samples/array.boc")
-        val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
-    }
-
-    @Test
-    @Ignore
-    fun testArrayDebug() {
-        val path = getResourcePath<TacTest>("/samples/array.boc")
-        val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
-    }
-
-    @Test
     fun testTwoReturns() {
         val path = getResourcePath<TacTest>("/samples/two_returns.boc")
         val contract = disassembleBoc(path)
