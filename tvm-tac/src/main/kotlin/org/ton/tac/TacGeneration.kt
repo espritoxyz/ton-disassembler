@@ -515,7 +515,7 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                 )
 
             if (inst.branches.isEmpty() || inst.ignoreBranches()) {
-                handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
+                return handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
             }
 
             throwErrorIfBranchesNotTypeVar(inst)
