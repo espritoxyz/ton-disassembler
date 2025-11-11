@@ -596,21 +596,24 @@ class Stack(
         val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
         val valueToStore =
             if (specValueTypes.contains(TvmType.TUPLE)) {
-                var tmp: String? = null
-                for (x in registerState.tupleRegistry.keys) {
-                    if (x.startsWith("global")) tmp = x
-                }
-                val result =
-                    TacTupleValue(
-                        name = poppedValue.name,
-                        elements = registerState.tupleRegistry[tmp] ?: emptyList(),
-                    )
+                if (poppedValue is TacTupleValue) {
+                    poppedValue
+                } else {
+                    var tmp: String? = null
+                    for (x in registerState.tupleRegistry.keys) {
+                        if (x.startsWith("global")) tmp = x
+                    }
+                    val result =
+                        TacTupleValue(
+                            name = poppedValue.name,
+                            elements = registerState.tupleRegistry[tmp] ?: emptyList(),
+                        )
 
-                if (tmp != null) {
-                    registerState.tupleRegistry.remove(tmp)
+                    if (tmp != null) {
+                        registerState.tupleRegistry.remove(tmp)
+                    }
+                    result
                 }
-
-                result
             } else {
                 poppedValue
             }

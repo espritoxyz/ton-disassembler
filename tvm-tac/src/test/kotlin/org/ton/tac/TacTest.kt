@@ -10,6 +10,20 @@ import kotlin.test.assertTrue
 
 class TacTest {
     @Test
+    fun testUntuple() {
+        val path = getResourcePath<TacTest>("/samples/untuple.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testUntupleDebug() {
+        val path = getResourcePath<TacTest>("/samples/untuple.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateDebugTacContractCode(contract)
+    }
+
+    @Test
     fun testArray() {
         val path = getResourcePath<TacTest>("/samples/array.boc")
         val contract = disassembleBoc(path)
