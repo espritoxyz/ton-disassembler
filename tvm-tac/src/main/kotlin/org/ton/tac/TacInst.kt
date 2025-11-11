@@ -2,6 +2,8 @@ package org.ton.tac
 
 import org.ton.bytecode.TvmType
 
+typealias ContinuationId = Int
+
 sealed interface AbstractTacInst
 
 sealed interface TacInst : AbstractTacInst

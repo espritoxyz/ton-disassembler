@@ -546,13 +546,13 @@ class Stack(
     data class TacInstInfo(
         val inputs: List<Pair<String, TacStackValue>>, // input + input name from spec
         val outputs: List<TacStackValue>,
-        val continuationMap: Map<String, Int>,
+        val continuationMap: Map<String, ContinuationId>,
     )
 
     private fun handleArrayInput(
         input: TvmStackEntryDescription,
         ctx: TacGenerationContext<*>,
-        continuationMap: MutableMap<String, Int>,
+        continuationMap: MutableMap<String, ContinuationId>,
         registerState: RegisterState,
         inputs: MutableList<Pair<String, TacStackValue>>,
     ) {
@@ -586,7 +586,7 @@ class Stack(
 
     private fun handleSimpleInput(
         input: TvmStackEntryDescription,
-        continuationMap: MutableMap<String, Int>,
+        continuationMap: MutableMap<String, ContinuationId>,
         registerState: RegisterState,
         inputs: MutableList<Pair<String, TacStackValue>>,
     ) {
