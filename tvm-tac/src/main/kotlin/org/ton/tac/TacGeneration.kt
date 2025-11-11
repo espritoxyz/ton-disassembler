@@ -173,16 +173,15 @@ private data class ContinuationAnalysis<Inst : AbstractTacInst>(
     val continuationInfos: List<TacContinuationInfo<Inst>>,
     val stackEffects: Set<Int>,
     val maxArguments: Int,
-    val maxResultValues: Int
+    val maxResultValues: Int,
 )
 
-private data class ControlFlowPreparation<Inst: AbstractTacInst>(
+private data class ControlFlowPreparation<Inst : AbstractTacInst>(
     val outputVars: List<TacVar>,
-    val newEndInstGenerator:  EndingInstGenerator<Inst>,
+    val newEndInstGenerator: EndingInstGenerator<Inst>,
     val label: String?,
     val inputVars: List<TacVar>,
 )
-
 
 private fun <Inst : AbstractTacInst> handleBranchlessInstruction(
     ctx: TacGenerationContext<Inst>,
@@ -213,7 +212,7 @@ private fun <Inst : AbstractTacInst> handleBranchlessInstruction(
     return listOf(result as Inst)
 }
 
-private fun validateBranchStructure(inst: TvmRealInst): Boolean{
+private fun validateBranchStructure(inst: TvmRealInst): Boolean {
     val (haveStandardC0, haveNoSave) =
         inst.branches
             .map {
@@ -284,16 +283,16 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
         continuationInfos = continuationInfos,
         stackEffects = stackEffects,
         maxArguments = maxArguments,
-        maxResultValues = maxResultValues
+        maxResultValues = maxResultValues,
     )
 }
 
-private fun <Inst: AbstractTacInst> prepareControlFlow(
+private fun <Inst : AbstractTacInst> prepareControlFlow(
     ctx: TacGenerationContext<Inst>,
     continuationAnalysis: ContinuationAnalysis<Inst>,
     saveC0: Boolean,
     inst: TvmRealInst,
-    endingInstGenerator: EndingInstGenerator<Inst>
+    endingInstGenerator: EndingInstGenerator<Inst>,
 ): ControlFlowPreparation<Inst> {
     val inputVars =
         if (saveC0) {
@@ -333,11 +332,11 @@ private fun <Inst: AbstractTacInst> prepareControlFlow(
         outputVars = outputVars,
         newEndInstGenerator = newEndInstGenerator,
         label = label,
-        inputVars = inputVars
+        inputVars = inputVars,
     )
 }
 
-private fun <Inst: AbstractTacInst> generateControlFlowInstructions(
+private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmRealInst,
@@ -346,9 +345,8 @@ private fun <Inst: AbstractTacInst> generateControlFlowInstructions(
     continuationAnalysis: ContinuationAnalysis<Inst>,
     controlFlowPrep: ControlFlowPreparation<Inst>,
     registerState: RegisterState,
-    outputs: List<TacStackValue>
+    outputs: List<TacStackValue>,
 ): MutableList<Inst> {
-
     val result = mutableListOf<Inst>()
 
     controlFlowPrep.inputVars.forEach { inputVar ->
@@ -516,8 +514,9 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     registerState = registerState,
                 )
 
-            if (inst.branches.isEmpty() || inst.ignoreBranches())
+            if (inst.branches.isEmpty() || inst.ignoreBranches()) {
                 handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
+            }
 
             throwErrorIfBranchesNotTypeVar(inst)
 
@@ -527,8 +526,18 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
 
             val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
 
-            val result = generateControlFlowInstructions(ctx, stack, inst, operands, inputs, continuationAnalysis,
-                controlFlowPrep, registerState, outputs)
+            val result =
+                generateControlFlowInstructions(
+                    ctx,
+                    stack,
+                    inst,
+                    operands,
+                    inputs,
+                    continuationAnalysis,
+                    controlFlowPrep,
+                    registerState,
+                    outputs,
+                )
 
             return result
         }
