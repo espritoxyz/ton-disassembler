@@ -106,8 +106,11 @@ sealed interface ControlRegisterValue {
     ) : ControlRegisterValue
 
     object CellRegisterValue : ControlRegisterValue
+
     object IntegerRegisterValue : ControlRegisterValue
+
     object SliceRegisterValue : ControlRegisterValue
+
     object TupleRegisterValue : ControlRegisterValue
 }
 
