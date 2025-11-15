@@ -564,7 +564,7 @@ class Stack(
                     "Tuple has an invalid length."
                 } else {
                     "The instruction ${instruction.mnemonic} is not supported."
-                }
+                },
             )
 
         val tupleElements: MutableList<TacStackValue> = mutableListOf()
@@ -654,7 +654,7 @@ class Stack(
                                     "Tuple input not found for TUPLE output"
                                 } else {
                                     "The instruction ${instruction.mnemonic} is not supported."
-                                }
+                                },
                             )
                     TacTupleValue(
                         name = name,
@@ -701,7 +701,7 @@ class Stack(
                         "Tuple input not found"
                     } else {
                         "The instruction ${instruction.mnemonic} is not supported."
-                    }
+                    },
                 )
 
         val specLengthType =
@@ -710,7 +710,7 @@ class Stack(
                     "Tuple has an invalid length"
                 } else {
                     "The instruction ${instruction.mnemonic} is not supported."
-                }
+                },
             )
 
         if (tupleVar.elements.size != specLengthType) {
@@ -719,7 +719,7 @@ class Stack(
                     "Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType."
                 } else {
                     "The instruction ${instruction.mnemonic} is not supported."
-                }
+                },
             )
         }
 
@@ -745,7 +745,15 @@ class Stack(
         inputSpec.reversed().forEach { input ->
             when (input.type) {
                 TvmStackEntryType.SIMPLE -> handleSimpleInput(input, continuationMap, registerState, inputs)
-                TvmStackEntryType.ARRAY -> handleArrayInput(input, ctx, continuationMap, registerState, inputs, instruction)
+                TvmStackEntryType.ARRAY ->
+                    handleArrayInput(
+                        input,
+                        ctx,
+                        continuationMap,
+                        registerState,
+                        inputs,
+                        instruction,
+                    )
                 else -> error("Unsupported input type: \${input.type}")
             }
         }

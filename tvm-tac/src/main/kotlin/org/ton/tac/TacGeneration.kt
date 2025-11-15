@@ -421,129 +421,154 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     return result
 }
 
-private fun <Inst : AbstractTacInst> processOrdinaryInst(
+private fun <Inst : AbstractTacInst> handleSetGlobalInst(
+    stack: Stack,
+    inst: TvmAppGlobalSetglobInst,
+    registerState: RegisterState,
+): List<Inst> {
+    val value = stack.pop(0)
+    val globalName = "global_${inst.k}"
+
+    if (value is TacTupleValue) registerState.tupleRegistry[globalName] = value.elements
+
+    return emptyList()
+}
+
+private fun <Inst : AbstractTacInst> handlePopControlRegister(
+    stack: Stack,
+    inst: TvmContRegistersPopctrInst,
+    registerState: RegisterState,
+): List<Inst> {
+    val registerValue =
+        when (val poppedValue = stack.pop(0)) {
+            is ContinuationValue ->
+                ControlRegisterValue.ContinuationRegisterValue(
+                    ref = poppedValue.continuationRef,
+                )
+            is TacVar -> {
+                val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
+                when (type) {
+                    TvmType.CELL -> ControlRegisterValue.CellRegisterValue()
+                    TvmType.INT -> ControlRegisterValue.IntegerRegisterValue()
+                    TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue()
+                    else -> error("Unsupported type: $type")
+                }
+            }
+            is TacTupleValue -> ControlRegisterValue.TupleRegisterValue()
+        }
+    registerState.controlRegisters[inst.i] = registerValue
+    return emptyList()
+}
+
+private fun <Inst : AbstractTacInst> handlePushControlRegister(
+    stack: Stack,
+    inst: TvmContRegistersPushctrInst,
+    registerState: RegisterState,
+): List<Inst> {
+    val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue()
+
+    val pushValue =
+        when (registerValue) {
+            is ControlRegisterValue.ContinuationRegisterValue ->
+                ContinuationValue(
+                    "ctr_${inst.i}",
+                    registerValue.ref,
+                )
+            is ControlRegisterValue.CellRegisterValue ->
+                TacVar(
+                    name = "ctr_${inst.i}",
+                    valueTypes = listOf(TvmType.CELL),
+                )
+            is ControlRegisterValue.IntegerRegisterValue ->
+                TacVar(
+                    name = "ctr_${inst.i}",
+                    valueTypes = listOf(TvmType.INT),
+                )
+            is ControlRegisterValue.SliceRegisterValue ->
+                TacVar(
+                    name = "ctr_${inst.i}",
+                    valueTypes = listOf(TvmType.SLICE),
+                )
+            is ControlRegisterValue.TupleRegisterValue ->
+                TacVar(
+                    name = "ctr_${inst.i}",
+                    valueTypes = listOf(TvmType.TUPLE),
+                )
+        }
+    stack.push(pushValue)
+    return emptyList()
+}
+
+private fun <Inst : AbstractTacInst> handleComplexInstruction(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
     registerState: RegisterState,
 ): List<Inst> {
-    when (inst) {
-        is TvmAppGlobalSetglobInst -> {
-            val value = stack.pop(0)
-            val globalName = "global_${inst.k}"
+    val operands = extractPrimitiveOperands(inst)
 
-            if (value is TacTupleValue) registerState.tupleRegistry[globalName] = value.elements
+    val specInputs = inst.stackInputs ?: emptyList()
+    val specOutputs = inst.stackOutputs ?: emptyList()
 
-            return emptyList()
+    val operandContinuationInfo =
+        if (inst is TvmContOperandInst) {
+            extractOperandContinuations(ctx, inst)
+        } else {
+            null
         }
-        is TvmContRegistersPopctrInst -> {
-            val registerValue =
-                when (val poppedValue = stack.pop(0)) {
-                    is ContinuationValue ->
-                        ControlRegisterValue.ContinuationRegisterValue(
-                            ref = poppedValue.continuationRef,
-                        )
-                    is TacVar -> {
-                        val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
-                        when (type) {
-                            TvmType.CELL -> ControlRegisterValue.CellRegisterValue()
-                            TvmType.INT -> ControlRegisterValue.IntegerRegisterValue()
-                            TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue()
-                            else -> error("Unsupported type: $type")
-                        }
-                    }
-                    is TacTupleValue -> ControlRegisterValue.TupleRegisterValue()
-                }
-            registerState.controlRegisters[inst.i] = registerValue
-            return emptyList()
-        }
-        is TvmContRegistersPushctrInst -> {
-            val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue()
 
-            val pushValue =
-                when (registerValue) {
-                    is ControlRegisterValue.ContinuationRegisterValue ->
-                        ContinuationValue(
-                            "ctr_${inst.i}",
-                            registerValue.ref,
-                        )
-                    is ControlRegisterValue.CellRegisterValue ->
-                        TacVar(
-                            name = "ctr_${inst.i}",
-                            valueTypes = listOf(TvmType.CELL),
-                        )
-                    is ControlRegisterValue.IntegerRegisterValue ->
-                        TacVar(
-                            name = "ctr_${inst.i}",
-                            valueTypes = listOf(TvmType.INT),
-                        )
-                    is ControlRegisterValue.SliceRegisterValue ->
-                        TacVar(
-                            name = "ctr_${inst.i}",
-                            valueTypes = listOf(TvmType.SLICE),
-                        )
-                    is ControlRegisterValue.TupleRegisterValue ->
-                        TacVar(
-                            name = "ctr_${inst.i}",
-                            valueTypes = listOf(TvmType.TUPLE),
-                        )
-                }
-            stack.push(pushValue)
-            return emptyList()
-        }
-        else -> {
-            val operands = extractPrimitiveOperands(inst)
+    val (inputs, outputs, stackContinuationMap) =
+        stack.processNonStackInst(
+            ctx,
+            inputSpec = specInputs,
+            outputSpec = specOutputs,
+            contRef = operandContinuationInfo?.resultContinuationId,
+            registerState = registerState,
+            instruction = inst,
+        )
 
-            val specInputs = inst.stackInputs ?: emptyList()
-            val specOutputs = inst.stackOutputs ?: emptyList()
-
-            val operandContinuationInfo =
-                if (inst is TvmContOperandInst) {
-                    extractOperandContinuations(ctx, inst)
-                } else {
-                    null
-                }
-
-            val (inputs, outputs, stackContinuationMap) =
-                stack.processNonStackInst(
-                    ctx,
-                    inputSpec = specInputs,
-                    outputSpec = specOutputs,
-                    contRef = operandContinuationInfo?.resultContinuationId,
-                    registerState = registerState,
-                    instruction = inst,
-                )
-
-            if (inst.branches.isEmpty() || inst.ignoreBranches()) {
-                return handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
-            }
-
-            throwErrorIfBranchesNotTypeVar(inst)
-
-            val saveC0 = validateBranchStructure(inst)
-
-            val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap)
-
-            val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
-
-            val result =
-                generateControlFlowInstructions(
-                    ctx,
-                    stack,
-                    inst,
-                    operands,
-                    inputs,
-                    continuationAnalysis,
-                    controlFlowPrep,
-                    registerState,
-                    outputs,
-                )
-
-            return result
-        }
+    if (inst.branches.isEmpty() || inst.ignoreBranches()) {
+        return handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
     }
+
+    throwErrorIfBranchesNotTypeVar(inst)
+
+    val saveC0 = validateBranchStructure(inst)
+
+    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap)
+
+    val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
+
+    val result =
+        generateControlFlowInstructions(
+            ctx,
+            stack,
+            inst,
+            operands,
+            inputs,
+            continuationAnalysis,
+            controlFlowPrep,
+            registerState,
+            outputs,
+        )
+
+    return result
 }
+
+private fun <Inst : AbstractTacInst> processOrdinaryInst(
+    ctx: TacGenerationContext<Inst>,
+    stack: Stack,
+    inst: TvmRealInst,
+    endingInstGenerator: EndingInstGenerator<Inst>,
+    registerState: RegisterState,
+): List<Inst> =
+    when (inst) {
+        is TvmAppGlobalSetglobInst -> handleSetGlobalInst(stack, inst, registerState)
+        is TvmContRegistersPopctrInst -> handlePopControlRegister(stack, inst, registerState)
+        is TvmContRegistersPushctrInst -> handlePushControlRegister(stack, inst, registerState)
+        else -> handleComplexInstruction(ctx, stack, inst, endingInstGenerator, registerState)
+    }
 
 private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
     contract: TvmContractCode,
