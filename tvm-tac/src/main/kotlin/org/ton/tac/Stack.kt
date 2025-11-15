@@ -251,7 +251,7 @@ class Stack(
         val lastVar = stack.removeAt(stack.size - 1)
         val intValue = lastVar.valueTypes.find { it == TvmType.INT }
         if (intValue != null) {
-            return 0 // early it was intValue.toInt(), but "Int".toInt() !? Need to fix
+            TODO("Taking value")
         } else {
             throw IllegalArgumentException("Expected an Int type but found: ${lastVar.valueTypes}")
         }
@@ -555,14 +555,16 @@ class Stack(
         continuationMap: MutableMap<String, ContinuationId>,
         registerState: RegisterState,
         inputs: MutableList<Pair<String, TacStackValue>>,
+        instruction: TvmRealInst,
     ) {
         val specInput = input as TvmArrayStackEntryDescription
         val specLengthType =
             specInput.lengthVar.toIntOrNull() ?: error(
-                """
-                If you are using the TUPLE instruction, the tuple has an invalid length.
-                Otherwise, the instruction is not supported.
-                """.trimIndent(),
+                if (instruction.mnemonic == "TUPLE") {
+                    "Tuple has an invalid length."
+                } else {
+                    "The instruction ${instruction.mnemonic} is not supported."
+                }
             )
 
         val tupleElements: MutableList<TacStackValue> = mutableListOf()
@@ -630,6 +632,7 @@ class Stack(
         contRef: Int?,
         inputs: List<Pair<String, TacStackValue>>,
         outputs: MutableList<TacStackValue>,
+        instruction: TvmRealInst,
     ) {
         val specOutput = output as TvmSimpleStackEntryDescription
         val specName = specOutput.name
@@ -646,7 +649,13 @@ class Stack(
                 if (specValueTypes.contains(TvmType.TUPLE)) {
                     val tupleInput =
                         inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
-                            ?: error("Tuple input not found for TUPLE output")
+                            ?: error(
+                                if (instruction.mnemonic == "TUPLE") {
+                                    "Tuple input not found for TUPLE output"
+                                } else {
+                                    "The instruction ${instruction.mnemonic} is not supported."
+                                }
+                            )
                     TacTupleValue(
                         name = name,
                         elements = tupleInput.elements,
@@ -682,32 +691,35 @@ class Stack(
         output: TvmStackEntryDescription,
         inputs: List<Pair<String, TacStackValue>>,
         outputs: MutableList<TacStackValue>,
+        instruction: TvmRealInst,
     ) {
         val specOutput = output as TvmArrayStackEntryDescription
         val tupleVar =
             inputs.find { it.first == "t" }?.second as? TacTupleValue
                 ?: error(
-                    """
-                    If you are using the TUPLE instruction, tuple input not found.
-                    Otherwise, the instruction is not supported.
-                    """.trimIndent(),
+                    if (instruction.mnemonic == "TUPLE") {
+                        "Tuple input not found"
+                    } else {
+                        "The instruction ${instruction.mnemonic} is not supported."
+                    }
                 )
 
         val specLengthType =
             specOutput.lengthVar.toIntOrNull() ?: error(
-                """
-                If you are using the TUPLE instruction, the tuple has an invalid length.
-                Otherwise, the instruction is not supported.
-                """.trimIndent(),
+                if (instruction.mnemonic == "UNTUPLE") {
+                    "Tuple has an invalid length"
+                } else {
+                    "The instruction ${instruction.mnemonic} is not supported."
+                }
             )
 
         if (tupleVar.elements.size != specLengthType) {
             error(
-                """
-                            If you are using the TUPLE instruction,
-                            tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.
-                            Otherwise, the instruction is not supported.
-                """.trimMargin(),
+                if (instruction.mnemonic == "UNTUPLE") {
+                    "Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType."
+                } else {
+                    "The instruction ${instruction.mnemonic} is not supported."
+                }
             )
         }
 
@@ -723,6 +735,7 @@ class Stack(
         outputSpec: List<TvmStackEntryDescription>,
         contRef: Int? = null, // if this is PUSHCONT
         registerState: RegisterState,
+        instruction: TvmRealInst,
     ): TacInstInfo {
         val inputs = mutableListOf<Pair<String, TacStackValue>>()
         val outputs = mutableListOf<TacStackValue>()
@@ -732,16 +745,16 @@ class Stack(
         inputSpec.reversed().forEach { input ->
             when (input.type) {
                 TvmStackEntryType.SIMPLE -> handleSimpleInput(input, continuationMap, registerState, inputs)
-                TvmStackEntryType.ARRAY -> handleArrayInput(input, ctx, continuationMap, registerState, inputs)
+                TvmStackEntryType.ARRAY -> handleArrayInput(input, ctx, continuationMap, registerState, inputs, instruction)
                 else -> error("Unsupported input type: \${input.type}")
             }
         }
 
         outputSpec.forEach { output ->
             when (output.type) {
-                TvmStackEntryType.SIMPLE -> handleSimpleOutput(output, ctx, contRef, inputs, outputs)
+                TvmStackEntryType.SIMPLE -> handleSimpleOutput(output, ctx, contRef, inputs, outputs, instruction)
                 TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
-                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs)
+                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction)
 
                 else -> error("${output.type} isn't supported yet")
             }

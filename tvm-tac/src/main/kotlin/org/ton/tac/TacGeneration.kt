@@ -512,6 +512,7 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
                     outputSpec = specOutputs,
                     contRef = operandContinuationInfo?.resultContinuationId,
                     registerState = registerState,
+                    instruction = inst,
                 )
 
             if (inst.branches.isEmpty() || inst.ignoreBranches()) {

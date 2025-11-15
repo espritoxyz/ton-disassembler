@@ -2,6 +2,7 @@ package org.ton.tac
 
 import org.ton.bytecode.MethodId
 import org.ton.bytecode.TvmContractCode
+import org.ton.bytecode.TvmRealInst
 
 class TacGenerationContext<Inst : AbstractTacInst>(
     val contract: TvmContractCode,
