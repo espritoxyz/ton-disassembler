@@ -448,13 +448,13 @@ private fun <Inst : AbstractTacInst> handlePopControlRegister(
             is TacVar -> {
                 val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
                 when (type) {
-                    TvmType.CELL -> ControlRegisterValue.CellRegisterValue()
-                    TvmType.INT -> ControlRegisterValue.IntegerRegisterValue()
-                    TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue()
+                    TvmType.CELL -> ControlRegisterValue.CellRegisterValue
+                    TvmType.INT -> ControlRegisterValue.IntegerRegisterValue
+                    TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue
                     else -> error("Unsupported type: $type")
                 }
             }
-            is TacTupleValue -> ControlRegisterValue.TupleRegisterValue()
+            is TacTupleValue -> ControlRegisterValue.TupleRegisterValue
         }
     registerState.controlRegisters[inst.i] = registerValue
     return emptyList()
@@ -465,7 +465,7 @@ private fun <Inst : AbstractTacInst> handlePushControlRegister(
     inst: TvmContRegistersPushctrInst,
     registerState: RegisterState,
 ): List<Inst> {
-    val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue()
+    val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue
 
     val pushValue =
         when (registerValue) {

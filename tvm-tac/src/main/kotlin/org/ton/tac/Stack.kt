@@ -105,21 +105,10 @@ sealed interface ControlRegisterValue {
         val ref: Int,
     ) : ControlRegisterValue
 
-    data class CellRegisterValue(
-        val value: Any? = null,
-    ) : ControlRegisterValue
-
-    data class IntegerRegisterValue(
-        val value: Any? = null,
-    ) : ControlRegisterValue
-
-    data class SliceRegisterValue(
-        val value: Any? = null,
-    ) : ControlRegisterValue
-
-    data class TupleRegisterValue(
-        val value: Any? = null,
-    ) : ControlRegisterValue
+    object CellRegisterValue : ControlRegisterValue
+    object IntegerRegisterValue : ControlRegisterValue
+    object SliceRegisterValue : ControlRegisterValue
+    object TupleRegisterValue : ControlRegisterValue
 }
 
 data class RegisterState(
