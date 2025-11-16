@@ -438,74 +438,36 @@ private fun <Inst : AbstractTacInst> handleSetGlobalInst(
 }
 
 private fun <Inst : AbstractTacInst> handlePopControlRegister(
-    ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmContRegistersPopctrInst,
     registerState: RegisterState,
 ): List<Inst> {
     val poppedValue = stack.pop(0)
-    val tempVar = TacVar(ctx.nextVarName())
-    val assignInst = TacAssignInst(tempVar, poppedValue)
-    val popCtrInst = TacPopCtrInst(inst.i, tempVar)
+    val popCtrInst = TacPopCtrInst(inst.i, poppedValue)
+    registerState.controlRegisters[inst.i] = poppedValue
 
-    val registerValue =
-        when (poppedValue) {
-            is ContinuationValue ->
-                ControlRegisterValue.ContinuationRegisterValue(
-                    ref = poppedValue.continuationRef,
-                )
-            is TacVar -> {
-                val type = poppedValue.valueTypes.firstOrNull() ?: error("Incorrect value")
-                when (type) {
-                    TvmType.CELL -> ControlRegisterValue.CellRegisterValue
-                    TvmType.INT -> ControlRegisterValue.IntegerRegisterValue
-                    TvmType.SLICE -> ControlRegisterValue.SliceRegisterValue
-                    else -> error("Unsupported type: $type")
-                }
-            }
-            is TacTupleValue -> ControlRegisterValue.TupleRegisterValue
-        }
-
-    registerState.controlRegisters[inst.i] = registerValue
     @Suppress("UNCHECKED_CAST")
-    return listOf(assignInst as Inst, popCtrInst as Inst)
+    return listOf(popCtrInst as Inst) // Возвращаем только одну инструкцию
 }
 
 private fun <Inst : AbstractTacInst> handlePushControlRegister(
+    ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmContRegistersPushctrInst,
     registerState: RegisterState,
 ): List<Inst> {
-    val registerValue = registerState.controlRegisters[inst.i] ?: ControlRegisterValue.CellRegisterValue
-
+    val originalValue = registerState.controlRegisters[inst.i]
     val pushValue =
-        when (registerValue) {
-            is ControlRegisterValue.ContinuationRegisterValue ->
-                ContinuationValue(
-                    "ctr_${inst.i}",
-                    registerValue.ref,
-                )
-            is ControlRegisterValue.CellRegisterValue ->
-                TacVar(
-                    name = "ctr_${inst.i}",
-                    valueTypes = listOf(TvmType.CELL),
-                )
-            is ControlRegisterValue.IntegerRegisterValue ->
-                TacVar(
-                    name = "ctr_${inst.i}",
-                    valueTypes = listOf(TvmType.INT),
-                )
-            is ControlRegisterValue.SliceRegisterValue ->
-                TacVar(
-                    name = "ctr_${inst.i}",
-                    valueTypes = listOf(TvmType.SLICE),
-                )
-            is ControlRegisterValue.TupleRegisterValue ->
-                TacVar(
-                    name = "ctr_${inst.i}",
-                    valueTypes = listOf(TvmType.TUPLE),
-                )
-        }
+        originalValue?.copy()
+            ?: TacVar(
+                name = "contract_storage_${ctx.nextVarId()}",
+                valueTypes = listOf(TvmType.CELL),
+            )
+
+    if (pushValue is TacTupleValue) {
+        registerState.tupleRegistry[pushValue.name] = pushValue.elements
+    }
+
     stack.push(pushValue)
 
     val pushCtrInst = TacPushCtrInst(inst.i, pushValue)
@@ -581,8 +543,8 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
 ): List<Inst> =
     when (inst) {
         is TvmAppGlobalSetglobInst -> handleSetGlobalInst(stack, inst, registerState)
-        is TvmContRegistersPopctrInst -> handlePopControlRegister(ctx, stack, inst, registerState)
-        is TvmContRegistersPushctrInst -> handlePushControlRegister(stack, inst, registerState)
+        is TvmContRegistersPopctrInst -> handlePopControlRegister(stack, inst, registerState)
+        is TvmContRegistersPushctrInst -> handlePushControlRegister(ctx, stack, inst, registerState)
         else -> handleComplexInstruction(ctx, stack, inst, endingInstGenerator, registerState)
     }
 

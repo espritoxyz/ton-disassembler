@@ -23,7 +23,7 @@ data class TacAssignInst(
 
 data class TacPopCtrInst(
     val registerIndex: Int,
-    val value: TacVar,
+    val value: TacStackValue,
 ) : TacInst
 
 data class TacPushCtrInst(

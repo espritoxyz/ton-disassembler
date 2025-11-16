@@ -100,23 +100,9 @@ internal fun updateStack(
     return stack.copy()
 }
 
-sealed interface ControlRegisterValue {
-    data class ContinuationRegisterValue(
-        val ref: Int,
-    ) : ControlRegisterValue
-
-    object CellRegisterValue : ControlRegisterValue
-
-    object IntegerRegisterValue : ControlRegisterValue
-
-    object SliceRegisterValue : ControlRegisterValue
-
-    object TupleRegisterValue : ControlRegisterValue
-}
-
 data class RegisterState(
     val tupleRegistry: LinkedHashMap<String, List<TacStackValue>> = LinkedHashMap(),
-    val controlRegisters: MutableMap<Int, ControlRegisterValue> = mutableMapOf(),
+    val controlRegisters: MutableMap<Int, TacStackValue> = mutableMapOf(),
 ) {
     fun copy(): RegisterState =
         RegisterState(
