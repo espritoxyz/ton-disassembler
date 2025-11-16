@@ -57,6 +57,7 @@ import org.ton.bytecode.TvmStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
 import org.ton.bytecode.TvmType
 import java.util.Collections.swap
+import kotlin.text.clear
 
 val SUPPORTED_STACK_TYPES = setOf(TvmStackEntryType.SIMPLE, TvmStackEntryType.ARRAY, TvmStackEntryType.CONST)
 
@@ -109,6 +110,20 @@ data class RegisterState(
             tupleRegistry = tupleRegistry.toMutableMap() as LinkedHashMap<String, List<TacStackValue>>,
             controlRegisters = controlRegisters.toMutableMap(),
         )
+
+    fun assignFrom(other: RegisterState) {
+        this.controlRegisters.clear()
+        this.tupleRegistry.clear()
+
+        other.controlRegisters.forEach { (key, value) ->
+            this.controlRegisters[key] = value.copy()
+        }
+
+        other.tupleRegistry.forEach { (key, valueList) ->
+            val copiedList = valueList.map { it.copy() }
+            this.tupleRegistry[key] = copiedList
+        }
+    }
 }
 
 class Stack(

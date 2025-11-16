@@ -336,6 +336,75 @@ private fun <Inst : AbstractTacInst> prepareControlFlow(
     )
 }
 
+fun tupleCompatible(
+    val1: TacTupleValue,
+    val2: TacStackValue,
+): Boolean {
+    val tuple2 = val2 as TacTupleValue
+    if (val1.elements.size != tuple2.elements.size) return false
+
+    for (i in val1.elements.indices) {
+        if (!isCompatible(val1.elements[i], tuple2.elements[i])) {
+            return false
+        }
+    }
+    return true
+}
+
+fun isCompatible(
+    val1: TacStackValue,
+    val2: TacStackValue,
+): Boolean {
+    if (val1::class != val2::class) return false
+
+    return when (val1) {
+        is TacVar -> val1.valueTypes == (val2 as TacVar).valueTypes
+        is TacTupleValue -> tupleCompatible(val1, val2)
+        is ContinuationValue ->
+            val1.valueTypes == (val2 as ContinuationValue).valueTypes &&
+                val1.continuationRef == val2.continuationRef
+    }
+}
+
+fun areStatesCompatible(
+    state1: RegisterState,
+    state2: RegisterState,
+): Boolean {
+    val regKeys1 = state1.controlRegisters.keys
+    val regKeys2 = state2.controlRegisters.keys
+    if (regKeys1 != regKeys2) return false
+
+    val tupleKeys1 = state1.tupleRegistry.keys
+    val tupleKeys2 = state2.tupleRegistry.keys
+    if (tupleKeys1 != tupleKeys2) return false
+
+    for (key in regKeys1) {
+        if (!isCompatible(state1.controlRegisters.getValue(key), state2.controlRegisters.getValue(key))) {
+            println("Conflict in register c_$key")
+            return false
+        }
+    }
+
+    for (key in tupleKeys1) {
+        val tupleElements1 = state1.tupleRegistry.getValue(key)
+        val tupleElements2 = state2.tupleRegistry.getValue(key)
+
+        if (tupleElements1.size != tupleElements2.size) {
+            println("Conflict in tuple '$key': Sizes are different (${tupleElements1.size} vs ${tupleElements2.size}).")
+            return false
+        }
+
+        for (i in tupleElements1.indices) {
+            if (!isCompatible(tupleElements1[i], tupleElements2[i])) {
+                println("Conflict in tuple '$key' at index $i.")
+                return false
+            }
+        }
+    }
+
+    return true
+}
+
 private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
@@ -363,16 +432,45 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         result += newInst as Inst
     }
 
+    val branchStates =
+        continuationAnalysis.continuationInfos.map {
+            Pair(stack.copy(), registerState.copy())
+        }
+
     val blocks =
-        continuationAnalysis.continuationInfos.map { continuationInfo ->
+        continuationAnalysis.continuationInfos.mapIndexed { index, continuationInfo ->
+            val (branchStack, branchRegisterState) = branchStates[index]
+
             generateTacCodeBlock(
                 ctx,
                 codeBlock = continuationInfo.originalTvmCode,
-                stack = stack.copy(),
+                stack = branchStack,
                 endingInstGenerator = controlFlowPrep.newEndInstGenerator,
-                registerState = registerState.copy(),
+                registerState = branchRegisterState,
+            ).instructions
+        }
+
+    if (branchStates.size > 1) {
+        val (firstStack, firstRegisterState) = branchStates.first()
+        val allStatesCompatible =
+            branchStates.drop(1).all { (otherStack, otherRegisterState) ->
+                areStatesCompatible(
+                    firstRegisterState,
+                    otherRegisterState,
+                )
+            }
+
+        if (!allStatesCompatible) {
+            throw IllegalStateException(
+                "Decompilation failed at '${inst.mnemonic}': Incompatible states after branches merging at label '${controlFlowPrep.label}'.",
             )
         }
+    }
+
+    if (branchStates.isNotEmpty()) {
+        val (representativeStack, representativeRegisterState) = branchStates.first()
+        registerState.assignFrom(representativeRegisterState)
+    }
 
     controlFlowPrep.inputVars.forEach { _ ->
         stack.pop(0)
@@ -390,7 +488,7 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
             operands = operands,
             inputs = inputs.filter { it.first !in controlFlowInputNames }.map { it.second },
             outputs = outputs,
-            blocks = blocks.map { it.instructions },
+            blocks = blocks,
         )
 
     val resultInst =
@@ -447,7 +545,7 @@ private fun <Inst : AbstractTacInst> handlePopControlRegister(
     registerState.controlRegisters[inst.i] = poppedValue
 
     @Suppress("UNCHECKED_CAST")
-    return listOf(popCtrInst as Inst) // Возвращаем только одну инструкцию
+    return listOf(popCtrInst as Inst)
 }
 
 private fun <Inst : AbstractTacInst> handlePushControlRegister(

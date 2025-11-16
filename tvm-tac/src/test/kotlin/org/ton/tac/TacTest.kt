@@ -10,6 +10,36 @@ import kotlin.test.assertTrue
 
 class TacTest {
     @Test
+    @Ignore
+    fun testIfCtrUncompatible() {
+        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+    }
+
+    @Test
+    @Ignore
+    fun testIfCtrUncompatibleDebug() {
+        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testIfCtrCompatible() {
+        val path = getResourcePath<TacTest>("/samples/compatible.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testIfCtrCompatibleDebug() {
+        val path = getResourcePath<TacTest>("/samples/compatible.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateDebugTacContractCode(contract)
+    }
+
+    @Test
     fun testUntuple() {
         val path = getResourcePath<TacTest>("/samples/untuple.boc")
         val contract = disassembleBoc(path)
