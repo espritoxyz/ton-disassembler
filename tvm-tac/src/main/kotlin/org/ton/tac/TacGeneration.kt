@@ -431,16 +431,25 @@ private fun <Inst : AbstractTacInst> handleSetGlobalInst(
 
     if (value is TacTupleValue) registerState.tupleRegistry[globalName] = value.elements
 
-    return emptyList()
+    val setGlobalInst = TacSetGlobalInst(inst.k, value)
+
+    @Suppress("UNCHECKED_CAST")
+    return listOf(setGlobalInst as Inst)
 }
 
 private fun <Inst : AbstractTacInst> handlePopControlRegister(
+    ctx: TacGenerationContext<Inst>,
     stack: Stack,
     inst: TvmContRegistersPopctrInst,
     registerState: RegisterState,
 ): List<Inst> {
+    val poppedValue = stack.pop(0)
+    val tempVar = TacVar(ctx.nextVarName())
+    val assignInst = TacAssignInst(tempVar, poppedValue)
+    val popCtrInst = TacPopCtrInst(inst.i, tempVar)
+
     val registerValue =
-        when (val poppedValue = stack.pop(0)) {
+        when (poppedValue) {
             is ContinuationValue ->
                 ControlRegisterValue.ContinuationRegisterValue(
                     ref = poppedValue.continuationRef,
@@ -456,8 +465,10 @@ private fun <Inst : AbstractTacInst> handlePopControlRegister(
             }
             is TacTupleValue -> ControlRegisterValue.TupleRegisterValue
         }
+
     registerState.controlRegisters[inst.i] = registerValue
-    return emptyList()
+    @Suppress("UNCHECKED_CAST")
+    return listOf(assignInst as Inst, popCtrInst as Inst)
 }
 
 private fun <Inst : AbstractTacInst> handlePushControlRegister(
@@ -496,7 +507,11 @@ private fun <Inst : AbstractTacInst> handlePushControlRegister(
                 )
         }
     stack.push(pushValue)
-    return emptyList()
+
+    val pushCtrInst = TacPushCtrInst(inst.i, pushValue)
+
+    @Suppress("UNCHECKED_CAST")
+    return listOf(pushCtrInst as Inst)
 }
 
 private fun <Inst : AbstractTacInst> handleComplexInstruction(
@@ -526,6 +541,7 @@ private fun <Inst : AbstractTacInst> handleComplexInstruction(
             contRef = operandContinuationInfo?.resultContinuationId,
             registerState = registerState,
             instruction = inst,
+            metaObjects = mutableListOf(),
         )
 
     if (inst.branches.isEmpty() || inst.ignoreBranches()) {
@@ -565,7 +581,7 @@ private fun <Inst : AbstractTacInst> processOrdinaryInst(
 ): List<Inst> =
     when (inst) {
         is TvmAppGlobalSetglobInst -> handleSetGlobalInst(stack, inst, registerState)
-        is TvmContRegistersPopctrInst -> handlePopControlRegister(stack, inst, registerState)
+        is TvmContRegistersPopctrInst -> handlePopControlRegister(ctx, stack, inst, registerState)
         is TvmContRegistersPushctrInst -> handlePushControlRegister(stack, inst, registerState)
         else -> handleComplexInstruction(ctx, stack, inst, endingInstGenerator, registerState)
     }

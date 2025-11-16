@@ -14,6 +14,7 @@ enum class TvmType {
     CONTINUATION,
     BUILDER,
     NULL,
+    ANY,
 }
 
 enum class TvmStackEntryType {

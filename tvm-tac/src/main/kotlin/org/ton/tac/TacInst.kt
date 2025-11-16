@@ -21,6 +21,21 @@ data class TacAssignInst(
     val rhs: TacStackValue,
 ) : TacInst
 
+data class TacPopCtrInst(
+    val registerIndex: Int,
+    val value: TacVar,
+) : TacInst
+
+data class TacPushCtrInst(
+    val registerIndex: Int,
+    val value: TacStackValue,
+) : TacInst
+
+data class TacSetGlobalInst(
+    val globalIndex: Int,
+    val value: TacStackValue,
+) : TacInst
+
 data class TacReturnInst(
     val result: List<TacStackValue>,
 ) : TacInst

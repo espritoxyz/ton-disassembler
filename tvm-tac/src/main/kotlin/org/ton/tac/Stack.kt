@@ -539,6 +539,7 @@ class Stack(
         val inputs: List<Pair<String, TacStackValue>>, // input + input name from spec
         val outputs: List<TacStackValue>,
         val continuationMap: Map<String, ContinuationId>,
+        val metaObjects: MutableList<Pair<String, TacStackValue>>,
     )
 
     private fun handleArrayInput(
@@ -548,6 +549,7 @@ class Stack(
         registerState: RegisterState,
         inputs: MutableList<Pair<String, TacStackValue>>,
         instruction: TvmRealInst,
+        metaObjects: MutableList<Pair<String, TacStackValue>>,
     ) {
         val specInput = input as TvmArrayStackEntryDescription
         val specLengthType =
@@ -575,7 +577,12 @@ class Stack(
                 elements = tupleElements,
             )
         registerState.tupleRegistry[tupleVar.name] = tupleElements
-        inputs.add(input.name to tupleVar)
+
+        tupleElements.forEach { element ->
+            inputs.add(element.name to element)
+        }
+
+        metaObjects.add(input.name to tupleVar)
     }
 
     private fun handleSimpleInput(
@@ -615,6 +622,7 @@ class Stack(
         if (valueToStore is ContinuationValue) {
             continuationMap[input.name] = valueToStore.continuationRef
         }
+
         inputs.add(input.name to valueToStore)
     }
 
@@ -625,6 +633,7 @@ class Stack(
         inputs: List<Pair<String, TacStackValue>>,
         outputs: MutableList<TacStackValue>,
         instruction: TvmRealInst,
+        metaObjects: MutableList<Pair<String, TacStackValue>>,
     ) {
         val specOutput = output as TvmSimpleStackEntryDescription
         val specName = specOutput.name
@@ -640,7 +649,7 @@ class Stack(
             } else {
                 if (specValueTypes.contains(TvmType.TUPLE)) {
                     val tupleInput =
-                        inputs.find { it.first == "tuple_elements" }?.second as? TacTupleValue
+                        metaObjects.find { it.first == "tuple_elements" }?.second as? TacTupleValue
                             ?: error(
                                 if (instruction.mnemonic == "TUPLE") {
                                     "Tuple input not found for TUPLE output"
@@ -728,6 +737,7 @@ class Stack(
         contRef: Int? = null, // if this is PUSHCONT
         registerState: RegisterState,
         instruction: TvmRealInst,
+        metaObjects: MutableList<Pair<String, TacStackValue>>,
     ): TacInstInfo {
         val inputs = mutableListOf<Pair<String, TacStackValue>>()
         val outputs = mutableListOf<TacStackValue>()
@@ -745,6 +755,7 @@ class Stack(
                         registerState,
                         inputs,
                         instruction,
+                        metaObjects,
                     )
                 else -> error("Unsupported input type: \${input.type}")
             }
@@ -752,7 +763,16 @@ class Stack(
 
         outputSpec.forEach { output ->
             when (output.type) {
-                TvmStackEntryType.SIMPLE -> handleSimpleOutput(output, ctx, contRef, inputs, outputs, instruction)
+                TvmStackEntryType.SIMPLE ->
+                    handleSimpleOutput(
+                        output,
+                        ctx,
+                        contRef,
+                        inputs,
+                        outputs,
+                        instruction,
+                        metaObjects,
+                    )
                 TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
                 TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction)
 
@@ -760,7 +780,7 @@ class Stack(
             }
         }
 
-        return TacInstInfo(inputs, outputs, continuationMap)
+        return TacInstInfo(inputs, outputs, continuationMap, metaObjects)
     }
 }
 
