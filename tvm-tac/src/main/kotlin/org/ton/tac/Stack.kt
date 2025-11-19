@@ -102,27 +102,21 @@ internal fun updateStack(
 }
 
 data class RegisterState(
-    val tupleRegistry: LinkedHashMap<String, List<TacStackValue>> = LinkedHashMap(),
     val controlRegisters: MutableMap<Int, TacStackValue> = mutableMapOf(),
+    val tupleRegistry: MutableMap<String, List<TacStackValue>> = mutableMapOf(),
 ) {
-    fun copy(): RegisterState =
-        RegisterState(
-            tupleRegistry = tupleRegistry.toMutableMap() as LinkedHashMap<String, List<TacStackValue>>,
-            controlRegisters = controlRegisters.toMutableMap(),
-        )
+    fun copy(): RegisterState {
+        val newControlRegisters = controlRegisters.toMutableMap()
+        val newTupleRegistry = tupleRegistry.toMutableMap()
+        return RegisterState(newControlRegisters, newTupleRegistry)
+    }
 
     fun assignFrom(other: RegisterState) {
-        this.controlRegisters.clear()
-        this.tupleRegistry.clear()
+        controlRegisters.clear()
+        controlRegisters.putAll(other.controlRegisters)
 
-        other.controlRegisters.forEach { (key, value) ->
-            this.controlRegisters[key] = value.copy()
-        }
-
-        other.tupleRegistry.forEach { (key, valueList) ->
-            val copiedList = valueList.map { it.copy() }
-            this.tupleRegistry[key] = copiedList
-        }
+        tupleRegistry.clear()
+        tupleRegistry.putAll(other.tupleRegistry)
     }
 }
 
@@ -631,7 +625,6 @@ class Stack(
         output: TvmStackEntryDescription,
         ctx: TacGenerationContext<*>,
         contRef: Int?,
-        inputs: List<Pair<String, TacStackValue>>,
         outputs: MutableList<TacStackValue>,
         instruction: TvmRealInst,
         metaObjects: MutableList<Pair<String, TacStackValue>>,
@@ -694,6 +687,7 @@ class Stack(
         inputs: List<Pair<String, TacStackValue>>,
         outputs: MutableList<TacStackValue>,
         instruction: TvmRealInst,
+        ctx: TacGenerationContext<*>,
     ) {
         val specOutput = output as TvmArrayStackEntryDescription
         val tupleVar =
@@ -716,13 +710,21 @@ class Stack(
             )
 
         if (tupleVar.elements.size != specLengthType) {
-            error(
-                if (instruction.mnemonic == "UNTUPLE") {
-                    "Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType."
+            if (instruction.mnemonic == "UNTUPLE") {
+                if (tupleVar.elements.isEmpty()) {
+                    tupleVar.elements =
+                        List(specLengthType) {
+                            TacVar(
+                                name = "var_${ctx.nextVarId()}",
+                                valueTypes = listOf(TvmType.FORGOT_ANY),
+                            )
+                        }
                 } else {
-                    "The instruction ${instruction.mnemonic} is not supported."
-                },
-            )
+                    error("Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.")
+                }
+            } else {
+                error("The instruction ${instruction.mnemonic} is not supported.")
+            }
         }
 
         tupleVar.elements.forEach { element ->
@@ -769,13 +771,12 @@ class Stack(
                         output,
                         ctx,
                         contRef,
-                        inputs,
                         outputs,
                         instruction,
                         metaObjects,
                     )
                 TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
-                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction)
+                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction, ctx)
 
                 else -> error("${output.type} isn't supported yet")
             }

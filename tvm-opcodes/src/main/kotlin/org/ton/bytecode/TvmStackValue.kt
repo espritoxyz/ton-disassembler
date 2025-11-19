@@ -15,6 +15,7 @@ enum class TvmType {
     BUILDER,
     NULL,
     ANY,
+    FORGOT_ANY,
 }
 
 enum class TvmStackEntryType {

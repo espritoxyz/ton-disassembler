@@ -65,7 +65,7 @@ data class TacVar(
 data class TacTupleValue(
     override val name: String,
     override val valueTypes: List<TvmType> = listOf(TvmType.TUPLE),
-    val elements: List<TacStackValue>,
+    var elements: List<TacStackValue>,
 ) : TacStackValue {
     override fun copy() = TacTupleValue(name, valueTypes, elements.map { it.copy() })
 }

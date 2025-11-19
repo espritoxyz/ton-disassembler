@@ -369,40 +369,74 @@ fun isCompatible(
 fun areStatesCompatible(
     state1: RegisterState,
     state2: RegisterState,
-): Boolean {
+): Pair<String, Boolean> {
     val regKeys1 = state1.controlRegisters.keys
     val regKeys2 = state2.controlRegisters.keys
-    if (regKeys1 != regKeys2) return false
+    if (regKeys1 != regKeys2) {
+        val missingIn1 = regKeys2 - regKeys1
+        val missingIn2 = regKeys1 - regKeys2
+        val errorString =
+            buildString {
+                append("Control register keys mismatch: ")
+                if (missingIn1.isNotEmpty()) append("missing in state1: $missingIn1")
+                if (missingIn1.isNotEmpty() && missingIn2.isNotEmpty()) append("; ")
+                if (missingIn2.isNotEmpty()) append("missing in state2: $missingIn2")
+            }
+        return Pair(errorString, false)
+    }
 
-    val tupleKeys1 = state1.tupleRegistry.keys
-    val tupleKeys2 = state2.tupleRegistry.keys
-    if (tupleKeys1 != tupleKeys2) return false
+    val tupleKeys1 = state1.tupleRegistry.keys.toList()
+    val tupleKeys2 = state2.tupleRegistry.keys.toList()
+    if (tupleKeys1.size != tupleKeys2.size) {
+        val errorString =
+            "Tuple registry size mismatch: state1" +
+                "has ${tupleKeys1.size} tuples, state2 has ${tupleKeys2.size} tuples"
+        return Pair(errorString, false)
+    }
 
     for (key in regKeys1) {
-        if (!isCompatible(state1.controlRegisters.getValue(key), state2.controlRegisters.getValue(key))) {
-            println("Conflict in register c_$key")
-            return false
+        val value1 = state1.controlRegisters.getValue(key)
+        val value2 = state2.controlRegisters.getValue(key)
+        if (!isCompatible(value1, value2)) {
+            val errorString =
+                "Conflict in control register c_$key: " +
+                    "state1 has $value1 (types: ${value1.valueTypes}), " +
+                    "state2 has $value2 (types: ${value2.valueTypes})"
+            return Pair(errorString, false)
         }
     }
 
-    for (key in tupleKeys1) {
-        val tupleElements1 = state1.tupleRegistry.getValue(key)
-        val tupleElements2 = state2.tupleRegistry.getValue(key)
+    for (index in 0..<tupleKeys1.size) {
+        val key1 = tupleKeys1[index]
+        val key2 = tupleKeys2[index]
+
+        val tupleElements1 = state1.tupleRegistry.getValue(key1)
+        val tupleElements2 = state2.tupleRegistry.getValue(key2)
 
         if (tupleElements1.size != tupleElements2.size) {
-            println("Conflict in tuple '$key': Sizes are different (${tupleElements1.size} vs ${tupleElements2.size}).")
-            return false
+            val errorString =
+                "Tuple size mismatch for keys '$key1' and '$key2': " +
+                    "state1 has ${tupleElements1.size} elements, state2 has ${tupleElements2.size} elements"
+            return Pair(errorString, false)
         }
 
         for (i in tupleElements1.indices) {
             if (!isCompatible(tupleElements1[i], tupleElements2[i])) {
-                println("Conflict in tuple '$key' at index $i.")
-                return false
+                val elem1 = tupleElements1[i]
+                val elem2 = tupleElements2[i]
+                if (!isCompatible(elem1, elem2)) {
+                    val errorString =
+                        "Tuple element mismatch: " +
+                            "at index $i in tuples '$key1' and '$key2': " +
+                            "state1 has $elem1 (types: ${elem1.valueTypes}), " +
+                            "state2 has $elem2 (types: ${elem2.valueTypes})"
+                    return Pair(errorString, false)
+                }
             }
         }
     }
 
-    return true
+    return Pair("States are compatible", true)
 }
 
 private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
@@ -452,17 +486,21 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
     if (branchStates.size > 1) {
         val (firstStack, firstRegisterState) = branchStates.first()
-        val allStatesCompatible =
-            branchStates.drop(1).all { (otherStack, otherRegisterState) ->
-                areStatesCompatible(
-                    firstRegisterState,
-                    otherRegisterState,
-                )
+        val allStatesCompatibleResults =
+            branchStates.drop(1).map { (otherStack, otherRegisterState) ->
+                areStatesCompatible(firstRegisterState, otherRegisterState)
             }
 
+        val allStatesCompatible = allStatesCompatibleResults.all { it.second }
+
         if (!allStatesCompatible) {
+            val errorMessages =
+                allStatesCompatibleResults
+                    .filter { !it.second }
+                    .joinToString("\n") { it.first }
+
             throw IllegalStateException(
-                "Decompilation failed at '${inst.mnemonic}': Incompatible states after branches merging at label '${controlFlowPrep.label}'.",
+                "Decompilation failed at '${inst.mnemonic}': Incompatible states after branches merging at label '${controlFlowPrep.label}':\n$errorMessages",
             )
         }
     }

@@ -92,7 +92,7 @@ private fun StringBuilder.dumpInstruction(
     indent: String,
 ) {
     append(indent)
-    append("POPCTR c${inst.registerIndex}, ${inst.value.name}")
+    append("${inst.value.name} = POPCTR c${inst.registerIndex}")
     appendLine()
 }
 
@@ -101,7 +101,7 @@ private fun StringBuilder.dumpInstruction(
     indent: String,
 ) {
     append(indent)
-    append("PUSHCTR c${inst.registerIndex}, ${inst.value.name}")
+    append("${inst.value.name} = PUSHCTR c${inst.registerIndex}")
     appendLine()
 }
 

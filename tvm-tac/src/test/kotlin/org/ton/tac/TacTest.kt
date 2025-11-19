@@ -1,5 +1,6 @@
 package org.ton.tac
 
+import org.junit.jupiter.api.assertThrows
 import org.ton.bytecode.disassembleBoc
 import java.nio.file.Path
 import kotlin.io.path.Path
@@ -10,19 +11,38 @@ import kotlin.test.assertTrue
 
 class TacTest {
     @Test
-    @Ignore
-    fun testIfCtrUncompatible() {
-        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+    fun testTupleCompatible() {
+        val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")
         val contract = disassembleBoc(path)
         val tacCode = generateTacContractCode(contract)
     }
 
     @Test
-    @Ignore
-    fun testIfCtrUncompatibleDebug() {
-        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+    fun testTupleCompatibleDebug() {
+        val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")
         val contract = disassembleBoc(path)
         val tacCode = generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testTupleUncompatible() {
+        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+        val contract = disassembleBoc(path)
+
+        val exception =
+            assertThrows<IllegalStateException> {
+                generateTacContractCode(contract)
+            }
+    }
+
+    @Test
+    fun testTupleUncompatibleDebug() {
+        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+        val contract = disassembleBoc(path)
+        val exception =
+            assertThrows<IllegalStateException> {
+                generateTacContractCode(contract)
+            }
     }
 
     @Test
