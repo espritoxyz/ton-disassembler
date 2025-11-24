@@ -552,8 +552,7 @@ class Stack(
                 ?: if (instruction.mnemonic == "TUPLE") {
                     error("Tuple has an invalid length.")
                 } else {
-                    val a = inputs.last().second as TacVar
-                    a.value
+                    (inputs.last().second as TacVar).value
                         ?: error("The instruction ${instruction.mnemonic} is not supported.")
                 }
 
