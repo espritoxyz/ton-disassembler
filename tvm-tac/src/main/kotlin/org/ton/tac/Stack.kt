@@ -629,39 +629,59 @@ class Stack(
         instruction: TvmRealInst,
         metaObjects: MutableList<Pair<String, TacStackValue>>,
         value: Int?,
+        inputs: MutableList<Pair<String, TacStackValue>>,
+        registerState: RegisterState
     ) {
         val specOutput = output as TvmSimpleStackEntryDescription
         val specName = specOutput.name
         val specValueTypes = specOutput.valueTypes
         val name = "${specName}_${ctx.nextVarId()}"
-        val pushValue =
-            if (contRef != null) {
-                ContinuationValue(name, contRef).also {
-                    check(it.valueTypes == specValueTypes) {
-                        "Unexpected output value types for $output. Expected ${it.valueTypes}."
-                    }
-                }
-            } else {
-                if (specValueTypes.contains(TvmType.TUPLE)) {
-                    val tupleInput =
-                        metaObjects.find { it.first == "tuple_elements" }?.second as? TacTupleValue
-                            ?: error(
-                                if (instruction.mnemonic == "TUPLE") {
-                                    "Tuple input not found for TUPLE output"
-                                } else {
-                                    "The instruction ${instruction.mnemonic} is not supported."
-                                },
-                            )
-                    TacTupleValue(
-                        name = name,
-                        elements = tupleInput.elements,
-                    )
-                } else {
-                    TacVar(name = name, valueTypes = specValueTypes, value = value)
+
+        val pushValue = if (contRef != null) {
+            ContinuationValue(name, contRef).also {
+                check(it.valueTypes == specValueTypes) {
+                    "Unexpected output value types for $output. Expected ${it.valueTypes}."
                 }
             }
+        } else
+            if (specValueTypes.contains(TvmType.TUPLE) && instruction.mnemonic == "TPUSH") {
+                val tupleInput = inputs.find { it.first == "t" }?.second
+                val valueInput = inputs.find { it.first == "x" }?.second
+
+                val originalElements = if (tupleInput is TacTupleValue) {
+                    tupleInput.elements
+                } else {
+                    registerState.tupleRegistry[tupleInput?.name] ?: emptyList()
+                }
+
+                val newElements = originalElements + (valueInput ?: TacVar(name = "unknown", valueTypes = emptyList()))
+                TacTupleValue(
+                    name = name,
+                    elements = newElements
+                )
+            } else if (specValueTypes.contains(TvmType.TUPLE)) {
+                val tupleInput = metaObjects.find { it.first == "tuple_elements" }?.second as? TacTupleValue
+                    ?: error(
+                        if (instruction.mnemonic == "TUPLE") {
+                            "Tuple input not found for TUPLE output"
+                        } else {
+                            "The instruction ${instruction.mnemonic} is not supported."
+                        },
+                    )
+                TacTupleValue(
+                    name = name,
+                    elements = tupleInput.elements,
+                )
+            } else {
+                TacVar(name = name, valueTypes = specValueTypes, value = value)
+            }
+
         push(pushValue)
         outputs.add(pushValue)
+
+        if (instruction.mnemonic == "TPUSH" && pushValue is TacTupleValue) {
+            registerState.tupleRegistry[pushValue.name] = pushValue.elements
+        }
     }
 
     private fun handleConstOutput(
@@ -781,6 +801,8 @@ class Stack(
                         instruction,
                         metaObjects,
                         value,
+                        inputs,
+                        registerState,
                     )
                 TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
                 TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction, ctx)
