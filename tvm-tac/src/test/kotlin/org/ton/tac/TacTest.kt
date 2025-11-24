@@ -37,7 +37,7 @@ class TacTest {
 
     @Test
     fun testTupleUncompatibleDebug() {
-        val path = getResourcePath<TacTest>("/samples/uncompatible.boc")
+        val path = getResourcePath<TacTest>("/samples/incompatible.boc")
         val contract = disassembleBoc(path)
         val exception =
             assertThrows<IllegalStateException> {
