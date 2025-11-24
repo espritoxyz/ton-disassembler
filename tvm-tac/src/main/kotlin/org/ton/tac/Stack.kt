@@ -548,13 +548,14 @@ class Stack(
     ) {
         val specInput = input as TvmArrayStackEntryDescription
         val specLengthType =
-            specInput.lengthVar.toIntOrNull() ?: error(
-                if (instruction.mnemonic == "TUPLE") {
-                    "Tuple has an invalid length."
+            specInput.lengthVar.toIntOrNull()
+                ?: if (instruction.mnemonic == "TUPLE") {
+                    error("Tuple has an invalid length.")
                 } else {
-                    "The instruction ${instruction.mnemonic} is not supported."
-                },
-            )
+                    val a = inputs.last().second as TacVar
+                    a.value
+                        ?: error("The instruction ${instruction.mnemonic} is not supported.")
+                }
 
         val tupleElements: MutableList<TacStackValue> = mutableListOf()
         repeat(specLengthType) {
@@ -628,6 +629,7 @@ class Stack(
         outputs: MutableList<TacStackValue>,
         instruction: TvmRealInst,
         metaObjects: MutableList<Pair<String, TacStackValue>>,
+        value: Int?,
     ) {
         val specOutput = output as TvmSimpleStackEntryDescription
         val specName = specOutput.name
@@ -656,7 +658,7 @@ class Stack(
                         elements = tupleInput.elements,
                     )
                 } else {
-                    TacVar(name = name, valueTypes = specValueTypes)
+                    TacVar(name = name, valueTypes = specValueTypes, value = value)
                 }
             }
         push(pushValue)
@@ -670,6 +672,7 @@ class Stack(
         outputs: MutableList<TacStackValue>,
     ) {
         val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
+        val value = output.value
         check(contRef == null) {
             "Unexpected continuation reference for output $output."
         }
@@ -677,6 +680,7 @@ class Stack(
             TacVar(
                 name = "const_${ctx.nextVarId()}",
                 valueTypes = valueType,
+                value = value,
             )
         push(pushValue)
         outputs.add(pushValue)
@@ -741,6 +745,7 @@ class Stack(
         registerState: RegisterState,
         instruction: TvmRealInst,
         metaObjects: MutableList<Pair<String, TacStackValue>>,
+        value: Int?,
     ): TacInstInfo {
         val inputs = mutableListOf<Pair<String, TacStackValue>>()
         val outputs = mutableListOf<TacStackValue>()
@@ -749,7 +754,9 @@ class Stack(
         // Pop inputs in reverse since we deal with stack
         inputSpec.reversed().forEach { input ->
             when (input.type) {
-                TvmStackEntryType.SIMPLE -> handleSimpleInput(input, continuationMap, registerState, inputs)
+                TvmStackEntryType.SIMPLE -> {
+                    handleSimpleInput(input, continuationMap, registerState, inputs)
+                }
                 TvmStackEntryType.ARRAY ->
                     handleArrayInput(
                         input,
@@ -774,6 +781,7 @@ class Stack(
                         outputs,
                         instruction,
                         metaObjects,
+                        value,
                     )
                 TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
                 TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction, ctx)

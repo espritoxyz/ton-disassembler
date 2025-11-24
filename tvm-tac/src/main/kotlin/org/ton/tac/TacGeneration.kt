@@ -12,6 +12,7 @@ import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
+import org.ton.bytecode.TvmTakingInst
 import org.ton.bytecode.TvmType
 import org.ton.bytecode.extractPrimitiveOperands
 
@@ -630,6 +631,12 @@ private fun <Inst : AbstractTacInst> handleComplexInstruction(
         } else {
             null
         }
+    val value =
+        if (inst is TvmTakingInst) {
+            inst.i
+        } else {
+            null
+        }
 
     val (inputs, outputs, stackContinuationMap) =
         stack.processNonStackInst(
@@ -640,6 +647,7 @@ private fun <Inst : AbstractTacInst> handleComplexInstruction(
             registerState = registerState,
             instruction = inst,
             metaObjects = mutableListOf(),
+            value = value,
         )
 
     if (inst.branches.isEmpty() || inst.ignoreBranches()) {

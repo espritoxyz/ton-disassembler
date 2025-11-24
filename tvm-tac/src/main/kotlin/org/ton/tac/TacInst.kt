@@ -58,6 +58,7 @@ sealed interface TacStackValue {
 data class TacVar(
     override val name: String,
     override var valueTypes: List<TvmType> = listOf(),
+    var value: Int? = null,
 ) : TacStackValue {
     override fun copy() = TacVar(name, valueTypes)
 }

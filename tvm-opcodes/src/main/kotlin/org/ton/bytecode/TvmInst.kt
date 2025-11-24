@@ -19,6 +19,11 @@ sealed interface TvmRealInst : TvmInst {
     val noBranch: Boolean
 }
 
+@Serializable
+sealed interface TvmTakingInst {
+    val i: Int
+}
+
 /**
  * These instructions never occur in disassembler output.
  * They are needed for custom modifications of [TvmContractCode].

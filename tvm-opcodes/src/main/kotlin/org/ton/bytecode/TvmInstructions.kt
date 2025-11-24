@@ -157,7 +157,7 @@ data class TvmAppActionsChangelibInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmType.INT)
+                valueTypes = listOf(TvmType.INT),
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -1036,8 +1036,8 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
 data class TvmAppConfigGetparamInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmAppConfigInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmAppConfigInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -21447,8 +21447,8 @@ data class TvmConstIntPushint16Inst(
 data class TvmConstIntPushint4Inst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmConstIntInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmConstIntInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24662,13 +24662,14 @@ data class TvmContRegistersInvertInst(
  * ent codepage. Notice that if a control register accepts only values of a specific type, a type-check
  * ing exception may occur.
  */
+
 @Serializable
 @SerialName(TvmContRegistersPopctrInst.MNEMONIC)
 data class TvmContRegistersPopctrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24731,8 +24732,8 @@ data class TvmContRegistersPopctrxInst(
 data class TvmContRegistersPopsaveInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24762,8 +24763,8 @@ data class TvmContRegistersPopsaveInst(
 data class TvmContRegistersPushctrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24880,8 +24881,8 @@ data class TvmContRegistersSamealtsaveInst(
 data class TvmContRegistersSaveInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24905,8 +24906,8 @@ data class TvmContRegistersSaveInst(
 data class TvmContRegistersSavealtInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24930,8 +24931,8 @@ data class TvmContRegistersSavealtInst(
 data class TvmContRegistersSavebothInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24955,8 +24956,8 @@ data class TvmContRegistersSavebothInst(
 data class TvmContRegistersSetaltctrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -24987,8 +24988,8 @@ data class TvmContRegistersSetaltctrInst(
 data class TvmContRegistersSetcontctrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -25099,8 +25100,8 @@ data class TvmContRegistersSetexitaltInst(
 data class TvmContRegistersSetretctrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmContRegistersInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmContRegistersInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription> 
@@ -32638,8 +32639,8 @@ data class TvmStackBasicNopInst(
 data class TvmStackBasicPopInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackBasicInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackBasicInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -32663,8 +32664,8 @@ data class TvmStackBasicPopInst(
 data class TvmStackBasicPushInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackBasicInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackBasicInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -32688,8 +32689,8 @@ data class TvmStackBasicPushInst(
 data class TvmStackBasicXchg0iInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackBasicInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackBasicInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -32713,8 +32714,8 @@ data class TvmStackBasicXchg0iInst(
 data class TvmStackBasicXchg0iLongInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackBasicInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackBasicInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -32738,8 +32739,8 @@ data class TvmStackBasicXchg0iLongInst(
 data class TvmStackBasicXchg1iInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackBasicInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackBasicInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -32817,8 +32818,8 @@ data class TvmStackComplexBlkdrop2Inst(
 data class TvmStackComplexBlkdropInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackComplexInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackComplexInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -33174,8 +33175,8 @@ data class TvmStackComplexPickInst(
 data class TvmStackComplexPopLongInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackComplexInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackComplexInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription>? 
@@ -33280,8 +33281,8 @@ data class TvmStackComplexPush3Inst(
 data class TvmStackComplexPushLongInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val i: Int, // uint
-): TvmRealInst, TvmStackComplexInst {
+    override val i: Int, // uint
+): TvmRealInst, TvmStackComplexInst, TvmTakingInst {
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     override val stackInputs: List<TvmStackEntryDescription>? 
