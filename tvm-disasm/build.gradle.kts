@@ -25,23 +25,15 @@ publishing {
     }
 }
 
-val ignoredFiles = listOf("TvmInstructions.kt", "TvmInstructionsDefaults.kt")
-
-tasks.lintKotlinMain {
-    exclude {
-        it.file.name in ignoredFiles
-    }
-}
-
-tasks.formatKotlinMain {
-    exclude {
-        it.file.name in ignoredFiles
-    }
-}
-
 tasks.register("formatAndLintAll") {
     group = "formatting"
 
     dependsOn(tasks.findByName("formatKotlin"))
     dependsOn(tasks.findByName("lintKotlin"))
+}
+
+tasks.register<JavaExec>(TaskNames.GENERATE_INSTRUCTIONS) {
+    classpath = sourceSets.main.get().runtimeClasspath
+    mainClass = "GenerateInstKt"
+    workingDir = rootProject.projectDir
 }
