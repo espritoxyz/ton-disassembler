@@ -70,7 +70,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     stack: Stack,
     methodNumber: MethodId,
     inst: TvmInst,
-    operands: MutableMap<String, Any?>,
+    operands: Map<String, Any?>,
 ): TacOrdinaryInst<Inst> {
     val stackEntriesBefore = stack.copyEntries()
     val method =
@@ -82,13 +82,13 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     }
     ctx.calledMethodsSet.add(methodNumber)
 
-    val (_, methodArgs) = generateTacCodeBlock<Inst>(ctx, codeBlock = method)
+    val (_, methodArgs) = generateTacCodeBlock(ctx, codeBlock = method)
 
     val argsSize = methodArgs.size
+
     val methodStack = updateStack(stackEntriesBefore, methodArgs, stack)
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
-    // TODO: why analyze second time?
     val (inlineInsts, inlineArgs) =
         generateTacCodeBlock(
             ctx,
@@ -96,7 +96,6 @@ internal fun <Inst : AbstractTacInst> processCallDict(
             stack = methodStack,
         )
 
-    // for debugging?
     val newRef = ctx.nextContinuationId()
     ctx.methodsWithSubstitutedStack[newRef] =
         TacContinuationInfo(
@@ -113,12 +112,19 @@ internal fun <Inst : AbstractTacInst> processCallDict(
             stackEntriesAfter = methodStack.copyEntries(),
             contArgsNum = argsSize,
         )
+
     val globalStackTakenSize = processedMethodInfo.stackTakenSize
     val globalStackPushedSize = processedMethodInfo.stackPushedSize
+
     val newAddedElems = processedMethodInfo.stackEntriesAfter.takeLast(globalStackPushedSize)
 
-    stack.dropLastInPlace(globalStackTakenSize)
-    stack.addAll(newAddedElems)
+    repeat(globalStackTakenSize) {
+        stack.pop(0)
+    }
+
+    newAddedElems.forEach {
+        stack.push(it)
+    }
 
     val nonStackTacInst =
         TacOrdinaryInst<Inst>(
@@ -140,7 +146,7 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
                 branch.type == "variable"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
-            TODO("in ${inst.mnemonic} branch isn't type variable")
+            // TODO("in ${inst.mnemonic} branch isn't type variable")
         }
     }
 }

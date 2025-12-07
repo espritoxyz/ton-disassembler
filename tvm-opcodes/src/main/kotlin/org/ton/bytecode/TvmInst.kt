@@ -17,11 +17,7 @@ sealed interface TvmRealInst : TvmInst {
     val stackOutputs: List<TvmStackEntryDescription>?
     val branches: List<TvmControlFlowContinuation>
     val noBranch: Boolean
-}
-
-@Serializable
-sealed interface TvmTakingInst {
-    val i: Int
+    val operands: Map<String, Any>
 }
 
 /**

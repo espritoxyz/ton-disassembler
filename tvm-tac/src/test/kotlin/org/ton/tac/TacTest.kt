@@ -14,14 +14,14 @@ class TacTest {
     fun testTupleCompatible() {
         val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testTupleCompatibleDebug() {
         val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
+        generateDebugTacContractCode(contract)
     }
 
     @Test
@@ -29,62 +29,61 @@ class TacTest {
         val path = getResourcePath<TacTest>("/samples/incompatible.boc")
         val contract = disassembleBoc(path)
 
-        val exception =
-            assertThrows<IllegalStateException> {
-                generateTacContractCode(contract)
-            }
+        assertThrows<IllegalStateException> {
+            generateTacContractCode(contract)
+        }
     }
 
     @Test
     fun testTupleUncompatibleDebug() {
         val path = getResourcePath<TacTest>("/samples/incompatible.boc")
         val contract = disassembleBoc(path)
-        val exception =
-            assertThrows<IllegalStateException> {
-                generateTacContractCode(contract)
-            }
+
+        assertThrows<IllegalStateException> {
+            generateTacContractCode(contract)
+        }
     }
 
     @Test
     fun testIfCtrCompatible() {
         val path = getResourcePath<TacTest>("/samples/compatible.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testIfCtrCompatibleDebug() {
         val path = getResourcePath<TacTest>("/samples/compatible.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
+        generateDebugTacContractCode(contract)
     }
 
     @Test
     fun testUntuple() {
         val path = getResourcePath<TacTest>("/samples/untuple.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testUntupleDebug() {
         val path = getResourcePath<TacTest>("/samples/untuple.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
+        generateDebugTacContractCode(contract)
     }
 
     @Test
     fun testArray() {
         val path = getResourcePath<TacTest>("/samples/array.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testArrayDebug() {
         val path = getResourcePath<TacTest>("/samples/array.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
+        generateDebugTacContractCode(contract)
     }
 
     @Test
@@ -92,7 +91,7 @@ class TacTest {
     fun testContractFromTact() {
         val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        generateTacContractCode(contract)
     }
 
     @Test
@@ -100,7 +99,7 @@ class TacTest {
     fun testContractFromTactDebug() {
         val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateDebugTacContractCode(contract)
+        generateDebugTacContractCode(contract)
     }
 
     @Test

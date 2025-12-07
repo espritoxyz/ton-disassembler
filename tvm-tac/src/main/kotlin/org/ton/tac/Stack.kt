@@ -1,63 +1,12 @@
 package org.ton.tac
 
 import mu.KLogging
-import org.ton.bytecode.TvmArrayStackEntryDescription
-import org.ton.bytecode.TvmConstStackEntryDescription
-import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
-import org.ton.bytecode.TvmSimpleStackEntryDescription
+import org.ton.bytecode.TvmSpecType
 import org.ton.bytecode.TvmStackBasicInst
-import org.ton.bytecode.TvmStackBasicNopInst
-import org.ton.bytecode.TvmStackBasicPopInst
-import org.ton.bytecode.TvmStackBasicPushInst
-import org.ton.bytecode.TvmStackBasicXchg0iInst
-import org.ton.bytecode.TvmStackBasicXchg0iLongInst
-import org.ton.bytecode.TvmStackBasicXchg1iInst
-import org.ton.bytecode.TvmStackBasicXchgIjInst
-import org.ton.bytecode.TvmStackComplexBlkdrop2Inst
-import org.ton.bytecode.TvmStackComplexBlkdropInst
-import org.ton.bytecode.TvmStackComplexBlkpushInst
-import org.ton.bytecode.TvmStackComplexBlkswapInst
-import org.ton.bytecode.TvmStackComplexBlkswxInst
-import org.ton.bytecode.TvmStackComplexChkdepthInst
-import org.ton.bytecode.TvmStackComplexDepthInst
-import org.ton.bytecode.TvmStackComplexDrop2Inst
-import org.ton.bytecode.TvmStackComplexDropxInst
-import org.ton.bytecode.TvmStackComplexDup2Inst
 import org.ton.bytecode.TvmStackComplexInst
-import org.ton.bytecode.TvmStackComplexMinusrollxInst
-import org.ton.bytecode.TvmStackComplexOnlytopxInst
-import org.ton.bytecode.TvmStackComplexOnlyxInst
-import org.ton.bytecode.TvmStackComplexOver2Inst
-import org.ton.bytecode.TvmStackComplexPickInst
-import org.ton.bytecode.TvmStackComplexPopLongInst
-import org.ton.bytecode.TvmStackComplexPu2xcInst
-import org.ton.bytecode.TvmStackComplexPush2Inst
-import org.ton.bytecode.TvmStackComplexPush3Inst
-import org.ton.bytecode.TvmStackComplexPushLongInst
-import org.ton.bytecode.TvmStackComplexPuxc2Inst
-import org.ton.bytecode.TvmStackComplexPuxcInst
-import org.ton.bytecode.TvmStackComplexPuxcpuInst
-import org.ton.bytecode.TvmStackComplexReverseInst
-import org.ton.bytecode.TvmStackComplexRevxInst
-import org.ton.bytecode.TvmStackComplexRollxInst
-import org.ton.bytecode.TvmStackComplexRotInst
-import org.ton.bytecode.TvmStackComplexRotrevInst
-import org.ton.bytecode.TvmStackComplexSwap2Inst
-import org.ton.bytecode.TvmStackComplexTuckInst
-import org.ton.bytecode.TvmStackComplexXc2puInst
-import org.ton.bytecode.TvmStackComplexXchg2Inst
-import org.ton.bytecode.TvmStackComplexXchg3AltInst
-import org.ton.bytecode.TvmStackComplexXchg3Inst
-import org.ton.bytecode.TvmStackComplexXchgxInst
-import org.ton.bytecode.TvmStackComplexXcpu2Inst
-import org.ton.bytecode.TvmStackComplexXcpuInst
-import org.ton.bytecode.TvmStackComplexXcpuxcInst
-import org.ton.bytecode.TvmStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
-import org.ton.bytecode.TvmType
 import java.util.Collections.swap
-import kotlin.text.clear
 
 val SUPPORTED_STACK_TYPES = setOf(TvmStackEntryType.SIMPLE, TvmStackEntryType.ARRAY, TvmStackEntryType.CONST)
 
@@ -125,58 +74,48 @@ class Stack(
 ) {
     private var argCounter = 0
     private val createdArguments = mutableListOf<TacVar>()
-
-    private fun getNextArg(): Int = argCounter++
+    private val stack: MutableList<TacStackValue> = initialStack.toMutableList()
 
     val size: Int get() = stack.size
+
+    fun nextVarId(): Int = argCounter++
+
+    fun getCreatedArgs(): List<TacVar> = createdArguments
 
     fun copy(): Stack {
         val copiedVars = stack.map { it.copy() }
         val newStack = Stack(copiedVars)
         newStack.argCounter = this.argCounter
+        newStack.createdArguments.addAll(this.createdArguments)
         return newStack
     }
 
     fun copyEntries(): List<TacStackValue> = stack.map { it.copy() }
 
-    fun dropLastInPlace(i: Int) {
-        if (i <= 0) return
-        if (i > stack.size) {
-            stack.clear()
-        } else {
-            stack.subList(stack.size - i, stack.size).clear()
+    fun push(value: TacStackValue) {
+        stack.add(value)
+    }
+
+    fun pop(depth: Int = 0): TacStackValue {
+        val requiredSize = depth + 1
+        if (stack.size < requiredSize) {
+            extendStack(requiredSize)
         }
-    }
 
-    fun addAll(elems: List<TacStackValue>) {
-        stack.addAll(elems)
-    }
+        if (depth > 0) {
+            doReverse(depth + 1, 0)
+        }
 
-    private fun stackIndex(i: Int): Int = size - i - 1
-
-    private val stack: MutableList<TacStackValue> = initialStack.toMutableList()
-
-    fun getAssignInst(
-        newVar: TacVar,
-        i: Int,
-    ): TacAssignInst {
-        val value = pop(i)
-        val result = TacAssignInst(lhs = newVar, rhs = value)
-        push(newVar)
-        return result
-    }
-
-    fun pop(i: Int): TacStackValue {
-        doReverse(i + 1, 0)
-        // empty expected types == no type check
         val result = popWithTypeCheck(expectedTypes = emptyList())
-        if (i > 0) {
-            doReverse(i, 0)
+
+        if (depth > 0) {
+            doReverse(depth, 0)
         }
+
         return result
     }
 
-    private fun popWithTypeCheck(expectedTypes: List<TvmType>): TacStackValue {
+    private fun popWithTypeCheck(expectedTypes: List<TvmSpecType>): TacStackValue {
         if (stack.isEmpty()) {
             extendStack(size + 1, listOf(expectedTypes))
         }
@@ -196,249 +135,53 @@ class Stack(
                     "Type mismatch: var $inputVar: expected one of $expectedTypes, but got ${inputVar.valueTypes}"
                 }
             }
-
             return inputVar
         }
 
-        if (inputVar is TacVar && inputVar.valueTypes.isEmpty() && expectedTypes.isNotEmpty()) { // populate type
+        if (inputVar is TacVar && inputVar.valueTypes.isEmpty() && expectedTypes.isNotEmpty()) {
             inputVar.valueTypes = expectedTypes
         }
 
         return inputVar
     }
 
-    fun push(value: TacStackValue) {
-        stack.add(value)
-    }
-
-    fun getCreatedArgs(): List<TacVar> = createdArguments
-
-    fun extendStack(
-        newSize: Int,
-        listWithValueTypes: List<List<TvmType>> = listOf(),
-    ) {
-        if (size >= newSize) {
-            return
-        }
-
-        val newValuesSize = newSize - size
-        val newValues =
-            (0 until newValuesSize).mapIndexed { idx, _ ->
-                TacVar(
-                    name = "arg${getNextArg()}",
-                    valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList(),
-                )
-            }
-
-        createdArguments.addAll(newValues)
-        stack.addAll(0, newValues.asReversed()) // reversed because the "newest" values are at the beginning
-    }
-
-    private fun takeLastIntOrThrowTypeError(): Int {
-        val lastVar = stack.removeAt(stack.size - 1)
-        val intValue = lastVar.valueTypes.find { it == TvmType.INT }
-        if (intValue != null) {
-            TODO("Taking value")
-        } else {
-            throw IllegalArgumentException("Expected an Int type but found: ${lastVar.valueTypes}")
-        }
-    }
-
-    fun execStackInstruction(inst: TvmInst) {
-        when (inst) {
-            is TvmStackBasicInst -> execBasicStackInstruction(inst)
-            is TvmStackComplexInst -> execComplexStackInstruction(inst)
-            else -> error("not stack instruction type")
-        }
-    }
-
-    private fun execBasicStackInstruction(inst: TvmStackBasicInst) {
-        when (inst) {
-            is TvmStackBasicNopInst -> {} // do nothing
-            is TvmStackBasicPushInst -> doPush(inst.i)
-            is TvmStackBasicPopInst -> doPop(inst.i)
-            is TvmStackBasicXchg0iInst -> doSwap(0, inst.i)
-            is TvmStackBasicXchgIjInst -> doSwap(inst.i, inst.j)
-            is TvmStackBasicXchg1iInst -> doSwap(1, inst.i)
-            is TvmStackBasicXchg0iLongInst -> doSwap(0, inst.i)
-        }
-    }
-
-    private fun execComplexStackInstruction(inst: TvmStackComplexInst) {
-        when (inst) {
-            is TvmStackComplexBlkdrop2Inst -> doBlkDrop2(inst.i, inst.j)
-            is TvmStackComplexReverseInst -> doReverse(inst.i + 2, inst.j)
-            is TvmStackComplexBlkswapInst -> doBlkSwap(inst.i, inst.j)
-            is TvmStackComplexRotInst -> doBlkSwap(0, 1)
-            is TvmStackComplexBlkdropInst -> doBlkDrop2(inst.i, 0)
-            is TvmStackComplexBlkpushInst -> doBlkPush(inst.i, inst.j)
-            is TvmStackComplexBlkswxInst -> {
-                val j = takeLastIntOrThrowTypeError()
-                val i = takeLastIntOrThrowTypeError()
-                doBlkSwap(i - 1, j - 1)
-            }
-
-            is TvmStackComplexDrop2Inst -> {
-                doBlkPop(1, 0)
-                doBlkPop(1, 0)
-            }
-
-            is TvmStackComplexDropxInst -> {
-                val i = takeLastIntOrThrowTypeError()
-                doBlkDrop2(i, 0)
-            }
-
-            is TvmStackComplexDup2Inst -> {
-                doPush(1)
-                doPush(1)
-            }
-
-            is TvmStackComplexPopLongInst -> doPop(inst.i)
-            is TvmStackComplexPush2Inst -> {
-                doPush(inst.i)
-                doPush(inst.j + 1)
-            }
-
-            is TvmStackComplexPush3Inst -> {
-                doPush(inst.i)
-                doPush(inst.j + 1)
-                doPush(inst.k + 2)
-            }
-
-            is TvmStackComplexPushLongInst -> {
-                doPush(inst.i)
-            }
-
-            is TvmStackComplexXchg2Inst -> {
-                doXchg2(inst.i, inst.j)
-            }
-
-            is TvmStackComplexOver2Inst -> {
-                doPush(3)
-                doPush(3)
-            }
-
-            is TvmStackComplexSwap2Inst -> {
-                doBlkSwap(1, 1)
-            }
-
-            is TvmStackComplexXcpuInst -> {
-                doSwap(inst.i, 0)
-                doPush(inst.j)
-            }
-
-            is TvmStackComplexTuckInst -> {
-                doSwap(0, 1)
-                doPush(1)
-            }
-
-            is TvmStackComplexMinusrollxInst -> {
-                val i = takeLastIntOrThrowTypeError()
-                doBlkSwap(i - 1, 0)
-            }
-
-            is TvmStackComplexRollxInst -> {
-                val i = takeLastIntOrThrowTypeError()
-                doBlkSwap(0, i - 1)
-            }
-
-            is TvmStackComplexPickInst -> {
-                val i = takeLastIntOrThrowTypeError()
-                doPush(i)
-            }
-
-            is TvmStackComplexPuxcInst -> {
-                doPuxc(inst.i, inst.j - 1)
-            }
-
-            is TvmStackComplexRevxInst -> {
-                val j = takeLastIntOrThrowTypeError()
-                val i = takeLastIntOrThrowTypeError()
-                doReverse(i, j)
-            }
-
-            is TvmStackComplexRotrevInst -> {
-                doSwap(1, 2)
-                doSwap(0, 2)
-            }
-
-            is TvmStackComplexXchgxInst -> {
-                val i = takeLastIntOrThrowTypeError()
-                doSwap(0, i)
-            }
-
-            is TvmStackComplexPu2xcInst -> {
-                doPush(inst.i)
-                doSwap(0, 1)
-                doPuxc(inst.j, inst.k - 1)
-            }
-
-            is TvmStackComplexPuxc2Inst -> {
-                doPush(inst.i)
-                doSwap(0, 2)
-                doXchg2(inst.j, inst.k)
-            }
-
-            is TvmStackComplexPuxcpuInst -> {
-                doPuxc(inst.i, inst.j - 1)
-                doPush(inst.k)
-            }
-
-            is TvmStackComplexXc2puInst -> {
-                doXchg2(inst.i, inst.j)
-                doPush(inst.k)
-            }
-
-            is TvmStackComplexXchg3Inst -> {
-                doXchg3(inst.i, inst.j, inst.k)
-            }
-
-            is TvmStackComplexXchg3AltInst -> {
-                doXchg3(inst.i, inst.j, inst.k)
-            }
-
-            is TvmStackComplexXcpu2Inst -> {
-                doSwap(inst.i, 0)
-                doPush(inst.j)
-                doPush(inst.k + 1)
-            }
-
-            is TvmStackComplexXcpuxcInst -> {
-                doSwap(1, inst.i)
-                doPuxc(inst.j, inst.k - 1)
-            }
-
-            is TvmStackComplexDepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexDepthInst)")
-            is TvmStackComplexChkdepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexChkdepthInst)")
-            is TvmStackComplexOnlytopxInst -> TODO("??")
-            is TvmStackComplexOnlyxInst -> TODO("??")
-        }
-    }
-
-    private fun doSwap(
+    fun doSwap(
         i: Int,
         j: Int,
     ) {
         val newSize = maxOf(i + 1, j + 1)
         extendStack(newSize)
-
         swap(stack, stackIndex(i), stackIndex(j))
     }
 
-    private fun doBlkPush(
+    /**
+     * Reverses the order of s[j+i+1] ... s[j].
+     * @param i -- number of stack entries to reverse
+     * @param j -- offset before first reversed entry
+     */
+    fun doReverse(
+        i: Int,
+        j: Int,
+    ) {
+        extendStack(i + j)
+        val blockStart = stack.size - j
+        val reversedBlock = stack.subList(blockStart - i, blockStart).toList()
+        reversedBlock.indices.forEach { stack[blockStart - 1 - it] = reversedBlock[it] }
+    }
+
+    fun doBlkPush(
         i: Int,
         j: Int,
     ) {
         val newSize = j + 1
         extendStack(newSize)
-
         repeat(i) {
             val idxJ = stackIndex(j)
             stack.add(stack[idxJ])
         }
     }
 
-    private fun doBlkPop(
+    fun doBlkPop(
         i: Int,
         j: Int,
     ) {
@@ -448,31 +191,7 @@ class Stack(
         }
     }
 
-    /**
-     * Reverses the order of s[j+i+1] ... s[j].
-     * @param i -- number of stack entries to reverse
-     * @param j -- offset before first reversed entry
-     * */
-    private fun doReverse(
-        i: Int,
-        j: Int,
-    ) {
-        extendStack(i + j)
-
-        val blockStart = stack.size - j
-        val reversedBlock = stack.subList(blockStart - i, blockStart).toList()
-        reversedBlock.indices.forEach { stack[blockStart - 1 - it] = reversedBlock[it] }
-    }
-
-    private fun doPush(i: Int) {
-        doBlkPush(1, i)
-    }
-
-    private fun doPop(i: Int) {
-        doBlkPop(1, i)
-    }
-
-    private fun doBlkSwap(
+    fun doBlkSwap(
         i: Int,
         j: Int,
     ) {
@@ -481,24 +200,15 @@ class Stack(
         doReverse(i + j + 2, 0)
     }
 
-    private fun doXchg2(
-        i: Int,
-        j: Int,
-    ) {
-        doSwap(1, i)
-        doSwap(0, j)
-    }
-
     /**
      * Drops [i] stack elements under the top [j] elements.
      */
-    private fun doBlkDrop2(
+    fun doBlkDrop2(
         i: Int,
         j: Int,
     ) {
         val newSize = i + j
         extendStack(newSize)
-
         val topElements = mutableListOf<TacStackValue>()
         for (k in 0 until newSize) {
             val topElement = stack.last()
@@ -507,317 +217,39 @@ class Stack(
                 topElements += topElement
             }
         }
-
         topElements.asReversed().forEach { stack.add(it) }
     }
 
-    private fun doPuxc(
-        i: Int,
-        j: Int,
+    fun extendStack(
+        newSize: Int,
+        listWithValueTypes: List<List<TvmSpecType>> = listOf(),
     ) {
-        doPush(i)
-        doSwap(0, 1)
-        doSwap(0, j + 1)
-    }
+        if (size >= newSize) return
 
-    private fun doXchg3(
-        i: Int,
-        j: Int,
-        k: Int,
-    ) {
-        doSwap(2, i)
-        doSwap(1, j)
-        doSwap(0, k)
-    }
-
-    data class TacInstInfo(
-        val inputs: List<Pair<String, TacStackValue>>, // input + input name from spec
-        val outputs: List<TacStackValue>,
-        val continuationMap: Map<String, ContinuationId>,
-        val metaObjects: MutableList<Pair<String, TacStackValue>>,
-    )
-
-    private fun handleArrayInput(
-        input: TvmStackEntryDescription,
-        ctx: TacGenerationContext<*>,
-        continuationMap: MutableMap<String, ContinuationId>,
-        registerState: RegisterState,
-        inputs: MutableList<Pair<String, TacStackValue>>,
-        instruction: TvmRealInst,
-        metaObjects: MutableList<Pair<String, TacStackValue>>,
-    ) {
-        val specInput = input as TvmArrayStackEntryDescription
-        val specLengthType =
-            specInput.lengthVar.toIntOrNull()
-                ?: if (instruction.mnemonic == "TUPLE") {
-                    error("Tuple has an invalid length.")
-                } else {
-                    (inputs.last().second as TacVar).value
-                        ?: error("The instruction ${instruction.mnemonic} is not supported.")
-                }
-
-        val tupleElements: MutableList<TacStackValue> = mutableListOf()
-        repeat(specLengthType) {
-            val poppedValue = popWithTypeCheck(expectedTypes = emptyList())
-            tupleElements.add(poppedValue)
-            if (poppedValue is ContinuationValue) {
-                continuationMap["${input.name}_$it"] = poppedValue.continuationRef
-            }
-        }
-        tupleElements.reverse()
-
-        val tupleVar =
-            TacTupleValue(
-                name = "t_${ctx.nextVarId()}",
-                elements = tupleElements,
-            )
-        registerState.tupleRegistry[tupleVar.name] = tupleElements
-
-        tupleElements.forEach { element ->
-            inputs.add(element.name to element)
-        }
-
-        metaObjects.add(input.name to tupleVar)
-    }
-
-    private fun handleSimpleInput(
-        input: TvmStackEntryDescription,
-        continuationMap: MutableMap<String, ContinuationId>,
-        registerState: RegisterState,
-        inputs: MutableList<Pair<String, TacStackValue>>,
-    ) {
-        val specInput = input as TvmSimpleStackEntryDescription
-        val specValueTypes = specInput.valueTypes
-
-        val poppedValue = popWithTypeCheck(expectedTypes = specValueTypes)
-        val valueToStore =
-            if (specValueTypes.contains(TvmType.TUPLE)) {
-                if (poppedValue is TacTupleValue) {
-                    poppedValue
-                } else {
-                    var tmp: String? = null
-                    for (x in registerState.tupleRegistry.keys) {
-                        if (x.startsWith("global")) tmp = x
-                    }
-                    val result =
-                        TacTupleValue(
-                            name = poppedValue.name,
-                            elements = registerState.tupleRegistry[tmp] ?: emptyList(),
-                        )
-
-                    if (tmp != null) {
-                        registerState.tupleRegistry.remove(tmp)
-                    }
-                    result
-                }
-            } else {
-                poppedValue
-            }
-
-        if (valueToStore is ContinuationValue) {
-            continuationMap[input.name] = valueToStore.continuationRef
-        }
-
-        inputs.add(input.name to valueToStore)
-    }
-
-    private fun handleSimpleOutput(
-        output: TvmStackEntryDescription,
-        ctx: TacGenerationContext<*>,
-        contRef: Int?,
-        outputs: MutableList<TacStackValue>,
-        instruction: TvmRealInst,
-        metaObjects: MutableList<Pair<String, TacStackValue>>,
-        value: Int?,
-        inputs: MutableList<Pair<String, TacStackValue>>,
-        registerState: RegisterState,
-    ) {
-        val specOutput = output as TvmSimpleStackEntryDescription
-        val specName = specOutput.name
-        val specValueTypes = specOutput.valueTypes
-        val name = "${specName}_${ctx.nextVarId()}"
-
-        val pushValue =
-            if (contRef != null) {
-                ContinuationValue(name, contRef).also {
-                    check(it.valueTypes == specValueTypes) {
-                        "Unexpected output value types for $output. Expected ${it.valueTypes}."
-                    }
-                }
-            } else {
-                if (specValueTypes.contains(TvmType.TUPLE) && instruction.mnemonic == "TPUSH") {
-                    val tupleInput = inputs.find { it.first == "t" }?.second
-                    val valueInput = inputs.find { it.first == "x" }?.second
-
-                    val originalElements =
-                        if (tupleInput is TacTupleValue) {
-                            tupleInput.elements
-                        } else {
-                            registerState.tupleRegistry[tupleInput?.name] ?: emptyList()
-                        }
-
-                    val newElements =
-                        originalElements + (valueInput ?: TacVar(name = "unknown", valueTypes = emptyList()))
-                    TacTupleValue(
-                        name = name,
-                        elements = newElements,
-                    )
-                } else if (specValueTypes.contains(TvmType.TUPLE)) {
-                    val tupleInput =
-                        metaObjects.find { it.first == "tuple_elements" }?.second as? TacTupleValue
-                            ?: error(
-                                if (instruction.mnemonic == "TUPLE") {
-                                    "Tuple input not found for TUPLE output"
-                                } else {
-                                    "The instruction ${instruction.mnemonic} is not supported."
-                                },
-                            )
-                    TacTupleValue(
-                        name = name,
-                        elements = tupleInput.elements,
-                    )
-                } else {
-                    TacVar(name = name, valueTypes = specValueTypes, value = value)
-                }
-            }
-
-        push(pushValue)
-        outputs.add(pushValue)
-
-        if (instruction.mnemonic == "TPUSH" && pushValue is TacTupleValue) {
-            registerState.tupleRegistry[pushValue.name] = pushValue.elements
-        }
-    }
-
-    private fun handleConstOutput(
-        output: TvmStackEntryDescription,
-        ctx: TacGenerationContext<*>,
-        contRef: Int?,
-        outputs: MutableList<TacStackValue>,
-    ) {
-        val valueType = listOf((output as TvmConstStackEntryDescription).valueType)
-        val value = output.value
-        check(contRef == null) {
-            "Unexpected continuation reference for output $output."
-        }
-        val pushValue =
-            TacVar(
-                name = "const_${ctx.nextVarId()}",
-                valueTypes = valueType,
-                value = value,
-            )
-        push(pushValue)
-        outputs.add(pushValue)
-    }
-
-    private fun handleArrayOutput(
-        output: TvmStackEntryDescription,
-        inputs: List<Pair<String, TacStackValue>>,
-        outputs: MutableList<TacStackValue>,
-        instruction: TvmRealInst,
-        ctx: TacGenerationContext<*>,
-    ) {
-        val specOutput = output as TvmArrayStackEntryDescription
-        val tupleVar =
-            inputs.find { it.first == "t" }?.second as? TacTupleValue
-                ?: error(
-                    if (instruction.mnemonic == "TUPLE") {
-                        "Tuple input not found"
-                    } else {
-                        "The instruction ${instruction.mnemonic} is not supported."
-                    },
+        val newValuesSize = newSize - size
+        val newValues =
+            (0 until newValuesSize).mapIndexed { idx, _ ->
+                TacVar(
+                    name = "arg${nextVarId()}",
+                    valueTypes = if (listWithValueTypes.isNotEmpty()) listWithValueTypes[idx] else emptyList(),
                 )
-
-        val specLengthType =
-            specOutput.lengthVar.toIntOrNull() ?: error(
-                if (instruction.mnemonic == "UNTUPLE") {
-                    "Tuple has an invalid length"
-                } else {
-                    "The instruction ${instruction.mnemonic} is not supported."
-                },
-            )
-
-        if (tupleVar.elements.size != specLengthType) {
-            if (instruction.mnemonic == "UNTUPLE") {
-                if (tupleVar.elements.isEmpty()) {
-                    tupleVar.elements =
-                        List(specLengthType) {
-                            TacVar(
-                                name = "var_${ctx.nextVarId()}",
-                                valueTypes = listOf(TvmType.FORGOT_ANY),
-                            )
-                        }
-                } else {
-                    error("Tuple has ${tupleVar.elements.size} elements, but UNTUPLE expects $specLengthType.")
-                }
-            } else {
-                error("The instruction ${instruction.mnemonic} is not supported.")
             }
-        }
 
-        tupleVar.elements.forEach { element ->
-            push(element)
-            outputs.add(element)
-        }
+        createdArguments.addAll(newValues)
+        stack.addAll(0, newValues.asReversed())
     }
 
-    fun <Inst : AbstractTacInst> processNonStackInst(
-        ctx: TacGenerationContext<Inst>,
-        inputSpec: List<TvmStackEntryDescription>,
-        outputSpec: List<TvmStackEntryDescription>,
-        contRef: Int? = null, // if this is PUSHCONT
-        registerState: RegisterState,
-        instruction: TvmRealInst,
-        metaObjects: MutableList<Pair<String, TacStackValue>>,
-        value: Int?,
-    ): TacInstInfo {
-        val inputs = mutableListOf<Pair<String, TacStackValue>>()
-        val outputs = mutableListOf<TacStackValue>()
-        val continuationMap = mutableMapOf<String, Int>()
-
-        // Pop inputs in reverse since we deal with stack
-        inputSpec.reversed().forEach { input ->
-            when (input.type) {
-                TvmStackEntryType.SIMPLE -> {
-                    handleSimpleInput(input, continuationMap, registerState, inputs)
-                }
-                TvmStackEntryType.ARRAY ->
-                    handleArrayInput(
-                        input,
-                        ctx,
-                        continuationMap,
-                        registerState,
-                        inputs,
-                        instruction,
-                        metaObjects,
-                    )
-                else -> error("Unsupported input type: \${input.type}")
-            }
-        }
-
-        outputSpec.forEach { output ->
-            when (output.type) {
-                TvmStackEntryType.SIMPLE ->
-                    handleSimpleOutput(
-                        output,
-                        ctx,
-                        contRef,
-                        outputs,
-                        instruction,
-                        metaObjects,
-                        value,
-                        inputs,
-                        registerState,
-                    )
-                TvmStackEntryType.CONST -> handleConstOutput(output, ctx, contRef, outputs)
-                TvmStackEntryType.ARRAY -> handleArrayOutput(output, inputs, outputs, instruction, ctx)
-
-                else -> error("${output.type} isn't supported yet")
-            }
-        }
-
-        return TacInstInfo(inputs, outputs, continuationMap, metaObjects)
+    fun getAssignInst(
+        newVar: TacVar,
+        i: Int,
+    ): TacAssignInst {
+        val value = pop(i)
+        val result = TacAssignInst(lhs = newVar, rhs = value)
+        push(newVar)
+        return result
     }
+
+    private fun stackIndex(i: Int): Int = size - i - 1
+
+    private val logger = object : KLogging() {}.logger
 }
-
-private val logger = object : KLogging() {}.logger

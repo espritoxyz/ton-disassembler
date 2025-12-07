@@ -6,7 +6,7 @@ abstract class TvmStackEntryDescription {
     abstract val type: TvmStackEntryType
 }
 
-enum class TvmType {
+enum class TvmSpecType {
     INT,
     SLICE,
     CELL,
@@ -29,14 +29,14 @@ enum class TvmStackEntryType {
 @Serializable
 data class TvmSimpleStackEntryDescription(
     val name: String,
-    val valueTypes: List<TvmType>,
+    val valueTypes: List<TvmSpecType>,
 ) : TvmStackEntryDescription() {
     override val type: TvmStackEntryType = TvmStackEntryType.SIMPLE
 }
 
 @Serializable
 data class TvmConstStackEntryDescription(
-    val valueType: TvmType,
+    val valueType: TvmSpecType,
     val value: Int? = null,
 ) : TvmStackEntryDescription() {
     override val type: TvmStackEntryType = TvmStackEntryType.CONST

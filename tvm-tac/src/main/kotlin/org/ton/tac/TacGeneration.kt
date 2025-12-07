@@ -1,20 +1,15 @@
 package org.ton.tac
 
-import org.ton.bytecode.TvmAppGlobalSetglobInst
+import org.ton.bytecode.TvmArrayStackEntryDescription
+import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmContOperandInst
-import org.ton.bytecode.TvmContRegistersPopctrInst
-import org.ton.bytecode.TvmContRegistersPushctrInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
 import org.ton.bytecode.TvmDictSpecialDictigetjmpzInst
 import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
-import org.ton.bytecode.TvmStackBasicInst
-import org.ton.bytecode.TvmStackComplexInst
-import org.ton.bytecode.TvmTakingInst
-import org.ton.bytecode.TvmType
-import org.ton.bytecode.extractPrimitiveOperands
+import org.ton.bytecode.TvmSimpleStackEntryDescription
 
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     ctx: TacGenerationContext<Inst>,
@@ -80,47 +75,83 @@ private fun <Inst : AbstractTacInst> processInstruction(
 ): List<Inst> {
     throwErrorIfStackTypesNotSupported(inst)
 
-    if (inst is TvmStackBasicInst || inst is TvmStackComplexInst) {
-        stack.execStackInstruction(inst)
+    val isBranching = inst.branches.isNotEmpty() && !inst.ignoreBranches()
 
-        return if (ctx.debug) {
-            val stateAfter = stack.copyEntries()
-            return TacDebugStackInst(
-                mnemonic = inst.mnemonic,
-                parameters = extractPrimitiveOperands(inst),
-                stackAfter = stateAfter,
-            ).let {
-                @Suppress("unchecked_cast")
-                listOf(it as Inst)
-            }
+    val generatedInstructions =
+        if (isBranching) {
+            handleBranchingInstruction(ctx, stack, inst, endingInstGenerator, registerState)
         } else {
-            emptyList()
+            val handler = TacHandlerRegistry.getHandler(inst)
+            handler.handle(ctx, stack, inst, registerState)
+        }
+
+    @Suppress("UNCHECKED_CAST")
+    return generatedInstructions.map { rawInst ->
+        if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(rawInst as TacInst, stackAfter) as Inst
+        } else {
+            rawInst as Inst
         }
     }
+}
 
-    if (inst.mnemonic in CALLDICT_MNEMONICS) {
-        val operands = extractPrimitiveOperands(inst).toMutableMap()
+private fun <Inst : AbstractTacInst> handleBranchingInstruction(
+    ctx: TacGenerationContext<Inst>,
+    stack: Stack,
+    inst: TvmRealInst,
+    endingInstGenerator: EndingInstGenerator<Inst>,
+    registerState: RegisterState,
+): List<AbstractTacInst> {
+    throwErrorIfBranchesNotTypeVar(inst)
 
-        var methodNumber = operands["n"] ?: error("Missing method number in CALLDICT")
-        methodNumber = methodNumber as? Int
-            ?: error("Expected method number to be Int in CALLDICT, but it is: ${methodNumber::class.simpleName}")
-        methodNumber = methodNumber.toBigInteger()
+    val inputsSpec = inst.stackInputs ?: emptyList()
+    val inputsWithNames = mutableListOf<Pair<String, TacStackValue>>()
 
-        val callInst = processCallDict(ctx, stack, methodNumber, inst, operands)
+    inputsSpec.reversed().forEach { spec ->
+        val value = stack.pop(0)
 
-        val resultInst =
-            if (ctx.debug) {
-                val stackAfter = stack.copyEntries()
-                TacInstDebugWrapper(callInst, stackAfter)
-            } else {
-                callInst
+        val name =
+            when (spec) {
+                is TvmSimpleStackEntryDescription -> spec.name
+                is TvmArrayStackEntryDescription -> spec.name
+                is TvmConstStackEntryDescription -> "const"
+                else -> "unknown"
             }
 
-        @Suppress("unchecked_cast")
-        return listOf(resultInst as Inst)
+        inputsWithNames.add(0, name to value)
     }
 
-    return processOrdinaryInst(ctx, stack, inst, endingInstGenerator, registerState)
+    val outputs = mutableListOf<TacStackValue>()
+
+    val saveC0 = validateBranchStructure(inst)
+
+    val stackContinuationMap =
+        inputsWithNames
+            .mapNotNull { (name, value) ->
+                if (value is ContinuationValue) {
+                    name to value.continuationRef
+                } else {
+                    null
+                }
+            }.toMap()
+
+    val operandContinuationInfo = if (inst is TvmContOperandInst) extractOperandContinuations(ctx, inst) else null
+
+    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap)
+    val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
+
+    return generateControlFlowInstructions(
+        ctx,
+        stack,
+        inst,
+        inst.operands,
+        inputsWithNames,
+        continuationAnalysis,
+        controlFlowPrep,
+        registerState,
+        outputs,
+    )
 }
 
 /**
@@ -168,7 +199,10 @@ private fun TvmControlFlowContinuation.hasStandardC0Save(): Boolean {
 }
 
 // special cases
-private fun TvmInst.ignoreBranches(): Boolean = this is TvmDictSpecialDictigetjmpzInst
+private fun TvmInst.ignoreBranches(): Boolean =
+    this is TvmDictSpecialDictigetjmpzInst ||
+        this.mnemonic == "CALLDICT" ||
+        this.mnemonic == "CALLDICT_LONG"
 
 private data class ContinuationAnalysis<Inst : AbstractTacInst>(
     val continuationInfos: List<TacContinuationInfo<Inst>>,
@@ -183,35 +217,6 @@ private data class ControlFlowPreparation<Inst : AbstractTacInst>(
     val label: String?,
     val inputVars: List<TacVar>,
 )
-
-private fun <Inst : AbstractTacInst> handleBranchlessInstruction(
-    ctx: TacGenerationContext<Inst>,
-    stack: Stack,
-    inst: TvmRealInst,
-    operands: Map<String, Any?>,
-    inputs: List<Pair<String, TacStackValue>>,
-    outputs: List<TacStackValue>,
-): List<Inst> {
-    val tacInst =
-        TacOrdinaryInst<Inst>(
-            mnemonic = inst.mnemonic,
-            operands = operands,
-            inputs = inputs.map { it.second },
-            outputs = outputs,
-            blocks = emptyList(),
-        )
-
-    val result =
-        if (ctx.debug) {
-            val stackAfter = stack.copyEntries()
-            TacInstDebugWrapper(tacInst, stackAfter)
-        } else {
-            tacInst
-        }
-
-    @Suppress("unchecked_cast")
-    return listOf(result as Inst)
-}
 
 private fun validateBranchStructure(inst: TvmRealInst): Boolean {
     val (haveStandardC0, haveNoSave) =
@@ -360,6 +365,7 @@ fun isCompatible(
 
     return when (val1) {
         is TacVar -> val1.valueTypes == (val2 as TacVar).valueTypes
+        is TacIntValue -> val1.valueTypes == (val2 as TacVar).valueTypes
         is TacTupleValue -> tupleCompatible(val1, val2)
         is ContinuationValue ->
             val1.valueTypes == (val2 as ContinuationValue).valueTypes &&
@@ -367,6 +373,14 @@ fun isCompatible(
     }
 }
 
+/**
+ * Checks if two execution states (registers and tuple definitions) are compatible
+ * to be merged after branching.
+ *
+ * @return A Pair where:
+ *         - first: A description of the incompatibility (error message) or "States are compatible".
+ *         - second: Boolean indicating success (true if compatible, false otherwise).
+ */
 fun areStatesCompatible(
     state1: RegisterState,
     state2: RegisterState,
@@ -486,9 +500,9 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         }
 
     if (branchStates.size > 1) {
-        val (firstStack, firstRegisterState) = branchStates.first()
+        val (_, firstRegisterState) = branchStates.first()
         val allStatesCompatibleResults =
-            branchStates.drop(1).map { (otherStack, otherRegisterState) ->
+            branchStates.drop(1).map { (_, otherRegisterState) ->
                 areStatesCompatible(firstRegisterState, otherRegisterState)
             }
 
@@ -507,7 +521,7 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     }
 
     if (branchStates.isNotEmpty()) {
-        val (representativeStack, representativeRegisterState) = branchStates.first()
+        val (_, representativeRegisterState) = branchStates.first()
         registerState.assignFrom(representativeRegisterState)
     }
 
@@ -557,140 +571,6 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
     return result
 }
-
-private fun <Inst : AbstractTacInst> handleSetGlobalInst(
-    stack: Stack,
-    inst: TvmAppGlobalSetglobInst,
-    registerState: RegisterState,
-): List<Inst> {
-    val value = stack.pop(0)
-    val globalName = "global_${inst.k}"
-
-    if (value is TacTupleValue) registerState.tupleRegistry[globalName] = value.elements
-
-    val setGlobalInst = TacSetGlobalInst(inst.k, value)
-
-    @Suppress("UNCHECKED_CAST")
-    return listOf(setGlobalInst as Inst)
-}
-
-private fun <Inst : AbstractTacInst> handlePopControlRegister(
-    stack: Stack,
-    inst: TvmContRegistersPopctrInst,
-    registerState: RegisterState,
-): List<Inst> {
-    val poppedValue = stack.pop(0)
-    val popCtrInst = TacPopCtrInst(inst.i, poppedValue)
-    registerState.controlRegisters[inst.i] = poppedValue
-
-    @Suppress("UNCHECKED_CAST")
-    return listOf(popCtrInst as Inst)
-}
-
-private fun <Inst : AbstractTacInst> handlePushControlRegister(
-    ctx: TacGenerationContext<Inst>,
-    stack: Stack,
-    inst: TvmContRegistersPushctrInst,
-    registerState: RegisterState,
-): List<Inst> {
-    val originalValue = registerState.controlRegisters[inst.i]
-    val pushValue =
-        originalValue?.copy()
-            ?: TacVar(
-                name = "contract_storage_${ctx.nextVarId()}",
-                valueTypes = listOf(TvmType.CELL),
-            )
-
-    if (pushValue is TacTupleValue) {
-        registerState.tupleRegistry[pushValue.name] = pushValue.elements
-    }
-
-    stack.push(pushValue)
-
-    val pushCtrInst = TacPushCtrInst(inst.i, pushValue)
-
-    @Suppress("UNCHECKED_CAST")
-    return listOf(pushCtrInst as Inst)
-}
-
-private fun <Inst : AbstractTacInst> handleComplexInstruction(
-    ctx: TacGenerationContext<Inst>,
-    stack: Stack,
-    inst: TvmRealInst,
-    endingInstGenerator: EndingInstGenerator<Inst>,
-    registerState: RegisterState,
-): List<Inst> {
-    val operands = extractPrimitiveOperands(inst)
-
-    val specInputs = inst.stackInputs ?: emptyList()
-    val specOutputs = inst.stackOutputs ?: emptyList()
-
-    val operandContinuationInfo =
-        if (inst is TvmContOperandInst) {
-            extractOperandContinuations(ctx, inst)
-        } else {
-            null
-        }
-    val value =
-        if (inst is TvmTakingInst) {
-            inst.i
-        } else {
-            null
-        }
-
-    val (inputs, outputs, stackContinuationMap) =
-        stack.processNonStackInst(
-            ctx,
-            inputSpec = specInputs,
-            outputSpec = specOutputs,
-            contRef = operandContinuationInfo?.resultContinuationId,
-            registerState = registerState,
-            instruction = inst,
-            metaObjects = mutableListOf(),
-            value = value,
-        )
-
-    if (inst.branches.isEmpty() || inst.ignoreBranches()) {
-        return handleBranchlessInstruction(ctx, stack, inst, operands, inputs, outputs)
-    }
-
-    throwErrorIfBranchesNotTypeVar(inst)
-
-    val saveC0 = validateBranchStructure(inst)
-
-    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap)
-
-    val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
-
-    val result =
-        generateControlFlowInstructions(
-            ctx,
-            stack,
-            inst,
-            operands,
-            inputs,
-            continuationAnalysis,
-            controlFlowPrep,
-            registerState,
-            outputs,
-        )
-
-    return result
-}
-
-private fun <Inst : AbstractTacInst> processOrdinaryInst(
-    ctx: TacGenerationContext<Inst>,
-    stack: Stack,
-    inst: TvmRealInst,
-    endingInstGenerator: EndingInstGenerator<Inst>,
-    registerState: RegisterState,
-): List<Inst> =
-    when (inst) {
-        is TvmAppGlobalSetglobInst -> handleSetGlobalInst(stack, inst, registerState)
-        is TvmContRegistersPopctrInst -> handlePopControlRegister(stack, inst, registerState)
-        is TvmContRegistersPushctrInst -> handlePushControlRegister(ctx, stack, inst, registerState)
-        else -> handleComplexInstruction(ctx, stack, inst, endingInstGenerator, registerState)
-    }
 
 private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
     contract: TvmContractCode,
