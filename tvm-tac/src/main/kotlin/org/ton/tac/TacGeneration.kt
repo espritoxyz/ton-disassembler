@@ -73,7 +73,6 @@ private fun <Inst : AbstractTacInst> processInstruction(
     endingInstGenerator: EndingInstGenerator<Inst>,
     registerState: RegisterState,
 ): List<Inst> {
-
     throwErrorIfStackTypesNotSupported(inst)
 
     val isBranching = inst.branches.isNotEmpty() && !inst.ignoreBranches()
