@@ -73,25 +73,28 @@ private fun <Inst : AbstractTacInst> processInstruction(
     endingInstGenerator: EndingInstGenerator<Inst>,
     registerState: RegisterState,
 ): List<Inst> {
+
     throwErrorIfStackTypesNotSupported(inst)
 
     val isBranching = inst.branches.isNotEmpty() && !inst.ignoreBranches()
 
-    val generatedInstructions =
-        if (isBranching) {
-            handleBranchingInstruction(ctx, stack, inst, endingInstGenerator, registerState)
-        } else {
-            val handler = TacHandlerRegistry.getHandler(inst)
-            handler.handle(ctx, stack, inst, registerState)
-        }
+    if (isBranching) {
+        val result = handleBranchingInstruction(ctx, stack, inst, endingInstGenerator, registerState)
 
-    @Suppress("UNCHECKED_CAST")
-    return generatedInstructions.map { rawInst ->
-        if (ctx.debug) {
-            val stackAfter = stack.copyEntries()
-            TacInstDebugWrapper(rawInst as TacInst, stackAfter) as Inst
-        } else {
-            rawInst as Inst
+        @Suppress("UNCHECKED_CAST")
+        return result as List<Inst>
+    } else {
+        val handler = TacHandlerRegistry.getHandler(inst)
+        val rawInstructions = handler.handle(ctx, stack, inst, registerState)
+
+        @Suppress("UNCHECKED_CAST")
+        return rawInstructions.map { rawInst ->
+            if (ctx.debug) {
+                val stackAfter = stack.copyEntries()
+                TacInstDebugWrapper(rawInst as TacInst, stackAfter) as Inst
+            } else {
+                rawInst as Inst
+            }
         }
     }
 }
