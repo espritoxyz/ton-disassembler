@@ -1,7 +1,18 @@
 package org.ton.tac
 
+import org.ton.bytecode.TvmAppGlobalGetglobInst
+import org.ton.bytecode.TvmAppGlobalSetglobInst
 import org.ton.bytecode.TvmArrayStackEntryDescription
+import org.ton.bytecode.TvmConstDataInst
+import org.ton.bytecode.TvmConstIntPushint16Inst
+import org.ton.bytecode.TvmConstIntPushint4Inst
+import org.ton.bytecode.TvmConstIntPushint8Inst
+import org.ton.bytecode.TvmConstIntPushintLongInst
 import org.ton.bytecode.TvmConstStackEntryDescription
+import org.ton.bytecode.TvmContDictCalldictInst
+import org.ton.bytecode.TvmContDictCalldictLongInst
+import org.ton.bytecode.TvmContRegistersPopctrInst
+import org.ton.bytecode.TvmContRegistersPushctrInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmSpecType
@@ -39,6 +50,9 @@ import org.ton.bytecode.TvmStackComplexXchg2Inst
 import org.ton.bytecode.TvmStackComplexXcpuInst
 import org.ton.bytecode.TvmStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
+import org.ton.bytecode.TvmTupleTpushInst
+import org.ton.bytecode.TvmTupleTupleInst
+import org.ton.bytecode.TvmTupleUntupleInst
 
 interface TacInstructionHandler {
     fun handle(
@@ -50,32 +64,33 @@ interface TacInstructionHandler {
 }
 
 object TacHandlerRegistry {
-    private val specificHandlers =
-        mapOf(
-            "CALLDICT" to CallDictHandler,
-            "CALLDICT_LONG" to CallDictHandler,
-            "PUSHCONT" to PushContHandler,
-            "PUSHCONT_SHORT" to PushContHandler,
-            "PUSHCONT_LONG" to PushContHandler,
-            "PUSHINT" to PushIntHandler,
-            "PUSHINTLONG" to PushIntHandler,
-            "TUPLE" to TupleHandler,
-            "TPUSH" to TPushHandler,
-            "UNTUPLE" to UnTupleHandler,
-            "SETGLOB" to SetGlobHandler,
-            "POPCTR" to PopCtrHandler,
-            "PUSHCTR" to PushCtrHandler,
-        )
+    fun getHandler(inst: TvmRealInst): TacInstructionHandler =
+        when (inst) {
+            is TvmConstIntPushint4Inst,
+            is TvmConstIntPushint8Inst,
+            is TvmConstIntPushint16Inst,
+            is TvmConstIntPushintLongInst,
+            is TvmStackComplexPushLongInst,
+            -> PushIntHandler
 
-    fun getHandler(inst: TvmRealInst): TacInstructionHandler {
-        specificHandlers[inst.mnemonic]?.let { return it }
+            is TvmStackBasicInst,
+            is TvmStackComplexInst,
+            -> StackMutationHandler
+            is TvmTupleTupleInst -> TupleHandler
+            is TvmTupleUntupleInst -> UnTupleHandler
+            is TvmTupleTpushInst -> TPushHandler
 
-        if (inst is TvmStackBasicInst || inst is TvmStackComplexInst) {
-            return StackMutationHandler
+            is TvmAppGlobalSetglobInst -> SetGlobHandler
+            is TvmAppGlobalGetglobInst -> GetGlobHandler
+
+            is TvmContRegistersPopctrInst -> PopCtrHandler
+            is TvmContRegistersPushctrInst -> PushCtrHandler
+
+            is TvmConstDataInst -> PushContHandler
+
+            is TvmContDictCalldictInst, TvmContDictCalldictLongInst -> CallDictHandler
+            else -> DefaultSpecHandler
         }
-
-        return DefaultSpecHandler
-    }
 }
 
 object DefaultSpecHandler : TacInstructionHandler {
@@ -108,7 +123,12 @@ object DefaultSpecHandler : TacInstructionHandler {
             val newName = "${rawName}_${ctx.nextVarId()}"
             val newVal =
                 when (outputDesc.type) {
-                    TvmStackEntryType.ARRAY -> TacTupleValue(name = newName, elements = emptyList())
+                    TvmStackEntryType.ARRAY ->
+                        TacTupleValue(
+                            name = newName,
+                            elements = emptyList(),
+                            isStructureKnown = false,
+                        )
                     TvmStackEntryType.CONST -> {
                         val constDesc = outputDesc as TvmConstStackEntryDescription
                         val longVal = constDesc.value?.toString()?.toLongOrNull()
@@ -123,10 +143,6 @@ object DefaultSpecHandler : TacInstructionHandler {
 
             stack.push(newVal)
             outputVars.add(newVal)
-
-            if (newVal is TacTupleValue) {
-                registerState.tupleRegistry[newName] = newVal.elements
-            }
         }
 
         return listOf(
@@ -229,7 +245,13 @@ object PushIntHandler : TacInstructionHandler {
         stack.push(tacVal)
 
         return listOf(
-            TacPushCtrInst(registerIndex = 0, value = tacVal),
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = emptyList(),
+                outputs = listOf(tacVal),
+                blocks = emptyList(),
+            ),
         )
     }
 }
@@ -372,10 +394,10 @@ object TupleHandler : TacInstructionHandler {
             TacTupleValue(
                 name = "t_${ctx.nextVarId()}",
                 elements = elements,
+                isStructureKnown = true,
             )
 
         stack.push(tupleVar)
-        registerState.tupleRegistry[tupleVar.name] = elements
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
@@ -399,11 +421,11 @@ object TPushHandler : TacInstructionHandler {
         val value = stack.pop(0)
         val tuple = stack.pop(0)
 
-        val oldElements =
+        val (oldElements, isKnown) =
             if (tuple is TacTupleValue) {
-                tuple.elements
+                tuple.elements to tuple.isStructureKnown
             } else {
-                registerState.tupleRegistry[tuple.name] ?: emptyList()
+                emptyList<TacStackValue>() to false
             }
 
         val newElements = oldElements + value
@@ -412,11 +434,10 @@ object TPushHandler : TacInstructionHandler {
             TacTupleValue(
                 name = "t_${ctx.nextVarId()}",
                 elements = newElements,
+                isStructureKnown = isKnown,
             )
 
         stack.push(newTuple)
-
-        registerState.tupleRegistry[newTuple.name] = newElements
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
@@ -449,7 +470,7 @@ object UnTupleHandler : TacInstructionHandler {
                     if (tupleVal.elements.isEmpty()) {
                         val generated =
                             List(expectedSize) {
-                                TacVar(name = "field_${ctx.nextVarId()}", valueTypes = listOf(TvmSpecType.FORGOT_ANY))
+                                TacVar(name = "field_${ctx.nextVarId()}", valueTypes = listOf(TvmSpecType.ANY))
                             }
                         tupleVal.elements = generated
                         generated
@@ -461,7 +482,7 @@ object UnTupleHandler : TacInstructionHandler {
                 }
             } else {
                 List(expectedSize) {
-                    TacVar(name = "field_${ctx.nextVarId()}", valueTypes = listOf(TvmSpecType.FORGOT_ANY))
+                    TacVar(name = "field_${ctx.nextVarId()}", valueTypes = listOf(TvmSpecType.ANY))
                 }
             }
 
@@ -489,11 +510,36 @@ object SetGlobHandler : TacInstructionHandler {
         val k = (inst.operands["k"] as? Number)?.toInt() ?: error("SETGLOB missing 'k'")
         val value = stack.pop(0)
 
-        if (value is TacTupleValue) {
-            registerState.tupleRegistry["global_$k"] = value.elements
-        }
+        registerState.globalVariables[k] = value
 
         return listOf(TacSetGlobalInst(globalIndex = k, value = value))
+    }
+}
+
+object GetGlobHandler : TacInstructionHandler {
+    override fun handle(
+        ctx: TacGenerationContext<*>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<AbstractTacInst> {
+        val k = (inst.operands["k"] as? Number)?.toInt() ?: error("GETGLOB missing 'k'")
+
+        val pushValue =
+            registerState.globalVariables[k]?.copy()
+                ?: TacVar("global_${k}_${ctx.nextVarId()}", listOf(TvmSpecType.ANY))
+
+        stack.push(pushValue)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = emptyList(),
+                outputs = listOf(pushValue),
+                blocks = emptyList(),
+            ),
+        )
     }
 }
 
@@ -529,10 +575,6 @@ object PushCtrHandler : TacInstructionHandler {
                     name = "c${i}_${ctx.nextVarId()}",
                     valueTypes = listOf(TvmSpecType.CELL),
                 )
-
-        if (pushValue is TacTupleValue) {
-            registerState.tupleRegistry[pushValue.name] = pushValue.elements
-        }
 
         stack.push(pushValue)
 

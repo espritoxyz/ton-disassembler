@@ -153,7 +153,7 @@ private fun mapTvmType(typeStr: String): String =
         "cont" -> "TvmSpecType.CONTINUATION"
         "tuple" -> "TvmSpecType.TUPLE"
         "null" -> "TvmSpecType.NULL"
-        else -> "TvmSpecType.FORGOT_ANY"
+        else -> "TvmSpecType.ANY"
     }
 
 private fun extractStackEntries(

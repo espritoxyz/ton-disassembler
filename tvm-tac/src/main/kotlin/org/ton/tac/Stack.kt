@@ -52,11 +52,11 @@ internal fun updateStack(
 
 data class RegisterState(
     val controlRegisters: MutableMap<Int, TacStackValue> = mutableMapOf(),
-    val tupleRegistry: MutableMap<String, List<TacStackValue>> = mutableMapOf(),
+    val globalVariables: MutableMap<Int, TacStackValue> = mutableMapOf(),
 ) {
     fun copy(): RegisterState {
         val newControlRegisters = controlRegisters.toMutableMap()
-        val newTupleRegistry = tupleRegistry.toMutableMap()
+        val newTupleRegistry = globalVariables.toMutableMap()
         return RegisterState(newControlRegisters, newTupleRegistry)
     }
 
@@ -64,8 +64,8 @@ data class RegisterState(
         controlRegisters.clear()
         controlRegisters.putAll(other.controlRegisters)
 
-        tupleRegistry.clear()
-        tupleRegistry.putAll(other.tupleRegistry)
+        globalVariables.clear()
+        globalVariables.putAll(other.globalVariables)
     }
 }
 

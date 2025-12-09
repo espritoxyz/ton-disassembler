@@ -81,20 +81,29 @@ private fun <Inst : AbstractTacInst> processInstruction(
         val result = handleBranchingInstruction(ctx, stack, inst, endingInstGenerator, registerState)
 
         @Suppress("UNCHECKED_CAST")
-        return result as List<Inst>
+        return result
     } else {
         val handler = TacHandlerRegistry.getHandler(inst)
         val rawInstructions = handler.handle(ctx, stack, inst, registerState)
 
         @Suppress("UNCHECKED_CAST")
         return rawInstructions.map { rawInst ->
-            if (ctx.debug) {
-                val stackAfter = stack.copyEntries()
-                TacInstDebugWrapper(rawInst as TacInst, stackAfter) as Inst
-            } else {
-                rawInst as Inst
-            }
+            wrapInst(ctx, stack, rawInst)
         }
+    }
+}
+
+private fun <Inst : AbstractTacInst> wrapInst(
+    ctx: TacGenerationContext<Inst>,
+    stack: Stack,
+    inst: AbstractTacInst,
+): Inst {
+    @Suppress("UNCHECKED_CAST")
+    return if (ctx.debug) {
+        val stackAfter = stack.copyEntries()
+        TacInstDebugWrapper(inst as TacInst, stackAfter) as Inst
+    } else {
+        inst as Inst
     }
 }
 
@@ -104,7 +113,7 @@ private fun <Inst : AbstractTacInst> handleBranchingInstruction(
     inst: TvmRealInst,
     endingInstGenerator: EndingInstGenerator<Inst>,
     registerState: RegisterState,
-): List<AbstractTacInst> {
+): List<Inst> {
     throwErrorIfBranchesNotTypeVar(inst)
 
     val inputsSpec = inst.stackInputs ?: emptyList()
@@ -402,15 +411,6 @@ fun areStatesCompatible(
         return Pair(errorString, false)
     }
 
-    val tupleKeys1 = state1.tupleRegistry.keys.toList()
-    val tupleKeys2 = state2.tupleRegistry.keys.toList()
-    if (tupleKeys1.size != tupleKeys2.size) {
-        val errorString =
-            "Tuple registry size mismatch: state1" +
-                "has ${tupleKeys1.size} tuples, state2 has ${tupleKeys2.size} tuples"
-        return Pair(errorString, false)
-    }
-
     for (key in regKeys1) {
         val value1 = state1.controlRegisters.getValue(key)
         val value2 = state2.controlRegisters.getValue(key)
@@ -423,33 +423,49 @@ fun areStatesCompatible(
         }
     }
 
-    for (index in 0..<tupleKeys1.size) {
-        val key1 = tupleKeys1[index]
-        val key2 = tupleKeys2[index]
-
-        val tupleElements1 = state1.tupleRegistry.getValue(key1)
-        val tupleElements2 = state2.tupleRegistry.getValue(key2)
-
-        if (tupleElements1.size != tupleElements2.size) {
+    val globalKeys1 = state1.globalVariables.keys
+    val globalKeys2 = state2.globalVariables.keys
+    if (globalKeys1 != globalKeys2) {
+        if (globalKeys1 != globalKeys2) {
+            val missingIn1 = globalKeys2 - globalKeys1
+            val missingIn2 = globalKeys1 - globalKeys2
             val errorString =
-                "Tuple size mismatch for keys '$key1' and '$key2': " +
-                    "state1 has ${tupleElements1.size} elements, state2 has ${tupleElements2.size} elements"
+                buildString {
+                    append("Global variable keys mismatch: ")
+                    if (missingIn1.isNotEmpty()) append("missing in state1 indexes: $missingIn1")
+                    if (missingIn1.isNotEmpty() && missingIn2.isNotEmpty()) append("; ")
+                    if (missingIn2.isNotEmpty()) append("missing in state2 indexes: $missingIn2")
+                }
             return Pair(errorString, false)
         }
+    }
 
-        for (i in tupleElements1.indices) {
-            if (!isCompatible(tupleElements1[i], tupleElements2[i])) {
-                val elem1 = tupleElements1[i]
-                val elem2 = tupleElements2[i]
-                if (!isCompatible(elem1, elem2)) {
-                    val errorString =
-                        "Tuple element mismatch: " +
-                            "at index $i in tuples '$key1' and '$key2': " +
+    for (key in globalKeys1) {
+        val val1 = state1.globalVariables.getValue(key)
+        val val2 = state2.globalVariables.getValue(key)
+
+        if (!isCompatible(val1, val2)) {
+            if (val1 is TacTupleValue && val2 is TacTupleValue) {
+                if (val1.elements.size != val2.elements.size) {
+                    return "Global #$key tuple size mismatch: ${val1.elements.size} vs ${val2.elements.size}" to false
+                }
+
+                for (i in val1.elements.indices) {
+                    val elem1 = val1.elements[i]
+                    val elem2 = val2.elements[i]
+                    if (!isCompatible(elem1, elem2)) {
+                        return "Global $key tuple element mismatch at index $i: " +
                             "state1 has $elem1 (types: ${elem1.valueTypes}), " +
-                            "state2 has $elem2 (types: ${elem2.valueTypes})"
-                    return Pair(errorString, false)
+                            "state2 has $elem2 (types: ${elem2.valueTypes})" to false
+                    }
                 }
             }
+
+            val errorString =
+                "Conflict in global variable $key: " +
+                    "state1 has $val1 (types: ${val1.valueTypes}), " +
+                    "state2 has $val2 (types: ${val2.valueTypes})"
+            return Pair(errorString, false)
         }
     }
 

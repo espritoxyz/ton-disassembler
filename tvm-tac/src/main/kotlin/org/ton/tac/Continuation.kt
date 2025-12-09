@@ -146,7 +146,7 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
                 branch.type == "variable"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
-            // TODO("in ${inst.mnemonic} branch isn't type variable")
+            TODO("in ${inst.mnemonic} branch isn't type variable")
         }
     }
 }

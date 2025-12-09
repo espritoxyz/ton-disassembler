@@ -160,11 +160,11 @@ data class TvmAppActionsChangelibInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -207,11 +207,11 @@ data class TvmAppActionsRawreserveInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -246,7 +246,7 @@ data class TvmAppActionsRawreservexInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -254,7 +254,7 @@ data class TvmAppActionsRawreservexInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -299,14 +299,14 @@ data class TvmAppActionsSendmsgInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "fee",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -354,7 +354,7 @@ data class TvmAppActionsSendrawmsgInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -434,7 +434,7 @@ data class TvmAppActionsSetlibcodeInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -523,7 +523,7 @@ data class TvmAppAddrLdmsgaddrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -605,7 +605,7 @@ data class TvmAppAddrParsemsgaddrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -647,11 +647,11 @@ data class TvmAppAddrRewritestdaddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -693,7 +693,7 @@ data class TvmAppAddrRewritestdaddrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -733,7 +733,7 @@ data class TvmAppAddrRewritevaraddrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -779,7 +779,7 @@ data class TvmAppAddrRewritevaraddrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -818,7 +818,7 @@ data class TvmAppConfigConfigdictInst(
             ),
             TvmConstStackEntryDescription(
                 value = 32,
-                valueType = TvmSpecType.FORGOT_ANY
+                valueType = TvmSpecType.ANY
             )
         )
     
@@ -852,7 +852,7 @@ data class TvmAppConfigConfigoptparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -893,7 +893,7 @@ data class TvmAppConfigConfigparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -903,7 +903,7 @@ data class TvmAppConfigConfigparamInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -935,22 +935,22 @@ data class TvmAppConfigGetforwardfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -982,22 +982,22 @@ data class TvmAppConfigGetforwardfeesimpleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1029,18 +1029,18 @@ data class TvmAppConfigGetgasfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "gas_used",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1072,18 +1072,18 @@ data class TvmAppConfigGetgasfeesimpleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "gas_used",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1115,18 +1115,18 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "fwd_fee",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "orig_fwd_fee",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1164,7 +1164,7 @@ data class TvmAppConfigGetparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY, TvmSpecType.SLICE)
+                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.SLICE)
             )
         )
     
@@ -1198,7 +1198,7 @@ data class TvmAppConfigGetprecompiledgasInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1230,26 +1230,26 @@ data class TvmAppConfigGetstoragefeeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "cells",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "bits",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "seconds",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "is_mc",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "price",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1283,7 +1283,7 @@ data class TvmAppConfigGlobalidInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1393,7 +1393,7 @@ data class TvmAppCryptoBlsAggregateInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -1447,7 +1447,7 @@ data class TvmAppCryptoBlsAggregateverifyInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "sgn",
@@ -1458,7 +1458,7 @@ data class TvmAppCryptoBlsAggregateverifyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1501,7 +1501,7 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "msg",
@@ -1516,7 +1516,7 @@ data class TvmAppCryptoBlsFastaggregateverifyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1598,7 +1598,7 @@ data class TvmAppCryptoBlsG1IngroupInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1637,7 +1637,7 @@ data class TvmAppCryptoBlsG1IszeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1673,7 +1673,7 @@ data class TvmAppCryptoBlsG1MulInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -1721,13 +1721,13 @@ data class TvmAppCryptoBlsG1MultiexpInst(
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                    valueTypes = listOf(TvmSpecType.ANY)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -1932,7 +1932,7 @@ data class TvmAppCryptoBlsG2IngroupInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -1971,7 +1971,7 @@ data class TvmAppCryptoBlsG2IszeroInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2007,7 +2007,7 @@ data class TvmAppCryptoBlsG2MulInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -2055,13 +2055,13 @@ data class TvmAppCryptoBlsG2MultiexpInst(
                 ),
                 TvmSimpleStackEntryDescription(
                     name = "s",
-                    valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                    valueTypes = listOf(TvmSpecType.ANY)
                 )
                 )
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -2309,14 +2309,14 @@ data class TvmAppCryptoBlsPairingInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2350,7 +2350,7 @@ data class TvmAppCryptoBlsPushrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2397,7 +2397,7 @@ data class TvmAppCryptoBlsVerifyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2440,14 +2440,14 @@ data class TvmAppCryptoChksignsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2486,7 +2486,7 @@ data class TvmAppCryptoChksignuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
@@ -2494,14 +2494,14 @@ data class TvmAppCryptoChksignuInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2535,19 +2535,19 @@ data class TvmAppCryptoEcrecoverInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "v",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -2557,7 +2557,7 @@ data class TvmAppCryptoEcrecoverInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2597,7 +2597,7 @@ data class TvmAppCryptoHashcuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2639,18 +2639,18 @@ data class TvmAppCryptoHashextBlake2bInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2692,14 +2692,14 @@ data class TvmAppCryptoHashextKeccak256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2741,18 +2741,18 @@ data class TvmAppCryptoHashextKeccak512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2794,14 +2794,14 @@ data class TvmAppCryptoHashextSha256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2843,18 +2843,18 @@ data class TvmAppCryptoHashextSha512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -2901,7 +2901,7 @@ data class TvmAppCryptoHashextaBlake2bInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -2955,7 +2955,7 @@ data class TvmAppCryptoHashextaKeccak256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3009,7 +3009,7 @@ data class TvmAppCryptoHashextaKeccak512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3063,7 +3063,7 @@ data class TvmAppCryptoHashextaSha256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3117,7 +3117,7 @@ data class TvmAppCryptoHashextaSha512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3171,7 +3171,7 @@ data class TvmAppCryptoHashextarBlake2bInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3225,7 +3225,7 @@ data class TvmAppCryptoHashextarKeccak256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3279,7 +3279,7 @@ data class TvmAppCryptoHashextarKeccak512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3333,7 +3333,7 @@ data class TvmAppCryptoHashextarSha256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3387,7 +3387,7 @@ data class TvmAppCryptoHashextarSha512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -3436,18 +3436,18 @@ data class TvmAppCryptoHashextrBlake2bInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3489,14 +3489,14 @@ data class TvmAppCryptoHashextrKeccak256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3538,18 +3538,18 @@ data class TvmAppCryptoHashextrKeccak512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3591,14 +3591,14 @@ data class TvmAppCryptoHashextrSha256Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3640,18 +3640,18 @@ data class TvmAppCryptoHashextrSha512Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3692,7 +3692,7 @@ data class TvmAppCryptoHashsuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3742,7 +3742,7 @@ data class TvmAppCryptoP256ChksignsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3792,7 +3792,7 @@ data class TvmAppCryptoP256ChksignuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3824,18 +3824,18 @@ data class TvmAppCryptoRist255AddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3867,18 +3867,18 @@ data class TvmAppCryptoRist255FromhashInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "h1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "h2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3910,18 +3910,18 @@ data class TvmAppCryptoRist255MulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3953,14 +3953,14 @@ data class TvmAppCryptoRist255MulbaseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -3994,7 +3994,7 @@ data class TvmAppCryptoRist255PushlInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4026,11 +4026,11 @@ data class TvmAppCryptoRist255QaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4040,7 +4040,7 @@ data class TvmAppCryptoRist255QaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4073,11 +4073,11 @@ data class TvmAppCryptoRist255QmulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4087,7 +4087,7 @@ data class TvmAppCryptoRist255QmulInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4119,7 +4119,7 @@ data class TvmAppCryptoRist255QmulbaseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4129,7 +4129,7 @@ data class TvmAppCryptoRist255QmulbaseInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4161,11 +4161,11 @@ data class TvmAppCryptoRist255QsubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4175,7 +4175,7 @@ data class TvmAppCryptoRist255QsubInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4208,14 +4208,14 @@ data class TvmAppCryptoRist255QvalidateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4247,18 +4247,18 @@ data class TvmAppCryptoRist255SubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4290,7 +4290,7 @@ data class TvmAppCryptoRist255ValidateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4332,7 +4332,7 @@ data class TvmAppCryptoSha256uInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4375,7 +4375,7 @@ data class TvmAppCurrencyLdgramsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -4419,7 +4419,7 @@ data class TvmAppCurrencyLdvarint16Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -4463,7 +4463,7 @@ data class TvmAppCurrencyLdvarint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -4509,7 +4509,7 @@ data class TvmAppCurrencyLdvaruint32Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -4553,7 +4553,7 @@ data class TvmAppCurrencyStgramsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4596,7 +4596,7 @@ data class TvmAppCurrencyStvarint16Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4639,7 +4639,7 @@ data class TvmAppCurrencyStvarint32Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4686,7 +4686,7 @@ data class TvmAppCurrencyStvaruint32Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4791,7 +4791,7 @@ data class TvmAppGasGasconsumedInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "g_c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -4826,7 +4826,7 @@ data class TvmAppGasSetgaslimitInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "g",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4897,7 +4897,7 @@ data class TvmAppGlobalGetglobvarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -4977,7 +4977,7 @@ data class TvmAppGlobalSetglobvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -5015,22 +5015,22 @@ data class TvmAppMiscCdatasizeInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5072,7 +5072,7 @@ data class TvmAppMiscCdatasizeqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -5082,7 +5082,7 @@ data class TvmAppMiscCdatasizeqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5118,22 +5118,22 @@ data class TvmAppMiscSdatasizeInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5171,7 +5171,7 @@ data class TvmAppMiscSdatasizeqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -5181,7 +5181,7 @@ data class TvmAppMiscSdatasizeqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5215,7 +5215,7 @@ data class TvmAppRndAddrandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -5252,14 +5252,14 @@ data class TvmAppRndRandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5297,7 +5297,7 @@ data class TvmAppRndRandu256Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5329,7 +5329,7 @@ data class TvmAppRndSetrandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -5363,18 +5363,18 @@ data class TvmArithmBasicAddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5407,14 +5407,14 @@ data class TvmArithmBasicAddconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5446,14 +5446,14 @@ data class TvmArithmBasicDecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5485,14 +5485,14 @@ data class TvmArithmBasicIncInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5524,18 +5524,18 @@ data class TvmArithmBasicMulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5568,14 +5568,14 @@ data class TvmArithmBasicMulconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5608,14 +5608,14 @@ data class TvmArithmBasicNegateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5647,18 +5647,18 @@ data class TvmArithmBasicSubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5690,18 +5690,18 @@ data class TvmArithmBasicSubrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5733,26 +5733,26 @@ data class TvmArithmDivAdddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5784,26 +5784,26 @@ data class TvmArithmDivAdddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5835,26 +5835,26 @@ data class TvmArithmDivAdddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5887,22 +5887,22 @@ data class TvmArithmDivAddrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5935,22 +5935,22 @@ data class TvmArithmDivAddrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -5982,26 +5982,26 @@ data class TvmArithmDivAddrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6033,26 +6033,26 @@ data class TvmArithmDivAddrshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6084,26 +6084,26 @@ data class TvmArithmDivAddrshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6136,22 +6136,22 @@ data class TvmArithmDivAddrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6183,18 +6183,18 @@ data class TvmArithmDivDivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6226,18 +6226,18 @@ data class TvmArithmDivDivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6269,22 +6269,22 @@ data class TvmArithmDivDivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6316,22 +6316,22 @@ data class TvmArithmDivDivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6363,22 +6363,22 @@ data class TvmArithmDivDivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6410,18 +6410,18 @@ data class TvmArithmDivDivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6454,22 +6454,22 @@ data class TvmArithmDivLshiftadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6501,26 +6501,26 @@ data class TvmArithmDivLshiftadddivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6553,22 +6553,22 @@ data class TvmArithmDivLshiftadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6600,26 +6600,26 @@ data class TvmArithmDivLshiftadddivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6652,22 +6652,22 @@ data class TvmArithmDivLshiftadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6699,26 +6699,26 @@ data class TvmArithmDivLshiftadddivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6751,18 +6751,18 @@ data class TvmArithmDivLshiftdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6794,22 +6794,22 @@ data class TvmArithmDivLshiftdivVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6842,18 +6842,18 @@ data class TvmArithmDivLshiftdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6885,22 +6885,22 @@ data class TvmArithmDivLshiftdivcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6933,18 +6933,18 @@ data class TvmArithmDivLshiftdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -6976,22 +6976,22 @@ data class TvmArithmDivLshiftdivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7024,18 +7024,18 @@ data class TvmArithmDivLshiftdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7067,22 +7067,22 @@ data class TvmArithmDivLshiftdivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7115,18 +7115,18 @@ data class TvmArithmDivLshiftdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7158,22 +7158,22 @@ data class TvmArithmDivLshiftdivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7206,18 +7206,18 @@ data class TvmArithmDivLshiftdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7249,22 +7249,22 @@ data class TvmArithmDivLshiftdivrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7297,18 +7297,18 @@ data class TvmArithmDivLshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7340,22 +7340,22 @@ data class TvmArithmDivLshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7388,18 +7388,18 @@ data class TvmArithmDivLshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7431,22 +7431,22 @@ data class TvmArithmDivLshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7479,18 +7479,18 @@ data class TvmArithmDivLshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7522,22 +7522,22 @@ data class TvmArithmDivLshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7569,18 +7569,18 @@ data class TvmArithmDivModInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7612,18 +7612,18 @@ data class TvmArithmDivModcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7656,14 +7656,14 @@ data class TvmArithmDivModpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7695,18 +7695,18 @@ data class TvmArithmDivModpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7739,14 +7739,14 @@ data class TvmArithmDivModpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7778,18 +7778,18 @@ data class TvmArithmDivModpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7822,14 +7822,14 @@ data class TvmArithmDivModpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7861,18 +7861,18 @@ data class TvmArithmDivModpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7904,18 +7904,18 @@ data class TvmArithmDivModrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -7947,30 +7947,30 @@ data class TvmArithmDivMuladddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8002,30 +8002,30 @@ data class TvmArithmDivMuladddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8057,30 +8057,30 @@ data class TvmArithmDivMuladddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8113,22 +8113,22 @@ data class TvmArithmDivMuladdrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8161,22 +8161,22 @@ data class TvmArithmDivMuladdrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8209,22 +8209,22 @@ data class TvmArithmDivMuladdrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8256,22 +8256,22 @@ data class TvmArithmDivMuldivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8303,22 +8303,22 @@ data class TvmArithmDivMuldivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8350,26 +8350,26 @@ data class TvmArithmDivMuldivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8401,26 +8401,26 @@ data class TvmArithmDivMuldivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8452,26 +8452,26 @@ data class TvmArithmDivMuldivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8503,22 +8503,22 @@ data class TvmArithmDivMuldivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8550,22 +8550,22 @@ data class TvmArithmDivMulmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8597,22 +8597,22 @@ data class TvmArithmDivMulmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8645,18 +8645,18 @@ data class TvmArithmDivMulmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8688,22 +8688,22 @@ data class TvmArithmDivMulmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8736,18 +8736,18 @@ data class TvmArithmDivMulmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8779,22 +8779,22 @@ data class TvmArithmDivMulmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8827,18 +8827,18 @@ data class TvmArithmDivMulmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8870,22 +8870,22 @@ data class TvmArithmDivMulmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8917,22 +8917,22 @@ data class TvmArithmDivMulmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -8965,18 +8965,18 @@ data class TvmArithmDivMulrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9008,22 +9008,22 @@ data class TvmArithmDivMulrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9056,18 +9056,18 @@ data class TvmArithmDivMulrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9099,22 +9099,22 @@ data class TvmArithmDivMulrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9147,18 +9147,18 @@ data class TvmArithmDivMulrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9190,22 +9190,22 @@ data class TvmArithmDivMulrshiftcmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9238,18 +9238,18 @@ data class TvmArithmDivMulrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9281,22 +9281,22 @@ data class TvmArithmDivMulrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9329,18 +9329,18 @@ data class TvmArithmDivMulrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9372,22 +9372,22 @@ data class TvmArithmDivMulrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9420,18 +9420,18 @@ data class TvmArithmDivMulrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9463,22 +9463,22 @@ data class TvmArithmDivMulrshiftrmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9511,14 +9511,14 @@ data class TvmArithmDivRshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9550,18 +9550,18 @@ data class TvmArithmDivRshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9594,18 +9594,18 @@ data class TvmArithmDivRshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9638,18 +9638,18 @@ data class TvmArithmDivRshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9681,22 +9681,22 @@ data class TvmArithmDivRshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9728,22 +9728,22 @@ data class TvmArithmDivRshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9775,22 +9775,22 @@ data class TvmArithmDivRshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9823,14 +9823,14 @@ data class TvmArithmDivRshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9862,18 +9862,18 @@ data class TvmArithmDivRshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9906,18 +9906,18 @@ data class TvmArithmDivRshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9949,14 +9949,14 @@ data class TvmArithmLogicalAbsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -9988,18 +9988,18 @@ data class TvmArithmLogicalAndInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10032,14 +10032,14 @@ data class TvmArithmLogicalBitsizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10074,14 +10074,14 @@ data class TvmArithmLogicalFitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10113,18 +10113,18 @@ data class TvmArithmLogicalFitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10157,14 +10157,14 @@ data class TvmArithmLogicalLshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10196,18 +10196,18 @@ data class TvmArithmLogicalLshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10239,18 +10239,18 @@ data class TvmArithmLogicalMaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10282,18 +10282,18 @@ data class TvmArithmLogicalMinInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10326,22 +10326,22 @@ data class TvmArithmLogicalMinmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "r1",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10373,14 +10373,14 @@ data class TvmArithmLogicalNotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10412,18 +10412,18 @@ data class TvmArithmLogicalOrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10456,14 +10456,14 @@ data class TvmArithmLogicalPow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10496,14 +10496,14 @@ data class TvmArithmLogicalRshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10535,18 +10535,18 @@ data class TvmArithmLogicalRshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10579,14 +10579,14 @@ data class TvmArithmLogicalUbitsizeInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10620,14 +10620,14 @@ data class TvmArithmLogicalUfitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10659,18 +10659,18 @@ data class TvmArithmLogicalUfitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10702,18 +10702,18 @@ data class TvmArithmLogicalXorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10745,18 +10745,18 @@ data class TvmArithmQuietQaddInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10788,26 +10788,26 @@ data class TvmArithmQuietQadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10839,26 +10839,26 @@ data class TvmArithmQuietQadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10890,26 +10890,26 @@ data class TvmArithmQuietQadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10942,22 +10942,22 @@ data class TvmArithmQuietQaddrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -10990,22 +10990,22 @@ data class TvmArithmQuietQaddrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11037,26 +11037,26 @@ data class TvmArithmQuietQaddrshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11088,26 +11088,26 @@ data class TvmArithmQuietQaddrshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11140,22 +11140,22 @@ data class TvmArithmQuietQaddrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11187,18 +11187,18 @@ data class TvmArithmQuietQandInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11230,14 +11230,14 @@ data class TvmArithmQuietQdecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11269,18 +11269,18 @@ data class TvmArithmQuietQdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11312,18 +11312,18 @@ data class TvmArithmQuietQdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11355,22 +11355,22 @@ data class TvmArithmQuietQdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11402,22 +11402,22 @@ data class TvmArithmQuietQdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11449,22 +11449,22 @@ data class TvmArithmQuietQdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11496,18 +11496,18 @@ data class TvmArithmQuietQdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11540,14 +11540,14 @@ data class TvmArithmQuietQfitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11579,18 +11579,18 @@ data class TvmArithmQuietQfitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11622,14 +11622,14 @@ data class TvmArithmQuietQincInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11662,14 +11662,14 @@ data class TvmArithmQuietQlshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11701,18 +11701,18 @@ data class TvmArithmQuietQlshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11745,22 +11745,22 @@ data class TvmArithmQuietQlshiftadddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11792,26 +11792,26 @@ data class TvmArithmQuietQlshiftadddivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11844,22 +11844,22 @@ data class TvmArithmQuietQlshiftadddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11891,26 +11891,26 @@ data class TvmArithmQuietQlshiftadddivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11943,22 +11943,22 @@ data class TvmArithmQuietQlshiftadddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -11990,26 +11990,26 @@ data class TvmArithmQuietQlshiftadddivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12042,18 +12042,18 @@ data class TvmArithmQuietQlshiftdivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12085,22 +12085,22 @@ data class TvmArithmQuietQlshiftdivVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12133,18 +12133,18 @@ data class TvmArithmQuietQlshiftdivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12176,22 +12176,22 @@ data class TvmArithmQuietQlshiftdivcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12224,18 +12224,18 @@ data class TvmArithmQuietQlshiftdivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12267,22 +12267,22 @@ data class TvmArithmQuietQlshiftdivmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12315,18 +12315,18 @@ data class TvmArithmQuietQlshiftdivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12358,22 +12358,22 @@ data class TvmArithmQuietQlshiftdivmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12406,18 +12406,18 @@ data class TvmArithmQuietQlshiftdivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12449,22 +12449,22 @@ data class TvmArithmQuietQlshiftdivmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12497,18 +12497,18 @@ data class TvmArithmQuietQlshiftdivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12540,22 +12540,22 @@ data class TvmArithmQuietQlshiftdivrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12588,18 +12588,18 @@ data class TvmArithmQuietQlshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12631,22 +12631,22 @@ data class TvmArithmQuietQlshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12679,18 +12679,18 @@ data class TvmArithmQuietQlshiftmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12722,22 +12722,22 @@ data class TvmArithmQuietQlshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12770,18 +12770,18 @@ data class TvmArithmQuietQlshiftmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12813,22 +12813,22 @@ data class TvmArithmQuietQlshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12860,18 +12860,18 @@ data class TvmArithmQuietQmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12903,18 +12903,18 @@ data class TvmArithmQuietQmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12947,14 +12947,14 @@ data class TvmArithmQuietQmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -12986,18 +12986,18 @@ data class TvmArithmQuietQmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13030,14 +13030,14 @@ data class TvmArithmQuietQmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13069,18 +13069,18 @@ data class TvmArithmQuietQmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13113,14 +13113,14 @@ data class TvmArithmQuietQmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13152,18 +13152,18 @@ data class TvmArithmQuietQmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13195,18 +13195,18 @@ data class TvmArithmQuietQmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13238,18 +13238,18 @@ data class TvmArithmQuietQmulInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13281,30 +13281,30 @@ data class TvmArithmQuietQmuladddivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13336,30 +13336,30 @@ data class TvmArithmQuietQmuladddivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13391,30 +13391,30 @@ data class TvmArithmQuietQmuladddivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13447,22 +13447,22 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13495,22 +13495,22 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13543,22 +13543,22 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "w",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13590,22 +13590,22 @@ data class TvmArithmQuietQmuldivInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13637,22 +13637,22 @@ data class TvmArithmQuietQmuldivcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13684,22 +13684,22 @@ data class TvmArithmQuietQmuldivmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13731,26 +13731,26 @@ data class TvmArithmQuietQmuldivmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13782,26 +13782,26 @@ data class TvmArithmQuietQmuldivmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13833,22 +13833,22 @@ data class TvmArithmQuietQmuldivrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13880,22 +13880,22 @@ data class TvmArithmQuietQmulmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13927,22 +13927,22 @@ data class TvmArithmQuietQmulmodcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -13975,18 +13975,18 @@ data class TvmArithmQuietQmulmodpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14018,22 +14018,22 @@ data class TvmArithmQuietQmulmodpow2VarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14066,18 +14066,18 @@ data class TvmArithmQuietQmulmodpow2cInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14109,22 +14109,22 @@ data class TvmArithmQuietQmulmodpow2cVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14157,18 +14157,18 @@ data class TvmArithmQuietQmulmodpow2rInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14200,22 +14200,22 @@ data class TvmArithmQuietQmulmodpow2rVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14247,22 +14247,22 @@ data class TvmArithmQuietQmulmodrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14295,18 +14295,18 @@ data class TvmArithmQuietQmulrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14338,22 +14338,22 @@ data class TvmArithmQuietQmulrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14386,18 +14386,18 @@ data class TvmArithmQuietQmulrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14429,22 +14429,22 @@ data class TvmArithmQuietQmulrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14476,18 +14476,18 @@ data class TvmArithmQuietQmulrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14519,22 +14519,22 @@ data class TvmArithmQuietQmulrshiftcmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14566,18 +14566,18 @@ data class TvmArithmQuietQmulrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14609,22 +14609,22 @@ data class TvmArithmQuietQmulrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14657,18 +14657,18 @@ data class TvmArithmQuietQmulrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14700,22 +14700,22 @@ data class TvmArithmQuietQmulrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14747,18 +14747,18 @@ data class TvmArithmQuietQmulrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14790,22 +14790,22 @@ data class TvmArithmQuietQmulrshiftrmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "z",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14837,14 +14837,14 @@ data class TvmArithmQuietQnegateInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14876,14 +14876,14 @@ data class TvmArithmQuietQnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14915,18 +14915,18 @@ data class TvmArithmQuietQorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14958,14 +14958,14 @@ data class TvmArithmQuietQpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -14998,14 +14998,14 @@ data class TvmArithmQuietQrshiftInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15037,18 +15037,18 @@ data class TvmArithmQuietQrshiftVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15081,14 +15081,14 @@ data class TvmArithmQuietQrshiftcInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15120,18 +15120,18 @@ data class TvmArithmQuietQrshiftcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15164,18 +15164,18 @@ data class TvmArithmQuietQrshiftcmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15208,18 +15208,18 @@ data class TvmArithmQuietQrshiftmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15251,22 +15251,22 @@ data class TvmArithmQuietQrshiftmodVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15298,22 +15298,22 @@ data class TvmArithmQuietQrshiftmodcVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15345,22 +15345,22 @@ data class TvmArithmQuietQrshiftmodrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15393,14 +15393,14 @@ data class TvmArithmQuietQrshiftrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15432,18 +15432,18 @@ data class TvmArithmQuietQrshiftrVarInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15476,18 +15476,18 @@ data class TvmArithmQuietQrshiftrmodInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "q",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15519,18 +15519,18 @@ data class TvmArithmQuietQsubInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15562,18 +15562,18 @@ data class TvmArithmQuietQsubrInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15606,14 +15606,14 @@ data class TvmArithmQuietQufitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15645,18 +15645,18 @@ data class TvmArithmQuietQufitsxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15688,18 +15688,18 @@ data class TvmArithmQuietQxorInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15738,11 +15738,11 @@ data class TvmCellBuildBbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15781,7 +15781,7 @@ data class TvmCellBuildBbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15817,11 +15817,11 @@ data class TvmCellBuildBchkbitrefsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -15859,18 +15859,18 @@ data class TvmCellBuildBchkbitrefsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -15942,7 +15942,7 @@ data class TvmCellBuildBchkbitsVarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -15984,7 +15984,7 @@ data class TvmCellBuildBchkbitsqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16020,14 +16020,14 @@ data class TvmCellBuildBchkbitsqVarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16063,7 +16063,7 @@ data class TvmCellBuildBchkrefsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -16101,14 +16101,14 @@ data class TvmCellBuildBchkrefsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16148,7 +16148,7 @@ data class TvmCellBuildBdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16187,7 +16187,7 @@ data class TvmCellBuildBrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16226,11 +16226,11 @@ data class TvmCellBuildBrembitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16269,7 +16269,7 @@ data class TvmCellBuildBrembitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16308,7 +16308,7 @@ data class TvmCellBuildBremrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "y2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16386,7 +16386,7 @@ data class TvmCellBuildEndxcInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -16516,7 +16516,7 @@ data class TvmCellBuildStbqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16649,7 +16649,7 @@ data class TvmCellBuildStbrefqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16781,7 +16781,7 @@ data class TvmCellBuildStbrefrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16827,7 +16827,7 @@ data class TvmCellBuildStbrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -16860,7 +16860,7 @@ data class TvmCellBuildStiAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -16905,7 +16905,7 @@ data class TvmCellBuildStiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -16948,7 +16948,7 @@ data class TvmCellBuildStile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -16991,7 +16991,7 @@ data class TvmCellBuildStile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -17035,7 +17035,7 @@ data class TvmCellBuildStiqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -17049,7 +17049,7 @@ data class TvmCellBuildStiqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17086,7 +17086,7 @@ data class TvmCellBuildStirInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17130,7 +17130,7 @@ data class TvmCellBuildStirqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17140,7 +17140,7 @@ data class TvmCellBuildStirqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17172,7 +17172,7 @@ data class TvmCellBuildStixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -17180,7 +17180,7 @@ data class TvmCellBuildStixInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17222,7 +17222,7 @@ data class TvmCellBuildStixqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -17230,7 +17230,7 @@ data class TvmCellBuildStixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17240,7 +17240,7 @@ data class TvmCellBuildStixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17276,11 +17276,11 @@ data class TvmCellBuildStixrInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17323,11 +17323,11 @@ data class TvmCellBuildStixrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17337,7 +17337,7 @@ data class TvmCellBuildStixrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17373,7 +17373,7 @@ data class TvmCellBuildStonesInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17593,7 +17593,7 @@ data class TvmCellBuildStrefqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17682,7 +17682,7 @@ data class TvmCellBuildStrefrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17718,11 +17718,11 @@ data class TvmCellBuildStsameInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -17905,7 +17905,7 @@ data class TvmCellBuildStsliceqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -17994,7 +17994,7 @@ data class TvmCellBuildStslicerqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18027,7 +18027,7 @@ data class TvmCellBuildStuAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18072,7 +18072,7 @@ data class TvmCellBuildStuInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18115,7 +18115,7 @@ data class TvmCellBuildStule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18158,7 +18158,7 @@ data class TvmCellBuildStule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18202,7 +18202,7 @@ data class TvmCellBuildStuqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18216,7 +18216,7 @@ data class TvmCellBuildStuqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18253,7 +18253,7 @@ data class TvmCellBuildSturInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18297,7 +18297,7 @@ data class TvmCellBuildSturqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18307,7 +18307,7 @@ data class TvmCellBuildSturqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18339,7 +18339,7 @@ data class TvmCellBuildStuxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18347,7 +18347,7 @@ data class TvmCellBuildStuxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18386,7 +18386,7 @@ data class TvmCellBuildStuxqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "b",
@@ -18394,7 +18394,7 @@ data class TvmCellBuildStuxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18404,7 +18404,7 @@ data class TvmCellBuildStuxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18440,11 +18440,11 @@ data class TvmCellBuildStuxrInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18487,11 +18487,11 @@ data class TvmCellBuildStuxrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18501,7 +18501,7 @@ data class TvmCellBuildStuxrqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18537,7 +18537,7 @@ data class TvmCellBuildStzeroesInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -18585,7 +18585,7 @@ data class TvmCellParseCdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18625,7 +18625,7 @@ data class TvmCellParseCdepthiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18668,7 +18668,7 @@ data class TvmCellParseCdepthixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18708,7 +18708,7 @@ data class TvmCellParseChashiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18751,7 +18751,7 @@ data class TvmCellParseChashixInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "hash",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18790,7 +18790,7 @@ data class TvmCellParseClevelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "level",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18829,7 +18829,7 @@ data class TvmCellParseClevelmaskInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "level_mask",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -18944,7 +18944,7 @@ data class TvmCellParseLdiAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -18989,7 +18989,7 @@ data class TvmCellParseLdiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19032,7 +19032,7 @@ data class TvmCellParseLdile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19078,7 +19078,7 @@ data class TvmCellParseLdile4qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19117,7 +19117,7 @@ data class TvmCellParseLdile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19163,7 +19163,7 @@ data class TvmCellParseLdile8qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19206,7 +19206,7 @@ data class TvmCellParseLdiqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19243,14 +19243,14 @@ data class TvmCellParseLdixInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19292,7 +19292,7 @@ data class TvmCellParseLdixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -19302,7 +19302,7 @@ data class TvmCellParseLdixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19341,7 +19341,7 @@ data class TvmCellParseLdonesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19468,14 +19468,14 @@ data class TvmCellParseLdsameInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19610,7 +19610,7 @@ data class TvmCellParseLdsliceqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19647,7 +19647,7 @@ data class TvmCellParseLdslicexInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -19694,7 +19694,7 @@ data class TvmCellParseLdslicexqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -19704,7 +19704,7 @@ data class TvmCellParseLdslicexqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19744,7 +19744,7 @@ data class TvmCellParseLduAltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19788,7 +19788,7 @@ data class TvmCellParseLduInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19831,7 +19831,7 @@ data class TvmCellParseLdule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19877,7 +19877,7 @@ data class TvmCellParseLdule4qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -19916,7 +19916,7 @@ data class TvmCellParseLdule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -19962,7 +19962,7 @@ data class TvmCellParseLdule8qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20005,7 +20005,7 @@ data class TvmCellParseLduqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20041,14 +20041,14 @@ data class TvmCellParseLduxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -20088,7 +20088,7 @@ data class TvmCellParseLduxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20098,7 +20098,7 @@ data class TvmCellParseLduxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20137,7 +20137,7 @@ data class TvmCellParseLdzeroesInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -20181,7 +20181,7 @@ data class TvmCellParsePldiInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20220,7 +20220,7 @@ data class TvmCellParsePldile4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20262,7 +20262,7 @@ data class TvmCellParsePldile4qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20301,7 +20301,7 @@ data class TvmCellParsePldile8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20343,7 +20343,7 @@ data class TvmCellParsePldile8qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20386,7 +20386,7 @@ data class TvmCellParsePldiqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20422,14 +20422,14 @@ data class TvmCellParsePldixInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20465,7 +20465,7 @@ data class TvmCellParsePldixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20475,7 +20475,7 @@ data class TvmCellParsePldixqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20551,7 +20551,7 @@ data class TvmCellParsePldrefvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20641,7 +20641,7 @@ data class TvmCellParsePldsliceqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20677,7 +20677,7 @@ data class TvmCellParsePldslicexInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20720,7 +20720,7 @@ data class TvmCellParsePldslicexqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -20730,7 +20730,7 @@ data class TvmCellParsePldslicexqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20770,7 +20770,7 @@ data class TvmCellParsePlduInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20809,7 +20809,7 @@ data class TvmCellParsePldule4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20851,7 +20851,7 @@ data class TvmCellParsePldule4qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20890,7 +20890,7 @@ data class TvmCellParsePldule8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20932,7 +20932,7 @@ data class TvmCellParsePldule8qInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -20975,7 +20975,7 @@ data class TvmCellParsePlduqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21011,14 +21011,14 @@ data class TvmCellParsePlduxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21054,7 +21054,7 @@ data class TvmCellParsePlduxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21064,7 +21064,7 @@ data class TvmCellParsePlduxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21110,7 +21110,7 @@ data class TvmCellParsePlduzInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21149,11 +21149,11 @@ data class TvmCellParseSbitrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21192,7 +21192,7 @@ data class TvmCellParseSbitsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21228,11 +21228,11 @@ data class TvmCellParseSchkbitrefsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21270,18 +21270,18 @@ data class TvmCellParseSchkbitrefsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21318,7 +21318,7 @@ data class TvmCellParseSchkbitsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21356,14 +21356,14 @@ data class TvmCellParseSchkbitsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21399,7 +21399,7 @@ data class TvmCellParseSchkrefsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21437,14 +21437,14 @@ data class TvmCellParseSchkrefsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21480,11 +21480,11 @@ data class TvmCellParseScutfirstInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21527,11 +21527,11 @@ data class TvmCellParseScutlastInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21622,7 +21622,7 @@ data class TvmCellParseSdbeginsqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21713,7 +21713,7 @@ data class TvmCellParseSdbeginsxqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21749,7 +21749,7 @@ data class TvmCellParseSdcutfirstInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21792,7 +21792,7 @@ data class TvmCellParseSdcutlastInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21839,7 +21839,7 @@ data class TvmCellParseSdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -21875,7 +21875,7 @@ data class TvmCellParseSdskipfirstInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21918,7 +21918,7 @@ data class TvmCellParseSdskiplastInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -21962,11 +21962,11 @@ data class TvmCellParseSdsubstrInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22010,11 +22010,11 @@ data class TvmCellParseSplitInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22061,11 +22061,11 @@ data class TvmCellParseSplitqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22075,7 +22075,7 @@ data class TvmCellParseSplitqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22114,7 +22114,7 @@ data class TvmCellParseSrefsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22150,11 +22150,11 @@ data class TvmCellParseSskipfirstInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22197,11 +22197,11 @@ data class TvmCellParseSskiplastInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22245,19 +22245,19 @@ data class TvmCellParseSubsliceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22309,7 +22309,7 @@ data class TvmCellParseXctosInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "flag",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22392,7 +22392,7 @@ data class TvmCellParseXloadqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22488,7 +22488,7 @@ data class TvmCodepageSetcpxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -22522,14 +22522,14 @@ data class TvmCompareIntChknanInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22563,18 +22563,18 @@ data class TvmCompareIntCmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22608,14 +22608,14 @@ data class TvmCompareIntEqintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22647,18 +22647,18 @@ data class TvmCompareIntEqualInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22690,18 +22690,18 @@ data class TvmCompareIntGeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22733,18 +22733,18 @@ data class TvmCompareIntGreaterInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22778,14 +22778,14 @@ data class TvmCompareIntGtintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22817,14 +22817,14 @@ data class TvmCompareIntIsnanInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22856,18 +22856,18 @@ data class TvmCompareIntLeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22899,18 +22899,18 @@ data class TvmCompareIntLessInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22944,14 +22944,14 @@ data class TvmCompareIntLessintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -22983,18 +22983,18 @@ data class TvmCompareIntNeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23028,14 +23028,14 @@ data class TvmCompareIntNeqintInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23068,14 +23068,14 @@ data class TvmCompareIntSgnInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23114,7 +23114,7 @@ data class TvmCompareOtherSdcntlead0Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23153,7 +23153,7 @@ data class TvmCompareOtherSdcntlead1Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23192,7 +23192,7 @@ data class TvmCompareOtherSdcnttrail0Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23231,7 +23231,7 @@ data class TvmCompareOtherSdcnttrail1Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23270,7 +23270,7 @@ data class TvmCompareOtherSdemptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23313,7 +23313,7 @@ data class TvmCompareOtherSdeqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23352,7 +23352,7 @@ data class TvmCompareOtherSdfirstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23396,7 +23396,7 @@ data class TvmCompareOtherSdlexcmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23439,7 +23439,7 @@ data class TvmCompareOtherSdpfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23482,7 +23482,7 @@ data class TvmCompareOtherSdpfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23525,7 +23525,7 @@ data class TvmCompareOtherSdppfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23606,7 +23606,7 @@ data class TvmCompareOtherSdpsfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23649,7 +23649,7 @@ data class TvmCompareOtherSdpsfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23692,7 +23692,7 @@ data class TvmCompareOtherSdsfxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23735,7 +23735,7 @@ data class TvmCompareOtherSdsfxrevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23774,7 +23774,7 @@ data class TvmCompareOtherSemptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23813,7 +23813,7 @@ data class TvmCompareOtherSremptyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23850,7 +23850,7 @@ data class TvmConstDataPushcontInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23886,7 +23886,7 @@ data class TvmConstDataPushcontShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -23958,7 +23958,7 @@ data class TvmConstDataPushrefcontInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24144,7 +24144,7 @@ data class TvmConstIntPushint16Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24180,7 +24180,7 @@ data class TvmConstIntPushint4Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24215,7 +24215,7 @@ data class TvmConstIntPushint8Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24252,7 +24252,7 @@ data class TvmConstIntPushintLongInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24286,7 +24286,7 @@ data class TvmConstIntPushnanInst(
         get() = listOf(
             TvmConstStackEntryDescription(
                 value = null,
-                valueType = TvmSpecType.FORGOT_ANY
+                valueType = TvmSpecType.ANY
             )
         )
     
@@ -24321,7 +24321,7 @@ data class TvmConstIntPushnegpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24357,7 +24357,7 @@ data class TvmConstIntPushpow2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24392,7 +24392,7 @@ data class TvmConstIntPushpow2decInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -24424,7 +24424,7 @@ data class TvmContBasicBranchInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24466,7 +24466,7 @@ data class TvmContBasicCallccInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24519,7 +24519,7 @@ data class TvmContBasicCallccargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24568,15 +24568,15 @@ data class TvmContBasicCallccvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24673,7 +24673,7 @@ data class TvmContBasicCallxargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24734,7 +24734,7 @@ data class TvmContBasicCallxargsVarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24794,15 +24794,15 @@ data class TvmContBasicCallxvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24851,7 +24851,7 @@ data class TvmContBasicExecuteInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -24971,7 +24971,7 @@ data class TvmContBasicJmpxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25022,7 +25022,7 @@ data class TvmContBasicJmpxargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25062,7 +25062,7 @@ data class TvmContBasicJmpxdataInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25111,15 +25111,15 @@ data class TvmContBasicJmpxvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25315,11 +25315,11 @@ data class TvmContBasicRetvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "p",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25431,7 +25431,7 @@ data class TvmContConditionalCondselInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -25478,7 +25478,7 @@ data class TvmContConditionalCondselchkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
@@ -25526,11 +25526,11 @@ data class TvmContConditionalIfInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25581,18 +25581,18 @@ data class TvmContConditionalIfbitjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -25631,14 +25631,14 @@ data class TvmContConditionalIfbitjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -25676,15 +25676,15 @@ data class TvmContConditionalIfelseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25748,11 +25748,11 @@ data class TvmContConditionalIfelserefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25815,11 +25815,11 @@ data class TvmContConditionalIfjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25859,7 +25859,7 @@ data class TvmContConditionalIfjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -25899,18 +25899,18 @@ data class TvmContConditionalIfnbitjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -25949,14 +25949,14 @@ data class TvmContConditionalIfnbitjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -25993,11 +25993,11 @@ data class TvmContConditionalIfnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26046,11 +26046,11 @@ data class TvmContConditionalIfnotjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26090,7 +26090,7 @@ data class TvmContConditionalIfnotjmprefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26130,7 +26130,7 @@ data class TvmContConditionalIfnotrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26179,7 +26179,7 @@ data class TvmContConditionalIfnotretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26217,7 +26217,7 @@ data class TvmContConditionalIfnotretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26260,7 +26260,7 @@ data class TvmContConditionalIfrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26312,11 +26312,11 @@ data class TvmContConditionalIfrefelseInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26381,7 +26381,7 @@ data class TvmContConditionalIfrefelserefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26445,7 +26445,7 @@ data class TvmContConditionalIfretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26483,7 +26483,7 @@ data class TvmContConditionalIfretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26529,7 +26529,7 @@ data class TvmContCreateBlessInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26582,7 +26582,7 @@ data class TvmContCreateBlessargsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26628,18 +26628,18 @@ data class TvmContCreateBlessvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26675,7 +26675,7 @@ data class TvmContDictCalldictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26724,7 +26724,7 @@ data class TvmContDictCalldictLongInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26774,7 +26774,7 @@ data class TvmContDictJmpdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26816,11 +26816,11 @@ data class TvmContDictPreparedictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -26853,7 +26853,7 @@ data class TvmContLoopsAgainInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26891,7 +26891,7 @@ data class TvmContLoopsAgainbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -26991,11 +26991,11 @@ data class TvmContLoopsRepeatInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27035,11 +27035,11 @@ data class TvmContLoopsRepeatbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27077,7 +27077,7 @@ data class TvmContLoopsRepeatendInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27116,7 +27116,7 @@ data class TvmContLoopsRepeatendbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27159,7 +27159,7 @@ data class TvmContLoopsUntilInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27203,7 +27203,7 @@ data class TvmContLoopsUntilbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27340,11 +27340,11 @@ data class TvmContLoopsWhileInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27388,11 +27388,11 @@ data class TvmContLoopsWhilebrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27436,7 +27436,7 @@ data class TvmContLoopsWhileendInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27480,7 +27480,7 @@ data class TvmContLoopsWhileendbrkInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27515,7 +27515,7 @@ data class TvmContRegistersAtexitInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27550,7 +27550,7 @@ data class TvmContRegistersAtexitaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27586,14 +27586,14 @@ data class TvmContRegistersBoolevalInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -27640,18 +27640,18 @@ data class TvmContRegistersComposInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -27684,18 +27684,18 @@ data class TvmContRegistersComposaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -27728,18 +27728,18 @@ data class TvmContRegistersComposbothInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c3",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -27841,7 +27841,7 @@ data class TvmContRegistersPopctrxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -27950,7 +27950,7 @@ data class TvmContRegistersPushctrxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28182,14 +28182,14 @@ data class TvmContRegistersSetcontctrInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28225,18 +28225,18 @@ data class TvmContRegistersSetcontctrxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28270,7 +28270,7 @@ data class TvmContRegistersSetexitaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28339,14 +28339,14 @@ data class TvmContRegistersThenretInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28378,14 +28378,14 @@ data class TvmContRegistersThenretaltInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28493,14 +28493,14 @@ data class TvmContStackSetcontargsNInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28542,22 +28542,22 @@ data class TvmContStackSetcontvarargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "r",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28591,18 +28591,18 @@ data class TvmContStackSetnumvarargsInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28709,7 +28709,7 @@ data class TvmDictDeleteDictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28719,7 +28719,7 @@ data class TvmDictDeleteDictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28761,7 +28761,7 @@ data class TvmDictDeleteDictdelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28771,7 +28771,7 @@ data class TvmDictDeleteDictdelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28812,7 +28812,7 @@ data class TvmDictDeleteDictdelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28822,7 +28822,7 @@ data class TvmDictDeleteDictdelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28855,7 +28855,7 @@ data class TvmDictDeleteDictidelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -28863,7 +28863,7 @@ data class TvmDictDeleteDictidelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28873,7 +28873,7 @@ data class TvmDictDeleteDictidelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28905,7 +28905,7 @@ data class TvmDictDeleteDictidelgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -28913,7 +28913,7 @@ data class TvmDictDeleteDictidelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28923,7 +28923,7 @@ data class TvmDictDeleteDictidelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -28955,7 +28955,7 @@ data class TvmDictDeleteDictidelgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -28963,7 +28963,7 @@ data class TvmDictDeleteDictidelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -28973,7 +28973,7 @@ data class TvmDictDeleteDictidelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29005,7 +29005,7 @@ data class TvmDictDeleteDictudelInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29013,7 +29013,7 @@ data class TvmDictDeleteDictudelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29023,7 +29023,7 @@ data class TvmDictDeleteDictudelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29055,7 +29055,7 @@ data class TvmDictDeleteDictudelgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29063,7 +29063,7 @@ data class TvmDictDeleteDictudelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29073,7 +29073,7 @@ data class TvmDictDeleteDictudelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29105,7 +29105,7 @@ data class TvmDictDeleteDictudelgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29113,7 +29113,7 @@ data class TvmDictDeleteDictudelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29123,7 +29123,7 @@ data class TvmDictDeleteDictudelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29165,7 +29165,7 @@ data class TvmDictGetDictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29175,7 +29175,7 @@ data class TvmDictGetDictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29208,7 +29208,7 @@ data class TvmDictGetDictgetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29216,7 +29216,7 @@ data class TvmDictGetDictgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29226,7 +29226,7 @@ data class TvmDictGetDictgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29259,7 +29259,7 @@ data class TvmDictGetDictigetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29267,7 +29267,7 @@ data class TvmDictGetDictigetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29277,7 +29277,7 @@ data class TvmDictGetDictigetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29310,7 +29310,7 @@ data class TvmDictGetDictigetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29318,7 +29318,7 @@ data class TvmDictGetDictigetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29328,7 +29328,7 @@ data class TvmDictGetDictigetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29360,7 +29360,7 @@ data class TvmDictGetDictugetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29368,7 +29368,7 @@ data class TvmDictGetDictugetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29378,7 +29378,7 @@ data class TvmDictGetDictugetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29410,7 +29410,7 @@ data class TvmDictGetDictugetrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29418,7 +29418,7 @@ data class TvmDictGetDictugetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29428,7 +29428,7 @@ data class TvmDictGetDictugetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29469,7 +29469,7 @@ data class TvmDictMayberefDictgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29509,7 +29509,7 @@ data class TvmDictMayberefDictigetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29517,7 +29517,7 @@ data class TvmDictMayberefDictigetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29561,7 +29561,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29569,7 +29569,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29626,7 +29626,7 @@ data class TvmDictMayberefDictsetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29670,7 +29670,7 @@ data class TvmDictMayberefDictugetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29678,7 +29678,7 @@ data class TvmDictMayberefDictugetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29721,7 +29721,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -29729,7 +29729,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29778,7 +29778,7 @@ data class TvmDictMinDictimaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29788,7 +29788,7 @@ data class TvmDictMinDictimaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29824,7 +29824,7 @@ data class TvmDictMinDictimaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29834,7 +29834,7 @@ data class TvmDictMinDictimaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29872,7 +29872,7 @@ data class TvmDictMinDictiminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29882,7 +29882,7 @@ data class TvmDictMinDictiminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29918,7 +29918,7 @@ data class TvmDictMinDictiminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29928,7 +29928,7 @@ data class TvmDictMinDictiminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -29966,7 +29966,7 @@ data class TvmDictMinDictiremmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -29976,7 +29976,7 @@ data class TvmDictMinDictiremmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30012,7 +30012,7 @@ data class TvmDictMinDictiremmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30022,7 +30022,7 @@ data class TvmDictMinDictiremmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30060,7 +30060,7 @@ data class TvmDictMinDictiremminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30070,7 +30070,7 @@ data class TvmDictMinDictiremminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30106,7 +30106,7 @@ data class TvmDictMinDictiremminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30116,7 +30116,7 @@ data class TvmDictMinDictiremminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30153,7 +30153,7 @@ data class TvmDictMinDictmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30163,7 +30163,7 @@ data class TvmDictMinDictmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30199,7 +30199,7 @@ data class TvmDictMinDictmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30209,7 +30209,7 @@ data class TvmDictMinDictmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30246,7 +30246,7 @@ data class TvmDictMinDictminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30256,7 +30256,7 @@ data class TvmDictMinDictminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30292,7 +30292,7 @@ data class TvmDictMinDictminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30302,7 +30302,7 @@ data class TvmDictMinDictminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30340,7 +30340,7 @@ data class TvmDictMinDictremmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30350,7 +30350,7 @@ data class TvmDictMinDictremmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30386,7 +30386,7 @@ data class TvmDictMinDictremmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30396,7 +30396,7 @@ data class TvmDictMinDictremmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30434,7 +30434,7 @@ data class TvmDictMinDictremminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30444,7 +30444,7 @@ data class TvmDictMinDictremminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30480,7 +30480,7 @@ data class TvmDictMinDictremminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30490,7 +30490,7 @@ data class TvmDictMinDictremminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30526,7 +30526,7 @@ data class TvmDictMinDictumaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30536,7 +30536,7 @@ data class TvmDictMinDictumaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30572,7 +30572,7 @@ data class TvmDictMinDictumaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30582,7 +30582,7 @@ data class TvmDictMinDictumaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30618,7 +30618,7 @@ data class TvmDictMinDictuminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30628,7 +30628,7 @@ data class TvmDictMinDictuminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30664,7 +30664,7 @@ data class TvmDictMinDictuminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30674,7 +30674,7 @@ data class TvmDictMinDictuminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30710,7 +30710,7 @@ data class TvmDictMinDicturemmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30720,7 +30720,7 @@ data class TvmDictMinDicturemmaxInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30756,7 +30756,7 @@ data class TvmDictMinDicturemmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30766,7 +30766,7 @@ data class TvmDictMinDicturemmaxrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30802,7 +30802,7 @@ data class TvmDictMinDicturemminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30812,7 +30812,7 @@ data class TvmDictMinDicturemminInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30848,7 +30848,7 @@ data class TvmDictMinDicturemminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30858,7 +30858,7 @@ data class TvmDictMinDicturemminrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30900,7 +30900,7 @@ data class TvmDictNextDictgetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30910,7 +30910,7 @@ data class TvmDictNextDictgetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -30951,7 +30951,7 @@ data class TvmDictNextDictgetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -30961,7 +30961,7 @@ data class TvmDictNextDictgetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31001,7 +31001,7 @@ data class TvmDictNextDictgetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31011,7 +31011,7 @@ data class TvmDictNextDictgetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31052,7 +31052,7 @@ data class TvmDictNextDictgetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31062,7 +31062,7 @@ data class TvmDictNextDictgetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31096,7 +31096,7 @@ data class TvmDictNextDictigetnextInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31104,7 +31104,7 @@ data class TvmDictNextDictigetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31114,7 +31114,7 @@ data class TvmDictNextDictigetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31146,7 +31146,7 @@ data class TvmDictNextDictigetnexteqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31154,7 +31154,7 @@ data class TvmDictNextDictigetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31164,7 +31164,7 @@ data class TvmDictNextDictigetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31196,7 +31196,7 @@ data class TvmDictNextDictigetprevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31204,7 +31204,7 @@ data class TvmDictNextDictigetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31214,7 +31214,7 @@ data class TvmDictNextDictigetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31246,7 +31246,7 @@ data class TvmDictNextDictigetpreveqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31254,7 +31254,7 @@ data class TvmDictNextDictigetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31264,7 +31264,7 @@ data class TvmDictNextDictigetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31298,7 +31298,7 @@ data class TvmDictNextDictugetnextInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31306,7 +31306,7 @@ data class TvmDictNextDictugetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31316,7 +31316,7 @@ data class TvmDictNextDictugetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31348,7 +31348,7 @@ data class TvmDictNextDictugetnexteqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31356,7 +31356,7 @@ data class TvmDictNextDictugetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31366,7 +31366,7 @@ data class TvmDictNextDictugetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31398,7 +31398,7 @@ data class TvmDictNextDictugetprevInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31406,7 +31406,7 @@ data class TvmDictNextDictugetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31416,7 +31416,7 @@ data class TvmDictNextDictugetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31448,7 +31448,7 @@ data class TvmDictNextDictugetpreveqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -31456,7 +31456,7 @@ data class TvmDictNextDictugetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31466,7 +31466,7 @@ data class TvmDictNextDictugetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31510,7 +31510,7 @@ data class TvmDictPrefixPfxdictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31520,7 +31520,7 @@ data class TvmDictPrefixPfxdictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31596,7 +31596,7 @@ data class TvmDictPrefixPfxdictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31606,7 +31606,7 @@ data class TvmDictPrefixPfxdictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31646,7 +31646,7 @@ data class TvmDictPrefixPfxdictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31702,7 +31702,7 @@ data class TvmDictPrefixPfxdictgetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31807,7 +31807,7 @@ data class TvmDictPrefixPfxdictgetqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31817,7 +31817,7 @@ data class TvmDictPrefixPfxdictgetqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31861,7 +31861,7 @@ data class TvmDictPrefixPfxdictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31871,7 +31871,7 @@ data class TvmDictPrefixPfxdictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -31915,7 +31915,7 @@ data class TvmDictPrefixPfxdictsetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -31925,7 +31925,7 @@ data class TvmDictPrefixPfxdictsetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32001,7 +32001,7 @@ data class TvmDictSerialLddictqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32011,7 +32011,7 @@ data class TvmDictSerialLddictqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32128,7 +32128,7 @@ data class TvmDictSerialPlddictqInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "s",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32138,7 +32138,7 @@ data class TvmDictSerialPlddictqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32306,7 +32306,7 @@ data class TvmDictSetBuilderDictaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32316,7 +32316,7 @@ data class TvmDictSetBuilderDictaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32360,7 +32360,7 @@ data class TvmDictSetBuilderDictaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32370,7 +32370,7 @@ data class TvmDictSetBuilderDictaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32406,7 +32406,7 @@ data class TvmDictSetBuilderDictiaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32414,7 +32414,7 @@ data class TvmDictSetBuilderDictiaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32424,7 +32424,7 @@ data class TvmDictSetBuilderDictiaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32460,7 +32460,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32468,7 +32468,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32478,7 +32478,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32514,7 +32514,7 @@ data class TvmDictSetBuilderDictireplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32522,7 +32522,7 @@ data class TvmDictSetBuilderDictireplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32532,7 +32532,7 @@ data class TvmDictSetBuilderDictireplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32568,7 +32568,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32576,7 +32576,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32586,7 +32586,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32622,7 +32622,7 @@ data class TvmDictSetBuilderDictisetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32630,7 +32630,7 @@ data class TvmDictSetBuilderDictisetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32673,7 +32673,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32681,7 +32681,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32691,7 +32691,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32735,7 +32735,7 @@ data class TvmDictSetBuilderDictreplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32745,7 +32745,7 @@ data class TvmDictSetBuilderDictreplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32789,7 +32789,7 @@ data class TvmDictSetBuilderDictreplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32799,7 +32799,7 @@ data class TvmDictSetBuilderDictreplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32843,7 +32843,7 @@ data class TvmDictSetBuilderDictsetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32894,7 +32894,7 @@ data class TvmDictSetBuilderDictsetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32904,7 +32904,7 @@ data class TvmDictSetBuilderDictsetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32940,7 +32940,7 @@ data class TvmDictSetBuilderDictuaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -32948,7 +32948,7 @@ data class TvmDictSetBuilderDictuaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -32958,7 +32958,7 @@ data class TvmDictSetBuilderDictuaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -32994,7 +32994,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33002,7 +33002,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33012,7 +33012,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33048,7 +33048,7 @@ data class TvmDictSetBuilderDictureplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33056,7 +33056,7 @@ data class TvmDictSetBuilderDictureplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33066,7 +33066,7 @@ data class TvmDictSetBuilderDictureplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33102,7 +33102,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33110,7 +33110,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33120,7 +33120,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33156,7 +33156,7 @@ data class TvmDictSetBuilderDictusetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33164,7 +33164,7 @@ data class TvmDictSetBuilderDictusetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33207,7 +33207,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33215,7 +33215,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33225,7 +33225,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33270,7 +33270,7 @@ data class TvmDictSetDictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33280,7 +33280,7 @@ data class TvmDictSetDictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33326,7 +33326,7 @@ data class TvmDictSetDictaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33336,7 +33336,7 @@ data class TvmDictSetDictaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33380,7 +33380,7 @@ data class TvmDictSetDictaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33390,7 +33390,7 @@ data class TvmDictSetDictaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33434,7 +33434,7 @@ data class TvmDictSetDictaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33444,7 +33444,7 @@ data class TvmDictSetDictaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33480,7 +33480,7 @@ data class TvmDictSetDictiaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33488,7 +33488,7 @@ data class TvmDictSetDictiaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33498,7 +33498,7 @@ data class TvmDictSetDictiaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33534,7 +33534,7 @@ data class TvmDictSetDictiaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33542,7 +33542,7 @@ data class TvmDictSetDictiaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33552,7 +33552,7 @@ data class TvmDictSetDictiaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33588,7 +33588,7 @@ data class TvmDictSetDictiaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33596,7 +33596,7 @@ data class TvmDictSetDictiaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33606,7 +33606,7 @@ data class TvmDictSetDictiaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33642,7 +33642,7 @@ data class TvmDictSetDictiaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33650,7 +33650,7 @@ data class TvmDictSetDictiaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33660,7 +33660,7 @@ data class TvmDictSetDictiaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33696,7 +33696,7 @@ data class TvmDictSetDictireplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33704,7 +33704,7 @@ data class TvmDictSetDictireplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33714,7 +33714,7 @@ data class TvmDictSetDictireplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33750,7 +33750,7 @@ data class TvmDictSetDictireplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33758,7 +33758,7 @@ data class TvmDictSetDictireplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33768,7 +33768,7 @@ data class TvmDictSetDictireplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33804,7 +33804,7 @@ data class TvmDictSetDictireplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33812,7 +33812,7 @@ data class TvmDictSetDictireplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33822,7 +33822,7 @@ data class TvmDictSetDictireplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33858,7 +33858,7 @@ data class TvmDictSetDictireplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33866,7 +33866,7 @@ data class TvmDictSetDictireplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33876,7 +33876,7 @@ data class TvmDictSetDictireplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -33913,7 +33913,7 @@ data class TvmDictSetDictisetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33921,7 +33921,7 @@ data class TvmDictSetDictisetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33964,7 +33964,7 @@ data class TvmDictSetDictisetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -33972,7 +33972,7 @@ data class TvmDictSetDictisetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -33982,7 +33982,7 @@ data class TvmDictSetDictisetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34018,7 +34018,7 @@ data class TvmDictSetDictisetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34026,7 +34026,7 @@ data class TvmDictSetDictisetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34036,7 +34036,7 @@ data class TvmDictSetDictisetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34072,7 +34072,7 @@ data class TvmDictSetDictisetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34080,7 +34080,7 @@ data class TvmDictSetDictisetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34132,7 +34132,7 @@ data class TvmDictSetDictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34142,7 +34142,7 @@ data class TvmDictSetDictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34187,7 +34187,7 @@ data class TvmDictSetDictreplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34197,7 +34197,7 @@ data class TvmDictSetDictreplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34241,7 +34241,7 @@ data class TvmDictSetDictreplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34251,7 +34251,7 @@ data class TvmDictSetDictreplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34295,7 +34295,7 @@ data class TvmDictSetDictreplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34305,7 +34305,7 @@ data class TvmDictSetDictreplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34351,7 +34351,7 @@ data class TvmDictSetDictsetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34403,7 +34403,7 @@ data class TvmDictSetDictsetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34413,7 +34413,7 @@ data class TvmDictSetDictsetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34457,7 +34457,7 @@ data class TvmDictSetDictsetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34467,7 +34467,7 @@ data class TvmDictSetDictsetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34511,7 +34511,7 @@ data class TvmDictSetDictsetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34554,7 +34554,7 @@ data class TvmDictSetDictuaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34562,7 +34562,7 @@ data class TvmDictSetDictuaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34572,7 +34572,7 @@ data class TvmDictSetDictuaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34608,7 +34608,7 @@ data class TvmDictSetDictuaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34616,7 +34616,7 @@ data class TvmDictSetDictuaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34626,7 +34626,7 @@ data class TvmDictSetDictuaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34662,7 +34662,7 @@ data class TvmDictSetDictuaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34670,7 +34670,7 @@ data class TvmDictSetDictuaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34680,7 +34680,7 @@ data class TvmDictSetDictuaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34716,7 +34716,7 @@ data class TvmDictSetDictuaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34724,7 +34724,7 @@ data class TvmDictSetDictuaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34734,7 +34734,7 @@ data class TvmDictSetDictuaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34770,7 +34770,7 @@ data class TvmDictSetDictureplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34778,7 +34778,7 @@ data class TvmDictSetDictureplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34788,7 +34788,7 @@ data class TvmDictSetDictureplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34824,7 +34824,7 @@ data class TvmDictSetDictureplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34832,7 +34832,7 @@ data class TvmDictSetDictureplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34842,7 +34842,7 @@ data class TvmDictSetDictureplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34878,7 +34878,7 @@ data class TvmDictSetDictureplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34886,7 +34886,7 @@ data class TvmDictSetDictureplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34896,7 +34896,7 @@ data class TvmDictSetDictureplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34932,7 +34932,7 @@ data class TvmDictSetDictureplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34940,7 +34940,7 @@ data class TvmDictSetDictureplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -34950,7 +34950,7 @@ data class TvmDictSetDictureplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -34986,7 +34986,7 @@ data class TvmDictSetDictusetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -34994,7 +34994,7 @@ data class TvmDictSetDictusetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35037,7 +35037,7 @@ data class TvmDictSetDictusetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35045,7 +35045,7 @@ data class TvmDictSetDictusetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35055,7 +35055,7 @@ data class TvmDictSetDictusetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -35091,7 +35091,7 @@ data class TvmDictSetDictusetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35099,7 +35099,7 @@ data class TvmDictSetDictusetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35109,7 +35109,7 @@ data class TvmDictSetDictusetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -35145,7 +35145,7 @@ data class TvmDictSetDictusetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35153,7 +35153,7 @@ data class TvmDictSetDictusetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35192,7 +35192,7 @@ data class TvmDictSpecialDictigetexecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35200,7 +35200,7 @@ data class TvmDictSpecialDictigetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35294,7 +35294,7 @@ data class TvmDictSpecialDictigetjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35302,7 +35302,7 @@ data class TvmDictSpecialDictigetjmpInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35341,7 +35341,7 @@ data class TvmDictSpecialDictigetjmpzInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35349,14 +35349,14 @@ data class TvmDictSpecialDictigetjmpzInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -35406,7 +35406,7 @@ data class TvmDictSpecialDictpushconstInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -35438,7 +35438,7 @@ data class TvmDictSpecialDictugetexecInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35446,7 +35446,7 @@ data class TvmDictSpecialDictugetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35539,7 +35539,7 @@ data class TvmDictSpecialDictugetjmpInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35547,7 +35547,7 @@ data class TvmDictSpecialDictugetjmpInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35627,7 +35627,7 @@ data class TvmDictSubSubdictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35635,7 +35635,7 @@ data class TvmDictSubSubdictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35675,11 +35675,11 @@ data class TvmDictSubSubdictigetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35687,7 +35687,7 @@ data class TvmDictSubSubdictigetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35727,11 +35727,11 @@ data class TvmDictSubSubdictirpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35739,7 +35739,7 @@ data class TvmDictSubSubdictirpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35783,7 +35783,7 @@ data class TvmDictSubSubdictrpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35791,7 +35791,7 @@ data class TvmDictSubSubdictrpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35831,11 +35831,11 @@ data class TvmDictSubSubdictugetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35843,7 +35843,7 @@ data class TvmDictSubSubdictugetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35883,11 +35883,11 @@ data class TvmDictSubSubdicturpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "l",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
@@ -35895,7 +35895,7 @@ data class TvmDictSubSubdicturpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -35997,7 +35997,7 @@ data class TvmExceptionsThrowanyInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36031,11 +36031,11 @@ data class TvmExceptionsThrowanyifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36069,11 +36069,11 @@ data class TvmExceptionsThrowanyifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36149,7 +36149,7 @@ data class TvmExceptionsThrowarganyInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36187,11 +36187,11 @@ data class TvmExceptionsThrowarganyifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36229,11 +36229,11 @@ data class TvmExceptionsThrowarganyifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36272,7 +36272,7 @@ data class TvmExceptionsThrowargifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36311,7 +36311,7 @@ data class TvmExceptionsThrowargifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36346,7 +36346,7 @@ data class TvmExceptionsThrowifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36381,7 +36381,7 @@ data class TvmExceptionsThrowifShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36416,7 +36416,7 @@ data class TvmExceptionsThrowifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36451,7 +36451,7 @@ data class TvmExceptionsThrowifnotShortInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "f",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36490,11 +36490,11 @@ data class TvmExceptionsTryInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -36587,11 +36587,11 @@ data class TvmExceptionsTryargsInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "c",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -37037,7 +37037,7 @@ data class TvmStackComplexChkdepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "i",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -37073,7 +37073,7 @@ data class TvmStackComplexDepthInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "depth",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38065,7 +38065,7 @@ data class TvmTupleExplodeInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38101,7 +38101,7 @@ data class TvmTupleExplodevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38118,7 +38118,7 @@ data class TvmTupleExplodevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "m",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38322,7 +38322,7 @@ data class TvmTupleIndexvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38365,7 +38365,7 @@ data class TvmTupleIndexvarqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38404,14 +38404,14 @@ data class TvmTupleIsnullInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.NULL)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "result",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38450,7 +38450,7 @@ data class TvmTupleIstupleInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38561,7 +38561,7 @@ data class TvmTupleNullrotrif2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38575,7 +38575,7 @@ data class TvmTupleNullrotrif2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38612,7 +38612,7 @@ data class TvmTupleNullrotrifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38626,7 +38626,7 @@ data class TvmTupleNullrotrifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38664,7 +38664,7 @@ data class TvmTupleNullrotrifnot2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38678,7 +38678,7 @@ data class TvmTupleNullrotrifnot2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38715,7 +38715,7 @@ data class TvmTupleNullrotrifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38729,7 +38729,7 @@ data class TvmTupleNullrotrifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "y",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38762,7 +38762,7 @@ data class TvmTupleNullswapif2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38772,7 +38772,7 @@ data class TvmTupleNullswapif2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38804,7 +38804,7 @@ data class TvmTupleNullswapifInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38814,7 +38814,7 @@ data class TvmTupleNullswapifInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38847,7 +38847,7 @@ data class TvmTupleNullswapifnot2Inst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38857,7 +38857,7 @@ data class TvmTupleNullswapifnot2Inst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38890,7 +38890,7 @@ data class TvmTupleNullswapifnotInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -38900,7 +38900,7 @@ data class TvmTupleNullswapifnotInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -38939,7 +38939,7 @@ data class TvmTupleQtlenInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -39074,7 +39074,7 @@ data class TvmTupleSetindexvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -39121,7 +39121,7 @@ data class TvmTupleSetindexvarqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "k",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -39167,7 +39167,7 @@ data class TvmTupleTlenInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     
@@ -39345,7 +39345,7 @@ data class TvmTupleTuplevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -39435,7 +39435,7 @@ data class TvmTupleUnpackfirstvarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -39531,7 +39531,7 @@ data class TvmTupleUntuplevarInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
-                valueTypes = listOf(TvmSpecType.FORGOT_ANY)
+                valueTypes = listOf(TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
