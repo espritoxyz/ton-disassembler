@@ -383,7 +383,7 @@ fun isCompatible(
 
         is ContinuationValue ->
             val1.valueTypes == (val2 as ContinuationValue).valueTypes &&
-                    val1.continuationRef == val2.continuationRef
+                val1.continuationRef == val2.continuationRef
     }
 }
 
@@ -475,7 +475,10 @@ fun areStatesCompatible(
     return Pair("States are compatible", true)
 }
 
-fun areStacksCompatible(stack1: Stack, stack2: Stack): Pair<String, Boolean> {
+fun areStacksCompatible(
+    stack1: Stack,
+    stack2: Stack,
+): Pair<String, Boolean> {
     if (stack1.size != stack2.size) {
         return "Stack size mismatch: ${stack1.size} vs ${stack2.size}" to false
     }
@@ -490,7 +493,8 @@ fun areStacksCompatible(stack1: Stack, stack2: Stack): Pair<String, Boolean> {
         if (!isCompatible(val1, val2)) {
             if (val1 is TacTupleValue && val2 is TacTupleValue) {
                 if (val1.elements.size != val2.elements.size) {
-                    return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to false
+                    return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to
+                        false
                 }
             }
 
@@ -516,53 +520,62 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
     controlFlowPrep.inputVars.forEach { inputVar ->
         val assignInst = stack.getAssignInst(inputVar, controlFlowPrep.inputVars.size - 1)
-        val newInst = if (ctx.debug) {
-            val stackAfter = stack.copyEntries()
-            TacInstDebugWrapper(assignInst, stackAfter)
-        } else {
-            assignInst
-        }
+        val newInst =
+            if (ctx.debug) {
+                val stackAfter = stack.copyEntries()
+                TacInstDebugWrapper(assignInst, stackAfter)
+            } else {
+                assignInst
+            }
         @Suppress("UNCHECKED_CAST")
         result += newInst as Inst
     }
 
-    val branchStates = continuationAnalysis.continuationInfos.map {
-        Pair(stack.copy(), registerState.copy())
-    }
+    val branchStates =
+        continuationAnalysis.continuationInfos.map {
+            Pair(stack.copy(), registerState.copy())
+        }
 
-    val noOpGenerator = object : EndingInstGenerator<Inst> {
-        override fun generateEndingInst(ctx: TacGenerationContext<Inst>, stack: Stack): List<Inst> = emptyList()
-    }
+    val noOpGenerator =
+        object : EndingInstGenerator<Inst> {
+            override fun generateEndingInst(
+                ctx: TacGenerationContext<Inst>,
+                stack: Stack,
+            ): List<Inst> = emptyList()
+        }
 
-    val blockInfos = continuationAnalysis.continuationInfos.mapIndexed { index, continuationInfo ->
-        val (branchStack, branchRegisterState) = branchStates[index]
-        generateTacCodeBlock(
-            ctx,
-            codeBlock = continuationInfo.originalTvmCode,
-            stack = branchStack,
-            endingInstGenerator = noOpGenerator,
-            registerState = branchRegisterState,
-        )
-    }
+    val blockInfos =
+        continuationAnalysis.continuationInfos.mapIndexed { index, continuationInfo ->
+            val (branchStack, branchRegisterState) = branchStates[index]
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = continuationInfo.originalTvmCode,
+                stack = branchStack,
+                endingInstGenerator = noOpGenerator,
+                registerState = branchRegisterState,
+            )
+        }
 
     if (branchStates.size > 1) {
         val (firstStack, firstRegisterState) = branchStates.first()
-        val allStatesCompatibleResults = branchStates.drop(1).map { (otherStack, otherRegisterState) ->
-            val (regMsg, regOk) = areStatesCompatible(firstRegisterState, otherRegisterState)
-            if (!regOk) return@map regMsg to false
+        val allStatesCompatibleResults =
+            branchStates.drop(1).map { (otherStack, otherRegisterState) ->
+                val (regMsg, regOk) = areStatesCompatible(firstRegisterState, otherRegisterState)
+                if (!regOk) return@map regMsg to false
 
-            val (stackMsg, stackOk) = areStacksCompatible(firstStack, otherStack)
-            if (!stackOk) return@map stackMsg to false
+                val (stackMsg, stackOk) = areStacksCompatible(firstStack, otherStack)
+                if (!stackOk) return@map stackMsg to false
 
-            "Compatible" to true
-        }
+                "Compatible" to true
+            }
 
         val allStatesCompatible = allStatesCompatibleResults.all { it.second }
 
         if (!allStatesCompatible) {
-            val errorMessages = allStatesCompatibleResults
-                .filter { !it.second }
-                .joinToString("\n") { it.first }
+            val errorMessages =
+                allStatesCompatibleResults
+                    .filter { !it.second }
+                    .joinToString("\n") { it.first }
 
             throw IllegalStateException(
                 "Decompilation failed at '${inst.mnemonic}': Incompatible states after branches merging at label '${controlFlowPrep.label}':\n$errorMessages",
@@ -570,11 +583,12 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         }
     }
 
-    val blocks = blockInfos.mapIndexed { index, info ->
-        val (branchStack, _) = branchStates[index]
-        val endingInsts = controlFlowPrep.newEndInstGenerator.generateEndingInst(ctx, branchStack)
-        info.instructions + endingInsts
-    }
+    val blocks =
+        blockInfos.mapIndexed { index, info ->
+            val (branchStack, _) = branchStates[index]
+            val endingInsts = controlFlowPrep.newEndInstGenerator.generateEndingInst(ctx, branchStack)
+            info.instructions + endingInsts
+        }
 
     if (branchStates.isNotEmpty()) {
         val (_, representativeRegisterState) = branchStates.first()
@@ -588,32 +602,35 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     val filteredInputs = inputs.filter { it.first !in controlFlowInputNames }.map { it.second }
 
     @Suppress("UNCHECKED_CAST")
-    val controlFlowInst = TacOrdinaryInst(
-        mnemonic = inst.mnemonic,
-        operands = operands,
-        inputs = filteredInputs,
-        outputs = outputs,
-        blocks = blocks,
-    )
+    val controlFlowInst =
+        TacOrdinaryInst(
+            mnemonic = inst.mnemonic,
+            operands = operands,
+            inputs = filteredInputs,
+            outputs = outputs,
+            blocks = blocks,
+        )
 
-    val resultInst = if (ctx.debug) {
-        val stackAfter = stack.copyEntries()
-        TacInstDebugWrapper(controlFlowInst, stackAfter)
-    } else {
-        controlFlowInst
-    }
+    val resultInst =
+        if (ctx.debug) {
+            val stackAfter = stack.copyEntries()
+            TacInstDebugWrapper(controlFlowInst, stackAfter)
+        } else {
+            controlFlowInst
+        }
 
     @Suppress("UNCHECKED_CAST")
     result += resultInst as Inst
 
     if (controlFlowPrep.label != null) {
         val labelInst = TacLabel(controlFlowPrep.label)
-        val resultLabelInst = if (ctx.debug) {
-            val stackAfter = stack.copyEntries()
-            TacInstDebugWrapper(labelInst, stackAfter)
-        } else {
-            labelInst
-        }
+        val resultLabelInst =
+            if (ctx.debug) {
+                val stackAfter = stack.copyEntries()
+                TacInstDebugWrapper(labelInst, stackAfter)
+            } else {
+                labelInst
+            }
         @Suppress("UNCHECKED_CAST")
         result += resultLabelInst as Inst
     }
