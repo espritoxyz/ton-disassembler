@@ -10,6 +10,7 @@ import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
+import org.ton.bytecode.TvmSpecType
 
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     ctx: TacGenerationContext<Inst>,
@@ -372,18 +373,22 @@ fun isCompatible(
     val1: TacStackValue,
     val2: TacStackValue,
 ): Boolean {
-    if (val1::class != val2::class) return false
+    if (val1.valueTypes.isEmpty() || val1.valueTypes.contains(TvmSpecType.ANY)) return true
+    if (val2.valueTypes.isEmpty() || val2.valueTypes.contains(TvmSpecType.ANY)) return true
 
-    return when (val1) {
-        is TacVar -> val1.valueTypes == (val2 as TacVar).valueTypes
+    if (val1.valueTypes != val2.valueTypes) return false
 
-        is TacIntValue -> val1.valueTypes == (val2 as TacIntValue).valueTypes
+    return when {
+        val1 is TacTupleValue && val2 is TacTupleValue -> tupleCompatible(val1, val2)
 
-        is TacTupleValue -> tupleCompatible(val1, val2)
+        val1 is TacTupleValue || val2 is TacTupleValue -> false
 
-        is ContinuationValue ->
-            val1.valueTypes == (val2 as ContinuationValue).valueTypes &&
-                val1.continuationRef == val2.continuationRef
+        val1 is ContinuationValue && val2 is ContinuationValue ->
+            val1.continuationRef == val2.continuationRef
+
+        val1 is ContinuationValue || val2 is ContinuationValue -> false
+
+        else -> true
     }
 }
 

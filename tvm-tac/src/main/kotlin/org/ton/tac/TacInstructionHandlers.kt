@@ -76,6 +76,7 @@ object TacHandlerRegistry {
             is TvmStackBasicInst,
             is TvmStackComplexInst,
             -> StackMutationHandler
+
             is TvmTupleTupleInst -> TupleHandler
             is TvmTupleUntupleInst -> UnTupleHandler
             is TvmTupleTpushInst -> TPushHandler
@@ -86,9 +87,18 @@ object TacHandlerRegistry {
             is TvmContRegistersPopctrInst -> PopCtrHandler
             is TvmContRegistersPushctrInst -> PushCtrHandler
 
-            is TvmConstDataInst -> PushContHandler
+            is TvmConstDataInst -> {
+                if (inst.mnemonic.startsWith("PUSHCONT")) {
+                    PushContHandler
+                } else {
+                    DefaultSpecHandler
+                }
+            }
 
-            is TvmContDictCalldictInst, TvmContDictCalldictLongInst -> CallDictHandler
+            is TvmContDictCalldictInst,
+            is TvmContDictCalldictLongInst,
+            -> CallDictHandler
+
             else -> DefaultSpecHandler
         }
 }
