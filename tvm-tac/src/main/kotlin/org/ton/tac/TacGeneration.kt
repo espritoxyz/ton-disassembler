@@ -221,6 +221,7 @@ private data class ContinuationAnalysis<Inst : AbstractTacInst>(
     val stackEffects: Set<Int>,
     val maxArguments: Int,
     val maxResultValues: Int,
+    val minResultValues: Int,
 )
 
 private data class ControlFlowPreparation<Inst : AbstractTacInst>(
@@ -289,19 +290,17 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
     if (stackEffects.isEmpty()) {
         TODO("Case when all branches of instruction fail")
     }
-    check(stackEffects.size == 1) {
-        "Cannot build three address code if stack effects are different"
-    }
 
-    val maxArguments = continuationInfos.maxOf { it.methodArgs.size }
-
-    val maxResultValues = continuationInfos.mapNotNull { it.numberOfReturnedValues }.max()
+    val maxArguments = continuationInfos.maxOfOrNull { it.methodArgs.size } ?: 0
+    val maxResultValues = continuationInfos.mapNotNull { it.numberOfReturnedValues }.maxOrNull() ?: 0
+    val minResultValues = continuationInfos.mapNotNull { it.numberOfReturnedValues }.minOrNull() ?: 0
 
     return ContinuationAnalysis(
         continuationInfos = continuationInfos,
         stackEffects = stackEffects,
         maxArguments = maxArguments,
         maxResultValues = maxResultValues,
+        minResultValues = minResultValues,
     )
 }
 
@@ -330,7 +329,7 @@ private fun <Inst : AbstractTacInst> prepareControlFlow(
             }
             inputVars
         } else if (!inst.noBranch) {
-            List(continuationAnalysis.maxResultValues) {
+            List(continuationAnalysis.minResultValues) {
                 TacVar(ctx.nextVarName())
             }
         } else {
@@ -480,36 +479,6 @@ fun areStatesCompatible(
     return Pair("States are compatible", true)
 }
 
-fun areStacksCompatible(
-    stack1: Stack,
-    stack2: Stack,
-): Pair<String, Boolean> {
-    if (stack1.size != stack2.size) {
-        return "Stack size mismatch: ${stack1.size} vs ${stack2.size}" to false
-    }
-
-    val entries1 = stack1.copyEntries()
-    val entries2 = stack2.copyEntries()
-
-    for (i in entries1.indices) {
-        val val1 = entries1[i]
-        val val2 = entries2[i]
-
-        if (!isCompatible(val1, val2)) {
-            if (val1 is TacTupleValue && val2 is TacTupleValue) {
-                if (val1.elements.size != val2.elements.size) {
-                    return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to
-                        false
-                }
-            }
-
-            return "Stack mismatch at index $i: $val1 vs $val2" to false
-        }
-    }
-
-    return "Stacks are compatible" to true
-}
-
 private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
@@ -562,14 +531,11 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         }
 
     if (branchStates.size > 1) {
-        val (firstStack, firstRegisterState) = branchStates.first()
+        val (_, firstRegisterState) = branchStates.first()
         val allStatesCompatibleResults =
-            branchStates.drop(1).map { (otherStack, otherRegisterState) ->
+            branchStates.drop(1).map { (_, otherRegisterState) ->
                 val (regMsg, regOk) = areStatesCompatible(firstRegisterState, otherRegisterState)
                 if (!regOk) return@map regMsg to false
-
-                val (stackMsg, stackOk) = areStacksCompatible(firstStack, otherStack)
-                if (!stackOk) return@map stackMsg to false
 
                 "Compatible" to true
             }

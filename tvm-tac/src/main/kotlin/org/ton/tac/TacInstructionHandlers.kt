@@ -115,8 +115,17 @@ object DefaultSpecHandler : TacInstructionHandler {
 
         val inputVars = mutableListOf<TacStackValue>()
 
-        inputsSpec.reversed().forEach { _ ->
-            inputVars.add(0, stack.pop(0))
+        inputsSpec.reversed().forEach { inputDesc ->
+            val stackVal = stack.pop(0)
+
+            if (stackVal is TacVar && stackVal.valueTypes.isEmpty()) {
+                val expectedTypes = parseTypes(inputDesc)
+                if (expectedTypes.isNotEmpty() && !expectedTypes.contains(TvmSpecType.ANY)) {
+                    stackVal.valueTypes = expectedTypes
+                }
+            }
+
+            inputVars.add(0, stackVal)
         }
 
         val outputVars = mutableListOf<TacStackValue>()
@@ -167,10 +176,12 @@ object DefaultSpecHandler : TacInstructionHandler {
     }
 
     private fun parseTypes(desc: TvmStackEntryDescription): List<TvmSpecType> {
-        if (desc is TvmSimpleStackEntryDescription) {
-            return desc.valueTypes
+        return when (desc) {
+            is TvmSimpleStackEntryDescription -> desc.valueTypes
+            is TvmArrayStackEntryDescription -> listOf(TvmSpecType.TUPLE)
+            is TvmConstStackEntryDescription -> listOf(desc.valueType)
+            else -> emptyList()
         }
-        return emptyList()
     }
 }
 
