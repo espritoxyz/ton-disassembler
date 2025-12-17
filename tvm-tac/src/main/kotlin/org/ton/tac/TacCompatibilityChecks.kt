@@ -77,8 +77,8 @@ fun areStatesCompatible(
         if (!isCompatible(value1, value2)) {
             val errorString =
                 "Conflict in control register c_$key: " +
-                        "state1 has $value1 (types: ${value1.valueTypes}), " +
-                        "state2 has $value2 (types: ${value2.valueTypes})"
+                    "state1 has $value1 (types: ${value1.valueTypes}), " +
+                    "state2 has $value2 (types: ${value2.valueTypes})"
             return Pair(errorString, false)
         }
     }
@@ -115,16 +115,16 @@ fun areStatesCompatible(
                     val elem2 = val2.elements[i]
                     if (!isCompatible(elem1, elem2)) {
                         return "Global $key tuple element mismatch at index $i: " +
-                                "state1 has $elem1 (types: ${elem1.valueTypes}), " +
-                                "state2 has $elem2 (types: ${elem2.valueTypes})" to false
+                            "state1 has $elem1 (types: ${elem1.valueTypes}), " +
+                            "state2 has $elem2 (types: ${elem2.valueTypes})" to false
                     }
                 }
             }
 
             val errorString =
                 "Conflict in global variable $key: " +
-                        "state1 has $val1 (types: ${val1.valueTypes}), " +
-                        "state2 has $val2 (types: ${val2.valueTypes})"
+                    "state1 has $val1 (types: ${val1.valueTypes}), " +
+                    "state2 has $val2 (types: ${val2.valueTypes})"
             return Pair(errorString, false)
         }
     }
@@ -151,7 +151,7 @@ fun areStacksCompatible(
             if (val1 is TacTupleValue && val2 is TacTupleValue) {
                 if (val1.elements.size != val2.elements.size) {
                     return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to
-                            false
+                        false
                 }
             }
 

@@ -13,7 +13,6 @@ import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
-import org.ton.bytecode.TvmSpecType
 
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     ctx: TacGenerationContext<Inst>,

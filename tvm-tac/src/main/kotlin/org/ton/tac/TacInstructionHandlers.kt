@@ -6,6 +6,7 @@ import org.ton.bytecode.TvmArrayStackEntryDescription
 import org.ton.bytecode.TvmConstDataInst
 import org.ton.bytecode.TvmConstDataPushcontInst
 import org.ton.bytecode.TvmConstDataPushcontShortInst
+import org.ton.bytecode.TvmConstDataPushrefcontInst
 import org.ton.bytecode.TvmConstIntPushint16Inst
 import org.ton.bytecode.TvmConstIntPushint4Inst
 import org.ton.bytecode.TvmConstIntPushint8Inst
@@ -98,7 +99,10 @@ object TacHandlerRegistry {
             is TvmContRegistersPushctrInst -> PushCtrHandler
 
             is TvmConstDataInst -> {
-                if (inst is TvmConstDataPushcontInst || inst is TvmConstDataPushcontShortInst) {
+                if (inst is TvmConstDataPushcontInst ||
+                    inst is TvmConstDataPushcontShortInst ||
+                    inst is TvmConstDataPushrefcontInst
+                ) {
                     PushContHandler
                 } else {
                     DefaultSpecHandler
