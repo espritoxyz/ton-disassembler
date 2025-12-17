@@ -4,6 +4,8 @@ import org.ton.bytecode.TvmAppGlobalGetglobInst
 import org.ton.bytecode.TvmAppGlobalSetglobInst
 import org.ton.bytecode.TvmArrayStackEntryDescription
 import org.ton.bytecode.TvmConstDataInst
+import org.ton.bytecode.TvmConstDataPushcontInst
+import org.ton.bytecode.TvmConstDataPushcontShortInst
 import org.ton.bytecode.TvmConstIntPushint16Inst
 import org.ton.bytecode.TvmConstIntPushint4Inst
 import org.ton.bytecode.TvmConstIntPushint8Inst
@@ -37,17 +39,25 @@ import org.ton.bytecode.TvmStackComplexMinusrollxInst
 import org.ton.bytecode.TvmStackComplexOver2Inst
 import org.ton.bytecode.TvmStackComplexPickInst
 import org.ton.bytecode.TvmStackComplexPopLongInst
+import org.ton.bytecode.TvmStackComplexPu2xcInst
 import org.ton.bytecode.TvmStackComplexPush2Inst
 import org.ton.bytecode.TvmStackComplexPush3Inst
 import org.ton.bytecode.TvmStackComplexPushLongInst
+import org.ton.bytecode.TvmStackComplexPuxc2Inst
 import org.ton.bytecode.TvmStackComplexPuxcInst
+import org.ton.bytecode.TvmStackComplexPuxcpuInst
 import org.ton.bytecode.TvmStackComplexReverseInst
 import org.ton.bytecode.TvmStackComplexRollxInst
 import org.ton.bytecode.TvmStackComplexRotInst
 import org.ton.bytecode.TvmStackComplexSwap2Inst
 import org.ton.bytecode.TvmStackComplexTuckInst
+import org.ton.bytecode.TvmStackComplexXc2puInst
 import org.ton.bytecode.TvmStackComplexXchg2Inst
+import org.ton.bytecode.TvmStackComplexXchg3AltInst
+import org.ton.bytecode.TvmStackComplexXchg3Inst
+import org.ton.bytecode.TvmStackComplexXcpu2Inst
 import org.ton.bytecode.TvmStackComplexXcpuInst
+import org.ton.bytecode.TvmStackComplexXcpuxcInst
 import org.ton.bytecode.TvmStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
 import org.ton.bytecode.TvmTupleTpushInst
@@ -55,8 +65,8 @@ import org.ton.bytecode.TvmTupleTupleInst
 import org.ton.bytecode.TvmTupleUntupleInst
 
 interface TacInstructionHandler {
-    fun handle(
-        ctx: TacGenerationContext<*>,
+    fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -88,7 +98,7 @@ object TacHandlerRegistry {
             is TvmContRegistersPushctrInst -> PushCtrHandler
 
             is TvmConstDataInst -> {
-                if (inst.mnemonic.startsWith("PUSHCONT")) {
+                if (inst is TvmConstDataPushcontInst || inst is TvmConstDataPushcontShortInst) {
                     PushContHandler
                 } else {
                     DefaultSpecHandler
@@ -104,8 +114,8 @@ object TacHandlerRegistry {
 }
 
 object DefaultSpecHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -175,19 +185,18 @@ object DefaultSpecHandler : TacInstructionHandler {
         )
     }
 
-    private fun parseTypes(desc: TvmStackEntryDescription): List<TvmSpecType> {
-        return when (desc) {
+    private fun parseTypes(desc: TvmStackEntryDescription): List<TvmSpecType> =
+        when (desc) {
             is TvmSimpleStackEntryDescription -> desc.valueTypes
             is TvmArrayStackEntryDescription -> listOf(TvmSpecType.TUPLE)
             is TvmConstStackEntryDescription -> listOf(desc.valueType)
             else -> emptyList()
         }
-    }
 }
 
 object PushContHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -219,8 +228,8 @@ object PushContHandler : TacInstructionHandler {
 }
 
 object CallDictHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -231,10 +240,9 @@ object CallDictHandler : TacInstructionHandler {
 
         val methodId = java.math.BigInteger.valueOf(n.toLong())
 
-        @Suppress("UNCHECKED_CAST")
         val result =
             processCallDict(
-                ctx as TacGenerationContext<AbstractTacInst>,
+                ctx,
                 stack,
                 methodId,
                 inst,
@@ -246,8 +254,8 @@ object CallDictHandler : TacInstructionHandler {
 }
 
 object PushIntHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -278,8 +286,8 @@ object PushIntHandler : TacInstructionHandler {
 }
 
 object StackMutationHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -381,8 +389,62 @@ object StackMutationHandler : TacInstructionHandler {
             is TvmStackComplexPuxcInst -> {
                 stack.doBlkPush(1, inst.i)
                 stack.doSwap(0, 1)
-                stack.doSwap(0, inst.j + 1)
+                stack.doSwap(0, inst.j)
             }
+
+            is TvmStackComplexPu2xcInst -> {
+                stack.doBlkPush(1, inst.i)
+                stack.doSwap(0, 1)
+                stack.doBlkPush(1, inst.j)
+                stack.doSwap(0, 1)
+                stack.doSwap(0, inst.k)
+            }
+
+            is TvmStackComplexPuxc2Inst -> {
+                stack.doBlkPush(1, inst.i)
+                stack.doSwap(0, 2)
+                stack.doSwap(1, inst.j)
+                stack.doSwap(0, inst.k)
+            }
+
+            is TvmStackComplexPuxcpuInst -> {
+                stack.doBlkPush(1, inst.i)
+                stack.doSwap(0, 1)
+                stack.doSwap(0, inst.j)
+                stack.doBlkPush(1, inst.k)
+            }
+
+            is TvmStackComplexXc2puInst -> {
+                stack.doSwap(1, inst.i)
+                stack.doSwap(0, inst.j)
+                stack.doBlkPush(1, inst.k)
+            }
+
+            is TvmStackComplexXchg3Inst -> {
+                stack.doSwap(2, inst.i)
+                stack.doSwap(1, inst.j)
+                stack.doSwap(0, inst.k)
+            }
+
+            is TvmStackComplexXchg3AltInst -> {
+                stack.doSwap(2, inst.i)
+                stack.doSwap(1, inst.j)
+                stack.doSwap(0, inst.k)
+            }
+
+            is TvmStackComplexXcpu2Inst -> {
+                stack.doSwap(inst.i, 0)
+                stack.doBlkPush(1, inst.j)
+                stack.doBlkPush(1, inst.k + 1)
+            }
+
+            is TvmStackComplexXcpuxcInst -> {
+                stack.doSwap(1, inst.i)
+                stack.doBlkPush(1, inst.j)
+                stack.doSwap(0, 1)
+                stack.doSwap(0, inst.k)
+            }
+
             else -> {}
         }
     }
@@ -395,8 +457,8 @@ object StackMutationHandler : TacInstructionHandler {
 }
 
 object TupleHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -433,8 +495,8 @@ object TupleHandler : TacInstructionHandler {
 }
 
 object TPushHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -473,8 +535,8 @@ object TPushHandler : TacInstructionHandler {
 }
 
 object UnTupleHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -522,8 +584,8 @@ object UnTupleHandler : TacInstructionHandler {
 }
 
 object SetGlobHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -538,8 +600,8 @@ object SetGlobHandler : TacInstructionHandler {
 }
 
 object GetGlobHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -565,8 +627,8 @@ object GetGlobHandler : TacInstructionHandler {
 }
 
 object PopCtrHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
@@ -581,8 +643,8 @@ object PopCtrHandler : TacInstructionHandler {
 }
 
 object PushCtrHandler : TacInstructionHandler {
-    override fun handle(
-        ctx: TacGenerationContext<*>,
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
