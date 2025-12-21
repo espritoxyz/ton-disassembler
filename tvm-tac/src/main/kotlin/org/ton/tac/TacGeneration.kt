@@ -89,7 +89,7 @@ private fun <Inst : AbstractTacInst> processInstruction(
         val rawInstructions = handler.handle(ctx, stack, inst, registerState)
 
         return rawInstructions.map { rawInst ->
-            wrapInst(ctx, stack, rawInst as TacInst)
+            wrapInst(ctx, stack, rawInst)
         }
     }
 }

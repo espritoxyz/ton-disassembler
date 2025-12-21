@@ -71,7 +71,7 @@ interface TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst>
+    ): List<TacInst>
 }
 
 object TacHandlerRegistry {
@@ -123,7 +123,7 @@ object DefaultSpecHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val inputsSpec = inst.stackInputs ?: emptyList()
         val outputsSpec = inst.stackOutputs ?: emptyList()
 
@@ -204,7 +204,7 @@ object PushContHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val info = extractOperandContinuations(ctx, inst)
 
         val contId =
@@ -237,7 +237,7 @@ object CallDictHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val n =
             (inst.operands["n"] as? Number)?.toInt()
                 ?: error("CALLDICT missing 'n'")
@@ -263,7 +263,7 @@ object PushIntHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val value =
             (inst.operands["i"] as? Number)?.toLong()
                 ?: (inst.operands["val"] as? String)?.toLongOrNull()
@@ -295,7 +295,7 @@ object StackMutationHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         when (inst) {
             is TvmStackBasicInst -> handleBasic(inst, stack)
             is TvmStackComplexInst -> handleComplex(inst, stack)
@@ -466,7 +466,7 @@ object TupleHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val size =
             (inst.operands["n"] as? Number)?.toInt()
                 ?: error("TUPLE instruction missing 'n' operand")
@@ -504,7 +504,7 @@ object TPushHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val value = stack.pop(0)
         val tuple = stack.pop(0)
 
@@ -544,7 +544,7 @@ object UnTupleHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val tupleVal = stack.pop(0)
 
         val expectedSize =
@@ -593,7 +593,7 @@ object SetGlobHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val k = (inst.operands["k"] as? Number)?.toInt() ?: error("SETGLOB missing 'k'")
         val value = stack.pop(0)
 
@@ -609,7 +609,7 @@ object GetGlobHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val k = (inst.operands["k"] as? Number)?.toInt() ?: error("GETGLOB missing 'k'")
 
         val pushValue =
@@ -636,7 +636,7 @@ object PopCtrHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val i = (inst.operands["i"] as? Number)?.toInt() ?: 0
         val value = stack.pop(0)
 
@@ -652,7 +652,7 @@ object PushCtrHandler : TacInstructionHandler {
         stack: Stack,
         inst: TvmRealInst,
         registerState: RegisterState,
-    ): List<AbstractTacInst> {
+    ): List<TacInst> {
         val i = (inst.operands["i"] as? Number)?.toInt() ?: 0
 
         val originalValue = registerState.controlRegisters[i]
