@@ -29,10 +29,10 @@ tasks {
         options.compilerArgs = options.compilerArgs + "-Xlint:all" + "-Werror"
     }
     withType<KotlinCompile> {
-        kotlinOptions {
-            jvmTarget = JavaVersion.VERSION_1_8.toString()
-            freeCompilerArgs += listOf("-Xsam-conversions=class", "-Xcontext-receivers")
-            allWarningsAsErrors = true
+        compilerOptions {
+            jvmTarget.set(org.jetbrains.kotlin.gradle.dsl.JvmTarget.JVM_1_8)
+            freeCompilerArgs.addAll("-Xsam-conversions=class", "-Xcontext-receivers")
+            allWarningsAsErrors.set(true)
         }
     }
 }

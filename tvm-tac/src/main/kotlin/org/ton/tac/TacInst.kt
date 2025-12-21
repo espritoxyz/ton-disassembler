@@ -1,5 +1,9 @@
 package org.ton.tac
 
+import org.ton.bytecode.TvmSpecType
+
+typealias ContinuationId = Int
+
 sealed interface AbstractTacInst
 
 sealed interface TacInst : AbstractTacInst
@@ -17,6 +21,21 @@ data class TacAssignInst(
     val rhs: TacStackValue,
 ) : TacInst
 
+data class TacPopCtrInst(
+    val registerIndex: Int,
+    val value: TacStackValue,
+) : TacInst
+
+data class TacPushCtrInst(
+    val registerIndex: Int,
+    val value: TacStackValue,
+) : TacInst
+
+data class TacSetGlobalInst(
+    val globalIndex: Int,
+    val value: TacStackValue,
+) : TacInst
+
 data class TacReturnInst(
     val result: List<TacStackValue>,
 ) : TacInst
@@ -30,7 +49,7 @@ data class TacLabel(
 ) : TacInst
 
 sealed interface TacStackValue {
-    val valueTypes: List<String>
+    val valueTypes: List<TvmSpecType>
     val name: String
 
     fun copy(): TacStackValue
@@ -38,17 +57,36 @@ sealed interface TacStackValue {
 
 data class TacVar(
     override val name: String,
-    override var valueTypes: List<String> = listOf(),
+    override var valueTypes: List<TvmSpecType> = listOf(),
+    var value: Int? = null,
 ) : TacStackValue {
     override fun copy() = TacVar(name, valueTypes)
+}
+
+data class TacIntValue(
+    override val name: String,
+    val value: Long,
+) : TacStackValue {
+    override val valueTypes: List<TvmSpecType> = listOf(TvmSpecType.INT)
+
+    override fun copy() = TacIntValue(name, value)
+}
+
+data class TacTupleValue(
+    override val name: String,
+    override val valueTypes: List<TvmSpecType> = listOf(TvmSpecType.TUPLE),
+    var elements: List<TacStackValue>,
+    val isStructureKnown: Boolean = true,
+) : TacStackValue {
+    override fun copy() = TacTupleValue(name, valueTypes, elements.map { it.copy() })
 }
 
 data class ContinuationValue(
     override val name: String,
     val continuationRef: Int,
 ) : TacStackValue {
-    override val valueTypes: List<String>
-        get() = listOf("Continuation")
+    override val valueTypes: List<TvmSpecType>
+        get() = listOf(TvmSpecType.CONTINUATION)
 
     override fun copy() = this
 }

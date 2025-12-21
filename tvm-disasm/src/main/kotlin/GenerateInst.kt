@@ -3,6 +3,7 @@ import org.ton.disasm.bytecode.CellOperandType
 import org.ton.disasm.bytecode.ControlFlowBranchContinuation
 import org.ton.disasm.bytecode.InstructionDescription
 import org.ton.disasm.bytecode.InstructionOperandDescription
+import org.ton.disasm.bytecode.InstructionStackArrayValue
 import org.ton.disasm.bytecode.InstructionStackConstValue
 import org.ton.disasm.bytecode.InstructionStackSimpleValue
 import org.ton.disasm.bytecode.InstructionsList
@@ -143,6 +144,18 @@ private fun tvmInstDefault(
         """.trimMargin()
 }
 
+private fun mapTvmType(typeStr: String): String =
+    when (typeStr.lowercase()) {
+        "int", "uint" -> "TvmSpecType.INT"
+        "cell" -> "TvmSpecType.CELL"
+        "slice" -> "TvmSpecType.SLICE"
+        "builder" -> "TvmSpecType.BUILDER"
+        "cont" -> "TvmSpecType.CONTINUATION"
+        "tuple" -> "TvmSpecType.TUPLE"
+        "null" -> "TvmSpecType.NULL"
+        else -> "TvmSpecType.ANY"
+    }
+
 private fun extractStackEntries(
     inst: InstructionDescription,
     direction: StackFlowDirection,
@@ -156,8 +169,7 @@ private fun extractStackEntries(
     return when {
         stack == null ->
             "List<TvmStackEntryDescription>? \n" +
-                "        get() = null" // stack inputs/outputs are unconstrained OR this is stack
-        // manipulation instruction
+                "        get() = null"
         stack.isEmpty() ->
             "List<TvmStackEntryDescription> \n" +
                 "        get() = emptyList()"
@@ -167,30 +179,61 @@ private fun extractStackEntries(
                 stack.joinToString(",\n") { entry ->
                     when (entry) {
                         is InstructionStackSimpleValue -> {
+                            val typesStr = entry.value_types.orEmpty().joinToString(", ") { mapTvmType(it) }
                             """
                         |            TvmSimpleStackEntryDescription(
                         |                name = "${entry.name}",
-                        |                valueTypes = listOf(${entry.value_types.orEmpty().joinToString(
-                                ", ",
-                            ) { "\"$it\"" }})
+                        |                valueTypes = listOf($typesStr)
                         |            )
                             """.trimMargin()
                         }
 
                         is InstructionStackConstValue -> {
                             val valueStr = entry.typedValue?.toString() ?: "null"
+                            val typeEnum = mapTvmType(entry.value_type)
                             """
                         |            TvmConstStackEntryDescription(
                         |                value = $valueStr,
-                        |                valueType = "${entry.value_type}"
+                        |                valueType = $typeEnum
+                        |            )
+                            """.trimMargin()
+                        }
+
+                        is InstructionStackArrayValue -> {
+                            val arrayEntriesStr =
+                                entry.array_entry.joinToString(",\n") { arrayEntry ->
+                                    val typesStr =
+                                        arrayEntry.value_types.orEmpty().joinToString(
+                                            ", ",
+                                        ) { mapTvmType(it) }
+                                    """
+                        |                TvmSimpleStackEntryDescription(
+                        |                    name = "${arrayEntry.name}",
+                        |                    valueTypes = listOf($typesStr)
+                        |                )
+                                    """.trimMargin()
+                                }
+                            """
+                        |            TvmArrayStackEntryDescription(
+                        |                name = "${entry.name}",
+                        |                lengthVar = "${entry.length_var}",
+                        |                arrayEntry = listOf(
+                        $arrayEntriesStr
+                        |                )
                         |            )
                             """.trimMargin()
                         }
 
                         else -> {
+                            val entryTypeEnum =
+                                when (entry.entryType.lowercase()) {
+                                    "conditional" -> "TvmStackEntryType.CONDITIONAL"
+                                    else -> "TvmStackEntryType.SIMPLE" // Fallback
+                                }
+
                             """
                         |            TvmGenericStackEntryDescription(
-                        |                type = "${entry.entryType}"
+                        |                type = $entryTypeEnum
                         |            )
                             """.trimMargin()
                         }
@@ -268,6 +311,11 @@ private fun tvmInstDeclaration(
             contArgsCount > 0
         } ?: ""
 
+    val operandsMapEntries =
+        inst.bytecode.operands.joinToString(", ") { arg ->
+            "\"${arg.name}\" to ${arg.name}"
+        }
+
     val docs = normalizeDocString(inst.doc.description).joinToString("\n") { "| * $it" }
 
     val gasUsage = inst.doc.gas.toIntOrNull()
@@ -289,10 +337,15 @@ private fun tvmInstDeclaration(
     |): TvmRealInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
+    |    
+    |    override val operands: Map<String, Any> get() = mapOf($operandsMapEntries)
+    |
     |    override val stackInputs: ${extractStackEntries(inst, StackFlowDirection.INPUT)}
     |    override val stackOutputs: ${extractStackEntries(inst, StackFlowDirection.OUTPUT)}
+    |    
     |    override val branches: List<TvmControlFlowContinuation> 
     |        get() = ${extractControlFlowBranches(inst.controlFlow.branches)}
+    |        
     |    override val noBranch: Boolean get() = ${inst.controlFlow.nobranch}
     |    
     |    companion object {
