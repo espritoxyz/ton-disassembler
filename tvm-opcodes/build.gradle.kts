@@ -44,3 +44,7 @@ tasks.register("formatAndLintAll") {
     dependsOn(tasks.findByName("formatKotlin"))
     dependsOn(tasks.findByName("lintKotlin"))
 }
+
+tasks.compileKotlin {
+    dependsOn(":tvm-disasm:${TaskNames.GENERATE_INSTRUCTIONS}")
+}

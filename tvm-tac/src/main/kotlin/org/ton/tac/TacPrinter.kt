@@ -88,6 +88,24 @@ private fun StringBuilder.dumpInstruction(
 }
 
 private fun StringBuilder.dumpInstruction(
+    inst: TacPopCtrInst,
+    indent: String,
+) {
+    append(indent)
+    append("${inst.value.name} = POPCTR c${inst.registerIndex}")
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacPushCtrInst,
+    indent: String,
+) {
+    append(indent)
+    append("${inst.value.name} = PUSHCTR c${inst.registerIndex}")
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
     inst: TacDebugInst,
     includeTvmCell: Boolean,
     indent: String,
@@ -112,6 +130,15 @@ private fun StringBuilder.dumpInstruction(
 }
 
 private fun StringBuilder.dumpInstruction(
+    inst: TacSetGlobalInst,
+    indent: String,
+) {
+    append(indent)
+    append("SETGLOB global_${inst.globalIndex}, ${inst.value.name}")
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
     inst: TacInst,
     includeTvmCell: Boolean,
     indent: String,
@@ -122,6 +149,9 @@ private fun StringBuilder.dumpInstruction(
         is TacGotoInst -> dumpInstruction(inst, indent)
         is TacLabel -> dumpInstruction(inst, indent)
         is TacReturnInst -> dumpInstruction(inst, indent)
+        is TacPopCtrInst -> dumpInstruction(inst, indent)
+        is TacPushCtrInst -> dumpInstruction(inst, indent)
+        is TacSetGlobalInst -> dumpInstruction(inst, indent)
     }
 }
 

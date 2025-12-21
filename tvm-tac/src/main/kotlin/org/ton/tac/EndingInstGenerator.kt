@@ -1,6 +1,6 @@
 package org.ton.tac
 
-sealed interface EndingInstGenerator<Inst : AbstractTacInst> {
+interface EndingInstGenerator<Inst : AbstractTacInst> {
     fun generateEndingInst(
         ctx: TacGenerationContext<Inst>,
         stack: Stack,
