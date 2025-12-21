@@ -1,7 +1,7 @@
 package org.ton.bytecode
 
-fun TvmRealInst.dictInstHasIntegerKey(): Boolean {
-    return when (this) {
+fun TvmRealInst.dictInstHasIntegerKey(): Boolean =
+    when (this) {
         is TvmDictGetDictugetInst, is TvmDictGetDictugetrefInst,
         is TvmDictGetDictigetInst, is TvmDictGetDictigetrefInst,
         is TvmDictMayberefDictugetoptrefInst, is TvmDictMayberefDictigetoptrefInst,
@@ -16,7 +16,7 @@ fun TvmRealInst.dictInstHasIntegerKey(): Boolean {
         is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
         is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
 
-            // SubDict
+        // SubDict
         is TvmDictSubSubdictugetInst, is TvmDictSubSubdicturpgetInst,
         is TvmDictSubSubdictigetInst, is TvmDictSubSubdictirpgetInst,
 
@@ -51,15 +51,14 @@ fun TvmRealInst.dictInstHasIntegerKey(): Boolean {
         is TvmDictMinDicturemminInst, is TvmDictMinDicturemminrefInst,
         is TvmDictMinDictiremminInst, is TvmDictMinDictiremminrefInst,
         is TvmDictMinDicturemmaxInst, is TvmDictMinDicturemmaxrefInst,
-        is TvmDictMinDictiremmaxInst, is TvmDictMinDictiremmaxrefInst
-            -> true
+        is TvmDictMinDictiremmaxInst, is TvmDictMinDictiremmaxrefInst,
+        -> true
 
         else -> false
     }
-}
 
-fun TvmRealInst.dictInstHasRef(): Boolean {
-    return when (this) {
+fun TvmRealInst.dictInstHasRef(): Boolean =
+    when (this) {
         is TvmDictGetDictgetrefInst, is TvmDictGetDictigetrefInst, is TvmDictGetDictugetrefInst,
         is TvmDictMayberefDictgetoptrefInst, is TvmDictMayberefDictigetoptrefInst, is TvmDictMayberefDictugetoptrefInst,
 
@@ -82,9 +81,8 @@ fun TvmRealInst.dictInstHasRef(): Boolean {
         is TvmDictMinDictremminrefInst, is TvmDictMinDictiremminrefInst, is TvmDictMinDicturemminrefInst,
         is TvmDictMinDictremmaxrefInst, is TvmDictMinDictiremmaxrefInst, is TvmDictMinDicturemmaxrefInst,
 
-        is TvmDictSpecialDictpushconstInst
-            -> true
+        is TvmDictSpecialDictpushconstInst,
+        -> true
 
         else -> false
     }
-}

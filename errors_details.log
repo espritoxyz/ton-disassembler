@@ -837,3 +837,2372 @@ Execution failed for task ':tvm-tac:compileKotlin'.
 BUILD FAILED in 54s
 
 ========================================
+
+--- ADDRESS: EQAwy4Ii9ESPXKox4f0urNVkQY1JZ4AMHVJacEi2LpbxPQw7 ---
+ERROR: Recursive CALLDICT detected for method 55
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+> Task :tvm-opcodes:compileKotlin
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar
+> Task :tvm-tac:compileKotlin
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar
+> Task :tvm-disasm-cli:compileKotlin
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 8 executed, 16 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Recursive CALLDICT detected for method 55
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:81)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 1m 16s
+
+========================================
+
+--- ADDRESS: EQAOr5zueJ9LxgNPHpYyH-E4ILf1lTuOkE8LK48Qr5wfcun- ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction WHILE not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction WHILE not supported
+	at org.ton.tac.TacGenerationKt.validateBranchStructure(TacGeneration.kt:283)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:149)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 22s
+
+========================================
+
+--- ADDRESS: EQAp4cnXG1qn9CqdKj5FAeo2LGoCE-08GCxbKRCdxnW2rswc ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 14s
+
+========================================
+
+--- ADDRESS: EQAkKGnI-WvcUSrD4scx2jIX2_5cDdhNWFctjqKREaFtrFZU ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 13s
+
+========================================
+
+--- ADDRESS: EQCMNfURiLBvB-JscYn76qtBVSCCYJtHpk0-aCBDuprUkDh1 ---
+ERROR: Cannot build three address code if stack effects are different
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Cannot build three address code if stack effects are different
+	at org.ton.tac.TacGenerationKt.analyzeContinuations(TacGeneration.kt:322)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:163)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 17s
+
+========================================
+
+--- ADDRESS: EQBGvIGa1HFR6Yntm0vDqXp31At0gOGkZeLP8QkxvG2fxlUM ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 15s
+
+========================================
+
+--- ADDRESS: EQBd0QrjgrSJLdwEaKQbK98Z3fYA_Iek8NX2L7BPpJSNjVqO ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in IFRET branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in IFRET branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 14s
+
+========================================
+
+--- ADDRESS: EQAyL4aocwEVZKeL6cZj1DNTq4q6GyhOV6zZy_JYKFQAflfu ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction TRY not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction TRY not supported
+	at org.ton.tac.TacGenerationKt.validateBranchStructure(TacGeneration.kt:283)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:149)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 16s
+
+========================================
+
+--- ADDRESS: EQACBxlCPkxvirWayBDG5zwZoucym6dfXFlXWC6VwXhIWSVc ---
+ERROR: Library cells are not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalArgumentException: Library cells are not supported
+	at org.ton.disasm.TvmDisassembler.disassemble(TvmDisassembler.kt:60)
+	at org.ton.disasm.TvmDisassembler.disassemble(TvmDisassembler.kt:56)
+	at org.ton.bytecode.TvmDisasmApiKt.disassembleBoc(TvmDisasmApi.kt:7)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:131)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 7s
+
+========================================
+
+--- ADDRESS: EQB5osFH6kzBN2zK9f3A1LZGeJKmqcyGRumYhJgtuWlbjB8w ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in REPEAT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in REPEAT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 11s
+
+========================================
+
+--- ADDRESS: EQBb6BRtQ2d9Ut8VqPWslGEM3Atf7i9OqoiNorekA-RvGHIc ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction UNTIL not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction UNTIL not supported
+	at org.ton.tac.TacGenerationKt.validateBranchStructure(TacGeneration.kt:283)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:149)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 9s
+
+========================================
+
+--- ADDRESS: EQA_7MgGirjGAiZXlxfvz9SdC7OyHu2nKDM393DfhpIGmvaC ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+========================================
+
+--- ADDRESS: EQAWlfKQc5SNC0qpYGdsmlCcxwSCPuuoAcSpmSitceIS0k0R ---
+ERROR: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+Control register keys mismatch: missing in state2: [4]
+	at org.ton.tac.TacGenerationKt.generateControlFlowInstructions(TacGeneration.kt:452)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:166)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+========================================
+
+--- ADDRESS: EQBCl1JANkTpMpJ9N3lZktPMpp2btRe2vVwHon0la8ibRied ---
+ERROR: Library cells are not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalArgumentException: Library cells are not supported
+	at org.ton.disasm.TvmDisassembler.disassemble(TvmDisassembler.kt:60)
+	at org.ton.disasm.TvmDisassembler.disassemble(TvmDisassembler.kt:56)
+	at org.ton.bytecode.TvmDisasmApiKt.disassembleBoc(TvmDisasmApi.kt:7)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:131)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+========================================
+
+--- ADDRESS: EQA6lspxtUnB6SMpTacN24iMniuG2sz8klbTkpQFFLgdAsXx ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 16s
+
+========================================
+
+--- ADDRESS: EQBVTg8SU6tzjZr0vymjP4sJGzY4YZW4Ri_uWbC5e49_JOOs ---
+ERROR: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+Global variable keys mismatch: missing in state2 indexes: [2, 5, 7, 3, 4, 6]
+	at org.ton.tac.TacGenerationKt.generateControlFlowInstructions(TacGeneration.kt:452)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:166)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 15s
+
+========================================
+
+--- ADDRESS: EQCNY2AQ3ZDYwJAqx_nzl9i9Xhd_Ex7izKJM6JTxXRnO6n1F ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction WHILE not supported
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: Control flow of instruction WHILE not supported
+	at org.ton.tac.TacGenerationKt.validateBranchStructure(TacGeneration.kt:283)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:149)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+========================================
+
+--- ADDRESS: EQA1_5Z_vO0Vh_trJmbK3tk8h0FSCBf2dnn8g2HXuFZRYUNH ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 11s
+
+========================================
+
+--- ADDRESS: EQAPZauWVPUcm2hUJT9n36pxznEhl46rEn1bzBXN0RY_yiy2 ---
+ERROR: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_4':
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_4':
+Control register keys mismatch: missing in state2: [4]
+	at org.ton.tac.TacGenerationKt.generateControlFlowInstructions(TacGeneration.kt:452)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:166)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 17s
+
+========================================
+
+--- ADDRESS: EQAj3SoOk4MPzjn816Crw1b4RxW79fB_Z549tyCd9HIQV6b7 ---
+ERROR: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Decompilation failed at 'IFELSE': Incompatible states after branches merging at label 'label_0':
+Control register keys mismatch: missing in state1: [4]
+	at org.ton.tac.TacGenerationKt.generateControlFlowInstructions(TacGeneration.kt:452)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:166)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 12s
+
+========================================
+
+--- ADDRESS: EQCCKV3vbaNUUnhMDiqU3GEP91GzcVcRpvP_DXfT_nvRFtTA ---
+ERROR: Cannot build three address code if stack effects are different
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Cannot build three address code if stack effects are different
+	at org.ton.tac.TacGenerationKt.analyzeContinuations(TacGeneration.kt:322)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:163)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 17s
+
+========================================
+
+--- ADDRESS: EQA1Izm0j-2GYAQoX17-seXHSgijIQJQDMiTrytAndonOXqZ ---
+ERROR: Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" kotlin.NotImplementedError: An operation is not implemented: in RETALT branch isn't type variable
+	at org.ton.tac.ContinuationKt.throwErrorIfBranchesNotTypeVar(Continuation.kt:149)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:128)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 11s
+
+========================================
+
+--- ADDRESS: EQAEZmPYE4UH38h97ZXxJLxXp-ZqjTAh77nX1iyYPDf-guC8 ---
+ERROR: If [saveC0] and [noBranch], stack effect must be zero, but it is 1. Instruction IF
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: If [saveC0] and [noBranch], stack effect must be zero, but it is 1. Instruction IF
+	at org.ton.tac.TacGenerationKt.prepareControlFlow(TacGeneration.kt:358)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:164)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 14s
+
+========================================
+
+--- ADDRESS: EQDHSXyC7MTxRMsqAhOdcphc9SRPSAL02HsIaEB2IhgokbfD ---
+ERROR: Recursive CALLDICT detected for method 30
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Recursive CALLDICT detected for method 30
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:81)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.processCallDict(Continuation.kt:85)
+	at org.ton.tac.CallDictHandler.handle(TacInstructionHandlers.kt:476)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.PushContHandler.handle(TacInstructionHandlers.kt:436)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:99)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 29s
+
+========================================
+
+--- ADDRESS: EQBTXGtqg0ZBClRsebN7n5R-gYAOv3B1LMNcc1RGKjFGu9Za ---
+ERROR: Cannot build three address code if stack effects are different
+> Task :buildSrc:checkKotlinGradlePluginConfigurationErrors
+> Task :buildSrc:generateExternalPluginSpecBuilders UP-TO-DATE
+> Task :buildSrc:extractPrecompiledScriptPluginPlugins UP-TO-DATE
+> Task :buildSrc:compilePluginsBlocks UP-TO-DATE
+> Task :buildSrc:generatePrecompiledScriptPluginAccessors UP-TO-DATE
+> Task :buildSrc:generateScriptPluginAdapters UP-TO-DATE
+> Task :buildSrc:compileKotlin UP-TO-DATE
+> Task :buildSrc:compileJava NO-SOURCE
+> Task :buildSrc:compileGroovy NO-SOURCE
+> Task :buildSrc:pluginDescriptors UP-TO-DATE
+> Task :buildSrc:processResources UP-TO-DATE
+> Task :buildSrc:classes UP-TO-DATE
+> Task :buildSrc:jar UP-TO-DATE
+> Task :tvm-disasm:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:compileKotlin UP-TO-DATE
+> Task :tvm-disasm:compileJava NO-SOURCE
+> Task :tvm-disasm:processResources UP-TO-DATE
+> Task :tvm-disasm:classes UP-TO-DATE
+> Task :tvm-disasm:jar UP-TO-DATE
+> Task :tvm-disasm-cli:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-disasm:generateInstructionsKt
+> Task :tvm-opcodes:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-opcodes:compileKotlin UP-TO-DATE
+> Task :tvm-opcodes:compileJava NO-SOURCE
+> Task :tvm-tac:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-tac:compileKotlin UP-TO-DATE
+> Task :tvm-tac:compileJava NO-SOURCE
+> Task :tvm-utils:checkKotlinGradlePluginConfigurationErrors SKIPPED
+> Task :tvm-utils:compileKotlin UP-TO-DATE
+> Task :tvm-utils:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:compileKotlin UP-TO-DATE
+> Task :tvm-disasm-cli:compileJava NO-SOURCE
+> Task :tvm-disasm-cli:processResources UP-TO-DATE
+> Task :tvm-disasm-cli:classes UP-TO-DATE
+> Task :tvm-opcodes:processResources UP-TO-DATE
+> Task :tvm-opcodes:classes UP-TO-DATE
+> Task :tvm-opcodes:jar UP-TO-DATE
+> Task :tvm-tac:processResources NO-SOURCE
+> Task :tvm-tac:classes UP-TO-DATE
+> Task :tvm-tac:jar UP-TO-DATE
+> Task :tvm-utils:processResources NO-SOURCE
+> Task :tvm-utils:classes UP-TO-DATE
+> Task :tvm-utils:jar UP-TO-DATE
+
+> Task :tvm-disasm-cli:run
+
+> Task :tvm-disasm-cli:run FAILED
+24 actionable tasks: 3 executed, 21 up-to-date
+Exception in thread "main" java.lang.IllegalStateException: Cannot build three address code if stack effects are different
+	at org.ton.tac.TacGenerationKt.analyzeContinuations(TacGeneration.kt:322)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:163)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.ContinuationKt.extractOperandContinuations(Continuation.kt:44)
+	at org.ton.tac.TacGenerationKt.handleBranchingInstruction(TacGeneration.kt:161)
+	at org.ton.tac.TacGenerationKt.processInstruction(TacGeneration.kt:94)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock(TacGeneration.kt:43)
+	at org.ton.tac.TacGenerationKt.generateTacCodeBlock$default(TacGeneration.kt:27)
+	at org.ton.tac.TacGenerationKt.generateTacContractCodeInternal(TacGeneration.kt:512)
+	at org.ton.tac.TacGenerationKt.generateTacContractCode(TacGeneration.kt:531)
+	at org.ton.disasm.TacDisassemblerCommand.run(Main.kt:136)
+	at com.github.ajalt.clikt.parsers.Parser.finalizeAndRun(Parser.kt:348)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:218)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:245)
+	at com.github.ajalt.clikt.parsers.Parser.parse(Parser.kt:42)
+	at com.github.ajalt.clikt.core.CliktCommand.parse(CliktCommand.kt:457)
+	at com.github.ajalt.clikt.core.CliktCommand.parse$default(CliktCommand.kt:454)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:474)
+	at com.github.ajalt.clikt.core.CliktCommand.main(CliktCommand.kt:481)
+	at org.ton.disasm.MainKt.main(Main.kt:152)
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':tvm-disasm-cli:run'.
+> Process 'command 'C:\Program Files\Java\jdk-21\bin\java.exe'' finished with non-zero exit value 1
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+> Get more help at https://help.gradle.org.
+
+BUILD FAILED in 52s
+
+========================================
