@@ -89,7 +89,7 @@ private fun <Inst : AbstractTacInst> processInstruction(
         val rawInstructions = handler.handle(ctx, stack, inst, registerState)
 
         return rawInstructions.map { rawInst ->
-            wrapInst(ctx, stack, rawInst)
+            wrapInst(ctx, stack, rawInst as TacInst)
         }
     }
 }
@@ -97,12 +97,12 @@ private fun <Inst : AbstractTacInst> processInstruction(
 private fun <Inst : AbstractTacInst> wrapInst(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
-    inst: AbstractTacInst,
+    inst: TacInst,
 ): Inst {
     @Suppress("UNCHECKED_CAST")
     return if (ctx.debug) {
         val stackAfter = stack.copyEntries()
-        TacInstDebugWrapper(inst as TacInst, stackAfter) as Inst
+        TacInstDebugWrapper(inst, stackAfter) as Inst
     } else {
         inst as Inst
     }
