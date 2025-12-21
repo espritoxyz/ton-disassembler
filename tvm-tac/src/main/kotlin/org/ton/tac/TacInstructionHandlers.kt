@@ -167,11 +167,15 @@ import org.ton.bytecode.TvmStackComplexBlkdropInst
 import org.ton.bytecode.TvmStackComplexBlkpushInst
 import org.ton.bytecode.TvmStackComplexBlkswapInst
 import org.ton.bytecode.TvmStackComplexBlkswxInst
+import org.ton.bytecode.TvmStackComplexChkdepthInst
+import org.ton.bytecode.TvmStackComplexDepthInst
 import org.ton.bytecode.TvmStackComplexDrop2Inst
 import org.ton.bytecode.TvmStackComplexDropxInst
 import org.ton.bytecode.TvmStackComplexDup2Inst
 import org.ton.bytecode.TvmStackComplexInst
 import org.ton.bytecode.TvmStackComplexMinusrollxInst
+import org.ton.bytecode.TvmStackComplexOnlytopxInst
+import org.ton.bytecode.TvmStackComplexOnlyxInst
 import org.ton.bytecode.TvmStackComplexOver2Inst
 import org.ton.bytecode.TvmStackComplexPickInst
 import org.ton.bytecode.TvmStackComplexPopLongInst
@@ -183,14 +187,17 @@ import org.ton.bytecode.TvmStackComplexPuxc2Inst
 import org.ton.bytecode.TvmStackComplexPuxcInst
 import org.ton.bytecode.TvmStackComplexPuxcpuInst
 import org.ton.bytecode.TvmStackComplexReverseInst
+import org.ton.bytecode.TvmStackComplexRevxInst
 import org.ton.bytecode.TvmStackComplexRollxInst
 import org.ton.bytecode.TvmStackComplexRotInst
+import org.ton.bytecode.TvmStackComplexRotrevInst
 import org.ton.bytecode.TvmStackComplexSwap2Inst
 import org.ton.bytecode.TvmStackComplexTuckInst
 import org.ton.bytecode.TvmStackComplexXc2puInst
 import org.ton.bytecode.TvmStackComplexXchg2Inst
 import org.ton.bytecode.TvmStackComplexXchg3AltInst
 import org.ton.bytecode.TvmStackComplexXchg3Inst
+import org.ton.bytecode.TvmStackComplexXchgxInst
 import org.ton.bytecode.TvmStackComplexXcpu2Inst
 import org.ton.bytecode.TvmStackComplexXcpuInst
 import org.ton.bytecode.TvmStackComplexXcpuxcInst
@@ -624,6 +631,22 @@ object StackMutationHandler : TacInstructionHandler {
                 stack.doSwap(0, inst.j)
             }
 
+            is TvmStackComplexRevxInst -> {
+                val j = extractInt(stack)
+                val i = extractInt(stack)
+                stack.doReverse(i, j)
+            }
+
+            is TvmStackComplexRotrevInst -> {
+                stack.doSwap(1, 2)
+                stack.doSwap(0, 2)
+            }
+
+            is TvmStackComplexXchgxInst -> {
+                val i = extractInt(stack)
+                stack.doSwap(0, i)
+            }
+
             is TvmStackComplexPu2xcInst -> {
                 stack.doBlkPush(1, inst.i)
                 stack.doSwap(0, 1)
@@ -677,14 +700,19 @@ object StackMutationHandler : TacInstructionHandler {
                 stack.doSwap(0, inst.k)
             }
 
-            else -> {}
+            is TvmStackComplexDepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexDepthInst)")
+            is TvmStackComplexChkdepthInst -> TODO("Cannot implement stack depth yet (TvmStackComplexChkdepthInst)")
+            is TvmStackComplexOnlytopxInst -> TODO("??")
+            is TvmStackComplexOnlyxInst -> TODO("??")
         }
     }
 
     private fun extractInt(stack: Stack): Int {
         val value = stack.pop(0)
         if (value is TacIntValue) return value.value.toInt()
-        return 0
+        if (value is TacVar && value.value != null) return value.value!!
+
+        error("Stack manipulation instruction requires a constant value, but got: $value")
     }
 }
 
@@ -909,11 +937,17 @@ object DictGetHandler : TacInstructionHandler {
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
         if (isIntKey && !hasConstLength) {
+            val n = stack.pop(0)
+            enforceType(n, TvmSpecType.INT)
             inputs.add(0, stack.pop(0))
         }
 
         val key = stack.pop(0)
         val dict = stack.pop(0)
+
+        val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+        enforceType(key, keyType)
+
         inputs.add(0, key)
         inputs.add(0, dict)
 
@@ -967,12 +1001,22 @@ object DictSetHandler : TacInstructionHandler {
         val hasConstLength = inst.operands.containsKey("n")
 
         if (isIntKey && !hasConstLength) {
-            inputs.add(0, stack.pop(0))
+            val n = stack.pop(0)
+            enforceType(n, TvmSpecType.INT)
+            inputs.add(0, n)
         }
 
         val value = stack.pop(0)
         val key = stack.pop(0)
         val dict = stack.pop(0)
+
+        val valueType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+        enforceType(value, valueType)
+
+        val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+        enforceType(key, keyType)
+
+        enforceType(dict, TvmSpecType.CELL)
 
         inputs.add(0, value)
         inputs.add(0, key)
@@ -1023,11 +1067,17 @@ object DictDelHandler : TacInstructionHandler {
         val hasConstLength = inst.operands.containsKey("n")
 
         if (isIntKey && !hasConstLength) {
-            inputs.add(0, stack.pop(0))
+            val n = stack.pop(0)
+            enforceType(n, TvmSpecType.INT)
+            inputs.add(0, n)
         }
 
         val key = stack.pop(0)
         val dict = stack.pop(0)
+
+        val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+        enforceType(key, keyType)
+        enforceType(dict, TvmSpecType.CELL)
 
         inputs.add(0, key)
         inputs.add(0, dict)
@@ -1080,10 +1130,13 @@ object DictMinMaxHandler : TacInstructionHandler {
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
         if (isIntKey && !hasConstLength) {
-            inputs.add(0, stack.pop(0))
+            val n = stack.pop(0)
+            enforceType(n, TvmSpecType.INT)
+            inputs.add(0, n)
         }
 
         val dict = stack.pop(0)
+        enforceType(dict, TvmSpecType.CELL)
         inputs.add(0, dict)
 
         val outputs = mutableListOf<TacStackValue>()
@@ -1091,10 +1144,14 @@ object DictMinMaxHandler : TacInstructionHandler {
             val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
             val newName = "${rawName}_${ctx.nextVarId()}"
 
-            val type = if (inst.dictInstHasRef() && rawName != "k") TvmSpecType.CELL else TvmSpecType.SLICE
-            val finalType = if (rawName == "f") listOf(TvmSpecType.INT) else listOf(type)
+            val type = when {
+                rawName == "f" -> TvmSpecType.INT
+                rawName.uppercase().startsWith("D") -> TvmSpecType.CELL
+                rawName == "k" -> if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+                else -> if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+            }
 
-            outputs.add(TacVar(newName, finalType))
+            outputs.add(TacVar(newName, listOf(type)))
         }
 
         outputs.forEach { stack.push(it) }
@@ -1151,6 +1208,10 @@ object DictConstGetHandler : TacInstructionHandler {
         registerState: RegisterState,
     ): List<TacInst> {
         val key = stack.pop(0)
+        val isIntKey = inst.dictInstHasIntegerKey()
+        val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+
+        enforceType(key, keyType)
 
         val outputs = mutableListOf<TacStackValue>()
 
@@ -1174,5 +1235,11 @@ object DictConstGetHandler : TacInstructionHandler {
                 blocks = emptyList(),
             ),
         )
+    }
+}
+
+private fun enforceType(value: TacStackValue, type: TvmSpecType) {
+    if (value is TacVar && value.valueTypes.isEmpty()) {
+        value.valueTypes = listOf(type)
     }
 }
