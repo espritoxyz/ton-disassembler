@@ -16,6 +16,141 @@ import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContRegistersPopctrInst
 import org.ton.bytecode.TvmContRegistersPushctrInst
+import org.ton.bytecode.TvmDictDeleteDictdelInst
+import org.ton.bytecode.TvmDictDeleteDictdelgetInst
+import org.ton.bytecode.TvmDictDeleteDictdelgetrefInst
+import org.ton.bytecode.TvmDictDeleteDictidelInst
+import org.ton.bytecode.TvmDictDeleteDictidelgetInst
+import org.ton.bytecode.TvmDictDeleteDictidelgetrefInst
+import org.ton.bytecode.TvmDictDeleteDictudelInst
+import org.ton.bytecode.TvmDictDeleteDictudelgetInst
+import org.ton.bytecode.TvmDictDeleteDictudelgetrefInst
+import org.ton.bytecode.TvmDictGetDictgetInst
+import org.ton.bytecode.TvmDictGetDictgetrefInst
+import org.ton.bytecode.TvmDictGetDictigetInst
+import org.ton.bytecode.TvmDictGetDictigetrefInst
+import org.ton.bytecode.TvmDictGetDictugetInst
+import org.ton.bytecode.TvmDictGetDictugetrefInst
+import org.ton.bytecode.TvmDictMayberefDictgetoptrefInst
+import org.ton.bytecode.TvmDictMayberefDictigetoptrefInst
+import org.ton.bytecode.TvmDictMayberefDictisetgetoptrefInst
+import org.ton.bytecode.TvmDictMayberefDictsetgetoptrefInst
+import org.ton.bytecode.TvmDictMayberefDictugetoptrefInst
+import org.ton.bytecode.TvmDictMayberefDictusetgetoptrefInst
+import org.ton.bytecode.TvmDictMinDictimaxInst
+import org.ton.bytecode.TvmDictMinDictimaxrefInst
+import org.ton.bytecode.TvmDictMinDictiminInst
+import org.ton.bytecode.TvmDictMinDictiminrefInst
+import org.ton.bytecode.TvmDictMinDictiremmaxInst
+import org.ton.bytecode.TvmDictMinDictiremmaxrefInst
+import org.ton.bytecode.TvmDictMinDictiremminInst
+import org.ton.bytecode.TvmDictMinDictiremminrefInst
+import org.ton.bytecode.TvmDictMinDictmaxInst
+import org.ton.bytecode.TvmDictMinDictmaxrefInst
+import org.ton.bytecode.TvmDictMinDictminInst
+import org.ton.bytecode.TvmDictMinDictminrefInst
+import org.ton.bytecode.TvmDictMinDictremmaxInst
+import org.ton.bytecode.TvmDictMinDictremmaxrefInst
+import org.ton.bytecode.TvmDictMinDictremminInst
+import org.ton.bytecode.TvmDictMinDictremminrefInst
+import org.ton.bytecode.TvmDictMinDictumaxInst
+import org.ton.bytecode.TvmDictMinDictumaxrefInst
+import org.ton.bytecode.TvmDictMinDictuminInst
+import org.ton.bytecode.TvmDictMinDictuminrefInst
+import org.ton.bytecode.TvmDictMinDicturemmaxInst
+import org.ton.bytecode.TvmDictMinDicturemmaxrefInst
+import org.ton.bytecode.TvmDictMinDicturemminInst
+import org.ton.bytecode.TvmDictMinDicturemminrefInst
+import org.ton.bytecode.TvmDictNextDictgetnextInst
+import org.ton.bytecode.TvmDictNextDictgetnexteqInst
+import org.ton.bytecode.TvmDictNextDictgetprevInst
+import org.ton.bytecode.TvmDictNextDictgetpreveqInst
+import org.ton.bytecode.TvmDictNextDictigetnextInst
+import org.ton.bytecode.TvmDictNextDictigetnexteqInst
+import org.ton.bytecode.TvmDictNextDictigetprevInst
+import org.ton.bytecode.TvmDictNextDictigetpreveqInst
+import org.ton.bytecode.TvmDictNextDictugetnextInst
+import org.ton.bytecode.TvmDictNextDictugetnexteqInst
+import org.ton.bytecode.TvmDictNextDictugetprevInst
+import org.ton.bytecode.TvmDictNextDictugetpreveqInst
+import org.ton.bytecode.TvmDictPrefixPfxdictaddInst
+import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
+import org.ton.bytecode.TvmDictPrefixPfxdictdelInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetexecInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetjmpInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetqInst
+import org.ton.bytecode.TvmDictPrefixPfxdictreplaceInst
+import org.ton.bytecode.TvmDictPrefixPfxdictsetInst
+import org.ton.bytecode.TvmDictSetBuilderDictaddbInst
+import org.ton.bytecode.TvmDictSetBuilderDictaddgetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictiaddbInst
+import org.ton.bytecode.TvmDictSetBuilderDictiaddgetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictireplacebInst
+import org.ton.bytecode.TvmDictSetBuilderDictireplacegetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictisetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictisetgetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictreplacebInst
+import org.ton.bytecode.TvmDictSetBuilderDictreplacegetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictsetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictsetgetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictuaddbInst
+import org.ton.bytecode.TvmDictSetBuilderDictuaddgetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictureplacebInst
+import org.ton.bytecode.TvmDictSetBuilderDictureplacegetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictusetbInst
+import org.ton.bytecode.TvmDictSetBuilderDictusetgetbInst
+import org.ton.bytecode.TvmDictSetDictaddInst
+import org.ton.bytecode.TvmDictSetDictaddgetInst
+import org.ton.bytecode.TvmDictSetDictaddgetrefInst
+import org.ton.bytecode.TvmDictSetDictaddrefInst
+import org.ton.bytecode.TvmDictSetDictiaddInst
+import org.ton.bytecode.TvmDictSetDictiaddgetInst
+import org.ton.bytecode.TvmDictSetDictiaddgetrefInst
+import org.ton.bytecode.TvmDictSetDictiaddrefInst
+import org.ton.bytecode.TvmDictSetDictireplaceInst
+import org.ton.bytecode.TvmDictSetDictireplacegetInst
+import org.ton.bytecode.TvmDictSetDictireplacegetrefInst
+import org.ton.bytecode.TvmDictSetDictireplacerefInst
+import org.ton.bytecode.TvmDictSetDictisetInst
+import org.ton.bytecode.TvmDictSetDictisetgetInst
+import org.ton.bytecode.TvmDictSetDictisetgetrefInst
+import org.ton.bytecode.TvmDictSetDictisetrefInst
+import org.ton.bytecode.TvmDictSetDictreplaceInst
+import org.ton.bytecode.TvmDictSetDictreplacegetInst
+import org.ton.bytecode.TvmDictSetDictreplacegetrefInst
+import org.ton.bytecode.TvmDictSetDictreplacerefInst
+import org.ton.bytecode.TvmDictSetDictsetInst
+import org.ton.bytecode.TvmDictSetDictsetgetInst
+import org.ton.bytecode.TvmDictSetDictsetgetrefInst
+import org.ton.bytecode.TvmDictSetDictsetrefInst
+import org.ton.bytecode.TvmDictSetDictuaddInst
+import org.ton.bytecode.TvmDictSetDictuaddgetInst
+import org.ton.bytecode.TvmDictSetDictuaddgetrefInst
+import org.ton.bytecode.TvmDictSetDictuaddrefInst
+import org.ton.bytecode.TvmDictSetDictureplaceInst
+import org.ton.bytecode.TvmDictSetDictureplacegetInst
+import org.ton.bytecode.TvmDictSetDictureplacegetrefInst
+import org.ton.bytecode.TvmDictSetDictureplacerefInst
+import org.ton.bytecode.TvmDictSetDictusetInst
+import org.ton.bytecode.TvmDictSetDictusetgetInst
+import org.ton.bytecode.TvmDictSetDictusetgetrefInst
+import org.ton.bytecode.TvmDictSetDictusetrefInst
+import org.ton.bytecode.TvmDictSpecialDictigetexecInst
+import org.ton.bytecode.TvmDictSpecialDictigetexeczInst
+import org.ton.bytecode.TvmDictSpecialDictigetjmpInst
+import org.ton.bytecode.TvmDictSpecialDictigetjmpzInst
+import org.ton.bytecode.TvmDictSpecialDictpushconstInst
+import org.ton.bytecode.TvmDictSpecialDictugetexecInst
+import org.ton.bytecode.TvmDictSpecialDictugetexeczInst
+import org.ton.bytecode.TvmDictSpecialDictugetjmpInst
+import org.ton.bytecode.TvmDictSpecialDictugetjmpzInst
+import org.ton.bytecode.TvmDictSubSubdictgetInst
+import org.ton.bytecode.TvmDictSubSubdictigetInst
+import org.ton.bytecode.TvmDictSubSubdictirpgetInst
+import org.ton.bytecode.TvmDictSubSubdictrpgetInst
+import org.ton.bytecode.TvmDictSubSubdictugetInst
+import org.ton.bytecode.TvmDictSubSubdicturpgetInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmSpecType
@@ -112,6 +247,97 @@ object TacHandlerRegistry {
             is TvmContDictCalldictInst,
             is TvmContDictCalldictLongInst,
             -> CallDictHandler
+
+            is TvmDictGetDictgetInst, is TvmDictGetDictgetrefInst,
+            is TvmDictGetDictugetInst, is TvmDictGetDictugetrefInst,
+            is TvmDictGetDictigetInst, is TvmDictGetDictigetrefInst,
+            is TvmDictMayberefDictgetoptrefInst, is TvmDictMayberefDictigetoptrefInst,
+            is TvmDictMayberefDictugetoptrefInst,
+
+            is TvmDictNextDictgetnextInst, is TvmDictNextDictgetnexteqInst, is TvmDictNextDictgetprevInst,
+            is TvmDictNextDictgetpreveqInst,
+            is TvmDictNextDictugetnextInst, is TvmDictNextDictugetnexteqInst, is TvmDictNextDictugetprevInst,
+            is TvmDictNextDictugetpreveqInst,
+            is TvmDictNextDictigetnextInst, is TvmDictNextDictigetnexteqInst, is TvmDictNextDictigetprevInst,
+            is TvmDictNextDictigetpreveqInst,
+
+            is TvmDictSpecialDictugetexecInst, is TvmDictSpecialDictugetexeczInst,
+            is TvmDictSpecialDictugetjmpInst, is TvmDictSpecialDictugetjmpzInst,
+            is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
+            is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
+
+            is TvmDictSubSubdictgetInst, is TvmDictSubSubdictugetInst, is TvmDictSubSubdictigetInst,
+            is TvmDictSubSubdictrpgetInst, is TvmDictSubSubdicturpgetInst, is TvmDictSubSubdictirpgetInst,
+
+            is TvmDictPrefixPfxdictgetInst, is TvmDictPrefixPfxdictgetqInst,
+            is TvmDictPrefixPfxdictgetjmpInst, is TvmDictPrefixPfxdictgetexecInst,
+            -> DictGetHandler
+
+            is TvmDictSetDictsetInst, is TvmDictSetDictsetrefInst,
+            is TvmDictSetDictusetInst, is TvmDictSetDictusetrefInst,
+            is TvmDictSetDictisetInst, is TvmDictSetDictisetrefInst,
+
+            is TvmDictSetDictsetgetInst, is TvmDictSetDictsetgetrefInst,
+            is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
+            is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
+            is TvmDictMayberefDictsetgetoptrefInst, is TvmDictMayberefDictusetgetoptrefInst,
+            is TvmDictMayberefDictisetgetoptrefInst,
+
+            is TvmDictSetDictaddInst, is TvmDictSetDictaddrefInst,
+            is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
+            is TvmDictSetDictiaddInst, is TvmDictSetDictiaddrefInst,
+            is TvmDictSetDictreplaceInst, is TvmDictSetDictreplacerefInst,
+            is TvmDictSetDictureplaceInst, is TvmDictSetDictureplacerefInst,
+            is TvmDictSetDictireplaceInst, is TvmDictSetDictireplacerefInst,
+
+            is TvmDictSetDictaddgetInst, is TvmDictSetDictaddgetrefInst,
+            is TvmDictSetDictuaddgetInst, is TvmDictSetDictuaddgetrefInst,
+            is TvmDictSetDictiaddgetInst, is TvmDictSetDictiaddgetrefInst,
+            is TvmDictSetDictreplacegetInst, is TvmDictSetDictreplacegetrefInst,
+            is TvmDictSetDictureplacegetInst, is TvmDictSetDictureplacegetrefInst,
+            is TvmDictSetDictireplacegetInst, is TvmDictSetDictireplacegetrefInst,
+
+            is TvmDictSetBuilderDictsetbInst, is TvmDictSetBuilderDictusetbInst,
+            is TvmDictSetBuilderDictisetbInst,
+            is TvmDictSetBuilderDictsetgetbInst, is TvmDictSetBuilderDictusetgetbInst,
+            is TvmDictSetBuilderDictisetgetbInst,
+            is TvmDictSetBuilderDictaddbInst, is TvmDictSetBuilderDictuaddbInst, is TvmDictSetBuilderDictiaddbInst,
+            is TvmDictSetBuilderDictaddgetbInst, is TvmDictSetBuilderDictuaddgetbInst,
+            is TvmDictSetBuilderDictiaddgetbInst,
+            is TvmDictSetBuilderDictreplacebInst, is TvmDictSetBuilderDictureplacebInst,
+            is TvmDictSetBuilderDictireplacebInst,
+            is TvmDictSetBuilderDictreplacegetbInst, is TvmDictSetBuilderDictureplacegetbInst,
+            is TvmDictSetBuilderDictireplacegetbInst,
+
+            is TvmDictPrefixPfxdictsetInst, is TvmDictPrefixPfxdictaddInst, is TvmDictPrefixPfxdictreplaceInst,
+            -> DictSetHandler
+
+            is TvmDictDeleteDictdelInst, is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
+            is TvmDictDeleteDictudelInst, is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
+            is TvmDictDeleteDictidelInst, is TvmDictDeleteDictidelgetInst, is TvmDictDeleteDictidelgetrefInst,
+            is TvmDictPrefixPfxdictdelInst,
+            -> DictDelHandler
+
+            is TvmDictMinDictminInst, is TvmDictMinDictminrefInst,
+            is TvmDictMinDictuminInst, is TvmDictMinDictuminrefInst,
+            is TvmDictMinDictiminInst, is TvmDictMinDictiminrefInst,
+
+            is TvmDictMinDictmaxInst, is TvmDictMinDictmaxrefInst,
+            is TvmDictMinDictumaxInst, is TvmDictMinDictumaxrefInst,
+            is TvmDictMinDictimaxInst, is TvmDictMinDictimaxrefInst,
+
+            is TvmDictMinDictremminInst, is TvmDictMinDictremminrefInst,
+            is TvmDictMinDicturemminInst, is TvmDictMinDicturemminrefInst,
+            is TvmDictMinDictiremminInst, is TvmDictMinDictiremminrefInst,
+
+            is TvmDictMinDictremmaxInst, is TvmDictMinDictremmaxrefInst,
+            is TvmDictMinDicturemmaxInst, is TvmDictMinDicturemmaxrefInst,
+            is TvmDictMinDictiremmaxInst, is TvmDictMinDictiremmaxrefInst,
+            -> DictMinMaxHandler
+
+            is TvmDictSpecialDictpushconstInst -> DictPushConstHandler
+
+            is TvmDictPrefixPfxdictconstgetjmpInst -> DictConstGetHandler
 
             else -> DefaultSpecHandler
         }
@@ -666,5 +892,285 @@ object PushCtrHandler : TacInstructionHandler {
         stack.push(pushValue)
 
         return listOf(TacPushCtrInst(registerIndex = i, value = pushValue))
+    }
+}
+
+object DictGetHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val isIntKey = inst.dictInstHasIntegerKey()
+        val hasConstLength = inst.operands.containsKey("n")
+        if (isIntKey && !hasConstLength) {
+            inputs.add(0, stack.pop(0))
+        }
+
+        val key = stack.pop(0)
+        val dict = stack.pop(0)
+        inputs.add(0, key)
+        inputs.add(0, dict)
+
+        val outputs = mutableListOf<TacStackValue>()
+
+        if (inst.stackOutputs == null) {
+            val type = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+            val valueVar = TacVar("val_${ctx.nextVarId()}", listOf(type))
+            outputs.add(valueVar)
+        } else {
+            inst.stackOutputs?.forEach { outputDesc ->
+                val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+                val newName = "${rawName}_${ctx.nextVarId()}"
+
+                val finalType =
+                    if (rawName == "f") {
+                        listOf(TvmSpecType.INT)
+                    } else {
+                        val mainType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+                        listOf(mainType)
+                    }
+
+                outputs.add(TacVar(newName, finalType))
+            }
+        }
+
+        outputs.forEach { stack.push(it) }
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object DictSetHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val isIntKey = inst.dictInstHasIntegerKey()
+        val hasConstLength = inst.operands.containsKey("n")
+
+        if (isIntKey && !hasConstLength) {
+            inputs.add(0, stack.pop(0))
+        }
+
+        val value = stack.pop(0)
+        val key = stack.pop(0)
+        val dict = stack.pop(0)
+
+        inputs.add(0, value)
+        inputs.add(0, key)
+        inputs.add(0, dict)
+
+        val outputs = mutableListOf<TacStackValue>()
+
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
+
+            val type = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+
+            val finalType =
+                if (rawName.uppercase().startsWith("D")) {
+                    listOf(TvmSpecType.CELL)
+                } else {
+                    listOf(type)
+                }
+
+            outputs.add(TacVar(newName, finalType))
+        }
+
+        outputs.forEach { stack.push(it) }
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object DictDelHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val isIntKey = inst.dictInstHasIntegerKey()
+        val hasConstLength = inst.operands.containsKey("n")
+
+        if (isIntKey && !hasConstLength) {
+            inputs.add(0, stack.pop(0))
+        }
+
+        val key = stack.pop(0)
+        val dict = stack.pop(0)
+
+        inputs.add(0, key)
+        inputs.add(0, dict)
+
+        val outputs = mutableListOf<TacStackValue>()
+
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
+
+            val type =
+                when {
+                    rawName == "f" -> TvmSpecType.INT
+                    inst.dictInstHasRef() -> TvmSpecType.CELL
+                    else -> TvmSpecType.SLICE
+                }
+            val finalType =
+                if (outputDesc.type == TvmStackEntryType.SIMPLE && rawName.uppercase().startsWith("D")) {
+                    listOf(TvmSpecType.CELL)
+                } else {
+                    listOf(type)
+                }
+
+            outputs.add(TacVar(newName, finalType))
+        }
+
+        outputs.forEach { stack.push(it) }
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object DictMinMaxHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val isIntKey = inst.dictInstHasIntegerKey()
+        val hasConstLength = inst.operands.containsKey("n")
+        if (isIntKey && !hasConstLength) {
+            inputs.add(0, stack.pop(0))
+        }
+
+        val dict = stack.pop(0)
+        inputs.add(0, dict)
+
+        val outputs = mutableListOf<TacStackValue>()
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
+
+            val type = if (inst.dictInstHasRef() && rawName != "k") TvmSpecType.CELL else TvmSpecType.SLICE
+            val finalType = if (rawName == "f") listOf(TvmSpecType.INT) else listOf(type)
+
+            outputs.add(TacVar(newName, finalType))
+        }
+
+        outputs.forEach { stack.push(it) }
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object DictPushConstHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val nVal =
+            (inst.operands["n"] as? Number)?.toLong()
+                ?: error("DICTPUSHCONST missing 'n' operand")
+
+        val dictName = "D_const_${ctx.nextVarId()}"
+        val dictVar = TacVar(dictName, listOf(TvmSpecType.CELL))
+
+        val nName = "n_${ctx.nextVarId()}"
+        val nVar = TacIntValue(nName, nVal)
+
+        stack.push(dictVar)
+        stack.push(nVar)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = emptyList(),
+                outputs = listOf(dictVar, nVar),
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object DictConstGetHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val key = stack.pop(0)
+
+        val outputs = mutableListOf<TacStackValue>()
+
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
+
+            val finalType = if (rawName == "f") listOf(TvmSpecType.INT) else listOf(TvmSpecType.SLICE)
+
+            outputs.add(TacVar(newName, finalType))
+        }
+
+        outputs.forEach { stack.push(it) }
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = listOf(key),
+                outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
     }
 }

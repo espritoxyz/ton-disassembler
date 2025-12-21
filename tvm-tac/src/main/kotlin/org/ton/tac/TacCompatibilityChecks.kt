@@ -28,6 +28,13 @@ fun isCompatible(
         return true
     }
 
+    val isCellOrSlice1 = val1.valueTypes.contains(TvmSpecType.CELL) || val1.valueTypes.contains(TvmSpecType.SLICE)
+    val isCellOrSlice2 = val2.valueTypes.contains(TvmSpecType.CELL) || val2.valueTypes.contains(TvmSpecType.SLICE)
+
+    if (isCellOrSlice1 && isCellOrSlice2) {
+        return true
+    }
+
     if (val1.valueTypes != val2.valueTypes) return false
 
     return when {

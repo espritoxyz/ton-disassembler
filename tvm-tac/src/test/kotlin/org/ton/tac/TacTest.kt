@@ -11,6 +11,20 @@ import kotlin.test.assertTrue
 
 class TacTest {
     @Test
+    fun testDict() {
+        val path = getResourcePath<TacTest>("/samples/dict-contract.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testDictDebug() {
+        val path = getResourcePath<TacTest>("/samples/dict-contract.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
     fun testTupleCompatible() {
         val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")
         val contract = disassembleBoc(path)
