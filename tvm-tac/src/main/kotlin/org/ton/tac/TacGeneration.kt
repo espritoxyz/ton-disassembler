@@ -8,7 +8,17 @@ import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
+import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetexecInst
+import org.ton.bytecode.TvmDictPrefixPfxdictgetjmpInst
+import org.ton.bytecode.TvmDictSpecialDictigetexecInst
+import org.ton.bytecode.TvmDictSpecialDictigetexeczInst
+import org.ton.bytecode.TvmDictSpecialDictigetjmpInst
 import org.ton.bytecode.TvmDictSpecialDictigetjmpzInst
+import org.ton.bytecode.TvmDictSpecialDictugetexecInst
+import org.ton.bytecode.TvmDictSpecialDictugetexeczInst
+import org.ton.bytecode.TvmDictSpecialDictugetjmpInst
+import org.ton.bytecode.TvmDictSpecialDictugetjmpzInst
 import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
@@ -212,9 +222,29 @@ private fun TvmControlFlowContinuation.hasStandardC0Save(): Boolean {
 
 // special cases
 private fun TvmInst.ignoreBranches(): Boolean =
-    this is TvmDictSpecialDictigetjmpzInst ||
-        this is TvmContDictCalldictInst ||
-        this is TvmContDictCalldictLongInst
+    when (this) {
+        is TvmContDictCalldictInst,
+        is TvmContDictCalldictLongInst,
+        -> true
+
+        is TvmDictSpecialDictugetexecInst,
+        is TvmDictSpecialDictugetexeczInst,
+        is TvmDictSpecialDictugetjmpInst,
+        is TvmDictSpecialDictugetjmpzInst,
+
+        is TvmDictSpecialDictigetexecInst,
+        is TvmDictSpecialDictigetexeczInst,
+        is TvmDictSpecialDictigetjmpInst,
+        is TvmDictSpecialDictigetjmpzInst,
+        -> true
+
+        is TvmDictPrefixPfxdictgetjmpInst,
+        is TvmDictPrefixPfxdictgetexecInst,
+        is TvmDictPrefixPfxdictconstgetjmpInst,
+        -> true
+
+        else -> false
+    }
 
 private data class ContinuationAnalysis<Inst : AbstractTacInst>(
     val continuationInfos: List<TacContinuationInfo<Inst>>,
