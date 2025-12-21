@@ -16,7 +16,6 @@ fun TvmRealInst.dictInstHasIntegerKey(): Boolean =
         is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
         is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
 
-        // SubDict
         is TvmDictSubSubdictugetInst, is TvmDictSubSubdicturpgetInst,
         is TvmDictSubSubdictigetInst, is TvmDictSubSubdictirpgetInst,
 
