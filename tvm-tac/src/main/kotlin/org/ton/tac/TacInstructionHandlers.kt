@@ -199,6 +199,8 @@ import org.ton.bytecode.TvmStackEntryType
 import org.ton.bytecode.TvmTupleTpushInst
 import org.ton.bytecode.TvmTupleTupleInst
 import org.ton.bytecode.TvmTupleUntupleInst
+import org.ton.bytecode.dictInstHasIntegerKey
+import org.ton.bytecode.dictInstHasRef
 
 interface TacInstructionHandler {
     fun <Inst : AbstractTacInst> handle(
