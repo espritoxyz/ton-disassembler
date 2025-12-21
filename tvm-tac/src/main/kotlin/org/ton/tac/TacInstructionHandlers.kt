@@ -1144,12 +1144,13 @@ object DictMinMaxHandler : TacInstructionHandler {
             val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
             val newName = "${rawName}_${ctx.nextVarId()}"
 
-            val type = when {
-                rawName == "f" -> TvmSpecType.INT
-                rawName.uppercase().startsWith("D") -> TvmSpecType.CELL
-                rawName == "k" -> if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
-                else -> if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
-            }
+            val type =
+                when {
+                    rawName == "f" -> TvmSpecType.INT
+                    rawName.uppercase().startsWith("D") -> TvmSpecType.CELL
+                    rawName == "k" -> if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
+                    else -> if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+                }
 
             outputs.add(TacVar(newName, listOf(type)))
         }
@@ -1238,7 +1239,10 @@ object DictConstGetHandler : TacInstructionHandler {
     }
 }
 
-private fun enforceType(value: TacStackValue, type: TvmSpecType) {
+private fun enforceType(
+    value: TacStackValue,
+    type: TvmSpecType,
+) {
     if (value is TacVar && value.valueTypes.isEmpty()) {
         value.valueTypes = listOf(type)
     }
