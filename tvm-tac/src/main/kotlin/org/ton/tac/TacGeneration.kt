@@ -3,6 +3,9 @@ package org.ton.tac
 import org.ton.bytecode.TvmArrayStackEntryDescription
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmContBasicJmpxInst
+import org.ton.bytecode.TvmContBasicRetaltInst
+import org.ton.bytecode.TvmContConditionalIfnotretaltInst
+import org.ton.bytecode.TvmContConditionalIfretaltInst
 import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContOperandInst
@@ -160,7 +163,7 @@ private fun <Inst : AbstractTacInst> handleBranchingInstruction(
 
     val operandContinuationInfo = if (inst is TvmContOperandInst) extractOperandContinuations(ctx, inst) else null
 
-    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap)
+    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap, stack)
     val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
 
     return generateControlFlowInstructions(
@@ -286,26 +289,95 @@ private fun validateBranchStructure(inst: TvmRealInst): Boolean {
     return saveC0
 }
 
+private fun <Inst : AbstractTacInst> createReturnBlock(
+    isAlt: Boolean,
+    stackEntries: List<TacStackValue>,
+): TacContinuationInfo<Inst> {
+    val instruction =
+        if (isAlt) {
+            @Suppress("UNCHECKED_CAST")
+            TacOrdinaryInst<Inst>(
+                mnemonic = "RETALT",
+                operands = emptyMap(),
+                inputs = stackEntries,
+                outputs = emptyList(),
+                blocks = emptyList(),
+            ) as Inst
+        } else {
+            @Suppress("UNCHECKED_CAST")
+            TacReturnInst(
+                result = stackEntries,
+            ) as Inst
+        }
+
+    return TacContinuationInfo(
+        instructions = listOf(instruction),
+        methodArgs = emptyList(),
+        numberOfReturnedValues = stackEntries.size,
+        originalTvmCode = org.ton.bytecode.TvmInlineBlock(mutableListOf()),
+    )
+}
+
+private fun <Inst : AbstractTacInst> createUnknownContinuationInfo(): TacContinuationInfo<Inst> {
+    @Suppress("UNCHECKED_CAST")
+    val unknownInst =
+        TacOrdinaryInst<Inst>(
+            mnemonic = "UNKNOWN_DYNAMIC_JUMP",
+            operands = emptyMap(),
+            inputs = emptyList(),
+            outputs = emptyList(),
+            blocks = emptyList(),
+        ) as Inst
+
+    return TacContinuationInfo(
+        instructions = listOf(unknownInst),
+        methodArgs = emptyList(),
+        numberOfReturnedValues = 0,
+        originalTvmCode = org.ton.bytecode.TvmInlineBlock(mutableListOf()),
+    )
+}
+
 private fun <Inst : AbstractTacInst> analyzeContinuations(
     ctx: TacGenerationContext<Inst>,
     inst: TvmRealInst,
     operandContinuationInfo: OperandContinuationInfo?,
     stackContinuationMap: Map<String, ContinuationId>,
+    stack: Stack,
 ): ContinuationAnalysis<Inst> {
     val continuationMap =
         operandContinuationInfo?.let {
             it.operandContinuationIds + stackContinuationMap
         } ?: stackContinuationMap
     val controlFlowContinuationIds =
-        inst.branches.map {
-            continuationMap[it.variableName]
-                ?: error("Continuation of name ${it.variableName} not found.")
+        inst.branches.map { branch ->
+            when (branch.type) {
+                "variable" -> continuationMap[branch.variableName] ?: -1 // Unknown Code
+                "register" -> {
+                    if (inst is TvmContBasicRetaltInst ||
+                        inst is TvmContConditionalIfretaltInst ||
+                        inst is TvmContConditionalIfnotretaltInst
+                    ) {
+                        -11
+                    } else {
+                        -10
+                    }
+                }
+                else -> -1
+            }
         }
+
+    val currentStackEntries = stack.copyEntries()
 
     val continuationInfos =
         controlFlowContinuationIds.map { ref ->
-            ctx.isolatedContinuations[ref]
-                ?: error("Continuation with label $ref not found")
+            when (ref) {
+                -1 -> createUnknownContinuationInfo()
+                -10 -> createReturnBlock(isAlt = false, stackEntries = currentStackEntries)
+                -11 -> createReturnBlock(isAlt = true, stackEntries = currentStackEntries)
+                else ->
+                    ctx.isolatedContinuations[ref]
+                        ?: error("Continuation with label $ref not found")
+            }
         }
 
     val stackEffects =

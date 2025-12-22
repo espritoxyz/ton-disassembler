@@ -143,7 +143,7 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
     if (inst.branches.isNotEmpty()) {
         val allBranchesTypeVar =
             inst.branches.all { branch ->
-                branch.type == "variable"
+                branch.type == "variable" || branch.type == "register"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
             TODO("in ${inst.mnemonic} branch isn't type variable")

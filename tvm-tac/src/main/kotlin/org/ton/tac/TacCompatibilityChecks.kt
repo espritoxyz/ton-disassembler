@@ -149,20 +149,20 @@ fun areStacksCompatible(
 
     val entries1 = stack1.copyEntries()
     val entries2 = stack2.copyEntries()
+    val commonSize = minOf(entries1.size, entries2.size)
 
-    for (i in entries1.indices) {
-        val val1 = entries1[i]
-        val val2 = entries2[i]
+    for (i in 0 until commonSize) {
+        val val1 = entries1[entries1.size - 1 - i]
+        val val2 = entries2[entries2.size - 1 - i]
 
         if (!isCompatible(val1, val2)) {
             if (val1 is TacTupleValue && val2 is TacTupleValue) {
                 if (val1.elements.size != val2.elements.size) {
-                    return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to
-                        false
+                    return "Stack mismatch at depth $i (Top-$i): Tuple size mismatch" to false
                 }
             }
 
-            return "Stack mismatch at index $i: $val1 vs $val2" to false
+            return "Stack mismatch at depth $i (Top-$i): ${val1.valueTypes} vs ${val2.valueTypes}" to false
         }
     }
 
