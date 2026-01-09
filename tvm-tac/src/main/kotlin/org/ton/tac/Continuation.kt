@@ -18,7 +18,6 @@ data class ContProcessingInfo(
 ) {
     val stackTakenSize: Int get() = contArgsNum
     val stackPushedSize: Int get() = stackEntriesAfter.size - (stackEntriesBefore.size - contArgsNum)
-    val stackDelta: Int get() = stackPushedSize - stackTakenSize
 }
 
 internal data class OperandContinuationInfo(
@@ -93,7 +92,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         generateTacCodeBlock(
             ctx,
             codeBlock = method,
-            stack = methodStack,
+            stack = methodStack,  // Why?
         )
 
     val newRef = ctx.nextContinuationId()
@@ -101,7 +100,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         TacContinuationInfo(
             instructions = inlineInsts,
             methodArgs = inlineArgs,
-            numberOfReturnedValues = methodStack.size,
+            numberOfReturnedValues = methodStack.size, // Why?
             originalTvmCode = method,
         )
 
@@ -130,7 +129,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         TacOrdinaryInst<Inst>(
             mnemonic = inst.mnemonic,
             inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
-            outputs = listOf(),
+            outputs = listOf(),  // Why?
             operands = operands,
             blocks = emptyList(),
         )
@@ -146,7 +145,7 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
                 branch.type == "variable" || branch.type == "register"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
-            TODO("in ${inst.mnemonic} branch isn't type variable")
+            TODO("Instruction ${inst.mnemonic}: branch must be type 'variable' or 'register', got: ${inst.branches.map { it.type }}")
         }
     }
 }

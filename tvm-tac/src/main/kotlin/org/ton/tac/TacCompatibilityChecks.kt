@@ -65,53 +65,29 @@ fun areStatesCompatible(
 ): Pair<String, Boolean> {
     val regKeys1 = state1.controlRegisters.keys
     val regKeys2 = state2.controlRegisters.keys
-    if (regKeys1 != regKeys2) {
-        val missingIn1 = regKeys2 - regKeys1
-        val missingIn2 = regKeys1 - regKeys2
-        val errorString =
-            buildString {
-                append("Control register keys mismatch: ")
-                if (missingIn1.isNotEmpty()) append("missing in state1: $missingIn1")
-                if (missingIn1.isNotEmpty() && missingIn2.isNotEmpty()) append("; ")
-                if (missingIn2.isNotEmpty()) append("missing in state2: $missingIn2")
-            }
-        return Pair(errorString, false)
-    }
+    val regKeysIntersection = regKeys1.intersect(regKeys2)
 
-    for (key in regKeys1) {
+    for (key in regKeysIntersection) {
         val value1 = state1.controlRegisters.getValue(key)
         val value2 = state2.controlRegisters.getValue(key)
-        if (!isCompatible(value1, value2)) {
+        if (key in regKeys2 && !isCompatible(value1, value2)) {
             val errorString =
                 "Conflict in control register c_$key: " +
-                    "state1 has $value1 (types: ${value1.valueTypes}), " +
-                    "state2 has $value2 (types: ${value2.valueTypes})"
+                        "state1 has $value1 (types: ${value1.valueTypes}), " +
+                        "state2 has $value2 (types: ${value2.valueTypes})"
             return Pair(errorString, false)
         }
     }
 
     val globalKeys1 = state1.globalVariables.keys
     val globalKeys2 = state2.globalVariables.keys
-    if (globalKeys1 != globalKeys2) {
-        if (globalKeys1 != globalKeys2) {
-            val missingIn1 = globalKeys2 - globalKeys1
-            val missingIn2 = globalKeys1 - globalKeys2
-            val errorString =
-                buildString {
-                    append("Global variable keys mismatch: ")
-                    if (missingIn1.isNotEmpty()) append("missing in state1 indexes: $missingIn1")
-                    if (missingIn1.isNotEmpty() && missingIn2.isNotEmpty()) append("; ")
-                    if (missingIn2.isNotEmpty()) append("missing in state2 indexes: $missingIn2")
-                }
-            return Pair(errorString, false)
-        }
-    }
+    val globalKeysIntersection = globalKeys1.intersect(globalKeys2)
 
-    for (key in globalKeys1) {
+    for (key in globalKeysIntersection) {
         val val1 = state1.globalVariables.getValue(key)
         val val2 = state2.globalVariables.getValue(key)
 
-        if (!isCompatible(val1, val2)) {
+        if (key in globalKeys2 && !isCompatible(val1, val2)) {
             if (val1 is TacTupleValue && val2 is TacTupleValue) {
                 if (val1.elements.size != val2.elements.size) {
                     return "Global #$key tuple size mismatch: ${val1.elements.size} vs ${val2.elements.size}" to false
@@ -122,16 +98,16 @@ fun areStatesCompatible(
                     val elem2 = val2.elements[i]
                     if (!isCompatible(elem1, elem2)) {
                         return "Global $key tuple element mismatch at index $i: " +
-                            "state1 has $elem1 (types: ${elem1.valueTypes}), " +
-                            "state2 has $elem2 (types: ${elem2.valueTypes})" to false
+                                "state1 has $elem1 (types: ${elem1.valueTypes}), " +
+                                "state2 has $elem2 (types: ${elem2.valueTypes})" to false
                     }
                 }
             }
 
             val errorString =
                 "Conflict in global variable $key: " +
-                    "state1 has $val1 (types: ${val1.valueTypes}), " +
-                    "state2 has $val2 (types: ${val2.valueTypes})"
+                        "state1 has $val1 (types: ${val1.valueTypes}), " +
+                        "state2 has $val2 (types: ${val2.valueTypes})"
             return Pair(errorString, false)
         }
     }
@@ -149,20 +125,24 @@ fun areStacksCompatible(
 
     val entries1 = stack1.copyEntries()
     val entries2 = stack2.copyEntries()
-    val commonSize = minOf(entries1.size, entries2.size)
 
-    for (i in 0 until commonSize) {
-        val val1 = entries1[entries1.size - 1 - i]
-        val val2 = entries2[entries2.size - 1 - i]
+    val entriesIndices1 = entries1.indices
+    val entriesIndices2 = entries2.indices
+    val entriesIntersection = entriesIndices1.intersect(entriesIndices2)
+
+    for (i in entriesIntersection) {
+        val val1 = entries1[i]
+        val val2 = entries2[i]
 
         if (!isCompatible(val1, val2)) {
             if (val1 is TacTupleValue && val2 is TacTupleValue) {
                 if (val1.elements.size != val2.elements.size) {
-                    return "Stack mismatch at depth $i (Top-$i): Tuple size mismatch" to false
+                    return "Stack index $i: Tuple size mismatch (${val1.elements.size} vs ${val2.elements.size})" to
+                            false
                 }
             }
 
-            return "Stack mismatch at depth $i (Top-$i): ${val1.valueTypes} vs ${val2.valueTypes}" to false
+            return "Stack mismatch at index $i: $val1 vs $val2" to false
         }
     }
 

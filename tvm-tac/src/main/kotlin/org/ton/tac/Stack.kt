@@ -255,11 +255,6 @@ class Stack(
         i: Int,
     ): TacAssignInst {
         val value = pop(i)
-
-        if (newVar.valueTypes.isEmpty()) {
-            newVar.valueTypes = value.valueTypes
-        }
-
         val result = TacAssignInst(lhs = newVar, rhs = value)
         push(newVar)
         return result
