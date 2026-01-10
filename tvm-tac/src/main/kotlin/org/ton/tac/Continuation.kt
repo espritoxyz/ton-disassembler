@@ -92,7 +92,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         generateTacCodeBlock(
             ctx,
             codeBlock = method,
-            stack = methodStack,  // Why?
+            stack = methodStack, // Why?
         )
 
     val newRef = ctx.nextContinuationId()
@@ -129,7 +129,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         TacOrdinaryInst<Inst>(
             mnemonic = inst.mnemonic,
             inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
-            outputs = listOf(),  // Why?
+            outputs = listOf(), // Why?
             operands = operands,
             blocks = emptyList(),
         )
@@ -145,7 +145,11 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
                 branch.type == "variable" || branch.type == "register"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
-            TODO("Instruction ${inst.mnemonic}: branch must be type 'variable' or 'register', got: ${inst.branches.map { it.type }}")
+            TODO(
+                "Instruction ${inst.mnemonic}: branch must be type 'variable' or 'register', got: ${inst.branches.map {
+                    it.type
+                }}",
+            )
         }
     }
 }

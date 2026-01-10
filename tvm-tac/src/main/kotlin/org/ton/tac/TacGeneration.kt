@@ -66,7 +66,7 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
 
     val numberOfResultElements =
         if (!noExit) {
-            stack.size  // Why?
+            stack.size // Why?
         } else {
             null
         }
@@ -298,14 +298,16 @@ private fun <Inst : AbstractTacInst> createReturnBlock(
     stackEntries: List<TacStackValue>,
     isAlt: Boolean,
 ): TacContinuationInfo<Inst> {
-    val result = if (isAlt) {
-        TacRetaltInst(
-            result = stackEntries
-        )
-    } else
-        TacReturnInst(
-            result = stackEntries,
-        )
+    val result =
+        if (isAlt) {
+            TacRetaltInst(
+                result = stackEntries,
+            )
+        } else {
+            TacReturnInst(
+                result = stackEntries,
+            )
+        }
 
     val instruction = wrapInst(ctx, stack, result)
 
@@ -331,20 +333,28 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
     val controlFlowContinuationIds =
         inst.branches.map { branch ->
             when (branch.type) {
-                "variable" -> continuationMap[branch.variableName]
-                    ?: error("Continuation of name ${branch.variableName} not found." +
-                            "inst: ${inst.mnemonic}") // Unknown Code
-                "register" -> if (inst is TvmContBasicRetaltInst ||
-                    inst is TvmContConditionalIfretaltInst ||
-                    inst is TvmContConditionalIfnotretaltInst
-                ) ALT_ID
-                else {
-                    if (inst is TvmContBasicRetInst ||
-                        inst is TvmContConditionalIfretInst ||
-                        inst is TvmContConditionalIfnotretInst
-                    ) RET_ID
-                    else error("Instruction ${inst.mnemonic} is not supported")
-                }
+                "variable" ->
+                    continuationMap[branch.variableName]
+                        ?: error(
+                            "Continuation of name ${branch.variableName} not found." +
+                                "inst: ${inst.mnemonic}",
+                        ) // Unknown Code
+                "register" ->
+                    if (inst is TvmContBasicRetaltInst ||
+                        inst is TvmContConditionalIfretaltInst ||
+                        inst is TvmContConditionalIfnotretaltInst
+                    ) {
+                        ALT_ID
+                    } else {
+                        if (inst is TvmContBasicRetInst ||
+                            inst is TvmContConditionalIfretInst ||
+                            inst is TvmContConditionalIfnotretInst
+                        ) {
+                            RET_ID
+                        } else {
+                            error("Instruction ${inst.mnemonic} is not supported")
+                        }
+                    }
                 else -> error("Branch type ${branch.type} is not supported")
             }
         }
@@ -531,18 +541,20 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     val controlFlowInputNames = inst.branches.mapNotNull { it.variableName }
     val filteredInputs = inputs.filter { it.first !in controlFlowInputNames }.map { it.second }
 
-    val controlFlowInst = when (inst){
-        is TvmContBasicRetaltInst -> TacRetaltInst(stack.copyEntries())
-        is TvmContBasicRetInst -> TacReturnInst(stack.copyEntries())
+    val controlFlowInst =
+        when (inst) {
+            is TvmContBasicRetaltInst -> TacRetaltInst(stack.copyEntries())
+            is TvmContBasicRetInst -> TacReturnInst(stack.copyEntries())
 
-        else -> TacOrdinaryInst(
-            mnemonic = inst.mnemonic,
-            operands = operands,
-            inputs = filteredInputs,
-            outputs = outputs,
-            blocks = blocks,
-        )
-}
+            else ->
+                TacOrdinaryInst(
+                    mnemonic = inst.mnemonic,
+                    operands = operands,
+                    inputs = filteredInputs,
+                    outputs = outputs,
+                    blocks = blocks,
+                )
+        }
 
     result += wrapInst(ctx, stack, controlFlowInst)
 
