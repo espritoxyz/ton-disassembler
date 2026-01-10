@@ -14,6 +14,7 @@ import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
+import org.ton.bytecode.TvmDictInst
 import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
 import org.ton.bytecode.TvmDictPrefixPfxdictgetexecInst
 import org.ton.bytecode.TvmDictPrefixPfxdictgetjmpInst
@@ -43,10 +44,21 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     val tacInstructions = mutableListOf<Inst>()
 
     var noExit = false
+    var prevInstHasVariableOutputs = false
+    var prevInstIsDictInst = false
+    var prevInst: TvmRealInst? = null
 
     for (inst in codeBlock.instList) {
         check(inst is TvmRealInst) {
             "Unexpected artificial instruction: $inst"
+        }
+
+        if (prevInstIsDictInst && prevInstHasVariableOutputs) {
+            if (!inst.allowedAfterInstructionWithVariableOutputs()) {
+                error(
+                    "Cannot build TAC. Incorrect processing of $inst. Expected instruction that allowed after $prevInst",
+                )
+            }
         }
 
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
@@ -58,6 +70,9 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
             break
         }
         if (inst is TvmContBasicJmpxInst) noExit = true
+        prevInst = inst
+        prevInstHasVariableOutputs = inst.hasVariableOutputs()
+        prevInstIsDictInst = inst is TvmDictInst
     }
 
     if (!noExit) {
