@@ -338,7 +338,7 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
                         ?: error(
                             "Continuation of name ${branch.variableName} not found." +
                                 "inst: ${inst.mnemonic}",
-                        ) // Unknown Code
+                        )
                 "register" ->
                     if (inst is TvmContBasicRetaltInst ||
                         inst is TvmContConditionalIfretaltInst ||
