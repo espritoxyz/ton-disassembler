@@ -577,6 +577,7 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         when {
             inst is TvmContBasicRetaltInst && isC1Known ->
                 TacOrdinaryInst(
+                    originalInstClass = inst::class,
                     mnemonic = inst.mnemonic,
                     operands = operands,
                     inputs = stack.copyEntries(),
@@ -588,6 +589,7 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
             else ->
                 TacOrdinaryInst(
+                    originalInstClass = inst::class,
                     mnemonic = inst.mnemonic,
                     operands = operands,
                     inputs = filteredInputs,

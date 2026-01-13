@@ -199,6 +199,7 @@ object DefaultSpecHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputVars,
@@ -240,6 +241,7 @@ object PushContHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -298,6 +300,7 @@ object PushIntHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -528,6 +531,7 @@ object TupleHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = elements,
@@ -568,6 +572,7 @@ object TPushHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(tuple, value),
@@ -617,6 +622,7 @@ object UnTupleHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(tupleVal),
@@ -660,6 +666,7 @@ object GetGlobHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -733,6 +740,7 @@ object NullSwapHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(value, flag),
@@ -796,6 +804,7 @@ object DictGetHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -862,6 +871,7 @@ object DictSetHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -926,6 +936,7 @@ object DictDelHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -977,6 +988,7 @@ object DictMinMaxHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -1009,6 +1021,7 @@ object DictPushConstHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -1047,6 +1060,7 @@ object DictConstGetHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
+                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(key),

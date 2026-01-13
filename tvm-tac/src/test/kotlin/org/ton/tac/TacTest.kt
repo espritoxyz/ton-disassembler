@@ -1,6 +1,5 @@
 package org.ton.tac
 
-import assertBlockEndsWith
 import org.junit.jupiter.api.assertThrows
 import org.ton.bytecode.TvmContBasicRetaltInst
 import org.ton.bytecode.disassembleBoc
