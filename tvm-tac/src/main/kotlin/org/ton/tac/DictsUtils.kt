@@ -190,3 +190,35 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
 
         else -> DefaultSpecHandler
     }
+
+val allowedConditionalPairsMap =
+    mapOf(
+        TvmDictGetDictigetrefInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictGetDictugetrefInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictGetDictigetInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictGetDictugetInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictDeleteDictidelgetInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictDeleteDictudelgetInst::class to TvmTupleNullswapifnotInst::class,
+        TvmDictMinDicturemminInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictiremminInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictremminInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDicturemmaxInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictiremmaxInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictremmaxInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictuminInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictumaxInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictuminrefInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictumaxrefInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictiminInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictimaxInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictiminrefInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictMinDictimaxrefInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictugetnextInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictugetnexteqInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictugetprevInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictugetpreveqInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictigetnextInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictigetnexteqInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictigetprevInst::class to TvmTupleNullswapifnot2Inst::class,
+        TvmDictNextDictigetpreveqInst::class to TvmTupleNullswapifnot2Inst::class,
+    )

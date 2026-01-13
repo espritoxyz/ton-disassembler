@@ -14,7 +14,6 @@ import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
-import org.ton.bytecode.TvmDictInst
 import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
 import org.ton.bytecode.TvmDictPrefixPfxdictgetexecInst
 import org.ton.bytecode.TvmDictPrefixPfxdictgetjmpInst
@@ -30,6 +29,8 @@ import org.ton.bytecode.TvmDisasmCodeBlock
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
+import org.ton.bytecode.TvmStackEntryType
+import org.ton.bytecode.allowedConditionalPairsMap
 
 const val RET_ID = -2
 const val ALT_ID = -3
@@ -44,22 +45,28 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     val tacInstructions = mutableListOf<Inst>()
 
     var noExit = false
-    var prevInstHasVariableOutputs = false
-    var prevInstIsDictInst = false
+    var prevInstHasConditionalValueFlow = false
     var prevInst: TvmRealInst? = null
+    var prevConditionalPairWasGoodForTAC = false
 
     for (inst in codeBlock.instList) {
         check(inst is TvmRealInst) {
             "Unexpected artificial instruction: $inst"
         }
 
-        if (prevInstIsDictInst && prevInstHasVariableOutputs) {
-            if (!inst.allowedAfterInstructionWithVariableOutputs()) {
-                error(
-                    "Cannot build TAC. Incorrect processing of $inst. Expected instruction that allowed after $prevInst",
-                )
+        prevConditionalPairWasGoodForTAC =
+            if (prevInstHasConditionalValueFlow) {
+                val expectedClass = allowedConditionalPairsMap[prevInst!!::class]
+                if (inst::class != expectedClass && !prevConditionalPairWasGoodForTAC) {
+                    error(
+                        "Cannot build TAC: instruction ${prevInst.mnemonic} has conditional value flow.",
+                    )
+                } else {
+                    true
+                }
+            } else {
+                false
             }
-        }
 
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
         tacInstructions += curInstructions
@@ -69,10 +76,9 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
             noExit = true
             break
         }
-        if (inst is TvmContBasicJmpxInst) noExit = true
+        if (inst is TvmContBasicJmpxInst || inst is TvmContBasicRetaltInst || inst is TvmContBasicRetInst) noExit = true
         prevInst = inst
-        prevInstHasVariableOutputs = inst.hasVariableOutputs()
-        prevInstIsDictInst = inst is TvmDictInst
+        prevInstHasConditionalValueFlow = inst.stackOutputs?.any { it.type == TvmStackEntryType.CONDITIONAL } == true
     }
 
     if (!noExit) {
@@ -81,7 +87,7 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
 
     val numberOfResultElements =
         if (!noExit) {
-            stack.size // Why?
+            stack.size
         } else {
             null
         }
@@ -181,7 +187,8 @@ private fun <Inst : AbstractTacInst> handleBranchingInstruction(
 
     val operandContinuationInfo = if (inst is TvmContOperandInst) extractOperandContinuations(ctx, inst) else null
 
-    val continuationAnalysis = analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap, stack)
+    val continuationAnalysis =
+        analyzeContinuations(ctx, inst, operandContinuationInfo, stackContinuationMap, stack, registerState)
     val controlFlowPrep = prepareControlFlow(ctx, continuationAnalysis, saveC0, inst, endingInstGenerator)
 
     return generateControlFlowInstructions(
@@ -340,6 +347,7 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
     operandContinuationInfo: OperandContinuationInfo?,
     stackContinuationMap: Map<String, ContinuationId>,
     stack: Stack,
+    registerState: RegisterState,
 ): ContinuationAnalysis<Inst> {
     val continuationMap =
         operandContinuationInfo?.let {
@@ -350,16 +358,21 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
             when (branch.type) {
                 "variable" ->
                     continuationMap[branch.variableName]
-                        ?: error(
+                        ?: TODO(
                             "Continuation of name ${branch.variableName} not found." +
-                                "inst: ${inst.mnemonic}",
+                                " inst: ${inst.mnemonic}",
                         )
                 "register" ->
                     if (inst is TvmContBasicRetaltInst ||
                         inst is TvmContConditionalIfretaltInst ||
                         inst is TvmContConditionalIfnotretaltInst
                     ) {
-                        ALT_ID
+                        val c1Value = registerState.controlRegisters[1]
+                        if (c1Value is ContinuationValue) {
+                            c1Value.continuationRef
+                        } else {
+                            ALT_ID
+                        }
                     } else {
                         if (inst is TvmContBasicRetInst ||
                             inst is TvmContConditionalIfretInst ||
@@ -367,10 +380,10 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
                         ) {
                             RET_ID
                         } else {
-                            error("Instruction ${inst.mnemonic} is not supported")
+                            TODO("Instruction ${inst.mnemonic} is not supported")
                         }
                     }
-                else -> error("Branch type ${branch.type} is not supported")
+                else -> TODO("Branch type ${branch.type} is not supported")
             }
         }
 
@@ -495,21 +508,21 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
             ): List<Inst> = emptyList()
         }
 
-    val blockInfos =
-        continuationAnalysis.continuationInfos.mapIndexed { index, continuationInfo ->
-            if (continuationInfo.originalTvmCode.instList.isEmpty() && continuationInfo.instructions.isNotEmpty()) {
-                continuationInfo
-            } else {
-                val (branchStack, branchRegisterState) = branchStates[index]
-                generateTacCodeBlock(
-                    ctx,
-                    codeBlock = continuationInfo.originalTvmCode,
-                    stack = branchStack,
-                    endingInstGenerator = noOpGenerator,
-                    registerState = branchRegisterState,
-                )
-            }
+    continuationAnalysis.continuationInfos.mapIndexed { index, continuationInfo ->
+        // it is for stack compability check
+        if (continuationInfo.originalTvmCode.instList.isEmpty() && continuationInfo.instructions.isNotEmpty()) {
+            continuationInfo
+        } else {
+            val (branchStack, branchRegisterState) = branchStates[index]
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = continuationInfo.originalTvmCode,
+                stack = branchStack,
+                endingInstGenerator = noOpGenerator,
+                registerState = branchRegisterState,
+            )
         }
+    }
 
     if (branchStates.size > 1) {
         val (firstStack, firstRegisterState) = branchStates.first()
@@ -539,12 +552,15 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
     }
 
     val blocks =
-        blockInfos.mapIndexed { index, info ->
-            val (branchStack, _) = branchStates[index]
-            val endingInsts = controlFlowPrep.newEndInstGenerator.generateEndingInst(ctx, branchStack)
-            info.instructions + endingInsts
-        }
-
+        continuationAnalysis.continuationInfos
+            .map { continuationInfo ->
+                generateTacCodeBlock(
+                    ctx,
+                    codeBlock = continuationInfo.originalTvmCode,
+                    stack = stack.copy(),
+                    endingInstGenerator = controlFlowPrep.newEndInstGenerator,
+                )
+            }.map { it.instructions }
     if (branchStates.isNotEmpty()) {
         val (_, representativeRegisterState) = branchStates.first()
         registerState.assignFrom(representativeRegisterState)
@@ -555,11 +571,20 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
     val controlFlowInputNames = inst.branches.mapNotNull { it.variableName }
     val filteredInputs = inputs.filter { it.first !in controlFlowInputNames }.map { it.second }
+    val isC1Known = inst is TvmContBasicRetaltInst && registerState.controlRegisters[1] is ContinuationValue
 
     val controlFlowInst =
-        when (inst) {
-            is TvmContBasicRetaltInst -> TacRetaltInst(stack.copyEntries())
-            is TvmContBasicRetInst -> TacReturnInst(stack.copyEntries())
+        when {
+            inst is TvmContBasicRetaltInst && isC1Known ->
+                TacOrdinaryInst(
+                    mnemonic = inst.mnemonic,
+                    operands = operands,
+                    inputs = stack.copyEntries(),
+                    outputs = outputs,
+                    blocks = blocks,
+                )
+            inst is TvmContBasicRetaltInst -> TacRetaltInst(stack.copyEntries())
+            inst is TvmContBasicRetInst -> TacReturnInst(stack.copyEntries())
 
             else ->
                 TacOrdinaryInst(

@@ -88,21 +88,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     val methodStack = updateStack(stackEntriesBefore, methodArgs, stack)
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
-    val (inlineInsts, inlineArgs) =
-        generateTacCodeBlock(
-            ctx,
-            codeBlock = method,
-            stack = methodStack, // Why?
-        )
-
     val newRef = ctx.nextContinuationId()
-    ctx.methodsWithSubstitutedStack[newRef] =
-        TacContinuationInfo(
-            instructions = inlineInsts,
-            methodArgs = inlineArgs,
-            numberOfReturnedValues = methodStack.size, // Why?
-            originalTvmCode = method,
-        )
 
     val processedMethodInfo =
         ContProcessingInfo(
@@ -129,7 +115,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         TacOrdinaryInst<Inst>(
             mnemonic = inst.mnemonic,
             inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
-            outputs = listOf(), // Why?
+            outputs = listOf(),
             operands = operands,
             blocks = emptyList(),
         )
