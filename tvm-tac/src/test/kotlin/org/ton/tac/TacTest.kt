@@ -25,7 +25,7 @@ class TacTest {
     fun testRetaltGotoDebug() {
         val path = getResourcePath<TacTest>("/samples/retalt-and-goto.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        val tacCode = generateDebugTacContractCode(contract)
         assertBlockEndsWith(tacCode, TvmContBasicRetaltInst::class) { lastInst ->
             lastInst is TacGotoInst
         }
@@ -45,7 +45,7 @@ class TacTest {
     fun testRetaltReturnDebug() {
         val path = getResourcePath<TacTest>("/samples/retalt-and-return.boc")
         val contract = disassembleBoc(path)
-        val tacCode = generateTacContractCode(contract)
+        val tacCode = generateDebugTacContractCode(contract)
         assertBlockEndsWith(tacCode, TvmContBasicRetaltInst::class) { lastInst ->
             lastInst is TacReturnInst
         }
