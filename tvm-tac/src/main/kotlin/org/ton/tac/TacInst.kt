@@ -1,8 +1,6 @@
 package org.ton.tac
 
-import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSpecType
-import kotlin.reflect.KClass
 
 typealias ContinuationId = Int
 
@@ -11,7 +9,6 @@ sealed interface AbstractTacInst
 sealed interface TacInst : AbstractTacInst
 
 data class TacOrdinaryInst<Inst : AbstractTacInst>(
-    val originalInstClass: KClass<out TvmRealInst>,
     val mnemonic: String,
     val operands: Map<String, Any?>,
     val inputs: List<TacStackValue>,

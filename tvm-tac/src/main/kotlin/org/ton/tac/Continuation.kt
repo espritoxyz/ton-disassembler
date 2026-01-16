@@ -113,7 +113,6 @@ internal fun <Inst : AbstractTacInst> processCallDict(
 
     val nonStackTacInst =
         TacOrdinaryInst<Inst>(
-            originalInstClass = inst::class,
             mnemonic = inst.mnemonic,
             inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
             outputs = listOf(),

@@ -11,6 +11,7 @@ import org.ton.bytecode.TvmContConditionalIfretInst
 import org.ton.bytecode.TvmContConditionalIfretaltInst
 import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
+import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
@@ -43,7 +44,6 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     registerState: RegisterState = RegisterState(),
 ): TacContinuationInfo<Inst> {
     val tacInstructions = mutableListOf<Inst>()
-
     var noExit = false
     var prevInstHasConditionalValueFlow = false
     var prevInst: TvmRealInst? = null
@@ -308,6 +308,7 @@ private fun validateBranchStructure(inst: TvmRealInst): Boolean {
     val noSave = haveNoSave.first()
 
     if (!saveC0 && !noSave) {
+        if (inst is TvmContLoopsWhileInst) return false
         TODO("Control flow of instruction ${inst.mnemonic} not supported")
     }
 
@@ -577,7 +578,6 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
         when {
             inst is TvmContBasicRetaltInst && isC1Known ->
                 TacOrdinaryInst(
-                    originalInstClass = inst::class,
                     mnemonic = inst.mnemonic,
                     operands = operands,
                     inputs = stack.copyEntries(),
@@ -589,7 +589,6 @@ private fun <Inst : AbstractTacInst> generateControlFlowInstructions(
 
             else ->
                 TacOrdinaryInst(
-                    originalInstClass = inst::class,
                     mnemonic = inst.mnemonic,
                     operands = operands,
                     inputs = filteredInputs,

@@ -199,7 +199,6 @@ object DefaultSpecHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputVars,
@@ -241,7 +240,6 @@ object PushContHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -300,7 +298,6 @@ object PushIntHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -531,7 +528,6 @@ object TupleHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = elements,
@@ -572,7 +568,6 @@ object TPushHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(tuple, value),
@@ -622,7 +617,6 @@ object UnTupleHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(tupleVal),
@@ -666,7 +660,6 @@ object GetGlobHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = emptyList(),
@@ -740,7 +733,6 @@ object NullSwapHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = listOf(value, flag),
@@ -804,7 +796,6 @@ object DictGetHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -871,7 +862,6 @@ object DictSetHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -936,7 +926,6 @@ object DictDelHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
@@ -988,82 +977,9 @@ object DictMinMaxHandler : TacInstructionHandler {
 
         return listOf(
             TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
                 mnemonic = inst.mnemonic,
                 operands = inst.operands,
                 inputs = inputs,
-                outputs = outputs,
-                blocks = emptyList(),
-            ),
-        )
-    }
-}
-
-object DictPushConstHandler : TacInstructionHandler {
-    override fun <Inst : AbstractTacInst> handle(
-        ctx: TacGenerationContext<Inst>,
-        stack: Stack,
-        inst: TvmRealInst,
-        registerState: RegisterState,
-    ): List<TacInst> {
-        val nVal =
-            (inst.operands["n"] as? Number)?.toLong()
-                ?: error("DICTPUSHCONST missing 'n' operand")
-
-        val dictName = "D_const_${ctx.nextVarId()}"
-        val dictVar = TacVar(dictName, listOf(TvmSpecType.CELL))
-
-        val nName = "n_${ctx.nextVarId()}"
-        val nVar = TacIntValue(nName, nVal)
-
-        stack.push(dictVar)
-        stack.push(nVar)
-
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
-                mnemonic = inst.mnemonic,
-                operands = inst.operands,
-                inputs = emptyList(),
-                outputs = listOf(dictVar, nVar),
-                blocks = emptyList(),
-            ),
-        )
-    }
-}
-
-object DictConstGetHandler : TacInstructionHandler {
-    override fun <Inst : AbstractTacInst> handle(
-        ctx: TacGenerationContext<Inst>,
-        stack: Stack,
-        inst: TvmRealInst,
-        registerState: RegisterState,
-    ): List<TacInst> {
-        val key = stack.pop(0)
-        val isIntKey = inst.dictInstHasIntegerKey()
-        val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
-
-        enforceType(key, keyType)
-
-        val outputs = mutableListOf<TacStackValue>()
-
-        inst.stackOutputs?.forEach { outputDesc ->
-            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
-            val newName = "${rawName}_${ctx.nextVarId()}"
-
-            val finalType = if (rawName == "f") listOf(TvmSpecType.INT) else listOf(TvmSpecType.SLICE)
-
-            outputs.add(TacVar(newName, finalType))
-        }
-
-        outputs.forEach { stack.push(it) }
-
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
-                originalInstClass = inst::class,
-                mnemonic = inst.mnemonic,
-                operands = inst.operands,
-                inputs = listOf(key),
                 outputs = outputs,
                 blocks = emptyList(),
             ),

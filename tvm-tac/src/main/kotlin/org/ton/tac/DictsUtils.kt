@@ -1,11 +1,9 @@
 package org.ton.bytecode
 
 import org.ton.tac.DefaultSpecHandler
-import org.ton.tac.DictConstGetHandler
 import org.ton.tac.DictDelHandler
 import org.ton.tac.DictGetHandler
 import org.ton.tac.DictMinMaxHandler
-import org.ton.tac.DictPushConstHandler
 import org.ton.tac.DictSetHandler
 import org.ton.tac.TacInstructionHandler
 
@@ -24,14 +22,14 @@ fun TvmRealInst.dictInstHasIntegerKey(): Boolean =
         is TvmDictSpecialDictugetjmpInst, is TvmDictSpecialDictugetjmpzInst,
         is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
         is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
-
         is TvmDictSubSubdictugetInst, is TvmDictSubSubdicturpgetInst,
-        is TvmDictSubSubdictigetInst, is TvmDictSubSubdictirpgetInst,
+        TvmDictSubSubdictigetInst, is TvmDictSubSubdictirpgetInst,
 
         is TvmDictSetDictusetInst, is TvmDictSetDictusetrefInst,
         is TvmDictSetDictisetInst, is TvmDictSetDictisetrefInst,
         is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
         is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
+
         is TvmDictMayberefDictusetgetoptrefInst, is TvmDictMayberefDictisetgetoptrefInst,
         is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
         is TvmDictSetDictuaddgetInst, is TvmDictSetDictuaddgetrefInst,
@@ -100,8 +98,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictGetDictgetInst, is TvmDictGetDictgetrefInst,
         is TvmDictGetDictugetInst, is TvmDictGetDictugetrefInst,
         is TvmDictGetDictigetInst, is TvmDictGetDictigetrefInst,
-        is TvmDictMayberefDictgetoptrefInst, is TvmDictMayberefDictigetoptrefInst,
-        is TvmDictMayberefDictugetoptrefInst,
 
         is TvmDictNextDictgetnextInst, is TvmDictNextDictgetnexteqInst, is TvmDictNextDictgetprevInst,
         is TvmDictNextDictgetpreveqInst,
@@ -110,27 +106,12 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictNextDictigetnextInst, is TvmDictNextDictigetnexteqInst, is TvmDictNextDictigetprevInst,
         is TvmDictNextDictigetpreveqInst,
 
-        is TvmDictSpecialDictugetexecInst, is TvmDictSpecialDictugetexeczInst,
-        is TvmDictSpecialDictugetjmpInst, is TvmDictSpecialDictugetjmpzInst,
-        is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
-        is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
-
-        is TvmDictSubSubdictgetInst, is TvmDictSubSubdictugetInst, is TvmDictSubSubdictigetInst,
-        is TvmDictSubSubdictrpgetInst, is TvmDictSubSubdicturpgetInst, is TvmDictSubSubdictirpgetInst,
-
-        is TvmDictPrefixPfxdictgetInst, is TvmDictPrefixPfxdictgetqInst,
-        is TvmDictPrefixPfxdictgetjmpInst, is TvmDictPrefixPfxdictgetexecInst,
+        is TvmDictPrefixPfxdictgetqInst,
         -> DictGetHandler
-
-        is TvmDictSetDictsetInst, is TvmDictSetDictsetrefInst,
-        is TvmDictSetDictusetInst, is TvmDictSetDictusetrefInst,
-        is TvmDictSetDictisetInst, is TvmDictSetDictisetrefInst,
 
         is TvmDictSetDictsetgetInst, is TvmDictSetDictsetgetrefInst,
         is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
         is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
-        is TvmDictMayberefDictsetgetoptrefInst, is TvmDictMayberefDictusetgetoptrefInst,
-        is TvmDictMayberefDictisetgetoptrefInst,
 
         is TvmDictSetDictaddInst, is TvmDictSetDictaddrefInst,
         is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
@@ -146,8 +127,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetDictureplacegetInst, is TvmDictSetDictureplacegetrefInst,
         is TvmDictSetDictireplacegetInst, is TvmDictSetDictireplacegetrefInst,
 
-        is TvmDictSetBuilderDictsetbInst, is TvmDictSetBuilderDictusetbInst,
-        is TvmDictSetBuilderDictisetbInst,
         is TvmDictSetBuilderDictsetgetbInst, is TvmDictSetBuilderDictusetgetbInst,
         is TvmDictSetBuilderDictisetgetbInst,
         is TvmDictSetBuilderDictaddbInst, is TvmDictSetBuilderDictuaddbInst, is TvmDictSetBuilderDictiaddbInst,
@@ -161,10 +140,9 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictPrefixPfxdictsetInst, is TvmDictPrefixPfxdictaddInst, is TvmDictPrefixPfxdictreplaceInst,
         -> DictSetHandler
 
-        is TvmDictDeleteDictdelInst, is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
-        is TvmDictDeleteDictudelInst, is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
-        is TvmDictDeleteDictidelInst, is TvmDictDeleteDictidelgetInst, is TvmDictDeleteDictidelgetrefInst,
-        is TvmDictPrefixPfxdictdelInst,
+        is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
+        is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
+        is TvmDictDeleteDictidelgetInst, is TvmDictDeleteDictidelgetrefInst,
         -> DictDelHandler
 
         is TvmDictMinDictminInst, is TvmDictMinDictminrefInst,
@@ -183,10 +161,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictMinDicturemmaxInst, is TvmDictMinDicturemmaxrefInst,
         is TvmDictMinDictiremmaxInst, is TvmDictMinDictiremmaxrefInst,
         -> DictMinMaxHandler
-
-        is TvmDictSpecialDictpushconstInst -> DictPushConstHandler
-
-        is TvmDictPrefixPfxdictconstgetjmpInst -> DictConstGetHandler
 
         else -> DefaultSpecHandler
     }

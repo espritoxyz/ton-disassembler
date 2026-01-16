@@ -5,8 +5,8 @@ import kotlin.reflect.KClass
 import kotlin.test.assertTrue
 
 fun assertBlockEndsWith(
-    tacCode: TacContractCode<*>,
-    parentClass: KClass<out TvmRealInst>,
+    tacCode: TacContractCode<AbstractTacInst>,
+    parentMnemonic: String,
     lastInstPredicate: (AbstractTacInst) -> Boolean,
 ) {
     var found = false
@@ -14,7 +14,7 @@ fun assertBlockEndsWith(
     fun scan(instructions: List<AbstractTacInst>) {
         for (inst in instructions) {
             if (inst is TacOrdinaryInst<*>) {
-                if (inst.originalInstClass == parentClass) {
+                if (inst.mnemonic == parentMnemonic) {
                     for (block in inst.blocks) {
                         val last = block.lastOrNull()
                         if (last != null && lastInstPredicate(last)) {
@@ -29,15 +29,13 @@ fun assertBlockEndsWith(
         }
     }
 
-    @Suppress("UNCHECKED_CAST")
-    scan(tacCode.mainMethod.instructions as List<AbstractTacInst>)
-    @Suppress("UNCHECKED_CAST")
+    scan(tacCode.mainMethod.instructions)
     tacCode.methods.values.forEach {
-        scan(it.instructions as List<AbstractTacInst>)
+        scan(it.instructions)
     }
 
     assertTrue(
         found,
-        "Did not find instruction ${parentClass::class.simpleName} with a block ending with the expected instruction.",
+        "Did not find instruction $parentMnemonic with a block ending with the expected instruction.",
     )
 }
