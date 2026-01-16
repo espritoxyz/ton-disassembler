@@ -1,7 +1,5 @@
 package org.ton.tac
 
-import org.ton.bytecode.TvmRealInst
-import kotlin.reflect.KClass
 import kotlin.test.assertTrue
 
 fun assertBlockEndsWith(
