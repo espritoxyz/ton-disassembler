@@ -13,14 +13,14 @@ import kotlin.test.assertTrue
 class TacTest {
     @Test
     fun testDictset() {
-        val path = getResourcePath<TacTest>("/samples/dictset.boc")
+        val path = getResourcePath<TacTest>("/samples/dictsetget.boc")
         val contract = disassembleBoc(path)
         generateTacContractCode(contract)
     }
 
     @Test
     fun testDictsetDebug() {
-        val path = getResourcePath<TacTest>("/samples/dictset.boc")
+        val path = getResourcePath<TacTest>("/samples/dictsetget.boc")
         val contract = disassembleBoc(path)
         generateDebugTacContractCode(contract)
     }
