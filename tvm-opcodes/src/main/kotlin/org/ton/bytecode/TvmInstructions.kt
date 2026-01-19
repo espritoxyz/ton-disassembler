@@ -28714,8 +28714,9 @@ data class TvmDictDeleteDictdelInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -28868,8 +28869,9 @@ data class TvmDictDeleteDictidelInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -29018,8 +29020,9 @@ data class TvmDictDeleteDictudelInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -31601,8 +31604,9 @@ data class TvmDictPrefixPfxdictdelInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",

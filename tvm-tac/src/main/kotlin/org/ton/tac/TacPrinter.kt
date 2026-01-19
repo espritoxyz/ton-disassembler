@@ -149,6 +149,7 @@ private fun StringBuilder.dumpInstruction(
         is TacGotoInst -> dumpInstruction(inst, indent)
         is TacLabel -> dumpInstruction(inst, indent)
         is TacReturnInst -> dumpInstruction(inst, indent)
+        is TacRetaltInst -> dumpInstruction(inst, indent)
         is TacPopCtrInst -> dumpInstruction(inst, indent)
         is TacPushCtrInst -> dumpInstruction(inst, indent)
         is TacSetGlobalInst -> dumpInstruction(inst, indent)
@@ -190,6 +191,16 @@ private fun StringBuilder.dumpInstruction(
 ) {
     append(indent)
     append("return ")
+    append(inst.result.joinToString { it.name })
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacRetaltInst,
+    indent: String,
+) {
+    append(indent)
+    append("retalt ")
     append(inst.result.joinToString { it.name })
     appendLine()
 }

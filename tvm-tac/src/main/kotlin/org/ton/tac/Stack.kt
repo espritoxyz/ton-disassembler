@@ -7,10 +7,21 @@ import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
 import org.ton.bytecode.TvmStackEntryType
 import java.util.Collections.swap
+import java.util.Locale.getDefault
 
-val SUPPORTED_STACK_TYPES = setOf(TvmStackEntryType.SIMPLE, TvmStackEntryType.ARRAY, TvmStackEntryType.CONST)
+val SUPPORTED_STACK_TYPES =
+    setOf(
+        TvmStackEntryType.SIMPLE,
+        TvmStackEntryType.ARRAY,
+        TvmStackEntryType.CONST,
+        TvmStackEntryType.CONDITIONAL,
+    )
 
 internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
+    if (inst.mnemonic.lowercase(getDefault()).contains("dict")) {
+        return
+    }
+
     if (inst !is TvmStackBasicInst && inst !is TvmStackComplexInst) {
         if (inst.stackInputs == null || inst.stackOutputs == null) {
             error("Instruction: ${inst.mnemonic} is not supported, since stackInputs/Outputs are unconstrained")
@@ -244,11 +255,6 @@ class Stack(
         i: Int,
     ): TacAssignInst {
         val value = pop(i)
-
-        if (newVar.valueTypes.isEmpty()) {
-            newVar.valueTypes = value.valueTypes
-        }
-
         val result = TacAssignInst(lhs = newVar, rhs = value)
         push(newVar)
         return result

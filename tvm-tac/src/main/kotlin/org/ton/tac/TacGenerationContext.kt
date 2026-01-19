@@ -8,7 +8,6 @@ class TacGenerationContext<Inst : AbstractTacInst>(
     val debug: Boolean,
 ) {
     val isolatedContinuations = mutableMapOf<Int, TacContinuationInfo<Inst>>()
-    val methodsWithSubstitutedStack = mutableMapOf<Int, TacContinuationInfo<Inst>>()
     val calledMethodsSet = mutableSetOf<MethodId>()
 
     private var varCounter = 0
@@ -22,4 +21,9 @@ class TacGenerationContext<Inst : AbstractTacInst>(
     fun nextContinuationId(): Int = contCounter++
 
     fun nextLabel(): String = "label_${labelCounter++}"
+
+    companion object {
+        const val RET_ID = -2
+        const val ALT_ID = -3
+    }
 }

@@ -18,7 +18,6 @@ data class ContProcessingInfo(
 ) {
     val stackTakenSize: Int get() = contArgsNum
     val stackPushedSize: Int get() = stackEntriesAfter.size - (stackEntriesBefore.size - contArgsNum)
-    val stackDelta: Int get() = stackPushedSize - stackTakenSize
 }
 
 internal data class OperandContinuationInfo(
@@ -69,7 +68,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     ctx: TacGenerationContext<Inst>,
     stack: Stack,
     methodNumber: MethodId,
-    inst: TvmInst,
+    inst: TvmRealInst,
     operands: Map<String, Any?>,
 ): TacOrdinaryInst<Inst> {
     val stackEntriesBefore = stack.copyEntries()
@@ -89,21 +88,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     val methodStack = updateStack(stackEntriesBefore, methodArgs, stack)
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
-    val (inlineInsts, inlineArgs) =
-        generateTacCodeBlock(
-            ctx,
-            codeBlock = method,
-            stack = methodStack,
-        )
-
     val newRef = ctx.nextContinuationId()
-    ctx.methodsWithSubstitutedStack[newRef] =
-        TacContinuationInfo(
-            instructions = inlineInsts,
-            methodArgs = inlineArgs,
-            numberOfReturnedValues = methodStack.size,
-            originalTvmCode = method,
-        )
 
     val processedMethodInfo =
         ContProcessingInfo(
@@ -143,10 +128,14 @@ internal fun throwErrorIfBranchesNotTypeVar(inst: TvmRealInst) {
     if (inst.branches.isNotEmpty()) {
         val allBranchesTypeVar =
             inst.branches.all { branch ->
-                branch.type == "variable"
+                branch.type == "variable" || branch.type == "register"
             }
         if (!allBranchesTypeVar && inst.mnemonic !in CALLDICT_MNEMONICS) {
-            TODO("in ${inst.mnemonic} branch isn't type variable")
+            TODO(
+                "Instruction ${inst.mnemonic}: branch must be type 'variable' or 'register', got: ${inst.branches.map {
+                    it.type
+                }}",
+            )
         }
     }
 }

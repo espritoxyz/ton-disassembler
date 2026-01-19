@@ -1,6 +1,7 @@
 package org.ton.tac
 
 import org.junit.jupiter.api.assertThrows
+import org.ton.bytecode.TvmContBasicRetaltInst
 import org.ton.bytecode.disassembleBoc
 import java.nio.file.Path
 import kotlin.io.path.Path
@@ -10,6 +11,86 @@ import kotlin.test.assertEquals
 import kotlin.test.assertTrue
 
 class TacTest {
+    @Test
+    fun testDictset() {
+        val path = getResourcePath<TacTest>("/samples/dictsetget.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testDictsetDebug() {
+        val path = getResourcePath<TacTest>("/samples/dictsetget.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testRetaltGoto() {
+        val path = getResourcePath<TacTest>("/samples/retalt-and-goto.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+        assertBlockEndsWith(tacCode, TvmContBasicRetaltInst.MNEMONIC) { lastInst ->
+            lastInst is TacGotoInst
+        }
+    }
+
+    @Test
+    fun testRetaltReturn() {
+        val path = getResourcePath<TacTest>("/samples/retalt-and-return.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+        assertBlockEndsWith(tacCode, TvmContBasicRetaltInst.MNEMONIC) { lastInst ->
+            lastInst is TacReturnInst
+        }
+    }
+
+    @Test
+    fun testRetalt() {
+        val path = getResourcePath<TacTest>("/samples/retalt-basic.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testRetaltDebug() {
+        val path = getResourcePath<TacTest>("/samples/retalt-basic.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testBadDict() {
+        val path = getResourcePath<TacTest>("/samples/bad-dict.boc")
+        val contract = disassembleBoc(path)
+        assertThrows<IllegalStateException> {
+            generateTacContractCode(contract)
+        }
+    }
+
+    @Test
+    fun testBadDictDebug() {
+        val path = getResourcePath<TacTest>("/samples/bad-dict.boc")
+        val contract = disassembleBoc(path)
+        assertThrows<IllegalStateException> {
+            generateDebugTacContractCode(contract)
+        }
+    }
+
+    @Test
+    fun testDict() {
+        val path = getResourcePath<TacTest>("/samples/dict-contract.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testDictDebug() {
+        val path = getResourcePath<TacTest>("/samples/dict-contract.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
     @Test
     fun testTupleCompatible() {
         val path = getResourcePath<TacTest>("/samples/compatible_tuple.boc")

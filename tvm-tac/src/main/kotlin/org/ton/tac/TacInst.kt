@@ -40,6 +40,10 @@ data class TacReturnInst(
     val result: List<TacStackValue>,
 ) : TacInst
 
+data class TacRetaltInst(
+    val result: List<TacStackValue>,
+) : TacInst
+
 data class TacGotoInst(
     val label: String,
 ) : TacInst
