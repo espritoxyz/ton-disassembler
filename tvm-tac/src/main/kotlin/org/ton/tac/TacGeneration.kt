@@ -33,9 +33,6 @@ import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
 import org.ton.bytecode.allowedConditionalPairsMap
 
-const val RET_ID = -2
-const val ALT_ID = -3
-
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     ctx: TacGenerationContext<Inst>,
     codeBlock: TvmDisasmCodeBlock,
@@ -56,8 +53,8 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
 
         prevConditionalPairWasGoodForTAC =
             if (prevInstHasConditionalValueFlow) {
-                val expectedClass = allowedConditionalPairsMap[prevInst!!::class]
-                if (inst::class != expectedClass && !prevConditionalPairWasGoodForTAC) {
+                val expectedInstMnemonic = allowedConditionalPairsMap[prevInst!!.mnemonic]
+                if (inst.mnemonic != expectedInstMnemonic && !prevConditionalPairWasGoodForTAC) {
                     error(
                         "Cannot build TAC: instruction ${prevInst.mnemonic} has conditional value flow.",
                     )
@@ -67,6 +64,8 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
             } else {
                 false
             }
+        println(inst.mnemonic)
+        println(prevConditionalPairWasGoodForTAC)
 
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
         tacInstructions += curInstructions
@@ -372,14 +371,14 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
                         if (c1Value is ContinuationValue) {
                             c1Value.continuationRef
                         } else {
-                            ALT_ID
+                            TacGenerationContext.ALT_ID
                         }
                     } else {
                         if (inst is TvmContBasicRetInst ||
                             inst is TvmContConditionalIfretInst ||
                             inst is TvmContConditionalIfnotretInst
                         ) {
-                            RET_ID
+                            TacGenerationContext.RET_ID
                         } else {
                             TODO("Instruction ${inst.mnemonic} is not supported")
                         }
@@ -393,8 +392,8 @@ private fun <Inst : AbstractTacInst> analyzeContinuations(
     val continuationInfos =
         controlFlowContinuationIds.map { ref ->
             when (ref) {
-                RET_ID -> createReturnBlock(ctx, stack, stackEntries = currentStackEntries, false)
-                ALT_ID -> createReturnBlock(ctx, stack, stackEntries = currentStackEntries, true)
+                TacGenerationContext.RET_ID -> createReturnBlock(ctx, stack, stackEntries = currentStackEntries, false)
+                TacGenerationContext.ALT_ID -> createReturnBlock(ctx, stack, stackEntries = currentStackEntries, true)
                 else ->
                     ctx.isolatedContinuations[ref]
                         ?: error("Continuation with label $ref not found")
