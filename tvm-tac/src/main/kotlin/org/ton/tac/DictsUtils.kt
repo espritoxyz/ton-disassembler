@@ -167,8 +167,10 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
 
 val allowedConditionalPairsMap =
     mapOf(
+        TvmDictGetDictgetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictigetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictugetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
+        TvmDictGetDictgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictigetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictugetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictDeleteDictidelgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
