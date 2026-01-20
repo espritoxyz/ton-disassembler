@@ -64,8 +64,6 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
             } else {
                 false
             }
-        println(inst.mnemonic)
-        println(prevConditionalPairWasGoodForTAC)
 
         val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
         tacInstructions += curInstructions
