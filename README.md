@@ -177,9 +177,6 @@ If a cell represents blockchain address, the tool will automatically display it 
 
 The current three-address code representation does not yet support the following TVM features:
 
-- **Array & conditional stack variables**  
-  Stack variables of type [`array`](https://github.com/ton-community/tvm-spec?tab=readme-ov-file#array) (e.g. values constructed by `TUPLE`) and [`conditional`](https://github.com/ton-community/tvm-spec?tab=readme-ov-file#conditional) (used by instructions like `UNTIL`) are not supported.
-
 - **Instructions with dynamic parameters**  
   Instructions with an unconstrained number of input or output parameters are not supported (e.g. `RUNVM` instruction).
 
@@ -198,8 +195,8 @@ The current three-address code representation does not yet support the following
      }
    }
     ```
-- **Instructions that pass control flow to control registers**  
-  Instructions that transfer execution to Continuations stored in control registers (e.g., `RETALT`) are not supported.
+- **Some instructions that pass control flow to control registers**  
+  Instructions that transfer execution to Continuations stored in control registers (e.g., `WHILE`) are not supported.
 
 
 ## Library Integration

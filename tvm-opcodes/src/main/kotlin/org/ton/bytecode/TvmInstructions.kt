@@ -28715,7 +28715,7 @@ data class TvmDictDeleteDictdelInst(
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
-                name = "status",
+                name = "D",
                 valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
@@ -28870,7 +28870,7 @@ data class TvmDictDeleteDictidelInst(
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
-                name = "status",
+                name = "D",
                 valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
@@ -29021,7 +29021,7 @@ data class TvmDictDeleteDictudelInst(
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
-                name = "status",
+                name = "D",
                 valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
@@ -31605,7 +31605,7 @@ data class TvmDictPrefixPfxdictdelInst(
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
             TvmSimpleStackEntryDescription(
-                name = "status",
+                name = "D",
                 valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
@@ -31969,7 +31969,7 @@ data class TvmDictSerialLddictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "s2",
@@ -38408,7 +38408,7 @@ data class TvmTupleIsnullInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.NULL, TvmSpecType.CELL, TvmSpecType.BUILDER, TvmSpecType.SLICE, TvmSpecType.TUPLE, TvmSpecType.ANY)
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
