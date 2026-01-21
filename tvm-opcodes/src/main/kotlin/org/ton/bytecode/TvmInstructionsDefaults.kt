@@ -710,20 +710,17 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
-        TvmArithmDivMuladdrshiftmodInst(
+        TvmArithmDivMuladdrshiftmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
-        TvmArithmDivMuladdrshiftrmodInst(
+        TvmArithmDivMuladdrshiftrmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
-        TvmArithmDivMuladdrshiftcmodInst(
+        TvmArithmDivMuladdrshiftcmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
         TvmArithmDivMulrshiftVarInst(
             TvmMainMethodLocation(0),
@@ -760,6 +757,21 @@ val tvmDefaultInstructions = mapOf(
         TvmArithmDivMulrshiftcmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
+        ),
+        TvmArithmDivMuladdrshiftmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmArithmDivMuladdrshiftrmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmArithmDivMuladdrshiftcmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
         ),
         TvmArithmDivMulrshiftInst(
             TvmMainMethodLocation(0),
@@ -1217,20 +1229,17 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
-        TvmArithmQuietQmuladdrshiftmodInst(
+        TvmArithmQuietQmuladdrshiftmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
-        TvmArithmQuietQmuladdrshiftrmodInst(
+        TvmArithmQuietQmuladdrshiftrmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
-        TvmArithmQuietQmuladdrshiftcmodInst(
+        TvmArithmQuietQmuladdrshiftcmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            0,
         ),
         TvmArithmQuietQmulrshiftVarInst(
             TvmMainMethodLocation(0),
@@ -1267,6 +1276,21 @@ val tvmDefaultInstructions = mapOf(
         TvmArithmQuietQmulrshiftcmodVarInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
+        ),
+        TvmArithmQuietQmuladdrshiftmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmArithmQuietQmuladdrshiftrmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmArithmQuietQmuladdrshiftcmodInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
         ),
         TvmArithmQuietQmulrshiftInst(
             TvmMainMethodLocation(0),
@@ -1880,6 +1904,10 @@ val tvmDefaultInstructions = mapOf(
             TvmPhysicalInstLocation("", 0),
         ),
         TvmCellBuildStsameInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmCellBuildBtosInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
@@ -2635,6 +2663,15 @@ val tvmDefaultInstructions = mapOf(
             TvmPhysicalInstLocation("", 0),
         ),
         TvmContRegistersSetcontctrxInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmContRegistersSetcontctrmanyInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmContRegistersSetcontctrmanyxInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
@@ -3450,6 +3487,10 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
+        TvmAppConfigPrevmcblocks100Inst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
         TvmAppConfigGlobalidInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
@@ -3482,6 +3523,16 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
+        TvmAppConfigGetparamlongInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
+        TvmAppConfigInmsgparamInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+            0,
+        ),
     ),
     "app_global" to listOf(
         TvmAppGlobalGetglobvarInst(
@@ -3501,6 +3552,10 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
             0,
+        ),
+        TvmAppGlobalGetextrabalanceInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
         ),
     ),
     "app_crypto" to listOf(
@@ -3608,11 +3663,19 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
+        TvmAppCryptoSecp256k1XonlyPubkeyTweakAddInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
         TvmAppCryptoP256ChksignuInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
         TvmAppCryptoP256ChksignsInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppCryptoHashbuInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),
@@ -3843,6 +3906,38 @@ val tvmDefaultInstructions = mapOf(
             TvmPhysicalInstLocation("", 0),
         ),
         TvmAppAddrRewritevaraddrqInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrLdstdaddrInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrLdstdaddrqInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrLdoptstdaddrInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrLdoptstdaddrqInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrStstdaddrInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrStstdaddrqInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrStoptstdaddrInst(
+            TvmMainMethodLocation(0),
+            TvmPhysicalInstLocation("", 0),
+        ),
+        TvmAppAddrStoptstdaddrqInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
         ),

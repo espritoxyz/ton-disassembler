@@ -538,6 +538,178 @@ data class TvmAppAddrLdmsgaddrqInst(
 }
 
 /**
+ * Loads `addr_std$10` or `addr_none$00`, if address is `addr_none$00` pushes a Null, if address is not
+ * `addr_std` or `addr_none`, throws an error 9 (`cannot load a MsgAddressInt`).
+ */
+@Serializable
+@SerialName(TvmAppAddrLdoptstdaddrInst.MNEMONIC)
+data class TvmAppAddrLdoptstdaddrInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "LDOPTSTDADDR"
+    }
+}
+
+/**
+ * A quiet version of primitive `LDOPTSTDADDR`.
+ */
+@Serializable
+@SerialName(TvmAppAddrLdoptstdaddrqInst.MNEMONIC)
+data class TvmAppAddrLdoptstdaddrqInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = TvmStackEntryType.CONDITIONAL
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "LDOPTSTDADDRQ"
+    }
+}
+
+/**
+ * Loads `addr_std$10`, if address is not `addr_std`, throws an error 9 (`cannot load a MsgAddressInt`)
+ * .
+ */
+@Serializable
+@SerialName(TvmAppAddrLdstdaddrInst.MNEMONIC)
+data class TvmAppAddrLdstdaddrInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "s2",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "LDSTDADDR"
+    }
+}
+
+/**
+ * A quiet version of primitive `LDSTDADDR`.
+ */
+@Serializable
+@SerialName(TvmAppAddrLdstdaddrqInst.MNEMONIC)
+data class TvmAppAddrLdstdaddrqInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = TvmStackEntryType.CONDITIONAL
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "LDSTDADDRQ"
+    }
+}
+
+/**
  * Decomposes _Slice_ `s` containing a valid `MsgAddress` into a _Tuple_ `t` with separate fields of th
  * is `MsgAddress`. If `s` is not a valid `MsgAddress`, a cell deserialization exception is thrown.
  */
@@ -708,8 +880,8 @@ data class TvmAppAddrRewritestdaddrqInst(
 }
 
 /**
- * A variant of `REWRITESTDADDR` that returns the (rewritten) address as a _Slice_ `s`, even if it is n
- * ot exactly 256 bit long (represented by a `msg_addr_var`).
+ * `msg_addr_var` not allowed since TVM v10, so it behaves like `REWRITESTDADDR`, but returns account i
+ * d in `Slice`, not `Integer`: parses address `s` into workchain `x` and account id `s`.
  */
 @Serializable
 @SerialName(TvmAppAddrRewritevaraddrInst.MNEMONIC)
@@ -794,6 +966,186 @@ data class TvmAppAddrRewritevaraddrqInst(
 }
 
 /**
+ * stores `addr_std$10` or Null. Null is stored as `addr_none$00`, if address is not `addr_std`, throws
+ * an error 9 (`cannot load a MsgAddressInt`).
+ */
+@Serializable
+@SerialName(TvmAppAddrStoptstdaddrInst.MNEMONIC)
+data class TvmAppAddrStoptstdaddrInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "STOPTSTDADDR"
+    }
+}
+
+/**
+ * A quiet version of primitive `STOPTSTDADDR`.
+ */
+@Serializable
+@SerialName(TvmAppAddrStoptstdaddrqInst.MNEMONIC)
+data class TvmAppAddrStoptstdaddrqInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = TvmStackEntryType.CONDITIONAL
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "STOPTSTDADDRQ"
+    }
+}
+
+/**
+ * Stores `addr_std$10`, if address is not `addr_std`, throws an error 9 (`cannot load a MsgAddressInt`
+ * ).
+ */
+@Serializable
+@SerialName(TvmAppAddrStstdaddrInst.MNEMONIC)
+data class TvmAppAddrStstdaddrInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b2",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "STSTDADDR"
+    }
+}
+
+/**
+ * A quiet version of primitive `STSTDADDR`.
+ */
+@Serializable
+@SerialName(TvmAppAddrStstdaddrqInst.MNEMONIC)
+data class TvmAppAddrStstdaddrqInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppAddrInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "a",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = TvmStackEntryType.CONDITIONAL
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "STSTDADDRQ"
+    }
+}
+
+/**
  * Returns the global configuration dictionary along with its key length (32).
  * Equivalent to `CONFIGROOT` `32 PUSHINT`.
  */
@@ -814,7 +1166,7 @@ data class TvmAppConfigConfigdictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmConstStackEntryDescription(
                 value = 32,
@@ -844,7 +1196,7 @@ data class TvmAppConfigConfigoptparamInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -885,7 +1237,7 @@ data class TvmAppConfigConfigparamInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -927,7 +1279,7 @@ data class TvmAppConfigGetforwardfeeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -974,7 +1326,7 @@ data class TvmAppConfigGetforwardfeesimpleInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1021,7 +1373,7 @@ data class TvmAppConfigGetgasfeeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1064,7 +1416,7 @@ data class TvmAppConfigGetgasfeesimpleInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1098,7 +1450,8 @@ data class TvmAppConfigGetgasfeesimpleInst(
 }
 
 /**
- * Calculate `fwd_fee * 2^16 / first_frac`. Can be used to get the original `fwd_fee` of the message.
+ * Calculate `(fwd_fee * 2^16) / (2^16 - first_frac)`. Can be used to get the original `fwd_fee` of the
+ * message.
  */
 @Serializable
 @SerialName(TvmAppConfigGetoriginalfwdfeeInst.MNEMONIC)
@@ -1107,7 +1460,7 @@ data class TvmAppConfigGetoriginalfwdfeeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1164,7 +1517,7 @@ data class TvmAppConfigGetparamInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.SLICE)
+                valueTypes = listOf()
             )
         )
     
@@ -1179,6 +1532,44 @@ data class TvmAppConfigGetparamInst(
 }
 
 /**
+ * Returns the `i`-th parameter from the _Tuple_ provided at `c7` for `0 <= i <= 255`. Equivalent to `c
+ * 7 PUSHCTR` `FIRST` `[i] INDEX`.
+ * If one of these internal operations fails, throws an appropriate type checking or range checking exc
+ * eption.
+ */
+@Serializable
+@SerialName(TvmAppConfigGetparamlongInst.MNEMONIC)
+data class TvmAppConfigGetparamlongInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+    val i: Int, // uint
+): TvmRealInst, TvmAppConfigInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf("i" to i)
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "GETPARAMLONG"
+    }
+}
+
+/**
  * Returns gas usage for the current contract if it is precompiled, `null` otherwise.
  */
 @Serializable
@@ -1188,7 +1579,7 @@ data class TvmAppConfigGetprecompiledgasInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1222,7 +1613,7 @@ data class TvmAppConfigGetstoragefeeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1273,7 +1664,7 @@ data class TvmAppConfigGlobalidInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1298,6 +1689,41 @@ data class TvmAppConfigGlobalidInst(
 }
 
 /**
+ * Equivalent to `INMSGPARAMS` `i INDEX`
+ */
+@Serializable
+@SerialName(TvmAppConfigInmsgparamInst.MNEMONIC)
+data class TvmAppConfigInmsgparamInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+    val i: Int, // uint
+): TvmRealInst, TvmAppConfigInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf("i" to i)
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf()
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "INMSGPARAM"
+    }
+}
+
+/**
  * Retrives `prev_key_block` part of PrevBlocksInfo from c7 (parameter 13).
  */
 @Serializable
@@ -1307,7 +1733,7 @@ data class TvmAppConfigPrevkeyblockInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -1332,6 +1758,40 @@ data class TvmAppConfigPrevkeyblockInst(
 }
 
 /**
+ * Retrives `last_mc_blocks_divisible_by_100` part of PrevBlocksInfo from c7 (parameter 13).
+ */
+@Serializable
+@SerialName(TvmAppConfigPrevmcblocks100Inst.MNEMONIC)
+data class TvmAppConfigPrevmcblocks100Inst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppConfigInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = emptyList()
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "t",
+                valueTypes = listOf(TvmSpecType.TUPLE)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "PREVMCBLOCKS_100"
+    }
+}
+
+/**
  * Retrives `last_mc_blocks` part of PrevBlocksInfo from c7 (parameter 13).
  */
 @Serializable
@@ -1341,7 +1801,7 @@ data class TvmAppConfigPrevmcblocksInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppConfigInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -2516,9 +2976,11 @@ data class TvmAppCryptoChksignuInst(
 }
 
 /**
- * Recovers public key from signature, identical to Bitcoin/Ethereum operations. Takes 32-byte hash as
- * uint256 `hash`; 65-byte signature as uint8 `v` and uint256 `r`, `s`. Returns `0` on failure, public
- * key and `-1` on success. 65-byte public key is returned as uint8 `h`, uint256 `x1`, `x2`.
+ * Recovers the public key from a secp256k1 signature, identical to Bitcoin/Ethereum operations. Takes
+ * a 32-byte hash as `uint256 hash` and a 65-byte signature as `uint8 v`, `uint256 r`, and `uint256 s`.
+ * In TON, the `v` value is strictly 0 or 1; no extra flags or extended values are supported. If the p
+ * ublic key cannot be recovered, the instruction returns `0`. On success, it returns the recovered 65-
+ * byte public key as `uint8 h`, `uint256 x1`, and `uint256 x2`, followed by `-1`.
  */
 @Serializable
 @SerialName(TvmAppCryptoEcrecoverInst.MNEMONIC)
@@ -2568,6 +3030,45 @@ data class TvmAppCryptoEcrecoverInst(
     
     companion object {
         const val MNEMONIC = "ECRECOVER"
+    }
+}
+
+/**
+ * Same as `ENDC HASHCU`, but without gas cost for cell creation.
+ */
+@Serializable
+@SerialName(TvmAppCryptoHashbuInst.MNEMONIC)
+data class TvmAppCryptoHashbuInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "hash",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "HASHBU"
     }
 }
 
@@ -4307,6 +4808,54 @@ data class TvmAppCryptoRist255ValidateInst(
 }
 
 /**
+ * performs [`secp256k1_xonly_pubkey_tweak_add`](https://github.com/bitcoin-core/secp256k1/blob/master/
+ * include/secp256k1_extrakeys.h#L120). `key` and `tweak` are 256-bit unsigned integers. 65-byte public
+ * key is returned as `uint8 f`, `uint256 x, y` (as in `ECRECOVER`).
+ */
+@Serializable
+@SerialName(TvmAppCryptoSecp256k1XonlyPubkeyTweakAddInst.MNEMONIC)
+data class TvmAppCryptoSecp256k1XonlyPubkeyTweakAddInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppCryptoInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 1576)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "key",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "tweak",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmGenericStackEntryDescription(
+                type = TvmStackEntryType.CONDITIONAL
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "status",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "SECP256K1_XONLY_PUBKEY_TWEAK_ADD"
+    }
+}
+
+/**
  * Computes `Sha` of the data bits of _Slice_ `s`. If the bit length of `s` is not divisible by eight,
  * throws a cell underflow exception. The hash value is returned as a 256-bit unsigned integer `x`.
  */
@@ -4843,6 +5392,48 @@ data class TvmAppGasSetgaslimitInst(
 }
 
 /**
+ * Takes id of the extra currency (integer in range `0..2^32-1`), returns the amount of this extra curr
+ * ency on the account balance. The first `5` executions of `GETEXTRABALANCE` consume at most `26 + 200
+ * ` gas each. The subsequent executions incur the full gas cost of `26` (normal instruction cost) plus
+ * gas for loading cells (up to `3300` if the dictionary has maximum depth).
+ */
+@Serializable
+@SerialName(TvmAppGlobalGetextrabalanceInst.MNEMONIC)
+data class TvmAppGlobalGetextrabalanceInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmAppGlobalInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "id",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "amount",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "GETEXTRABALANCE"
+    }
+}
+
+/**
  * Returns the `k`-th global variable for `1 <= k <= 31`.
  * Equivalent to `c7 PUSHCTR` `[k] INDEXQ`.
  */
@@ -5003,7 +5594,7 @@ data class TvmAppMiscCdatasizeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -5060,7 +5651,7 @@ data class TvmAppMiscCdatasizeqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -5106,7 +5697,7 @@ data class TvmAppMiscSdatasizeInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -5159,7 +5750,7 @@ data class TvmAppMiscSdatasizeqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmAppMiscInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -8146,6 +8737,61 @@ data class TvmArithmDivMuladdrshiftcmodInst(
     
  */
 @Serializable
+@SerialName(TvmArithmDivMuladdrshiftcmodVarInst.MNEMONIC)
+data class TvmArithmDivMuladdrshiftcmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "MULADDRSHIFTCMOD_VAR"
+    }
+}
+
+/**
+    
+ */
+@Serializable
 @SerialName(TvmArithmDivMuladdrshiftmodInst.MNEMONIC)
 data class TvmArithmDivMuladdrshiftmodInst(
     override val location: TvmInstLocation,
@@ -8194,6 +8840,61 @@ data class TvmArithmDivMuladdrshiftmodInst(
     
  */
 @Serializable
+@SerialName(TvmArithmDivMuladdrshiftmodVarInst.MNEMONIC)
+data class TvmArithmDivMuladdrshiftmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "MULADDRSHIFTMOD_VAR"
+    }
+}
+
+/**
+    
+ */
+@Serializable
 @SerialName(TvmArithmDivMuladdrshiftrmodInst.MNEMONIC)
 data class TvmArithmDivMuladdrshiftrmodInst(
     override val location: TvmInstLocation,
@@ -8235,6 +8936,61 @@ data class TvmArithmDivMuladdrshiftrmodInst(
     
     companion object {
         const val MNEMONIC = "MULADDRSHIFTRMOD"
+    }
+}
+
+/**
+    
+ */
+@Serializable
+@SerialName(TvmArithmDivMuladdrshiftrmodVarInst.MNEMONIC)
+data class TvmArithmDivMuladdrshiftrmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmDivInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "MULADDRSHIFTRMOD_VAR"
     }
 }
 
@@ -10365,7 +11121,7 @@ data class TvmArithmLogicalNotInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 26)
+    override val gasConsumption get() = TvmFixedGas(value = 18)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -10488,7 +11244,7 @@ data class TvmArithmLogicalRshiftInst(
     val c: Int, // uint
 ): TvmRealInst, TvmArithmLogicalInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 18)
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf("c" to c)
 
@@ -12125,7 +12881,7 @@ data class TvmArithmQuietQlshiftdivcInst(
     val t: Int, // uint
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 34)
+    override val gasConsumption get() = TvmFixedGas(value = 42)
     
     override val operands: Map<String, Any> get() = mapOf("t" to t)
 
@@ -13480,6 +14236,61 @@ data class TvmArithmQuietQmuladdrshiftcmodInst(
     
  */
 @Serializable
+@SerialName(TvmArithmQuietQmuladdrshiftcmodVarInst.MNEMONIC)
+data class TvmArithmQuietQmuladdrshiftcmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "QMULADDRSHIFTCMOD_VAR"
+    }
+}
+
+/**
+    
+ */
+@Serializable
 @SerialName(TvmArithmQuietQmuladdrshiftmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladdrshiftmodInst(
     override val location: TvmInstLocation,
@@ -13528,6 +14339,61 @@ data class TvmArithmQuietQmuladdrshiftmodInst(
     
  */
 @Serializable
+@SerialName(TvmArithmQuietQmuladdrshiftmodVarInst.MNEMONIC)
+data class TvmArithmQuietQmuladdrshiftmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "QMULADDRSHIFTMOD_VAR"
+    }
+}
+
+/**
+    
+ */
+@Serializable
 @SerialName(TvmArithmQuietQmuladdrshiftrmodInst.MNEMONIC)
 data class TvmArithmQuietQmuladdrshiftrmodInst(
     override val location: TvmInstLocation,
@@ -13569,6 +14435,61 @@ data class TvmArithmQuietQmuladdrshiftrmodInst(
     
     companion object {
         const val MNEMONIC = "QMULADDRSHIFTRMOD"
+    }
+}
+
+/**
+    
+ */
+@Serializable
+@SerialName(TvmArithmQuietQmuladdrshiftrmodVarInst.MNEMONIC)
+data class TvmArithmQuietQmuladdrshiftrmodVarInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmArithmQuietInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "x",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "y",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "w",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "z",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "q",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "r",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "QMULADDRSHIFTRMOD_VAR"
     }
 }
 
@@ -14468,7 +15389,7 @@ data class TvmArithmQuietQmulrshiftcmodInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 42)
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -14558,7 +15479,7 @@ data class TvmArithmQuietQmulrshiftmodInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 42)
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -14739,7 +15660,7 @@ data class TvmArithmQuietQmulrshiftrmodInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 42)
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -14990,7 +15911,7 @@ data class TvmArithmQuietQrshiftInst(
     val c: Int, // uint
 ): TvmRealInst, TvmArithmQuietInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmFixedGas(value = 26)
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf("c" to c)
 
@@ -16319,6 +17240,45 @@ data class TvmCellBuildBremrefsInst(
     
     companion object {
         const val MNEMONIC = "BREMREFS"
+    }
+}
+
+/**
+ * Same as `ENDC CTOS`, but without gas cost for cell creation and loading.
+ */
+@Serializable
+@SerialName(TvmCellBuildBtosInst.MNEMONIC)
+data class TvmCellBuildBtosInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmCellBuildInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "b",
+                valueTypes = listOf(TvmSpecType.BUILDER)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "BTOS"
     }
 }
 
@@ -22290,7 +23250,7 @@ data class TvmCellParseXctosInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -22334,7 +23294,7 @@ data class TvmCellParseXloadInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -22374,7 +23334,7 @@ data class TvmCellParseXloadqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmCellParseInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -25353,6 +26313,30 @@ data class TvmContBasicRetvarargsInst(
 /**
  * Runs child VM with code `code` and stack `x_1...x_n`. Returns the resulting stack `x'_1...x'_m` and
  * exitcode. Other arguments and return values are enabled by flags.
+ * Flags operate similarly to `RUNVMX` in Fift:
+ * - `+1`: sets `c3` to code.
+ * - `+2`: pushes an implicit `0` before executing the code.
+ * - `+4`: takes persistent data `c4` from the stack and returns its final value.
+ * - `+8`: takes the gas limit `g_l` from the stack and returns the consumed gas `g_c`.
+ * - `+16`: takes `c7` (smart contract context) from the stack.
+ * - `+32`: returns the final value of `c5` (actions).
+ * - `+64`: pops the hard gas limit `g_m` enabled by `ACCEPT` from the stack.
+ * - `+128`: enables "isolated gas consumption", meaning the child VM maintains a separate set of visit
+ * ed cells and a `chksgn` counter.
+ * - `+256`: pops an integer `r` and ensures exactly `r` values are returned from the top of the stack:
+ * - If `RUNVM` call succeeds and `r` is set, it returns `r` elements. If `r` is not set, it returns
+ * all available elements.
+ * - If `RUNVM` is successful but lacks elements on the stack, meaning the stack depth is less than `
+ * r`, it is treated as an exception in the child VM. The `exit_code` is set to `-3`, and `exit_arg` is
+ * set to `0`, so `0` is returned as the only stack element.
+ * - If `RUNVM` fails with an exception, only one element is returned, `exit_arg`, which should not b
+ * e confused with `exit_code`.
+ * - In the case of running out of gas, `exit_code` is set to `-14`, and `exit_arg` contains the amou
+ * nt of gas.
+ * Gas cost:
+ * - 66 gas;
+ * - 1 gas for each stack element passed to the child VM (the first 32 elements are free);
+ * - 1 gas for each stack element returned from the child VM (the first 32 elements are free).
  */
 @Serializable
 @SerialName(TvmContBasicRunvmInst.MNEMONIC)
@@ -25362,7 +26346,7 @@ data class TvmContBasicRunvmInst(
     val flags: Int, // uint
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 74)
     
     override val operands: Map<String, Any> get() = mapOf("flags" to flags)
 
@@ -25384,6 +26368,30 @@ data class TvmContBasicRunvmInst(
 /**
  * Runs child VM with code `code` and stack `x_1...x_n`. Returns the resulting stack `x'_1...x'_m` and
  * exitcode. Other arguments and return values are enabled by flags.
+ * Flags operate similarly to `RUNVMX` in Fift:
+ * - `+1`: sets `c3` to code.
+ * - `+2`: pushes an implicit `0` before executing the code.
+ * - `+4`: takes persistent data `c4` from the stack and returns its final value.
+ * - `+8`: takes the gas limit `g_l` from the stack and returns the consumed gas `g_c`.
+ * - `+16`: takes `c7` (smart contract context) from the stack.
+ * - `+32`: returns the final value of `c5` (actions).
+ * - `+64`: pops the hard gas limit `g_m` enabled by `ACCEPT` from the stack.
+ * - `+128`: enables "isolated gas consumption", meaning the child VM maintains a separate set of visit
+ * ed cells and a `chksgn` counter.
+ * - `+256`: pops an integer `r` and ensures exactly `r` values are returned from the top of the stack:
+ * - If `RUNVM` call succeeds and `r` is set, it returns `r` elements. If `r` is not set, it returns
+ * all available elements.
+ * - If `RUNVM` is successful but lacks elements on the stack, meaning the stack depth is less than `
+ * r`, it is treated as an exception in the child VM. The `exit_code` is set to `-3`, and `exit_arg` is
+ * set to `0`, so `0` is returned as the only stack element.
+ * - If `RUNVM` fails with an exception, only one element is returned, `exit_arg`, which should not b
+ * e confused with `exit_code`.
+ * - In the case of running out of gas, `exit_code` is set to `-14`, and `exit_arg` contains the amou
+ * nt of gas.
+ * Gas cost:
+ * - 66 gas;
+ * - 1 gas for each stack element passed to the child VM (the first 32 elements are free);
+ * - 1 gas for each stack element returned from the child VM (the first 32 elements are free).
  */
 @Serializable
 @SerialName(TvmContBasicRunvmxInst.MNEMONIC)
@@ -25392,7 +26400,7 @@ data class TvmContBasicRunvmxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmContBasicInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 66)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -26665,7 +27673,7 @@ data class TvmContDictCalldictInst(
     val n: Int, // uint
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf("n" to n)
 
@@ -26714,7 +27722,7 @@ data class TvmContDictCalldictLongInst(
     val n: Int, // uint
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf("n" to n)
 
@@ -26764,7 +27772,7 @@ data class TvmContDictJmpdictInst(
     val n: Int, // uint
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf("n" to n)
 
@@ -26806,7 +27814,7 @@ data class TvmContDictPreparedictInst(
     val n: Int, // uint
 ): TvmRealInst, TvmContDictInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf("n" to n)
 
@@ -28204,6 +29212,91 @@ data class TvmContRegistersSetcontctrInst(
 }
 
 /**
+ * Takes continuation, performs the equivalent of `c[i] PUSHCTR SWAP c[i] SETCONTCNR` for each `i` that
+ * is set in `mask` (mask is in `0..255`).
+ */
+@Serializable
+@SerialName(TvmContRegistersSetcontctrmanyInst.MNEMONIC)
+data class TvmContRegistersSetcontctrmanyInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+    val mask: Int, // uint
+): TvmRealInst, TvmContRegistersInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 34)
+    
+    override val operands: Map<String, Any> get() = mapOf("mask" to mask)
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "SETCONTCTRMANY"
+    }
+}
+
+/**
+ * Takes continuation, performs the equivalent of `c[i] PUSHCTR SWAP c[i] SETCONTCNR` for each `i` that
+ * is set in `mask` (mask is in `0..255`).
+ */
+@Serializable
+@SerialName(TvmContRegistersSetcontctrmanyxInst.MNEMONIC)
+data class TvmContRegistersSetcontctrmanyxInst(
+    override val location: TvmInstLocation,
+    override val physicalLocation: TvmPhysicalInstLocation,
+): TvmRealInst, TvmContRegistersInst {
+    override val mnemonic: String get() = MNEMONIC
+    override val gasConsumption get() = TvmFixedGas(value = 26)
+    
+    override val operands: Map<String, Any> get() = mapOf()
+
+    override val stackInputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c",
+                valueTypes = listOf(TvmSpecType.ANY)
+            ),
+            TvmSimpleStackEntryDescription(
+                name = "mask",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "c2",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
+    
+    override val branches: List<TvmControlFlowContinuation> 
+        get() = emptyList()
+        
+    override val noBranch: Boolean get() = true
+    
+    companion object {
+        const val MNEMONIC = "SETCONTCTRMANYX"
+    }
+}
+
+/**
  * Similar to `c[i] SETCONTCTR`, but with `0 <= i <= 255` from the stack.
  */
 @Serializable
@@ -28693,7 +29786,7 @@ data class TvmDictDeleteDictdelInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28705,7 +29798,7 @@ data class TvmDictDeleteDictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28746,7 +29839,7 @@ data class TvmDictDeleteDictdelgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28758,7 +29851,7 @@ data class TvmDictDeleteDictdelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28797,7 +29890,7 @@ data class TvmDictDeleteDictdelgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28809,7 +29902,7 @@ data class TvmDictDeleteDictdelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28848,7 +29941,7 @@ data class TvmDictDeleteDictidelInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28860,7 +29953,7 @@ data class TvmDictDeleteDictidelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28899,7 +29992,7 @@ data class TvmDictDeleteDictidelgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28911,7 +30004,7 @@ data class TvmDictDeleteDictidelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28949,7 +30042,7 @@ data class TvmDictDeleteDictidelgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -28961,7 +30054,7 @@ data class TvmDictDeleteDictidelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -28999,7 +30092,7 @@ data class TvmDictDeleteDictudelInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29011,7 +30104,7 @@ data class TvmDictDeleteDictudelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29050,7 +30143,7 @@ data class TvmDictDeleteDictudelgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29062,7 +30155,7 @@ data class TvmDictDeleteDictudelgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29100,7 +30193,7 @@ data class TvmDictDeleteDictudelgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictDeleteInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29112,7 +30205,7 @@ data class TvmDictDeleteDictudelgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29152,7 +30245,7 @@ data class TvmDictGetDictgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29164,7 +30257,7 @@ data class TvmDictGetDictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29203,7 +30296,7 @@ data class TvmDictGetDictgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29215,7 +30308,7 @@ data class TvmDictGetDictgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29254,7 +30347,7 @@ data class TvmDictGetDictigetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29305,7 +30398,7 @@ data class TvmDictGetDictigetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29355,7 +30448,7 @@ data class TvmDictGetDictugetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29405,7 +30498,7 @@ data class TvmDictGetDictugetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictGetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29456,7 +30549,7 @@ data class TvmDictMayberefDictgetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29468,7 +30561,7 @@ data class TvmDictMayberefDictgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29504,7 +30597,7 @@ data class TvmDictMayberefDictigetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29516,7 +30609,7 @@ data class TvmDictMayberefDictigetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29552,7 +30645,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29568,7 +30661,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29579,7 +30672,7 @@ data class TvmDictMayberefDictisetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
@@ -29609,7 +30702,7 @@ data class TvmDictMayberefDictsetgetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29625,7 +30718,7 @@ data class TvmDictMayberefDictsetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29636,7 +30729,7 @@ data class TvmDictMayberefDictsetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
@@ -29665,7 +30758,7 @@ data class TvmDictMayberefDictugetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29677,7 +30770,7 @@ data class TvmDictMayberefDictugetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29712,7 +30805,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMayberefInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29728,7 +30821,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29739,7 +30832,7 @@ data class TvmDictMayberefDictusetgetoptrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "c2",
@@ -29769,7 +30862,7 @@ data class TvmDictMinDictimaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29777,7 +30870,7 @@ data class TvmDictMinDictimaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29815,7 +30908,7 @@ data class TvmDictMinDictimaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29823,7 +30916,7 @@ data class TvmDictMinDictimaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29863,7 +30956,7 @@ data class TvmDictMinDictiminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29871,7 +30964,7 @@ data class TvmDictMinDictiminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29909,7 +31002,7 @@ data class TvmDictMinDictiminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29917,7 +31010,7 @@ data class TvmDictMinDictiminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -29957,7 +31050,7 @@ data class TvmDictMinDictiremmaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -29965,7 +31058,7 @@ data class TvmDictMinDictiremmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30003,7 +31096,7 @@ data class TvmDictMinDictiremmaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30011,7 +31104,7 @@ data class TvmDictMinDictiremmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30051,7 +31144,7 @@ data class TvmDictMinDictiremminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30059,7 +31152,7 @@ data class TvmDictMinDictiremminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30097,7 +31190,7 @@ data class TvmDictMinDictiremminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30105,7 +31198,7 @@ data class TvmDictMinDictiremminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30144,7 +31237,7 @@ data class TvmDictMinDictmaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30152,7 +31245,7 @@ data class TvmDictMinDictmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30190,7 +31283,7 @@ data class TvmDictMinDictmaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30198,7 +31291,7 @@ data class TvmDictMinDictmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30237,7 +31330,7 @@ data class TvmDictMinDictminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30245,7 +31338,7 @@ data class TvmDictMinDictminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30283,7 +31376,7 @@ data class TvmDictMinDictminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30291,7 +31384,7 @@ data class TvmDictMinDictminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30331,7 +31424,7 @@ data class TvmDictMinDictremmaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30339,7 +31432,7 @@ data class TvmDictMinDictremmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30377,7 +31470,7 @@ data class TvmDictMinDictremmaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30385,7 +31478,7 @@ data class TvmDictMinDictremmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30425,7 +31518,7 @@ data class TvmDictMinDictremminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30433,7 +31526,7 @@ data class TvmDictMinDictremminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30471,7 +31564,7 @@ data class TvmDictMinDictremminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30479,7 +31572,7 @@ data class TvmDictMinDictremminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30517,7 +31610,7 @@ data class TvmDictMinDictumaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30525,7 +31618,7 @@ data class TvmDictMinDictumaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30563,7 +31656,7 @@ data class TvmDictMinDictumaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30571,7 +31664,7 @@ data class TvmDictMinDictumaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30609,7 +31702,7 @@ data class TvmDictMinDictuminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30617,7 +31710,7 @@ data class TvmDictMinDictuminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30655,7 +31748,7 @@ data class TvmDictMinDictuminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30663,7 +31756,7 @@ data class TvmDictMinDictuminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30701,7 +31794,7 @@ data class TvmDictMinDicturemmaxInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30709,7 +31802,7 @@ data class TvmDictMinDicturemmaxInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30747,7 +31840,7 @@ data class TvmDictMinDicturemmaxrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30755,7 +31848,7 @@ data class TvmDictMinDicturemmaxrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30793,7 +31886,7 @@ data class TvmDictMinDicturemminInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30801,7 +31894,7 @@ data class TvmDictMinDicturemminInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30839,7 +31932,7 @@ data class TvmDictMinDicturemminrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictMinInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30847,7 +31940,7 @@ data class TvmDictMinDicturemminrefInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30887,7 +31980,7 @@ data class TvmDictNextDictgetnextInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30899,7 +31992,7 @@ data class TvmDictNextDictgetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30938,7 +32031,7 @@ data class TvmDictNextDictgetnexteqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -30950,7 +32043,7 @@ data class TvmDictNextDictgetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -30988,7 +32081,7 @@ data class TvmDictNextDictgetprevInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31000,7 +32093,7 @@ data class TvmDictNextDictgetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31039,7 +32132,7 @@ data class TvmDictNextDictgetpreveqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31051,7 +32144,7 @@ data class TvmDictNextDictgetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31091,7 +32184,7 @@ data class TvmDictNextDictigetnextInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31103,7 +32196,7 @@ data class TvmDictNextDictigetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31141,7 +32234,7 @@ data class TvmDictNextDictigetnexteqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31153,7 +32246,7 @@ data class TvmDictNextDictigetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31191,7 +32284,7 @@ data class TvmDictNextDictigetprevInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31203,7 +32296,7 @@ data class TvmDictNextDictigetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31241,7 +32334,7 @@ data class TvmDictNextDictigetpreveqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31253,7 +32346,7 @@ data class TvmDictNextDictigetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31293,7 +32386,7 @@ data class TvmDictNextDictugetnextInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31305,7 +32398,7 @@ data class TvmDictNextDictugetnextInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31343,7 +32436,7 @@ data class TvmDictNextDictugetnexteqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31355,7 +32448,7 @@ data class TvmDictNextDictugetnexteqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31393,7 +32486,7 @@ data class TvmDictNextDictugetprevInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31405,7 +32498,7 @@ data class TvmDictNextDictugetprevInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31443,7 +32536,7 @@ data class TvmDictNextDictugetpreveqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictNextInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31455,7 +32548,7 @@ data class TvmDictNextDictugetpreveqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31493,7 +32586,7 @@ data class TvmDictPrefixPfxdictaddInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31509,7 +32602,7 @@ data class TvmDictPrefixPfxdictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31518,8 +32611,9 @@ data class TvmDictPrefixPfxdictaddInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -31549,7 +32643,7 @@ data class TvmDictPrefixPfxdictconstgetjmpInst(
     val n: Int, // uint
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 34)
     
     override val operands: Map<String, Any> get() = mapOf("d" to d, "n" to n)
 
@@ -31583,7 +32677,7 @@ data class TvmDictPrefixPfxdictdelInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31595,7 +32689,7 @@ data class TvmDictPrefixPfxdictdelInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31634,7 +32728,7 @@ data class TvmDictPrefixPfxdictgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31646,7 +32740,7 @@ data class TvmDictPrefixPfxdictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31690,7 +32784,7 @@ data class TvmDictPrefixPfxdictgetexecInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31702,7 +32796,7 @@ data class TvmDictPrefixPfxdictgetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31757,7 +32851,7 @@ data class TvmDictPrefixPfxdictgetjmpInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31795,7 +32889,7 @@ data class TvmDictPrefixPfxdictgetqInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31807,7 +32901,7 @@ data class TvmDictPrefixPfxdictgetqInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31845,7 +32939,7 @@ data class TvmDictPrefixPfxdictreplaceInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31861,7 +32955,7 @@ data class TvmDictPrefixPfxdictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31870,8 +32964,9 @@ data class TvmDictPrefixPfxdictreplaceInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -31899,7 +32994,7 @@ data class TvmDictPrefixPfxdictsetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictPrefixInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -31915,7 +33010,7 @@ data class TvmDictPrefixPfxdictsetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -31924,8 +33019,9 @@ data class TvmDictPrefixPfxdictsetInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32100,7 +33196,7 @@ data class TvmDictSerialPlddictInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -32236,7 +33332,7 @@ data class TvmDictSerialSkipdictInst(
 }
 
 /**
- * Stores dictionary `D` into _Builder_ `b`, returing the resulting _Builder_ `b'`.
+ * Stores dictionary `D` into _Builder_ `b`, returning the resulting _Builder_ `b'`.
  * In other words, if `D` is a cell, performs `STONE` and `STREF`; if `D` is _Null_, performs `NIP` and
  * `STZERO`; otherwise throws a type checking exception.
  */
@@ -32290,7 +33386,7 @@ data class TvmDictSetBuilderDictaddbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32306,7 +33402,7 @@ data class TvmDictSetBuilderDictaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32315,8 +33411,9 @@ data class TvmDictSetBuilderDictaddbInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32344,7 +33441,7 @@ data class TvmDictSetBuilderDictaddgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32360,7 +33457,7 @@ data class TvmDictSetBuilderDictaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32398,7 +33495,7 @@ data class TvmDictSetBuilderDictiaddbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32414,7 +33511,7 @@ data class TvmDictSetBuilderDictiaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32423,8 +33520,9 @@ data class TvmDictSetBuilderDictiaddbInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32452,7 +33550,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32468,7 +33566,7 @@ data class TvmDictSetBuilderDictiaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32506,7 +33604,7 @@ data class TvmDictSetBuilderDictireplacebInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32522,7 +33620,7 @@ data class TvmDictSetBuilderDictireplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32531,8 +33629,9 @@ data class TvmDictSetBuilderDictireplacebInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32560,7 +33659,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32576,7 +33675,7 @@ data class TvmDictSetBuilderDictireplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32614,7 +33713,7 @@ data class TvmDictSetBuilderDictisetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32630,7 +33729,7 @@ data class TvmDictSetBuilderDictisetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32665,7 +33764,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32681,7 +33780,7 @@ data class TvmDictSetBuilderDictisetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32719,7 +33818,7 @@ data class TvmDictSetBuilderDictreplacebInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32735,7 +33834,7 @@ data class TvmDictSetBuilderDictreplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32744,8 +33843,9 @@ data class TvmDictSetBuilderDictreplacebInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32773,7 +33873,7 @@ data class TvmDictSetBuilderDictreplacegetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32789,7 +33889,7 @@ data class TvmDictSetBuilderDictreplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32827,7 +33927,7 @@ data class TvmDictSetBuilderDictsetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32843,7 +33943,7 @@ data class TvmDictSetBuilderDictsetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32878,7 +33978,7 @@ data class TvmDictSetBuilderDictsetgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32894,7 +33994,7 @@ data class TvmDictSetBuilderDictsetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32932,7 +34032,7 @@ data class TvmDictSetBuilderDictuaddbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -32948,7 +34048,7 @@ data class TvmDictSetBuilderDictuaddbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -32957,8 +34057,9 @@ data class TvmDictSetBuilderDictuaddbInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -32986,7 +34087,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33002,7 +34103,7 @@ data class TvmDictSetBuilderDictuaddgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33040,7 +34141,7 @@ data class TvmDictSetBuilderDictureplacebInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33056,7 +34157,7 @@ data class TvmDictSetBuilderDictureplacebInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33065,8 +34166,9 @@ data class TvmDictSetBuilderDictureplacebInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -33094,7 +34196,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33110,7 +34212,7 @@ data class TvmDictSetBuilderDictureplacegetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33148,7 +34250,7 @@ data class TvmDictSetBuilderDictusetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33164,7 +34266,7 @@ data class TvmDictSetBuilderDictusetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33199,7 +34301,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetBuilderInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33215,7 +34317,7 @@ data class TvmDictSetBuilderDictusetgetbInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33254,7 +34356,7 @@ data class TvmDictSetDictaddInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33270,7 +34372,7 @@ data class TvmDictSetDictaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33279,8 +34381,9 @@ data class TvmDictSetDictaddInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -33310,7 +34413,7 @@ data class TvmDictSetDictaddgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33326,7 +34429,7 @@ data class TvmDictSetDictaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33364,7 +34467,7 @@ data class TvmDictSetDictaddgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33380,7 +34483,7 @@ data class TvmDictSetDictaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33418,7 +34521,7 @@ data class TvmDictSetDictaddrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33434,7 +34537,7 @@ data class TvmDictSetDictaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33443,8 +34546,9 @@ data class TvmDictSetDictaddrefInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -33472,7 +34576,7 @@ data class TvmDictSetDictiaddInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33488,7 +34592,7 @@ data class TvmDictSetDictiaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33497,8 +34601,9 @@ data class TvmDictSetDictiaddInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -33526,7 +34631,7 @@ data class TvmDictSetDictiaddgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33542,7 +34647,7 @@ data class TvmDictSetDictiaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33580,7 +34685,7 @@ data class TvmDictSetDictiaddgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33596,7 +34701,7 @@ data class TvmDictSetDictiaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33634,7 +34739,7 @@ data class TvmDictSetDictiaddrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33650,7 +34755,7 @@ data class TvmDictSetDictiaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33659,8 +34764,9 @@ data class TvmDictSetDictiaddrefInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -33688,7 +34794,7 @@ data class TvmDictSetDictireplaceInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33704,7 +34810,7 @@ data class TvmDictSetDictireplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33742,7 +34848,7 @@ data class TvmDictSetDictireplacegetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33758,7 +34864,7 @@ data class TvmDictSetDictireplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33796,7 +34902,7 @@ data class TvmDictSetDictireplacegetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33812,7 +34918,7 @@ data class TvmDictSetDictireplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33850,7 +34956,7 @@ data class TvmDictSetDictireplacerefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33866,7 +34972,7 @@ data class TvmDictSetDictireplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33905,7 +35011,7 @@ data class TvmDictSetDictisetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33921,7 +35027,7 @@ data class TvmDictSetDictisetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -33956,7 +35062,7 @@ data class TvmDictSetDictisetgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -33972,7 +35078,7 @@ data class TvmDictSetDictisetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34010,7 +35116,7 @@ data class TvmDictSetDictisetgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34026,7 +35132,7 @@ data class TvmDictSetDictisetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34064,7 +35170,7 @@ data class TvmDictSetDictisetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34080,7 +35186,7 @@ data class TvmDictSetDictisetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34116,7 +35222,7 @@ data class TvmDictSetDictreplaceInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34132,7 +35238,7 @@ data class TvmDictSetDictreplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34171,7 +35277,7 @@ data class TvmDictSetDictreplacegetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34187,7 +35293,7 @@ data class TvmDictSetDictreplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34225,7 +35331,7 @@ data class TvmDictSetDictreplacegetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34241,7 +35347,7 @@ data class TvmDictSetDictreplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34279,7 +35385,7 @@ data class TvmDictSetDictreplacerefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34295,7 +35401,7 @@ data class TvmDictSetDictreplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34335,7 +35441,7 @@ data class TvmDictSetDictsetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34351,7 +35457,7 @@ data class TvmDictSetDictsetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34387,7 +35493,7 @@ data class TvmDictSetDictsetgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34403,7 +35509,7 @@ data class TvmDictSetDictsetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34441,7 +35547,7 @@ data class TvmDictSetDictsetgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34457,7 +35563,7 @@ data class TvmDictSetDictsetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34495,7 +35601,7 @@ data class TvmDictSetDictsetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34511,7 +35617,7 @@ data class TvmDictSetDictsetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34546,7 +35652,7 @@ data class TvmDictSetDictuaddInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34562,7 +35668,7 @@ data class TvmDictSetDictuaddInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34571,8 +35677,9 @@ data class TvmDictSetDictuaddInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -34600,7 +35707,7 @@ data class TvmDictSetDictuaddgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34616,7 +35723,7 @@ data class TvmDictSetDictuaddgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34654,7 +35761,7 @@ data class TvmDictSetDictuaddgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34670,7 +35777,7 @@ data class TvmDictSetDictuaddgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34708,7 +35815,7 @@ data class TvmDictSetDictuaddrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34724,7 +35831,7 @@ data class TvmDictSetDictuaddrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34733,8 +35840,9 @@ data class TvmDictSetDictuaddrefInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "D",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
@@ -34762,7 +35870,7 @@ data class TvmDictSetDictureplaceInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34778,7 +35886,7 @@ data class TvmDictSetDictureplaceInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34816,7 +35924,7 @@ data class TvmDictSetDictureplacegetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34832,7 +35940,7 @@ data class TvmDictSetDictureplacegetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34870,7 +35978,7 @@ data class TvmDictSetDictureplacegetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34886,7 +35994,7 @@ data class TvmDictSetDictureplacegetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34924,7 +36032,7 @@ data class TvmDictSetDictureplacerefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34940,7 +36048,7 @@ data class TvmDictSetDictureplacerefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -34978,7 +36086,7 @@ data class TvmDictSetDictusetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -34994,7 +36102,7 @@ data class TvmDictSetDictusetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35029,7 +36137,7 @@ data class TvmDictSetDictusetgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35045,7 +36153,7 @@ data class TvmDictSetDictusetgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35083,7 +36191,7 @@ data class TvmDictSetDictusetgetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35099,7 +36207,7 @@ data class TvmDictSetDictusetgetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35137,7 +36245,7 @@ data class TvmDictSetDictusetrefInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSetInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35153,7 +36261,7 @@ data class TvmDictSetDictusetrefInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35188,7 +36296,7 @@ data class TvmDictSpecialDictigetexecInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35200,7 +36308,7 @@ data class TvmDictSpecialDictigetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35245,7 +36353,7 @@ data class TvmDictSpecialDictigetexeczInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35290,7 +36398,7 @@ data class TvmDictSpecialDictigetjmpInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35302,7 +36410,7 @@ data class TvmDictSpecialDictigetjmpInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35337,7 +36445,7 @@ data class TvmDictSpecialDictigetjmpzInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35349,7 +36457,7 @@ data class TvmDictSpecialDictigetjmpzInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35406,7 +36514,7 @@ data class TvmDictSpecialDictpushconstInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35434,7 +36542,7 @@ data class TvmDictSpecialDictugetexecInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35446,7 +36554,7 @@ data class TvmDictSpecialDictugetexecInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35491,7 +36599,7 @@ data class TvmDictSpecialDictugetexeczInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35535,7 +36643,7 @@ data class TvmDictSpecialDictugetjmpInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35547,7 +36655,7 @@ data class TvmDictSpecialDictugetjmpInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35582,14 +36690,19 @@ data class TvmDictSpecialDictugetjmpzInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSpecialInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
     override val stackInputs: List<TvmStackEntryDescription>? 
         get() = null
-    override val stackOutputs: List<TvmStackEntryDescription>? 
-        get() = null
+    override val stackOutputs: List<TvmStackEntryDescription> 
+        get() = listOf(
+            TvmSimpleStackEntryDescription(
+                name = "i",
+                valueTypes = listOf(TvmSpecType.ANY)
+            )
+        )
     
     override val branches: List<TvmControlFlowContinuation> 
         get() = listOf(
@@ -35619,7 +36732,7 @@ data class TvmDictSubSubdictgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35635,7 +36748,7 @@ data class TvmDictSubSubdictgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35646,7 +36759,7 @@ data class TvmDictSubSubdictgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -35671,7 +36784,7 @@ data class TvmDictSubSubdictigetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35687,7 +36800,7 @@ data class TvmDictSubSubdictigetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35698,7 +36811,7 @@ data class TvmDictSubSubdictigetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -35723,7 +36836,7 @@ data class TvmDictSubSubdictirpgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35739,7 +36852,7 @@ data class TvmDictSubSubdictirpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35750,7 +36863,7 @@ data class TvmDictSubSubdictirpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -35775,7 +36888,7 @@ data class TvmDictSubSubdictrpgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35791,7 +36904,7 @@ data class TvmDictSubSubdictrpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35802,7 +36915,7 @@ data class TvmDictSubSubdictrpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -35827,7 +36940,7 @@ data class TvmDictSubSubdictugetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35843,7 +36956,7 @@ data class TvmDictSubSubdictugetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35854,7 +36967,7 @@ data class TvmDictSubSubdictugetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -35879,7 +36992,7 @@ data class TvmDictSubSubdicturpgetInst(
     override val physicalLocation: TvmPhysicalInstLocation,
 ): TvmRealInst, TvmDictSubInst {
     override val mnemonic: String get() = MNEMONIC
-    override val gasConsumption get() = TvmSimpleGas
+    override val gasConsumption get() = TvmFixedGas(value = 26)
     
     override val operands: Map<String, Any> get() = mapOf()
 
@@ -35895,7 +37008,7 @@ data class TvmDictSubSubdicturpgetInst(
             ),
             TvmSimpleStackEntryDescription(
                 name = "D",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             ),
             TvmSimpleStackEntryDescription(
                 name = "n",
@@ -35906,7 +37019,7 @@ data class TvmDictSubSubdicturpgetInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "D2",
-                valueTypes = listOf(TvmSpecType.SLICE, TvmSpecType.NULL)
+                valueTypes = listOf(TvmSpecType.CELL, TvmSpecType.NULL)
             )
         )
     
@@ -38408,7 +39521,7 @@ data class TvmTupleIsnullInst(
         get() = listOf(
             TvmSimpleStackEntryDescription(
                 name = "x",
-                valueTypes = listOf(TvmSpecType.ANY, TvmSpecType.NULL, TvmSpecType.CELL, TvmSpecType.BUILDER, TvmSpecType.SLICE, TvmSpecType.TUPLE, TvmSpecType.ANY)
+                valueTypes = listOf()
             )
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
@@ -39714,9 +40827,9 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmArithmDivMuldivmodInst::class)
         subclass(TvmArithmDivMuldivmodrInst::class)
         subclass(TvmArithmDivMuldivmodcInst::class)
-        subclass(TvmArithmDivMuladdrshiftmodInst::class)
-        subclass(TvmArithmDivMuladdrshiftrmodInst::class)
-        subclass(TvmArithmDivMuladdrshiftcmodInst::class)
+        subclass(TvmArithmDivMuladdrshiftmodVarInst::class)
+        subclass(TvmArithmDivMuladdrshiftrmodVarInst::class)
+        subclass(TvmArithmDivMuladdrshiftcmodVarInst::class)
         subclass(TvmArithmDivMulrshiftVarInst::class)
         subclass(TvmArithmDivMulrshiftrVarInst::class)
         subclass(TvmArithmDivMulrshiftcVarInst::class)
@@ -39726,6 +40839,9 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmArithmDivMulrshiftmodVarInst::class)
         subclass(TvmArithmDivMulrshiftrmodVarInst::class)
         subclass(TvmArithmDivMulrshiftcmodVarInst::class)
+        subclass(TvmArithmDivMuladdrshiftmodInst::class)
+        subclass(TvmArithmDivMuladdrshiftrmodInst::class)
+        subclass(TvmArithmDivMuladdrshiftcmodInst::class)
         subclass(TvmArithmDivMulrshiftInst::class)
         subclass(TvmArithmDivMulrshiftrInst::class)
         subclass(TvmArithmDivMulrshiftcInst::class)
@@ -39830,9 +40946,9 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmArithmQuietQmuldivmodInst::class)
         subclass(TvmArithmQuietQmuldivmodrInst::class)
         subclass(TvmArithmQuietQmuldivmodcInst::class)
-        subclass(TvmArithmQuietQmuladdrshiftmodInst::class)
-        subclass(TvmArithmQuietQmuladdrshiftrmodInst::class)
-        subclass(TvmArithmQuietQmuladdrshiftcmodInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftmodVarInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftrmodVarInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftcmodVarInst::class)
         subclass(TvmArithmQuietQmulrshiftVarInst::class)
         subclass(TvmArithmQuietQmulrshiftrVarInst::class)
         subclass(TvmArithmQuietQmulrshiftcVarInst::class)
@@ -39842,6 +40958,9 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmArithmQuietQmulrshiftmodVarInst::class)
         subclass(TvmArithmQuietQmulrshiftrmodVarInst::class)
         subclass(TvmArithmQuietQmulrshiftcmodVarInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftmodInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftrmodInst::class)
+        subclass(TvmArithmQuietQmuladdrshiftcmodInst::class)
         subclass(TvmArithmQuietQmulrshiftInst::class)
         subclass(TvmArithmQuietQmulrshiftrInst::class)
         subclass(TvmArithmQuietQmulrshiftcInst::class)
@@ -39984,6 +41103,7 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmCellBuildStzeroesInst::class)
         subclass(TvmCellBuildStonesInst::class)
         subclass(TvmCellBuildStsameInst::class)
+        subclass(TvmCellBuildBtosInst::class)
         subclass(TvmCellBuildStsliceconstInst::class)
         subclass(TvmCellParseCtosInst::class)
         subclass(TvmCellParseEndsInst::class)
@@ -40154,6 +41274,8 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmContRegistersPushctrxInst::class)
         subclass(TvmContRegistersPopctrxInst::class)
         subclass(TvmContRegistersSetcontctrxInst::class)
+        subclass(TvmContRegistersSetcontctrmanyInst::class)
+        subclass(TvmContRegistersSetcontctrmanyxInst::class)
         subclass(TvmContRegistersComposInst::class)
         subclass(TvmContRegistersComposaltInst::class)
         subclass(TvmContRegistersComposbothInst::class)
@@ -40344,6 +41466,7 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmAppConfigConfigoptparamInst::class)
         subclass(TvmAppConfigPrevmcblocksInst::class)
         subclass(TvmAppConfigPrevkeyblockInst::class)
+        subclass(TvmAppConfigPrevmcblocks100Inst::class)
         subclass(TvmAppConfigGlobalidInst::class)
         subclass(TvmAppConfigGetgasfeeInst::class)
         subclass(TvmAppConfigGetstoragefeeInst::class)
@@ -40356,6 +41479,9 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmAppGlobalGetglobInst::class)
         subclass(TvmAppGlobalSetglobvarInst::class)
         subclass(TvmAppGlobalSetglobInst::class)
+        subclass(TvmAppGlobalGetextrabalanceInst::class)
+        subclass(TvmAppConfigGetparamlongInst::class)
+        subclass(TvmAppConfigInmsgparamInst::class)
         subclass(TvmAppCryptoHashcuInst::class)
         subclass(TvmAppCryptoHashsuInst::class)
         subclass(TvmAppCryptoSha256uInst::class)
@@ -40382,8 +41508,10 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmAppCryptoChksignuInst::class)
         subclass(TvmAppCryptoChksignsInst::class)
         subclass(TvmAppCryptoEcrecoverInst::class)
+        subclass(TvmAppCryptoSecp256k1XonlyPubkeyTweakAddInst::class)
         subclass(TvmAppCryptoP256ChksignuInst::class)
         subclass(TvmAppCryptoP256ChksignsInst::class)
+        subclass(TvmAppCryptoHashbuInst::class)
         subclass(TvmAppCryptoRist255FromhashInst::class)
         subclass(TvmAppCryptoRist255ValidateInst::class)
         subclass(TvmAppCryptoRist255AddInst::class)
@@ -40440,6 +41568,14 @@ fun SerializersModuleBuilder.registerTvmInstSerializer() {
         subclass(TvmAppAddrRewritestdaddrqInst::class)
         subclass(TvmAppAddrRewritevaraddrInst::class)
         subclass(TvmAppAddrRewritevaraddrqInst::class)
+        subclass(TvmAppAddrLdstdaddrInst::class)
+        subclass(TvmAppAddrLdstdaddrqInst::class)
+        subclass(TvmAppAddrLdoptstdaddrInst::class)
+        subclass(TvmAppAddrLdoptstdaddrqInst::class)
+        subclass(TvmAppAddrStstdaddrInst::class)
+        subclass(TvmAppAddrStstdaddrqInst::class)
+        subclass(TvmAppAddrStoptstdaddrInst::class)
+        subclass(TvmAppAddrStoptstdaddrqInst::class)
         subclass(TvmAppActionsSendrawmsgInst::class)
         subclass(TvmAppActionsRawreserveInst::class)
         subclass(TvmAppActionsRawreservexInst::class)
