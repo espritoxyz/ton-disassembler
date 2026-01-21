@@ -113,9 +113,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
         is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
 
-        is TvmDictSetDictaddInst, is TvmDictSetDictaddrefInst,
-        is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
-        is TvmDictSetDictiaddInst, is TvmDictSetDictiaddrefInst,
         is TvmDictSetDictreplaceInst, is TvmDictSetDictreplacerefInst,
         is TvmDictSetDictureplaceInst, is TvmDictSetDictureplacerefInst,
         is TvmDictSetDictireplaceInst, is TvmDictSetDictireplacerefInst,
@@ -135,10 +132,7 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetBuilderDictreplacebInst, is TvmDictSetBuilderDictureplacebInst,
         is TvmDictSetBuilderDictireplacebInst,
         is TvmDictSetBuilderDictreplacegetbInst, is TvmDictSetBuilderDictureplacegetbInst,
-        is TvmDictSetBuilderDictireplacegetbInst,
-
-        is TvmDictPrefixPfxdictsetInst, is TvmDictPrefixPfxdictaddInst, is TvmDictPrefixPfxdictreplaceInst,
-        -> DictSetHandler
+        is TvmDictSetBuilderDictireplacegetbInst -> DictSetHandler
 
         is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
         is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
@@ -181,6 +175,10 @@ val allowedConditionalPairsMap =
         TvmDictMinDicturemmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictiremmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictremmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictminInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictminrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictmaxrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictuminInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictumaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictuminrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
