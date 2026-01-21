@@ -14,6 +14,13 @@ class TvmDisasmApiTest {
     }
 
     @Test
+    fun testTolkCode() {
+        val path = getResourcePath<TvmDisasmApiTest>("/samples/tolk.boc")
+        val contractCode = disassembleBoc(path)
+        assertTrue { contractCode.methods.isNotEmpty() }
+    }
+
+    @Test
     fun testNonStandardMain() {
         val path = getResourcePath<TvmDisasmApiTest>("/samples/UQC2PxkHrDqV8ZIzR9EVrte9qR78gHZp15QZNF1G1Ge1LgSN.boc")
         val contractCode = disassembleBoc(path)
