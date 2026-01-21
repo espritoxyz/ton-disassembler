@@ -1,3 +1,0 @@
-[submodule "tvm-spec"]
-	path = tvm-spec
-	url = https://github.com/explyt/tvm-spec.git
