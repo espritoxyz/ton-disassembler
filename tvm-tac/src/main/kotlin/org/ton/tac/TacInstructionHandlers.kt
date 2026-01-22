@@ -730,20 +730,20 @@ object DictGetHandler : TacInstructionHandler {
         inputs.add(0, dict)
 
         val outputs = mutableListOf<TacStackValue>()
-            inst.stackOutputs?.forEach { outputDesc ->
-                val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
-                val newName = "${rawName}_${ctx.nextVarId()}"
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
 
-                val finalType =
-                    if (rawName == "f") {
-                        listOf(TvmSpecType.INT)
-                    } else {
-                        val mainType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
-                        listOf(mainType)
-                    }
+            val finalType =
+                if (rawName == "f") {
+                    listOf(TvmSpecType.INT)
+                } else {
+                    val mainType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+                    listOf(mainType)
+                }
 
-                outputs.add(TacVar(newName, finalType))
-            }
+            outputs.add(TacVar(newName, finalType))
+        }
 
         outputs.forEach { stack.push(it) }
 

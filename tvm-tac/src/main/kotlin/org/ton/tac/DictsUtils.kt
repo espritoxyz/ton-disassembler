@@ -132,7 +132,8 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetBuilderDictreplacebInst, is TvmDictSetBuilderDictureplacebInst,
         is TvmDictSetBuilderDictireplacebInst,
         is TvmDictSetBuilderDictreplacegetbInst, is TvmDictSetBuilderDictureplacegetbInst,
-        is TvmDictSetBuilderDictireplacegetbInst -> DictSetHandler
+        is TvmDictSetBuilderDictireplacegetbInst,
+        -> DictSetHandler
 
         is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
         is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
