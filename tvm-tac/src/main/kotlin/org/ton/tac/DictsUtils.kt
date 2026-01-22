@@ -113,9 +113,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
         is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
 
-        is TvmDictSetDictaddInst, is TvmDictSetDictaddrefInst,
-        is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
-        is TvmDictSetDictiaddInst, is TvmDictSetDictiaddrefInst,
         is TvmDictSetDictreplaceInst, is TvmDictSetDictreplacerefInst,
         is TvmDictSetDictureplaceInst, is TvmDictSetDictureplacerefInst,
         is TvmDictSetDictireplaceInst, is TvmDictSetDictireplacerefInst,
@@ -136,8 +133,6 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
         is TvmDictSetBuilderDictireplacebInst,
         is TvmDictSetBuilderDictreplacegetbInst, is TvmDictSetBuilderDictureplacegetbInst,
         is TvmDictSetBuilderDictireplacegetbInst,
-
-        is TvmDictPrefixPfxdictsetInst, is TvmDictPrefixPfxdictaddInst, is TvmDictPrefixPfxdictreplaceInst,
         -> DictSetHandler
 
         is TvmDictDeleteDictdelgetInst, is TvmDictDeleteDictdelgetrefInst,
@@ -167,8 +162,10 @@ fun getDictHandler(inst: TvmRealInst): TacInstructionHandler =
 
 val allowedConditionalPairsMap =
     mapOf(
+        TvmDictGetDictgetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictigetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictugetrefInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
+        TvmDictGetDictgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictigetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictGetDictugetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictDeleteDictidelgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
@@ -179,6 +176,10 @@ val allowedConditionalPairsMap =
         TvmDictMinDicturemmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictiremmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictremmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictminInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictminrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictmaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictMinDictmaxrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictuminInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictumaxInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictMinDictuminrefInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,

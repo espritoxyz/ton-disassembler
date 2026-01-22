@@ -11,7 +11,6 @@ import org.ton.bytecode.TvmContConditionalIfretInst
 import org.ton.bytecode.TvmContConditionalIfretaltInst
 import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
-import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
@@ -305,7 +304,6 @@ private fun validateBranchStructure(inst: TvmRealInst): Boolean {
     val noSave = haveNoSave.first()
 
     if (!saveC0 && !noSave) {
-        if (inst is TvmContLoopsWhileInst) return false
         TODO("Control flow of instruction ${inst.mnemonic} not supported")
     }
 

@@ -64,6 +64,7 @@ internal fun updateStack(
 data class RegisterState(
     val controlRegisters: MutableMap<Int, TacStackValue> = mutableMapOf(),
     val globalVariables: MutableMap<Int, TacStackValue> = mutableMapOf(),
+    val tupleRegistry: MutableList<TacTupleValue> = mutableListOf(),
 ) {
     fun copy(): RegisterState {
         val newControlRegisters = controlRegisters.toMutableMap()

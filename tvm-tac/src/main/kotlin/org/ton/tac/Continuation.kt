@@ -88,6 +88,12 @@ internal fun <Inst : AbstractTacInst> processCallDict(
     val methodStack = updateStack(stackEntriesBefore, methodArgs, stack)
     val updatedStackEntriesBefore = methodStack.copyEntries()
 
+    generateTacCodeBlock(
+        ctx,
+        codeBlock = method,
+        stack = methodStack,
+    )
+
     val newRef = ctx.nextContinuationId()
 
     val processedMethodInfo =
