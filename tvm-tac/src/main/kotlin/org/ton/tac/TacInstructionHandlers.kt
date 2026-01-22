@@ -69,8 +69,6 @@ import org.ton.bytecode.TvmStackComplexXcpuInst
 import org.ton.bytecode.TvmStackComplexXcpuxcInst
 import org.ton.bytecode.TvmStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
-import org.ton.bytecode.TvmTupleNullswapifInst
-import org.ton.bytecode.TvmTupleNullswapifnotInst
 import org.ton.bytecode.TvmTupleTpushInst
 import org.ton.bytecode.TvmTupleTupleInst
 import org.ton.bytecode.TvmTupleUntupleInst
@@ -125,10 +123,6 @@ object TacHandlerRegistry {
             is TvmContDictCalldictInst,
             is TvmContDictCalldictLongInst,
             -> CallDictHandler
-
-            is TvmTupleNullswapifInst,
-            is TvmTupleNullswapifnotInst,
-            -> NullSwapHandler
 
             is TvmDictInst -> getDictHandler(inst)
 
@@ -709,40 +703,6 @@ object PushCtrHandler : TacInstructionHandler {
     }
 }
 
-object NullSwapHandler : TacInstructionHandler {
-    override fun <Inst : AbstractTacInst> handle(
-        ctx: TacGenerationContext<Inst>,
-        stack: Stack,
-        inst: TvmRealInst,
-        registerState: RegisterState,
-    ): List<TacInst> {
-        val flag = stack.pop(0) // inst of the 'dictget' type pushed 2 elements.
-        val value = stack.pop(0)
-
-        val resultName = "nullable_res_${ctx.nextVarId()}"
-
-        val newTypes = value.valueTypes + TvmSpecType.NULL
-
-        val resultVar =
-            TacVar(
-                name = resultName,
-                valueTypes = newTypes,
-            )
-
-        stack.push(resultVar)
-
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
-                mnemonic = inst.mnemonic,
-                operands = inst.operands,
-                inputs = listOf(value, flag),
-                outputs = listOf(resultVar),
-                blocks = emptyList(),
-            ),
-        )
-    }
-}
-
 object DictGetHandler : TacInstructionHandler {
     override fun <Inst : AbstractTacInst> handle(
         ctx: TacGenerationContext<Inst>,
@@ -770,26 +730,19 @@ object DictGetHandler : TacInstructionHandler {
         inputs.add(0, dict)
 
         val outputs = mutableListOf<TacStackValue>()
+        inst.stackOutputs?.forEach { outputDesc ->
+            val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
+            val newName = "${rawName}_${ctx.nextVarId()}"
 
-        if (inst.stackOutputs == null) {
-            val type = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
-            val valueVar = TacVar("val_${ctx.nextVarId()}", listOf(type))
-            outputs.add(valueVar)
-        } else {
-            inst.stackOutputs?.forEach { outputDesc ->
-                val rawName = if (outputDesc is TvmSimpleStackEntryDescription) outputDesc.name else "val"
-                val newName = "${rawName}_${ctx.nextVarId()}"
+            val finalType =
+                if (rawName == "f") {
+                    listOf(TvmSpecType.INT)
+                } else {
+                    val mainType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
+                    listOf(mainType)
+                }
 
-                val finalType =
-                    if (rawName == "f") {
-                        listOf(TvmSpecType.INT)
-                    } else {
-                        val mainType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
-                        listOf(mainType)
-                    }
-
-                outputs.add(TacVar(newName, finalType))
-            }
+            outputs.add(TacVar(newName, finalType))
         }
 
         outputs.forEach { stack.push(it) }
