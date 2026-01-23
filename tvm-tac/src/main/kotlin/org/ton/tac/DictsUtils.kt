@@ -192,6 +192,7 @@ val allowedConditionalPairsMap =
         TvmDictNextDictugetnexteqInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictNextDictugetprevInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictNextDictugetpreveqInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmDictNextDictgetnextInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictNextDictigetnextInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictNextDictigetnexteqInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmDictNextDictigetprevInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
@@ -200,4 +201,5 @@ val allowedConditionalPairsMap =
         TvmDictSetDictusetgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictSetDictsetgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictPrefixPfxdictgetqInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
+        TvmCellParseLduqInst.MNEMONIC to TvmExceptionsThrowifnotShortInst.MNEMONIC,
     )

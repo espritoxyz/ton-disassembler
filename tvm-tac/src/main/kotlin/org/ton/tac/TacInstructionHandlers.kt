@@ -3,6 +3,7 @@ package org.ton.tac
 import org.ton.bytecode.TvmAppGlobalGetglobInst
 import org.ton.bytecode.TvmAppGlobalSetglobInst
 import org.ton.bytecode.TvmArrayStackEntryDescription
+import org.ton.bytecode.TvmCellParseLduqInst
 import org.ton.bytecode.TvmConstDataInst
 import org.ton.bytecode.TvmConstDataPushcontInst
 import org.ton.bytecode.TvmConstDataPushcontShortInst
@@ -123,6 +124,8 @@ object TacHandlerRegistry {
             is TvmContDictCalldictInst,
             is TvmContDictCalldictLongInst,
             -> CallDictHandler
+
+            is TvmCellParseLduqInst -> LduqHandler
 
             is TvmDictInst -> getDictHandler(inst)
 
@@ -934,6 +937,43 @@ object DictMinMaxHandler : TacInstructionHandler {
                 operands = inst.operands,
                 inputs = inputs,
                 outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object LduqHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val len = stack.pop(0)
+        enforceType(len, TvmSpecType.INT)
+        inputs.add(0, len)
+
+        val slice = stack.pop(0)
+        enforceType(slice, TvmSpecType.SLICE)
+        inputs.add(0, slice)
+
+        val valueVar = TacVar("val_${ctx.nextVarId()}", listOf(TvmSpecType.INT))
+        val remainderVar = TacVar("rest_${ctx.nextVarId()}", listOf(TvmSpecType.SLICE))
+        val flagVar = TacVar("success_${ctx.nextVarId()}", listOf(TvmSpecType.INT))
+
+        stack.push(valueVar)
+        stack.push(remainderVar)
+        stack.push(flagVar)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = listOf(valueVar, remainderVar, flagVar),
                 blocks = emptyList(),
             ),
         )
