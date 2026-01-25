@@ -22577,8 +22577,9 @@ data class TvmCellParseSdbeginsqInst(
         )
     override val stackOutputs: List<TvmStackEntryDescription> 
         get() = listOf(
-            TvmGenericStackEntryDescription(
-                type = TvmStackEntryType.CONDITIONAL
+            TvmSimpleStackEntryDescription(
+                name = "s",
+                valueTypes = listOf(TvmSpecType.SLICE)
             ),
             TvmSimpleStackEntryDescription(
                 name = "status",
