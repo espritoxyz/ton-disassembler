@@ -142,20 +142,49 @@ object DefaultSpecHandler : TacInstructionHandler {
     ): List<TacInst> {
         val inputsSpec = inst.stackInputs ?: emptyList()
         val outputsSpec = inst.stackOutputs ?: emptyList()
+        val capturedValues = mutableMapOf<String, Int>()
 
         val inputVars = mutableListOf<TacStackValue>()
 
         inputsSpec.reversed().forEach { inputDesc ->
-            val stackVal = stack.pop(0)
+            when (inputDesc) {
+                is TvmSimpleStackEntryDescription -> {
+                    val stackVal = stack.pop(0)
 
-            if (stackVal is TacVar && stackVal.valueTypes.isEmpty()) {
-                val expectedTypes = parseTypes(inputDesc)
-                if (expectedTypes.isNotEmpty() && !expectedTypes.contains(TvmSpecType.ANY)) {
-                    stackVal.valueTypes = expectedTypes
+                    if (stackVal is TacIntValue) {
+                        capturedValues[inputDesc.name] = stackVal.value.toInt()
+                    } else if (stackVal is TacVar && stackVal.value != null) {
+                        capturedValues[inputDesc.name] = stackVal.value!!
+                    }
+
+                    if (stackVal is TacVar && stackVal.valueTypes.isEmpty()) {
+                        val expectedTypes = parseTypes(inputDesc)
+                        if (expectedTypes.isNotEmpty() && !expectedTypes.contains(TvmSpecType.ANY)) {
+                            stackVal.valueTypes = expectedTypes
+                        }
+                    }
+
+                    inputVars.add(0, stackVal)
                 }
-            }
 
-            inputVars.add(0, stackVal)
+                is TvmArrayStackEntryDescription -> {
+                    val lengthVarName = inputDesc.lengthVar
+
+                    val count =
+                        capturedValues[lengthVarName]
+                            ?: (inst.operands[lengthVarName] as? Number)?.toInt()
+                            ?: error(
+                                "Variable length instruction '${inst.mnemonic}': cannot find length '$lengthVarName'.",
+                            )
+
+                    repeat(count) {
+                        val arrayElem = stack.pop(0)
+
+                        inputVars.add(0, arrayElem)
+                    }
+                }
+                else -> error("Undefined input type: \${input.type}")
+            }
         }
 
         val outputVars = mutableListOf<TacStackValue>()
@@ -208,7 +237,6 @@ object DefaultSpecHandler : TacInstructionHandler {
     private fun parseTypes(desc: TvmStackEntryDescription): List<TvmSpecType> =
         when (desc) {
             is TvmSimpleStackEntryDescription -> desc.valueTypes
-            is TvmArrayStackEntryDescription -> listOf(TvmSpecType.TUPLE)
             is TvmConstStackEntryDescription -> listOf(desc.valueType)
             else -> emptyList()
         }

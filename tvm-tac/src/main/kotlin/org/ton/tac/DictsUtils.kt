@@ -202,4 +202,5 @@ val allowedConditionalPairsMap =
         TvmDictSetDictsetgetInst.MNEMONIC to TvmTupleNullswapifnotInst.MNEMONIC,
         TvmDictPrefixPfxdictgetqInst.MNEMONIC to TvmTupleNullswapifnot2Inst.MNEMONIC,
         TvmCellParseLduqInst.MNEMONIC to TvmExceptionsThrowifnotShortInst.MNEMONIC,
+        TvmCellParseLduqInst.MNEMONIC to TvmExceptionsThrowifnotInst.MNEMONIC,
     )
