@@ -3,6 +3,7 @@ package org.ton.tac
 import org.ton.bytecode.TvmAppGlobalGetglobInst
 import org.ton.bytecode.TvmAppGlobalSetglobInst
 import org.ton.bytecode.TvmArrayStackEntryDescription
+import org.ton.bytecode.TvmCellParseLduqInst
 import org.ton.bytecode.TvmConstDataInst
 import org.ton.bytecode.TvmConstDataPushcontInst
 import org.ton.bytecode.TvmConstDataPushcontShortInst
@@ -124,6 +125,8 @@ object TacHandlerRegistry {
             is TvmContDictCalldictLongInst,
             -> CallDictHandler
 
+            is TvmCellParseLduqInst -> LduqHandler
+
             is TvmDictInst -> getDictHandler(inst)
 
             else -> DefaultSpecHandler
@@ -139,20 +142,49 @@ object DefaultSpecHandler : TacInstructionHandler {
     ): List<TacInst> {
         val inputsSpec = inst.stackInputs ?: emptyList()
         val outputsSpec = inst.stackOutputs ?: emptyList()
+        val capturedValues = mutableMapOf<String, Int>()
 
         val inputVars = mutableListOf<TacStackValue>()
 
         inputsSpec.reversed().forEach { inputDesc ->
-            val stackVal = stack.pop(0)
+            when (inputDesc) {
+                is TvmSimpleStackEntryDescription -> {
+                    val stackVal = stack.pop(0)
 
-            if (stackVal is TacVar && stackVal.valueTypes.isEmpty()) {
-                val expectedTypes = parseTypes(inputDesc)
-                if (expectedTypes.isNotEmpty() && !expectedTypes.contains(TvmSpecType.ANY)) {
-                    stackVal.valueTypes = expectedTypes
+                    if (stackVal is TacIntValue) {
+                        capturedValues[inputDesc.name] = stackVal.value.toInt()
+                    } else if (stackVal is TacVar && stackVal.value != null) {
+                        capturedValues[inputDesc.name] = stackVal.value!!
+                    }
+
+                    if (stackVal is TacVar && stackVal.valueTypes.isEmpty()) {
+                        val expectedTypes = parseTypes(inputDesc)
+                        if (expectedTypes.isNotEmpty() && !expectedTypes.contains(TvmSpecType.ANY)) {
+                            stackVal.valueTypes = expectedTypes
+                        }
+                    }
+
+                    inputVars.add(0, stackVal)
                 }
-            }
 
-            inputVars.add(0, stackVal)
+                is TvmArrayStackEntryDescription -> {
+                    val lengthVarName = inputDesc.lengthVar
+
+                    val count =
+                        capturedValues[lengthVarName]
+                            ?: (inst.operands[lengthVarName] as? Number)?.toInt()
+                            ?: error(
+                                "Variable length instruction '${inst.mnemonic}': cannot find length '$lengthVarName'.",
+                            )
+
+                    repeat(count) {
+                        val arrayElem = stack.pop(0)
+
+                        inputVars.add(0, arrayElem)
+                    }
+                }
+                else -> error("Undefined input type: \${input.type}")
+            }
         }
 
         val outputVars = mutableListOf<TacStackValue>()
@@ -205,7 +237,6 @@ object DefaultSpecHandler : TacInstructionHandler {
     private fun parseTypes(desc: TvmStackEntryDescription): List<TvmSpecType> =
         when (desc) {
             is TvmSimpleStackEntryDescription -> desc.valueTypes
-            is TvmArrayStackEntryDescription -> listOf(TvmSpecType.TUPLE)
             is TvmConstStackEntryDescription -> listOf(desc.valueType)
             else -> emptyList()
         }
@@ -934,6 +965,43 @@ object DictMinMaxHandler : TacInstructionHandler {
                 operands = inst.operands,
                 inputs = inputs,
                 outputs = outputs,
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object LduqHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val inputs = mutableListOf<TacStackValue>()
+
+        val len = stack.pop(0)
+        enforceType(len, TvmSpecType.INT)
+        inputs.add(0, len)
+
+        val slice = stack.pop(0)
+        enforceType(slice, TvmSpecType.SLICE)
+        inputs.add(0, slice)
+
+        val valueVar = TacVar("val_${ctx.nextVarId()}", listOf(TvmSpecType.INT))
+        val remainderVar = TacVar("rest_${ctx.nextVarId()}", listOf(TvmSpecType.SLICE))
+        val flagVar = TacVar("success_${ctx.nextVarId()}", listOf(TvmSpecType.INT))
+
+        stack.push(valueVar)
+        stack.push(remainderVar)
+        stack.push(flagVar)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = listOf(valueVar, remainderVar, flagVar),
                 blocks = emptyList(),
             ),
         )

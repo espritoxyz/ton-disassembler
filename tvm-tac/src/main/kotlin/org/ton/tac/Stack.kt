@@ -7,7 +7,6 @@ import org.ton.bytecode.TvmStackBasicInst
 import org.ton.bytecode.TvmStackComplexInst
 import org.ton.bytecode.TvmStackEntryType
 import java.util.Collections.swap
-import java.util.Locale.getDefault
 
 val SUPPORTED_STACK_TYPES =
     setOf(
@@ -18,10 +17,6 @@ val SUPPORTED_STACK_TYPES =
     )
 
 internal fun throwErrorIfStackTypesNotSupported(inst: TvmRealInst) {
-    if (inst.mnemonic.lowercase(getDefault()).contains("dict")) {
-        return
-    }
-
     if (inst !is TvmStackBasicInst && inst !is TvmStackComplexInst) {
         if (inst.stackInputs == null || inst.stackOutputs == null) {
             error("Instruction: ${inst.mnemonic} is not supported, since stackInputs/Outputs are unconstrained")
@@ -64,7 +59,6 @@ internal fun updateStack(
 data class RegisterState(
     val controlRegisters: MutableMap<Int, TacStackValue> = mutableMapOf(),
     val globalVariables: MutableMap<Int, TacStackValue> = mutableMapOf(),
-    val tupleRegistry: MutableList<TacTupleValue> = mutableListOf(),
 ) {
     fun copy(): RegisterState {
         val newControlRegisters = controlRegisters.toMutableMap()
