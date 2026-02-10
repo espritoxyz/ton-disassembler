@@ -5,7 +5,6 @@ import org.ton.bytecode.TvmContBasicRetaltInst
 import org.ton.bytecode.disassembleBoc
 import java.nio.file.Path
 import kotlin.io.path.Path
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
