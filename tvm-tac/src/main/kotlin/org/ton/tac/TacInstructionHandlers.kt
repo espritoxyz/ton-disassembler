@@ -15,6 +15,9 @@ import org.ton.bytecode.TvmConstIntPushintLongInst
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
+import org.ton.bytecode.TvmContLoopsRepeatInst
+import org.ton.bytecode.TvmContLoopsUntilInst
+import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContRegistersPopctrInst
 import org.ton.bytecode.TvmContRegistersPushctrInst
 import org.ton.bytecode.TvmDictInst
@@ -128,6 +131,10 @@ object TacHandlerRegistry {
             is TvmCellParseLduqInst -> LduqHandler
 
             is TvmDictInst -> getDictHandler(inst)
+
+            is TvmContLoopsWhileInst -> WhileHandler
+            is TvmContLoopsRepeatInst -> RepeatHandler
+            is TvmContLoopsUntilInst -> UntilHandler
 
             else -> DefaultSpecHandler
         }
@@ -751,8 +758,8 @@ object DictGetHandler : TacInstructionHandler {
             inputs.add(0, stack.pop(0))
         }
 
-        val key = stack.pop(0)
         val dict = stack.pop(0)
+        val key = stack.pop(0)
 
         val keyType = if (isIntKey) TvmSpecType.INT else TvmSpecType.SLICE
         enforceType(key, keyType)
@@ -802,15 +809,15 @@ object DictSetHandler : TacInstructionHandler {
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
 
-        if (isIntKey && !hasConstLength) {
+        if (!hasConstLength) {
             val n = stack.pop(0)
             enforceType(n, TvmSpecType.INT)
             inputs.add(0, n)
         }
 
-        val value = stack.pop(0)
-        val key = stack.pop(0)
         val dict = stack.pop(0)
+        val key = stack.pop(0)
+        val value = stack.pop(0)
 
         val valueType = if (inst.dictInstHasRef()) TvmSpecType.CELL else TvmSpecType.SLICE
         enforceType(value, valueType)
@@ -868,7 +875,7 @@ object DictDelHandler : TacInstructionHandler {
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
 
-        if (isIntKey && !hasConstLength) {
+        if (!hasConstLength) {
             val n = stack.pop(0)
             enforceType(n, TvmSpecType.INT)
             inputs.add(0, n)
@@ -881,8 +888,8 @@ object DictDelHandler : TacInstructionHandler {
         enforceType(key, keyType)
         enforceType(dict, TvmSpecType.CELL)
 
-        inputs.add(0, key)
         inputs.add(0, dict)
+        inputs.add(0, key)
 
         val outputs = mutableListOf<TacStackValue>()
 
@@ -931,7 +938,7 @@ object DictMinMaxHandler : TacInstructionHandler {
 
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
-        if (isIntKey && !hasConstLength) {
+        if (!hasConstLength) {
             val n = stack.pop(0)
             enforceType(n, TvmSpecType.INT)
             inputs.add(0, n)
@@ -1014,5 +1021,156 @@ private fun enforceType(
 ) {
     if (value is TacVar && value.valueTypes.isEmpty()) {
         value.valueTypes = listOf(type)
+    }
+}
+
+object WhileHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val bodyVal = stack.pop(0)
+        val condVal = stack.pop(0)
+        val inputs = listOf(condVal, bodyVal)
+
+        enforceType(bodyVal, TvmSpecType.CONTINUATION)
+        enforceType(condVal, TvmSpecType.CONTINUATION)
+
+        val condInfo = resolveContinuation(ctx, condVal)
+        val bodyInfo = resolveContinuation(ctx, bodyVal)
+
+        val noOpGenerator =
+            object : EndingInstGenerator<Inst> {
+                override fun generateEndingInst(
+                    ctx: TacGenerationContext<Inst>,
+                    stack: Stack,
+                ) = emptyList<Inst>()
+            }
+
+        val condInstructions =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = condInfo.originalTvmCode,
+                stack = stack.copy(),
+                endingInstGenerator = noOpGenerator,
+                registerState = registerState.copy(),
+            ).instructions
+
+        val bodyInstructions =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = bodyInfo.originalTvmCode,
+                stack = stack.copy(),
+                endingInstGenerator = noOpGenerator,
+                registerState = registerState.copy(),
+            ).instructions
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = "WHILE",
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = emptyList(),
+                blocks = listOf(condInstructions, bodyInstructions),
+            ),
+        )
+    }
+}
+
+private fun <Inst : AbstractTacInst> resolveContinuation(
+    ctx: TacGenerationContext<Inst>,
+    value: TacStackValue,
+): TacContinuationInfo<Inst> {
+    val ref = (value as? ContinuationValue)?.continuationRef
+
+    return ctx.isolatedContinuations[ref] ?: error("Continuation not found")
+}
+
+object RepeatHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val bodyVal = stack.pop(0)
+        val countVal = stack.pop(0)
+
+        enforceType(bodyVal, TvmSpecType.CONTINUATION)
+        enforceType(countVal, TvmSpecType.INT)
+
+        val inputs = listOf(countVal, bodyVal)
+
+        val bodyInfo = resolveContinuation(ctx, bodyVal)
+
+        val noOpGenerator =
+            object : EndingInstGenerator<Inst> {
+                override fun generateEndingInst(
+                    ctx: TacGenerationContext<Inst>,
+                    stack: Stack,
+                ) = emptyList<Inst>()
+            }
+
+        val bodyInstructions =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = bodyInfo.originalTvmCode,
+                stack = stack.copy(),
+                endingInstGenerator = noOpGenerator,
+                registerState = registerState.copy(),
+            ).instructions
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = "REPEAT",
+                operands = inst.operands,
+                inputs = inputs,
+                outputs = emptyList(),
+                blocks = listOf(bodyInstructions),
+            ),
+        )
+    }
+}
+
+object UntilHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val bodyVal = stack.pop(0)
+        enforceType(bodyVal, TvmSpecType.CONTINUATION)
+
+        val bodyInfo = resolveContinuation(ctx, bodyVal)
+
+        val noOpGenerator =
+            object : EndingInstGenerator<Inst> {
+                override fun generateEndingInst(
+                    ctx: TacGenerationContext<Inst>,
+                    stack: Stack,
+                ) = emptyList<Inst>()
+            }
+
+        val bodyInstructions =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = bodyInfo.originalTvmCode,
+                stack = stack.copy(),
+                endingInstGenerator = noOpGenerator,
+                registerState = registerState.copy(),
+            ).instructions
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = "UNTIL",
+                operands = inst.operands,
+                inputs = listOf(bodyVal),
+                outputs = emptyList(),
+                blocks = listOf(bodyInstructions),
+            ),
+        )
     }
 }

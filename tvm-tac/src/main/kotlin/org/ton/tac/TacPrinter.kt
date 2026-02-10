@@ -1,6 +1,7 @@
 package org.ton.tac
 
 import org.ton.bytecode.TvmCell
+import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmInstList
 import org.ton.bytecode.formatOperand
 
@@ -216,17 +217,18 @@ private fun StringBuilder.dumpInstruction(
         append(" = ")
     }
     append(inst.mnemonic)
-
-    append("(")
-    val operandsStr = dumpOperands(inst.operands, includeTvmCell)
-    val stackInputStr = inst.inputs.joinToString { it.name }
-    val params =
-        listOf(operandsStr, stackInputStr)
-            .filter {
-                it.isNotEmpty()
-            }.joinToString()
-    append(params)
-    append(")")
+    if (inst.mnemonic != TvmContLoopsWhileInst.MNEMONIC) {
+        append("(")
+        val operandsStr = dumpOperands(inst.operands, includeTvmCell)
+        val stackInputStr = inst.inputs.joinToString { it.name }
+        val params =
+            listOf(operandsStr, stackInputStr)
+                .filter {
+                    it.isNotEmpty()
+                }.joinToString()
+        append(params)
+        append(")")
+    }
 
     inst.blocks.forEach {
         appendLine(" {")
