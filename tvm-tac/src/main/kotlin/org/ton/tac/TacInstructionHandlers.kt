@@ -745,7 +745,7 @@ object DictGetHandler : TacInstructionHandler {
 
         val isIntKey = inst.dictInstHasIntegerKey()
         val hasConstLength = inst.operands.containsKey("n")
-        if (isIntKey && !hasConstLength) {
+        if (!hasConstLength) {
             val n = stack.pop(0)
             enforceType(n, TvmSpecType.INT)
             inputs.add(0, stack.pop(0))
