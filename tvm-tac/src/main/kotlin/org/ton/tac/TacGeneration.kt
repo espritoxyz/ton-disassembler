@@ -11,6 +11,9 @@ import org.ton.bytecode.TvmContConditionalIfretInst
 import org.ton.bytecode.TvmContConditionalIfretaltInst
 import org.ton.bytecode.TvmContDictCalldictInst
 import org.ton.bytecode.TvmContDictCalldictLongInst
+import org.ton.bytecode.TvmContLoopsRepeatInst
+import org.ton.bytecode.TvmContLoopsUntilInst
+import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContOperandInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
@@ -265,6 +268,11 @@ private fun TvmInst.ignoreBranches(): Boolean =
         is TvmDictPrefixPfxdictgetjmpInst,
         is TvmDictPrefixPfxdictgetexecInst,
         is TvmDictPrefixPfxdictconstgetjmpInst,
+        -> true
+
+        is TvmContLoopsWhileInst,
+        is TvmContLoopsRepeatInst,
+        is TvmContLoopsUntilInst,
         -> true
 
         else -> false

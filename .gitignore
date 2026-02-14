@@ -9,3 +9,6 @@ buildSrc/.gradle
 
 # Ignore Idea directory
 .idea
+
+# Ignore MAC files
+.DS_Store
