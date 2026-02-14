@@ -167,6 +167,34 @@ class TacTest {
     }
 
     @Test
+    fun testUntil() {
+        val path = getResourcePath<TacTest>("/samples/until.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testUntilDebug() {
+        val path = getResourcePath<TacTest>("/samples/until.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testRepeat() {
+        val path = getResourcePath<TacTest>("/samples/repeat.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testRepeatDebug() {
+        val path = getResourcePath<TacTest>("/samples/repeat.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
     fun testWhile() {
         val path = getResourcePath<TacTest>("/samples/while.boc")
         val contract = disassembleBoc(path)
