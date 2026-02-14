@@ -16,6 +16,12 @@ data class TacOrdinaryInst<Inst : AbstractTacInst>(
     val blocks: List<List<Inst>>,
 ) : TacInst
 
+data class TacLoopInst<Inst : AbstractTacInst>(
+    val mnemonic: String,
+    val inputs: List<TacStackValue>,
+    val blocks: List<List<Inst>>,
+) : TacInst
+
 data class TacAssignInst(
     val lhs: TacVar,
     val rhs: TacStackValue,

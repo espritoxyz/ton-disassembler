@@ -1024,6 +1024,28 @@ private fun enforceType(
     }
 }
 
+private fun <Inst : AbstractTacInst> syncStackForLoop(
+    ctx: TacGenerationContext<Inst>,
+    stack: Stack,
+    count: Int,
+): List<TacInst> {
+    val assignments = mutableListOf<TacInst>()
+    val actualCount = if (count > stack.size) stack.size else count
+
+    for (i in (actualCount - 1) downTo 0) {
+        val oldVal = stack.copyEntries().let { it[it.size - 1 - i] }
+        val newVar =
+            TacVar(
+                name = "loop_${ctx.nextVarId()}",
+                valueTypes = oldVal.valueTypes,
+            )
+
+        val assignInst = stack.getAssignInst(newVar, i)
+        assignments.add(assignInst)
+    }
+    return assignments
+}
+
 object WhileHandler : TacInstructionHandler {
     override fun <Inst : AbstractTacInst> handle(
         ctx: TacGenerationContext<Inst>,
@@ -1033,13 +1055,29 @@ object WhileHandler : TacInstructionHandler {
     ): List<TacInst> {
         val bodyVal = stack.pop(0)
         val condVal = stack.pop(0)
-        val inputs = listOf(condVal, bodyVal)
 
         enforceType(bodyVal, TvmSpecType.CONTINUATION)
         enforceType(condVal, TvmSpecType.CONTINUATION)
 
         val condInfo = resolveContinuation(ctx, condVal)
         val bodyInfo = resolveContinuation(ctx, bodyVal)
+
+        val requiredDepth = maxOf(condInfo.methodArgs.size, bodyInfo.methodArgs.size)
+
+        if (stack.size < requiredDepth) {
+            stack.extendStack(requiredDepth)
+        }
+
+        check((condInfo.numberOfReturnedValues ?: 0) == condInfo.methodArgs.size + 1) { "WHILE: cond must return flag" }
+        check(
+            (bodyInfo.numberOfReturnedValues ?: 0) == bodyInfo.methodArgs.size,
+        ) { "WHILE: body must have zero effect" }
+
+        val syncCount = maxOf(condInfo.methodArgs.size, bodyInfo.methodArgs.size, stack.size)
+        val syncInstructions = syncStackForLoop(ctx, stack, syncCount)
+
+        val stackAtLoopEntry = stack.copyEntries()
+        val initialSize = stack.size
 
         val noOpGenerator =
             object : EndingInstGenerator<Inst> {
@@ -1049,33 +1087,69 @@ object WhileHandler : TacInstructionHandler {
                 ) = emptyList<Inst>()
             }
 
-        val condInstructions =
+        val condRegisterState = registerState.copy()
+        val condStack = stack.copy()
+        val condContInfo =
             generateTacCodeBlock(
                 ctx,
                 codeBlock = condInfo.originalTvmCode,
-                stack = stack.copy(),
+                stack = condStack,
                 endingInstGenerator = noOpGenerator,
                 registerState = registerState.copy(),
-            ).instructions
+            )
 
-        val bodyInstructions =
+        val bodyRegisterState = condRegisterState.copy()
+        val bodyStack = condStack.copy()
+        val condVar = bodyStack.pop(0)
+
+        val bodyContInfo =
             generateTacCodeBlock(
                 ctx,
                 codeBlock = bodyInfo.originalTvmCode,
-                stack = stack.copy(),
+                stack = bodyStack,
                 endingInstGenerator = noOpGenerator,
                 registerState = registerState.copy(),
-            ).instructions
+            )
 
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
+        check(bodyStack.size == initialSize) {
+            "WHILE body stack effect mismatch: expected $initialSize, but got ${bodyStack.size}"
+        }
+
+        val updateInstructions = mutableListOf<Inst>()
+        val stackAfterFullIteration = bodyStack.copyEntries()
+
+        stackAfterFullIteration.takeLast(syncCount).forEachIndexed { index, newValue ->
+            val loopVar = stackAtLoopEntry[stackAtLoopEntry.size - syncCount + index]
+
+            if (loopVar is TacVar) {
+                val isSameVariable = newValue is TacVar && newValue.name == loopVar.name
+
+                if (!isSameVariable) {
+                    updateInstructions.add(wrapInst(ctx, bodyStack, TacAssignInst(lhs = loopVar, rhs = newValue)))
+                }
+            }
+        }
+
+        val (msg, ok) = areStacksCompatible(Stack(stackAtLoopEntry), bodyStack)
+        if (!ok) throw IllegalStateException("Loop incompatible: $msg")
+
+        val (rMsg, rOk) = areStatesCompatible(registerState, bodyRegisterState)
+        if (!rOk) throw IllegalStateException("Loop registers incompatible: $rMsg")
+
+        registerState.assignFrom(bodyRegisterState)
+        val finalBodyInstructions: List<Inst> = bodyContInfo.instructions + updateInstructions
+        val result = mutableListOf<TacInst>()
+
+        result.addAll(syncInstructions)
+
+        result.add(
+            TacLoopInst(
                 mnemonic = "WHILE",
-                operands = inst.operands,
-                inputs = inputs,
-                outputs = emptyList(),
-                blocks = listOf(condInstructions, bodyInstructions),
+                inputs = listOf(condVar),
+                blocks = listOf(condContInfo.instructions, finalBodyInstructions),
             ),
         )
+        return result
     }
 }
 
@@ -1101,10 +1175,7 @@ object RepeatHandler : TacInstructionHandler {
         enforceType(bodyVal, TvmSpecType.CONTINUATION)
         enforceType(countVal, TvmSpecType.INT)
 
-        val inputs = listOf(countVal, bodyVal)
-
         val bodyInfo = resolveContinuation(ctx, bodyVal)
-
         val noOpGenerator =
             object : EndingInstGenerator<Inst> {
                 override fun generateEndingInst(
@@ -1113,24 +1184,59 @@ object RepeatHandler : TacInstructionHandler {
                 ) = emptyList<Inst>()
             }
 
-        val bodyInstructions =
+        val requiredDepth = bodyInfo.methodArgs.size
+        if (stack.size < requiredDepth) {
+            stack.extendStack(requiredDepth)
+        }
+
+        val syncCount = maxOf(requiredDepth, stack.size)
+        val syncInstructions = syncStackForLoop(ctx, stack, syncCount)
+        val stackAtLoopEntry = stack.copyEntries()
+        val initialSize = stack.size
+
+        val bodyStack = stack.copy()
+        val bodyContInfo =
             generateTacCodeBlock(
                 ctx,
                 codeBlock = bodyInfo.originalTvmCode,
-                stack = stack.copy(),
+                stack = bodyStack,
                 endingInstGenerator = noOpGenerator,
                 registerState = registerState.copy(),
-            ).instructions
+            )
 
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
+        check(bodyStack.size == initialSize) {
+            "REPEAT body stack effect mismatch: expected $initialSize, but got ${bodyStack.size}"
+        }
+
+        val updateInstructions = mutableListOf<Inst>()
+        val stackAfterBody = bodyStack.copyEntries()
+
+        stackAfterBody.takeLast(syncCount).forEachIndexed { index, newValue ->
+            val loopVar = stackAtLoopEntry[stackAtLoopEntry.size - syncCount + index]
+            if (loopVar is TacVar) {
+                val isSameVariable = newValue is TacVar && newValue.name == loopVar.name
+                if (!isSameVariable) {
+                    val assign = TacAssignInst(lhs = loopVar, rhs = newValue)
+                    updateInstructions.add(wrapInst(ctx, bodyStack, assign))
+                }
+            }
+        }
+
+        val finalBodyInstructions = bodyContInfo.instructions + updateInstructions
+
+        val (msg, ok) = areStacksCompatible(Stack(stackAtLoopEntry), bodyStack)
+        if (!ok) throw IllegalStateException("REPEAT loop incompatible: $msg")
+
+        val result = mutableListOf<TacInst>()
+        result.addAll(syncInstructions)
+        result.add(
+            TacLoopInst(
                 mnemonic = "REPEAT",
-                operands = inst.operands,
-                inputs = inputs,
-                outputs = emptyList(),
-                blocks = listOf(bodyInstructions),
+                inputs = listOf(countVal),
+                blocks = listOf(finalBodyInstructions),
             ),
         )
+        return result
     }
 }
 
@@ -1145,7 +1251,6 @@ object UntilHandler : TacInstructionHandler {
         enforceType(bodyVal, TvmSpecType.CONTINUATION)
 
         val bodyInfo = resolveContinuation(ctx, bodyVal)
-
         val noOpGenerator =
             object : EndingInstGenerator<Inst> {
                 override fun generateEndingInst(
@@ -1154,23 +1259,61 @@ object UntilHandler : TacInstructionHandler {
                 ) = emptyList<Inst>()
             }
 
-        val bodyInstructions =
+        val requiredDepth = bodyInfo.methodArgs.size
+        if (stack.size < requiredDepth) {
+            stack.extendStack(requiredDepth)
+        }
+
+        val syncCount = maxOf(requiredDepth, stack.size)
+        val syncInstructions = syncStackForLoop(ctx, stack, syncCount)
+        val stackAtLoopEntry = stack.copyEntries()
+        val condVar = stackAtLoopEntry.last()
+        val initialSize = stack.size
+
+        val bodyStack = stack.copy()
+        val bodyContInfo =
             generateTacCodeBlock(
                 ctx,
                 codeBlock = bodyInfo.originalTvmCode,
-                stack = stack.copy(),
+                stack = bodyStack,
                 endingInstGenerator = noOpGenerator,
                 registerState = registerState.copy(),
-            ).instructions
+            )
 
-        return listOf(
-            TacOrdinaryInst<AbstractTacInst>(
+        bodyStack.pop(0)
+
+        check(bodyStack.size == initialSize) {
+            "UNTIL body stack effect mismatch: expected $initialSize, but got ${bodyStack.size}"
+        }
+
+        val updateInstructions = mutableListOf<Inst>()
+        val stackAfterBody = bodyStack.copyEntries()
+
+        stackAfterBody.takeLast(syncCount).forEachIndexed { index, newValue ->
+            val loopVar = stackAtLoopEntry[stackAtLoopEntry.size - syncCount + index]
+            if (loopVar is TacVar) {
+                val isSameVariable = newValue is TacVar && newValue.name == loopVar.name
+                if (!isSameVariable) {
+                    val assign = TacAssignInst(lhs = loopVar, rhs = newValue)
+                    updateInstructions.add(wrapInst(ctx, bodyStack, assign))
+                }
+            }
+        }
+
+        val finalBodyInstructions = bodyContInfo.instructions + updateInstructions
+
+        val (msg, ok) = areStacksCompatible(Stack(stackAtLoopEntry), bodyStack)
+        if (!ok) throw IllegalStateException("UNTIL loop incompatible: $msg")
+
+        val result = mutableListOf<TacInst>()
+        result.addAll(syncInstructions)
+        result.add(
+            TacLoopInst(
                 mnemonic = "UNTIL",
-                operands = inst.operands,
-                inputs = listOf(bodyVal),
-                outputs = emptyList(),
-                blocks = listOf(bodyInstructions),
+                inputs = listOf(condVar),
+                blocks = listOf(finalBodyInstructions),
             ),
         )
+        return result
     }
 }

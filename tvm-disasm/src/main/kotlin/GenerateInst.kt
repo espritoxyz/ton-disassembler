@@ -68,7 +68,7 @@ private fun tvmInstClassName(inst: InstructionDescription): String =
 
 private fun tvmInstOperandType(operand: InstructionOperandDescription): String =
     when (operand.type) {
-        "uint", "int" -> "Int"
+        "uint", "int", "integer", "uinteger" -> "Int"
         "pushint_long" -> "String"
         "ref", "subslice" -> "TvmCell"
         else -> error("Unexpected operand type: $operand")
@@ -146,7 +146,7 @@ private fun tvmInstDefault(
 
 private fun mapTvmType(typeStr: String): String =
     when (typeStr.lowercase()) {
-        "int", "uint" -> "TvmSpecType.INT"
+        "int", "uint", "integer", "uinteger" -> "TvmSpecType.INT"
         "cell" -> "TvmSpecType.CELL"
         "slice" -> "TvmSpecType.SLICE"
         "builder" -> "TvmSpecType.BUILDER"
