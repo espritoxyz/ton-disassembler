@@ -209,6 +209,20 @@ class TacTest {
     }
 
     @Test
+    fun testSimpleWhile() {
+        val path = getResourcePath<TacTest>("/samples/simple-while.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testSimpleWhileDebug() {
+        val path = getResourcePath<TacTest>("/samples/simple-while.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
     fun testTwoReturns() {
         val path = getResourcePath<TacTest>("/samples/two_returns.boc")
         val contract = disassembleBoc(path)
