@@ -1031,9 +1031,10 @@ private fun <Inst : AbstractTacInst> syncStackForLoop(
 ): List<TacInst> {
     val assignments = mutableListOf<TacInst>()
     val actualCount = if (count > stack.size) stack.size else count
+    val initialEntries = stack.copyEntries()
 
-    for (i in (actualCount - 1) downTo 0) {
-        val oldVal = stack.copyEntries().let { it[it.size - 1 - i] }
+    for (i in 0 until actualCount) {
+        val oldVal = initialEntries[initialEntries.size - 1 - i]
         val newVar =
             TacVar(
                 name = "loop_${ctx.nextVarId()}",
