@@ -5,7 +5,6 @@ import org.ton.bytecode.TvmContBasicRetaltInst
 import org.ton.bytecode.disassembleBoc
 import java.nio.file.Path
 import kotlin.io.path.Path
-import kotlin.test.Ignore
 import kotlin.test.Test
 import kotlin.test.assertEquals
 import kotlin.test.assertTrue
@@ -168,17 +167,57 @@ class TacTest {
     }
 
     @Test
-    @Ignore
-    fun testContractFromTact() {
-        val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
+    fun testUntil() {
+        val path = getResourcePath<TacTest>("/samples/until.boc")
         val contract = disassembleBoc(path)
         generateTacContractCode(contract)
     }
 
     @Test
-    @Ignore
-    fun testContractFromTactDebug() {
-        val path = getResourcePath<TacTest>("/samples/contract-from-tact.boc")
+    fun testUntilDebug() {
+        val path = getResourcePath<TacTest>("/samples/until.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testRepeat() {
+        val path = getResourcePath<TacTest>("/samples/repeat.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testRepeatDebug() {
+        val path = getResourcePath<TacTest>("/samples/repeat.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testWhile() {
+        val path = getResourcePath<TacTest>("/samples/while.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testWhileDebug() {
+        val path = getResourcePath<TacTest>("/samples/while.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testSimpleWhile() {
+        val path = getResourcePath<TacTest>("/samples/simple-while.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testSimpleWhileDebug() {
+        val path = getResourcePath<TacTest>("/samples/simple-while.boc")
         val contract = disassembleBoc(path)
         generateDebugTacContractCode(contract)
     }

@@ -153,6 +153,7 @@ private fun StringBuilder.dumpInstruction(
         is TacPopCtrInst -> dumpInstruction(inst, indent)
         is TacPushCtrInst -> dumpInstruction(inst, indent)
         is TacSetGlobalInst -> dumpInstruction(inst, indent)
+        is TacLoopInst<*> -> dumpInstruction(inst, includeTvmCell, indent)
     }
 }
 
@@ -206,6 +207,34 @@ private fun StringBuilder.dumpInstruction(
 }
 
 private fun StringBuilder.dumpInstruction(
+    inst: TacLoopInst<*>,
+    includeTvmCell: Boolean,
+    indent: String,
+) {
+    append(indent)
+    append(inst.mnemonic)
+    if (inst.inputs.isNotEmpty()) {
+        append("(")
+        val stackInputStr = inst.inputs.joinToString { it.name }
+        val params =
+            listOf(stackInputStr)
+                .filter {
+                    it.isNotEmpty()
+                }.joinToString()
+        append(params)
+        append(")")
+    }
+
+    inst.blocks.forEach {
+        appendLine(" {")
+        dumpTacCodeBlock(it, includeTvmCell, indent + " ".repeat(INDENT))
+        append(indent)
+        append("}")
+    }
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
     inst: TacOrdinaryInst<*>,
     includeTvmCell: Boolean,
     indent: String,
@@ -216,7 +245,6 @@ private fun StringBuilder.dumpInstruction(
         append(" = ")
     }
     append(inst.mnemonic)
-
     append("(")
     val operandsStr = dumpOperands(inst.operands, includeTvmCell)
     val stackInputStr = inst.inputs.joinToString { it.name }

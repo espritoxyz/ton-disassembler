@@ -8,60 +8,7 @@ import org.ton.tac.DictSetHandler
 import org.ton.tac.TacInstructionHandler
 
 fun TvmRealInst.dictInstHasIntegerKey(): Boolean =
-    when (this) {
-        is TvmDictGetDictugetInst, is TvmDictGetDictugetrefInst,
-        is TvmDictGetDictigetInst, is TvmDictGetDictigetrefInst,
-        is TvmDictMayberefDictugetoptrefInst, is TvmDictMayberefDictigetoptrefInst,
-
-        is TvmDictNextDictugetnextInst, is TvmDictNextDictugetnexteqInst,
-        is TvmDictNextDictugetprevInst, is TvmDictNextDictugetpreveqInst,
-        is TvmDictNextDictigetnextInst, is TvmDictNextDictigetnexteqInst,
-        is TvmDictNextDictigetprevInst, is TvmDictNextDictigetpreveqInst,
-
-        is TvmDictSpecialDictugetexecInst, is TvmDictSpecialDictugetexeczInst,
-        is TvmDictSpecialDictugetjmpInst, is TvmDictSpecialDictugetjmpzInst,
-        is TvmDictSpecialDictigetexecInst, is TvmDictSpecialDictigetexeczInst,
-        is TvmDictSpecialDictigetjmpInst, is TvmDictSpecialDictigetjmpzInst,
-        is TvmDictSubSubdictugetInst, is TvmDictSubSubdicturpgetInst,
-        TvmDictSubSubdictigetInst, is TvmDictSubSubdictirpgetInst,
-
-        is TvmDictSetDictusetInst, is TvmDictSetDictusetrefInst,
-        is TvmDictSetDictisetInst, is TvmDictSetDictisetrefInst,
-        is TvmDictSetDictusetgetInst, is TvmDictSetDictusetgetrefInst,
-        is TvmDictSetDictisetgetInst, is TvmDictSetDictisetgetrefInst,
-
-        is TvmDictMayberefDictusetgetoptrefInst, is TvmDictMayberefDictisetgetoptrefInst,
-        is TvmDictSetDictuaddInst, is TvmDictSetDictuaddrefInst,
-        is TvmDictSetDictuaddgetInst, is TvmDictSetDictuaddgetrefInst,
-        is TvmDictSetDictiaddInst, is TvmDictSetDictiaddrefInst,
-        is TvmDictSetDictiaddgetInst, is TvmDictSetDictiaddgetrefInst,
-        is TvmDictSetDictureplaceInst, is TvmDictSetDictureplacerefInst,
-        is TvmDictSetDictureplacegetInst, is TvmDictSetDictureplacegetrefInst,
-        is TvmDictSetDictireplaceInst, is TvmDictSetDictireplacerefInst,
-        is TvmDictSetDictireplacegetInst, is TvmDictSetDictireplacegetrefInst,
-
-        is TvmDictSetBuilderDictusetbInst, is TvmDictSetBuilderDictusetgetbInst,
-        is TvmDictSetBuilderDictisetbInst, is TvmDictSetBuilderDictisetgetbInst,
-        is TvmDictSetBuilderDictuaddbInst, is TvmDictSetBuilderDictuaddgetbInst,
-        is TvmDictSetBuilderDictiaddbInst, is TvmDictSetBuilderDictiaddgetbInst,
-        is TvmDictSetBuilderDictureplacebInst, is TvmDictSetBuilderDictureplacegetbInst,
-        is TvmDictSetBuilderDictireplacebInst, is TvmDictSetBuilderDictireplacegetbInst,
-
-        is TvmDictDeleteDictudelInst, is TvmDictDeleteDictudelgetInst, is TvmDictDeleteDictudelgetrefInst,
-        is TvmDictDeleteDictidelInst, is TvmDictDeleteDictidelgetInst, is TvmDictDeleteDictidelgetrefInst,
-
-        is TvmDictMinDictuminInst, is TvmDictMinDictuminrefInst,
-        is TvmDictMinDictiminInst, is TvmDictMinDictiminrefInst,
-        is TvmDictMinDictumaxInst, is TvmDictMinDictumaxrefInst,
-        is TvmDictMinDictimaxInst, is TvmDictMinDictimaxrefInst,
-        is TvmDictMinDicturemminInst, is TvmDictMinDicturemminrefInst,
-        is TvmDictMinDictiremminInst, is TvmDictMinDictiremminrefInst,
-        is TvmDictMinDicturemmaxInst, is TvmDictMinDicturemmaxrefInst,
-        is TvmDictMinDictiremmaxInst, is TvmDictMinDictiremmaxrefInst,
-        -> true
-
-        else -> false
-    }
+    this.stackInputs?.any { it is TvmSimpleStackEntryDescription && it.name == "n" } == true
 
 fun TvmRealInst.dictInstHasRef(): Boolean =
     when (this) {
