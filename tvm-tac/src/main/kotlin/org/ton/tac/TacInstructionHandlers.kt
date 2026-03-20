@@ -96,7 +96,6 @@ object TacHandlerRegistry {
             is TvmConstIntPushint8Inst,
             is TvmConstIntPushint16Inst,
             is TvmConstIntPushintLongInst,
-            is TvmStackComplexPushLongInst,
             -> PushIntHandler
 
             is TvmStackBasicInst,

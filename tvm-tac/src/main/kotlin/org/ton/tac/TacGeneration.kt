@@ -643,4 +643,4 @@ fun generateDebugTacContractCode(contract: TvmContractCode): TacContractCode<Tac
     generateTacContractCodeInternal(contract, debug = true)
 
 fun generateTacContractCode(contract: TvmContractCode): TacContractCode<TacInst> =
-    generateTacContractCodeInternal(contract, debug = false)
+    simplifyTacContractCode(generateTacContractCodeInternal(contract, debug = false))
