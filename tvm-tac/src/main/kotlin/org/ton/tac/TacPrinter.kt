@@ -240,9 +240,11 @@ private fun StringBuilder.dumpInstruction(
     indent: String,
 ) {
     append(indent)
-    if (inst.outputs.isNotEmpty()) {
-        append(inst.outputs.joinToString { it.name })
-        append(" = ")
+    if (inst.blocks.isEmpty()) {
+        if (inst.outputs.isNotEmpty()) {
+            append(inst.outputs.joinToString { it.name })
+            append(" = ")
+        }
     }
     append(inst.mnemonic)
     append("(")

@@ -121,7 +121,7 @@ internal fun <Inst : AbstractTacInst> processCallDict(
         TacOrdinaryInst<Inst>(
             mnemonic = inst.mnemonic,
             inputs = stackEntriesBefore.takeLast(argsSize).reversed(),
-            outputs = listOf(),
+            outputs = newAddedElems,
             operands = operands,
             blocks = emptyList(),
         )
