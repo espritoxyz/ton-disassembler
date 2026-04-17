@@ -1,0 +1,12 @@
+int try_example(int x) {
+    try {
+        throw_if(100, x > 5);
+        return x;
+    } catch (_, _) {
+        return -1;
+    }
+}
+
+() recv_internal(int msg_value, cell in_msg_cell, slice in_msg) impure {
+    try_example(msg_value);
+}

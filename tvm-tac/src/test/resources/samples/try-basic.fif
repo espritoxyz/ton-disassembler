@@ -1,0 +1,9 @@
+"Asm.fif" include
+
+// Empty try body, catch handler drops 2 exception values
+<{
+  <{ }>c PUSHREFCONT
+  <{ DROP DROP }>c PUSHREFCONT
+  TRY
+}>c
+2 boc+>B "tvm-tac/src/test/resources/samples/try-basic.boc" B>file

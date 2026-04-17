@@ -1,5 +1,6 @@
 package org.ton.tac
 
+import mu.KotlinLogging
 import org.ton.bytecode.TvmArrayStackEntryDescription
 import org.ton.bytecode.TvmConstStackEntryDescription
 import org.ton.bytecode.TvmContBasicJmpxInst
@@ -15,6 +16,8 @@ import org.ton.bytecode.TvmContLoopsRepeatInst
 import org.ton.bytecode.TvmContLoopsUntilInst
 import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContOperandInst
+import org.ton.bytecode.TvmExceptionsTryInst
+import org.ton.bytecode.TvmExceptionsTryargsInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
 import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
@@ -34,6 +37,8 @@ import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmStackEntryType
 import org.ton.bytecode.allowedConditionalPairsMap
+
+private val tacGenerationLogger = KotlinLogging.logger {}
 
 internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
     ctx: TacGenerationContext<Inst>,
@@ -67,7 +72,15 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
                 false
             }
 
-        val curInstructions = processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
+        val curInstructions = try {
+            processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
+        } catch (e: Exception) {
+            tacGenerationLogger.debug(e) { "Failed to process instruction ${inst.mnemonic}" }
+            val errorInst = wrapInst(ctx, stack, TacErrorInst("${inst.mnemonic}: ${e.message}"))
+            tacInstructions += errorInst
+            noExit = true
+            break
+        }
         tacInstructions += curInstructions
 
         // like THROW
@@ -273,6 +286,10 @@ private fun TvmInst.ignoreBranches(): Boolean =
         is TvmContLoopsWhileInst,
         is TvmContLoopsRepeatInst,
         is TvmContLoopsUntilInst,
+        -> true
+
+        is TvmExceptionsTryInst,
+        is TvmExceptionsTryargsInst,
         -> true
 
         else -> false
@@ -614,24 +631,32 @@ private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
 ): TacContractCode<Inst> {
     val ctx = TacGenerationContext<Inst>(contract, debug = debug)
 
-    val (mainInstructions, mainArgs) = generateTacCodeBlock(ctx, codeBlock = contract.mainMethod)
-    val main =
+    val main = runCatching {
+        val (mainInstructions, mainArgs) = generateTacCodeBlock(ctx, codeBlock = contract.mainMethod)
         TacMainMethod(
             instructions = mainInstructions,
             methodArgs = mainArgs,
         )
+    }.getOrElse { e ->
+        tacGenerationLogger.warn(e) { "Failed to generate TAC for main method" }
+        TacMainMethod(instructions = emptyList(), methodArgs = emptyList())
+    }
 
     val methods =
-        contract.methods.mapValues { (id, method) ->
-            val methodStack = Stack(emptyList())
-            val (insts, methodArgs) = generateTacCodeBlock(ctx, codeBlock = method, stack = methodStack)
-
-            TacMethod(
-                methodId = id,
-                instructions = insts,
-                methodArgs = methodArgs,
-            )
-        }
+        contract.methods.mapNotNull { (id, method) ->
+            runCatching {
+                val methodStack = Stack(emptyList())
+                val (insts, methodArgs) = generateTacCodeBlock(ctx, codeBlock = method, stack = methodStack)
+                id to TacMethod(
+                    methodId = id,
+                    instructions = insts,
+                    methodArgs = methodArgs,
+                )
+            }.getOrElse { e ->
+                tacGenerationLogger.warn(e) { "Failed to generate TAC for method $id" }
+                null
+            }
+        }.toMap()
 
     return TacContractCode(
         mainMethod = main,

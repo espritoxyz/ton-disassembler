@@ -154,6 +154,7 @@ private fun StringBuilder.dumpInstruction(
         is TacPushCtrInst -> dumpInstruction(inst, indent)
         is TacSetGlobalInst -> dumpInstruction(inst, indent)
         is TacLoopInst<*> -> dumpInstruction(inst, includeTvmCell, indent)
+        is TacErrorInst -> dumpInstruction(inst, indent)
     }
 }
 
@@ -264,6 +265,16 @@ private fun StringBuilder.dumpInstruction(
         append(indent)
         append("}")
     }
+    appendLine()
+}
+
+private fun StringBuilder.dumpInstruction(
+    inst: TacErrorInst,
+    indent: String,
+) {
+    append(indent)
+    append("ERROR: ")
+    append(inst.message)
     appendLine()
 }
 

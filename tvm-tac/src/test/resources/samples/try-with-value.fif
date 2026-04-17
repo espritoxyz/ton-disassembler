@@ -1,0 +1,10 @@
+"Asm.fif" include
+
+// TRY with a value on stack: body preserves it, catch drops exception vals + original and pushes 0
+<{
+  1 PUSHINT
+  <{ }>c PUSHREFCONT
+  <{ DROP DROP DROP 0 PUSHINT }>c PUSHREFCONT
+  TRY
+}>c
+2 boc+>B "tvm-tac/src/test/resources/samples/try-with-value.boc" B>file

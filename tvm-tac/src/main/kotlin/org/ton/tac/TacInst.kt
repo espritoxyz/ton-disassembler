@@ -58,6 +58,10 @@ data class TacLabel(
     val label: String,
 ) : TacInst
 
+data class TacErrorInst(
+    val message: String,
+) : TacInst
+
 sealed interface TacStackValue {
     val valueTypes: List<TvmSpecType>
     val name: String

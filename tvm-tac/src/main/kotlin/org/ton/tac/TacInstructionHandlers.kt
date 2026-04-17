@@ -18,8 +18,13 @@ import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContLoopsRepeatInst
 import org.ton.bytecode.TvmContLoopsUntilInst
 import org.ton.bytecode.TvmContLoopsWhileInst
+import org.ton.bytecode.TvmContStackSetcontvarargsInst
+import org.ton.bytecode.TvmExceptionsTryInst
+import org.ton.bytecode.TvmExceptionsTryargsInst
+import org.ton.bytecode.TvmContRegistersComposaltInst
 import org.ton.bytecode.TvmContRegistersPopctrInst
 import org.ton.bytecode.TvmContRegistersPushctrInst
+import org.ton.bytecode.TvmContRegistersSetcontctrInst
 import org.ton.bytecode.TvmDictInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
@@ -111,6 +116,9 @@ object TacHandlerRegistry {
 
             is TvmContRegistersPopctrInst -> PopCtrHandler
             is TvmContRegistersPushctrInst -> PushCtrHandler
+            is TvmContRegistersSetcontctrInst -> SetContCtrHandler
+            is TvmContRegistersComposaltInst -> ComposaltHandler
+            is TvmContStackSetcontvarargsInst -> SetContVarargsHandler
 
             is TvmConstDataInst -> {
                 if (inst is TvmConstDataPushcontInst ||
@@ -134,6 +142,10 @@ object TacHandlerRegistry {
             is TvmContLoopsWhileInst -> WhileHandler
             is TvmContLoopsRepeatInst -> RepeatHandler
             is TvmContLoopsUntilInst -> UntilHandler
+
+            is TvmExceptionsTryInst,
+            is TvmExceptionsTryargsInst,
+            -> TryHandler
 
             else -> DefaultSpecHandler
         }
@@ -1234,6 +1246,197 @@ object RepeatHandler : TacInstructionHandler {
                 mnemonic = "REPEAT",
                 inputs = listOf(countVal),
                 blocks = listOf(finalBodyInstructions),
+            ),
+        )
+        return result
+    }
+}
+
+/**
+ * SETCONTCTR: pops value x and continuation c, sets c[i] := x in c's savelist, pushes c back.
+ * For TAC we preserve the ContinuationValue identity since savelists are invisible.
+ */
+object SetContCtrHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val contVal = stack.pop(0)
+        val xVal = stack.pop(0)
+
+        // Push the continuation back, preserving its identity
+        stack.push(contVal)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = listOf(xVal, contVal),
+                outputs = listOf(contVal),
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+/**
+ * COMPOSALT: pops c and c', composes them so that c' is set as c's c1 (alt return).
+ * For TAC we preserve c's ContinuationValue identity.
+ */
+object ComposaltHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val cPrime = stack.pop(0)
+        val c = stack.pop(0)
+
+        // Push back c, preserving continuation identity
+        stack.push(c)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = listOf(c, cPrime),
+                outputs = listOf(c),
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+/**
+ * SETCONTVARARGS: pops n, r, c, and r args from the stack.
+ * Pushes back c with args partially applied. Preserves ContinuationValue identity.
+ */
+object SetContVarargsHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val nVal = stack.pop(0)
+        val rVal = stack.pop(0)
+        val contVal = stack.pop(0)
+
+        val rCount = when (rVal) {
+            is TacIntValue -> rVal.value.toInt()
+            is TacVar -> rVal.value ?: 0
+            else -> 0
+        }
+
+        val args = (0 until rCount).map { stack.pop(0) }
+
+        // Push the continuation back, preserving its identity
+        stack.push(contVal)
+
+        return listOf(
+            TacOrdinaryInst<AbstractTacInst>(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = args + listOf(contVal, rVal, nVal),
+                outputs = listOf(contVal),
+                blocks = emptyList(),
+            ),
+        )
+    }
+}
+
+object TryHandler : TacInstructionHandler {
+    override fun <Inst : AbstractTacInst> handle(
+        ctx: TacGenerationContext<Inst>,
+        stack: Stack,
+        inst: TvmRealInst,
+        registerState: RegisterState,
+    ): List<TacInst> {
+        val catchVal = stack.pop(0)
+        val bodyVal = stack.pop(0)
+
+        enforceType(catchVal, TvmSpecType.CONTINUATION)
+        enforceType(bodyVal, TvmSpecType.CONTINUATION)
+
+        val bodyInfo = resolveContinuation(ctx, bodyVal)
+        val catchInfo = resolveContinuation(ctx, catchVal)
+
+        val (argsCount, resultsCount) = when (inst) {
+            is TvmExceptionsTryargsInst -> inst.p to inst.r
+            else -> stack.size to stack.size // TRY: passes and returns entire stack
+        }
+
+        // Pop args that will be passed to the try body
+        val args = (0 until argsCount).map { stack.pop(0) }
+
+        val noOpGenerator = object : EndingInstGenerator<Inst> {
+            override fun generateEndingInst(
+                ctx: TacGenerationContext<Inst>,
+                stack: Stack,
+            ) = emptyList<Inst>()
+        }
+
+        // Generate try body block
+        val bodyStack = Stack(args)
+        val bodyRegisterState = registerState.copy()
+        val bodyContInfo = generateTacCodeBlock(
+            ctx,
+            codeBlock = bodyInfo.originalTvmCode,
+            stack = bodyStack,
+            endingInstGenerator = noOpGenerator,
+            registerState = bodyRegisterState,
+        )
+
+        // Generate catch handler block
+        // Catch handler receives the same args plus 2 exception values (exception number, exception parameter)
+        val exceptionNumber = TacVar(name = ctx.nextVarName(), valueTypes = listOf(TvmSpecType.INT))
+        val exceptionParameter = TacVar(name = ctx.nextVarName())
+        val catchStackEntries = args + listOf(exceptionNumber, exceptionParameter)
+        val catchStack = Stack(catchStackEntries)
+        val catchRegisterState = registerState.copy()
+        val catchContInfo = generateTacCodeBlock(
+            ctx,
+            codeBlock = catchInfo.originalTvmCode,
+            stack = catchStack,
+            endingInstGenerator = noOpGenerator,
+            registerState = catchRegisterState,
+        )
+
+        val bodyReturns = bodyContInfo.numberOfReturnedValues != null
+        val catchReturns = catchContInfo.numberOfReturnedValues != null
+
+        // Determine the actual result count.
+        // For TRYARGS, the result count is explicitly specified.
+        // For plain TRY, use whichever branch has a normal exit (prefer body).
+        val actualResultsCount = when {
+            inst is TvmExceptionsTryargsInst -> resultsCount
+            bodyReturns -> bodyStack.size
+            catchReturns -> catchStack.size
+            else -> 0
+        }
+
+        // Merge register states from whichever branch returns (prefer body — normal path)
+        if (bodyReturns) {
+            registerState.assignFrom(bodyRegisterState)
+        } else if (catchReturns) {
+            registerState.assignFrom(catchRegisterState)
+        }
+
+        // Push results back onto the stack
+        val outputVars = (0 until actualResultsCount).map { TacVar(ctx.nextVarName()) }
+        outputVars.forEach { stack.push(it) }
+
+        val result = mutableListOf<TacInst>()
+        result.add(
+            TacOrdinaryInst(
+                mnemonic = inst.mnemonic,
+                operands = inst.operands,
+                inputs = args,
+                outputs = outputVars,
+                blocks = listOf(bodyContInfo.instructions, catchContInfo.instructions),
             ),
         )
         return result

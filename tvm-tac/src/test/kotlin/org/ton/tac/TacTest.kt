@@ -62,18 +62,15 @@ class TacTest {
     fun testBadDict() {
         val path = getResourcePath<TacTest>("/samples/bad-dict.boc")
         val contract = disassembleBoc(path)
-        assertThrows<IllegalStateException> {
-            generateTacContractCode(contract)
-        }
+        // Bad dict contract has unsupported patterns — generation skips failing methods
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testBadDictDebug() {
         val path = getResourcePath<TacTest>("/samples/bad-dict.boc")
         val contract = disassembleBoc(path)
-        assertThrows<IllegalStateException> {
-            generateDebugTacContractCode(contract)
-        }
+        generateDebugTacContractCode(contract)
     }
 
     @Test
@@ -108,20 +105,15 @@ class TacTest {
     fun testTupleUncompatible() {
         val path = getResourcePath<TacTest>("/samples/incompatible.boc")
         val contract = disassembleBoc(path)
-
-        assertThrows<IllegalStateException> {
-            generateTacContractCode(contract)
-        }
+        // Incompatible stacks — generation skips failing methods
+        generateTacContractCode(contract)
     }
 
     @Test
     fun testTupleUncompatibleDebug() {
         val path = getResourcePath<TacTest>("/samples/incompatible.boc")
         val contract = disassembleBoc(path)
-
-        assertThrows<IllegalStateException> {
-            generateTacContractCode(contract)
-        }
+        generateDebugTacContractCode(contract)
     }
 
     @Test
@@ -259,6 +251,57 @@ class TacTest {
         }
 
         assertEquals(2, returnInsts)
+    }
+
+    @Test
+    fun testTryBasic() {
+        val path = getResourcePath<TacTest>("/samples/try-basic.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testTryBasicDebug() {
+        val path = getResourcePath<TacTest>("/samples/try-basic.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testTryWithValue() {
+        val path = getResourcePath<TacTest>("/samples/try-with-value.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testTryWithValueDebug() {
+        val path = getResourcePath<TacTest>("/samples/try-with-value.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testTryFunc() {
+        val path = getResourcePath<TacTest>("/samples/try-func.boc")
+        val contract = disassembleBoc(path)
+        generateTacContractCode(contract)
+    }
+
+    @Test
+    fun testTryFuncDebug() {
+        val path = getResourcePath<TacTest>("/samples/try-func.boc")
+        val contract = disassembleBoc(path)
+        generateDebugTacContractCode(contract)
+    }
+
+    @Test
+    fun testRealContractWithTry() {
+        val path = getResourcePath<TacTest>("/samples/EQCkeTvOSTBwBtP06X2BX7THj.boc")
+        val contract = disassembleBoc(path)
+        val tacCode = generateTacContractCode(contract)
+        // All 18 methods are present; unsupported instructions produce TacErrorInst placeholders
+        assertEquals(contract.methods.size, tacCode.methods.size)
     }
 
     private inline fun <reified T> getResourcePath(path: String): Path =

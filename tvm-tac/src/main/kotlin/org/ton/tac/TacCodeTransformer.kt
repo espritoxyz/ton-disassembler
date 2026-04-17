@@ -44,6 +44,7 @@ interface TacCodeTransformer {
             is TacRetaltInst -> transformRetaltInst(inst)
             is TacGotoInst -> transformGotoInst(inst)
             is TacLabel -> transformLabel(inst)
+            is TacErrorInst -> listOf(inst)
         }
 
     fun transformOrdinaryInst(inst: TacOrdinaryInst<*>): List<TacInst> {
