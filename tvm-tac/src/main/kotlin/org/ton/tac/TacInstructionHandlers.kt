@@ -18,14 +18,14 @@ import org.ton.bytecode.TvmContDictCalldictLongInst
 import org.ton.bytecode.TvmContLoopsRepeatInst
 import org.ton.bytecode.TvmContLoopsUntilInst
 import org.ton.bytecode.TvmContLoopsWhileInst
-import org.ton.bytecode.TvmContStackSetcontvarargsInst
-import org.ton.bytecode.TvmExceptionsTryInst
-import org.ton.bytecode.TvmExceptionsTryargsInst
 import org.ton.bytecode.TvmContRegistersComposaltInst
 import org.ton.bytecode.TvmContRegistersPopctrInst
 import org.ton.bytecode.TvmContRegistersPushctrInst
 import org.ton.bytecode.TvmContRegistersSetcontctrInst
+import org.ton.bytecode.TvmContStackSetcontvarargsInst
 import org.ton.bytecode.TvmDictInst
+import org.ton.bytecode.TvmExceptionsTryInst
+import org.ton.bytecode.TvmExceptionsTryargsInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
 import org.ton.bytecode.TvmSpecType
@@ -1325,11 +1325,12 @@ object SetContVarargsHandler : TacInstructionHandler {
         val rVal = stack.pop(0)
         val contVal = stack.pop(0)
 
-        val rCount = when (rVal) {
-            is TacIntValue -> rVal.value.toInt()
-            is TacVar -> rVal.value ?: 0
-            else -> 0
-        }
+        val rCount =
+            when (rVal) {
+                is TacIntValue -> rVal.value.toInt()
+                is TacVar -> rVal.value ?: 0
+                else -> 0
+            }
 
         val args = (0 until rCount).map { stack.pop(0) }
 
@@ -1364,31 +1365,34 @@ object TryHandler : TacInstructionHandler {
         val bodyInfo = resolveContinuation(ctx, bodyVal)
         val catchInfo = resolveContinuation(ctx, catchVal)
 
-        val (argsCount, resultsCount) = when (inst) {
-            is TvmExceptionsTryargsInst -> inst.p to inst.r
-            else -> stack.size to stack.size // TRY: passes and returns entire stack
-        }
+        val (argsCount, resultsCount) =
+            when (inst) {
+                is TvmExceptionsTryargsInst -> inst.p to inst.r
+                else -> stack.size to stack.size // TRY: passes and returns entire stack
+            }
 
         // Pop args that will be passed to the try body
         val args = (0 until argsCount).map { stack.pop(0) }
 
-        val noOpGenerator = object : EndingInstGenerator<Inst> {
-            override fun generateEndingInst(
-                ctx: TacGenerationContext<Inst>,
-                stack: Stack,
-            ) = emptyList<Inst>()
-        }
+        val noOpGenerator =
+            object : EndingInstGenerator<Inst> {
+                override fun generateEndingInst(
+                    ctx: TacGenerationContext<Inst>,
+                    stack: Stack,
+                ) = emptyList<Inst>()
+            }
 
         // Generate try body block
         val bodyStack = Stack(args)
         val bodyRegisterState = registerState.copy()
-        val bodyContInfo = generateTacCodeBlock(
-            ctx,
-            codeBlock = bodyInfo.originalTvmCode,
-            stack = bodyStack,
-            endingInstGenerator = noOpGenerator,
-            registerState = bodyRegisterState,
-        )
+        val bodyContInfo =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = bodyInfo.originalTvmCode,
+                stack = bodyStack,
+                endingInstGenerator = noOpGenerator,
+                registerState = bodyRegisterState,
+            )
 
         // Generate catch handler block
         // Catch handler receives the same args plus 2 exception values (exception number, exception parameter)
@@ -1397,13 +1401,14 @@ object TryHandler : TacInstructionHandler {
         val catchStackEntries = args + listOf(exceptionNumber, exceptionParameter)
         val catchStack = Stack(catchStackEntries)
         val catchRegisterState = registerState.copy()
-        val catchContInfo = generateTacCodeBlock(
-            ctx,
-            codeBlock = catchInfo.originalTvmCode,
-            stack = catchStack,
-            endingInstGenerator = noOpGenerator,
-            registerState = catchRegisterState,
-        )
+        val catchContInfo =
+            generateTacCodeBlock(
+                ctx,
+                codeBlock = catchInfo.originalTvmCode,
+                stack = catchStack,
+                endingInstGenerator = noOpGenerator,
+                registerState = catchRegisterState,
+            )
 
         val bodyReturns = bodyContInfo.numberOfReturnedValues != null
         val catchReturns = catchContInfo.numberOfReturnedValues != null
@@ -1411,12 +1416,13 @@ object TryHandler : TacInstructionHandler {
         // Determine the actual result count.
         // For TRYARGS, the result count is explicitly specified.
         // For plain TRY, use whichever branch has a normal exit (prefer body).
-        val actualResultsCount = when {
-            inst is TvmExceptionsTryargsInst -> resultsCount
-            bodyReturns -> bodyStack.size
-            catchReturns -> catchStack.size
-            else -> 0
-        }
+        val actualResultsCount =
+            when {
+                inst is TvmExceptionsTryargsInst -> resultsCount
+                bodyReturns -> bodyStack.size
+                catchReturns -> catchStack.size
+                else -> 0
+            }
 
         // Merge register states from whichever branch returns (prefer body — normal path)
         if (bodyReturns) {

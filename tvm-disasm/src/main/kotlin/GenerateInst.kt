@@ -129,7 +129,7 @@ private fun tvmInstDefault(
             when (type) {
                 "Int" -> "0"
                 "String" -> "\"0\""
-                "TvmCell" -> "TvmCell(TvmCellData(\"\"), emptyList())"
+                "TvmCell" -> "\"\""
                 "TvmInstList" -> "TvmInstList.empty"
                 else -> error("Unexpected operand type: $type")
             }
@@ -290,26 +290,38 @@ private fun tvmInstDeclaration(
     val types = tvmInstArgumentTypes(inst, instructionOperandTypes)
 
     var contArgsCount = 0
+    val cellComputedProperties = mutableListOf<String>()
     for ((arg, type) in inst.bytecode.operands zip types) {
         if (type == null) {
             continue
         }
 
-        val modifier =
-            if (type == "TvmInstList") {
-                contArgsCount++
-                "override "
-            } else {
-                ""
-            }
-
-        arguments += "|    ${modifier}val ${arg.name}: $type, // ${arg.type}"
+        if (type == "TvmCell") {
+            arguments += "|    @SerialName(\"${arg.name}\") val ${arg.name}Boc: String, // ${arg.type}"
+            cellComputedProperties += "|    val ${arg.name}: TvmCell get() = bocHexToTvmCell(${arg.name}Boc)"
+        } else {
+            val modifier =
+                if (type == "TvmInstList") {
+                    contArgsCount++
+                    "override "
+                } else {
+                    ""
+                }
+            arguments += "|    ${modifier}val ${arg.name}: $type, // ${arg.type}"
+        }
     }
 
     val additionalInterfaces =
         ", TvmContOperand${contArgsCount}Inst".takeIf {
             contArgsCount > 0
         } ?: ""
+
+    val cellPropsStr =
+        if (cellComputedProperties.isEmpty()) {
+            ""
+        } else {
+            "\n" + cellComputedProperties.joinToString("\n")
+        }
 
     val operandsMapEntries =
         inst.bytecode.operands.joinToString(", ") { arg ->
@@ -334,7 +346,7 @@ private fun tvmInstDeclaration(
     |@SerialName($className.MNEMONIC)
     |data class $className(
     ${arguments.joinToString("\n")}
-    |): TvmRealInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {
+    |): TvmRealInst, ${tvmInstCategoryClassName(inst.doc.category)}$additionalInterfaces {$cellPropsStr
     |    override val mnemonic: String get() = MNEMONIC
     |    override val gasConsumption get() = $tvmGasUsage
     |    

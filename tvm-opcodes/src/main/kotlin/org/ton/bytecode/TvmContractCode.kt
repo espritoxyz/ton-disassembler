@@ -15,6 +15,7 @@ import kotlinx.serialization.modules.polymorphic
 import kotlinx.serialization.modules.subclass
 import org.ton.bigint.BigIntSerializer
 import org.ton.bitstring.BitString
+import org.ton.boc.BagOfCells
 import org.ton.cell.Cell
 import org.ton.disasm.bytecode.InstructionStackArrayValue
 import org.ton.disasm.bytecode.InstructionStackConditionalValue
@@ -72,10 +73,12 @@ data class TvmContractCode(
 @Serializable
 data class TvmInstList(
     val list: List<TvmInst>,
-    val raw: TvmCell, // cell that represents this continuation
+    @SerialName("raw") val rawBoc: String, // BoC hex string representing this continuation
 ) {
+    val raw: TvmCell get() = bocHexToTvmCell(rawBoc)
+
     companion object {
-        val empty = TvmInstList(emptyList(), TvmCell(TvmCellData(""), emptyList()))
+        val empty = TvmInstList(emptyList(), "")
     }
 }
 
@@ -112,4 +115,17 @@ fun TvmCell.toCell(): Cell {
     val children = refs.map { it.toCell() }
     val data = BitString(data.bits.map { it == '1' })
     return Cell(data, *children.toTypedArray())
+}
+
+fun Cell.toTvmCell(): TvmCell {
+    val data = TvmCellData(bits.toBinary())
+    val children = refs.map { it.toTvmCell() }
+    return TvmCell(data, children)
+}
+
+@OptIn(ExperimentalStdlibApi::class)
+fun bocHexToTvmCell(bocHex: String): TvmCell {
+    if (bocHex.isEmpty()) return TvmCell(TvmCellData(""), emptyList())
+    val cell = BagOfCells(bocHex.hexToByteArray()).roots.single()
+    return cell.toTvmCell()
 }

@@ -1,6 +1,5 @@
 package org.ton.tac
 
-import org.junit.jupiter.api.assertThrows
 import org.ton.bytecode.TvmContBasicRetaltInst
 import org.ton.bytecode.disassembleBoc
 import java.nio.file.Path

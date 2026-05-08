@@ -18362,9 +18362,11 @@ data class TvmCellBuildStonesInst(
 data class TvmCellBuildStref2constInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val c1: TvmCell, // ref
-    val c2: TvmCell, // ref
+    @SerialName("c1") val c1Boc: String, // ref
+    @SerialName("c2") val c2Boc: String, // ref
 ): TvmRealInst, TvmCellBuildInst {
+    val c1: TvmCell get() = bocHexToTvmCell(c1Boc)
+    val c2: TvmCell get() = bocHexToTvmCell(c2Boc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     
@@ -18489,8 +18491,9 @@ data class TvmCellBuildStrefInst(
 data class TvmCellBuildStrefconstInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val c: TvmCell, // ref
+    @SerialName("c") val cBoc: String, // ref
 ): TvmRealInst, TvmCellBuildInst {
+    val c: TvmCell get() = bocHexToTvmCell(cBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     
@@ -18801,8 +18804,9 @@ data class TvmCellBuildStsliceInst(
 data class TvmCellBuildStsliceconstInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val s: TvmCell, // subslice
+    @SerialName("s") val sBoc: String, // subslice
 ): TvmRealInst, TvmCellBuildInst {
+    val s: TvmCell get() = bocHexToTvmCell(sBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 24)
     
@@ -22521,8 +22525,9 @@ data class TvmCellParseScutlastInst(
 data class TvmCellParseSdbeginsInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val s: TvmCell, // subslice
+    @SerialName("s") val sBoc: String, // subslice
 ): TvmRealInst, TvmCellParseInst {
+    val s: TvmCell get() = bocHexToTvmCell(sBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
     
@@ -22561,8 +22566,9 @@ data class TvmCellParseSdbeginsInst(
 data class TvmCellParseSdbeginsqInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val s: TvmCell, // subslice
+    @SerialName("s") val sBoc: String, // subslice
 ): TvmRealInst, TvmCellParseInst {
+    val s: TvmCell get() = bocHexToTvmCell(sBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 31)
     
@@ -24871,8 +24877,9 @@ data class TvmConstDataPushcontShortInst(
 data class TvmConstDataPushrefInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val c: TvmCell, // ref
+    @SerialName("c") val cBoc: String, // ref
 ): TvmRealInst, TvmConstDataInst {
+    val c: TvmCell get() = bocHexToTvmCell(cBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 18)
     
@@ -24941,8 +24948,9 @@ data class TvmConstDataPushrefcontInst(
 data class TvmConstDataPushrefsliceInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val c: TvmCell, // ref
+    @SerialName("c") val cBoc: String, // ref
 ): TvmRealInst, TvmConstDataInst {
+    val c: TvmCell get() = bocHexToTvmCell(cBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "118/43")
     
@@ -24981,8 +24989,9 @@ data class TvmConstDataPushrefsliceInst(
 data class TvmConstDataPushsliceInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val s: TvmCell, // subslice
+    @SerialName("s") val sBoc: String, // subslice
 ): TvmRealInst, TvmConstDataInst {
+    val s: TvmCell get() = bocHexToTvmCell(sBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 22)
     
@@ -25019,8 +25028,9 @@ data class TvmConstDataPushsliceInst(
 data class TvmConstDataPushsliceLongInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val slice: TvmCell, // subslice
+    @SerialName("slice") val sliceBoc: String, // subslice
 ): TvmRealInst, TvmConstDataInst {
+    val slice: TvmCell get() = bocHexToTvmCell(sliceBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 28)
     
@@ -25057,8 +25067,9 @@ data class TvmConstDataPushsliceLongInst(
 data class TvmConstDataPushsliceRefsInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val slice: TvmCell, // subslice
+    @SerialName("slice") val sliceBoc: String, // subslice
 ): TvmRealInst, TvmConstDataInst {
+    val slice: TvmCell get() = bocHexToTvmCell(sliceBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 25)
     
@@ -26629,8 +26640,9 @@ data class TvmContConditionalIfbitjmprefInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-    val c: TvmCell, // ref
+    @SerialName("c") val cBoc: String, // ref
 ): TvmRealInst, TvmContConditionalInst {
+    val c: TvmCell get() = bocHexToTvmCell(cBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
     
@@ -26947,8 +26959,9 @@ data class TvmContConditionalIfnbitjmprefInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
     val n: Int, // uint
-    val c: TvmCell, // ref
+    @SerialName("c") val cBoc: String, // ref
 ): TvmRealInst, TvmContConditionalInst {
+    val c: TvmCell get() = bocHexToTvmCell(cBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmComplexGas(this, description = "126/51")
     
@@ -29753,8 +29766,9 @@ data class TvmDebugDebugInst(
 data class TvmDebugDebugstrInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val s: TvmCell, // subslice
+    @SerialName("s") val sBoc: String, // subslice
 ): TvmRealInst, TvmDebugInst {
+    val s: TvmCell get() = bocHexToTvmCell(sBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 26)
     
@@ -32640,9 +32654,10 @@ data class TvmDictPrefixPfxdictaddInst(
 data class TvmDictPrefixPfxdictconstgetjmpInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val d: TvmCell, // ref
+    @SerialName("d") val dBoc: String, // ref
     val n: Int, // uint
 ): TvmRealInst, TvmDictPrefixInst {
+    val d: TvmCell get() = bocHexToTvmCell(dBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
     
@@ -36501,9 +36516,10 @@ data class TvmDictSpecialDictigetjmpzInst(
 data class TvmDictSpecialDictpushconstInst(
     override val location: TvmInstLocation,
     override val physicalLocation: TvmPhysicalInstLocation,
-    val d: TvmCell, // ref
+    @SerialName("d") val dBoc: String, // ref
     val n: Int, // uint
 ): TvmRealInst, TvmDictSpecialInst {
+    val d: TvmCell get() = bocHexToTvmCell(dBoc)
     override val mnemonic: String get() = MNEMONIC
     override val gasConsumption get() = TvmFixedGas(value = 34)
     

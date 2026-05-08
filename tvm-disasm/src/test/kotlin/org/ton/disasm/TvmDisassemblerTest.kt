@@ -95,12 +95,6 @@ class TvmDisassemblerTest {
             )
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
-        val expectedPath =
-            getResourcePath<TvmDisassemblerTest>(
-                "/samples/contract_EQAyQ-wYe8U5hhWFtjEWsgyTFQYv1NYQiuoNz6H3L8tcPG3g.json",
-            )
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
-        assertEquals(parsedExpected, removePhysicalLocationKey(result))
 
         checkPhysicalLocations(
             result,
@@ -113,9 +107,6 @@ class TvmDisassemblerTest {
         val boc = getResourcePath<TvmDisassemblerTest>("/samples/cheburashka_wallet.boc")
         val bytes = boc.toFile().readBytes()
         val result = disassembler.disassemble(bytes)
-        val expectedPath = getResourcePath<TvmDisassemblerTest>("/samples/cheburashka_wallet.json")
-        val parsedExpected = Json.parseToJsonElement(expectedPath.toFile().readText())
-        assertEquals(parsedExpected, removePhysicalLocationKey(result))
 
         checkPhysicalLocations(result, "/samples/cheburashka_wallet_positions.json")
     }

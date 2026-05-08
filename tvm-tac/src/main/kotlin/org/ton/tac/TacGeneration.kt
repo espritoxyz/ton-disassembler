@@ -16,8 +16,6 @@ import org.ton.bytecode.TvmContLoopsRepeatInst
 import org.ton.bytecode.TvmContLoopsUntilInst
 import org.ton.bytecode.TvmContLoopsWhileInst
 import org.ton.bytecode.TvmContOperandInst
-import org.ton.bytecode.TvmExceptionsTryInst
-import org.ton.bytecode.TvmExceptionsTryargsInst
 import org.ton.bytecode.TvmContractCode
 import org.ton.bytecode.TvmControlFlowContinuation
 import org.ton.bytecode.TvmDictPrefixPfxdictconstgetjmpInst
@@ -32,6 +30,8 @@ import org.ton.bytecode.TvmDictSpecialDictugetexeczInst
 import org.ton.bytecode.TvmDictSpecialDictugetjmpInst
 import org.ton.bytecode.TvmDictSpecialDictugetjmpzInst
 import org.ton.bytecode.TvmDisasmCodeBlock
+import org.ton.bytecode.TvmExceptionsTryInst
+import org.ton.bytecode.TvmExceptionsTryargsInst
 import org.ton.bytecode.TvmInst
 import org.ton.bytecode.TvmRealInst
 import org.ton.bytecode.TvmSimpleStackEntryDescription
@@ -72,15 +72,16 @@ internal fun <Inst : AbstractTacInst> generateTacCodeBlock(
                 false
             }
 
-        val curInstructions = try {
-            processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
-        } catch (e: Exception) {
-            tacGenerationLogger.debug(e) { "Failed to process instruction ${inst.mnemonic}" }
-            val errorInst = wrapInst(ctx, stack, TacErrorInst("${inst.mnemonic}: ${e.message}"))
-            tacInstructions += errorInst
-            noExit = true
-            break
-        }
+        val curInstructions =
+            try {
+                processInstruction(ctx, stack, inst, endingInstGenerator, registerState)
+            } catch (e: Exception) {
+                tacGenerationLogger.debug(e) { "Failed to process instruction ${inst.mnemonic}" }
+                val errorInst = wrapInst(ctx, stack, TacErrorInst("${inst.mnemonic}: ${e.message}"))
+                tacInstructions += errorInst
+                noExit = true
+                break
+            }
         tacInstructions += curInstructions
 
         // like THROW
@@ -631,32 +632,35 @@ private fun <Inst : AbstractTacInst> generateTacContractCodeInternal(
 ): TacContractCode<Inst> {
     val ctx = TacGenerationContext<Inst>(contract, debug = debug)
 
-    val main = runCatching {
-        val (mainInstructions, mainArgs) = generateTacCodeBlock(ctx, codeBlock = contract.mainMethod)
-        TacMainMethod(
-            instructions = mainInstructions,
-            methodArgs = mainArgs,
-        )
-    }.getOrElse { e ->
-        tacGenerationLogger.warn(e) { "Failed to generate TAC for main method" }
-        TacMainMethod(instructions = emptyList(), methodArgs = emptyList())
-    }
+    val main =
+        runCatching {
+            val (mainInstructions, mainArgs) = generateTacCodeBlock(ctx, codeBlock = contract.mainMethod)
+            TacMainMethod(
+                instructions = mainInstructions,
+                methodArgs = mainArgs,
+            )
+        }.getOrElse { e ->
+            tacGenerationLogger.warn(e) { "Failed to generate TAC for main method" }
+            TacMainMethod(instructions = emptyList(), methodArgs = emptyList())
+        }
 
     val methods =
-        contract.methods.mapNotNull { (id, method) ->
-            runCatching {
-                val methodStack = Stack(emptyList())
-                val (insts, methodArgs) = generateTacCodeBlock(ctx, codeBlock = method, stack = methodStack)
-                id to TacMethod(
-                    methodId = id,
-                    instructions = insts,
-                    methodArgs = methodArgs,
-                )
-            }.getOrElse { e ->
-                tacGenerationLogger.warn(e) { "Failed to generate TAC for method $id" }
-                null
-            }
-        }.toMap()
+        contract.methods
+            .mapNotNull { (id, method) ->
+                runCatching {
+                    val methodStack = Stack(emptyList())
+                    val (insts, methodArgs) = generateTacCodeBlock(ctx, codeBlock = method, stack = methodStack)
+                    id to
+                        TacMethod(
+                            methodId = id,
+                            instructions = insts,
+                            methodArgs = methodArgs,
+                        )
+                }.getOrElse { e ->
+                    tacGenerationLogger.warn(e) { "Failed to generate TAC for method $id" }
+                    null
+                }
+            }.toMap()
 
     return TacContractCode(
         mainMethod = main,

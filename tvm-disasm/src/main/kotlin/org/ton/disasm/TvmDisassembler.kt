@@ -1,11 +1,9 @@
 package org.ton.disasm
 
-import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.JsonArray
 import kotlinx.serialization.json.JsonElement
 import kotlinx.serialization.json.JsonObject
 import kotlinx.serialization.json.JsonPrimitive
-import kotlinx.serialization.json.encodeToJsonElement
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonPrimitive
 import org.ton.bitstring.BitString
@@ -452,11 +450,11 @@ data object TvmDisassembler {
         )
     }
 
-    private fun serializeSlice(slice: CellSlice): JsonElement =
-        Json.encodeToJsonElement(
-            mapOf(
-                "_bits" to slice.bits.drop(slice.bitsPosition).map { JsonPrimitive(if (it) 1 else 0) },
-                "_refs" to slice.refs.drop(slice.refsPosition).map { serializeSlice(it.beginParse()) },
-            ),
-        )
+    private fun serializeSlice(slice: CellSlice): JsonElement {
+        val bits = slice.bits.slice(slice.bitsPosition, slice.bits.size)
+        val refs = slice.refs.drop(slice.refsPosition).toTypedArray()
+        val cell = Cell(bits, *refs)
+        val hex = BagOfCells(cell).toByteArray().joinToString("") { "%02x".format(it) }
+        return JsonPrimitive(hex)
+    }
 }

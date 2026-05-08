@@ -436,12 +436,12 @@ val tvmDefaultInstructions = mapOf(
         TvmConstDataPushrefInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmConstDataPushrefsliceInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmConstDataPushrefcontInst(
             TvmMainMethodLocation(0),
@@ -451,17 +451,17 @@ val tvmDefaultInstructions = mapOf(
         TvmConstDataPushsliceInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmConstDataPushsliceRefsInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmConstDataPushsliceLongInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmConstDataPushcontInst(
             TvmMainMethodLocation(0),
@@ -1805,13 +1805,13 @@ val tvmDefaultInstructions = mapOf(
         TvmCellBuildStrefconstInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmCellBuildStref2constInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
+            "",
         ),
         TvmCellBuildEndxcInst(
             TvmMainMethodLocation(0),
@@ -1914,7 +1914,7 @@ val tvmDefaultInstructions = mapOf(
         TvmCellBuildStsliceconstInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
     ),
     "cell_parse" to listOf(
@@ -2093,12 +2093,12 @@ val tvmDefaultInstructions = mapOf(
         TvmCellParseSdbeginsInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmCellParseSdbeginsqInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmCellParseScutfirstInst(
             TvmMainMethodLocation(0),
@@ -2492,13 +2492,13 @@ val tvmDefaultInstructions = mapOf(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
             0,
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
         TvmContConditionalIfnbitjmprefInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
             0,
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
     ),
     "cont_loops" to listOf(
@@ -3207,7 +3207,7 @@ val tvmDefaultInstructions = mapOf(
         TvmDictPrefixPfxdictconstgetjmpInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
             0,
         ),
     ),
@@ -3379,7 +3379,7 @@ val tvmDefaultInstructions = mapOf(
         TvmDictSpecialDictpushconstInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
             0,
         ),
         TvmDictSpecialDictigetjmpzInst(
@@ -3982,7 +3982,7 @@ val tvmDefaultInstructions = mapOf(
         TvmDebugDebugstrInst(
             TvmMainMethodLocation(0),
             TvmPhysicalInstLocation("", 0),
-            TvmCell(TvmCellData(""), emptyList()),
+            "",
         ),
     ),
     "codepage" to listOf(
