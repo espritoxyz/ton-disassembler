@@ -28,6 +28,8 @@ import org.ton.disasm.utils.binaryStringToSignedBigInteger
 import org.ton.hashmap.HashMapE
 
 data object TvmDisassembler {
+    class LibraryCellException : RuntimeException()
+
     private const val SPEC_PATH_STRING: String = "/cp0.json"
     private val trie: TrieMap by lazy {
         val specStream =
@@ -57,8 +59,8 @@ data object TvmDisassembler {
     }
 
     fun disassemble(codeAsCell: Cell): JsonObject {
-        require(codeAsCell.type != CellType.LIBRARY_REFERENCE) {
-            "Library cells are not supported"
+        if (codeAsCell.type == CellType.LIBRARY_REFERENCE) {
+            throw LibraryCellException()
         }
 
         val (methods, mainMethod) = disassembleInner(codeAsCell)

@@ -125,7 +125,7 @@ class TvmDisassemblerTest {
         val boc = getResourcePath<TvmDisassemblerTest>("/samples/library_cell.boc")
         val bytes = boc.toFile().readBytes()
 
-        assertThrows<IllegalArgumentException> {
+        assertThrows<TvmDisassembler.LibraryCellException> {
             disassembler.disassemble(bytes)
         }
     }
