@@ -20,11 +20,12 @@ fun formatInstruction(
         extractPrimitiveOperands(inst)
             .entries
             .joinToString {
-                "${it.key}=" + formatOperand(
-                    it.value,
-                    includeTvmCell = includeTvmCell,
-                    includeInstList = includeTvmInstList,
-                )
+                "${it.key}=" +
+                    formatOperand(
+                        it.value,
+                        includeTvmCell = includeTvmCell,
+                        includeInstList = includeTvmInstList,
+                    )
             }
     return "$indent$type ${operandsString.ifEmpty { "" }}"
 }
