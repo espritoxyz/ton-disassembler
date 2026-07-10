@@ -13,18 +13,18 @@ fun formatInstruction(
     inst: TvmInst,
     indent: String = "",
     includeTvmCell: Boolean,
+    includeTvmInstList: Boolean = false,
 ): String {
     val type = inst.mnemonic
     val operandsString =
         extractPrimitiveOperands(inst)
             .entries
             .joinToString {
-                "${it.key}=" +
-                    if (includeTvmCell) {
-                        formatOperand(it.value)
-                    } else {
-                        if (it.value !is TvmCell) "${it.value}" else "[Cell]"
-                    }
+                "${it.key}=" + formatOperand(
+                    it.value,
+                    includeTvmCell = includeTvmCell,
+                    includeInstList = includeTvmInstList,
+                )
             }
     return "$indent$type ${operandsString.ifEmpty { "" }}"
 }
@@ -33,15 +33,30 @@ fun formatInstruction(
 fun formatOperand(
     value: Any?,
     indent: String = "",
+    includeTvmCell: Boolean = false,
+    includeInstList: Boolean = false,
 ): String =
     when (value) {
         is TvmCell -> {
-            val bocBytes = BagOfCells(value.toCell()).toByteArray()
-            val cellHexString = bocBytes.toHexString()
-            val address = extractTvmAddress(value)
-            val cellOrAddress = address ?: cellHexString
-            "${indent}Cell($cellOrAddress)"
+            if (includeTvmCell) {
+                val bocBytes = BagOfCells(value.toCell()).toByteArray()
+                val cellHexString = bocBytes.toHexString()
+                val address = extractTvmAddress(value)
+                val cellOrAddress = address ?: cellHexString
+                "${indent}Cell($cellOrAddress)"
+            } else {
+                "[Cell]"
+            }
         }
+
+        is TvmInstList -> {
+            if (includeInstList) {
+                "$value"
+            } else {
+                "[InstList]"
+            }
+        }
+
         else -> value.toString()
     }
 
